@@ -1,0 +1,1 @@
+export { HomeFounder } from "./HomeSections";

@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ── */
+:root {
+  --color-bg-page: #0d0814;
+  --color-bg-surface: #160d24;
+  --color-bg-mid: #2a1040;
+  --color-brand: #3f234a;
+  --color-vivid: #5a3069;
+  --color-light: #b088cc;
+  --color-accent: #cf8bd8;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-red: #d63b3b;
+  --color-gold: #c9a84c;
+  --color-green: #2d9e6b;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-bg-page);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── Em = underline throughout ── */
+h1 em,
+h2 em,
+h3 em,
+h4 em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  color: inherit;
+}
+
+/* ── Custom cursor ── */
+* {
+  cursor: none !important;
+}
+#car-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  width: 52px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+}
+#car-cursor.clicking {
+  transform: translate(-50%, -50%) scale(0.82);
+}
+#click-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  display: none;
+}
+#click-burst span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: cburst 0.4s ease-out forwards;
+}
+@keyframes cburst {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy));
+    opacity: 0;
+  }
+}
+
+/* ── Road scene ── */
+@keyframes road-stripes {
+  0% {
+    left: 110%;
+  }
+  100% {
+    left: -10%;
+  }
+}
+.road-stripe {
+  animation: road-stripes 2.8s linear infinite;
+}
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.star {
+  animation: star-twinkle 2.5s ease-in-out infinite;
+}
+@keyframes car-drive {
+  0% {
+    left: -340px;
+  }
+  100% {
+    left: 110%;
+  }
+}
+.car-drive {
+  animation: car-drive 13s linear infinite;
+}
+
+/* ── Fade up ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Gauge fill (animated by JS) ── */
+.gauge-fill {
+  width: 0;
+  transition: width 1.6s ease;
+}
+
+/* ── Hotspot pin pulse ── */
+@keyframes pin-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
+  }
+}
+@keyframes pin-pulse-danger {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(214, 59, 59, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(214, 59, 59, 0);
+  }
+}
+.hotspot {
+  animation: pin-pulse 2s ease-in-out infinite;
+}
+.hotspot.danger {
+  animation: pin-pulse-danger 2s ease-in-out infinite;
+}
+.hotspot.active,
+.hotspot:hover {
+  animation: none;
+}
+
+/* ── Engine pin pulse ── */
+@keyframes epulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ── Point left arrow ── */
+@keyframes point-left {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
+.point-left {
+  animation: point-left 1.5s ease-in-out infinite;
+}
+
+/* ── Slide up card ── */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.slide-up {
+  animation: slide-up 0.3s ease;
+}
+
+/* ── Odometer counter number ── */
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Scrollbar hide ── */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Illus fade masks ── */
+.fade-left {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.fade-right {
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
