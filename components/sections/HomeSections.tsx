@@ -1,10 +1,8 @@
-import Link from "next/link";
 import {
   FadeUp,
   SectionLabel,
   SectionTitle,
   CardGrid,
-  Pullquote,
   Button,
 } from "@/components/ui";
 
@@ -51,8 +49,8 @@ export function HomeQuote() {
       <section className="px-20 py-24 text-center max-md:px-6 max-md:py-16">
         <SectionLabel>A Vindication of the Rights of Woman</SectionLabel>
         <blockquote className="text-[clamp(1.6rem,3vw,2.6rem)] italic leading-[1.35] max-w-[800px] mx-auto mb-8">
-          "Why should woman be kept in ignorance under the specious name of
-          innocence?"
+          &quot;Why should woman be kept in ignorance under the specious name of
+          innocence?&quot;
         </blockquote>
         <cite
           className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-black tracking-tight block mb-2"

@@ -5,8 +5,7 @@ import {
   Divider,
   SectionLabel,
   SectionTitle,
-  Pullquote,
-  Button,
+  Pullquote
 } from "@/components/ui";
 
 export const metadata: Metadata = { title: "About Us" };
@@ -68,7 +67,7 @@ export default function AboutPage() {
                   48% of Gen Z women feel discouraged from visiting a dealership
                 </strong>{" "}
                 due to concern about gender-based discrimination (Morning
-                Consult for Caribou, 2022). This isn't paranoia. This is pattern
+                Consult for Caribou, 2022). This isn&apos;t paranoia. This is pattern
                 recognition.
               </p>
               <p>
@@ -76,11 +75,11 @@ export default function AboutPage() {
                 <strong className="text-white">4% of test visits</strong>. They
                 spent{" "}
                 <strong className="text-white">
-                  13% longer negotiating with "minority" testers
+                  13% longer negotiating with &quot;minority&quot; testers
                 </strong>
                 .
               </p>
-              <p>And we're done pretending it's isolated incidents.</p>
+              <p>And we&apos;re done pretending it&apos;s isolated incidents.</p>
             </div>
           </div>
         </section>
@@ -255,8 +254,8 @@ export default function AboutPage() {
                   1792
                 </p>
                 <p className="text-[1.35rem] italic leading-[1.45] font-semibold">
-                  "Strengthen the female mind by enlarging it, and there will be
-                  an end to blind obedience."
+                  &quot;Strengthen the female mind by enlarging it, and there will be
+                  an end to blind obedience.&quot;
                 </p>
               </div>
             </div>

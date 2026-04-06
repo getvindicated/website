@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
 import {
   PageHero,
   FadeUp,
@@ -148,7 +147,7 @@ function ContactForm() {
             borderLeft: "4px solid var(--color-vivid)",
           }}
         >
-          Message received. We'll be in touch soon.
+          Message received. We&apos;ll be in touch soon.
         </div>
       )}
     </form>
