@@ -1,6 +1,6 @@
 import * as brevo from "@getbrevo/brevo";
 
-// 在函数外部初始化一次即可
+// initialize once
 const apiInstance = new brevo.TransactionalEmailsApi();
 if (process.env.BREVO_API_KEY) {
     apiInstance.setApiKey(
@@ -33,7 +33,7 @@ export async function sendEmail({
     smtpEmail.sender = sender;
     if (replyTo) smtpEmail.replyTo = replyTo;
 
-    // 直接返回 promise，或者在此捕获记录日志后再抛出
+    // return promise directly, or catch and log then throw
     try {
         return await apiInstance.sendTransacEmail(smtpEmail);
     } catch (error: any) {
