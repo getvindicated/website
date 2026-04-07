@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Button, FadeUp } from "@/components/ui";
+import { Button } from "@/components/ui";
 
 const stats = [
   {

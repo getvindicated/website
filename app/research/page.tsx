@@ -93,7 +93,7 @@ export default function ResearchPage() {
                 This methodology has been used to document discrimination in
                 housing, employment, and lending.{" "}
                 <strong className="text-white">
-                  We're applying it to automotive retail,
+                  We&apos;re applying it to automotive retail,
                 </strong>{" "}
                 one of the largest consumer purchases most Americans make.
               </p>
@@ -120,7 +120,7 @@ export default function ResearchPage() {
         <section id="study1" className="px-20 py-24 max-md:px-6 max-md:py-16">
           <SectionLabel>Active Studies</SectionLabel>
           <SectionTitle className="mb-12">
-            What We're
+            What We&apos;re
             <br />
             <em>Working On Now.</em>
           </SectionTitle>
@@ -297,7 +297,7 @@ export default function ResearchPage() {
                 <strong className="text-white">
                   contact us through the form below.
                 </strong>{" "}
-                We'll reach out with details about study protocols, IRB
+                We&apos;ll reach out with details about study protocols, IRB
                 protections, and how your participation contributes to
                 publishable, policy-relevant research.
               </p>

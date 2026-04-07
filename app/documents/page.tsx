@@ -66,7 +66,6 @@ type CardData = {
 };
 
 function DocExhibit({
-  id,
   image,
   alt,
   pins,
@@ -74,7 +73,6 @@ function DocExhibit({
   cards,
   navLabels,
 }: {
-  id: string;
   image: string;
   alt: string;
   pins: PinData[];
@@ -277,7 +275,7 @@ const bgItems = [
     body: (
       <>
         <p>
-          This is the most important box on the form. If the "As Is" box is
+          This is the most important box on the form. If the &quot;As Is&quot; box is
           checked, the dealer is telling you:{" "}
           <strong>
             if anything breaks after you drive off the lot, that is entirely
@@ -338,7 +336,7 @@ const bgItems = [
       <>
         <p>
           A service contract (extended warranty) is optional and not free. The
-          word "available" means they want to sell it to you — not that you need
+          word &quot;available&quot; means they want to sell it to you — not that you need
           it.
         </p>
       </>
@@ -510,7 +508,6 @@ export default function DocumentsPage() {
             </p>
           </div>
           <DocExhibit
-            id="f1"
             image="/carfax-p1.png"
             alt="Carfax Page 1"
             pins={[
@@ -636,8 +633,8 @@ export default function DocumentsPage() {
                 verdict: (
                   <>
                     <strong>The caveat:</strong> Carfax estimates up to 1 in 5
-                    accidents goes unreported. "No accidents reported" ≠ "no
-                    accidents ever." A physical inspection catches unreported
+                    accidents goes unreported. &quot;No accidents reported&quot; ≠ &quot;no
+                    accidents ever.&quot; A physical inspection catches unreported
                     damage.
                   </>
                 ),
@@ -649,7 +646,7 @@ export default function DocumentsPage() {
                 title: (
                   <>
                     Good Reliability Forecast —<br />
-                    <em>What "Good" Means at 195k Miles</em>
+                    <em>What &quot;Good&quot; Means at 195k Miles</em>
                   </>
                 ),
                 body: (
@@ -719,10 +716,10 @@ export default function DocumentsPage() {
                 body: (
                   <>
                     <p>
-                      The small text says: "Other information about this
+                      The small text says: &quot;Other information about this
                       vehicle, including problems, may not have been reported to
                       CARFAX. Use this report as one important tool, along with
-                      a vehicle inspection and test drive."
+                      a vehicle inspection and test drive.&quot;
                     </p>
                     <p>
                       <strong>
@@ -755,7 +752,7 @@ export default function DocumentsPage() {
                     <p>
                       The current owner maintained this car right up to nearly
                       200,000 miles. A car serviced regularly to the point of
-                      sale suggests the owner wasn't hiding a developing
+                      sale suggests the owner wasn&apos;t hiding a developing
                       problem.
                     </p>
                   </>
@@ -806,7 +803,6 @@ export default function DocumentsPage() {
             </p>
           </div>
           <DocExhibit
-            id="f2"
             image="/carfax-p2.png"
             alt="Carfax Page 2"
             pins={[
@@ -896,8 +892,8 @@ export default function DocumentsPage() {
                 verdict: (
                   <>
                     <strong>Any flag in this grid</strong> is a serious
-                    negotiating point or a deal-ender. "Total Loss" or
-                    "Structural Damage" should make you question the asking
+                    negotiating point or a deal-ender. &quot;Total Loss&quot; or
+                    &quot;Structural Damage&quot; should make you question the asking
                     price by 30%+ or walk away.
                   </>
                 ),
@@ -995,9 +991,9 @@ export default function DocumentsPage() {
                 ),
                 verdict: (
                   <>
-                    <strong>What to say:</strong> "I noticed the previous owner
+                    <strong>What to say:</strong> &quot;I noticed the previous owner
                     only kept this car for [X] months. Do you have any
-                    information about why they sold?" Their answer — or their
+                    information about why they sold?&quot; Their answer — or their
                     hesitation — is data.
                   </>
                 ),

@@ -224,7 +224,7 @@ export function InfoBox({
 }) {
   return (
     <div
-      className="my-8 px-8 py-6"
+      className={`my-8 px-8 py-6 ${className}`}
       style={{
         background: "rgba(124,58,237,0.08)",
         border: "1px solid var(--color-border)",
