@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   FadeUp,
   SectionLabel,
@@ -91,10 +92,12 @@ export function HomeFounder() {
           </p>
           <Button href="/about">Read Rana&apos;s Full Story</Button>
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/illus-woman-dealership.png"
           alt=""
+          width={0}
+          height={0}
+          sizes="50vw"
           className="w-full object-cover object-top fade-right max-lg:max-h-[260px]"
           style={{ height: 420 }}
         />

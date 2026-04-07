@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   PageHero,
   FadeUp,
@@ -144,11 +145,13 @@ function PinkSlipExplainer() {
     >
       {/* Document image + pins */}
       <div className="relative select-none">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/pink-slip.png"
           alt="California Certificate of Title"
-          className="w-full block"
+          width={0}
+          height={0}
+          sizes="50vw"
+          className="w-full block h-auto"
           style={{
             border: "2px solid var(--color-border)",
             filter: active

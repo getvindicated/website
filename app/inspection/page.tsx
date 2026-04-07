@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   PageHero,
   FadeUp,
@@ -257,11 +259,11 @@ function EngineDiagram() {
           className="relative overflow-hidden"
           style={{ background: "var(--color-bg-surface)" }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/engine-diagram.png"
             alt="Car engine bay"
-            className="w-full h-full object-contain block"
+            fill
+            style={{ objectFit: "contain" }}
           />
           {enginePins.map((p) => (
             <button
@@ -794,7 +796,7 @@ export default function InspectionPage() {
             style={{ gridTemplateColumns: "repeat(4,1fr)", background: "#000" }}
           >
             {brands.map((brand) => (
-              <a
+              <Link
                 key={brand.name}
                 href={brand.url}
                 target="_blank"
@@ -811,11 +813,12 @@ export default function InspectionPage() {
                 }}
               >
                 <div className="w-[72px] h-[72px] flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={brand.logo}
                     alt={brand.name}
-                    className="w-full h-full object-contain"
+                    width={72}
+                    height={72}
+                    className="object-contain"
                   />
                 </div>
                 <div className="text-center">
@@ -827,7 +830,7 @@ export default function InspectionPage() {
                   className="absolute bottom-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
                   style={{ background: "var(--color-vivid)" }}
                 />
-              </a>
+              </Link>
             ))}
           </div>
         </section>

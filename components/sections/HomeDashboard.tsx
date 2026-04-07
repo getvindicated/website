@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { FadeUp, SectionLabel, SectionTitle } from "@/components/ui";
 
 const gauges = [
@@ -64,11 +65,13 @@ export function HomeDashboard() {
         >
           {/* Speedometer image */}
           <div className="flex items-center justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/illus-speedometer.png"
               alt="Discrimination gauge"
-              className="w-full max-w-[180px] block"
+              width={0}
+              height={0}
+              sizes="180px"
+              className="w-full max-w-[180px] block h-auto"
             />
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/constants";
@@ -33,10 +34,11 @@ export function Nav() {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/icon-nav.png"
           alt="VINdicated logo"
+          width={52}
+          height={52}
           className="h-[52px] w-auto object-contain"
         />
         <span

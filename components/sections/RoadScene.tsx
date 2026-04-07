@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function RoadScene() {
   const stars = [
     { top: 12, left: "8%", w: 2, delay: 0, dur: 2.2 },
@@ -68,10 +70,11 @@ export function RoadScene() {
 
       {/* Driving car */}
       <div className="absolute z-[5] car-drive" style={{ bottom: -15 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/illus-car-purple.png"
           alt="Purple car"
+          width={320}
+          height={180}
           style={{ height: 180, width: "auto", display: "block" }}
         />
       </div>

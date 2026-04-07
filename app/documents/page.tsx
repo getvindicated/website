@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { PageHero, FadeUp } from "@/components/ui";
 
 // ── Types ─────────────────────────────────────────────────────
@@ -99,8 +100,14 @@ function DocExhibit({
         }}
       >
         <div className="relative inline-block w-full">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt={alt} className="w-full block" />
+          <Image
+            src={image}
+            alt={alt}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full block h-auto"
+          />
 
           {/* Highlights */}
           {highlights.map(({ n, top, left, w, h, color }) => {
@@ -1072,11 +1079,13 @@ export default function DocumentsPage() {
               className="flex items-start justify-center p-6"
               style={{ background: "var(--color-bg-surface)" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/buyers-guide-p1.png"
                 alt="FTC Buyers Guide"
-                className="w-full max-w-[520px] block border"
+                width={0}
+                height={0}
+                sizes="(max-width: 768px) 100vw, 520px"
+                className="w-full max-w-[520px] block h-auto border"
                 style={{ borderColor: "rgba(90,48,105,0.2)" }}
               />
             </div>
