@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitContactForm } from "@/app/actions/email";
 import {
   PageHero,
   FadeUp,
@@ -46,12 +47,39 @@ const inputCls = `
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    (e.target as HTMLFormElement).reset();
+    setIsSubmitting(true);
+    setError("");
+    setSubmitted(false);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      topic: formData.get("topic") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await submitContactForm(data);
+      if (res.success) {
+        setSubmitted(true);
+        form.reset();
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError(res.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Failed to send message.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -67,6 +95,7 @@ function ContactForm() {
             </label>
             <input
               type="text"
+              name={label === "First Name" ? "firstName" : "lastName"}
               required
               className={inputCls}
               placeholder={label === "First Name" ? "Your" : "Name"}
@@ -84,6 +113,7 @@ function ContactForm() {
         </label>
         <input
           type="email"
+          name="email"
           required
           className={inputCls}
           placeholder="you@example.com"
@@ -98,6 +128,8 @@ function ContactForm() {
           I’m reaching out about…
         </label>
         <select
+          name="topic"
+          required
           className={inputCls}
           style={{ background: "rgba(255,255,255,0.04)" }}
         >
@@ -105,7 +137,7 @@ function ContactForm() {
           {topics.map((t) => (
             <option
               key={t.value}
-              value={t.value}
+              value={t.label}
               style={{ background: "#0d0814" }}
             >
               {t.label}
@@ -122,6 +154,7 @@ function ContactForm() {
           Message
         </label>
         <textarea
+          name="message"
           required
           rows={6}
           className={inputCls}
@@ -132,11 +165,26 @@ function ContactForm() {
 
       <button
         type="submit"
-        className="w-full py-[0.9rem] text-[0.85rem] font-semibold tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5"
+        disabled={isSubmitting}
+        className="w-full py-[0.9rem] text-[0.85rem] font-semibold tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
         style={{ background: "var(--color-vivid)" }}
       >
-        Send Message
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
+
+      {error && (
+        <div
+          className="px-5 py-4 text-[0.9rem]"
+          style={{
+            background: "rgba(239, 68, 68, 0.1)",
+            border: "1px solid rgba(239, 68, 68, 0.2)",
+            borderLeft: "4px solid #ef4444",
+            color: "#fca5a5"
+          }}
+        >
+          {error}
+        </div>
+      )}
 
       {submitted && (
         <div

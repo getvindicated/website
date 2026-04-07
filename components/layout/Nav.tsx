@@ -119,7 +119,7 @@ function NavItem({ link, active }: { link: NavLinkType; active: boolean }) {
         className="text-[0.82rem] font-medium no-underline transition-colors duration-200"
         style={{
           color: active ? "var(--color-light)" : "rgba(255,255,255,0.8)",
-          textDecoration: active ? "underline" : "none",
+          textDecorationLine: active ? "underline" : "none",
           textDecorationColor: "var(--color-light)",
           textUnderlineOffset: "4px",
         }}
