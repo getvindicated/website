@@ -26,26 +26,26 @@ const enginePins: {
   color: PinColor;
   title: string;
 }[] = [
-  { id: 1, top: "12%", left: "71%", color: "purple", title: "Engine Cover" },
+  { id: 1, top: "20%", left: "66%", color: "purple", title: "Engine Cover" },
   { id: 2, top: "55%", left: "27%", color: "gold", title: "Oil Filler Cap" },
   {
     id: 3,
-    top: "28%",
-    left: "14%",
+    top: "31%",
+    left: "20%",
     color: "green",
     title: "Coolant Reservoir",
   },
-  { id: 4, top: "80%", left: "22%", color: "gold", title: "Serpentine Belt" },
-  { id: 5, top: "88%", left: "48%", color: "green", title: "Radiator & Fan" },
-  { id: 6, top: "12%", left: "38%", color: "gold", title: "Heat Shielding" },
+  { id: 4, top: "76%", left: "25%", color: "gold", title: "Serpentine Belt" },
+  { id: 5, top: "85%", left: "48%", color: "green", title: "Radiator & Fan" },
+  { id: 6, top: "18%", left: "34%", color: "gold", title: "Heat Shielding" },
   {
     id: 7,
-    top: "83%",
-    left: "78%",
+    top: "78%",
+    left: "82%",
     color: "purple",
     title: "Air Filter Housing",
   },
-  { id: 8, top: "38%", left: "82%", color: "red", title: "Battery" },
+  { id: 8, top: "33%", left: "86%", color: "red", title: "Battery" },
   {
     id: 9,
     top: "65%",
@@ -53,7 +53,7 @@ const enginePins: {
     color: "green",
     title: "Power Steering Fluid",
   },
-  { id: 10, top: "64%", left: "82%", color: "red", title: "Fuse Box" },
+  { id: 10, top: "64%", left: "88%", color: "red", title: "Fuse Box" },
 ];
 
 const colorMap: Record<
@@ -252,18 +252,18 @@ function EngineDiagram() {
 
       <div
         className="grid max-lg:grid-cols-1"
-        style={{ gridTemplateColumns: "1fr 420px", height: 700 }}
+        style={{ gridTemplateColumns: "1fr 420px" }}
       >
         {/* Image + pins */}
         <div
           className="relative overflow-hidden"
-          style={{ background: "var(--color-bg-surface)" }}
+          style={{ background: "var(--color-bg-surface)", aspectRatio: "3/2" }}
         >
           <Image
             src="/engine-diagram.png"
             alt="Car engine bay"
             fill
-            style={{ objectFit: "contain" }}
+            style={{ objectFit: "cover" }}
           />
           {enginePins.map((p) => (
             <button
