@@ -106,13 +106,30 @@ type NavLinkType = {
 function NavItem({ link, active }: { link: NavLinkType; active: boolean }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLLIElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  const handleMouseEnter = () => {
+    clearCloseTimer();
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setOpen(false), 300);
+  };
 
   return (
     <li
       ref={ref}
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Link
         href={link.href}
