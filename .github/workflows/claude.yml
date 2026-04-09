@@ -25,11 +25,12 @@ jobs:
       id-token: write
       actions: read # Required for Claude to read CI results on PRs
     steps:
-      - uses: kosukesaigusa/claude-code-action-access-control@v1
+      - name: Claude Code Action Access Control
+        uses: kosukesaigusa/claude-code-action-access-control@v0.0.2
         with:
           allowed_users: |
             ryloriz
-            
+      
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
