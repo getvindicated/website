@@ -173,22 +173,22 @@ const engineCards: Record<number, CardContent> = {
     what: "The air filter housing is the black plastic box that the air intake hose connects to. Inside is the air filter — a paper or foam element that keeps dust and debris out of the engine.",
     steps: [
       "Find the large black plastic box — usually connected to a wide intake hose going toward the engine.",
-      "If you can open it (usually 2–4 clips), look at the filter inside. Hold it up to the light.",
+      "If you can open it (usually 2-4 clips), look at the filter inside. Hold it up to the light.",
       "A clean filter is light gray or white. A dirty filter is dark gray or black.",
     ],
-    flag: 'A severely clogged filter on a car with "full service history" is a red flag — either the service records are incomplete or the seller is exaggerating. Air filters cost $15–30 and should be replaced every 15,000–30,000 miles.',
+    flag: 'A severely clogged filter on a car with "full service history" is a red flag — either the service records are incomplete or the seller is exaggerating. Air filters cost $15-30 and should be replaced every 15,000-30,000 miles.',
     flagColor: "gold",
   },
   8: {
     subtitle: "Corrosion tells the story. So does the date.",
-    what: "The 12-volt battery powers the starter motor, all electronics, and keeps the car's computers alive when the engine is off. Most car batteries last 3–5 years. Replacement is $100–$250.",
+    what: "The 12-volt battery powers the starter motor, all electronics, and keeps the car's computers alive when the engine is off. Most car batteries last 3-5 years. Replacement is $100-$250.",
     steps: [
       "Find the battery — a large rectangular box, usually in a corner of the engine bay.",
       "Look for a date sticker on the top or side — most batteries are stamped with month/year of manufacture.",
       "Look at the terminals. Check for corrosion (white, blue, or green fuzzy buildup).",
       "Look at the battery case — check for bulging, cracking, or leaking.",
     ],
-    flag: "Red flags: Heavy corrosion on terminals, a date that's 4+ years old, or a bulging battery case. A visibly old battery is a $150–$250 legitimate ask off the price.",
+    flag: "Red flags: Heavy corrosion on terminals, a date that's 4+ years old, or a bulging battery case. A visibly old battery is a $150-$250 legitimate ask off the price.",
     flagColor: "red",
   },
   9: {
@@ -200,7 +200,7 @@ const engineCards: Record<number, CardContent> = {
       "Look at the color. New fluid is clear to light yellow. Dark brown or black means it's overdue.",
       "During the test drive, listen for a whining noise when turning.",
     ],
-    flag: "Low fluid without a visible leak means the system is consuming fluid — a slow leak somewhere. Whining on turns + low fluid = power steering pump issue. That's a $200–$600 repair.",
+    flag: "Low fluid without a visible leak means the system is consuming fluid — a slow leak somewhere. Whining on turns + low fluid = power steering pump issue. That's a $200-$600 repair.",
     flagColor: "gold",
   },
   10: {
@@ -485,7 +485,7 @@ const inspectionAccordion = [
     body: (
       <div className="space-y-3">
         <p>
-          Transmission repairs can cost $3,000–$8,000. An inspector checks
+          Transmission repairs can cost $3,000-$8,000. An inspector checks
           for:
         </p>
         <ul className="space-y-2 ml-5 list-disc">
@@ -620,7 +620,7 @@ export default function InspectionPage() {
             <em>Without This.</em>
           </>
         }
-        subtitle="A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100–200 and can save you thousands."
+        subtitle="A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100-200 and can save you thousands."
       />
 
       {/* What is a PPI */}
@@ -676,7 +676,7 @@ export default function InspectionPage() {
                 </p>
               </div>
               <p className="text-[1.1rem] leading-[1.85] text-white">
-                A good PPI costs <strong>$100–$200</strong> and is the
+                A good PPI costs <strong>$100-$200</strong> and is the
                 single most powerful tool you have before signing anything.
               </p>
               <div
@@ -730,11 +730,11 @@ export default function InspectionPage() {
                   <>
                     <p className="mb-3">
                       <strong>Lemon Squad</strong> (lemonsquad.com) —
-                      Mobile service, 110-point inspection. Cost: $150–250.
+                      Mobile service, 110-point inspection. Cost: $150-250.
                     </p>
                     <p>
                       <strong>CARCHEX</strong> (carchex.com) — Mobile or
-                      shop-based, detailed report. Cost: $100–200.
+                      shop-based, detailed report. Cost: $100-200.
                     </p>
                   </>
                 ),
@@ -754,7 +754,7 @@ export default function InspectionPage() {
                     <p>
                       They know that brand inside and out, have the right
                       diagnostic equipment, and have zero incentive to lie.
-                      Cost: usually $100–150.
+                      Cost: usually $100-150.
                     </p>
                   </>
                 ),
@@ -870,7 +870,7 @@ export default function InspectionPage() {
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
           <Pullquote
-            quote='"Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself."'
+			quote={`"Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself."`}
             cite="Rana Darwich, VINdicated Founder"
           />
         </section>
@@ -891,11 +891,11 @@ export default function InspectionPage() {
               },
               {
                 strong: "Tell the seller upfront.",
-                text: '"I'd like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag — walk away.',
+                text: '"I\'d like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag — walk away.',
               },
               {
                 strong: "You take the car to the mechanic",
-                text: 'for private sellers. For dealerships, negotiate: "I'd like to take it for an extended test drive to a mechanic I've already booked." Get it in writing.',
+                text: 'for private sellers. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Get it in writing.',
               },
               {
                 strong: "Get the report in writing.",
@@ -903,7 +903,7 @@ export default function InspectionPage() {
               },
               {
                 strong: "Use the findings to negotiate.",
-                text: "Found a leaking CV boot? That's $300–600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
+                text: "Found a leaking CV boot? That's $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
               },
               {
                 strong: "You can still walk away after a PPI.",
