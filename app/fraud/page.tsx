@@ -15,21 +15,21 @@ import {
 
 // ── Pink Slip pins ──────────────────────────────────────────
 const pins = [
-  { n: 1, top: "6%", left: "43%", danger: false },
-  { n: 2, top: "38%", left: "28%", danger: false },
-  { n: 3, top: "8%", left: "80%", danger: true },
-  { n: 4, top: "16%", left: "28%", danger: false },
-  { n: 5, top: "56%", left: "50%", danger: true },
-  { n: 6, top: "71%", left: "50%", danger: true },
+  { n: 1, top: "6%", left: "47%", danger: false },
+  { n: 2, top: "38%", left: "22%", danger: false },
+  { n: 3, top: "6%", left: "83%", danger: true },
+  { n: 4, top: "19%", left: "30%", danger: false },
+  { n: 5, top: "59%", left: "50%", danger: true },
+  { n: 6, top: "77%", left: "50%", danger: true },
 ];
 
 const highlights = [
-  { id: 1, top: "3%", left: "20%", w: "45%", h: "7%", danger: false },
-  { id: 2, top: "30%", left: "2%", w: "55%", h: "18%", danger: false },
-  { id: 3, top: "4%", left: "62%", w: "34%", h: "9%", danger: true },
-  { id: 4, top: "13%", left: "2%", w: "50%", h: "7%", danger: false },
-  { id: 5, top: "51%", left: "2%", w: "95%", h: "11%", danger: true },
-  { id: 6, top: "63%", left: "2%", w: "95%", h: "16%", danger: true },
+  { id: 1, top: "3%", left: "22%", w: "53%", h: "7%", danger: false },
+  { id: 2, top: "28%", left: "2%", w: "62%", h: "20%", danger: false },
+  { id: 3, top: "3%", left: "68%", w: "29%", h: "7%", danger: true },
+  { id: 4, top: "17%", left: "2%", w: "95%", h: "6%", danger: false },
+  { id: 5, top: "47%", left: "2%", w: "95%", h: "24%", danger: true },
+  { id: 6, top: "71%", left: "2%", w: "95%", h: "13%", danger: true },
 ];
 
 const cardData: Record<
@@ -150,7 +150,7 @@ function PinkSlipExplainer() {
           alt="California Certificate of Title"
           width={0}
           height={0}
-          sizes="50vw"
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className="w-full block h-auto"
           style={{
             border: "2px solid var(--color-border)",
