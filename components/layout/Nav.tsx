@@ -9,7 +9,16 @@ import { navLinks } from "@/lib/constants";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -56,6 +65,14 @@ export function Nav() {
             key={link.href}
             link={link as NavLinkType}
             active={isActive(link.href)}
+            isOpen={activeDropdown === link.href}
+            onMouseEnter={() => {
+              clearCloseTimer();
+              setActiveDropdown(link.href);
+            }}
+            onMouseLeave={() => {
+              closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
+            }}
           />
         ))}
       </ul>
@@ -103,33 +120,24 @@ type NavLinkType = {
   children?: readonly { label: string; href: string }[];
 };
 
-function NavItem({ link, active }: { link: NavLinkType; active: boolean }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLLIElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const clearCloseTimer = () => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
-  };
-
-  const handleMouseEnter = () => {
-    clearCloseTimer();
-    setOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setOpen(false), 300);
-  };
-
+function NavItem({
+  link,
+  active,
+  isOpen,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  link: NavLinkType;
+  active: boolean;
+  isOpen: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
   return (
     <li
-      ref={ref}
       className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <Link
         href={link.href}
@@ -144,7 +152,7 @@ function NavItem({ link, active }: { link: NavLinkType; active: boolean }) {
         {link.label}
       </Link>
 
-      {link.children && open && (
+      {link.children && isOpen && (
         <div
           className="absolute top-full left-0 mt-2 min-w-[200px] rounded border border-white/[0.08] py-1 z-[99999]"
           style={{
