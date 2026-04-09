@@ -252,18 +252,18 @@ function EngineDiagram() {
 
       <div
         className="grid max-lg:grid-cols-1"
-        style={{ gridTemplateColumns: "1fr 420px", height: 700 }}
+        style={{ gridTemplateColumns: "1fr 420px" }}
       >
         {/* Image + pins */}
         <div
           className="relative overflow-hidden"
-          style={{ background: "var(--color-bg-surface)" }}
+          style={{ background: "var(--color-bg-surface)", aspectRatio: "3/2" }}
         >
           <Image
             src="/engine-diagram.png"
             alt="Car engine bay"
             fill
-            style={{ objectFit: "contain" }}
+            style={{ objectFit: "cover" }}
           />
           {enginePins.map((p) => (
             <button
