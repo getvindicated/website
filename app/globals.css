@@ -22,8 +22,17 @@ html {
 body {
   background: var(--color-bg-page);
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
 }
 
 /* ── Em = underline throughout ── */
