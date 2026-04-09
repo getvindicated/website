@@ -98,50 +98,50 @@ type CardContent = {
 const engineCards: Record<number, CardContent> = {
   1: {
     subtitle: "The plastic cover that hides the engine below",
-    what: "The engine cover is a plastic panel that sits on top of the engine. It\u2019s mostly cosmetic \u2014 it makes the engine bay look clean and reduces noise.",
+    what: "The engine cover is a plastic panel that sits on top of the engine. It's mostly cosmetic — it makes the engine bay look clean and reduces noise.",
     steps: [
       "Check if the cover is cracked or warped. Minor cosmetic damage is fine; significant damage suggests rough handling.",
-      "Look at whether it sits evenly. A cover that doesn\u2019t sit flush can mean lots of DIY repairs.",
-      "Ask the mechanic to remove it and look at what\u2019s underneath.",
+      "Look at whether it sits evenly. A cover that doesn't sit flush can mean lots of DIY repairs.",
+      "Ask the mechanic to remove it and look at what's underneath.",
     ],
-    flag: "A clean, intact engine cover on a high-mileage car is actually a good sign \u2014 it means the seller cared about presentation.",
+    flag: "A clean, intact engine cover on a high-mileage car is actually a good sign — it means the seller cared about presentation.",
     flagColor: "gold",
   },
   2: {
-    subtitle: "Open this \u2014 what\u2019s inside tells you a lot",
+    subtitle: "Open this — what's inside tells you a lot",
     what: "The oil filler cap is the round cap on top of the engine where you pour new oil in. It takes two seconds to open and what you see inside tells you things the dipstick alone cannot.",
     steps: [
       "Twist it counterclockwise and lift off. Look at the underside of the cap and inside the opening.",
       "Look for any white or cream-colored residue, froth, or buildup.",
-      "Smell inside briefly \u2014 it should smell like oil, nothing chemical or sweet.",
+      "Smell inside briefly — it should smell like oil, nothing chemical or sweet.",
     ],
-    flag: "Serious red flag: White or creamy residue that looks like mayonnaise is an emulsion of oil and coolant \u2014 caused by a blown head gasket. This repair can exceed $3,000. Walk away or negotiate hard.",
+    flag: "Serious red flag: White or creamy residue that looks like mayonnaise is an emulsion of oil and coolant — caused by a blown head gasket. This repair can exceed $3,000. Walk away or negotiate hard.",
     flagColor: "red",
     flag2:
       "Also watch for: Thick sludge like tar. This means the engine went extended periods without oil changes. A sludged engine has shortened lifespan.",
   },
   3: {
     subtitle: "Never open when hot. Read it cold.",
-    what: "The coolant reservoir is a translucent plastic tank that holds the engine\u2019s coolant. Most modern cars have an overflow reservoir you can read without opening anything.",
+    what: "The coolant reservoir is a translucent plastic tank that holds the engine's coolant. Most modern cars have an overflow reservoir you can read without opening anything.",
     steps: [
-      "Look at the exterior of the tank \u2014 it\u2019s translucent so you can see the level without opening it.",
+      "Look at the exterior of the tank — it's translucent so you can see the level without opening it.",
       "Check that the level is between MIN and MAX markers.",
       "Look at the color through the tank walls. Coolant should be bright green, orange, pink, or blue.",
-      "Only open the cap if the engine is completely cold \u2014 hot coolant under pressure can cause serious burns.",
+      "Only open the cap if the engine is completely cold — hot coolant under pressure can cause serious burns.",
     ],
-    flag: "Red flags: Brown or rusty coolant means neglect. Milky or foamy coolant means oil has mixed in \u2014 head gasket failure, a $1,500 to $3,000+ repair.",
+    flag: "Red flags: Brown or rusty coolant means neglect. Milky or foamy coolant means oil has mixed in — head gasket failure, a $1,500 to $3,000+ repair.",
     flagColor: "red",
   },
   4: {
-    subtitle: "One belt runs almost everything \u2014 know what to look for",
+    subtitle: "One belt runs almost everything — know what to look for",
     what: "The serpentine belt drives the alternator, power steering pump, AC compressor, and water pump. If it breaks while driving, you lose all of those systems simultaneously.",
     steps: [
-      "With the engine OFF, locate the belt \u2014 a wide, flat ribbed belt running between multiple pulleys.",
+      "With the engine OFF, locate the belt — a wide, flat ribbed belt running between multiple pulleys.",
       "Look at the ribbed side. Fine cracks between the ribs are the first sign of aging.",
       "Check the smooth back side. A glazed, shiny appearance means the belt is slipping.",
       "Ask your mechanic to assess remaining life during the inspection.",
     ],
-    flag: "Price impact: Serpentine belt replacement costs $75 to $200 parts and labor. If it looks worn, use it as a negotiating point \u2014 not a deal-breaker.",
+    flag: "Price impact: Serpentine belt replacement costs $75 to $200 parts and labor. If it looks worn, use it as a negotiating point — not a deal-breaker.",
     flagColor: "gold",
   },
   5: {
@@ -151,7 +151,7 @@ const engineCards: Record<number, CardContent> = {
       "With the engine cold, look at the front of the radiator for bent fins, cracks, or signs of leakage (dried green, orange, or pink residue).",
       "Check around the base of the radiator and hoses for wet spots or dried coolant stains.",
       "Start the engine and let it warm up. The fan should turn on after a few minutes at idle.",
-      "Check the temperature gauge during your test drive \u2014 it should stay in the normal range.",
+      "Check the temperature gauge during your test drive — it should stay in the normal range.",
     ],
     flag: "Red flag: Any coolant leak is a repair item before purchase. A cracked radiator replacement runs $300 to $900. Overheating on the test drive is a serious warning.",
     flagColor: "red",
@@ -160,54 +160,54 @@ const engineCards: Record<number, CardContent> = {
     subtitle: "The foil-like material protecting wires and hoses from heat",
     what: "Heat shielding is a reflective foil or wrapped material that protects fuel lines, wiring harnesses, and rubber hoses from the extreme heat generated by the exhaust manifold and engine block.",
     steps: [
-      "Look for shielding that\u2019s loose, hanging, or completely missing in sections.",
-      "Check nearby rubber hoses and wiring for heat damage \u2014 cracking, melting, or discoloration.",
+      "Look for shielding that's loose, hanging, or completely missing in sections.",
+      "Check nearby rubber hoses and wiring for heat damage — cracking, melting, or discoloration.",
       "Ask your mechanic to check if the shielding is intact and if any heat-sensitive components show wear.",
     ],
-    flag: "Missing heat shielding isn\u2019t an immediate breakdown \u2014 but damaged wiring from heat exposure can cause intermittent electrical problems that are expensive and hard to diagnose.",
+    flag: "Missing heat shielding isn't an immediate breakdown — but damaged wiring from heat exposure can cause intermittent electrical problems that are expensive and hard to diagnose.",
     flagColor: "gold",
   },
   7: {
     subtitle:
-      "Where the engine breathes \u2014 and what a dirty filter signals",
-    what: "The air filter housing is the black plastic box that the air intake hose connects to. Inside is the air filter \u2014 a paper or foam element that keeps dust and debris out of the engine.",
+      "Where the engine breathes — and what a dirty filter signals",
+    what: "The air filter housing is the black plastic box that the air intake hose connects to. Inside is the air filter — a paper or foam element that keeps dust and debris out of the engine.",
     steps: [
-      "Find the large black plastic box \u2014 usually connected to a wide intake hose going toward the engine.",
-      "If you can open it (usually 2\u20134 clips), look at the filter inside. Hold it up to the light.",
+      "Find the large black plastic box — usually connected to a wide intake hose going toward the engine.",
+      "If you can open it (usually 2-4 clips), look at the filter inside. Hold it up to the light.",
       "A clean filter is light gray or white. A dirty filter is dark gray or black.",
     ],
-    flag: 'A severely clogged filter on a car with "full service history" is a red flag \u2014 either the service records are incomplete or the seller is exaggerating. Air filters cost $15\u201330 and should be replaced every 15,000\u201330,000 miles.',
+    flag: 'A severely clogged filter on a car with "full service history" is a red flag — either the service records are incomplete or the seller is exaggerating. Air filters cost $15-30 and should be replaced every 15,000-30,000 miles.',
     flagColor: "gold",
   },
   8: {
     subtitle: "Corrosion tells the story. So does the date.",
-    what: "The 12-volt battery powers the starter motor, all electronics, and keeps the car\u2019s computers alive when the engine is off. Most car batteries last 3\u20135 years. Replacement is $100\u2013$250.",
+    what: "The 12-volt battery powers the starter motor, all electronics, and keeps the car's computers alive when the engine is off. Most car batteries last 3-5 years. Replacement is $100-$250.",
     steps: [
-      "Find the battery \u2014 a large rectangular box, usually in a corner of the engine bay.",
-      "Look for a date sticker on the top or side \u2014 most batteries are stamped with month/year of manufacture.",
+      "Find the battery — a large rectangular box, usually in a corner of the engine bay.",
+      "Look for a date sticker on the top or side — most batteries are stamped with month/year of manufacture.",
       "Look at the terminals. Check for corrosion (white, blue, or green fuzzy buildup).",
-      "Look at the battery case \u2014 check for bulging, cracking, or leaking.",
+      "Look at the battery case — check for bulging, cracking, or leaking.",
     ],
-    flag: "Red flags: Heavy corrosion on terminals, a date that\u2019s 4+ years old, or a bulging battery case. A visibly old battery is a $150\u2013$250 legitimate ask off the price.",
+    flag: "Red flags: Heavy corrosion on terminals, a date that's 4+ years old, or a bulging battery case. A visibly old battery is a $150-$250 legitimate ask off the price.",
     flagColor: "red",
   },
   9: {
     subtitle: "Easy to check, tells you if the steering system is healthy",
-    what: "The power steering reservoir is a small translucent tank that holds the hydraulic fluid that makes turning the steering wheel easy. Many newer cars have electric power steering and won\u2019t have this \u2014 that\u2019s normal.",
+    what: "The power steering reservoir is a small translucent tank that holds the hydraulic fluid that makes turning the steering wheel easy. Many newer cars have electric power steering and won't have this — that's normal.",
     steps: [
-      "Find the reservoir \u2014 it\u2019s usually small and labeled with a steering wheel icon.",
-      "Check the fluid level through the translucent side \u2014 it should be between MIN and MAX.",
-      "Look at the color. New fluid is clear to light yellow. Dark brown or black means it\u2019s overdue.",
+      "Find the reservoir — it's usually small and labeled with a steering wheel icon.",
+      "Check the fluid level through the translucent side — it should be between MIN and MAX.",
+      "Look at the color. New fluid is clear to light yellow. Dark brown or black means it's overdue.",
       "During the test drive, listen for a whining noise when turning.",
     ],
-    flag: "Low fluid without a visible leak means the system is consuming fluid \u2014 a slow leak somewhere. Whining on turns + low fluid = power steering pump issue. That\u2019s a $200\u2013$600 repair.",
+    flag: "Low fluid without a visible leak means the system is consuming fluid — a slow leak somewhere. Whining on turns + low fluid = power steering pump issue. That's a $200-$600 repair.",
     flagColor: "gold",
   },
   10: {
-    subtitle: "The box that keeps the car\u2019s electricity safe",
-    what: "The fuse box holds tiny safety pieces called fuses that protect every electrical circuit in the car. If something goes wrong electrically, a fuse blows to stop damage \u2014 like a safety switch.",
+    subtitle: "The box that keeps the car's electricity safe",
+    what: "The fuse box holds tiny safety pieces called fuses that protect every electrical circuit in the car. If something goes wrong electrically, a fuse blows to stop damage — like a safety switch.",
     steps: [
-      "Ask to open the fuse box lid. Look for any fuses that are visibly blown \u2014 the metal strip inside will be broken.",
+      "Ask to open the fuse box lid. Look for any fuses that are visibly blown — the metal strip inside will be broken.",
       "Look for mismatched fuses. A 30-amp fuse in a slot rated for 10-amp means someone bypassed an electrical problem. This is dangerous.",
       "Check for burn marks, dark spots, melting, or a burnt smell inside the box.",
       "Look for dirt, water stains, or rust inside. The inside should be completely clean and dry.",
@@ -242,7 +242,7 @@ function EngineDiagram() {
           Interactive Engine Diagram
         </p>
         <h2 className="text-[2rem] font-extrabold mb-3">
-          Under the Hood \u2014 <em>What to Actually Look For</em>
+          Under the Hood — <em>What to Actually Look For</em>
         </h2>
         <p className="text-[0.92rem] text-white leading-[1.7] max-w-[680px]">
           Click any numbered pin on the engine to learn what that component
@@ -454,38 +454,38 @@ function EngineDiagram() {
 
 const inspectionAccordion = [
   {
-    trigger: "Engine \u2014 The Heart of the Car",
+    trigger: "Engine — The Heart of the Car",
     body: (
       <ul className="space-y-3 ml-5 list-disc">
         <li>
-          <strong>Oil leaks</strong> \u2014 Is oil dripping from the engine?
+          <strong>Oil leaks</strong> — Is oil dripping from the engine?
           Small leaks become big repairs.
         </li>
         <li>
-          <strong>Coolant leaks</strong> \u2014 Overheating can destroy an
+          <strong>Coolant leaks</strong> — Overheating can destroy an
           engine quickly and expensively.
         </li>
         <li>
-          <strong>Timing belt/chain</strong> \u2014 If this snaps while driving,
+          <strong>Timing belt/chain</strong> — If this snaps while driving,
           your engine could be totaled.
         </li>
         <li>
-          <strong>Check engine light codes</strong> \u2014 Even if the light
-          isn\u2019t on, a mechanic can pull stored codes.
+          <strong>Check engine light codes</strong> — Even if the light
+          isn't on, a mechanic can pull stored codes.
         </li>
         <li>
-          <strong>Compression test</strong> \u2014 Reveals internal engine wear
-          that visual inspection can\u2019t catch.
+          <strong>Compression test</strong> — Reveals internal engine wear
+          that visual inspection can't catch.
         </li>
       </ul>
     ),
   },
   {
-    trigger: "Transmission \u2014 Often the Most Expensive Fix",
+    trigger: "Transmission — Often the Most Expensive Fix",
     body: (
       <div className="space-y-3">
         <p>
-          Transmission repairs can cost $3,000\u2013$8,000. An inspector checks
+          Transmission repairs can cost $3,000-$8,000. An inspector checks
           for:
         </p>
         <ul className="space-y-2 ml-5 list-disc">
@@ -501,23 +501,23 @@ const inspectionAccordion = [
     ),
   },
   {
-    trigger: "Brakes \u2014 Non-Negotiable Safety",
+    trigger: "Brakes — Non-Negotiable Safety",
     body: (
       <ul className="space-y-3 ml-5 list-disc">
         <li>
-          <strong>Brake pad thickness</strong> \u2014 Under 3mm means immediate
+          <strong>Brake pad thickness</strong> — Under 3mm means immediate
           replacement.
         </li>
         <li>
-          <strong>Rotor condition</strong> \u2014 Scored, cracked, or warped
+          <strong>Rotor condition</strong> — Scored, cracked, or warped
           rotors affect stopping distance.
         </li>
         <li>
-          <strong>Brake fluid</strong> \u2014 Old fluid absorbs moisture and
+          <strong>Brake fluid</strong> — Old fluid absorbs moisture and
           reduces braking performance.
         </li>
         <li>
-          <strong>ABS function</strong> \u2014 Anti-lock braking systems require
+          <strong>ABS function</strong> — Anti-lock braking systems require
           specific diagnostic tools to verify.
         </li>
       </ul>
@@ -529,7 +529,7 @@ const inspectionAccordion = [
       <div className="space-y-3">
         <p>
           Suspension issues directly affect handling and safety at highway
-          speeds \u2014 and are one of the most commonly missed problems in
+          speeds — and are one of the most commonly missed problems in
           seller-provided inspections.
         </p>
         <ul className="space-y-2 ml-5 list-disc">
@@ -545,11 +545,11 @@ const inspectionAccordion = [
     ),
   },
   {
-    trigger: "Body & Frame \u2014 Accident History",
+    trigger: "Body & Frame — Accident History",
     body: (
       <div className="space-y-3">
         <p>
-          A Carfax report helps but isn\u2019t the whole picture. A physical
+          A Carfax report helps but isn't the whole picture. A physical
           inspection can catch:
         </p>
         <ul className="space-y-2 ml-5 list-disc">
@@ -612,15 +612,15 @@ export default function InspectionPage() {
   return (
     <>
       <PageHero
-        kicker="Education \u2014 Pre-Purchase Inspection"
+        kicker="Education — Pre-Purchase Inspection"
         title={
           <>
-            Don\u2019t Buy a Car
+            Don't Buy a Car
             <br />
             <em>Without This.</em>
           </>
         }
-        subtitle="A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100\u2013200 and can save you thousands."
+        subtitle="A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100-200 and can save you thousands."
       />
 
       {/* What is a PPI */}
@@ -647,7 +647,7 @@ export default function InspectionPage() {
             <div className="space-y-5">
               <p className="text-[1.1rem] leading-[1.85] text-white">
                 A PPI is when you pay an <strong>independent mechanic</strong>{" "}
-                \u2014 not the seller, not the dealership \u2014 to inspect a
+                — not the seller, not the dealership — to inspect a
                 car before you buy it.
               </p>
               <div
@@ -665,18 +665,18 @@ export default function InspectionPage() {
                   This is different from:
                 </p>
                 <p className="text-base text-white leading-[1.8]">
-                  <strong>The seller\u2019s inspection</strong> \u2014
-                  they\u2019re trying to sell you the car.
+                  <strong>The seller's inspection</strong> —
+                  they're trying to sell you the car.
                   <br />
-                  <strong>Your own visual check</strong> \u2014 you\u2019re not
+                  <strong>Your own visual check</strong> — you're not
                   a trained mechanic.
                   <br />
-                  <strong>A test drive</strong> \u2014 you can\u2019t see
-                  what\u2019s happening under the hood.
+                  <strong>A test drive</strong> — you can't see
+                  what's happening under the hood.
                 </p>
               </div>
               <p className="text-[1.1rem] leading-[1.85] text-white">
-                A good PPI costs <strong>$100\u2013$200</strong> and is the
+                A good PPI costs <strong>$100-$200</strong> and is the
                 single most powerful tool you have before signing anything.
               </p>
               <div
@@ -692,7 +692,7 @@ export default function InspectionPage() {
                 >
                   <strong>
                     If a dealer refuses to let you take the car to an
-                    independent mechanic \u2014 walk away. That refusal is your
+                    independent mechanic — walk away. That refusal is your
                     answer.
                   </strong>
                 </p>
@@ -724,28 +724,28 @@ export default function InspectionPage() {
           <CardGrid
             cards={[
               {
-                num: "Option 01 \u2014 National Services",
+                num: "Option 01 — National Services",
                 title: "Independent Inspection Services",
                 body: (
                   <>
                     <p className="mb-3">
-                      <strong>Lemon Squad</strong> (lemonsquad.com) \u2014
-                      Mobile service, 110-point inspection. Cost: $150\u2013250.
+                      <strong>Lemon Squad</strong> (lemonsquad.com) —
+                      Mobile service, 110-point inspection. Cost: $150-250.
                     </p>
                     <p>
-                      <strong>CARCHEX</strong> (carchex.com) \u2014 Mobile or
-                      shop-based, detailed report. Cost: $100\u2013200.
+                      <strong>CARCHEX</strong> (carchex.com) — Mobile or
+                      shop-based, detailed report. Cost: $100-200.
                     </p>
                   </>
                 ),
               },
               {
-                num: "Option 02 \u2014 Best Option",
+                num: "Option 02 — Best Option",
                 title: "Manufacturer Dealerships",
                 body: (
                   <>
                     <p className="mb-3">
-                      If you\u2019re buying a used Honda from a Mitsubishi
+                      If you're buying a used Honda from a Mitsubishi
                       dealership,{" "}
                       <strong>
                         take it to a Honda dealership for the PPI.
@@ -754,18 +754,18 @@ export default function InspectionPage() {
                     <p>
                       They know that brand inside and out, have the right
                       diagnostic equipment, and have zero incentive to lie.
-                      Cost: usually $100\u2013150.
+                      Cost: usually $100-150.
                     </p>
                   </>
                 ),
               },
               {
-                num: "Option 03 \u2014 If You Have It",
+                num: "Option 03 — If You Have It",
                 title: "AAA Membership",
                 body: "Many AAA locations offer free or discounted PPIs for members. Check your local AAA auto service center.",
               },
               {
-                num: "Option 04 \u2014 If You Trust Them",
+                num: "Option 04 — If You Trust Them",
                 title: "Trusted Local Mechanics",
                 body: 'If you have a mechanic you trust, ask if they do PPIs. Red flags: they refuse to put findings in writing, they rush through it, or they tell you "everything looks fine" without checking anything.',
               },
@@ -851,11 +851,11 @@ export default function InspectionPage() {
               { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
             }
           >
-            Why You\u2019re <em>Paying for Your Safety</em>
+            Why You're <em>Paying for Your Safety</em>
           </SectionTitle>
           <p className="text-[1.05rem] text-white/80 leading-[1.75] max-w-[680px] mb-8">
-            A good inspector goes through the car systematically. Here\u2019s
-            what they\u2019re checking \u2014 and why each category matters.
+            A good inspector goes through the car systematically. Here's
+            what they're checking — and why each category matters.
           </p>
           <Accordion items={inspectionAccordion} />
         </section>
@@ -870,7 +870,7 @@ export default function InspectionPage() {
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
           <Pullquote
-            quote='"Your salesperson is not your friend, your partner, or someone looking out for your best interests. They\u2019re paid on commission. The more you pay, the more they make. This doesn\u2019t mean they\u2019re evil. It just means you need to protect yourself."'
+			quote={`"Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself."`}
             cite="Rana Darwich, VINdicated Founder"
           />
         </section>
@@ -891,33 +891,33 @@ export default function InspectionPage() {
               },
               {
                 strong: "Tell the seller upfront.",
-                text: '"I\u2019d like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag \u2014 walk away.',
+                text: '"I\'d like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag — walk away.',
               },
               {
                 strong: "You take the car to the mechanic",
-                text: 'for private sellers. For dealerships, negotiate: "I\u2019d like to take it for an extended test drive to a mechanic I\u2019ve already booked." Get it in writing.',
+                text: 'for private sellers. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Get it in writing.',
               },
               {
                 strong: "Get the report in writing.",
-                text: "Every finding, documented. No verbal summaries. You want a paper trail \u2014 both for negotiating and for your own records.",
+                text: "Every finding, documented. No verbal summaries. You want a paper trail — both for negotiating and for your own records.",
               },
               {
                 strong: "Use the findings to negotiate.",
-                text: "Found a leaking CV boot? That\u2019s $300\u2013600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
+                text: "Found a leaking CV boot? That's $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
               },
               {
                 strong: "You can still walk away after a PPI.",
-                text: "If the findings are serious and the seller won't negotiate \u2014 you didn't waste your money. You saved yourself from a much bigger loss.",
+                text: "If the findings are serious and the seller won't negotiate — you didn't waste your money. You saved yourself from a much bigger loss.",
               },
             ]}
           />
           <InfoBox label="Important">
             <p>
               If a seller stalls on producing service records or promises
-              they\u2019ll \u201cget them later,\u201d schedule the inspection
+              they'll "get them later," schedule the inspection
               before you commit emotionally.{" "}
               <strong>
-                Schedule the inspection before you\u2019re attached \u2014 not
+                Schedule the inspection before you're attached — not
                 after.
               </strong>
             </p>
