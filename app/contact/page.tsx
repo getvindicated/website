@@ -88,8 +88,7 @@ function ContactForm() {
         {["First Name", "Last Name"].map((label) => (
           <div key={label} className="flex flex-col gap-2">
             <label
-              className="text-[0.8rem] font-semibold"
-              style={{ color: "var(--color-light)" }}
+              className="text-[0.8rem] font-semibold text-[var(--color-light)]"
             >
               {label}
             </label>
@@ -106,8 +105,7 @@ function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label
-          className="text-[0.8rem] font-semibold"
-          style={{ color: "var(--color-light)" }}
+          className="text-[0.8rem] font-semibold text-[var(--color-light)]"
         >
           Email Address
         </label>
@@ -122,23 +120,21 @@ function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label
-          className="text-[0.8rem] font-semibold"
-          style={{ color: "var(--color-light)" }}
+          className="text-[0.8rem] font-semibold text-[var(--color-light)]"
         >
           I’m reaching out about…
         </label>
         <select
           name="topic"
           required
-          className={inputCls}
-          style={{ background: "rgba(255,255,255,0.04)" }}
+          className={`${inputCls} bg-[rgba(255,255,255,0.04)]`}
         >
           <option value="">Select a topic</option>
           {topics.map((t) => (
             <option
               key={t.value}
               value={t.label}
-              style={{ background: "#0d0814" }}
+              className = "bg-[#0d0814]"
             >
               {t.label}
             </option>
@@ -148,8 +144,7 @@ function ContactForm() {
 
       <div className="flex flex-col gap-2">
         <label
-          className="text-[0.8rem] font-semibold"
-          style={{ color: "var(--color-light)" }}
+          className="text-[0.8rem] font-semibold text-[var(--color-light)]"
         >
           Message
         </label>
@@ -157,8 +152,7 @@ function ContactForm() {
           name="message"
           required
           rows={6}
-          className={inputCls}
-          style={{ resize: "vertical", minHeight: 120 }}
+          className={`${inputCls} resize-y min-h-[120px]`}
           placeholder="Tell us what's on your mind..."
         />
       </div>
@@ -166,21 +160,14 @@ function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-[0.9rem] text-[0.85rem] font-semibold tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
-        style={{ background: "var(--color-vivid)" }}
+        className="w-full py-[0.9rem] text-[0.85rem] font-semibold tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 bg-[var(--color-vivid)]"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
 
       {error && (
         <div
-          className="px-5 py-4 text-[0.9rem]"
-          style={{
-            background: "rgba(239, 68, 68, 0.1)",
-            border: "1px solid rgba(239, 68, 68, 0.2)",
-            borderLeft: "4px solid #ef4444",
-            color: "#fca5a5"
-          }}
+          className="px-5 py-4 text-[0.9rem] bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.2)] border-l-4 border-l-[#ef4444] text-[#fca5a5]"
         >
           {error}
         </div>
@@ -188,12 +175,7 @@ function ContactForm() {
 
       {submitted && (
         <div
-          className="px-5 py-4 text-[0.9rem]"
-          style={{
-            background: "rgba(124,58,237,0.1)",
-            border: "1px solid rgba(90,48,105,0.2)",
-            borderLeft: "4px solid var(--color-vivid)",
-          }}
+          className="px-5 py-4 text-[0.9rem] bg-[rgba(124,58,237,0.1)] border border-[rgba(90,48,105,0.2)] border-l-4 border-l-[var(--color-vivid)]"
         >
           Message received. We&apos;ll be in touch soon.
         </div>
@@ -220,8 +202,7 @@ export default function ContactPage() {
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-24 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-24 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             {/* Form */}
             <div>
@@ -237,18 +218,15 @@ export default function ContactPage() {
               </SectionTitle>
 
               <div
-                className="flex flex-col gap-[1.5px] mb-12"
-                style={{ background: "var(--color-border)" }}
+                className="flex flex-col gap-[1.5px] mb-12 bg-[var(--color-border)]"
               >
                 {sideInfo.map(({ cat, body }) => (
                   <div
                     key={cat}
-                    className="px-8 py-8"
-                    style={{ background: "var(--color-bg-surface)" }}
+                    className="px-8 py-8 bg-[var(--color-bg-surface)]"
                   >
                     <p
-                      className="text-[0.65rem] tracking-wide mb-2"
-                      style={{ color: "var(--color-light)" }}
+                      className="text-[0.65rem] tracking-wide mb-2 text-[var(--color-light)]"
                     >
                       {cat}
                     </p>

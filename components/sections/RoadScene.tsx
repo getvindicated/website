@@ -13,21 +13,11 @@ export function RoadScene() {
 
   return (
     <div
-      className="relative overflow-hidden mt-[65px]"
-      style={{
-        height: 220,
-        background: "linear-gradient(180deg, #0d0814 0%, #0d0814 65%)",
-      }}
+      className="relative overflow-hidden mt-[65px] h-[220px] bg-[linear-gradient(180deg,#0d0814_0%,#0d0814_65%)]"
     >
       {/* Horizon glow */}
       <div
-        className="absolute left-0 right-0"
-        style={{
-          bottom: 58,
-          height: 30,
-          background:
-            "radial-gradient(ellipse 60% 100%, rgba(124,58,237,0.25) 0%, transparent 70%)",
-        }}
+        className="absolute left-0 right-0 b-[58px] h-[30x] bg-[radial-gradient(ellipse_60%_100%,rgba(124,58,237,0.25)_0%,transparent_70%)]"
       />
 
       {/* Stars */}
@@ -49,33 +39,27 @@ export function RoadScene() {
 
       {/* Road */}
       <div
-        className="absolute bottom-0 left-0 right-0 z-[1]"
-        style={{ height: 68, background: "#3f234a" }}
+        className="absolute bottom-0 left-0 right-0 z-[1] h-[68px] bg-[#3f234a]"
       >
         {stripeDelays.map((delay, i) => (
           <div
-            key={i}
-            className="absolute road-stripe"
-            style={{
-              bottom: 30,
-              height: 5,
-              width: 72,
-              background: "#c9a84c",
-              borderRadius: 2,
-              animationDelay: `${delay}s`,
-            }}
+          key={i}
+          className="absolute road-stripe bottom-[30px] h-[5px] w-[72px] bg-[#c9a84c] rounded-[2px]"
+          style={{
+            animationDelay: `${delay}s`,
+          }}
           />
         ))}
       </div>
 
       {/* Driving car */}
-      <div className="absolute z-[5] car-drive" style={{ bottom: -15 }}>
+      <div className="absolute z-[5] car-drive bottom-[-15px]">
         <Image
           src="/illus-car-purple.png"
           alt="Purple car"
           width={320}
           height={180}
-          style={{ height: 180, width: "auto", display: "block" }}
+          className="h-[180px] w-auto block"
         />
       </div>
     </div>

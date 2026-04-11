@@ -56,12 +56,7 @@ export function HomeDashboard() {
         </p>
 
         <div
-          className="p-8 grid items-center gap-10"
-          style={{
-            background: "var(--color-bg-surface)",
-            border: "1px solid var(--color-border)",
-            gridTemplateColumns: "170px 1fr",
-          }}
+          className="p-8 grid items-center gap-10 bg-[var(--color-bg-surface)] border border-[var(--color-border)] grid-cols-[170px_1fr]"
         >
           {/* Speedometer image */}
           <div className="flex items-center justify-center">
@@ -78,19 +73,14 @@ export function HomeDashboard() {
           {/* Gauges */}
           <div>
             <p
-              className="text-[0.62rem] tracking-wide mb-5"
-              style={{ color: "var(--color-light)" }}
+              className="text-[0.62rem] tracking-wide mb-5 text-[var(--color-light)]"
             >
               System Status
             </p>
             {gauges.map((g) => (
               <div key={g.id} className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: "rgba(124,58,237,0.2)",
-                    border: "1px solid var(--color-border)",
-                  }}
+                  className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 bg-[rgba(124,58,237,0.2)] border border-[var(--color-border)]"
                 >
                   <svg width="10" height="10" viewBox="0 0 10 10">
                     <circle cx="5" cy="5" r="4" fill={g.color} />
@@ -101,8 +91,7 @@ export function HomeDashboard() {
                     {g.label}
                   </p>
                   <div
-                    className="h-1 rounded-sm overflow-hidden"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
+                    className="h-1 rounded-sm overflow-hidden bg-[rgba(255,255,255,0.06)]"
                   >
                     <div
                       id={g.id}

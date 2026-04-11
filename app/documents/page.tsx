@@ -86,18 +86,11 @@ function DocExhibit({
 
   return (
     <div
-      className="grid max-lg:grid-cols-1"
-      style={{ gridTemplateColumns: "1fr 380px" }}
+      className="grid grid-cols-1 lg:grid-cols-[1fr_380px]"
     >
       {/* Image */}
       <div
-        className="p-5 border-r border-white/[0.08] overflow-y-auto max-lg:border-r-0 max-lg:border-b"
-        style={{
-          background: "var(--color-bg-mid)",
-          maxHeight: "calc(100vh - 62px)",
-          position: "sticky",
-          top: 62,
-        }}
+        className="p-5 border-r border-white/[0.08] overflow-y-auto max-lg:border-r-0 max-lg:border-b bg-[var(--color-bg-mid)] sticky top-[62px] max-h-[calc(100vh-62px)]"
       >
         <div className="relative inline-block w-full">
           <Image
@@ -113,19 +106,17 @@ function DocExhibit({
           {highlights.map(({ n, top, left, w, h, color }) => {
             const cfg = pinColorMap[color];
             return (
-              <div
-                key={n}
-                className="absolute pointer-events-none rounded-sm border-2 transition-opacity duration-200"
+            <div
+                className={`absolute pointer-events-none rounded-sm border-2 transition-opacity duration-200 ${
+                active === n ? "opacity-100" : "opacity-0"
+                } ${cfg.hlBorder} ${cfg.hlBg}`}
                 style={{
-                  top,
-                  left,
-                  width: w,
-                  height: h,
-                  opacity: active === n ? 1 : 0,
-                  borderColor: cfg.hlBorder,
-                  background: cfg.hlBg,
-                }}
-              />
+                 top,
+                left,
+                width: w,
+                height: h,
+            }}
+          />
             );
           })}
 
@@ -161,8 +152,7 @@ function DocExhibit({
 
       {/* Panel */}
       <div
-        className="flex flex-col"
-        style={{ background: "var(--color-bg-surface)" }}
+        className="flex flex-col bg-[var(--color-bg-surface)]"
       >
         {/* Legend */}
         <div
@@ -182,8 +172,7 @@ function DocExhibit({
           ).map(([color, label]) => (
             <div key={color} className="flex items-center gap-1">
               <div
-                className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ background: pinColorMap[color].bg }}
+                className={`w-2 h-2 rounded-full flex-shrink-0 ${pinColorMap[color].bg}`}
               />
               <span className="text-[0.55rem] uppercase tracking-[0.08em] text-white/60">
                 {label}
@@ -196,8 +185,7 @@ function DocExhibit({
         {!card ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-3 px-6 text-center">
             <span
-              className="text-2xl point-left"
-              style={{ color: "var(--color-light)" }}
+              className="text-2xl point-left text-[var(--color-light)]"
             >
               ←
             </span>
@@ -238,11 +226,7 @@ function DocExhibit({
             </div>
             {/* Nav */}
             <div
-              className="flex flex-wrap gap-1 px-6 py-3 border-t"
-              style={{
-                borderColor: "var(--color-border)",
-                background: "rgba(90,48,105,0.04)",
-              }}
+              className="flex flex-wrap gap-1 px-6 py-3 border-t border-[var(--color-border)] bg-[rgba(90,48,105,0.04)]"
             >
               {pins.map(({ n, color }) => (
                 <button

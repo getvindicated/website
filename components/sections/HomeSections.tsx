@@ -13,7 +13,7 @@ export function HomeCards() {
       <section className="px-20 py-24 max-md:px-6 max-md:py-16">
         <SectionLabel>What We Do</SectionLabel>
         <SectionTitle
-          style={{ fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties}
+          className="text-[clamp(2.4rem,5vw,4rem)]"
         >
           Three pillars of <em>automotive justice.</em>
         </SectionTitle>
@@ -54,8 +54,7 @@ export function HomeQuote() {
           innocence?&quot;
         </blockquote>
         <cite
-          className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-black tracking-tight block mb-2"
-          style={{ color: "var(--color-accent)" }}
+          className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-black tracking-tight block mb-2 text-[var(--color-accent)]"
         >
           Mary Wollstonecraft
         </cite>
@@ -71,8 +70,7 @@ export function HomeFounder() {
   return (
     <FadeUp>
       <div
-        className="grid items-center overflow-hidden"
-        style={{ gridTemplateColumns: "1fr 1fr" }}
+        className="grid grid-cols-2 items-center overflow-hidden"
       >
         <div className="px-20 py-16 max-lg:px-6">
           <SectionLabel>From the Founder</SectionLabel>
@@ -98,8 +96,7 @@ export function HomeFounder() {
           width={0}
           height={0}
           sizes="50vw"
-          className="w-full object-cover object-top fade-right max-lg:max-h-[260px]"
-          style={{ height: 420 }}
+          className="w-full h-[420px] object-cover object-top fade-right max-lg:max-h-[260px]"
         />
       </div>
     </FadeUp>

@@ -85,8 +85,7 @@ export function SectionTitle({
 export function Divider() {
   return (
     <hr
-      className="border-none h-px mx-20 max-md:mx-6"
-      style={{ background: "var(--color-border)" }}
+      className="border-none h-px mx-20 max-md:mx-6 bg-[var(--color-border)]"
     />
   );
 }
@@ -136,15 +135,10 @@ export function PageHero({
   return (
     <div className="relative overflow-hidden px-20 pt-40 pb-20 border-b border-white/[0.08] max-md:px-6 max-md:pt-28 max-md:pb-12">
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(180,130,210,0.12) 0%, transparent 60%)",
-        }}
+        className="absolute inset-0 pointer-events-none bg-[linear-gradient(135deg,rgba(180,130,210,0.12)_0%,transparent_60%)]"
       />
       <p
-        className="relative text-[0.8rem] font-semibold tracking-wide mb-5"
-        style={{ color: "var(--color-light)" }}
+        className="relative text-[0.8rem] font-semibold tracking-wide mb-5 text-[var(--color-light)]"
       >
         {kicker}
       </p>
@@ -165,16 +159,11 @@ export function PageHero({
 export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
   return (
     <blockquote
-      className="my-8 px-8 py-6"
-      style={{
-        borderLeft: "4px solid var(--color-vivid)",
-        background: "rgba(90,48,105,0.06)",
-      }}
+      className="my-8 px-8 py-6 border-l-4 border-[var(--color-vivid)] bg-[rgba(90,48,105,0.06)]"
     >
       <p className="text-[1.3rem] italic leading-[1.5] mb-3">{quote}</p>
       <cite
-        className="not-italic text-[0.65rem] uppercase tracking-widest"
-        style={{ color: "var(--color-light)" }}
+        className="not-italic text-[0.65rem] uppercase tracking-widest text-[var(--color-light)]"
       >
         {cite}
       </cite>
@@ -192,17 +181,11 @@ export function WarningBox({
 }) {
   return (
     <div
-      className="my-8 px-8 py-6"
-      style={{
-        background: "rgba(214,59,59,0.08)",
-        border: "1px solid rgba(214,59,59,0.3)",
-        borderLeft: "4px solid var(--color-red)",
-      }}
+      className="my-8 px-8 py-6 bg-[rgba(214,59,59,0.08)] border border-[rgba(214,59,59,0.3)] border-l-4 border-l-[var(--color-red)]"
     >
       {label && (
         <p
-          className="text-[0.78rem] font-bold mb-3"
-          style={{ color: "var(--color-red)" }}
+          className="text-[0.78rem] font-bold mb-3 text-[var(--color-red)]"
         >
           {label}
         </p>
@@ -224,17 +207,11 @@ export function InfoBox({
 }) {
   return (
     <div
-      className={`my-8 px-8 py-6 ${className}`}
-      style={{
-        background: "rgba(124,58,237,0.08)",
-        border: "1px solid var(--color-border)",
-        borderLeft: "4px solid var(--color-vivid)",
-      }}
+      className={`my-8 px-8 py-6 bg-[rgba(124,58,237,0.08)] border border-[var(--color-border)] border-l-4 border-l-[var(--color-vivid)] ${className}`}
     >
       {label && (
         <p
-          className="text-[0.65rem] tracking-wide mb-3"
-          style={{ color: "var(--color-light)" }}
+          className="text-[0.65rem] tracking-wide mb-3 text-[var(--color-light)]"
         >
           {label}
         </p>
@@ -255,15 +232,10 @@ export function Checklist({
       {items.map((item, i) => (
         <li
           key={i}
-          className="flex gap-4 py-4 text-[1.05rem] leading-[1.7]"
-          style={{ borderBottom: "1px solid var(--color-border)" }}
+          className="flex gap-4 py-4 text-[1.05rem] leading-[1.7] border-b border-[var(--color-border)]"
         >
           <span
-            style={{
-              color: "var(--color-light)",
-              flexShrink: 0,
-              marginTop: "0.1rem",
-            }}
+            className="text-[var(--color-light)] shrink-0 mt-[0.1rem]"
           >
             →
           </span>
@@ -281,12 +253,7 @@ export function Checklist({
 export function Tag({ children }: { children: ReactNode }) {
   return (
     <span
-      className="inline-block text-[0.72rem] font-medium px-3 py-1 mr-1 mt-1"
-      style={{
-        background: "rgba(124,58,237,0.15)",
-        border: "1px solid var(--color-border)",
-        color: "var(--color-light)",
-      }}
+      className="inline-block text-[0.72rem] font-medium px-3 py-1 mr-1 mt-1 bg-[rgba(124,58,237,0.15)] border border-[var(--color-border)] text-[var(--color-light)]"
     >
       {children}
     </span>
@@ -309,11 +276,10 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
 
   return (
     <div
-      className="mt-8"
-      style={{ borderTop: "1px solid var(--color-border)" }}
+      className="mt-8 border-t border-[var(--color-border)]"
     >
       {items.map((item, i) => (
-        <div key={i} style={{ borderBottom: "1px solid var(--color-border)" }}>
+        <div key={i} className="border-b border-[var(--color-border)]">
           <button
             className="w-full text-left py-7 flex justify-between items-center gap-4 bg-transparent border-none"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
@@ -322,9 +288,8 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
               {item.trigger}
             </h3>
             <span
-              className="text-[1.4rem] flex-shrink-0 transition-transform duration-300"
+              className="text-[1.4rem] flex-shrink-0 transition-transform duration-300 text-[var(--color-accent)]"
               style={{
-                color: "var(--color-accent)",
                 transform: openIndex === i ? "rotate(45deg)" : "none",
               }}
             >
@@ -350,17 +315,15 @@ type CardData = {
 export function CardGrid({ cards }: { cards: CardData[] }) {
   return (
     <div
-      className="grid gap-[1.5px] mt-12"
+      className="grid gap-[1.5px] mt-12 bg-[var(--color-border)]"
       style={{
-        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-        background: "var(--color-border)",
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))"
       }}
     >
       {cards.map((card) => (
         <div
           key={card.num}
-          className="p-10 transition-colors duration-200"
-          style={{ background: "var(--color-bg-surface)" }}
+          className="p-10 transition-colors duration-200 bg-[var(--color-bg-surface)]"
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLDivElement).style.background =
               "rgba(90,48,105,0.4)";
@@ -371,8 +334,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           }}
         >
           <p
-            className="text-[0.75rem] font-semibold mb-4"
-            style={{ color: "var(--color-light)" }}
+            className="text-[0.75rem] font-semibold mb-4 text-[var(--color-light)]"
           >
             {card.num}
           </p>
@@ -385,8 +347,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           {card.link && (
             <Link
               href={card.link.href}
-              className="mt-4 block text-[0.68rem] no-underline transition-colors hover:underline"
-              style={{ color: "var(--color-accent)" }}
+              className="mt-4 block text-[0.68rem] no-underline transition-colors hover:underline text-[var(--color-accent)]"
             >
               {card.link.label} →
             </Link>

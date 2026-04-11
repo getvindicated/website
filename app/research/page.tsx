@@ -71,8 +71,7 @@ export default function ResearchPage() {
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-20 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>Our Approach</SectionLabel>
@@ -164,8 +163,7 @@ export default function ResearchPage() {
       <FadeUp>
         <section
           id="study2"
-          className="px-20 py-24 max-md:px-6 max-md:py-16"
-          style={{ background: "var(--color-bg-surface)", margin: 0 }}
+          className="px-20 py-24 max-md:px-6 max-md:py-16 bg-[var(--color-bg-surface)] m-0"
         >
           <SectionLabel>The Evidence Base</SectionLabel>
           <SectionTitle className="mb-12">
@@ -175,26 +173,22 @@ export default function ResearchPage() {
           </SectionTitle>
 
           <div
-            className="grid gap-12 max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-12 grid-cols-2 max-lg:grid-cols-1"
           >
             {stats.map(({ source, items }) => (
               <div key={source}>
                 <p
-                  className="text-[0.65rem] tracking-wide mb-5"
-                  style={{ color: "var(--color-light)" }}
+                  className="text-[0.65rem] tracking-wide mb-5 text-[ar(--color-light)]"
                 >
                   {source} — Key Findings
                 </p>
                 {items.map(({ num, label }) => (
                   <div
                     key={num}
-                    className="p-8 mb-[1.5px]"
-                    style={{ background: "var(--color-bg-surface)" }}
+                    className="p-8 mb-[1.5px] bg-[var(--color-bg-surface)]"
                   >
                     <p
-                      className="text-[2.5rem] font-black leading-[1]"
-                      style={{ color: "var(--color-light)" }}
+                      className="text-[2.5rem] font-black leading-[1] text-[var(--color-light)]"
                     >
                       {num}
                     </p>
@@ -212,8 +206,7 @@ export default function ResearchPage() {
       {/* Sources */}
       <FadeUp>
         <section
-          className="px-20 py-16 max-md:px-6"
-          style={{ background: "var(--color-bg-page)", margin: 0 }}
+          className="px-20 py-16 max-md:px-6 bg-[var(--color-bg-page)] m-0"
         >
           <SectionLabel>References</SectionLabel>
           <SectionTitle className="mb-10">
@@ -248,12 +241,10 @@ export default function ResearchPage() {
             ].map(({ type, cite, note }) => (
               <div
                 key={type}
-                className="pl-6"
-                style={{ borderLeft: "3px solid var(--color-vivid)" }}
+                className="pl-6 border-l-[3px] border-l-[var(--color-vivid)]"
               >
                 <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-2"
-                  style={{ color: "var(--color-light)" }}
+                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-2 text-[var(--color-light)]"
                 >
                   {type}
                 </p>
@@ -274,8 +265,7 @@ export default function ResearchPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-20 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>Get Involved</SectionLabel>

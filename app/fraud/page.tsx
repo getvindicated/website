@@ -44,7 +44,7 @@ const cardData: Record<
   }
 > = {
   1: {
-    typeLabel: "01 \u2014 What You\u2019re Looking At",
+    typeLabel: "01 \u2014 What You&apos;re Looking At",
     color: "var(--color-light)",
     title: (
       <>
@@ -55,7 +55,7 @@ const cardData: Record<
     ),
     body: "This is the \u201cpink slip\u201d \u2014 issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours \u2014 no matter what you paid.",
     verdict:
-      "If a seller says you don\u2019t need the pink slip, that they\u2019ll \u201cmail it later,\u201d or that it\u2019s \u201clost\u201d \u2014 do not complete the purchase.",
+      "If a seller says you don&apos;t need the pink slip, that they&apos;ll \u201cmail it later,\u201d or that it&apos;s \u201clost\u201d \u2014 do not complete the purchase.",
     verdictColor: "rgba(124,58,237,0.08)",
   },
   2: {
@@ -68,9 +68,9 @@ const cardData: Record<
         <em>Owns This Car</em>
       </>
     ),
-    body: "The name here must match the person selling you the car. Red flags: name doesn\u2019t match the seller\u2019s ID, the registered owner is an unknown business, or the seller claims to be selling \u201con behalf of\u201d someone without documentation.",
+    body: "The name here must match the person selling you the car. Red flags: name doesn&apos;t match the seller&apos;s ID, the registered owner is an unknown business, or the seller claims to be selling \u201con behalf of\u201d someone without documentation.",
     verdict:
-      "Always ask for the seller\u2019s government-issued ID. The name must match the title exactly.",
+      "Always ask for the seller&apos;s government-issued ID. The name must match the title exactly.",
     verdictColor: "rgba(201,168,76,0.08)",
   },
   3: {
@@ -113,7 +113,7 @@ const cardData: Record<
         <em>In Front of You.</em>
       </>
     ),
-    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale \u2014 not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership \u2014 you don\u2019t know to whom, or when.",
+    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale \u2014 not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership \u2014 you don&apos;t know to whom, or when.",
     verdict:
       "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record.",
     verdictColor: "rgba(214,59,59,0.08)",
@@ -128,7 +128,7 @@ const cardData: Record<
         <em>Is a Federal Crime.</em>
       </>
     ),
-    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car\u2019s physical odometer \u2014 then cross-check against the vehicle history report.",
+    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car&apos;s physical odometer \u2014 then cross-check against the vehicle history report.",
     verdict:
       "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov.",
     verdictColor: "rgba(214,59,59,0.08)",
@@ -140,8 +140,7 @@ function PinkSlipExplainer() {
 
   return (
     <div
-      className="grid gap-12 mt-12 max-lg:grid-cols-1"
-      style={{ gridTemplateColumns: "1fr 1fr" }}
+      className="grid gap-12 mt-12 grid-cols-2 max-lg:grid-cols-1"
     >
       {/* Document image + pins */}
       <div className="relative select-none">
@@ -203,11 +202,10 @@ function PinkSlipExplainer() {
       </div>
 
       {/* Explainer panel */}
-      <div style={{ position: "sticky", top: "5rem" }}>
+      <div className="sticky top-20">
         {active === null ? (
           <div
-            className="p-8 text-center"
-            style={{ border: "1px solid var(--color-border)" }}
+            className="p-8 text-center border border-[var(--color-border)]"
           >
             <span className="block text-3xl mb-4 point-left">{"\u2190"}</span>
             <p className="text-[0.68rem] uppercase tracking-widest text-white/60">
@@ -288,13 +286,13 @@ const redFlags = [
           \u2014 the car has been sitting on the lot for weeks.
         </p>
         <p>
-          It\u2019s designed to stop you from getting an independent inspection,
+          It&apos;s designed to stop you from getting an independent inspection,
           sleeping on the decision, or comparing prices elsewhere.
         </p>
         <p>
-          <strong>Your response:</strong> \u201cI\u2019ll need 48 hours to have
+          <strong>Your response:</strong> \u201cI&apos;ll need 48 hours to have
           the car independently inspected.\u201d A legitimate dealer
-          accommodates this. A bad one won\u2019t \u2014 which is your answer.
+          accommodates this. A bad one won&apos;t \u2014 which is your answer.
         </p>
       </div>
     ),
@@ -310,13 +308,13 @@ const redFlags = [
           look good.
         </p>
         <p>
-          A $400/month payment sounds reasonable until you realize it\u2019s
+          A $400/month payment sounds reasonable until you realize it&apos;s
           over 84 months with a 20% APR. The four-square hides that math on
           purpose.
         </p>
         <p>
           <strong>Your response:</strong> Negotiate the out-the-door price only.
-          Don\u2019t discuss monthly payments until the total price is locked in
+          Don&apos;t discuss monthly payments until the total price is locked in
           writing.
         </p>
       </div>
@@ -330,13 +328,13 @@ const redFlags = [
           You drive off the lot thinking the deal is done. Days or weeks later,
           the dealer calls to say financing \u201cfell through\u201d and you
           need to return the car or sign a new contract at a higher interest
-          rate. By then, you\u2019ve already traded in your old car and
+          rate. By then, you&apos;ve already traded in your old car and
           emotionally moved on.
         </p>
         <p>
           <strong>Your response:</strong> Before you drive off, confirm in
           writing that financing is fully approved \u2014 not conditional. If
-          they can\u2019t confirm it, don\u2019t take the car home yet.
+          they can&apos;t confirm it, don&apos;t take the car home yet.
         </p>
       </div>
     ),
@@ -346,13 +344,13 @@ const redFlags = [
     body: (
       <div className="space-y-4">
         <p>
-          After you\u2019ve agreed on a price, you\u2019re handed a stack of
+          After you&apos;ve agreed on a price, you&apos;re handed a stack of
           paperwork in the finance office. Buried inside is often a mandatory
           arbitration clause \u2014 a provision that strips your right to sue
           the dealership in court if something goes wrong.
         </p>
         <p>
-          Arbitration clauses are legal and common, but they\u2019re rarely
+          Arbitration clauses are legal and common, but they&apos;re rarely
           explained. Studies have shown that consumers win in arbitration at far
           lower rates than in court.
         </p>
@@ -373,7 +371,7 @@ const redFlags = [
           After the sale is complete, some dealers call buyers back in claiming
           a form was missed or a \u201csmall correction\u201d is needed. What
           follows is a second round of signing, often done quickly and without a
-          chance to read what\u2019s being signed.
+          chance to read what&apos;s being signed.
         </p>
         <p>
           <strong>Your response:</strong> Never sign anything post-sale under
@@ -470,7 +468,7 @@ const kyrLaws = [
       "You can undo the purchase within 2 days \u2014 but you have to buy this right at signing.",
     body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used \u2014 but it gives you a legal exit.",
     action:
-      "Say this at signing: \u201cI\u2019d like to purchase the 2-day contract cancellation option.\u201d",
+      "Say this at signing: \u201cI&apos;d like to purchase the 2-day contract cancellation option.\u201d",
     actionColor: "var(--color-accent)",
   },
   {
@@ -492,7 +490,7 @@ const kyrLaws = [
       "Every add-on must be listed separately with its own price. No bundling.",
     body: 'Any financed item must appear as a separate line item. The dealer must show your monthly payment with and without each optional item. One big bundled number presented as "the payment" is a California law violation.',
     action:
-      "Red flag: \u201cIt\u2019s all just one package\u201d \u2014 that\u2019s not legal. Ask for itemized line items, in writing.",
+      "Red flag: \u201cIt&apos;s all just one package\u201d \u2014 that&apos;s not legal. Ask for itemized line items, in writing.",
     actionColor: "var(--color-red)",
   },
   {
@@ -516,22 +514,21 @@ export default function FraudPage() {
           <>
             Know What
             <br />
-            <em>They\u2019re Doing.</em>
+            <em>They&apos;re Doing.</em>
           </>
         }
-        subtitle="Real tactics used against buyers. Named, explained, and countered \u2014 because knowing you\u2019re being scammed is the first step to walking away."
+        subtitle="Real tactics used against buyers. Named, explained, and countered \u2014 because knowing you&apos;re being scammed is the first step to walking away."
       />
 
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-20 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>The Reality</SectionLabel>
               <SectionTitle>
-                This isn\u2019t paranoia.
+                This isn&apos;t paranoia.
                 <br />
                 <em>This is pattern recognition.</em>
               </SectionTitle>
@@ -541,7 +538,7 @@ export default function FraudPage() {
                 Every tactic on this page has a name. Once you know the name,
                 you can see it coming.{" "}
                 <strong className="text-white">
-                  You\u2019re not being difficult. You\u2019re being smart.
+                  You&apos;re not being difficult. You&apos;re being smart.
                 </strong>
               </p>
             </div>
@@ -554,8 +551,7 @@ export default function FraudPage() {
       {/* Pink Slip Explainer */}
       <FadeUp>
         <section
-          className="px-20 py-16 max-md:px-6"
-          style={{ background: "var(--color-bg-page)", margin: 0 }}
+          className="px-20 py-16 max-md:px-6 bg-[var(--color-bg-page)] m-0"
         >
           <SectionLabel>Document Explainer \u2014 The Pink Slip</SectionLabel>
           <SectionTitle>
@@ -601,8 +597,7 @@ export default function FraudPage() {
       <FadeUp>
         <section
           id="know-your-rights"
-          className="px-20 py-24 max-md:px-6 max-md:py-16"
-          style={{ background: "var(--color-bg-surface)", margin: 0 }}
+          className="px-20 py-24 max-md:px-6 max-md:py-16 bg-[var(--color-bg-surface)] m-0"
         >
           <SectionLabel>
             Know Your Rights \u2014 California & Federal Law
@@ -611,21 +606,16 @@ export default function FraudPage() {
             The law is already <em>on your side.</em>
           </SectionTitle>
           <p className="text-[1.1rem] text-white/80 leading-[1.75] max-w-[680px] mb-12">
-            Most buyers don\u2019t know what dealers are legally required to do.
-            Here\u2019s what the law actually says \u2014 in plain English
+            Most buyers don&apos;t know what dealers are legally required to do.
+            Here&apos;s what the law actually says \u2014 in plain English
             \u2014 and exactly what to say when they try to ignore it.
           </p>
 
-          <div style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div className="border-t border-[var(--color-border)]">
             {kyrLaws.map((law) => (
               <div
                 key={law.num}
-                className="grid py-10 transition-colors duration-150 max-md:grid-cols-1"
-                style={{
-                  gridTemplateColumns: "56px 1fr",
-                  gap: "0 2rem",
-                  borderBottom: "1px solid var(--color-border)",
-                }}
+                className="grid grid-cols-[56px_1fr] gap-x-8 border-b border-[var(--color-border)] py-10 transition-colors duration-150 max-md:grid-cols-1 max-md:gap-y-4"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLDivElement).style.background =
                     "rgba(207,139,216,0.04)";
@@ -636,8 +626,7 @@ export default function FraudPage() {
                 }}
               >
                 <p
-                  className="text-[1.1rem] font-black pt-1 opacity-60"
-                  style={{ color: "var(--color-accent)" }}
+                  className="text-[1.1rem] font-black pt-1 opacity-60 text-[var(--color-accent)]"
                 >
                   {law.num}
                 </p>
@@ -670,8 +659,7 @@ export default function FraudPage() {
           </div>
 
           <div
-            className="flex items-center justify-between flex-wrap gap-6 pt-10 mt-4"
-            style={{ borderTop: "1px solid var(--color-border)" }}
+            className="flex items-center justify-between flex-wrap gap-6 pt-10 mt-4 border-t border-[var(--color-border)]"
           >
             <p className="text-base font-semibold">
               You walked in knowing nothing. Now you know everything.
@@ -719,7 +707,7 @@ export default function FraudPage() {
               },
               {
                 strong: "Leave an honest public review.",
-                text: "Google, Yelp, BBB. You\u2019re protecting the next person.",
+                text: "Google, Yelp, BBB. You&apos;re protecting the next person.",
               },
             ]}
           />

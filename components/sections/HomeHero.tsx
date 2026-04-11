@@ -81,27 +81,17 @@ export function HomeHero() {
 
   return (
     <div
-      className="grid min-h-[500px] relative"
-      style={{ gridTemplateColumns: "1fr 1fr" }}
+      className="grid min-h-[500px] relative grid-cols-2"
     >
       {/* Glow */}
       <div
-        className="absolute pointer-events-none"
-        style={{
-          top: "-20%",
-          right: "-10%",
-          width: "70%",
-          height: "140%",
-          background:
-            "radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%)",
-        }}
+        className="absolute pointer-events-none top-[-20%] right-[-10%] w-[70%] h-[140%] bg-[radial-gradient(ellipse,rgba(124,58,237,0.12)_0%,transparent_70%)]"
       />
 
       {/* Left — text */}
       <div className="flex flex-col justify-center px-20 py-16 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
         <p
-          className="text-[0.82rem] font-semibold mb-5"
-          style={{ color: "var(--color-light)" }}
+          className="text-[0.82rem] font-semibold mb-5 text-[var(--color-light)]"
         >
           A Nonprofit for Automotive Justice
         </p>
@@ -127,42 +117,27 @@ export function HomeHero() {
 
       {/* Right — stat block */}
       <div
-        className="flex items-center justify-center px-8 py-16 relative max-lg:px-6 max-lg:pb-12"
-        style={{ paddingRight: "5rem" }}
+        className="flex items-center justify-center px-8 py-16 relative max-lg:px-6 max-lg:pb-12 pr-[5rem]"
       >
         {/* Background illustration */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "url('/illus-woman-dealership.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-            opacity: 0.12,
-          }}
+          className="absolute inset-0 pointer-events-none bg-[url('/illus-woman-dealership.png')] bg-cover bg-[center_top] opacity-[0.12]"
         />
         {/* Stats */}
         <div
-          className="grid w-full max-w-[440px] relative"
-          style={{
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1.5px",
-            background: "var(--color-border)",
-          }}
+          className="grid w-full max-w-[440px] relative grid-cols-2 gap-[1.5px] bg-[var(--color-border)]"
         >
           {stats.map((s) => (
             <div
               key={s.id}
-              className="relative p-7"
-              style={{ background: "var(--color-bg-surface)" }}
+              className="relative p-7 bg-[var(--color-bg-surface)]"
             >
               <div
-                className="absolute top-0 left-0 w-[3px] h-full"
-                style={{ background: "var(--color-vivid)" }}
+                className="absolute top-0 left-0 w-[3px] h-full bg-[var(--color-vivid)]"
               />
               <div
                 id={s.id}
-                className="text-[2.2rem] font-black leading-[1] mb-1"
-                style={{ color: "var(--color-light)" }}
+                className="text-[2.2rem] font-black leading-[1] mb-1 text-[var(--color-light)]"
               >
                 {s.prefix}0{s.suffix}
               </div>

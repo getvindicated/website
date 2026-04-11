@@ -29,9 +29,8 @@ export default function AboutPage() {
       <FadeUp>
         <section id="why" className="px-20 py-24 max-md:px-6 max-md:py-16">
           <SectionLabel>Why We Exist</SectionLabel>
-          <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+          <div 
+            className = "grid gap-20 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             <div>
               <SectionTitle
@@ -91,17 +90,10 @@ export default function AboutPage() {
       <FadeUp>
         <section
           id="mission"
-          className="relative overflow-hidden px-20 py-24 max-md:px-6 max-md:py-16"
-          style={{ background: "var(--color-bg-page)", margin: 0 }}
+          className="relative overflow-hidden px-20 py-24 max-md:px-6 max-md:py-16 bg-[var(--color-bg-page)] m-0"
         >
           <div
-            className="absolute right-0 top-0 bottom-0 w-[35%] pointer-events-none"
-            style={{
-              backgroundImage: "url('/illus-woman-keys.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center top",
-              opacity: 0.18,
-            }}
+            className="absolute right-0 top-0 bottom-0 w-[35%] pointer-events-none bg-[url('/illus-woman-keys.png')] bg-cover bg-top opacity-[0.18]"
           />
           <SectionLabel>Our Mission</SectionLabel>
           <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black leading-[0.95] tracking-tight mb-3">
@@ -112,8 +104,7 @@ export default function AboutPage() {
             time.
           </p>
           <div
-            className="grid gap-12 max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr 1fr" }}
+            className="grid gap-12 grid-cols-3 max-lg:grid-cols-1"
           >
             {[
               {
@@ -157,8 +148,7 @@ export default function AboutPage() {
           </p>
 
           <div
-            className="grid gap-16 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid gap-16 items-start grid-cols-2 max-lg:grid-cols-1"
           >
             {/* Strikes */}
             <div className="space-y-8">
@@ -188,15 +178,10 @@ export default function AboutPage() {
               ].map(({ label, body }) => (
                 <div
                   key={label}
-                  className="p-8"
-                  style={{
-                    background: "var(--color-bg-page)",
-                    borderLeft: "4px solid var(--color-red)",
-                  }}
+                  className="p-8 bg-[var(--color-bg-page)] border-l-4 border-[var(--color-red)]"
                 >
                   <p
-                    className="text-[0.75rem] font-extrabold uppercase tracking-[0.08em] mb-3"
-                    style={{ color: "var(--color-red)" }}
+                    className="text-[0.75rem] font-extrabold uppercase tracking-[0.08em] mb-3 text-[var(--color-red)]"
                   >
                     {label}
                   </p>
@@ -219,15 +204,10 @@ export default function AboutPage() {
                 cite="— Rana Darwich, Founder of VINdicated"
               />
               <div
-                className="p-10"
-                style={{
-                  background: "var(--color-bg-page)",
-                  border: "1px solid var(--color-border)",
-                }}
+                className="p-10 bg-[var(--color-bg-page)] border border-[var(--color-border)]"
               >
                 <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-4"
-                  style={{ color: "var(--color-accent)" }}
+                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-4 text-[var(--color-accent)]"
                 >
                   About Rana Darwich
                 </p>
@@ -241,14 +221,10 @@ export default function AboutPage() {
                 </p>
               </div>
               <div
-                style={{
-                  borderLeft: "3px solid var(--color-accent)",
-                  paddingLeft: "2rem",
-                }}
+                className = "border-l-[3px] border-[var(--color-accent)] pl-8"
               >
                 <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-3"
-                  style={{ color: "var(--color-accent)" }}
+                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-3 text-[var(--color-accent)]"
                 >
                   Mary Wollstonecraft — A Vindication of the Rights of Woman,
                   1792
@@ -287,11 +263,7 @@ export default function AboutPage() {
             no catch.
           </p>
           <div
-            className="grid gap-[1.5px]"
-            style={{
-              gridTemplateColumns: "1fr 1fr",
-              background: "var(--color-border)",
-            }}
+            className="grid gap-[1.5px] grid-cols-2 bg-[var(--color-border)]"
           >
             {[
               {
@@ -317,12 +289,11 @@ export default function AboutPage() {
             ].map(({ cat, title, body }) => (
               <div
                 key={cat}
-                className="p-10"
-                style={{ background: "var(--color-bg-surface)" }}
+                className="p-10 bg-[var(--color-bg-surface)]"
               >
                 <p
-                  className="text-[0.72rem] font-bold uppercase tracking-[0.06em] mb-3"
-                  style={{ color: "var(--color-accent)" }}
+                  className="text-[0.72rem] font-bold uppercase tracking-[0.06em] mb-3 text-[var(--color-accent)]"
+
                 >
                   {cat}
                 </p>
