@@ -44,7 +44,7 @@ const cardData: Record<
   }
 > = {
   1: {
-    typeLabel: "01 \u2014 What You&apos;re Looking At",
+    typeLabel: "01 — What You're Looking At",
     color: "var(--color-light)",
     title: (
       <>
@@ -53,13 +53,13 @@ const cardData: Record<
         <em>Certificate of Title</em>
       </>
     ),
-    body: "This is the \u201cpink slip\u201d \u2014 issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours \u2014 no matter what you paid.",
+    body: "This is the \u201cpink slip\u201d — issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours — no matter what you paid.",
     verdict:
-      "If a seller says you don&apos;t need the pink slip, that they&apos;ll \u201cmail it later,\u201d or that it&apos;s \u201clost\u201d \u2014 do not complete the purchase.",
+      "If a seller says you don't need the pink slip, that they'll \u201cmail it later,\u201d or that it's \u201clost\u201d — do not complete the purchase.",
     verdictColor: "rgba(124,58,237,0.08)",
   },
   2: {
-    typeLabel: "02 \u2014 Registered Owner",
+    typeLabel: "02 — Registered Owner",
     color: "var(--color-light)",
     title: (
       <>
@@ -68,13 +68,13 @@ const cardData: Record<
         <em>Owns This Car</em>
       </>
     ),
-    body: "The name here must match the person selling you the car. Red flags: name doesn&apos;t match the seller&apos;s ID, the registered owner is an unknown business, or the seller claims to be selling \u201con behalf of\u201d someone without documentation.",
+    body: "The name here must match the person selling you the car. Red flags: name doesn't match the seller's ID, the registered owner is an unknown business, or the seller claims to be selling \u201con behalf of\u201d someone without documentation.",
     verdict:
-      "Always ask for the seller&apos;s government-issued ID. The name must match the title exactly.",
+      "Always ask for the seller's government-issued ID. The name must match the title exactly.",
     verdictColor: "rgba(201,168,76,0.08)",
   },
   3: {
-    typeLabel: "03 \u2014 Critical Red Flag Zone",
+    typeLabel: "03 — Critical Red Flag Zone",
     color: "var(--color-red)",
     title: (
       <>
@@ -83,13 +83,13 @@ const cardData: Record<
         <em>Check This First.</em>
       </>
     ),
-    body: "This box records DMV flags \u2014 salvage designation, lemon law buyback, flood damage, or prior theft recovery. A \u201csalvage\u201d title means the car was declared a total loss by an insurer. Both salvage and rebuilt titles dramatically affect value.",
+    body: "This box records DMV flags — salvage designation, lemon law buyback, flood damage, or prior theft recovery. A \u201csalvage\u201d title means the car was declared a total loss by an insurer. Both salvage and rebuilt titles dramatically affect value.",
     verdict:
       "If you see any text in the Vehicle History box, research exactly what it means before proceeding.",
     verdictColor: "rgba(214,59,59,0.08)",
   },
   4: {
-    typeLabel: "04 \u2014 Vehicle ID Number",
+    typeLabel: "04 — Vehicle ID Number",
     color: "var(--color-light)",
     title: (
       <>
@@ -98,13 +98,13 @@ const cardData: Record<
         <em>Match Exactly.</em>
       </>
     ),
-    body: "The VIN is a unique 17-character code assigned at manufacture. Physically locate it on the car (dashboard and door jamb) and verify it matches this document character by character. A mismatch could indicate VIN cloning \u2014 fraud where a stolen car takes the identity of a legitimate one.",
+    body: "The VIN is a unique 17-character code assigned at manufacture. Physically locate it on the car (dashboard and door jamb) and verify it matches this document character by character. A mismatch could indicate VIN cloning — fraud where a stolen car takes the identity of a legitimate one.",
     verdict:
       "Enter the VIN at vehiclehistory.gov (free) or Carfax to check accident history and title status before anything else.",
     verdictColor: "rgba(124,58,237,0.08)",
   },
   5: {
-    typeLabel: "05 \u2014 Signature Section",
+    typeLabel: "05 — Signature Section",
     color: "var(--color-red)",
     title: (
       <>
@@ -113,13 +113,13 @@ const cardData: Record<
         <em>In Front of You.</em>
       </>
     ),
-    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale \u2014 not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership \u2014 you don&apos;t know to whom, or when.",
+    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale — not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership — you don't know to whom, or when.",
     verdict:
       "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record.",
     verdictColor: "rgba(214,59,59,0.08)",
   },
   6: {
-    typeLabel: "06 \u2014 Odometer Disclosure",
+    typeLabel: "06 — Odometer Disclosure",
     color: "var(--color-red)",
     title: (
       <>
@@ -128,7 +128,7 @@ const cardData: Record<
         <em>Is a Federal Crime.</em>
       </>
     ),
-    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car&apos;s physical odometer \u2014 then cross-check against the vehicle history report.",
+    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car's physical odometer — then cross-check against the vehicle history report.",
     verdict:
       "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov.",
     verdictColor: "rgba(214,59,59,0.08)",
@@ -207,7 +207,7 @@ function PinkSlipExplainer() {
           <div
             className="p-8 text-center border border-[var(--color-border)]"
           >
-            <span className="block text-3xl mb-4 point-left">{"\u2190"}</span>
+            <span className="block text-3xl mb-4 point-left">{"←"}</span>
             <p className="text-[0.68rem] uppercase tracking-widest text-white/60">
               Click any numbered pin to learn what that section means
             </p>
@@ -276,29 +276,29 @@ function PinkSlipExplainer() {
 
 const redFlags = [
   {
-    trigger: '"Buy Today or Lose It" \u2014 Artificial Urgency',
+    trigger: '"Buy Today or Lose It" — Artificial Urgency',
     body: (
       <div className="space-y-4">
         <p>
           One of the oldest tactics in the playbook. The salesperson implies
           another buyer is coming in tonight, the deal expires at close of
           business, or the price goes up tomorrow. None of this is usually true
-          \u2014 the car has been sitting on the lot for weeks.
+          — the car has been sitting on the lot for weeks.
         </p>
         <p>
           It&apos;s designed to stop you from getting an independent inspection,
           sleeping on the decision, or comparing prices elsewhere.
         </p>
         <p>
-          <strong>Your response:</strong> \u201cI&apos;ll need 48 hours to have
-          the car independently inspected.\u201d A legitimate dealer
-          accommodates this. A bad one won&apos;t \u2014 which is your answer.
+          <strong>Your response:</strong> &ldquo;I&apos;ll need 48 hours to have
+          the car independently inspected.&rdquo; A legitimate dealer
+          accommodates this. A bad one won&apos;t — which is your answer.
         </p>
       </div>
     ),
   },
   {
-    trigger: "The Four-Square Method \u2014 Payment Confusion",
+    trigger: "The Four-Square Method — Payment Confusion",
     body: (
       <div className="space-y-4">
         <p>
@@ -321,32 +321,32 @@ const redFlags = [
     ),
   },
   {
-    trigger: "Spot Delivery Scam \u2014 \u201cYo-Yo\u201d Financing",
+    trigger: 'Spot Delivery Scam — "Yo-Yo" Financing',
     body: (
       <div className="space-y-4">
         <p>
           You drive off the lot thinking the deal is done. Days or weeks later,
-          the dealer calls to say financing \u201cfell through\u201d and you
+          the dealer calls to say financing &ldquo;fell through&rdquo; and you
           need to return the car or sign a new contract at a higher interest
           rate. By then, you&apos;ve already traded in your old car and
           emotionally moved on.
         </p>
         <p>
           <strong>Your response:</strong> Before you drive off, confirm in
-          writing that financing is fully approved \u2014 not conditional. If
+          writing that financing is fully approved — not conditional. If
           they can&apos;t confirm it, don&apos;t take the car home yet.
         </p>
       </div>
     ),
   },
   {
-    trigger: "The Finance Office Ambush \u2014 Hidden Arbitration Clauses",
+    trigger: "The Finance Office Ambush — Hidden Arbitration Clauses",
     body: (
       <div className="space-y-4">
         <p>
           After you&apos;ve agreed on a price, you&apos;re handed a stack of
           paperwork in the finance office. Buried inside is often a mandatory
-          arbitration clause \u2014 a provision that strips your right to sue
+          arbitration clause — a provision that strips your right to sue
           the dealership in court if something goes wrong.
         </p>
         <p>
@@ -356,7 +356,7 @@ const redFlags = [
         </p>
         <p>
           <strong>What to do:</strong> Read every document before signing. If
-          you see \u201carbitration,\u201d ask what it means and whether you can
+          you see &ldquo;arbitration,&rdquo; ask what it means and whether you can
           opt out. Some contracts allow you to opt out within 30 days of
           signing.
         </p>
@@ -364,12 +364,12 @@ const redFlags = [
     ),
   },
   {
-    trigger: "Post-Sale Document Pressure \u2014 The Second Signing",
+    trigger: "Post-Sale Document Pressure — The Second Signing",
     body: (
       <div className="space-y-4">
         <p>
           After the sale is complete, some dealers call buyers back in claiming
-          a form was missed or a \u201csmall correction\u201d is needed. What
+          a form was missed or a &ldquo;small correction&rdquo; is needed. What
           follows is a second round of signing, often done quickly and without a
           chance to read what&apos;s being signed.
         </p>
@@ -383,29 +383,29 @@ const redFlags = [
     ),
   },
   {
-    trigger: "Add-Ons & Upsells \u2014 The Finance Office Markup",
+    trigger: "Add-Ons & Upsells — The Finance Office Markup",
     body: (
       <div className="space-y-4">
         <p>
           The finance office is where dealers make a significant portion of
-          their profit \u2014 not on the car itself, but on add-ons presented as
+          their profit — not on the car itself, but on add-ons presented as
           standard. Common examples:
         </p>
         <ul className="list-disc ml-6 space-y-1">
           <li>
-            <strong>Nitrogen tire inflation ($200\u2013$400)</strong> \u2014 Air
+            <strong>Nitrogen tire inflation ($200–$400)</strong> — Air
             is already 78% nitrogen. Widely considered a scam.
           </li>
           <li>
-            <strong>VIN etching ($200\u2013$400)</strong> \u2014 You can buy a
+            <strong>VIN etching ($200–$400)</strong> — You can buy a
             kit and do this yourself for under $25.
           </li>
           <li>
-            <strong>Paint/fabric protection ($300\u2013$1,000)</strong> \u2014
+            <strong>Paint/fabric protection ($300–$1,000)</strong> —
             Usually a basic wax application at extreme markup.
           </li>
           <li>
-            <strong>GAP insurance (heavily marked up)</strong> \u2014
+            <strong>GAP insurance (heavily marked up)</strong> —
             Legitimate, but available much cheaper through your own insurer.
           </li>
         </ul>
@@ -421,17 +421,17 @@ const redFlags = [
 const kyrLaws = [
   {
     num: "01",
-    tag: "Federal \u2014 Truth in Lending Act (TILA)",
+    tag: "Federal — Truth in Lending Act (TILA)",
     tagColor: "#6ab4ff",
     title: "Your APR must be disclosed before you sign. No exceptions.",
     body: "The dealer is required by federal law to show you your Annual Percentage Rate, the total finance charge, and the total cost of the loan before you sign anything. On a $15,000 loan, the difference between 7% APR and 30% APR is over $8,000.",
     action:
-      "Say this: \u201cShow me the APR, finance charge, and total of payments right now, before I sign.\u201d",
+      "\u201cShow me the APR, finance charge, and total of payments right now, before I sign.\u201d",
     actionColor: "var(--color-gold)",
   },
   {
     num: "02",
-    tag: "Federal \u2014 FTC Used Car Rule",
+    tag: "Federal — FTC Used Car Rule",
     tagColor: "#6ab4ff",
     title: "Every used car must have a Buyers Guide in the window.",
     body: 'By law, every used car on a dealer lot must display a Buyers Guide sticker disclosing whether it has a warranty, what the warranty covers, or that it\'s sold "as is." The FTC can fine dealers up to $51,744 per missing sticker.',
@@ -441,7 +441,7 @@ const kyrLaws = [
   },
   {
     num: "03",
-    tag: "Federal \u2014 Motor Vehicle Information Act",
+    tag: "Federal — Motor Vehicle Information Act",
     tagColor: "#6ab4ff",
     title: "Odometer rollback is a federal felony.",
     body: "The dealer must provide a written odometer disclosure at the time of sale. Cross-reference the number on the contract with the physical odometer, the Carfax report, and any service records. All three must match.",
@@ -451,7 +451,7 @@ const kyrLaws = [
   },
   {
     num: "04",
-    tag: "Federal \u2014 Fair Credit Reporting Act",
+    tag: "Federal — Fair Credit Reporting Act",
     tagColor: "#6ab4ff",
     title:
       "If they pull your credit, you're entitled to see exactly what they found.",
@@ -462,18 +462,18 @@ const kyrLaws = [
   },
   {
     num: "05",
-    tag: "California \u2014 AB68",
+    tag: "California — AB68",
     tagColor: "var(--color-light)",
     title:
-      "You can undo the purchase within 2 days \u2014 but you have to buy this right at signing.",
-    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used \u2014 but it gives you a legal exit.",
+      "You can undo the purchase within 2 days — but you have to buy this right at signing.",
+    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used — but it gives you a legal exit.",
     action:
-      "Say this at signing: \u201cI&apos;d like to purchase the 2-day contract cancellation option.\u201d",
+      "\u201cI\u2019d like to purchase the 2-day contract cancellation option.\u201d",
     actionColor: "var(--color-accent)",
   },
   {
     num: "06",
-    tag: "California \u2014 AB68",
+    tag: "California — AB68",
     tagColor: "var(--color-light)",
     title:
       "Interest rate markups are capped. The dealer can't charge whatever they want.",
@@ -484,13 +484,13 @@ const kyrLaws = [
   },
   {
     num: "07",
-    tag: "California \u2014 AB68",
+    tag: "California — AB68",
     tagColor: "var(--color-light)",
     title:
       "Every add-on must be listed separately with its own price. No bundling.",
     body: 'Any financed item must appear as a separate line item. The dealer must show your monthly payment with and without each optional item. One big bundled number presented as "the payment" is a California law violation.',
     action:
-      "Red flag: \u201cIt&apos;s all just one package\u201d \u2014 that&apos;s not legal. Ask for itemized line items, in writing.",
+      "\u201cIt\u2019s all just one package\u201d — that\u2019s not legal. Ask for itemized line items, in writing.",
     actionColor: "var(--color-red)",
   },
   {
@@ -498,9 +498,9 @@ const kyrLaws = [
     tag: "Prohibited",
     tagColor: "var(--color-red)",
     title: "They cannot require an add-on as a condition of financing.",
-    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \"have to\" take an add-on to qualify \u2014 that's a lie, and it's illegal.",
+    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \"have to\" take an add-on to qualify — that's a lie, and it's illegal.",
     action:
-      "Say this: \u201cPlease show me in writing where it says this is required to get financing.\u201d Watch what happens next.",
+      "\u201cPlease show me in writing where it says this is required to get financing.\u201d Watch what happens next.",
     actionColor: "var(--color-red)",
   },
 ];
@@ -509,7 +509,7 @@ export default function FraudPage() {
   return (
     <>
       <PageHero
-        kicker="Protection \u2014 Fraud Prevention"
+        kicker="Protection — Fraud Prevention"
         title={
           <>
             Know What
@@ -517,7 +517,7 @@ export default function FraudPage() {
             <em>They&apos;re Doing.</em>
           </>
         }
-        subtitle="Real tactics used against buyers. Named, explained, and countered \u2014 because knowing you&apos;re being scammed is the first step to walking away."
+        subtitle="Real tactics used against buyers. Named, explained, and countered — because knowing you're being scammed is the first step to walking away."
       />
 
       <FadeUp>
@@ -553,15 +553,15 @@ export default function FraudPage() {
         <section
           className="px-20 py-16 max-md:px-6 bg-[var(--color-bg-page)] m-0"
         >
-          <SectionLabel>Document Explainer \u2014 The Pink Slip</SectionLabel>
+          <SectionLabel>Document Explainer — The Pink Slip</SectionLabel>
           <SectionTitle>
             This document is your
             <br />
             <em>only proof you own the car.</em>
           </SectionTitle>
           <p className="text-base text-white leading-[1.75] max-w-[680px] mt-4">
-            A California Certificate of Title \u2014 called the \u201cpink
-            slip\u201d \u2014 is the legal document that proves vehicle
+            A California Certificate of Title — called the &ldquo;pink
+            slip&rdquo; — is the legal document that proves vehicle
             ownership. Without it in your name, the car is not legally yours, no
             matter what you paid. Click the numbered pins to learn what each
             section means.
@@ -600,15 +600,15 @@ export default function FraudPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16 bg-[var(--color-bg-surface)] m-0"
         >
           <SectionLabel>
-            Know Your Rights \u2014 California & Federal Law
+            Know Your Rights — California &amp; Federal Law
           </SectionLabel>
           <SectionTitle className="mb-3">
             The law is already <em>on your side.</em>
           </SectionTitle>
           <p className="text-[1.1rem] text-white/80 leading-[1.75] max-w-[680px] mb-12">
             Most buyers don&apos;t know what dealers are legally required to do.
-            Here&apos;s what the law actually says \u2014 in plain English
-            \u2014 and exactly what to say when they try to ignore it.
+            Here&apos;s what the law actually says — in plain English
+            — and exactly what to say when they try to ignore it.
           </p>
 
           <div className="border-t border-[var(--color-border)]">
@@ -695,7 +695,7 @@ export default function FraudPage() {
               },
               {
                 strong: "File with the FTC.",
-                text: "reportfraud.ftc.gov \u2014 complaints build the database used to pursue enforcement.",
+                text: "reportfraud.ftc.gov — complaints build the database used to pursue enforcement.",
               },
               {
                 strong: "Contact the manufacturer.",
@@ -703,11 +703,11 @@ export default function FraudPage() {
               },
               {
                 strong: "Consider a consumer protection attorney.",
-                text: "Many work on contingency \u2014 you pay nothing upfront.",
+                text: "Many work on contingency — you pay nothing upfront.",
               },
               {
                 strong: "Leave an honest public review.",
-                text: "Google, Yelp, BBB. You&apos;re protecting the next person.",
+                text: "Google, Yelp, BBB. You're protecting the next person.",
               },
             ]}
           />
