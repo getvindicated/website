@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -222,6 +222,11 @@ function EngineDiagram() {
   const [active, setActive] = useState<number | null>(null);
   const card = active ? engineCards[active] : null;
   const pin = active ? enginePins.find((p) => p.id === active) : null;
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0 });
+  }, [active]);
 
   return (
     <div
@@ -357,7 +362,7 @@ function EngineDiagram() {
                 </p>
               </div>
 
-              <div className="px-7 py-5 flex-1 overflow-y-auto space-y-4 scrollbar-none">
+              <div ref={scrollRef} className="px-7 py-5 flex-1 overflow-y-auto space-y-4 scrollbar-none">
                 <div>
                   <p
                     className="text-[0.75rem] font-bold uppercase tracking-[0.06em] mb-2"
