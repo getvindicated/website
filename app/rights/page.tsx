@@ -1,3 +1,24 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Know Your Rights",
+  description:
+    "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
+  openGraph: {
+    title: "Know Your Rights",
+    description:
+      "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
+    url: "/rights",
+    type: "website",
+    images: [{ url: "/logo-full.png", alt: "VINdicated — Know Your Rights" }],
+  },
+  twitter: {
+    title: "Know Your Rights",
+    description:
+      "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
+  },
+};
+
 export default function RightsPage() {
     return (
       <div className="max-w-3xl mx-auto px-6 py-12">

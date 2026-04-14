@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "404 — Page Not Found",
+  description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
+  openGraph: {
+    title: "404 — Page Not Found",
+    description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
+    type: "website",
+    images: [{ url: "/logo-full.png", alt: "VINdicated" }],
+  },
+};
+
 export default function NotFound() {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-center px-4">
