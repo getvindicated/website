@@ -20,12 +20,42 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://getvindicated.org"
+  ),
   title: {
     default: "VINdicated — Educate. Empower. Vindicate.",
     template: "%s | VINdicated",
   },
   description:
     "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
+  openGraph: {
+    type: "website",
+    siteName: "VINdicated",
+    title: {
+      default: "VINdicated — Educate. Empower. Vindicate.",
+      template: "%s | VINdicated",
+    },
+    description:
+      "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
+    url: "/",
+    images: [
+      {
+        url: "/logo-full.png",
+        alt: "VINdicated",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: {
+      default: "VINdicated — Educate. Empower. Vindicate.",
+      template: "%s | VINdicated",
+    },
+    description:
+      "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
+    images: ["/logo-full.png"],
+  },
 };
 
 export default function RootLayout({

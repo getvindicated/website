@@ -9,6 +9,19 @@ import { Divider } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Educate. Empower. Vindicate.",
+  openGraph: {
+    title: "Educate. Empower. Vindicate.",
+    description:
+      "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.",
+    url: "/",
+    type: "website",
+    images: [{ url: "/logo-full.png", alt: "VINdicated" }],
+  },
+  twitter: {
+    title: "Educate. Empower. Vindicate.",
+    description:
+      "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.",
+  },
 };
 
 export default function HomePage() {
