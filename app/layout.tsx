@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/logo-full.png",
+        url: "/illus-woman-dealership.png",
         alt: "VINdicated",
       },
     ],
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     },
     description:
       "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
-    images: ["/logo-full.png"],
+    images: ["/illus-woman-dealership.png"],
   },
 };
 

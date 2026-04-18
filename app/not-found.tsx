@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "404 — Page Not Found",
     description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
     type: "website",
-    images: [{ url: "/logo-full.png", alt: "VINdicated" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated" }],
   },
 };
 

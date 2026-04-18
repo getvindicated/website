@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
     url: "/research",
     type: "website",
-    images: [{ url: "/logo-full.png", alt: "VINdicated — Research" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — Research" }],
   },
   twitter: {
     title: "Research",
