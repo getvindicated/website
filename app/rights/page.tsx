@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
     url: "/rights",
     type: "website",
-    images: [{ url: "/logo-full.png", alt: "VINdicated — Know Your Rights" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — Know Your Rights" }],
   },
   twitter: {
     title: "Know Your Rights",

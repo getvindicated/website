@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
     url: "/about",
     type: "website",
-    images: [{ url: "/logo-full.png", alt: "VINdicated — About Us" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — About Us" }],
   },
   twitter: {
     title: "About Us",

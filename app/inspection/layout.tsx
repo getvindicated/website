@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       "A step-by-step guide to inspecting a used car before you buy. Know what to look for under the hood, on the lot, and in the paperwork.",
     url: "/inspection",
     type: "website",
-    images: [{ url: "/logo-full.png", alt: "VINdicated — Inspection Guide" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — Inspection Guide" }],
   },
   twitter: {
     title: "Inspection Guide",
