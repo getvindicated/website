@@ -83,7 +83,7 @@ export default function RightsPage() {
             style={{
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
               background: "var(--color-border)",
-            }}
+            }} 
           >
             {[
               ["9+", "Protections Covered"],
