@@ -118,10 +118,10 @@ const team: TeamMember[] = [
 		bio: "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing.",
 	},
 	{
-		name: "Fiona Chen",
+		name: "Fiona Wangsawidjaja",
 		position: "Research Analyst",
 		photo: "/team/fiona.jpg",
-		bio: "Fiona Chen is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
+		bio: "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
 	},
 	{
 		name: "Ayat Ashraf",
