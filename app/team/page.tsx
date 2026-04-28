@@ -130,6 +130,12 @@ const team: TeamMember[] = [
 		bio: "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
 	},
 	{
+		name: "Catherine Wong",
+		position: "Hardware Product Engineer",
+		photo: "/team/catherine.jpg",
+		bio: "Catherine is an electrical engineering student at UCLA. She joined VINdicated because access to reliable transportation shouldn't rely on how you are perceived.",
+	},
+	{
 		name: "Abbas Baldiwala",
 		position: "Hardware Engineer",
 		photo: "/team/abbas.png",
@@ -159,12 +165,6 @@ const team: TeamMember[] = [
 		photo: "/team/syed.png",
 		bio: "As a current Masters in Business Analytics student at CSU East Bay with a foundation in Computer Science, Omar is committed to advancing the use of data, machine learning, and analytics to drive intelligent business decisions and transformative impact.",
 	},
-	// {
-	// 	name: "Catherine Wong",
-	// 	position: "???",
-	// 	photo: "/team/catherine.jpg",
-	// 	bio: "???",
-	// },
 	// {
 	// 	name: "Caroline ???",
 	// 	position: "???",
