@@ -28,7 +28,7 @@ export const navLinks = [
       { label: "What We Provide", href: "/about#vindicated-from" },
     ],
   },
-//   { label: "Team", href: "/team" },
+  { label: "Team", href: "/team" },
   {
     label: "Inspection Guide",
     href: "/inspection",
@@ -79,7 +79,7 @@ export const footerNav = [
     links: [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about" },
-    //   { label: "Team", href: "/team" },
+      { label: "Team", href: "/team" },
       { label: "Documents", href: "/documents" },
       { label: "Contact", href: "/contact" },
     ],

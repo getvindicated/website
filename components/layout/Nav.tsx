@@ -36,7 +36,7 @@ export function Nav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-12 py-[1.1rem] border-b border-white/[0.08] backdrop-blur-xl transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-18 py-[1.1rem] border-b border-white/[0.08] backdrop-blur-xl transition-all duration-300"
       style={{
         background: scrolled ? "rgba(13,10,20,0.97)" : "rgba(13,10,20,0.85)",
       }}
@@ -51,10 +51,9 @@ export function Nav() {
           className="h-[52px] w-auto object-contain"
         />
         <span
-          className="text-[1.3rem] font-bold tracking-tight"
-          style={{ color: "var(--color-light)" }}
+          className="text-2xl font-bold tracking-tight text-white"
         >
-          <span className="font-extrabold">VIN</span>dicated
+          <span className="font-extrabold text-(--color-light)">VIN</span>dicated
         </span>
       </Link>
 

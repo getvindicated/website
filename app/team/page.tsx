@@ -43,17 +43,17 @@ type TeamMember = {
 };
 
 const team: TeamMember[] = [
-	// {
-	// 	name: "Rana Darwich",
-	// 	position: "Founder",
-	// 	photo: "/team/rana.jpg",
-	// 	bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing an arbitration clause at a dealership. What started as a personal breaking point became a mission: dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction — driven by the belief that car knowledge should be public knowledge.",
-	// },
+	{
+		name: "Rana Darwich",
+		position: "Founder",
+		photo: "/team/rana.jpg",
+		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory arbitration clause at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
+	},
 	{
 		name: "Rizwaan Bana",
-		position: "Project Manager",
+		position: "Software Lead",
 		photo: "/team/rizwaan.jpg",
-		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Project Manager at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
+		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
 		socials: [
 			{
 				platform: "linkedin",
@@ -86,6 +86,12 @@ const team: TeamMember[] = [
 		position: "Design Lead",
 		photo: "/team/malia.jpg",
 		bio: "Malia LaVoie is the Design Lead at VINdicated. As a Computer Science and Psychology double major at NYU, she combines technical skill with human-centered design to create intuitive, user-friendly experiences that make automotive rights more accessible and easier to understand.",
+	},
+	{
+		name: "Evanceline Tang",
+		position: "Visual Design Lead",
+		photo: "/team/evanceline.jpg",
+		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
 		name: "Halima Cherif Hminat",
@@ -128,6 +134,12 @@ const team: TeamMember[] = [
 		position: "Research Analyst",
 		photo: "/team/ayat.png",
 		bio: "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
+	},
+	{
+		name: "Paul Ha",
+		position: "Research Analyst",
+		photo: "/team/paul.png",
+		bio: "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry.",
 	},
 	{
 		name: "Catherine Wong",
@@ -241,12 +253,12 @@ export default function TeamPage() {
 					{team.map((member, i) => (
 						<FadeUp key={member.name}>
 								<div
-									className="grid gap-12 items-center py-16 max-lg:grid-cols-1 max-lg:gap-8 max-lg:py-10"
-									style={{ gridTemplateColumns: "320px 1fr auto" }}
+									className="grid gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8"
+									style={{ gridTemplateColumns: "280px 1fr auto" }}
 								>
 									{/* Photo */}
 									<div
-										className="relative w-full max-lg:w-60 max-lg:mx-auto"
+										className="relative w-full max-lg:w-52 max-lg:mx-auto"
 										style={{ aspectRatio: "1 / 1" }}
 									>
 										<div
@@ -261,7 +273,7 @@ export default function TeamPage() {
 												alt={member.name}
 												fill
 												className="object-cover"
-												sizes="(max-width: 1024px) 240px, 320px"
+												sizes="(max-width: 1024px) 208px, 280px"
 											/>
 										</div>
 										{/* Accent line */}
@@ -279,10 +291,10 @@ export default function TeamPage() {
 										>
 											{member.position}
 										</p>
-										<h3 className="text-[clamp(2rem,4vw,3.2rem)] font-black leading-[1.05] tracking-tight mb-6">
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-black leading-[1.05] tracking-tight mb-5">
 											{member.name}
 										</h3>
-										<p className="text-[1.05rem] text-white/80 leading-[1.8] max-w-[600px]">
+										<p className="text-[0.95rem] text-white/80 leading-[1.75] max-w-[560px]">
 											{member.bio}
 										</p>
 									</div>
