@@ -18,7 +18,7 @@ const stats = [
       {
         num: "$1,100",
         label:
-          "Higher average quotes for Black male buyers vs. white male buyers — identical cars, identical scripts.",
+          "Higher average quotes for Black male buyers vs. white male buyers for identical cars and identical scripts.",
       },
       {
         num: "$410",
@@ -56,7 +56,7 @@ export default function ResearchPage() {
   return (
     <>
       <PageHero
-        kicker="Evidence — Our Research"
+        kicker="Evidence: Our Research"
         title={
           <>
             Anecdote isn’t enough.
@@ -64,7 +64,7 @@ export default function ResearchPage() {
             <em>Data changes policy.</em>
           </>
         }
-        subtitle="We're building the empirical foundation for what consumers already know. Our ongoing research documents gender-based and race-based price discrimination in automotive sales — rigorously, reproducibly, and publicly."
+        subtitle="We're building the empirical foundation for what consumers already know. Our ongoing research documents gender-based and race-based price discrimination in automotive sales rigorously, reproducibly, and publicly."
       />
 
       {/* Approach */}
@@ -127,7 +127,7 @@ export default function ResearchPage() {
 
           {[
             {
-              meta: "Study 01 — Active Enrollment  |  UCLA Communication Studies  |  Est. Publication 2026",
+              meta: "Study 01: Active Enrollment  |  UCLA Communication Studies  |  Est. Publication 2026",
               title:
                 "Gender-Based Price Discrimination in California Automotive Retail: A Correspondence Audit",
               body: "Our primary study examines whether dealerships quote systematically different prices to prospective buyers based on perceived gender. Using matched pairs of identical buyer inquiries — controlling for vehicle model, condition, location, and bargaining script — we are measuring initial price quotes, response rates, time-to-response, and financing terms across a sample of California dealerships.",
@@ -140,7 +140,7 @@ export default function ResearchPage() {
               ],
             },
             {
-              meta: "Study 02 — Data Collection  |  UCLA Communication Studies  |  Est. Publication 2026–27",
+              meta: "Study 02: Data Collection  |  UCLA Communication Studies  |  Est. Publication 2026–27",
               title:
                 "Intersectionality in Automotive Pricing: Race, Gender, and the Compounding Discount Gap",
               body: "Building on our primary study, this investigation examines whether race and gender interact to produce compounding disadvantages in dealership interactions. Our methodology employs matched testers signaling different race-gender combinations using standardized names, profile photographs, and communication patterns.",
@@ -287,7 +287,7 @@ export default function ResearchPage() {
             </div>
             <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white/80">
               <p>
-                Our correspondence audit studies require volunteer testers —
+                Our correspondence audit studies require volunteer testers, which are 
                 people willing to submit standardized inquiries to dealerships
                 as part of a structured research protocol. All participation is
                 remote, anonymous, and involves no financial commitment.

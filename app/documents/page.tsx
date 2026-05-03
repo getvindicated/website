@@ -278,7 +278,7 @@ const bgItems = [
   {
     tag: "Most Important",
     tagColor: "red" as PinColor,
-    title: '"AS IS — NO DEALER WARRANTY"',
+    title: '"AS IS, NO DEALER WARRANTY"',
     body: (
       <>
         <p>
@@ -294,20 +294,20 @@ const bgItems = [
     ),
     flag: {
       color: "red" as PinColor,
-      text: 'What to do: If a car is sold "As Is," price that risk into your offer. Budget for potential repairs. And get an independent inspection before you buy — it is the only protection you have.',
+      text: 'What to do: If a car is sold "As Is," price that risk into your offer. Budget for potential repairs. And get an independent inspection before you buy. It is the only protection you have.',
     },
   },
   {
     tag: "Know This",
     tagColor: "gold" as PinColor,
-    title: '"DEALER WARRANTY" — Full or Limited',
+    title: '"DEALER WARRANTY" Full or Limited',
     body: (
       <>
         <p>
           If the Dealer Warranty box is checked, the dealer is promising to
           cover certain repairs for a limited time.{" "}
           <strong>Full Warranty</strong> means 100%.{" "}
-          <strong>Limited Warranty</strong> means a percentage — read those
+          <strong>Limited Warranty</strong> means a percentage, so read those
           numbers carefully.
         </p>
       </>
@@ -325,7 +325,7 @@ const bgItems = [
       <>
         <p>
           This means the original factory warranty has not yet expired. Some of
-          the car components are still covered by the manufacturer — not the
+          the car components are still covered by the manufacturer, not the
           dealer. This is genuinely valuable.
         </p>
       </>
@@ -343,7 +343,7 @@ const bgItems = [
       <>
         <p>
           A service contract (extended warranty) is optional and not free. The
-          word &quot;available&quot; means they want to sell it to you — not that you need
+          word &quot;available&quot; means they want to sell it to you, but it doesn't necessarily mean you need
           it.
         </p>
       </>
@@ -479,7 +479,7 @@ export default function DocumentsPage() {
             <em>Decoded.</em>
           </>
         }
-        subtitle="A Carfax decoded pin by pin, plus the FTC Buyers Guide explained in plain English — the two documents every used car buyer needs to understand."
+        subtitle="A Carfax decoded pin by pin, plus the FTC Buyers Guide explained in plain English, i.e., the two documents every used car buyer needs to understand."
       />
 
       {/* Carfax Page 1 */}
@@ -582,7 +582,7 @@ export default function DocumentsPage() {
                 badgeColor: "gold",
                 title: (
                   <>
-                    195,555 Miles —<br />
+                    195,555 Miles:{" "}<br />
                     <em>What High Mileage Actually Means</em>
                   </>
                 ),
@@ -592,16 +592,16 @@ export default function DocumentsPage() {
                       <strong>Under 100k:</strong> Low mileage, most systems
                       within lifespan.
                       <br />
-                      <strong>100k–150k:</strong> Sweet spot — depreciation
+                      <strong>100k–150k:</strong> Sweet spot. Depreciation
                       happened, systems still good.
                       <br />
                       <strong>150k–200k:</strong> High, but a well-maintained
                       Honda can reach 250k–300k+.
                     </p>
                     <p>
-                      This car averaged 10,257 mi/yr under Owner 3 — well below
+                      This car averaged 10,257 mi/yr under Owner 3, well below
                       the 15,000/yr average. The 2013 Accord also uses a{" "}
-                      <strong>timing chain, not a belt</strong> — removing one
+                      <strong>timing chain, not a belt</strong>, removing one
                       major high-mileage expense.
                     </p>
                   </>
@@ -620,7 +620,7 @@ export default function DocumentsPage() {
                 badgeColor: "green",
                 title: (
                   <>
-                    No Accidents Reported —<br />
+                    No Accidents Reported:{" "}<br />
                     <em>A Real Green Flag, With One Caveat</em>
                   </>
                 ),
@@ -652,7 +652,7 @@ export default function DocumentsPage() {
                 badgeColor: "purple",
                 title: (
                   <>
-                    Good Reliability Forecast —<br />
+                    Good Reliability Forecast:{" "}<br />
                     <em>What &quot;Good&quot; Means at 195k Miles</em>
                   </>
                 ),
@@ -706,7 +706,7 @@ export default function DocumentsPage() {
                 verdict: (
                   <>
                     <strong>All-California ownership</strong> is a genuine
-                    positive — it extends mechanical lifespan meaningfully.
+                    positive. It extends mechanical lifespan meaningfully.
                   </>
                 ),
                 verdictColor: "purple",
@@ -716,7 +716,7 @@ export default function DocumentsPage() {
                 badgeColor: "red",
                 title: (
                   <>
-                    Carfax Own Disclaimer —<br />
+                    Carfax Own Disclaimer:{" "}<br />
                     <em>This Report Is Not Enough Alone</em>
                   </>
                 ),
@@ -750,7 +750,7 @@ export default function DocumentsPage() {
                 badgeColor: "green",
                 title: (
                   <>
-                    Oil Changed August 2025 —<br />
+                    Oil Changed August 2025:{" "}<br />
                     <em>What Recent Service Signals</em>
                   </>
                 ),
@@ -919,14 +919,14 @@ export default function DocumentsPage() {
                 body: (
                   <>
                     <p>
-                      <strong>Salvage:</strong> Total loss — legally cannot be
+                      <strong>Salvage:</strong> Total loss. Legally cannot be
                       resold without rebuild and inspection.
                       <br />
                       <strong>Rebuilt/Reconstructed:</strong> Was salvage, was
                       repaired. Typically 20–40% below clean title.
                       <br />
                       <strong>Flood/Fire/Hail:</strong> Flood cars are
-                      especially problematic — corrosion of electrical systems
+                      especially problematic because corrosion of electrical systems
                       can appear years later.
                       <br />
                       <strong>Lemon Law Buyback:</strong> Must be disclosed.
@@ -937,7 +937,7 @@ export default function DocumentsPage() {
                 verdict: (
                   <>
                     <strong>Carfax buyback guarantee</strong> covers
-                    DMV-reported brands. It does not cover unreported damage —
+                    DMV-reported brands. It does not cover unreported damage, 
                     which is why the physical inspection remains essential.
                   </>
                 ),
@@ -963,7 +963,7 @@ export default function DocumentsPage() {
                       ask what the current seller knows about why.
                       <br />
                       <strong>Many owners in quick succession:</strong> That car
-                      has a story. It might be fine — or it might explain why no
+                      has a story. It might be fine, or it might explain why no
                       one kept it.
                     </p>
                   </>
@@ -989,7 +989,7 @@ export default function DocumentsPage() {
                 body: (
                   <>
                     <p>
-                      A short tenure does not automatically mean a problem — but
+                      A short tenure does not automatically mean a problem, but
                       it deserves an explanation. Check: Did they do multiple
                       repairs during that tenure? Where did they buy it from?
                       Does the mileage add up to normal driving?
@@ -1029,7 +1029,7 @@ export default function DocumentsPage() {
                 verdict: (
                   <>
                     <strong>Why this matters:</strong> Annual mileage rate
-                    reveals how the car was actually used — more informative
+                    reveals how the car was actually used, which is more informative
                     than total mileage alone.
                   </>
                 ),

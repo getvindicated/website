@@ -6,7 +6,7 @@ import { CarCursor } from "@/components/ui/CarCursor";
 
 export const metadata: Metadata = {
   title: {
-    default: "VINdicated — Educate. Empower. Vindicate.",
+    default: "VINdicated | Educate. Empower. Vindicate.",
     template: "%s | VINdicated",
   },
   description:
