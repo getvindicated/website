@@ -125,7 +125,7 @@ export default function AboutPage() {
             Educate. Empower. <em>Vindicate.</em>
           </h2>
           <p className="text-[0.82rem] text-white leading-[1.4] max-w-[620px] mb-10">
-            To dismantle consumer-level escort culture — one informed buyer at a
+            To dismantle consumer-level escort culture, one informed buyer at a
             time.
           </p>
           <div
@@ -135,11 +135,11 @@ export default function AboutPage() {
             {[
               {
                 word: "Educate",
-                body: "Make car buying understandable. Navigable. We translate the dealer playbook into plain language — because knowledge is leverage.",
+                body: "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage.",
               },
               {
                 word: "Empower",
-                body: "Build the confidence to walk in alone, ask the right questions, and walk away when necessary — without shame, without needing backup.",
+                body: "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup.",
               },
               {
                 word: "Vindicate",
@@ -181,22 +181,22 @@ export default function AboutPage() {
             <div className="space-y-8">
               {[
                 {
-                  label: "Strike 1 — The Pink Slip Scam",
+                  label: "Strike 1: The Pink Slip Scam",
                   body: [
                     "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
-                    "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours — no matter what you paid.",
+                    "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
                   ],
                 },
                 {
-                  label: "Strike 2 — Facebook Marketplace",
+                  label: "Strike 2: Facebook Marketplace",
                   body: [
-                    "I tried buying a car on Facebook Marketplace. The conversation started normally — mileage, price, when I could come look.",
+                    "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
                     'As soon as he found out I was female, the tone shifted completely. He told me, "Shut your mouth, bitch," and blocked me.',
                   ],
                 },
                 {
                   label:
-                    "Strike 3, You're Out — April 2025, South Coast Mitsubishi",
+                    "Strike 3, You're Out: April 2025, South Coast Mitsubishi",
                   body: [
                     'I test drove the car alone. When I came back with my sister to buy it, it suddenly read: "Buy today or lose it."',
                     "I paid for an independent inspection. They found issues. Then they handed me a financing contract at 30% APR. I was paying cash. I took business law. I know what arbitration means. I didn't sign.",
@@ -314,7 +314,7 @@ export default function AboutPage() {
               {
                 cat: "Education",
                 title: "Free Automotive Workshops",
-                body: "Community-led sessions breaking down what dealers do not want you to know — from financing to repairs to your legal rights on the lot.",
+                body: "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot.",
               },
               {
                 cat: "Tools",
@@ -324,7 +324,7 @@ export default function AboutPage() {
               {
                 cat: "Community",
                 title: "Vetted Mechanic Network",
-                body: "We're building a directory of mechanics vetted by our community — mechanics who do not talk down to you, do not upsell you.",
+                body: "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you.",
               },
               {
                 cat: "Research",

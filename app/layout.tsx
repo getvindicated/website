@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://getvindicated.org"
   ),
   title: {
-    default: "VINdicated — Educate. Empower. Vindicate.",
+    default: "VINdicated | Educate. Empower. Vindicate.",
     template: "%s | VINdicated",
   },
   description:

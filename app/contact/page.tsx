@@ -23,7 +23,7 @@ const topics = [
 const sideInfo = [
   {
     cat: "Volunteer",
-    body: "We have teams for tech, content, design, and operations. If you want to contribute skills to a mission that matters — we'd love to have you.",
+    body: "We have teams for tech, content, design, and operations. If you want to contribute skills to a mission that matters, we'd love to have you.",
   },
   {
     cat: "Research Participants",

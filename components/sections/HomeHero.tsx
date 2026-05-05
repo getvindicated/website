@@ -11,7 +11,7 @@ const stats = [
     suffix: "",
     dur: 1800,
     label:
-      "More Black male buyers are charged vs. white male buyers — same car, same script",
+      "More Black male buyers are charged vs. white male buyers, even with the same car and same script",
     cite: "(Ayres & Siegelman, 1995)",
   },
   {
@@ -41,7 +41,7 @@ const stats = [
     suffix: "%",
     dur: 1500,
     label:
-      "Longer negotiations faced by minority buyers — same car, same price",
+      "Longer negotiations faced by minority buyers, even with the same car and same price",
     cite: "(Ayres & Siegelman, 1995)",
   },
 ];
@@ -115,7 +115,7 @@ export function HomeHero() {
         <p className="text-[1.15rem] leading-[1.75] text-white/80 max-w-[420px] mb-10">
           VINdicated is built on the belief that car knowledge should be public
           knowledge. We break down the systems that allow consumer
-          discrimination to thrive — through education, research, and community.
+          discrimination to thrive through education, research, and community.
         </p>
         <div className="flex gap-4 flex-wrap">
           <Button href="/inspection">Get the PPI Guide</Button>
