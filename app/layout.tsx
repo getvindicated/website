@@ -3,7 +3,7 @@ import "./globals.css";
 import { Space_Grotesk, DM_Sans } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { CarCursor } from "@/components/ui/CarCursor";
+// import { CarCursor } from "@/components/ui/CarCursor";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
       <body className="min-h-screen antialiased">
-        <CarCursor />
+        {/* <CarCursor /> */}
         <Nav />
         <main>{children}</main>
         <Footer />
