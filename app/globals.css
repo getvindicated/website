@@ -49,9 +49,9 @@ h4 em {
 }
 
 /* ── Custom cursor ── */
-* {
+/* * {
   cursor: none !important;
-}
+} */
 #car-cursor {
   position: fixed;
   pointer-events: none;
