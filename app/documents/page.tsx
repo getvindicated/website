@@ -813,11 +813,11 @@ export default function DocumentsPage() {
             image="/carfax-p2.png"
             alt="Carfax Page 2"
             pins={[
-              { n: 1, top: "13%", left: "1%", color: "green" },
-              { n: 2, top: "51.5%", left: "1%", color: "purple" },
-              { n: 3, top: "70%", left: "1%", color: "purple" },
-              { n: 4, top: "78.5%", left: "1%", color: "gold" },
-              { n: 5, top: "81%", left: "1%", color: "gold" },
+              { n: 1, top: "30%", left: "50%", color: "green" },
+              { n: 2, top: "55%", left: "50%", color: "purple" },
+              { n: 3, top: "73%", left: "50%", color: "purple" },
+              { n: 4, top: "80%", left: "30%", color: "gold" },
+              { n: 5, top: "83%", left: "70%", color: "gold" },
             ]}
             highlights={[
               {
