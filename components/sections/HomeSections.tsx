@@ -31,12 +31,12 @@ export function HomeCards() {
               body: "Real tactics used against buyers. Named, explained, and countered.",
               link: { href: "/fraud", label: "Spot the Red Flags" },
             },
-            {
-              num: "03 - Research",
-              title: "Correspondence Audit Studies",
-              body: "We're building the evidence base. Because anecdote isn't enough. Data changes policy.",
-              link: { href: "/research", label: "See Our Research" },
-            },
+            // {
+            //   num: "03 - Research",
+            //   title: "Correspondence Audit Studies",
+            //   body: "We're building the evidence base. Because anecdote isn't enough. Data changes policy.",
+            //   link: { href: "/research", label: "See Our Research" },
+            // },
           ]}
         />
       </section>

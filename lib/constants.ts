@@ -50,16 +50,16 @@ export const navLinks = [
       { label: "What to Do After", href: "/fraud#after" },
     ],
   },
-  {
-    label: "Research",
-    href: "/research",
-    children: [
-      { label: "Our Approach", href: "/research" },
-      { label: "Active Studies", href: "/research#study1" },
-      { label: "Evidence Base", href: "/research#study2" },
-      { label: "Get Involved", href: "/research#get-involved" },
-    ],
-  },
+//   {
+//     label: "Research",
+//     href: "/research",
+//     children: [
+//       { label: "Our Approach", href: "/research" },
+//       { label: "Active Studies", href: "/research#study1" },
+//       { label: "Evidence Base", href: "/research#study2" },
+//       { label: "Get Involved", href: "/research#get-involved" },
+//     ],
+//   },
   {
     label: "Documents",
     href: "/documents",
@@ -89,7 +89,7 @@ export const footerNav = [
     links: [
       { label: "Inspection Guide", href: "/inspection" },
       { label: "Fraud Prevention", href: "/fraud" },
-      { label: "Our Research", href: "/research" },
+    //   { label: "Our Research", href: "/research" },
     //   { label: "PPI Guide", href: "/inspection" },
     //   { label: "Red Flag Checklist", href: "/fraud" },
     //   { label: "Our Studies", href: "/research" },
