@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export function RoadScene() {
   const stars = [
-    { top: 12, left: "8%", w: 2, delay: 0, dur: 2.2 },
-    { top: 22, left: "25%", w: 1.5, delay: 0.8, dur: 2.8 },
-    { top: 8, left: "55%", w: 2, delay: 1.2, dur: 1.9 },
-    { top: 28, left: "75%", w: 1, delay: 0.3, dur: 3.1, color: "#b088cc" },
-    { top: 15, left: "90%", w: 1.5, delay: 1.6, dur: 2.4 },
+    { top: 6, left: "8%", w: 2, delay: 0, dur: 2.2 },
+    { top: 14, left: "25%", w: 1.5, delay: 0.8, dur: 2.8 },
+    { top: 4, left: "55%", w: 2, delay: 1.2, dur: 1.9 },
+    { top: 18, left: "75%", w: 1, delay: 0.3, dur: 3.1, color: "#b088cc" },
+    { top: 8, left: "90%", w: 1.5, delay: 1.6, dur: 2.4 },
   ];
 
   const stripeDelays = [0, -0.56, -1.12, -1.68, -2.24];
@@ -15,7 +15,7 @@ export function RoadScene() {
     <div
       className="relative overflow-hidden mt-[65px]"
       style={{
-        height: 220,
+        height: 140,
         background: "linear-gradient(180deg, #0d0814 0%, #0d0814 65%)",
       }}
     >
@@ -69,13 +69,13 @@ export function RoadScene() {
       </div>
 
       {/* Driving car */}
-      <div className="absolute z-[5] car-drive" style={{ bottom: -15 }}>
+      <div className="absolute z-[5] car-drive" style={{ bottom: -10 }}>
         <Image
           src="/illus-car-purple.png"
           alt="Purple car"
-          width={320}
-          height={180}
-          style={{ height: 180, width: "auto", display: "block" }}
+          width={240}
+          height={135}
+          style={{ height: 135, width: "auto", display: "block" }}
         />
       </div>
     </div>

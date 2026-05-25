@@ -12,7 +12,8 @@ export function Footer() {
         <div>
           <Link
             href="/"
-            className="text-2xl font-black text-white no-underline block mb-4"
+            className="text-2xl font-extrabold text-white no-underline block mb-4"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             <span style={{ color: "var(--color-light)" }}>VIN</span>dicated
           </Link>

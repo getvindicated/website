@@ -413,7 +413,7 @@ function BuyersGuideAccordion() {
             <button
               className="w-full flex items-center gap-3 px-7 py-4 transition-colors duration-150 bg-transparent border-none text-left"
               onClick={() => setOpen(open === i ? null : i)}
-              style={{ cursor: "none" }}
+              style={{ cursor: "pointer" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.background =
                   "rgba(90,48,105,0.12)";
@@ -502,7 +502,7 @@ export default function DocumentsPage() {
             >
               Exhibit 01 — Carfax Vehicle History Report · Page 1
             </p>
-            <h2 className="text-[1.75rem] font-black leading-[1.1] mb-2">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               How to Read a Carfax
               <br />
               <em>Page One</em>
@@ -798,7 +798,7 @@ export default function DocumentsPage() {
             >
               Exhibit 02 — Carfax Vehicle History Report · Page 2
             </p>
-            <h2 className="text-[1.75rem] font-black leading-[1.1] mb-2">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               How to Read a Carfax
               <br />
               <em>Page Two</em>
@@ -1056,7 +1056,7 @@ export default function DocumentsPage() {
             >
               Exhibit 03 — FTC Buyers Guide
             </p>
-            <h2 className="text-[1.75rem] font-black leading-[1.1] mb-2">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               The Sticker in Every Used Car Window
               <br />
               <em>What It Actually Means</em>
@@ -1110,24 +1110,24 @@ export default function DocumentsPage() {
 
           {/* Takeaway strip */}
           <div
-            className="grid gap-[1.5px] max-lg:grid-cols-1"
+            className="border-t"
             style={{
-              gridTemplateColumns: "1fr 1fr 1fr",
-              background: "var(--color-border)",
+              borderColor: "var(--color-border)",
+              background: "var(--color-bg-surface)",
             }}
           >
             {[
               {
                 color: "var(--color-gold)",
                 label: "The Most Important Line",
-                title: '"Keep this form."',
-                body: "The Buyers Guide is part of the contract. Keep your copy. If the the dealer warranty promises do not match what they told you, this is your evidence.",
+                title: "\u201CKeep this form.\u201D",
+                body: "The Buyers Guide is part of the contract. Keep your copy. If the dealer warranty promises do not match what they told you, this is your evidence.",
               },
               {
                 color: "var(--color-red)",
                 label: "Federal Violation",
                 title: "Removing the sticker before sale is illegal.",
-                body: "16 C.F.R. 455 prohibits removing the Buyers Guide before consumer purchase. If it's not in the window, that's a federal violation you can report to the FTC.",
+                body: "16 C.F.R. 455 prohibits removing the Buyers Guide before consumer purchase. If it\u2019s not in the window, that\u2019s a federal violation you can report to the FTC.",
               },
               {
                 color: "var(--color-light)",
@@ -1138,16 +1138,24 @@ export default function DocumentsPage() {
             ].map(({ color, label, title, body }) => (
               <div
                 key={label}
-                className="p-8"
-                style={{ background: "var(--color-bg-surface)" }}
+                className="grid gap-6 px-8 py-7 max-md:grid-cols-1"
+                style={{
+                  gridTemplateColumns: "180px 1fr",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
               >
-                <p className="text-[0.72rem] font-bold mb-2" style={{ color }}>
+                <p
+                  className="text-[0.7rem] font-semibold uppercase tracking-[0.08em] pt-1"
+                  style={{ color }}
+                >
                   {label}
                 </p>
-                <p className="text-[0.88rem] font-semibold mb-2">{title}</p>
-                <p className="text-[0.93rem] leading-[1.65] text-white/80">
-                  {body}
-                </p>
+                <div>
+                  <p className="text-[1.05rem] font-semibold mb-1">{title}</p>
+                  <p className="text-[0.93rem] leading-[1.65] text-white/75">
+                    {body}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

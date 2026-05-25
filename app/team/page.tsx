@@ -291,7 +291,7 @@ export default function TeamPage() {
 										>
 											{member.position}
 										</p>
-										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-black leading-[1.05] tracking-tight mb-5">
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-5">
 											{member.name}
 										</h3>
 										<p className="text-[0.95rem] text-white/80 leading-[1.75] max-w-[560px]">
@@ -342,7 +342,7 @@ export default function TeamPage() {
 					style={{ background: "var(--color-bg-page)" }}
 				>
 					<SectionLabel>Join Us</SectionLabel>
-					<h2 className="text-[clamp(2.4rem,5vw,4rem)] font-black leading-[1.05] tracking-tight mb-6">
+					<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
 						Want to be part of <em>this?</em>
 					</h2>
 					<p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[540px] mx-auto">

@@ -22,8 +22,21 @@ html {
 body {
   background: var(--color-bg-page);
   color: #fff;
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-body), sans-serif;
   overflow-x: hidden;
+}
+
+/* ── Grain overlay for depth ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 h1,
@@ -32,20 +45,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading), system-ui, sans-serif;
+  font-family: var(--font-heading), Georgia, serif;
+  font-weight: 500;
 }
 
-/* ── Em = underline throughout ── */
+/* ── Em = italic accent throughout ── */
 h1 em,
 h2 em,
 h3 em,
 h4 em {
-  font-style: normal;
-  text-decoration: underline;
-  text-decoration-color: var(--color-accent);
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-  color: inherit;
+  font-style: italic;
+  color: var(--color-accent);
 }
 
 /* ── Custom cursor ── */

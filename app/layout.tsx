@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Space_Grotesk, DM_Sans } from "next/font/google";
+import { Lora, Figtree } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 // import { CarCursor } from "@/components/ui/CarCursor";
 
-const spaceGrotesk = Space_Grotesk({
+const lora = Lora({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -64,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${lora.variable} ${figtree.variable}`}>
       <body className="min-h-screen antialiased">
         {/* <CarCursor /> */}
         <Nav />

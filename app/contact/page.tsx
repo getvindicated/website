@@ -237,22 +237,22 @@ export default function ContactPage() {
               </SectionTitle>
 
               <div
-                className="flex flex-col gap-[1.5px] mb-12"
-                style={{ background: "var(--color-border)" }}
+                className="mb-12"
+                style={{ borderTop: "1px solid var(--color-border)" }}
               >
                 {sideInfo.map(({ cat, body }) => (
                   <div
                     key={cat}
-                    className="px-8 py-8"
-                    style={{ background: "var(--color-bg-surface)" }}
+                    className="py-7"
+                    style={{ borderBottom: "1px solid var(--color-border)" }}
                   >
                     <p
-                      className="text-[0.65rem] tracking-wide mb-2"
+                      className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-3"
                       style={{ color: "var(--color-light)" }}
                     >
                       {cat}
                     </p>
-                    <p className="text-[0.9rem] leading-[1.6]">{body}</p>
+                    <p className="text-[0.95rem] text-white/80 leading-[1.7]">{body}</p>
                   </div>
                 ))}
               </div>

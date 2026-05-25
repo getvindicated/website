@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   FadeUp,
   SectionLabel,
@@ -6,6 +7,25 @@ import {
   CardGrid,
   Button,
 } from "@/components/ui";
+
+const pillars = [
+  {
+    kicker: "Education",
+    title: "Pre-Purchase Inspection Guide",
+    body: "A step-by-step walkthrough of everything you should check, ask, and verify before handing over a dollar. Written for first-time buyers.",
+    href: "/inspection",
+    label: "Read the Guide",
+    accent: "var(--color-light)",
+  },
+  {
+    kicker: "Protection",
+    title: "Fraud Prevention",
+    body: "Real tactics used against buyers — named, explained, and countered. Know exactly what to say when a dealer tries to pressure you.",
+    href: "/fraud",
+    label: "Spot the Red Flags",
+    accent: "var(--color-red)",
+  },
+];
 
 export function HomeCards() {
   return (
@@ -15,30 +35,43 @@ export function HomeCards() {
         <SectionTitle
           style={{ fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties}
         >
-          Three pillars of <em>automotive justice.</em>
+          Two pillars of <em>automotive justice.</em>
         </SectionTitle>
-        <CardGrid
-          cards={[
-            {
-              num: "01 - Education",
-              title: "Pre-Purchase Inspection Guide",
-              body: "Everything you need before handing over a dollar.",
-              link: { href: "/inspection", label: "Read the Guide" },
-            },
-            {
-              num: "02 - Protection",
-              title: "Fraud Prevention",
-              body: "Real tactics used against buyers. Named, explained, and countered.",
-              link: { href: "/fraud", label: "Spot the Red Flags" },
-            },
-            // {
-            //   num: "03 - Research",
-            //   title: "Correspondence Audit Studies",
-            //   body: "We're building the evidence base. Because anecdote isn't enough. Data changes policy.",
-            //   link: { href: "/research", label: "See Our Research" },
-            // },
-          ]}
-        />
+
+        <div className="mt-14 space-y-0" style={{ borderTop: "1px solid var(--color-border)" }}>
+          {pillars.map((p) => (
+            <Link
+              key={p.kicker}
+              href={p.href}
+              className="group grid gap-8 py-12 no-underline transition-colors duration-200 max-md:grid-cols-1"
+              style={{
+                gridTemplateColumns: "180px 1fr auto",
+                borderBottom: "1px solid var(--color-border)",
+              }}
+            >
+              <p
+                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] pt-2"
+                style={{ color: p.accent }}
+              >
+                {p.kicker}
+              </p>
+              <div>
+                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.15] tracking-[-0.01em] mb-3 group-hover:text-[var(--color-accent)] transition-colors duration-200">
+                  {p.title}
+                </h3>
+                <p className="text-[1rem] text-white/70 leading-[1.7] max-w-[560px]">
+                  {p.body}
+                </p>
+              </div>
+              <span
+                className="text-[0.75rem] font-medium pt-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 max-md:opacity-100"
+                style={{ color: "var(--color-accent)" }}
+              >
+                {p.label} →
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
     </FadeUp>
   );
@@ -49,13 +82,16 @@ export function HomeQuote() {
     <FadeUp>
       <section className="px-20 py-24 text-center max-md:px-6 max-md:py-16">
         <SectionLabel>A Vindication of the Rights of Woman</SectionLabel>
-        <blockquote className="text-[clamp(1.6rem,3vw,2.6rem)] italic leading-[1.35] max-w-[800px] mx-auto mb-8">
+        <blockquote
+          className="text-[clamp(1.6rem,3vw,2.6rem)] italic leading-[1.35] max-w-[800px] mx-auto mb-8"
+          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+        >
           &quot;Why should woman be kept in ignorance under the specious name of
           innocence?&quot;
         </blockquote>
         <cite
-          className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-black tracking-tight block mb-2"
-          style={{ color: "var(--color-accent)" }}
+          className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-semibold tracking-[-0.02em] block mb-2"
+          style={{ fontFamily: "var(--font-heading), Georgia, serif", color: "var(--color-accent)" }}
         >
           Mary Wollstonecraft
         </cite>

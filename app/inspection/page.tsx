@@ -246,7 +246,7 @@ function EngineDiagram() {
         >
           Interactive Engine Diagram
         </p>
-        <h2 className="text-[2rem] font-extrabold mb-3">
+        <h2 className="text-[2rem] mb-3">
           Under the Hood — <em>What to Actually Look For</em>
         </h2>
         <p className="text-[0.92rem] text-white leading-[1.7] max-w-[680px]">
@@ -655,53 +655,39 @@ export default function InspectionPage() {
                 — not the seller, not the dealership — to inspect a
                 car before you buy it.
               </p>
-              <div
-                className="p-6"
-                style={{
-                  background: "rgba(214,59,59,0.08)",
-                  border: "1px solid rgba(214,59,59,0.3)",
-                  borderLeft: "4px solid var(--color-red)",
-                }}
+              <p
+                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mt-8 mb-4"
+                style={{ color: "var(--color-light)" }}
               >
-                <p
-                  className="text-[0.82rem] font-bold uppercase tracking-[0.04em] mb-3"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  This is different from:
-                </p>
-                <p className="text-base text-white leading-[1.8]">
-                  <strong>The seller's inspection</strong> —
-                  they're trying to sell you the car.
-                  <br />
-                  <strong>Your own visual check</strong> — you're not
-                  a trained mechanic.
-                  <br />
-                  <strong>A test drive</strong> — you can't see
-                  what's happening under the hood.
-                </p>
+                This is different from
+              </p>
+              <div style={{ borderTop: "1px solid var(--color-border)" }}>
+                {[
+                  { term: "The seller\u2019s inspection", def: "they\u2019re trying to sell you the car." },
+                  { term: "Your own visual check", def: "you\u2019re not a trained mechanic." },
+                  { term: "A test drive", def: "you can\u2019t see what\u2019s happening under the hood." },
+                ].map(({ term, def }) => (
+                  <p
+                    key={term}
+                    className="text-[1rem] text-white/80 leading-[1.7] py-3"
+                    style={{ borderBottom: "1px solid var(--color-border)" }}
+                  >
+                    <strong className="text-white">{term}</strong> — {def}
+                  </p>
+                ))}
               </div>
-              <p className="text-[1.1rem] leading-[1.85] text-white">
+              <p className="text-[1.1rem] leading-[1.85] text-white mt-8">
                 A good PPI costs <strong>$100-$200</strong> and is the
                 single most powerful tool you have before signing anything.
               </p>
-              <div
-                className="py-4 px-5"
-                style={{
-                  background: "rgba(214,59,59,0.08)",
-                  borderLeft: "3px solid var(--color-red)",
-                }}
+              <p
+                className="text-[1.15rem] italic leading-[1.6] mt-6"
+                style={{ color: "var(--color-red)" }}
               >
-                <p
-                  className="text-[1.05rem] leading-[1.75]"
-                  style={{ color: "#ffb0b0" }}
-                >
-                  <strong>
-                    If a dealer refuses to let you take the car to an
-                    independent mechanic — walk away. That refusal is your
-                    answer.
-                  </strong>
-                </p>
-              </div>
+                If a dealer refuses to let you take the car to an
+                independent mechanic — walk away. That refusal is your
+                answer.
+              </p>
             </div>
           </div>
         </section>

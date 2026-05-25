@@ -210,8 +210,8 @@ export default function ResearchPage() {
                     style={{ background: "var(--color-bg-surface)" }}
                   >
                     <p
-                      className="text-[2.5rem] font-black leading-[1]"
-                      style={{ color: "var(--color-light)" }}
+                      className="text-[2.5rem] font-extrabold leading-[1]"
+                      style={{ fontFamily: "var(--font-body)", color: "var(--color-light)" }}
                     >
                       {num}
                     </p>

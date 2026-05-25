@@ -52,6 +52,7 @@ export function Nav() {
         />
         <span
           className="text-2xl font-bold tracking-tight text-white"
+          style={{ fontFamily: "var(--font-body)" }}
         >
           <span className="font-extrabold text-(--color-light)">VIN</span>dicated
         </span>

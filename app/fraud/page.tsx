@@ -222,7 +222,7 @@ function PinkSlipExplainer() {
             >
               {cardData[active].typeLabel}
             </p>
-            <h3 className="text-[1.5rem] font-black leading-[1.1] mb-4">
+            <h3 className="text-[1.5rem] leading-[1.1] mb-4">
               {cardData[active].title}
             </h3>
             <p className="text-[0.88rem] text-white/80 leading-[1.75] mb-5">
@@ -420,92 +420,120 @@ const redFlags = [
   },
 ];
 
-const kyrLaws = [
+type KyrLaw = {
+  tag: string;
+  title: string;
+  body: string;
+  action: string;
+  actionColor: string;
+};
+
+const federalLaws: KyrLaw[] = [
   {
-    num: "01",
-    tag: "Federal — Truth in Lending Act (TILA)",
-    tagColor: "#6ab4ff",
+    tag: "Truth in Lending Act (TILA)",
     title: "Your APR must be disclosed before you sign. No exceptions.",
     body: "The dealer is required by federal law to show you your Annual Percentage Rate, the total finance charge, and the total cost of the loan before you sign anything. On a $15,000 loan, the difference between 7% APR and 30% APR is over $8,000.",
     action:
-      "\u201cShow me the APR, finance charge, and total of payments right now, before I sign.\u201d",
+      "\u201CShow me the APR, finance charge, and total of payments right now, before I sign.\u201D",
     actionColor: "var(--color-gold)",
   },
   {
-    num: "02",
-    tag: "Federal — FTC Used Car Rule",
-    tagColor: "#6ab4ff",
+    tag: "FTC Used Car Rule",
     title: "Every used car must have a Buyers Guide in the window.",
-    body: 'By law, every used car on a dealer lot must display a Buyers Guide sticker disclosing whether it has a warranty, what the warranty covers, or that it\'s sold "as is." The FTC can fine dealers up to $51,744 per missing sticker.',
+    body: "By law, every used car on a dealer lot must display a Buyers Guide sticker disclosing whether it has a warranty, what the warranty covers, or that it\u2019s sold \u201Cas is.\u201D The FTC can fine dealers up to $51,744 per missing sticker.",
     action:
-      "Red flag: No sticker visible, or a dealer who removes it before you can read it, is a federal violation. Document it.",
+      "No sticker visible, or a dealer who removes it before you can read it, is a federal violation. Document it.",
     actionColor: "var(--color-red)",
   },
   {
-    num: "03",
-    tag: "Federal — Motor Vehicle Information Act",
-    tagColor: "#6ab4ff",
+    tag: "Motor Vehicle Information Act",
     title: "Odometer rollback is a federal felony.",
     body: "The dealer must provide a written odometer disclosure at the time of sale. Cross-reference the number on the contract with the physical odometer, the Carfax report, and any service records. All three must match.",
     action:
-      "If they don't match: Stop the transaction. Photograph everything. Report to the FTC at reportfraud.ftc.gov.",
+      "If they don\u2019t match: Stop the transaction. Photograph everything. Report to the FTC at reportfraud.ftc.gov.",
     actionColor: "var(--color-red)",
   },
   {
-    num: "04",
-    tag: "Federal — Fair Credit Reporting Act",
-    tagColor: "#6ab4ff",
+    tag: "Fair Credit Reporting Act",
     title:
-      "If they pull your credit, you're entitled to see exactly what they found.",
+      "If they pull your credit, you\u2019re entitled to see exactly what they found.",
     body: "Dealers must give you a written disclosure showing your exact credit score, which bureau provided it, and how it affected your loan terms. Know your number before you walk in.",
     action:
       "Before you go: Pull your free report at annualcreditreport.com. Walk in knowing your number.",
     actionColor: "var(--color-gold)",
   },
+];
+
+const californiaLaws: KyrLaw[] = [
   {
-    num: "05",
-    tag: "California — AB68",
-    tagColor: "var(--color-light)",
+    tag: "AB68 \u2014 Cancellation",
     title:
-      "You can undo the purchase within 2 days — but you have to buy this right at signing.",
-    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used — but it gives you a legal exit.",
+      "You can undo the purchase within 2 days \u2014 but you have to buy this right at signing.",
+    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used \u2014 but it gives you a legal exit.",
     action:
-      "\u201cI\u2019d like to purchase the 2-day contract cancellation option.\u201d",
+      "\u201CI\u2019d like to purchase the 2-day contract cancellation option.\u201D",
     actionColor: "var(--color-accent)",
   },
   {
-    num: "06",
-    tag: "California — AB68",
-    tagColor: "var(--color-light)",
+    tag: "AB68 \u2014 Interest Rates",
     title:
-      "Interest rate markups are capped. The dealer can't charge whatever they want.",
+      "Interest rate markups are capped. The dealer can\u2019t charge whatever they want.",
     body: "California law caps dealer interest rate markups: max 2% on loans over 60 months, max 2.5% on shorter loans. Getting pre-approved at a bank or credit union before you walk in removes this leverage entirely.",
     action:
       "Before you go: Get pre-approved. Walk in with a rate. They have to beat it.",
     actionColor: "var(--color-gold)",
   },
   {
-    num: "07",
-    tag: "California — AB68",
-    tagColor: "var(--color-light)",
+    tag: "AB68 \u2014 Add-Ons",
     title:
       "Every add-on must be listed separately with its own price. No bundling.",
-    body: 'Any financed item must appear as a separate line item. The dealer must show your monthly payment with and without each optional item. One big bundled number presented as "the payment" is a California law violation.',
+    body: "Any financed item must appear as a separate line item. The dealer must show your monthly payment with and without each optional item. One big bundled number presented as \u201Cthe payment\u201D is a California law violation.",
     action:
-      "\u201cIt\u2019s all just one package\u201d — that\u2019s not legal. Ask for itemized line items, in writing.",
+      "\u201CIt\u2019s all just one package\u201D \u2014 that\u2019s not legal. Ask for itemized line items, in writing.",
     actionColor: "var(--color-red)",
   },
   {
-    num: "08",
-    tag: "Prohibited",
-    tagColor: "var(--color-red)",
+    tag: "Prohibited Practice",
     title: "They cannot require an add-on as a condition of financing.",
-    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \"have to\" take an add-on to qualify — that's a lie, and it's illegal.",
+    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \u201Chave to\u201D take an add-on to qualify \u2014 that\u2019s a lie, and it\u2019s illegal.",
     action:
-      "\u201cPlease show me in writing where it says this is required to get financing.\u201d Watch what happens next.",
+      "\u201CPlease show me in writing where it says this is required to get financing.\u201D Watch what happens next.",
     actionColor: "var(--color-red)",
   },
 ];
+
+function LawList({ laws }: { laws: KyrLaw[] }) {
+  return (
+    <div style={{ borderTop: "1px solid var(--color-border)" }}>
+      {laws.map((law) => (
+        <div
+          key={law.tag}
+          className="py-8"
+          style={{ borderBottom: "1px solid var(--color-border)" }}
+        >
+          <p
+            className="text-[0.7rem] font-semibold uppercase tracking-[0.08em] mb-2"
+            style={{ color: "var(--color-light)" }}
+          >
+            {law.tag}
+          </p>
+          <h3 className="text-[clamp(1.15rem,2vw,1.4rem)] leading-[1.3] tracking-[-0.01em] mb-3 max-w-[680px]">
+            {law.title}
+          </h3>
+          <p className="text-[0.95rem] text-white/75 leading-[1.8] mb-4 max-w-[680px]">
+            {law.body}
+          </p>
+          <p
+            className="text-[0.88rem] italic leading-[1.6] max-w-[680px]"
+            style={{ color: law.actionColor }}
+          >
+            {law.action}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function FraudPage() {
   return (
@@ -605,69 +633,32 @@ export default function FraudPage() {
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
           <SectionLabel>
-            Know Your Rights — California &amp; Federal Law
+            Know Your Rights
           </SectionLabel>
           <SectionTitle className="mb-3">
             The law is already <em>on your side.</em>
           </SectionTitle>
-          <p className="text-[1.1rem] text-white/80 leading-[1.75] max-w-[680px] mb-12">
+          <p className="text-[1.05rem] text-white/75 leading-[1.75] max-w-[680px] mb-14">
             Most buyers don&apos;t know what dealers are legally required to do.
             Here&apos;s what the law actually says — in plain English
             — and exactly what to say when they try to ignore it.
           </p>
 
-          <div style={{ borderTop: "1px solid var(--color-border)" }}>
-            {kyrLaws.map((law) => (
-              <div
-                key={law.num}
-                className="grid py-10 transition-colors duration-150 max-md:grid-cols-1"
-                style={{
-                  gridTemplateColumns: "56px 1fr",
-                  gap: "0 2rem",
-                  borderBottom: "1px solid var(--color-border)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background =
-                    "rgba(207,139,216,0.04)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.background =
-                    "transparent";
-                }}
-              >
-                <p
-                  className="text-[1.1rem] font-black pt-1 opacity-60"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  {law.num}
-                </p>
-                <div>
-                  <p
-                    className="text-[0.72rem] font-bold uppercase tracking-[0.06em] mb-1"
-                    style={{ color: law.tagColor }}
-                  >
-                    {law.tag}
-                  </p>
-                  <h3 className="text-[1.2rem] font-extrabold leading-[1.3] mb-3">
-                    {law.title}
-                  </h3>
-                  <p className="text-[0.97rem] text-white leading-[1.8] mb-4 max-w-[680px]">
-                    {law.body}
-                  </p>
-                  <div
-                    className="py-3 px-4 text-[0.92rem] font-semibold leading-[1.6] max-w-[680px]"
-                    style={{
-                      borderLeft: `3px solid ${law.actionColor}`,
-                      background: `${law.actionColor}15`,
-                      color: law.actionColor,
-                    }}
-                  >
-                    {law.action}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Federal */}
+          <h3
+            className="text-[clamp(1.6rem,3vw,2.2rem)] tracking-[-0.01em] mb-6"
+          >
+            Federal <em>Protections</em>
+          </h3>
+          <LawList laws={federalLaws} />
+
+          {/* California */}
+          <h3
+            className="text-[clamp(1.6rem,3vw,2.2rem)] tracking-[-0.01em] mt-16 mb-6"
+          >
+            California <em>Protections</em>
+          </h3>
+          <LawList laws={californiaLaws} />
 
           <div
             className="flex items-center justify-between flex-wrap gap-6 pt-10 mt-4"

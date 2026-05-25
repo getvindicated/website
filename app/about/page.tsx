@@ -121,17 +121,14 @@ export default function AboutPage() {
             }}
           />
           <SectionLabel>Our Mission</SectionLabel>
-          <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black leading-[0.95] tracking-tight mb-3">
+          <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
             Educate. Empower. <em>Vindicate.</em>
           </h2>
-          <p className="text-[0.82rem] text-white leading-[1.4] max-w-[620px] mb-10">
+          <p className="text-[0.88rem] text-white/70 leading-[1.5] max-w-[620px] mb-14">
             To dismantle consumer-level escort culture, one informed buyer at a
             time.
           </p>
-          <div
-            className="grid gap-12 max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr 1fr" }}
-          >
+          <div style={{ borderTop: "1px solid var(--color-border)" }}>
             {[
               {
                 word: "Educate",
@@ -146,11 +143,21 @@ export default function AboutPage() {
                 body: "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change.",
               },
             ].map(({ word, body }) => (
-              <div key={word}>
-                <p className="text-[clamp(1.6rem,3vw,2.4rem)] font-black mb-3 tracking-tight">
+              <div
+                key={word}
+                className="grid gap-6 py-10 max-md:grid-cols-1"
+                style={{
+                  gridTemplateColumns: "240px 1fr",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
+              >
+                <h3
+                  className="text-[clamp(2rem,4vw,3rem)] tracking-[-0.02em] leading-[1]"
+                  style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+                >
                   {word}
-                </p>
-                <p className="text-[0.95rem] text-white/85 leading-[1.65]">
+                </h3>
+                <p className="text-[1.05rem] text-white/80 leading-[1.75] pt-1">
                   {body}
                 </p>
               </div>
@@ -168,113 +175,133 @@ export default function AboutPage() {
           <SectionTitle className="mb-3">
             <em>Vindicated from what?</em>
           </SectionTitle>
-          <p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[680px] mb-12">
+          <p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[680px] mb-14">
             Three strikes. Three completely different situations. The same
             system every time.
           </p>
 
-          <div
-            className="grid gap-16 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
-          >
-            {/* Strikes */}
-            <div className="space-y-8">
-              {[
-                {
-                  label: "Strike 1: The Pink Slip Scam",
-                  body: [
-                    "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
-                    "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
-                  ],
-                },
-                {
-                  label: "Strike 2: Facebook Marketplace",
-                  body: [
-                    "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
-                    'As soon as he found out I was female, the tone shifted completely. He told me, "Shut your mouth, bitch," and blocked me.',
-                  ],
-                },
-                {
-                  label:
-                    "Strike 3, You're Out: April 2025, South Coast Mitsubishi",
-                  body: [
-                    'I test drove the car alone. When I came back with my sister to buy it, it suddenly read: "Buy today or lose it."',
-                    "I paid for an independent inspection. They found issues. Then they handed me a financing contract at 30% APR. I was paying cash. I took business law. I know what arbitration means. I didn't sign.",
-                  ],
-                },
-              ].map(({ label, body }) => (
-                <div
-                  key={label}
-                  className="p-8"
-                  style={{
-                    background: "var(--color-bg-page)",
-                    borderLeft: "4px solid var(--color-red)",
-                  }}
+          {/* Strikes as timeline */}
+          <div style={{ borderTop: "1px solid var(--color-border)" }}>
+            {[
+              {
+                num: "01",
+                label: "The Pink Slip Scam",
+                body: [
+                  "At 18, I was trying to buy a car from my friend\u2019s dad. He made me wait three months, promising the whole time to sell it to me.",
+                  "When the time finally came, he tried to tell me I didn\u2019t need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
+                ],
+              },
+              {
+                num: "02",
+                label: "Facebook Marketplace",
+                body: [
+                  "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
+                  "As soon as he found out I was female, the tone shifted completely. He told me, \u201CShut your mouth, bitch,\u201D and blocked me.",
+                ],
+              },
+              {
+                num: "03",
+                label: "South Coast Mitsubishi, April 2025",
+                body: [
+                  "I test drove the car alone. When I came back with my sister to buy it, it suddenly read: \u201CBuy today or lose it.\u201D",
+                  "I paid for an independent inspection. They found issues. Then they handed me a financing contract at 30% APR. I was paying cash. I took business law. I know what arbitration means. I didn\u2019t sign.",
+                ],
+              },
+            ].map(({ num, label, body }) => (
+              <div
+                key={num}
+                className="grid gap-6 py-10 max-md:grid-cols-1"
+                style={{
+                  gridTemplateColumns: "60px 200px 1fr",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
+              >
+                <span
+                  className="text-[1rem] font-bold pt-1"
+                  style={{ color: "var(--color-red)", opacity: 0.5 }}
                 >
-                  <p
-                    className="text-[0.75rem] font-extrabold uppercase tracking-[0.08em] mb-3"
-                    style={{ color: "var(--color-red)" }}
-                  >
-                    {label}
-                  </p>
+                  {num}
+                </span>
+                <h3
+                  className="text-[1.15rem] leading-[1.3] pt-1"
+                  style={{ color: "var(--color-red)" }}
+                >
+                  {label}
+                </h3>
+                <div className="space-y-3">
                   {body.map((p, i) => (
                     <p
                       key={i}
-                      className="text-[0.97rem] leading-[1.75] mb-2 last:mb-0"
+                      className="text-[0.97rem] text-white/80 leading-[1.75]"
                     >
                       {p}
                     </p>
                   ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Right column */}
-            <div className="space-y-8">
-              <Pullquote
-                quote="I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."
-                cite="— Rana Darwich, Founder of VINdicated"
-              />
-              <div
-                className="p-10"
-                style={{
-                  background: "var(--color-bg-page)",
-                  border: "1px solid var(--color-border)",
-                }}
+          {/* Pullquote — full width break */}
+          <div className="py-16 max-w-[720px]">
+            <blockquote
+              className="text-[clamp(1.4rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4"
+              style={{
+                fontFamily: "var(--font-heading), Georgia, serif",
+                borderLeft: "3px solid var(--color-vivid)",
+                paddingLeft: "2rem",
+              }}
+            >
+              I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect.
+            </blockquote>
+            <p
+              className="text-[0.7rem] uppercase tracking-[0.1em] ml-[calc(3px+2rem)]"
+              style={{ color: "var(--color-light)" }}
+            >
+              Rana Darwich, Founder of VINdicated
+            </p>
+          </div>
+
+          {/* Bio + Wollstonecraft — two columns */}
+          <div
+            className="grid gap-12 max-lg:grid-cols-1"
+            style={{ gridTemplateColumns: "1fr 1fr" }}
+          >
+            <div>
+              <p
+                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-4"
+                style={{ color: "var(--color-accent)" }}
               >
-                <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-4"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  About Rana Darwich
-                </p>
-                <p className="text-[0.97rem] leading-[1.75] mb-4">
-                  Founded VINdicated at 19 after a random business law
-                  vocabulary word saved her from signing an arbitration clause
-                  at a dealership.
-                </p>
-                <p className="text-[1.05rem] font-bold mt-5">
-                  Now, it&apos;s your turn.
-                </p>
-              </div>
-              <div
-                style={{
-                  borderLeft: "3px solid var(--color-accent)",
-                  paddingLeft: "2rem",
-                }}
+                About the Founder
+              </p>
+              <p className="text-[1.05rem] leading-[1.75] text-white/80 mb-5">
+                Rana Darwich founded VINdicated at 19 after a random business law
+                vocabulary word saved her from signing an arbitration clause
+                at a dealership.
+              </p>
+              <p className="text-[1.15rem] font-semibold">
+                Now, it&apos;s your turn.
+              </p>
+            </div>
+            <div
+              style={{
+                borderLeft: "3px solid var(--color-accent)",
+                paddingLeft: "2rem",
+              }}
+            >
+              <p
+                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-4"
+                style={{ color: "var(--color-accent)" }}
               >
-                <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-3"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  Mary Wollstonecraft — A Vindication of the Rights of Woman,
-                  1792
-                </p>
-                <p className="text-[1.35rem] italic leading-[1.45] font-semibold">
-                  &quot;Strengthen the female mind by enlarging it, and there will be
-                  an end to blind obedience.&quot;
-                </p>
-              </div>
+                Mary Wollstonecraft, 1792
+              </p>
+              <p
+                className="text-[clamp(1.2rem,2vw,1.5rem)] italic leading-[1.5]"
+                style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+              >
+                &quot;Strengthen the female mind by enlarging it, and there will be
+                an end to blind obedience.&quot;
+              </p>
             </div>
           </div>
         </section>
@@ -299,17 +326,11 @@ export default function AboutPage() {
             <br />
             <em>No strings attached.</em>
           </SectionTitle>
-          <p className="text-base text-white/70 leading-[1.7] max-w-[680px] mb-12">
+          <p className="text-base text-white/70 leading-[1.7] max-w-[680px] mb-14">
             Everything VINdicated offers is free. No signup required, no upsell,
             no catch.
           </p>
-          <div
-            className="grid gap-[1.5px]"
-            style={{
-              gridTemplateColumns: "1fr 1fr",
-              background: "var(--color-border)",
-            }}
-          >
+          <div style={{ borderTop: "1px solid var(--color-border)" }}>
             {[
               {
                 cat: "Education",
@@ -334,21 +355,26 @@ export default function AboutPage() {
             ].map(({ cat, title, body }) => (
               <div
                 key={cat}
-                className="p-10"
-                style={{ background: "var(--color-bg-surface)" }}
+                className="grid gap-6 py-10 max-md:grid-cols-1"
+                style={{
+                  gridTemplateColumns: "140px 1fr",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
               >
                 <p
-                  className="text-[0.72rem] font-bold uppercase tracking-[0.06em] mb-3"
+                  className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] pt-1"
                   style={{ color: "var(--color-accent)" }}
                 >
                   {cat}
                 </p>
-                <h3 className="text-[1.4rem] font-extrabold mb-3 leading-[1.2]">
-                  {title}
-                </h3>
-                <p className="text-[0.95rem] text-white/82 leading-[1.7]">
-                  {body}
-                </p>
+                <div>
+                  <h3 className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-3">
+                    {title}
+                  </h3>
+                  <p className="text-[1rem] text-white/75 leading-[1.7] max-w-[560px]">
+                    {body}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

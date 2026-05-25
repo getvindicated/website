@@ -55,7 +55,10 @@ export function Button({
 // ── Section Label ────────────────────────────────────────────
 export function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <p className="text-[0.95rem] font-bold tracking-wide text-white mb-5">
+    <p
+      className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
+      style={{ color: "var(--color-light)" }}
+    >
       {children}
     </p>
   );
@@ -73,7 +76,7 @@ export function SectionTitle({
 }) {
   return (
     <h2
-      className={`text-[clamp(2.5rem,5vw,4.2rem)] font-black leading-[1.05] tracking-tight ${className}`}
+      className={`text-[clamp(2.5rem,5vw,4.2rem)] font-semibold leading-[1.05] tracking-[-0.02em] ${className}`}
       style={style}
     >
       {children}
@@ -143,12 +146,12 @@ export function PageHero({
         }}
       />
       <p
-        className="relative text-[0.8rem] font-semibold tracking-wide mb-5"
+        className="relative text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
         style={{ color: "var(--color-light)" }}
       >
         {kicker}
       </p>
-      <h1 className="relative text-[clamp(3rem,5vw,5.5rem)] font-black leading-[1] tracking-tight max-w-[900px] mb-6">
+      <h1 className="relative text-[clamp(3rem,5vw,5.5rem)] font-semibold leading-[1] tracking-[-0.02em] max-w-[900px] mb-6">
         {title}
       </h1>
       {subtitle && (
@@ -171,7 +174,12 @@ export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
         background: "rgba(90,48,105,0.06)",
       }}
     >
-      <p className="text-[1.3rem] italic leading-[1.5] mb-3">{quote}</p>
+      <p
+        className="text-[1.3rem] italic leading-[1.5] mb-3"
+        style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+      >
+        {quote}
+      </p>
       <cite
         className="not-italic text-[0.65rem] uppercase tracking-widest"
         style={{ color: "var(--color-light)" }}
@@ -318,7 +326,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
             className="w-full text-left py-7 flex justify-between items-center gap-4 bg-transparent border-none"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
-            <h3 className="text-[1.25rem] font-bold leading-[1.3]">
+            <h3 className="text-[1.25rem] leading-[1.3]">
               {item.trigger}
             </h3>
             <span
@@ -376,7 +384,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           >
             {card.num}
           </p>
-          <h3 className="text-[1.25rem] font-bold mb-3 leading-[1.2]">
+          <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
             {card.title}
           </h3>
           <div className="text-base text-white/80 leading-[1.7]">
