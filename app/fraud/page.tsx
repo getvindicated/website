@@ -140,8 +140,7 @@ function PinkSlipExplainer() {
 
   return (
     <div
-      className="grid gap-12 mt-12 max-lg:grid-cols-1"
-      style={{ gridTemplateColumns: "1fr 1fr" }}
+      className="grid grid-cols-[1fr_1fr] gap-12 mt-12 max-lg:grid-cols-1"
     >
       {/* Document image + pins */}
       <div className="relative select-none">
@@ -203,13 +202,14 @@ function PinkSlipExplainer() {
       </div>
 
       {/* Explainer panel */}
-      <div style={{ position: "sticky", top: "5rem" }}>
+      <div className="max-lg:!static" style={{ position: "sticky", top: "5rem" }}>
         {active === null ? (
           <div
             className="p-8 text-center"
             style={{ border: "1px solid var(--color-border)" }}
           >
-            <span className="block text-3xl mb-4 point-left">{"←"}</span>
+            <span className="block text-3xl mb-4 point-left max-lg:hidden">{"←"}</span>
+            <span className="hidden max-lg:block text-3xl mb-4">{"↑"}</span>
             <p className="text-[0.68rem] uppercase tracking-widest text-white/60">
               Click any numbered pin to learn what that section means
             </p>
@@ -553,8 +553,7 @@ export default function FraudPage() {
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>The Reality</SectionLabel>

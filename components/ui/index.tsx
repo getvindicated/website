@@ -168,14 +168,14 @@ export function PageHero({
 export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
   return (
     <blockquote
-      className="my-8 px-8 py-6"
+      className="my-8 px-8 max-md:px-5 py-6"
       style={{
         borderLeft: "4px solid var(--color-vivid)",
         background: "rgba(90,48,105,0.06)",
       }}
     >
       <p
-        className="text-[1.3rem] italic leading-[1.5] mb-3"
+        className="text-[clamp(1.05rem,2.5vw,1.3rem)] italic leading-[1.5] mb-3"
         style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
       >
         {quote}
@@ -200,7 +200,7 @@ export function WarningBox({
 }) {
   return (
     <div
-      className="my-8 px-8 py-6"
+      className="my-8 px-8 max-md:px-5 py-6"
       style={{
         background: "rgba(214,59,59,0.08)",
         border: "1px solid rgba(214,59,59,0.3)",
@@ -232,7 +232,7 @@ export function InfoBox({
 }) {
   return (
     <div
-      className={`my-8 px-8 py-6 ${className}`}
+      className={`my-8 px-8 max-md:px-5 py-6 ${className}`}
       style={{
         background: "rgba(124,58,237,0.08)",
         border: "1px solid var(--color-border)",
@@ -326,7 +326,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
             className="w-full text-left py-7 flex justify-between items-center gap-4 bg-transparent border-none"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
-            <h3 className="text-[1.25rem] leading-[1.3]">
+            <h3 className="text-[clamp(1rem,2.5vw,1.25rem)] leading-[1.3]">
               {item.trigger}
             </h3>
             <span
@@ -367,7 +367,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
       {cards.map((card) => (
         <div
           key={card.num}
-          className="p-10 transition-colors duration-200"
+          className="p-10 max-md:p-6 transition-colors duration-200"
           style={{ background: "var(--color-bg-surface)" }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLDivElement).style.background =

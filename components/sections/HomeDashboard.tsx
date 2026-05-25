@@ -58,9 +58,8 @@ export function HomeDashboard() {
           {findings.map((f) => (
             <div
               key={f.figure + f.context}
-              className="grid gap-6 py-9 max-md:grid-cols-1"
+              className="grid grid-cols-[160px_1fr] gap-6 py-9 max-md:grid-cols-1"
               style={{
-                gridTemplateColumns: "160px 1fr",
                 borderBottom: "1px solid var(--color-border)",
               }}
             >

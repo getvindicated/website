@@ -43,9 +43,8 @@ export function HomeCards() {
             <Link
               key={p.kicker}
               href={p.href}
-              className="group grid gap-8 py-12 no-underline transition-colors duration-200 max-md:grid-cols-1"
+              className="group grid grid-cols-[180px_1fr_auto] gap-8 py-12 no-underline transition-colors duration-200 max-md:grid-cols-1"
               style={{
-                gridTemplateColumns: "180px 1fr auto",
                 borderBottom: "1px solid var(--color-border)",
               }}
             >
@@ -107,8 +106,7 @@ export function HomeFounder() {
   return (
     <FadeUp>
       <div
-        className="grid items-center overflow-hidden"
-        style={{ gridTemplateColumns: "1fr 1fr" }}
+        className="grid grid-cols-[1fr_1fr] items-center overflow-hidden max-lg:grid-cols-1"
       >
         <div className="px-20 py-16 max-lg:px-6">
           <SectionLabel>From the Founder</SectionLabel>
@@ -134,8 +132,7 @@ export function HomeFounder() {
           width={0}
           height={0}
           sizes="50vw"
-          className="w-full object-cover object-top fade-right max-lg:max-h-[260px]"
-          style={{ height: 420 }}
+          className="w-full h-[420px] object-cover object-top fade-right max-lg:max-h-[260px] max-lg:h-auto"
         />
       </div>
     </FadeUp>

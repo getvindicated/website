@@ -256,8 +256,7 @@ function EngineDiagram() {
       </div>
 
       <div
-        className="grid max-lg:grid-cols-1"
-        style={{ gridTemplateColumns: "1fr 420px" }}
+        className="grid grid-cols-[1fr_minmax(0,420px)] max-lg:grid-cols-1"
       >
         {/* Image + pins */}
         <div
@@ -635,8 +634,7 @@ export default function InspectionPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>The Basics</SectionLabel>
@@ -783,8 +781,8 @@ export default function InspectionPage() {
             and have zero incentive to lie.
           </p>
           <div
-            className="grid gap-[1.5px] max-md:grid-cols-2"
-            style={{ gridTemplateColumns: "repeat(4,1fr)", background: "#000" }}
+            className="grid grid-cols-4 gap-[1.5px] max-md:grid-cols-2"
+            style={{ background: "#000" }}
           >
             {brands.map((brand) => (
               <Link
@@ -792,7 +790,7 @@ export default function InspectionPage() {
                 href={brand.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-4 p-8 no-underline transition-colors duration-200 group relative overflow-hidden"
+                className="flex flex-col items-center gap-4 p-8 max-md:p-5 no-underline transition-colors duration-200 group relative overflow-hidden"
                 style={{ background: "#000" }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLAnchorElement).style.background =
@@ -803,7 +801,7 @@ export default function InspectionPage() {
                     "#000";
                 }}
               >
-                <div className="w-[72px] h-[72px] flex items-center justify-center">
+                <div className="w-[72px] h-[72px] max-md:w-[56px] max-md:h-[56px] flex items-center justify-center">
                   <Image
                     src={brand.logo}
                     alt={brand.name}

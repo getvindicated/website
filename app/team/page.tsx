@@ -253,8 +253,7 @@ export default function TeamPage() {
 					{team.map((member, i) => (
 						<FadeUp key={member.name}>
 								<div
-									className="grid gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8"
-									style={{ gridTemplateColumns: "280px 1fr auto" }}
+									className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center"
 								>
 									{/* Photo */}
 									<div

@@ -47,8 +47,7 @@ export default function AboutPage() {
         <section id="why" className="px-20 py-24 max-md:px-6 max-md:py-16">
           <SectionLabel>Why We Exist</SectionLabel>
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
               <SectionTitle
@@ -145,9 +144,8 @@ export default function AboutPage() {
             ].map(({ word, body }) => (
               <div
                 key={word}
-                className="grid gap-6 py-10 max-md:grid-cols-1"
+                className="grid grid-cols-[240px_1fr] gap-6 py-10 max-md:grid-cols-1"
                 style={{
-                  gridTemplateColumns: "240px 1fr",
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >
@@ -210,9 +208,8 @@ export default function AboutPage() {
             ].map(({ num, label, body }) => (
               <div
                 key={num}
-                className="grid gap-6 py-10 max-md:grid-cols-1"
+                className="grid grid-cols-[60px_200px_1fr] gap-6 max-md:gap-3 py-10 max-md:py-8 max-md:grid-cols-1"
                 style={{
-                  gridTemplateColumns: "60px 200px 1fr",
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >
@@ -245,7 +242,7 @@ export default function AboutPage() {
           {/* Pullquote — full width break */}
           <div className="py-16 max-w-[720px]">
             <blockquote
-              className="text-[clamp(1.4rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4"
+              className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4 max-md:pl-5"
               style={{
                 fontFamily: "var(--font-heading), Georgia, serif",
                 borderLeft: "3px solid var(--color-vivid)",
@@ -264,8 +261,7 @@ export default function AboutPage() {
 
           {/* Bio + Wollstonecraft — two columns */}
           <div
-            className="grid gap-12 max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1"
           >
             <div>
               <p
@@ -284,6 +280,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div
+              className="max-md:pl-5"
               style={{
                 borderLeft: "3px solid var(--color-accent)",
                 paddingLeft: "2rem",
@@ -355,9 +352,8 @@ export default function AboutPage() {
             ].map(({ cat, title, body }) => (
               <div
                 key={cat}
-                className="grid gap-6 py-10 max-md:grid-cols-1"
+                className="grid grid-cols-[140px_1fr] gap-6 py-10 max-md:grid-cols-1"
                 style={{
-                  gridTemplateColumns: "140px 1fr",
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >

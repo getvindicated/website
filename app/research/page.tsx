@@ -88,8 +88,7 @@ export default function ResearchPage() {
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>Our Approach</SectionLabel>
@@ -192,8 +191,7 @@ export default function ResearchPage() {
           </SectionTitle>
 
           <div
-            className="grid gap-12 max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1"
           >
             {stats.map(({ source, items }) => (
               <div key={source}>
@@ -291,8 +289,7 @@ export default function ResearchPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
           <div
-            className="grid gap-20 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
               <SectionLabel>Get Involved</SectionLabel>

@@ -81,8 +81,7 @@ export function HomeHero() {
 
   return (
     <div
-      className="grid min-h-[500px] relative max-lg:grid-cols-1"
-      style={{ gridTemplateColumns: "1fr 1fr" }}
+      className="grid grid-cols-[1fr_1fr] min-h-[500px] max-md:min-h-0 relative max-lg:grid-cols-1"
     >
       {/* Glow */}
       <div
@@ -127,8 +126,7 @@ export function HomeHero() {
 
       {/* Right — stats as stacked list */}
       <div
-        className="flex items-center justify-center px-8 py-10 relative max-lg:px-6 max-lg:pb-12"
-        style={{ paddingRight: "5rem" }}
+        className="flex items-center justify-center px-8 pr-20 py-10 relative max-lg:px-6 max-lg:pb-12"
       >
         {/* Background illustration */}
         <div
@@ -151,7 +149,7 @@ export function HomeHero() {
               className="py-5"
               style={{ borderBottom: "1px solid var(--color-border)" }}
             >
-              <div className="flex items-baseline gap-4">
+              <div className="flex items-baseline gap-4 max-sm:flex-col max-sm:gap-1">
                 <span
                   id={s.id}
                   className="text-[clamp(2.4rem,4vw,3.2rem)] font-bold leading-[1] flex-shrink-0"
@@ -168,7 +166,7 @@ export function HomeHero() {
                 </p>
               </div>
               <p
-                className="text-[0.7rem] mt-2 ml-[calc(90px+1rem)]"
+                className="text-[0.7rem] mt-2 ml-[calc(90px+1rem)] max-sm:ml-0"
                 style={{ color: "var(--color-light)", opacity: 0.6 }}
               >
                 {s.cite}

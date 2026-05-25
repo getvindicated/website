@@ -13,7 +13,7 @@ export function RoadScene() {
 
   return (
     <div
-      className="relative overflow-hidden mt-[65px]"
+      className="relative overflow-hidden mt-[65px] max-md:mt-[53px]"
       style={{
         height: 140,
         background: "linear-gradient(180deg, #0d0814 0%, #0d0814 65%)",
@@ -75,6 +75,7 @@ export function RoadScene() {
           alt="Purple car"
           width={240}
           height={135}
+          className="max-md:h-[100px] max-md:w-auto"
           style={{ height: 135, width: "auto", display: "block" }}
         />
       </div>

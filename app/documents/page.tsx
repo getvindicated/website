@@ -86,12 +86,11 @@ function DocExhibit({
 
   return (
     <div
-      className="grid max-lg:grid-cols-1"
-      style={{ gridTemplateColumns: "1fr 380px" }}
+      className="grid grid-cols-[1fr_380px] max-lg:grid-cols-1"
     >
       {/* Image */}
       <div
-        className="p-5 border-r border-white/[0.08] overflow-y-auto max-lg:border-r-0 max-lg:border-b"
+        className="p-5 max-md:p-3 border-r border-white/[0.08] overflow-y-auto max-lg:border-r-0 max-lg:border-b max-lg:!static max-lg:!max-h-none"
         style={{
           background: "var(--color-bg-mid)",
           maxHeight: "calc(100vh - 62px)",
@@ -194,12 +193,18 @@ function DocExhibit({
 
         {/* Prompt or card */}
         {!card ? (
-          <div className="flex-1 flex flex-col items-center justify-center gap-3 px-6 text-center">
+          <div className="flex-1 flex flex-col items-center justify-center gap-3 px-6 py-8 text-center">
             <span
-              className="text-2xl point-left"
+              className="text-2xl point-left max-lg:hidden"
               style={{ color: "var(--color-light)" }}
             >
               ←
+            </span>
+            <span
+              className="text-2xl hidden max-lg:block"
+              style={{ color: "var(--color-light)" }}
+            >
+              ↑
             </span>
             <p className="text-[0.62rem] text-white/60">
               Click any numbered
@@ -1069,9 +1074,8 @@ export default function DocumentsPage() {
           </div>
 
           <div
-            className="grid gap-[1.5px] max-lg:grid-cols-1"
+            className="grid grid-cols-[1fr_1fr] gap-[1.5px] max-lg:grid-cols-1"
             style={{
-              gridTemplateColumns: "1fr 1fr",
               background: "var(--color-border)",
             }}
           >
@@ -1138,9 +1142,8 @@ export default function DocumentsPage() {
             ].map(({ color, label, title, body }) => (
               <div
                 key={label}
-                className="grid gap-6 px-8 py-7 max-md:grid-cols-1"
+                className="grid grid-cols-[180px_1fr] gap-6 px-8 max-md:px-5 py-7 max-md:grid-cols-1"
                 style={{
-                  gridTemplateColumns: "180px 1fr",
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >

@@ -271,3 +271,28 @@ h4 em {
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Mobile touch targets ── */
+@media (max-width: 768px) {
+  /* Ensure interactive pin buttons are at least 44px tap targets */
+  .hotspot {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}

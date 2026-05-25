@@ -220,8 +220,7 @@ export default function ContactPage() {
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
           <div
-            className="grid gap-24 items-start max-lg:grid-cols-1"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="grid grid-cols-[1fr_1fr] gap-24 max-lg:gap-16 items-start max-lg:grid-cols-1"
           >
             {/* Form */}
             <div>
