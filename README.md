@@ -350,4 +350,4 @@ All shared UI primitives are exported from `components/ui/index.tsx`:
 | `NEXT_PUBLIC_SITE_URL` | No | Base URL for sitemap and OG metadata. Defaults to `https://getvindicated.org` |
 
 Copy `.env.example` to `.env.local` and fill in `BREVO_API_KEY` to enable the contact form in local development.
- 
+  
