@@ -32,7 +32,7 @@ const stats = [
     dur: 1400,
     label:
       "of non-white testers were given worse pricing at dealerships compared to white testers",
-    cite: "National Fair Housing Alliance, 1995",
+    cite: "National Fair Housing Alliance, 2018",
   },
   {
     id: "stat4",
