@@ -16,7 +16,7 @@ const stats = [
   },
   {
     id: "stat2",
-    target: 70,
+    target: 48,
     prefix: "",
     suffix: "%",
     dur: 1600,
@@ -26,13 +26,13 @@ const stats = [
   },
   {
     id: "stat3",
-    target: 4,
+    target: 62.5,
     prefix: "",
     suffix: "%",
     dur: 1400,
     label:
-      "of dealership test visits included racist or sexist comments from staff",
-    cite: "Ayres & Siegelman, 1995",
+      "of non-white testers were given worse pricing at dealerships compared to white testers",
+    cite: "National Fair Housing Alliance, 1995",
   },
   {
     id: "stat4",

@@ -271,9 +271,8 @@ export default function AboutPage() {
                 About the Founder
               </p>
               <p className="text-[1.05rem] leading-[1.75] text-white/80 mb-5">
-                Rana Darwich founded VINdicated at 19 after a random business law
-                vocabulary word saved her from signing an arbitration clause
-                at a dealership.
+                Rana Darwich founded VINdicated at 19 after almost signing
+				a predatory arbitration clause at a dealership.
               </p>
               <p className="text-[1.15rem] font-semibold">
                 Now, it&apos;s your turn.
