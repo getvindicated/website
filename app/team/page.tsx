@@ -47,7 +47,7 @@ const team: TeamMember[] = [
 		name: "Rana Darwich",
 		position: "Founder",
 		photo: "/team/rana.jpg",
-		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory arbitration clause at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
+		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
 	},
 	{
 		name: "Rizwaan Bana",
@@ -293,7 +293,7 @@ export default function TeamPage() {
 										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-5">
 											{member.name}
 										</h3>
-										<p className="text-[0.95rem] text-white/80 leading-[1.75] max-w-[560px]">
+										<p className="text-[0.95rem] text-white/80 leading-[1.75] max-w-140">
 											{member.bio}
 										</p>
 									</div>

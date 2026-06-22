@@ -199,10 +199,10 @@ export default function AboutPage() {
               },
               {
                 num: "03",
-                label: "South Coast Mitsubishi, April 2025",
+                label: "South Coast Mitsubishi",
                 body: [
-                  "I test drove the car alone. When I came back with my sister to buy it, it suddenly read: \u201CBuy today or lose it.\u201D",
-                  "I paid for an independent inspection. They found issues. Then they handed me a financing contract at 30% APR. I was paying cash. I took business law. I know what arbitration means. I didn\u2019t sign.",
+                  "I showed up to test drive a car alone. When I came back with my sister to buy it, it suddenly read: \u201CBuy today or lose it.\u201D",
+                  "Then I paid for an independent inspection. They found issues. They handed me a financing contract at 30% APR. I know what a bad deal is. I didn\u2019t sign.",
                 ],
               },
             ].map(({ num, label, body }) => (
