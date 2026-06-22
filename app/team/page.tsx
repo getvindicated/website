@@ -79,7 +79,7 @@ const team: TeamMember[] = [
 		name: "Yinrui (Ray) Gan",
 		position: "Technical Lead",
 		photo: "/team/ray.jpg",
-		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map, turning unstructured consumer reviews into actionable risk signal signals for car buyers. He studies Computer Science and Linguistics at UCLA.",
+		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
 	},
 	{
 		name: "Malia LaVoie",
