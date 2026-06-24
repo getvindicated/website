@@ -240,14 +240,8 @@ function EngineDiagram() {
         className="px-16 py-14 border-b max-md:px-6"
         style={{ borderColor: "var(--color-border)" }}
       >
-        <p
-          className="text-[0.78rem] font-semibold mb-2"
-          style={{ color: "var(--color-accent)" }}
-        >
-          Interactive Engine Diagram
-        </p>
-        <h2 className="text-[2rem] mb-3">
-          Under the Hood — <em>What to Actually Look For</em>
+        <h2 className="text-[4rem] mb-3">
+          What to <em>Actually</em> Look For
         </h2>
         <p className="text-[0.92rem] text-white leading-[1.7] max-w-[680px]">
           Click any numbered pin on the engine to learn what that component
@@ -616,7 +610,7 @@ export default function InspectionPage() {
   return (
     <>
       <PageHero
-        kicker="Education — Pre-Purchase Inspection"
+        kicker=""
         title={
           <>
             Don't Buy a Car
@@ -637,7 +631,6 @@ export default function InspectionPage() {
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
-              <SectionLabel>The Basics</SectionLabel>
               <SectionTitle
                 style={
                   { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
@@ -708,7 +701,6 @@ export default function InspectionPage() {
           id="where-to-get"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
-          <SectionLabel>Your Options</SectionLabel>
           <SectionTitle className="mb-12">Where to Get a PPI</SectionTitle>
           <CardGrid
             cards={[
@@ -771,7 +763,6 @@ export default function InspectionPage() {
           id="dealer-locators"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
-          <SectionLabel>Manufacturer Dealership Locators</SectionLabel>
           <SectionTitle className="mb-3">
             Find a <em>Manufacturer Dealership</em>
           </SectionTitle>
@@ -833,7 +824,6 @@ export default function InspectionPage() {
           id="what-to-inspect"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
-          <SectionLabel>What Inspectors Check</SectionLabel>
           <SectionTitle
             className="mb-4"
             style={
@@ -870,7 +860,6 @@ export default function InspectionPage() {
       {/* How to schedule */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>The Process</SectionLabel>
           <SectionTitle className="mb-10">How to Schedule a PPI</SectionTitle>
           <Checklist
             items={[

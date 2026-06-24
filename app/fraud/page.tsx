@@ -539,7 +539,7 @@ export default function FraudPage() {
   return (
     <>
       <PageHero
-        kicker="Protection — Fraud Prevention"
+        kicker=""
         title={
           <>
             Know What
@@ -556,7 +556,6 @@ export default function FraudPage() {
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
-              <SectionLabel>The Reality</SectionLabel>
               <SectionTitle>
                 This isn&apos;t paranoia.
                 <br />
@@ -584,7 +583,6 @@ export default function FraudPage() {
           className="px-20 py-16 max-md:px-6"
           style={{ background: "var(--color-bg-page)", margin: 0 }}
         >
-          <SectionLabel>Document Explainer — The Pink Slip</SectionLabel>
           <SectionTitle>
             This document is your
             <br />
@@ -609,7 +607,6 @@ export default function FraudPage() {
           id="red-flags"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
-          <SectionLabel>At the Dealership</SectionLabel>
           <SectionTitle className="mb-10">
             Red Flags That Should Make You <em>Pause.</em>
           </SectionTitle>
@@ -631,9 +628,6 @@ export default function FraudPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
-          <SectionLabel>
-            Know Your Rights
-          </SectionLabel>
           <SectionTitle className="mb-3">
             The law is already <em>on your side.</em>
           </SectionTitle>
@@ -681,7 +675,6 @@ export default function FraudPage() {
       {/* After a scam */}
       <FadeUp>
         <section id="after" className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>If It Already Happened</SectionLabel>
           <SectionTitle className="mb-10">
             What to Do <em>After a Scam.</em>
           </SectionTitle>

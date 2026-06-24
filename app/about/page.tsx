@@ -31,7 +31,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        kicker="Who We Are"
+        kicker=""
         title={
           <>
             Built on the belief that car knowledge
@@ -45,7 +45,6 @@ export default function AboutPage() {
       {/* Why We Exist */}
       <FadeUp>
         <section id="why" className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>Why We Exist</SectionLabel>
           <div
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
@@ -119,7 +118,6 @@ export default function AboutPage() {
               opacity: 0.18,
             }}
           />
-          <SectionLabel>Our Mission</SectionLabel>
           <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
             Educate. Empower. <em>Vindicate.</em>
           </h2>
@@ -169,7 +167,6 @@ export default function AboutPage() {
       {/* Founder story */}
       <FadeUp>
         <section id="story" className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>From the Founder</SectionLabel>
           <SectionTitle className="mb-3">
             <em>Vindicated from what?</em>
           </SectionTitle>
@@ -311,7 +308,6 @@ export default function AboutPage() {
           id="vindicated-from"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
-          <SectionLabel>What We Provide</SectionLabel>
           <SectionTitle
             className="mb-3"
             style={

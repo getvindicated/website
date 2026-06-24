@@ -206,7 +206,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        kicker="Get in Touch"
+        kicker=""
         title={
           <>
             We want to
@@ -224,13 +224,11 @@ export default function ContactPage() {
           >
             {/* Form */}
             <div>
-              <SectionLabel>Send a Message</SectionLabel>
               <ContactForm />
             </div>
 
             {/* Side info */}
             <div>
-              <SectionLabel>Ways to Connect</SectionLabel>
               <SectionTitle className="mb-10">
                 <em>Join the movement.</em>
               </SectionTitle>

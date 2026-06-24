@@ -54,20 +54,20 @@ const team: TeamMember[] = [
 		position: "Software Lead",
 		photo: "/team/rizwaan.jpg",
 		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
-		socials: [
-			{
-				platform: "linkedin",
-				href: "https://www.linkedin.com/in/rizwaanbana"
-			},
-			{
-				platform: "github",
-				href: "https://github.com/ryloriz"
-			},
-			{
-				platform: "website",
-				href: "https://rizwaan.dev"
-			}
-		]
+		// socials: [
+		// 	{
+		// 		platform: "linkedin",
+		// 		href: "https://www.linkedin.com/in/rizwaanbana"
+		// 	},
+		// 	{
+		// 		platform: "github",
+		// 		href: "https://github.com/ryloriz"
+		// 	},
+		// 	{
+		// 		platform: "website",
+		// 		href: "https://rizwaan.dev"
+		// 	}
+		// ]
 	},
 	{
 		name: "Peter Vincent Dickson",
@@ -232,7 +232,7 @@ export default function TeamPage() {
 	return (
 		<>
 			<PageHero
-				kicker="Our Team"
+				kicker=""
 				title={
 					<>
 						Driven by the
@@ -340,7 +340,6 @@ export default function TeamPage() {
 					className="px-20 py-24 max-md:px-6 max-md:py-16 text-center"
 					style={{ background: "var(--color-bg-page)" }}
 				>
-					<SectionLabel>Join Us</SectionLabel>
 					<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
 						Want to be part of <em>this?</em>
 					</h2>

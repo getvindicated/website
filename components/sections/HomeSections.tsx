@@ -43,17 +43,11 @@ export function HomeCards() {
             <Link
               key={p.kicker}
               href={p.href}
-              className="group grid grid-cols-[180px_1fr_auto] gap-8 py-12 no-underline transition-colors duration-200 max-md:grid-cols-1"
+              className="group grid grid-cols-[720px_1fr_auto] gap-8 py-12 no-underline transition-colors duration-200 max-md:grid-cols-1"
               style={{
                 borderBottom: "1px solid var(--color-border)",
               }}
             >
-              <p
-                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] pt-2"
-                style={{ color: p.accent }}
-              >
-                {p.kicker}
-              </p>
               <div>
                 <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.15] tracking-[-0.01em] mb-3 group-hover:text-[var(--color-accent)] transition-colors duration-200">
                   {p.title}
@@ -126,14 +120,6 @@ export function HomeFounder() {
           </p>
           <Button href="/about">Read Rana&apos;s Full Story</Button>
         </div>
-        <Image
-          src="/illus-woman-dealership.png"
-          alt=""
-          width={0}
-          height={0}
-          sizes="50vw"
-          className="w-full h-[420px] object-cover object-top fade-right max-lg:max-h-[260px] max-lg:h-auto"
-        />
       </div>
     </FadeUp>
   );

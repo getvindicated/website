@@ -98,12 +98,6 @@ export function HomeHero() {
 
       {/* Left — text */}
       <div className="flex flex-col justify-center px-20 py-10 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
-        <p
-          className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
-          style={{ color: "var(--color-light)" }}
-        >
-          A Nonprofit for Automotive Justice
-        </p>
         <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
           You Deserve
           <br />
@@ -128,16 +122,6 @@ export function HomeHero() {
       <div
         className="flex items-center justify-center px-8 pr-20 py-10 relative max-lg:px-6 max-lg:pb-12"
       >
-        {/* Background illustration */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "url('/illus-woman-dealership.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-            opacity: 0.12,
-          }}
-        />
         {/* Stats */}
         <div
           className="w-full max-w-[480px] relative"
@@ -162,15 +146,9 @@ export function HomeHero() {
                   {s.prefix}0{s.suffix}
                 </span>
                 <p className="text-[0.92rem] text-white/75 leading-[1.55]">
-                  {s.label}
+                  {s.label} ({s.cite})
                 </p>
               </div>
-              <p
-                className="text-[0.7rem] mt-2 ml-[calc(90px+1rem)] max-sm:ml-0"
-                style={{ color: "var(--color-light)", opacity: 0.6 }}
-              >
-                {s.cite}
-              </p>
             </div>
           ))}
         </div>

@@ -8,28 +8,28 @@ const findings = [
     context: "price gap",
     detail:
       "Black male buyers were quoted $1,100 more than white male buyers for identical cars, using identical bargaining scripts.",
-    color: "var(--color-red)",
+    color: "white",
   },
   {
     figure: "$410",
     context: "price gap",
     detail:
       "Black women were quoted $410 more than white men. White women were quoted $92 more. The markup follows a clear hierarchy.",
-    color: "var(--color-red)",
+    color: "white",
   },
   {
     figure: "13%",
     context: "longer",
     detail:
       "Minority testers faced 13% longer negotiations than white male testers, even when using the same car and the same asking price.",
-    color: "var(--color-gold)",
+    color: "white",
   },
   {
     figure: "4%",
     context: "of visits",
     detail:
       "Dealers made explicitly racist or sexist comments in 4% of controlled test visits. That is not a rounding error.",
-    color: "var(--color-gold)",
+    color: "white",
   },
 ];
 
@@ -51,7 +51,7 @@ export function HomeDashboard() {
         <p className="text-[0.88rem] text-white/60 leading-[1.6] max-w-[700px] mb-14">
           Ayres, I. &amp; Siegelman, P. (1995). Race and gender discrimination
           in bargaining for a new car. <em>The American Economic Review, 85</em>
-          (3), 304–321.
+          (3), 304-321.
         </p>
 
         <div style={{ borderTop: "1px solid var(--color-border)" }}>

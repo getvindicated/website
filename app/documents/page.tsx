@@ -476,7 +476,7 @@ export default function DocumentsPage() {
   return (
     <>
       <PageHero
-        kicker="Interactive Document Exhibits"
+        kicker=""
         title={
           <>
             Real documents.
@@ -501,12 +501,6 @@ export default function DocumentsPage() {
               borderColor: "var(--color-border)",
             }}
           >
-            <p
-              className="text-[0.6rem] tracking-wide mb-2"
-              style={{ color: "var(--color-light)" }}
-            >
-              Exhibit 01 — Carfax Vehicle History Report · Page 1
-            </p>
             <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               How to Read a Carfax
               <br />
@@ -797,12 +791,6 @@ export default function DocumentsPage() {
               borderColor: "var(--color-border)",
             }}
           >
-            <p
-              className="text-[0.6rem] tracking-wide mb-2"
-              style={{ color: "var(--color-light)" }}
-            >
-              Exhibit 02 — Carfax Vehicle History Report · Page 2
-            </p>
             <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               How to Read a Carfax
               <br />
@@ -1055,12 +1043,6 @@ export default function DocumentsPage() {
               borderColor: "var(--color-border)",
             }}
           >
-            <p
-              className="text-[0.6rem] tracking-wide mb-2"
-              style={{ color: "var(--color-light)" }}
-            >
-              Exhibit 03 — FTC Buyers Guide
-            </p>
             <h2 className="text-[1.75rem] font-semibold leading-[1.1] mb-2">
               The Sticker in Every Used Car Window
               <br />
