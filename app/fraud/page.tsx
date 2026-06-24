@@ -44,7 +44,7 @@ const cardData: Record<
   }
 > = {
   1: {
-    typeLabel: "01 — What You're Looking At",
+    typeLabel: "01: What You're Looking At",
     color: "var(--color-light)",
     title: (
       <>
@@ -53,13 +53,13 @@ const cardData: Record<
         <em>Certificate of Title</em>
       </>
     ),
-    body: "This is the \u201cpink slip\u201d — issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours — no matter what you paid.",
+    body: "This is the \u201cpink slip,\u201d issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours, no matter what you paid.",
     verdict:
-      "If a seller says you don't need the pink slip, that they'll \u201cmail it later,\u201d or that it's \u201clost\u201d — do not complete the purchase.",
+      "If a seller says you don't need the pink slip, that they'll \u201cmail it later,\u201d or that it's \u201clost\u201d: do not complete the purchase.",
     verdictColor: "rgba(124,58,237,0.08)",
   },
   2: {
-    typeLabel: "02 — Registered Owner",
+    typeLabel: "02: Registered Owner",
     color: "var(--color-light)",
     title: (
       <>
@@ -74,7 +74,7 @@ const cardData: Record<
     verdictColor: "rgba(201,168,76,0.08)",
   },
   3: {
-    typeLabel: "03 — Critical Red Flag Zone",
+    typeLabel: "03: Critical Red Flag Zone",
     color: "var(--color-red)",
     title: (
       <>
@@ -83,13 +83,13 @@ const cardData: Record<
         <em>Check This First.</em>
       </>
     ),
-    body: "This box records DMV flags — salvage designation, lemon law buyback, flood damage, or prior theft recovery. A \u201csalvage\u201d title means the car was declared a total loss by an insurer. Both salvage and rebuilt titles dramatically affect value.",
+    body: "This box records DMV flags: salvage designation, lemon law buyback, flood damage, or prior theft recovery. A \u201csalvage\u201d title means the car was declared a total loss by an insurer. Both salvage and rebuilt titles dramatically affect value.",
     verdict:
       "If you see any text in the Vehicle History box, research exactly what it means before proceeding.",
     verdictColor: "rgba(214,59,59,0.08)",
   },
   4: {
-    typeLabel: "04 — Vehicle ID Number",
+    typeLabel: "04: Vehicle ID Number",
     color: "var(--color-light)",
     title: (
       <>
@@ -98,13 +98,13 @@ const cardData: Record<
         <em>Match Exactly.</em>
       </>
     ),
-    body: "The VIN is a unique 17-character code assigned at manufacture. Physically locate it on the car (dashboard and door jamb) and verify it matches this document character by character. A mismatch could indicate VIN cloning — fraud where a stolen car takes the identity of a legitimate one.",
+    body: "The VIN is a unique 17-character code assigned at manufacture. Physically locate it on the car (dashboard and door jamb) and verify it matches this document character by character. A mismatch could indicate VIN cloning, where a stolen car takes the identity of a legitimate one.",
     verdict:
       "Enter the VIN at vehiclehistory.gov (free) or Carfax to check accident history and title status before anything else.",
     verdictColor: "rgba(124,58,237,0.08)",
   },
   5: {
-    typeLabel: "05 — Signature Section",
+    typeLabel: "05: Signature Section",
     color: "var(--color-red)",
     title: (
       <>
@@ -113,13 +113,13 @@ const cardData: Record<
         <em>In Front of You.</em>
       </>
     ),
-    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale — not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership — you don't know to whom, or when.",
+    body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale, not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership; you don't know to whom, or when.",
     verdict:
       "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record.",
     verdictColor: "rgba(214,59,59,0.08)",
   },
   6: {
-    typeLabel: "06 — Odometer Disclosure",
+    typeLabel: "06: Odometer Disclosure",
     color: "var(--color-red)",
     title: (
       <>
@@ -128,7 +128,7 @@ const cardData: Record<
         <em>Is a Federal Crime.</em>
       </>
     ),
-    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car's physical odometer — then cross-check against the vehicle history report.",
+    body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car's physical odometer, then cross-check against the vehicle history report.",
     verdict:
       "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov.",
     verdictColor: "rgba(214,59,59,0.08)",
@@ -278,14 +278,13 @@ function PinkSlipExplainer() {
 
 const redFlags = [
   {
-    trigger: '"Buy Today or Lose It" — Artificial Urgency',
+    trigger: '"Buy Today or Lose It": Artificial Urgency',
     body: (
       <div className="space-y-4">
         <p>
           One of the oldest tactics in the playbook. The salesperson implies
           another buyer is coming in tonight, the deal expires at close of
-          business, or the price goes up tomorrow. None of this is usually true
-          — the car has been sitting on the lot for weeks.
+          business, or the price goes up tomorrow. None of this is usually true; the car has been sitting on the lot for weeks.
         </p>
         <p>
           It&apos;s designed to stop you from getting an independent inspection,
@@ -294,13 +293,13 @@ const redFlags = [
         <p>
           <strong>Your response:</strong> &ldquo;I&apos;ll need 48 hours to have
           the car independently inspected.&rdquo; A legitimate dealer
-          accommodates this. A bad one won&apos;t — which is your answer.
+          accommodates this. A bad one won&apos;t, which is your answer.
         </p>
       </div>
     ),
   },
   {
-    trigger: "The Four-Square Method — Payment Confusion",
+    trigger: "The Four-Square Method: Payment Confusion",
     body: (
       <div className="space-y-4">
         <p>
@@ -323,7 +322,7 @@ const redFlags = [
     ),
   },
   {
-    trigger: 'Spot Delivery Scam — "Yo-Yo" Financing',
+    trigger: 'Spot Delivery Scam: "Yo-Yo" Financing',
     body: (
       <div className="space-y-4">
         <p>
@@ -335,20 +334,20 @@ const redFlags = [
         </p>
         <p>
           <strong>Your response:</strong> Before you drive off, confirm in
-          writing that financing is fully approved — not conditional. If
+          writing that financing is fully approved, not conditional. If
           they can&apos;t confirm it, don&apos;t take the car home yet.
         </p>
       </div>
     ),
   },
   {
-    trigger: "The Finance Office Ambush — Hidden Arbitration Clauses",
+    trigger: "The Finance Office Ambush: Hidden Arbitration Clauses",
     body: (
       <div className="space-y-4">
         <p>
           After you&apos;ve agreed on a price, you&apos;re handed a stack of
           paperwork in the finance office. Buried inside is often a mandatory
-          arbitration clause — a provision that strips your right to sue
+          arbitration clause, a provision that strips your right to sue
           the dealership in court if something goes wrong.
         </p>
         <p>
@@ -366,7 +365,7 @@ const redFlags = [
     ),
   },
   {
-    trigger: "Post-Sale Document Pressure — The Second Signing",
+    trigger: "Post-Sale Document Pressure: The Second Signing",
     body: (
       <div className="space-y-4">
         <p>
@@ -385,29 +384,29 @@ const redFlags = [
     ),
   },
   {
-    trigger: "Add-Ons & Upsells — The Finance Office Markup",
+    trigger: "Add-Ons & Upsells: The Finance Office Markup",
     body: (
       <div className="space-y-4">
         <p>
           The finance office is where dealers make a significant portion of
-          their profit — not on the car itself, but on add-ons presented as
+          their profit, not on the car itself, but on add-ons presented as
           standard. Common examples:
         </p>
         <ul className="list-disc ml-6 space-y-1">
           <li>
-            <strong>Nitrogen tire inflation ($200–$400)</strong> — Air
+            <strong>Nitrogen tire inflation ($200–$400)</strong>: Air
             is already 78% nitrogen. Widely considered a scam.
           </li>
           <li>
-            <strong>VIN etching ($200–$400)</strong> — You can buy a
+            <strong>VIN etching ($200–$400)</strong>: You can buy a
             kit and do this yourself for under $25.
           </li>
           <li>
-            <strong>Paint/fabric protection ($300–$1,000)</strong> —
+            <strong>Paint/fabric protection ($300–$1,000)</strong>:
             Usually a basic wax application at extreme markup.
           </li>
           <li>
-            <strong>GAP insurance (heavily marked up)</strong> —
+            <strong>GAP insurance (heavily marked up)</strong>:
             Legitimate, but available much cheaper through your own insurer.
           </li>
         </ul>
@@ -547,7 +546,7 @@ export default function FraudPage() {
             <em>They&apos;re Doing.</em>
           </>
         }
-        subtitle="Real tactics used against buyers. Named, explained, and countered — because knowing you're being scammed is the first step to walking away."
+        subtitle="Real tactics used against buyers. Named, explained, and countered, because knowing you're being scammed is the first step to walking away."
       />
 
       <FadeUp>
@@ -589,8 +588,8 @@ export default function FraudPage() {
             <em>only proof you own the car.</em>
           </SectionTitle>
           <p className="text-base text-white leading-[1.75] max-w-[680px] mt-4">
-            A California Certificate of Title — called the &ldquo;pink
-            slip&rdquo; — is the legal document that proves vehicle
+            A California Certificate of Title, called the &ldquo;pink
+            slip,&rdquo; is the legal document that proves vehicle
             ownership. Without it in your name, the car is not legally yours, no
             matter what you paid. Click the numbered pins to learn what each
             section means.
@@ -633,8 +632,8 @@ export default function FraudPage() {
           </SectionTitle>
           <p className="text-[1.05rem] text-white/75 leading-[1.75] max-w-[680px] mb-14">
             Most buyers don&apos;t know what dealers are legally required to do.
-            Here&apos;s what the law actually says — in plain English
-            — and exactly what to say when they try to ignore it.
+            Here&apos;s what the law actually says, in plain English
+            and exactly what to say when they try to ignore it.
           </p>
 
           {/* Federal */}
@@ -690,7 +689,7 @@ export default function FraudPage() {
               },
               {
                 strong: "File with the FTC.",
-                text: "reportfraud.ftc.gov — complaints build the database used to pursue enforcement.",
+                text: "reportfraud.ftc.gov: complaints build the database used to pursue enforcement.",
               },
               {
                 strong: "Contact the manufacturer.",
@@ -698,7 +697,7 @@ export default function FraudPage() {
               },
               {
                 strong: "Consider a consumer protection attorney.",
-                text: "Many work on contingency — you pay nothing upfront.",
+                text: "Many work on contingency; you pay nothing upfront.",
               },
               {
                 strong: "Leave an honest public review.",

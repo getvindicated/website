@@ -80,7 +80,7 @@ export function HomeDashboard() {
                   {f.context}
                 </span>
               </div>
-              <p className="text-[1rem] text-white/75 leading-[1.7] pt-1 max-w-[560px]">
+              <p className="text-[1rem] text-white leading-[1.7] pt-1 max-w-[560px]">
                 {f.detail}
               </p>
             </div>

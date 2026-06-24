@@ -20,7 +20,7 @@ const pillars = [
   {
     kicker: "Protection",
     title: "Fraud Prevention",
-    body: "Real tactics used against buyers — named, explained, and countered. Know exactly what to say when a dealer tries to pressure you.",
+    body: "Real tactics used against buyers, named, explained, and countered. Know exactly what to say when a dealer tries to pressure you.",
     href: "/fraud",
     label: "Spot the Red Flags",
     accent: "var(--color-red)",

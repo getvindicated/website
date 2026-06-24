@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404 — Page Not Found",
+  title: "404: Page Not Found",
   description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
   openGraph: {
-    title: "404 — Page Not Found",
+    title: "404: Page Not Found",
     description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
     type: "website",
     images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated" }],

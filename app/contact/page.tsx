@@ -214,7 +214,7 @@ export default function ContactPage() {
             <em>hear from you.</em>
           </>
         }
-        subtitle="Whether you want to share your story, volunteer with our team, participate in our research, or partner with VINdicated — reach out."
+        subtitle="Whether you want to share your story, volunteer with our team, participate in our research, or partner with VINdicated, reach out."
       />
 
       <FadeUp>

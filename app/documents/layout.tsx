@@ -3,19 +3,19 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Documents Decoded",
   description:
-    "Interactive guides to understanding car buying documents — the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
+    "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
   openGraph: {
     title: "Documents Decoded",
     description:
-      "Interactive guides to understanding car buying documents — the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
+      "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
     url: "/documents",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — Documents Decoded" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Documents Decoded" }],
   },
   twitter: {
     title: "Documents Decoded",
     description:
-      "Interactive guides to understanding car buying documents — the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
+      "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
   },
 };
 

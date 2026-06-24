@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/illus-woman-dealership.png",
-        alt: "VINdicated — Know Your Rights",
+        alt: "VINdicated: Know Your Rights",
       },
     ],
   },

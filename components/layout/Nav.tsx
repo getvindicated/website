@@ -143,7 +143,7 @@ export function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu — rendered outside <nav> to avoid z-index issues */}
+      {/* Mobile menu rendered outside <nav> to avoid z-index issues */}
       <MobileMenu
         open={menuOpen}
         onClose={closeMenu}
@@ -180,7 +180,7 @@ function MobileMenu({
         visibility: open ? "visible" : "hidden",
       }}
     >
-      {/* Scrollable link area — starts below the fixed nav bar */}
+      {/* Scrollable link area, starts below the fixed nav bar */}
       <div className="flex-1 overflow-y-auto pt-[72px] pb-10 px-6">
         <ul className="list-none flex flex-col mt-4">
           {navLinks.map((link) => {

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
       "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
     url: "/research",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — Research" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Research" }],
   },
   twitter: {
     title: "Research",
@@ -102,8 +102,8 @@ export default function ResearchPage() {
               <p>
                 Correspondence audit studies are a gold-standard method in
                 discrimination research. We send identically scripted inquiries
-                to dealerships — differing only in signals of race, gender, or
-                age — and document the responses.
+                to dealerships, differing only in signals of race, gender, or
+                age, and document the responses.
               </p>
               <p>
                 This methodology has been used to document discrimination in
@@ -146,7 +146,7 @@ export default function ResearchPage() {
               meta: "Study 01: Active Enrollment  |  UCLA Communication Studies  |  Est. Publication 2026",
               title:
                 "Gender-Based Price Discrimination in California Automotive Retail: A Correspondence Audit",
-              body: "Our primary study examines whether dealerships quote systematically different prices to prospective buyers based on perceived gender. Using matched pairs of identical buyer inquiries — controlling for vehicle model, condition, location, and bargaining script — we are measuring initial price quotes, response rates, time-to-response, and financing terms across a sample of California dealerships.",
+              body: "Our primary study examines whether dealerships quote systematically different prices to prospective buyers based on perceived gender. Using matched pairs of identical buyer inquiries, controlling for vehicle model, condition, location, and bargaining script, we are measuring initial price quotes, response rates, time-to-response, and financing terms across a sample of California dealerships.",
               rq: "Do female-presenting buyers receive higher initial price quotes than male-presenting buyers for identical vehicles? Do dealerships respond differently based on perceived buyer gender?",
               tags: [
                 "Correspondence Audit",
@@ -199,7 +199,7 @@ export default function ResearchPage() {
                   className="text-[0.65rem] tracking-wide mb-5"
                   style={{ color: "var(--color-light)" }}
                 >
-                  {source} — Key Findings
+                  {source}: Key Findings
                 </p>
                 {items.map(({ num, label }) => (
                   <div

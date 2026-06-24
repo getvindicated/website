@@ -11,21 +11,21 @@ import {
 export const metadata: Metadata = {
 	title: "Our Team",
 	description:
-		"Meet the people behind VINdicated — advocates, researchers, and students fighting dealership discrimination.",
+		"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
 	openGraph: {
 		title: "Our Team",
 		description:
-			"Meet the people behind VINdicated — advocates, researchers, and students fighting dealership discrimination.",
+			"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
 		url: "/team",
 		type: "website",
 		images: [
-			{ url: "/illus-woman-dealership.png", alt: "VINdicated — Our Team" },
+			{ url: "/illus-woman-dealership.png", alt: "VINdicated: Our Team" },
 		],
 	},
 	twitter: {
 		title: "Our Team",
 		description:
-			"Meet the people behind VINdicated — advocates, researchers, and students fighting dealership discrimination.",
+			"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
 	},
 };
 
@@ -344,7 +344,7 @@ export default function TeamPage() {
 						Want to be part of <em>this?</em>
 					</h2>
 					<p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[540px] mx-auto">
-						VINdicated is always looking for passionate people — researchers,
+						VINdicated is always looking for passionate people: researchers,
 						developers, designers, educators, and advocates. If you believe car
 						buying should be fair for everyone, we want to hear from you.
 					</p>

@@ -577,7 +577,7 @@ export default function DocumentsPage() {
             }}
             cards={{
               1: {
-                badge: "01 — Mileage",
+                badge: "01: Mileage",
                 badgeColor: "gold",
                 title: (
                   <>
@@ -615,7 +615,7 @@ export default function DocumentsPage() {
                 verdictColor: "gold",
               },
               2: {
-                badge: "02 — Good Sign",
+                badge: "02: Good Sign",
                 badgeColor: "green",
                 title: (
                   <>
@@ -647,7 +647,7 @@ export default function DocumentsPage() {
                 verdictColor: "green",
               },
               3: {
-                badge: "03 — Reliability",
+                badge: "03: Reliability",
                 badgeColor: "purple",
                 title: (
                   <>
@@ -679,7 +679,7 @@ export default function DocumentsPage() {
                 verdictColor: "purple",
               },
               4: {
-                badge: "04 — Summary Stats",
+                badge: "04: Summary Stats",
                 badgeColor: "purple",
                 title: (
                   <>
@@ -711,7 +711,7 @@ export default function DocumentsPage() {
                 verdictColor: "purple",
               },
               5: {
-                badge: "05 — Critical Caveat",
+                badge: "05: Critical Caveat",
                 badgeColor: "red",
                 title: (
                   <>
@@ -745,7 +745,7 @@ export default function DocumentsPage() {
                 verdictColor: "red",
               },
               6: {
-                badge: "06 — Good Sign",
+                badge: "06: Good Sign",
                 badgeColor: "green",
                 title: (
                   <>
@@ -863,7 +863,7 @@ export default function DocumentsPage() {
             }}
             cards={{
               1: {
-                badge: "01 — Additional History Grid",
+                badge: "01: Additional History Grid",
                 badgeColor: "green",
                 title: (
                   <>
@@ -900,7 +900,7 @@ export default function DocumentsPage() {
                 verdictColor: "green",
               },
               2: {
-                badge: "02 — Title History",
+                badge: "02: Title History",
                 badgeColor: "purple",
                 title: (
                   <>
@@ -937,7 +937,7 @@ export default function DocumentsPage() {
                 verdictColor: "purple",
               },
               3: {
-                badge: "03 — Ownership Count and Length",
+                badge: "03: Ownership Count and Length",
                 badgeColor: "purple",
                 title: (
                   <>
@@ -970,7 +970,7 @@ export default function DocumentsPage() {
                 verdictColor: "purple",
               },
               4: {
-                badge: "04 — Short Ownership Tenures",
+                badge: "04: Short Ownership Tenures",
                 badgeColor: "gold",
                 title: (
                   <>
@@ -993,14 +993,14 @@ export default function DocumentsPage() {
                   <>
                     <strong>What to say:</strong> &quot;I noticed the previous owner
                     only kept this car for [X] months. Do you have any
-                    information about why they sold?&quot; Their answer — or their
-                    hesitation — is data.
+                    information about why they sold?&quot; Their answer, or their
+            hesitation, is data.
                   </>
                 ),
                 verdictColor: "gold",
               },
               5: {
-                badge: "05 — Calculating Mileage Yourself",
+                badge: "05: Calculating Mileage Yourself",
                 badgeColor: "gold",
                 title: (
                   <>

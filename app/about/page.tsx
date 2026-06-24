@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
     url: "/about",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated — About Us" }],
+    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: About Us" }],
   },
   twitter: {
     title: "About Us",
@@ -236,7 +236,7 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Pullquote — full width break */}
+          {/* Pullquote */}
           <div className="py-16 max-w-[720px]">
             <blockquote
               className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4 max-md:pl-5"
@@ -256,7 +256,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Bio + Wollstonecraft — two columns */}
+          {/* Bio + Wollstonecraft, two columns */}
           <div
             className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1"
           >

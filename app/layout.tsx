@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "VINdicated",
     title: {
-      default: "VINdicated — Educate. Empower. Vindicate.",
+      default: "VINdicated | Educate. Empower. Vindicate.",
       template: "%s | VINdicated",
     },
     description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: {
-      default: "VINdicated — Educate. Empower. Vindicate.",
+      default: "VINdicated | Educate. Empower. Vindicate.",
       template: "%s | VINdicated",
     },
     description:
