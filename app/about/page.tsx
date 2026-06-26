@@ -105,15 +105,7 @@ export default function AboutPage() {
           className="relative overflow-hidden px-20 py-24 max-md:px-6 max-md:py-16"
           style={{ background: "var(--color-bg-page)", margin: 0 }}
         >
-          <div
-            className="absolute right-0 top-0 bottom-0 w-[35%] pointer-events-none"
-            style={{
-              backgroundImage: "url('/illus-woman-keys.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center top",
-              opacity: 0.18,
-            }}
-          />
+        
           <h2 className="text-[clamp(2rem,3.5vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
             Educate. Empower. <em>Vindicate.</em>
           </h2>
