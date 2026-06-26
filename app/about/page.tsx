@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   PageHero,
   FadeUp,
@@ -276,7 +277,7 @@ export default function AboutPage() {
               >
                 Mary Wollstonecraft, 1792
               </p>
-              <p
+             <p
                 className="text-[clamp(1.2rem,2vw,1.5rem)] italic leading-[1.5]"
                 style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
               >
@@ -284,6 +285,22 @@ export default function AboutPage() {
                 an end to blind obedience.&quot;
               </p>
             </div>
+          </div>
+
+          {/* Real-world presence */}
+          <div className="mt-16">
+            <Image
+              src="/1775831920674.jpeg"
+              alt="VINdicated volunteers tabling on a college campus, sharing free car-buying resources with students"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto rounded-lg"
+              style={{
+                maxHeight: "480px",
+                objectFit: "cover",
+              }}
+            />
           </div>
         </section>
       </FadeUp>
@@ -332,10 +349,10 @@ export default function AboutPage() {
                 title: "Correspondence Audit Studies",
                 body: "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities.",
               },
-            ].map(({ cat, title, body }) => (
+            ].map(({ title, body }) => (
               <div
-                key={cat}
-                className="grid grid-cols-[140px_1fr] gap-6 py-10 max-md:grid-cols-1"
+                key={title}
+                className="py-10"
                 style={{
                   borderBottom: "1px solid var(--color-border)",
                 }}
