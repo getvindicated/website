@@ -153,7 +153,7 @@ export default function AboutPage() {
                 >
                   {word}
                 </h3>
-                <p className="text-[1.05rem] text-white/80 leading-[1.75] pt-1">
+                <p className="text-[1.05rem] text-white leading-[1.75] pt-1">
                   {body}
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
           <SectionTitle className="mb-3">
             <em>Vindicated from what?</em>
           </SectionTitle>
-          <p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[680px] mb-14">
+          <p className="text-[1.05rem] text-white leading-[1.7] max-w-[680px] mb-14">
             Three strikes. Three completely different situations. The same
             system every time.
           </p>
@@ -226,7 +226,7 @@ export default function AboutPage() {
                   {body.map((p, i) => (
                     <p
                       key={i}
-                      className="text-[0.97rem] text-white/80 leading-[1.75]"
+                      className="text-[0.97rem] text-white leading-[1.75]"
                     >
                       {p}
                     </p>
@@ -318,7 +318,7 @@ export default function AboutPage() {
             <br />
             <em>No strings attached.</em>
           </SectionTitle>
-          <p className="text-base text-white/70 leading-[1.7] max-w-[680px] mb-14">
+          <p className="text-base text-white leading-[1.7] max-w-[680px] mb-14">
             Everything VINdicated offers is free. No signup required, no upsell,
             no catch.
           </p>
@@ -362,7 +362,7 @@ export default function AboutPage() {
                   <h3 className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-3">
                     {title}
                   </h3>
-                  <p className="text-[1rem] text-white/75 leading-[1.7] max-w-[560px]">
+                  <p className="text-[1rem] text-white leading-[1.7] max-w-[560px]">
                     {body}
                   </p>
                 </div>
