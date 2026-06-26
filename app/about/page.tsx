@@ -3,9 +3,7 @@ import {
   PageHero,
   FadeUp,
   Divider,
-  SectionLabel,
   SectionTitle,
-  Pullquote
 } from "@/components/ui";
 
 export const metadata: Metadata = {
