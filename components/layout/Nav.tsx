@@ -296,7 +296,7 @@ function DesktopNavItem({
     >
       <Link
         href={link.href}
-        className="text-[0.95rem] no-underline outline-none transition-colors duration-200"
+        className="text-[0.95rem] no-underline transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
         style={{
           color: "white",
           fontFamily: "var(--font-heading), Georgia, serif",
