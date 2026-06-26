@@ -296,17 +296,15 @@ function DesktopNavItem({
     >
       <Link
         href={link.href}
-        className="text-[0.82rem] font-medium no-underline transition-colors duration-200"
+        className="text-[0.95rem] no-underline outline-none transition-colors duration-200"
         style={{
-          color: active ? "var(--color-light)" : "rgba(255,255,255,0.8)",
-          textDecorationColor: "var(--color-light)",
-          textUnderlineOffset: "4px",
-		  fontWeight: active ? "bold" : "normal",
+          color: "white",
+          fontFamily: "var(--font-heading), Georgia, serif",
+          fontWeight: active ? 600 : 400,
         }}
       >
         {link.label}
       </Link>
-
       {link.children && isOpen && (
         <div
           className="absolute top-full left-0 mt-2 min-w-[200px] rounded border border-white/[0.08] py-1 z-[99999]"
