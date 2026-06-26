@@ -50,48 +50,10 @@ const team: TeamMember[] = [
 		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
 	},
 	{
-		name: "Rizwaan Bana",
-		position: "Software Engineer",
-		photo: "/team/rizwaan.jpg",
-		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
-		// socials: [
-		// 	{
-		// 		platform: "linkedin",
-		// 		href: "https://www.linkedin.com/in/rizwaanbana"
-		// 	},
-		// 	{
-		// 		platform: "github",
-		// 		href: "https://github.com/ryloriz"
-		// 	},
-		// 	{
-		// 		platform: "website",
-		// 		href: "https://rizwaan.dev"
-		// 	}
-		// ]
-	},
-	{
-		name: "Peter Vincent Dickson",
-		position: "Empirical & Data Lead",
-		photo: "/team/peter.png",
-		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
-	},
-	{
 		name: "Yinrui (Ray) Gan",
 		position: "Technical Lead",
 		photo: "/team/ray.jpg",
 		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
-	},
-	{
-		name: "Malia LaVoie",
-		position: "Design Lead",
-		photo: "/team/malia.jpg",
-		bio: "Malia LaVoie is the Design Lead at VINdicated. As a Computer Science and Psychology double major at NYU, she combines technical skill with human-centered design to create intuitive, user-friendly experiences that make automotive rights more accessible and easier to understand.",
-	},
-	{
-		name: "Evanceline Tang",
-		position: "Visual Design Lead",
-		photo: "/team/evanceline.jpg",
-		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
 		name: "Halima Cherif Hminat",
@@ -110,6 +72,30 @@ const team: TeamMember[] = [
 		position: "Data Engineer",
 		photo: "/team/ameerah.jpg",
 		bio: "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated.",
+	},
+	{
+		name: "Rizwaan Bana",
+		position: "Software Engineer",
+		photo: "/team/rizwaan.jpg",
+		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
+	},
+	{
+		name: "Peter Vincent Dickson",
+		position: "Empirical & Data Lead",
+		photo: "/team/peter.png",
+		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
+	},
+	{
+		name: "Malia LaVoie",
+		position: "Design Lead",
+		photo: "/team/malia.jpg",
+		bio: "Malia LaVoie is the Design Lead at VINdicated. As a Computer Science and Psychology double major at NYU, she combines technical skill with human-centered design to create intuitive, user-friendly experiences that make automotive rights more accessible and easier to understand.",
+	},
+	{
+		name: "Evanceline Tang",
+		position: "Visual Design Lead",
+		photo: "/team/evanceline.jpg",
+		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
 		name: "Stesha Simon",
