@@ -549,33 +549,6 @@ export default function FraudPage() {
         subtitle="Real tactics used against buyers. Named, explained, and countered, because knowing you're being scammed is the first step to walking away."
       />
 
-      <FadeUp>
-        <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <div
-            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
-          >
-            <div>
-              <SectionTitle>
-                This isn&apos;t paranoia.
-                <br />
-                <em>This is pattern recognition.</em>
-              </SectionTitle>
-            </div>
-            <div className="text-[1.1rem] leading-[1.8] text-white/80">
-              <p>
-                Every tactic on this page has a name. Once you know the name,
-                you can see it coming.{" "}
-                <strong className="text-white">
-                  You&apos;re not being difficult. You&apos;re being smart.
-                </strong>
-              </p>
-            </div>
-          </div>
-        </section>
-      </FadeUp>
-
-      <Divider />
-
       {/* Pink Slip Explainer */}
       <FadeUp>
         <section
