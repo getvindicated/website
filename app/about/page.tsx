@@ -47,11 +47,11 @@ export default function AboutPage() {
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
-              <SectionTitle
-                style={
-                  { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
-                }
-              >
+             <SectionTitle
+  style={
+    { fontSize: "clamp(1.8rem,3vw,2.6rem)" } as React.CSSProperties
+  }
+>
                 The discrimination
                 <br />
                 is <em>measurable.</em>
