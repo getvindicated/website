@@ -348,12 +348,6 @@ export default function AboutPage() {
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >
-                <p
-                  className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] pt-1"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  {cat}
-                </p>
                 <div>
                   <h3 className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-3">
                     {title}
