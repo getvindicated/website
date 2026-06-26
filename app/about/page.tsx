@@ -43,10 +43,10 @@ export default function AboutPage() {
 
       {/* Why We Exist */}
       <FadeUp>
-        <section id="why" className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <div
-            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
-          >
+        <section id="why" className="px-12 py-24 max-md:px-6 max-md:py-16">
+  <div
+    className="grid grid-cols-[1fr_1fr] gap-12 items-start max-w-[1400px] mx-auto max-lg:grid-cols-1"
+  >
             <div>
              <SectionTitle
   style={
