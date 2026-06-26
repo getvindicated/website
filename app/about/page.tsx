@@ -100,8 +100,6 @@ export default function AboutPage() {
         </section>
       </FadeUp>
 
-      <Divider />
-
       {/* Mission */}
       <FadeUp>
         <section
