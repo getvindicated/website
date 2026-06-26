@@ -51,7 +51,7 @@ const team: TeamMember[] = [
 	},
 	{
 		name: "Rizwaan Bana",
-		position: "Software Lead",
+		position: "Software Engineer",
 		photo: "/team/rizwaan.jpg",
 		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
 		// socials: [
