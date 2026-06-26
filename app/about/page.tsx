@@ -117,7 +117,7 @@ export default function AboutPage() {
           <h2 className="text-[clamp(2rem,3.5vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
             Educate. Empower. <em>Vindicate.</em>
           </h2>
-          <p className="text-[0.88rem] text-white/70 leading-[1.5] max-w-[620px] mb-14">
+          <p className="text-[0.88rem] text-white/70 leading-[1.5] max-w-[620px] mb-8">
             To dismantle consumer-level escort culture, one informed buyer at a
             time.
           </p>
