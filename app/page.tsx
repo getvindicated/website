@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.",
     url: "/",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated" }],
+    images: [{ url: "/preview.webp", alt: "VINdicated" }],
   },
   twitter: {
     title: "Educate. Empower. Vindicate.",
