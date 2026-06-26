@@ -63,7 +63,7 @@ export default function AboutPage() {
               <p className="text-[0.78rem] text-white leading-[1.6] mt-4 max-w-[340px]">
                 Ayres, I. &amp; Siegelman, P. (1995).
                 <br />
-                <em>The American Economic Review, 85</em>(3), 304–321.
+                <em>The American Economic Review, 85</em>(3), 304-321.
               </p>
             </div>
             <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white/80">
