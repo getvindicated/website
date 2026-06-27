@@ -215,27 +215,15 @@ function PinkSlipExplainer() {
           </div>
         ) : (
           <div className="slide-up">
-            <p
-              className="text-[0.9rem] font-semibold mb-3"
-              style={{ color: cardData[active].color }}
-            >
-              {cardData[active].typeLabel}
-            </p>
-            <h3 className="text-[1.5rem] leading-[1.1] mb-4">
-              {cardData[active].title}
-            </h3>
-            <p className="text-[0.88rem] text-white/80 leading-[1.75] mb-5">
-              {cardData[active].body}
-            </p>
-            <div
-              className="p-5 text-[0.85rem] leading-[1.6]"
-              style={{
-                borderLeft: `4px solid ${pins[active - 1]?.danger ? "var(--color-red)" : "var(--color-vivid)"}`,
-                background: cardData[active].verdictColor,
-              }}
-            >
-              {cardData[active].verdict}
-            </div>
+  <h3 className="text-[1.9rem] leading-[1.15] mb-5">
+    {cardData[active].title}
+  </h3>
+  <p className="text-[1.15rem] text-white leading-[1.7] mb-6">
+    {cardData[active].body}
+  </p>
+  <p className="text-[1.15rem] text-white font-semibold leading-[1.7]">
+    {cardData[active].verdict}
+  </p>
             {/* Nav dots */}
             <div className="flex flex-wrap gap-2 mt-6">
               {pins.map((pin) => (
