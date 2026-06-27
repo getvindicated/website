@@ -290,7 +290,7 @@ export default function TeamPage() {
 									{member.socials && member.socials.length > 0 && (
 										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
 											{member.socials.map((s) => (
-												
+												<a
 													key={s.platform}
 													href={s.href}
 													target="_blank"
@@ -336,7 +336,7 @@ export default function TeamPage() {
 						developers, designers, educators, and advocates. If you believe car
 						buying should be fair for everyone, we want to hear from you.
 					</p>
-					
+					<a
 						href="/contact"
 						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
 						style={{ background: "var(--color-vivid)" }}
