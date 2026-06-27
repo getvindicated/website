@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FadeUp,
-  SectionLabel,
   SectionTitle,
-  CardGrid,
   Button,
 } from "@/components/ui";
 
@@ -31,7 +29,6 @@ export function HomeCards() {
   return (
     <FadeUp>
       <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-        <SectionLabel>What We Do</SectionLabel>
         <SectionTitle
           style={{ fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties}
         >
@@ -74,7 +71,6 @@ export function HomeQuote() {
   return (
     <FadeUp>
       <section className="px-20 py-24 text-center max-md:px-6 max-md:py-16">
-        <SectionLabel>A Vindication of the Rights of Woman</SectionLabel>
         <blockquote
           className="text-[clamp(1.6rem,3vw,2.6rem)] italic leading-[1.35] max-w-[800px] mx-auto mb-8"
           style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
@@ -99,27 +95,22 @@ export function HomeQuote() {
 export function HomeFounder() {
   return (
     <FadeUp>
-      <div
-        className="grid grid-cols-[1fr_1fr] items-center overflow-hidden max-lg:grid-cols-1"
-      >
-        <div className="px-20 py-16 max-lg:px-6">
-          <SectionLabel>From the Founder</SectionLabel>
-          <SectionTitle>
-            Founded at 19.
-            <br />
-            <em>Out of necessity.</em>
-          </SectionTitle>
-          <p className="text-base text-white leading-[1.75] mt-5 mb-4">
-            Three strikes at three different dealerships showed me the same
-            thing: the system is designed to confuse you, rush you, and profit
-            off what you don&apos;t know.
-          </p>
-          <p className="text-base text-white leading-[1.75] mb-7">
-            VINdicated exists because{" "}
-            <strong>I wish it had existed for me.</strong>
-          </p>
-          <Button href="/about">Read Rana&apos;s Full Story</Button>
-        </div>
+      <div className="px-20 py-16 max-lg:px-6">
+        <SectionTitle>
+          Founded at 19.
+          <br />
+          <em>Out of necessity.</em>
+        </SectionTitle>
+        <p className="text-base text-white leading-[1.75] mt-5 mb-4">
+          Three strikes at three different dealerships showed me the same
+          thing: the system is designed to confuse you, rush you, and profit
+          off what you don&apos;t know.
+        </p>
+        <p className="text-base text-white leading-[1.75] mb-7">
+          VINdicated exists because{" "}
+          <strong>I wish it had existed for me.</strong>
+        </p>
+        <Button href="/about">Read Rana&apos;s Full Story</Button>
       </div>
     </FadeUp>
   );
