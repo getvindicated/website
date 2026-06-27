@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { PageHero, FadeUp } from "@/components/ui";
 
 // ── Types ─────────────────────────────────────────────────────
@@ -470,14 +471,10 @@ function BuyersGuideAccordion() {
     </div>
   );
 }
-import { notFound } from "next/navigation";
-
-export default function DocumentsPage() {
-  notFound();
-  return (
 
 // ── Page ─────────────────────────────────────────────────────
 export default function DocumentsPage() {
+  notFound();
   return (
     <>
       <PageHero
