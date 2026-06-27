@@ -135,7 +135,7 @@ export function PageHero({
       />
       {kicker && (
         <p
-          className="relative text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
+          className="relative text-[1rem] font-semibold mb-5"
           style={{ color: "var(--color-light)" }}
         >
           {kicker}
@@ -171,7 +171,7 @@ export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
         {quote}
       </p>
       <cite
-        className="not-italic text-[0.65rem] uppercase tracking-widest"
+        className="not-italic text-[0.9rem]"
         style={{ color: "var(--color-light)" }}
       >
         {cite}
@@ -231,7 +231,7 @@ export function InfoBox({
     >
       {label && (
         <p
-          className="text-[0.65rem] tracking-wide mb-3"
+          className="text-[0.9rem] font-semibold mb-3"
           style={{ color: "var(--color-light)" }}
         >
           {label}
@@ -369,7 +369,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           }}
         >
           <p
-            className="text-[0.75rem] font-semibold mb-4"
+            className="text-[0.95rem] font-semibold mb-4"
             style={{ color: "var(--color-light)" }}
           >
             {card.num}
