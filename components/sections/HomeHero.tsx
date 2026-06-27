@@ -135,19 +135,19 @@ export function HomeHero() {
             >
               <div className="flex items-baseline gap-4 max-sm:flex-col max-sm:gap-1">
                 <span
-                  id={s.id}
-                  className="text-[clamp(2.4rem,4vw,3.2rem)] font-bold leading-[1] flex-shrink-0"
-                  style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
-                    color: "var(--color-accent)",
-                    minWidth: "90px",
-                  }}
-                >
-                  {s.prefix}0{s.suffix}
-                </span>
-                <p className="text-[0.92rem] text-white/75 leading-[1.55]">
-                  {s.label} ({s.cite})
-                </p>
+  id={s.id}
+  className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
+  style={{
+    fontFamily: "var(--font-heading), Georgia, serif",
+    color: "var(--color-accent)",
+    minWidth: "110px",
+  }}
+>
+  {s.prefix}0{s.suffix}
+</span>
+<p className="text-[1.05rem] text-white leading-[1.6]">
+  {s.label} ({s.cite})
+</p>
               </div>
             </div>
           ))}
