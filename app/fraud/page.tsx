@@ -31,7 +31,7 @@ const highlights = [
   { id: 6, top: "63%", left: "2%", w: "95%", h: "16%", danger: true },
 ];
 
-const cardData: Record<
+const cardData: Record
   number,
   {
     typeLabel: string;
@@ -209,14 +209,14 @@ function PinkSlipExplainer() {
           >
             <span className="block text-3xl mb-4 point-left max-lg:hidden">{"←"}</span>
             <span className="hidden max-lg:block text-3xl mb-4">{"↑"}</span>
-            <p className="text-[0.68rem] uppercase tracking-widest text-white/60">
+            <p className="text-[0.9rem] text-white/85">
               Click any numbered pin to learn what that section means
             </p>
           </div>
         ) : (
           <div className="slide-up">
             <p
-              className="text-[0.75rem] font-semibold mb-3"
+              className="text-[0.9rem] font-semibold mb-3"
               style={{ color: cardData[active].color }}
             >
               {cardData[active].typeLabel}
@@ -242,7 +242,7 @@ function PinkSlipExplainer() {
                 <button
                   key={pin.n}
                   onClick={() => setActive(pin.n)}
-                  className="px-3 py-1 text-[0.58rem] uppercase tracking-widest border transition-all duration-150"
+                  className="px-3 py-1 text-[0.8rem] border transition-all duration-150"
                   style={{
                     borderColor:
                       active === pin.n
@@ -510,7 +510,7 @@ function LawList({ laws }: { laws: KyrLaw[] }) {
           style={{ borderBottom: "1px solid var(--color-border)" }}
         >
           <p
-            className="text-[0.7rem] font-semibold uppercase tracking-[0.08em] mb-2"
+            className="text-[1rem] font-semibold mb-2"
             style={{ color: "var(--color-light)" }}
           >
             {law.tag}
@@ -518,7 +518,7 @@ function LawList({ laws }: { laws: KyrLaw[] }) {
           <h3 className="text-[clamp(1.15rem,2vw,1.4rem)] leading-[1.3] tracking-[-0.01em] mb-3 max-w-[680px]">
             {law.title}
           </h3>
-          <p className="text-[0.95rem] text-white/75 leading-[1.8] mb-4 max-w-[680px]">
+          <p className="text-[0.95rem] text-white leading-[1.8] mb-4 max-w-[680px]">
             {law.body}
           </p>
           <p
@@ -602,7 +602,7 @@ export default function FraudPage() {
           <SectionTitle className="mb-3">
             The law is already <em>on your side.</em>
           </SectionTitle>
-          <p className="text-[1.05rem] text-white/75 leading-[1.75] max-w-[680px] mb-14">
+          <p className="text-[1.05rem] text-white leading-[1.75] max-w-[680px] mb-14">
             Most buyers don&apos;t know what dealers are legally required to do.
             Here&apos;s what the law actually says, in plain English
             and exactly what to say when they try to ignore it.
