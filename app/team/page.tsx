@@ -145,7 +145,7 @@ const team: TeamMember[] = [
 		name: "Catherine Wong",
 		position: "Hardware Product Engineer",
 		school: "Electrical Engineering, UCLA",
-		photo: "/team/catherine.jpg",
+		photo: "/team/cather.jpg",
 		bio: "Catherine is an electrical engineering student at UCLA. She joined VINdicated because access to reliable transportation shouldn't rely on how you are perceived.",
 	},
 	{
