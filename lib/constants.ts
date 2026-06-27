@@ -60,15 +60,7 @@ export const navLinks = [
 //       { label: "Get Involved", href: "/research#get-involved" },
 //     ],
 //   },
-  {
-    label: "Documents",
-    href: "/documents",
-    children: [
-      { label: "How to Read a Carfax", href: "/documents#ex-carfax1" },
-      { label: "Carfax History", href: "/documents#ex-carfax2" },
-      { label: "Buyers Guide Decoded", href: "/documents#ex-buyers-guide" },
-    ],
-  },
+  
   { label: "Contact", href: "/contact" },
 ] as const;
 
