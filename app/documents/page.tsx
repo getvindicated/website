@@ -470,6 +470,11 @@ function BuyersGuideAccordion() {
     </div>
   );
 }
+import { notFound } from "next/navigation";
+
+export default function DocumentsPage() {
+  notFound();
+  return (
 
 // ── Page ─────────────────────────────────────────────────────
 export default function DocumentsPage() {
