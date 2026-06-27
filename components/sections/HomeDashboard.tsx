@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeUp, SectionLabel, SectionTitle } from "@/components/ui";
+import { FadeUp, SectionTitle } from "@/components/ui";
 
 const findings = [
   {
@@ -37,9 +37,8 @@ export function HomeDashboard() {
   return (
     <FadeUp>
       <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-        <SectionLabel>The Research</SectionLabel>
         <SectionTitle
-          className="mb-3"
+  className="mb-3"
           style={
             { fontSize: "clamp(2.4rem,5vw,4.2rem)" } as React.CSSProperties
           }
@@ -65,20 +64,20 @@ export function HomeDashboard() {
             >
               <div>
                 <span
-                  className="text-[clamp(2rem,4vw,2.8rem)] font-bold leading-[1]"
-                  style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
-                    color: f.color,
-                  }}
-                >
-                  {f.figure}
-                </span>
-                <span
-                  className="block text-[0.7rem] uppercase tracking-[0.08em] mt-1"
-                  style={{ color: f.color, opacity: 0.7 }}
-                >
-                  {f.context}
-                </span>
+  className="text-[clamp(2rem,4vw,2.8rem)] font-bold leading-[1]"
+  style={{
+    fontFamily: "var(--font-heading), Georgia, serif",
+    color: f.color,
+  }}
+>
+  {f.figure}
+</span>
+<span
+  className="block text-[0.85rem] mt-1"
+  style={{ color: f.color, opacity: 0.85 }}
+>
+  {f.context}
+</span>
               </div>
               <p className="text-[1rem] text-white leading-[1.7] pt-1 max-w-[560px]">
                 {f.detail}
