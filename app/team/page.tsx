@@ -4,7 +4,6 @@ import {
 	PageHero,
 	FadeUp,
 	Divider,
-	SectionLabel,
 	SectionTitle,
 } from "@/components/ui";
 
@@ -19,8 +18,8 @@ export const metadata: Metadata = {
 		url: "/team",
 		type: "website",
 		images: [
-			{ url: "/illus-woman-dealership.png", alt: "VINdicated: Our Team" },
-		],
+  { url: "/preview.webp", alt: "VINdicated: Our Team" },
+],
 	},
 	twitter: {
 		title: "Our Team",
