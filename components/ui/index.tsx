@@ -133,12 +133,14 @@ export function PageHero({
             "linear-gradient(135deg, rgba(180,130,210,0.12) 0%, transparent 60%)",
         }}
       />
-      <p
-        className="relative text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
-        style={{ color: "var(--color-light)" }}
-      >
-        {kicker}
-      </p>
+      {kicker && (
+        <p
+          className="relative text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
+          style={{ color: "var(--color-light)" }}
+        >
+          {kicker}
+        </p>
+      )}
       <h1 className="relative text-[clamp(3rem,5vw,5.5rem)] font-semibold leading-[1] tracking-[-0.02em] max-w-[900px] mb-6">
         {title}
       </h1>
