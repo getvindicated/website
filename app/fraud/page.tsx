@@ -12,16 +12,11 @@ import {
 import { ScamNotebook } from "@/components/sections/ScamNotebook";
 import { RedFlagField } from "@/components/sections/RedFlagField";
 // ── Pink Slip pins ──────────────────────────────────────────
-const pins = [
-  { n: 1, top: "6%", left: "43%", danger: false },
-  { n: 2, top: "38%", left: "28%", danger: false },
-  { n: 3, top: "8%", left: "80%", danger: true },
-  { n: 4, top: "16%", left: "28%", danger: false },
-  { n: 5, top: "56%", left: "50%", danger: true },
-  { n: 6, top: "71%", left: "50%", danger: true },
-];
-
-const highlights = [
+// ── Pink Slip hotspots ───────────────────────────────────────
+// One rect per hotspot. The pin position and the highlight box
+// are both derived from this single rect, so they can never
+// drift apart from each other again.
+const hotspots = [
   { id: 1, top: "3%", left: "20%", w: "45%", h: "7%", danger: false },
   { id: 2, top: "30%", left: "2%", w: "55%", h: "18%", danger: false },
   { id: 3, top: "4%", left: "62%", w: "34%", h: "9%", danger: true },
@@ -140,7 +135,7 @@ function PinkSlipExplainer() {
     <div
       className="grid grid-cols-[1fr_1fr] gap-12 mt-12 max-lg:grid-cols-1"
     >
-      {/* Document image + pins */}
+      {/* Document image + hotspots */}
       <div className="relative select-none">
         <Image
           src="/pink-slip.png"
@@ -157,44 +152,72 @@ function PinkSlipExplainer() {
             transition: "filter 0.3s",
           }}
         />
-        {/* Highlights */}
-        {highlights.map((hl) => (
-          <div
+
+        {/* Leader lines, drawn from each pin to the center of its own rect */}
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          style={{ width: "100%", height: "100%" }}
+        >
+          {hotspots.map((hl) => (
+            <line
+              key={hl.id}
+              x1={`calc(${hl.left} + 14px)`}
+              y1={`calc(${hl.top} + 14px)`}
+              x2={`calc(${hl.left} + ${hl.w} / 2)`}
+              y2={`calc(${hl.top} + ${hl.h} / 2)`}
+              stroke={hl.danger ? "var(--color-red)" : "var(--color-gold)"}
+              strokeWidth="1.5"
+              strokeDasharray="3 3"
+              opacity={active === hl.id ? 0.9 : 0}
+              style={{ transition: "opacity 0.3s" }}
+            />
+          ))}
+        </svg>
+
+        {/* Highlight boxes — now the actual clickable hit area */}
+        {hotspots.map((hl) => (
+          <button
             key={hl.id}
-            className="absolute pointer-events-none rounded-sm transition-opacity duration-300"
+            onClick={() => setActive(active === hl.id ? null : hl.id)}
+            className="absolute rounded-sm transition-opacity duration-300 border-0 bg-transparent cursor-pointer"
             style={{
               top: hl.top,
               left: hl.left,
               width: hl.w,
               height: hl.h,
-              opacity: active === hl.id ? 1 : 0,
               border: `2px solid ${hl.danger ? "var(--color-red)" : "var(--color-gold)"}`,
               background: hl.danger
                 ? "rgba(214,59,59,0.1)"
                 : "rgba(201,168,76,0.1)",
+              opacity: active === hl.id ? 1 : 0,
             }}
+            aria-label={`Hotspot ${hl.id}`}
           />
         ))}
-        {/* Pins */}
-        {pins.map((pin) => (
+
+        {/* Numbered pins, anchored to each rect's top-left corner */}
+        {hotspots.map((hl) => (
           <button
-            key={pin.n}
-            className="absolute w-7 h-7 rounded-full flex items-center justify-center text-white font-medium z-10 border-2 border-white/90 transition-transform duration-150 hotspot"
+            key={hl.id}
+            onClick={() => setActive(active === hl.id ? null : hl.id)}
+            className="absolute w-8 h-8 rounded-full flex items-center justify-center text-white font-bold z-10 border-2 border-white/90 transition-transform duration-150 hotspot"
             style={{
-              top: pin.top,
-              left: pin.left,
+              top: hl.top,
+              left: hl.left,
               transform: "translate(-50%, -50%)",
               background:
-                active === pin.n
+                active === hl.id
                   ? "var(--color-gold)"
-                  : pin.danger
+                  : hl.danger
                     ? "var(--color-red)"
                     : "var(--color-vivid)",
-              fontSize: "0.6rem",
+              boxShadow: "0 3px 8px rgba(0,0,0,0.45)",
+              fontSize: "0.85rem",
+              lineHeight: 1,
+              fontVariantNumeric: "tabular-nums",
             }}
-            onClick={() => setActive(active === pin.n ? null : pin.n)}
           >
-            {pin.n}
+            {hl.id}
           </button>
         ))}
       </div>
@@ -209,49 +232,49 @@ function PinkSlipExplainer() {
             <span className="block text-3xl mb-4 point-left max-lg:hidden">{"←"}</span>
             <span className="hidden max-lg:block text-3xl mb-4">{"↑"}</span>
             <p className="text-[0.9rem] text-white/85">
-              Click any numbered pin to learn what that section means
+              Click any numbered pin or highlighted box to learn what that section means
             </p>
           </div>
         ) : (
           <div className="slide-up">
-  <h3 className="text-[1.9rem] leading-[1.15] mb-5">
-    {cardData[active].title}
-  </h3>
-  <p className="text-[1.15rem] text-white leading-[1.7] mb-6">
-    {cardData[active].body}
-  </p>
-  <p className="text-[1.15rem] text-white font-semibold leading-[1.7]">
-    {cardData[active].verdict}
-  </p>
+            <h3 className="text-[1.9rem] leading-[1.15] mb-5">
+              {cardData[active].title}
+            </h3>
+            <p className="text-[1.15rem] text-white leading-[1.7] mb-6">
+              {cardData[active].body}
+            </p>
+            <p className="text-[1.15rem] text-white font-semibold leading-[1.7]">
+              {cardData[active].verdict}
+            </p>
             {/* Nav dots */}
             <div className="flex flex-wrap gap-2 mt-6">
-              {pins.map((pin) => (
+              {hotspots.map((hl) => (
                 <button
-                  key={pin.n}
-                  onClick={() => setActive(pin.n)}
+                  key={hl.id}
+                  onClick={() => setActive(hl.id)}
                   className="px-3 py-1 text-[0.8rem] border transition-all duration-150"
                   style={{
                     borderColor:
-                      active === pin.n
-                        ? pin.danger
+                      active === hl.id
+                        ? hl.danger
                           ? "var(--color-red)"
                           : "var(--color-vivid)"
                         : "var(--color-border)",
                     color:
-                      active === pin.n
-                        ? pin.danger
+                      active === hl.id
+                        ? hl.danger
                           ? "#ff6b6b"
                           : "var(--color-light)"
                         : "rgba(255,255,255,0.6)",
                     background:
-                      active === pin.n
-                        ? pin.danger
+                      active === hl.id
+                        ? hl.danger
                           ? "rgba(214,59,59,0.08)"
                           : "rgba(124,58,237,0.1)"
                         : "transparent",
                   }}
                 >
-                  0{pin.n}
+                  0{hl.id}
                 </button>
               ))}
             </div>
