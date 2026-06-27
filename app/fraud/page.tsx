@@ -6,7 +6,6 @@ import {
   PageHero,
   FadeUp,
   Divider,
-  SectionLabel,
   SectionTitle,
   Accordion,
   Checklist,
