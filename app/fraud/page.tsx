@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   PageHero,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui";
 import { ScamNotebook } from "@/components/sections/ScamNotebook";
 import { RedFlagField } from "@/components/sections/RedFlagField";
-// ── Pink Slip pins ──────────────────────────────────────────
+
 // ── Pink Slip hotspots ───────────────────────────────────────
 // One object per field: position, content, and styling all live
 // together, so nothing can drift out of sync with anything else.
@@ -108,13 +108,102 @@ const hotspots = [
   },
 ];
 
+// ── Signature draw-on animation ──────────────────────────────
+function SignatureDraw() {
+  const [drawn, setDrawn] = useState(false);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setDrawn(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <svg
+      className="absolute pointer-events-none"
+      style={{ top: "49%", left: "9%", width: "32%", height: "6%" }}
+      viewBox="0 0 300 60"
+      fill="none"
+    >
+      <path
+        d="M5,40 C25,10 45,55 65,25 S105,15 125,35 S165,10 185,30 S225,50 255,20 S280,35 295,25"
+        stroke="var(--color-accent)"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+        style={{
+          strokeDasharray: 420,
+          strokeDashoffset: drawn ? 0 : 420,
+          transition: "stroke-dashoffset 1.1s ease-in-out",
+        }}
+      />
+    </svg>
+  );
+}
+
+// ── Odometer flip-up animation ───────────────────────────────
+function OdometerFlip() {
+  const [display, setDisplay] = useState("000000");
+
+  useEffect(() => {
+    let raf: number;
+    const start = performance.now();
+    const duration = 1100;
+    const target = 150000;
+
+    function tick(now: number) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(Math.round(eased * target).toString().padStart(6, "0"));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div
+      className="absolute flex items-center justify-center pointer-events-none"
+      style={{
+        top: "58.3%",
+        left: "27.5%",
+        width: "19%",
+        height: "3.4%",
+        background: "#0a0a0a",
+        border: "1px solid rgba(255,255,255,0.35)",
+        borderRadius: "2px",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "ui-monospace, monospace",
+          fontWeight: 700,
+          fontSize: "clamp(0.5rem, 1.05vw, 0.82rem)",
+          color: "#9fffb0",
+          letterSpacing: "0.05em",
+        }}
+      >
+        {display}
+      </span>
+    </div>
+  );
+}
+
 function PinkSlipExplainer() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [playKey, setPlayKey] = useState(0);
   const active = hotspots.find((h) => h.id === activeId) || null;
+
+  function selectHotspot(id: string) {
+    setActiveId((cur) => {
+      const next = cur === id ? null : id;
+      if (next) setPlayKey((k) => k + 1);
+      return next;
+    });
+  }
 
   return (
     <div className="grid grid-cols-[1fr_1fr] gap-12 mt-12 max-lg:grid-cols-1">
-      {/* Document image + soft highlight glow, no pins, no numbers */}
+      {/* Document image, directly clickable */}
       <div className="relative select-none">
         <Image
           src="/pink-slip.png"
@@ -131,27 +220,39 @@ function PinkSlipExplainer() {
             transition: "filter 0.3s",
           }}
         />
+
+        {/* Clickable regions, with a subtle idle outline so they read as interactive even before you click */}
         {hotspots.map((hl) => (
-          <div
+          <button
             key={hl.id}
-            className="absolute rounded-md pointer-events-none transition-opacity duration-300"
+            onClick={() => selectHotspot(hl.id)}
+            className="absolute rounded-md transition-all duration-300 border-0 bg-transparent cursor-pointer"
             style={{
               top: hl.top,
               left: hl.left,
               width: hl.w,
               height: hl.h,
-              opacity: activeId === hl.id ? 1 : 0,
-              border: `2px solid ${hl.danger ? "var(--color-red)" : "var(--color-gold)"}`,
-              background: hl.danger
-                ? "rgba(214,59,59,0.12)"
-                : "rgba(201,168,76,0.12)",
-              boxShadow: `0 0 24px 4px ${hl.danger ? "rgba(214,59,59,0.35)" : "rgba(201,168,76,0.35)"}`,
+              border: activeId === hl.id
+                ? `2px solid ${hl.danger ? "var(--color-red)" : "var(--color-gold)"}`
+                : "1.5px dashed rgba(255,255,255,0.28)",
+              background: activeId === hl.id
+                ? hl.danger
+                  ? "rgba(214,59,59,0.12)"
+                  : "rgba(201,168,76,0.12)"
+                : "transparent",
+              boxShadow: activeId === hl.id
+                ? `0 0 24px 4px ${hl.danger ? "rgba(214,59,59,0.35)" : "rgba(201,168,76,0.35)"}`
+                : "none",
             }}
+            aria-label={hl.label}
           />
         ))}
+
+        {activeId === "signature" && <SignatureDraw key={playKey} />}
+        {activeId === "odometer" && <OdometerFlip key={playKey} />}
       </div>
 
-      {/* Field list + explainer */}
+      {/* Field list + explainer (still works as an alternate path) */}
       <div className="max-lg:!static" style={{ position: "sticky", top: "5rem" }}>
         <div
           className="flex flex-col mb-8"
@@ -160,7 +261,7 @@ function PinkSlipExplainer() {
           {hotspots.map((hl) => (
             <button
               key={hl.id}
-              onClick={() => setActiveId(activeId === hl.id ? null : hl.id)}
+              onClick={() => selectHotspot(hl.id)}
               className="text-left py-3 px-1 text-[1.05rem] transition-colors duration-150"
               style={{
                 borderBottom: "1px solid var(--color-border)",
@@ -180,7 +281,7 @@ function PinkSlipExplainer() {
 
         {active === null ? (
           <p className="text-[0.9rem] text-white/85">
-            Click any field name above to learn what it means.
+            Click directly on the document, or pick a field from the list above.
           </p>
         ) : (
           <div className="slide-up">
@@ -387,16 +488,16 @@ const federalLaws: KyrLaw[] = [
 
 const californiaLaws: KyrLaw[] = [
   {
-    tag: "AB68 \u2014 Cancellation",
+    tag: "AB68: Cancellation",
     title:
-      "You can undo the purchase within 2 days \u2014 but you have to buy this right at signing.",
-    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75\u20131% of the purchase price plus a restocking fee if used \u2014 but it gives you a legal exit.",
+      "You can undo the purchase within 2 days, but you have to buy this right at signing.",
+    body: "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75 to 1% of the purchase price plus a restocking fee if used, but it gives you a legal exit.",
     action:
       "\u201CI\u2019d like to purchase the 2-day contract cancellation option.\u201D",
     actionColor: "var(--color-accent)",
   },
   {
-    tag: "AB68 \u2014 Interest Rates",
+    tag: "AB68: Interest Rates",
     title:
       "Interest rate markups are capped. The dealer can\u2019t charge whatever they want.",
     body: "California law caps dealer interest rate markups: max 2% on loans over 60 months, max 2.5% on shorter loans. Getting pre-approved at a bank or credit union before you walk in removes this leverage entirely.",
@@ -405,18 +506,18 @@ const californiaLaws: KyrLaw[] = [
     actionColor: "var(--color-gold)",
   },
   {
-    tag: "AB68 \u2014 Add-Ons",
+    tag: "AB68: Add-Ons",
     title:
       "Every add-on must be listed separately with its own price. No bundling.",
     body: "Any financed item must appear as a separate line item. The dealer must show your monthly payment with and without each optional item. One big bundled number presented as \u201Cthe payment\u201D is a California law violation.",
     action:
-      "\u201CIt\u2019s all just one package\u201D \u2014 that\u2019s not legal. Ask for itemized line items, in writing.",
+      "\u201CIt\u2019s all just one package,\u201D that\u2019s not legal. Ask for itemized line items, in writing.",
     actionColor: "var(--color-red)",
   },
   {
     tag: "Prohibited Practice",
     title: "They cannot require an add-on as a condition of financing.",
-    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \u201Chave to\u201D take an add-on to qualify \u2014 that\u2019s a lie, and it\u2019s illegal.",
+    body: "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \u201Chave to\u201D take an add-on to qualify, that\u2019s a lie, and it\u2019s illegal.",
     action:
       "\u201CPlease show me in writing where it says this is required to get financing.\u201D Watch what happens next.",
     actionColor: "var(--color-red)",
@@ -486,8 +587,8 @@ export default function FraudPage() {
             A California Certificate of Title, called the &ldquo;pink
             slip,&rdquo; is the legal document that proves vehicle
             ownership. Without it in your name, the car is not legally yours, no
-            matter what you paid. Click the numbered pins to learn what each
-            section means.
+            matter what you paid. Click directly on the document to learn what
+            each section means.
           </p>
           <PinkSlipExplainer />
         </section>
@@ -495,16 +596,16 @@ export default function FraudPage() {
 
       <Divider />
 
-      {/* Red Flags Accordion */}
+      {/* Red Flags */}
       <FadeUp>
         <section
           id="red-flags"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
           <SectionTitle className="mb-10">
-  Car Purchasing <em>Red Flags.</em>
-</SectionTitle>
-<RedFlagField />
+            Car Purchasing <em>Red Flags.</em>
+          </SectionTitle>
+          <RedFlagField />
         </section>
       </FadeUp>
 
