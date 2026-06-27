@@ -14,6 +14,30 @@
   --color-gold: #c9a84c;
   --color-green: #2d9e6b;
 }
+/* ── Light mode preview (homepage test) ── */
+.light-preview {
+  --color-bg-page: #faf7fc;
+  --color-bg-surface: #f1ebf5;
+  --color-bg-mid: #e4d8ec;
+  --color-vivid: #7c3aed;
+  --color-light: #6b3fa0;
+  --color-accent: #9333ea;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-red: #c92a2a;
+  --color-gold: #a67c1f;
+  --color-green: #1f7a4d;
+  background: var(--color-bg-page);
+  color: #1a1320;
+}
+
+.light-preview .text-white,
+.light-preview .text-white\/85,
+.light-preview .text-white\/80,
+.light-preview .text-white\/75,
+.light-preview .text-white\/70,
+.light-preview .text-white\/60 {
+  color: #1a1320 !important;
+}
 
 /* ── Base ── */
 html {
