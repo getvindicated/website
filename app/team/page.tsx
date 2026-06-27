@@ -278,7 +278,6 @@ export default function TeamPage() {
 >
 	{member.school}
 </p>
-										</p>
 										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
 											{member.bio}
 										</p>
