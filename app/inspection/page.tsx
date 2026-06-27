@@ -55,7 +55,7 @@ const enginePins: {
   { id: 10, top: "64%", left: "88%", color: "red", title: "Fuse Box" },
 ];
 
-const colorMap: Record<
+const colorMap: Record
   PinColor,
   { bg: string; badge: string; text: string; label: string }
 > = {
@@ -293,7 +293,7 @@ function EngineDiagram() {
         >
           {/* Legend */}
           <div
-            className="flex flex-wrap gap-3 px-6 py-4 border-b text-[0.72rem]"
+            className="flex flex-wrap gap-3 px-6 py-4 border-b text-[0.85rem]"
             style={{
               background: "rgba(0,0,0,0.2)",
               borderColor: "var(--color-border)",
@@ -303,7 +303,7 @@ function EngineDiagram() {
               <span
                 key={key}
                 className="flex items-center gap-1"
-                style={{ color: "rgba(255,255,255,0.7)" }}
+                style={{ color: "rgba(255,255,255,0.85)" }}
               >
                 <span
                   className="w-[9px] h-[9px] rounded-full flex-shrink-0"
@@ -357,7 +357,7 @@ function EngineDiagram() {
               <div ref={scrollRef} className="px-7 py-5 flex-1 overflow-y-auto space-y-4 scrollbar-none">
                 <div>
                   <p
-                    className="text-[0.75rem] font-bold uppercase tracking-[0.06em] mb-2"
+                    className="text-[1rem] font-bold mb-2"
                     style={{ color: "var(--color-accent)" }}
                   >
                     What it is
@@ -368,7 +368,7 @@ function EngineDiagram() {
                 </div>
                 <div>
                   <p
-                    className="text-[0.75rem] font-bold uppercase tracking-[0.06em] mb-2"
+                    className="text-[1rem] font-bold mb-2"
                     style={{ color: "var(--color-accent)" }}
                   >
                     How to check it
@@ -646,7 +646,7 @@ export default function InspectionPage() {
                 car before you buy it.
               </p>
               <p
-                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mt-8 mb-4"
+                className="text-[1rem] font-semibold mt-8 mb-4"
                 style={{ color: "var(--color-light)" }}
               >
                 This is different from
@@ -659,7 +659,7 @@ export default function InspectionPage() {
                 ].map(({ term, def }) => (
                   <p
                     key={term}
-                    className="text-[1rem] text-white/80 leading-[1.7] py-3"
+                    className="text-[1rem] text-white leading-[1.7] py-3"
                     style={{ borderBottom: "1px solid var(--color-border)" }}
                   >
                     <strong className="text-white">{term}:</strong> {def}
@@ -765,7 +765,7 @@ export default function InspectionPage() {
           <SectionTitle className="mb-3">
             Find a <em>Manufacturer Dealership</em>
           </SectionTitle>
-          <p className="text-[0.95rem] text-white/80 leading-[1.7] max-w-[650px] mb-10">
+          <p className="text-[0.95rem] text-white leading-[1.7] max-w-[650px] mb-10">
             Buying a used Honda from a Mitsubishi dealer? Take it to a Honda
             dealership for your PPI. They know that brand, have the right tools,
             and have zero incentive to lie.
@@ -831,7 +831,7 @@ export default function InspectionPage() {
           >
             Why You're <em>Paying for Your Safety</em>
           </SectionTitle>
-          <p className="text-[1.05rem] text-white/80 leading-[1.75] max-w-[680px] mb-8">
+          <p className="text-[1.05rem] text-white leading-[1.75] max-w-[680px] mb-8">
             A good inspector goes through the car systematically. Here's
             what they're checking, and why each category matters.
           </p>
