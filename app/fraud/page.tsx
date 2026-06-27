@@ -31,7 +31,7 @@ const highlights = [
   { id: 6, top: "63%", left: "2%", w: "95%", h: "16%", danger: true },
 ];
 
-const cardData: Record
+const cardData: Record<
   number,
   {
     typeLabel: string;
