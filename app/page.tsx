@@ -29,8 +29,6 @@ export default function HomePage() {
       <RoadScene />
       <HomeHero />
       <Divider />
-      <HomeDashboard />
-      <Divider />
       <HomeCards />
       <Divider />
       <HomeQuote />
