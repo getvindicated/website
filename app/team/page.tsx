@@ -267,13 +267,13 @@ export default function TeamPage() {
 											{member.name}
 										</h3>
 										<p
-											className="text-[1.15rem] font-bold mb-1"
-											style={{ color: "var(--color-accent)" }}
-										>
-											{member.position}
-										</p>
-										<p
-	className="text-[0.9rem] text-white/70 mb-5"
+	className="text-[1.15rem] font-bold mb-1"
+	style={{ color: "var(--color-accent)" }}
+>
+	{member.position}
+</p>
+<p
+	className="text-[1.15rem] font-bold mb-5 text-white"
 	style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
 >
 	{member.school}
