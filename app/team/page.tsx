@@ -248,19 +248,19 @@ export default function TeamPage() {
 
 									{/* Info */}
 									<div>
-										<p
-											className="text-[1rem] font-semibold mb-3"
-											style={{ color: "var(--color-accent)" }}
-										>
-											{member.position}
-										</p>
-										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-5">
-											{member.name}
-										</h3>
-										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
-											{member.bio}
-										</p>
-									</div>
+	<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+		{member.name}
+	</h3>
+	<p
+		className="text-[1rem] font-semibold mb-5"
+		style={{ color: "var(--color-accent)" }}
+	>
+		{member.position}
+	</p>
+	<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
+		{member.bio}
+	</p>
+</div>
 
 									{/* Socials */}
 									{member.socials && member.socials.length > 0 && (
