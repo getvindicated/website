@@ -242,13 +242,10 @@ export default function ContactPage() {
                     className="py-7"
                     style={{ borderBottom: "1px solid var(--color-border)" }}
                   >
-                    <p
-                      className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-3"
-                      style={{ color: "var(--color-light)" }}
-                    >
-                      {cat}
-                    </p>
-                    <p className="text-[0.95rem] text-white/80 leading-[1.7]">{body}</p>
+                    <h3 className="text-[1.15rem] leading-[1.3] mb-2" style={{ fontFamily: "var(--font-heading), Georgia, serif" }}>
+  {cat}
+</h3>
+<p className="text-[0.95rem] text-white leading-[1.7]">{body}</p>
                   </div>
                 ))}
               </div>
