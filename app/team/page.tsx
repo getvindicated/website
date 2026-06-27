@@ -162,24 +162,6 @@ const team: TeamMember[] = [
 		photo: "/team/syed.png",
 		bio: "As a current Masters in Business Analytics student at CSU East Bay with a foundation in Computer Science, Omar is committed to advancing the use of data, machine learning, and analytics to drive intelligent business decisions and transformative impact.",
 	},
-	// {
-	// 	name: "Caroline ???",
-	// 	position: "???",
-	// 	photo: "/team/caroline.jpg",
-	// 	bio: "???",
-	// },
-	// {
-	// 	name: "",
-	// 	position: "",
-	// 	photo: "/team/.jpg",
-	// 	bio: "",
-	// },
-	// {
-	// 	name: "",
-	// 	position: "",
-	// 	photo: "/team/.jpg",
-	// 	bio: "",
-	// },
 ];
 
 function SocialIcon({ platform }: { platform: Social["platform"] }) {
@@ -230,9 +212,6 @@ export default function TeamPage() {
 
 			<section className="px-20 py-24 max-md:px-6 max-md:py-16">
 				<SectionTitle>Meet the Team</SectionTitle>
-				{/* <SectionTitle className="mb-16">
-					Advocates. Builders. <em>Changemakers.</em>
-				</SectionTitle> */}
 
 				<div className="space-y-0">
 					{team.map((member, i) => (
@@ -270,7 +249,7 @@ export default function TeamPage() {
 									{/* Info */}
 									<div>
 										<p
-											className="text-[0.72rem] font-bold uppercase tracking-[0.08em] mb-3"
+											className="text-[1rem] font-semibold mb-3"
 											style={{ color: "var(--color-accent)" }}
 										>
 											{member.position}
@@ -278,7 +257,7 @@ export default function TeamPage() {
 										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-5">
 											{member.name}
 										</h3>
-										<p className="text-[0.95rem] text-white/80 leading-[1.75] max-w-140">
+										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
 											{member.bio}
 										</p>
 									</div>
@@ -287,7 +266,7 @@ export default function TeamPage() {
 									{member.socials && member.socials.length > 0 && (
 										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
 											{member.socials.map((s) => (
-												<a
+												
 													key={s.platform}
 													href={s.href}
 													target="_blank"
@@ -328,12 +307,12 @@ export default function TeamPage() {
 					<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
 						Want to be part of <em>this?</em>
 					</h2>
-					<p className="text-[1.05rem] text-white/75 leading-[1.7] max-w-[540px] mx-auto">
+					<p className="text-[1.05rem] text-white leading-[1.7] max-w-[540px] mx-auto">
 						VINdicated is always looking for passionate people: researchers,
 						developers, designers, educators, and advocates. If you believe car
 						buying should be fair for everyone, we want to hear from you.
 					</p>
-					<a
+					
 						href="/contact"
 						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
 						style={{ background: "var(--color-vivid)" }}
