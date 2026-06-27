@@ -273,16 +273,16 @@ export default function TeamPage() {
 											{member.position}
 										</p>
 										<p
-	className="text-[0.9rem] text-white/70 mb-5"
-	style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
->
-	{member.school}
-</p>
+											className="text-[0.9rem] text-white/70 mb-5"
+											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+										>
+											{member.school}
 										</p>
 										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
 											{member.bio}
 										</p>
 									</div>
+
 
 									{/* Socials */}
 									{member.socials && member.socials.length > 0 && (
