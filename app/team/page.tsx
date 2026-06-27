@@ -36,6 +36,7 @@ type Social = {
 type TeamMember = {
 	name: string;
 	position: string;
+	school: string;
 	photo: string;
 	bio: string;
 	socials?: Social[];
@@ -45,120 +46,140 @@ const team: TeamMember[] = [
 	{
 		name: "Rana Darwich",
 		position: "Founder",
+		school: "UCLA",
 		photo: "/team/rana.jpg",
 		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
 	},
 	{
 		name: "Yinrui (Ray) Gan",
 		position: "Technical Lead",
+		school: "Computer Science & Linguistics, UCLA",
 		photo: "/team/ray.jpg",
 		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
 	},
 	{
 		name: "Halima Cherif Hminat",
 		position: "Research & Outreach Lead",
+		school: "Integrative Biology, UC Berkeley",
 		photo: "/team/halima.jpg",
 		bio: "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also a Research and Outreach Lead at VINdicated and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs.",
 	},
 	{
 		name: "William Prawira",
 		position: "Data Engineer",
+		school: "Data Science & Applied Mathematics, UCLA",
 		photo: "/team/william.jpg",
 		bio: "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer.",
 	},
 	{
 		name: "Ameerah Zafar",
 		position: "Data Engineer",
+		school: "Chemical Engineering, UC Berkeley",
 		photo: "/team/ameerah.jpg",
 		bio: "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated.",
 	},
 	{
 		name: "Rizwaan Bana",
 		position: "Software Engineer",
+		school: "Computer Science, UCLA",
 		photo: "/team/rizwaan.jpg",
 		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
 	},
 	{
 		name: "Peter Vincent Dickson",
 		position: "Empirical & Data Lead",
+		school: "Data Science & Economics, UC Berkeley",
 		photo: "/team/peter.png",
 		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
 	},
 	{
 		name: "Malia LaVoie",
 		position: "Design Lead",
+		school: "Computer Science & Psychology, NYU",
 		photo: "/team/malia.jpg",
 		bio: "Malia LaVoie is the Design Lead at VINdicated. As a Computer Science and Psychology double major at NYU, she combines technical skill with human-centered design to create intuitive, user-friendly experiences that make automotive rights more accessible and easier to understand.",
 	},
 	{
 		name: "Evanceline Tang",
 		position: "Visual Design Lead",
+		school: "Biology, UCLA",
 		photo: "/team/evanceline.jpg",
 		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
 		name: "Stesha Simon",
 		position: "Data Analyst",
+		school: "Data Science & Economics, UC Berkeley",
 		photo: "/team/stesha.png",
 		bio: "Stesha Simon is a Data Science and Economics major at UC Berkeley, she's also involved in data science discovery research to help school districts across California evaluate their specific climate hazards, gaps in policy, and contributes to the interactive map and data analytics. She resonates with VINdicated's mission to prevent fraud by helping people recognize scams before they can cause real financial or personal harm.",
 	},
 	{
 		name: "Brisa Gómez",
 		position: "Data Analyst",
+		school: "Psychology",
 		photo: "/team/brisa.png",
 		bio: "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing.",
 	},
 	{
 		name: "Fiona Wangsawidjaja",
 		position: "Research Analyst",
+		school: "UCLA",
 		photo: "/team/fiona.jpg",
 		bio: "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
 	},
 	{
 		name: "Ayat Ashraf",
 		position: "Research Analyst",
+		school: "Math/Econ, UCLA",
 		photo: "/team/ayat.png",
 		bio: "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
 	},
 	{
 		name: "Paul Ha",
 		position: "Research Analyst",
+		school: "Integrative Biology, UC Berkeley",
 		photo: "/team/paul.png",
 		bio: "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry.",
 	},
 	{
 		name: "Catherine Wong",
 		position: "Hardware Product Engineer",
+		school: "Electrical Engineering, UCLA",
 		photo: "/team/catherine.jpg",
 		bio: "Catherine is an electrical engineering student at UCLA. She joined VINdicated because access to reliable transportation shouldn't rely on how you are perceived.",
 	},
 	{
 		name: "Abbas Baldiwala",
 		position: "Hardware Engineer",
+		school: "EECS, UC Berkeley",
 		photo: "/team/abbas.png",
 		bio: "Abbas Baldiwala is an EECS student at the University of California, Berkeley with experience in hardware systems, circuit design, and real-world engineering through roles at Zipline and Formula Electric at Berkeley. He's built projects ranging from PCB-based devices to algorithm visualizations, with a focus on making technical systems usable outside the lab. He's working with VINdicated because he wants to help people avoid getting taken advantage of.",
 	},
 	{
 		name: "Bryan Zhang",
 		position: "Software Engineer",
+		school: "Computer Science, UCLA",
 		photo: "/team/bryan.png",
 		bio: "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated.",
 	},
 	{
 		name: "Jas Wang",
 		position: "Software Engineer",
+		school: "Political Science & Geography, UCLA",
 		photo: "/team/jas.jpg",
 		bio: "Jas Wang is a 4th year at UCLA majoring in Political Science and Geography. Using GIS mapping skills, he helps VINdicated's data to be approachable when visualized. VINdicated is important to him because growing up in an immigrant community, he knows how immigrants are vulnerable too and are unfairly scammed.",
 	},
 	{
 		name: "Rahul Puritipati",
 		position: "Software Engineer",
+		school: "Computer Science, UCLA",
 		photo: "/team/rahul.jpg",
 		bio: "Rahul Puritipati is a first-year CS student at UCLA. Raised in Folsom, CA, he likes to watch gym TikToks and be a couch GM for the 49ers and Kings. He has done a significant amount of nonprofit work, mainly rebuilding local businesses' online presence and raising money for underprivileged youth in India.",
 	},
 	{
 		name: "Syed Omar Ahmed",
 		position: "Business Analyst",
+		school: "M.S. Business Analytics, CSU East Bay",
 		photo: "/team/syed.png",
 		bio: "As a current Masters in Business Analytics student at CSU East Bay with a foundation in Computer Science, Omar is committed to advancing the use of data, machine learning, and analytics to drive intelligent business decisions and transformative impact.",
 	},
@@ -248,25 +269,28 @@ export default function TeamPage() {
 
 									{/* Info */}
 									<div>
-	<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
-		{member.name}
-	</h3>
-	<p
-		className="text-[1rem] font-semibold mb-5"
-		style={{ color: "var(--color-accent)" }}
-	>
-		{member.position}
-	</p>
-	<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
-		{member.bio}
-	</p>
-</div>
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+											{member.name}
+										</h3>
+										<p
+											className="text-[1.15rem] font-bold mb-1"
+											style={{ color: "var(--color-accent)" }}
+										>
+											{member.position}
+										</p>
+										<p className="text-[0.9rem] text-white/70 mb-5">
+											{member.school}
+										</p>
+										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
+											{member.bio}
+										</p>
+									</div>
 
 									{/* Socials */}
 									{member.socials && member.socials.length > 0 && (
 										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
 											{member.socials.map((s) => (
-												<a
+												
 													key={s.platform}
 													href={s.href}
 													target="_blank"
@@ -312,7 +336,7 @@ export default function TeamPage() {
 						developers, designers, educators, and advocates. If you believe car
 						buying should be fair for everyone, we want to hear from you.
 					</p>
-					<a
+					
 						href="/contact"
 						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
 						style={{ background: "var(--color-vivid)" }}
