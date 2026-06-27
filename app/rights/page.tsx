@@ -3,7 +3,6 @@ import {
   PageHero,
   FadeUp,
   Divider,
-  SectionLabel,
   SectionTitle,
   Accordion,
   InfoBox,
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/illus-woman-dealership.png",
+        url: "/preview.webp",
         alt: "VINdicated: Know Your Rights",
       },
     ],
@@ -38,7 +37,7 @@ export default function RightsPage() {
   return (
     <>
       <PageHero
-        kicker="Legal Protection"
+        kicker=""
         title={
           <>
             Know your rights
@@ -52,11 +51,10 @@ export default function RightsPage() {
       {/* Federal Laws */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>Federal Protections</SectionLabel>
           <SectionTitle className="mb-3">
             Laws that apply <em>nationwide.</em>
           </SectionTitle>
-          <p className="text-base text-white/70 leading-[1.7] max-w-[680px] mb-4">
+          <p className="text-base text-white leading-[1.7] max-w-[680px] mb-4">
             These federal laws protect every car buyer in every state. You do not
             need a lawyer to invoke them &mdash; you just need to know they
             exist.
@@ -76,14 +74,14 @@ export default function RightsPage() {
                       The dealer must show you the full cost of the loan before
                       you agree to anything.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The Truth in Lending Act requires the dealer to give you
                       details about financing your car. These details include the{" "}
                       <strong className="text-white">total amount</strong> of
                       money you will have to pay, including fees and interest,
                       expressed as a yearly rate (APR) and an overall total.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The dealer must provide a TILA disclosure when or before
                       you sign your contract. If you do not get one, or if it
                       does not match exactly what the dealer tells you, that is a
@@ -108,7 +106,7 @@ export default function RightsPage() {
                       Dealers must put a Buyers Guide on every used car that
                       says whether the car is under warranty or not.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The Used Car Rule requires the Buyers Guide to be clearly
                       visible and state whether the dealer is selling the car
                       &ldquo;as is&rdquo; (meaning you pay full repair costs) or
@@ -118,7 +116,7 @@ export default function RightsPage() {
                       of the Buyers Guide at the time of sale, which you should
                       review to make sure it matches the contract.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       If there is no Buyers Guide on the car (usually a window
                       sticker), tell the dealer you need to review the Buyers
                       Guide before you agree to anything. If your car needs
@@ -143,7 +141,7 @@ export default function RightsPage() {
                       The dealer must tell you the car&apos;s true mileage in
                       writing.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The Odometer Law requires the dealer to provide a written{" "}
                       <strong className="text-white">
                         odometer disclosure statement
@@ -155,7 +153,7 @@ export default function RightsPage() {
                       does not provide one or if you suspect it might be
                       inaccurate.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Odometer fraud is a{" "}
                       <strong className="text-white">federal crime</strong> with
                       potential prison time as a consequence. You can also get
@@ -180,7 +178,7 @@ export default function RightsPage() {
                       The dealer must tell you how your credit report affected
                       the terms of your loan.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The FCRA requires the dealer to tell you if your credit
                       report (your borrowing history) was used to determine your
                       rate and, if so, give you a written explanation of how your
@@ -191,7 +189,7 @@ export default function RightsPage() {
                       . The dealer must also tell you which credit bureau
                       (Equifax, Experian, or TransUnion) was used.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Ask the dealer whether your credit report was used to
                       determine the rate. If yes, ask for the adverse action
                       notice and the credit bureau used. If the rate seems high,
@@ -212,7 +210,7 @@ export default function RightsPage() {
                       Dealers cannot treat you differently based on race, gender,
                       or national origin.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Under the ECOA, a dealer must apply the same standards to
                       all applicants and consider each application individually.
                       If something feels off, request a written explanation of
@@ -234,11 +232,10 @@ export default function RightsPage() {
       {/* California Laws */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>California Protections</SectionLabel>
           <SectionTitle className="mb-3">
             If you buy in California, <em>you have more.</em>
           </SectionTitle>
-          <p className="text-base text-white/70 leading-[1.7] max-w-[680px] mb-4">
+          <p className="text-base text-white leading-[1.7] max-w-[680px] mb-4">
             California has some of the strongest consumer protection laws in the
             country. These apply on top of every federal protection listed above.
           </p>
@@ -258,7 +255,7 @@ export default function RightsPage() {
                       Dealers must disclose add-ons, keep your interest rate
                       reasonable, and allow independent inspection.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Under the Car Buyer&apos;s Bill of Rights, dealers can
                       only increase your interest rate by a certain amount
                       (depending on the length of the loan). They must show the
@@ -269,7 +266,7 @@ export default function RightsPage() {
                       <strong className="text-white">right</strong> to have the
                       car independently inspected before you buy it.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       A dealer might, for example, tell you the car needs $3,000
                       in add-ons and try to convince you to buy them all.
                       However, many of the add-ons are optional in reality. In
@@ -289,7 +286,7 @@ export default function RightsPage() {
                     >
                       Everything you agree to must be in one written contract.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Civil Code Section 2981.9 requires the dealer to put all
                       terms in a single written agreement and give you a copy of
                       it. The dealer cannot make you agree to something verbally
@@ -297,7 +294,7 @@ export default function RightsPage() {
                       <strong className="text-white">everything</strong> you
                       agree to must, by law, be in this contract.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       If the dealer promises you something verbally, ask them to
                       include it in the contract before you sign. For example, a
                       dealer might tell you &ldquo;we&apos;ll fix any issues for
@@ -318,7 +315,7 @@ export default function RightsPage() {
                       A dealer cannot use deception or misrepresentation when
                       selling anything.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       The CCLRA requires the dealer to accurately tell you the
                       price, condition, and features of the car. The dealer
                       cannot hide important information that they know could
@@ -346,14 +343,14 @@ export default function RightsPage() {
                       Dealers cannot lie, mislead you, or use deception when
                       selling a car.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       Under California Vehicle Code § 11713, dealers can&apos;t
                       advertise cars they don&apos;t have, change the price or
                       terms later, hide a car&apos;s history, or keep ads up
                       after a car is sold. They also can&apos;t add fake fees or
                       say &ldquo;no down payment&rdquo; if that isn&apos;t true.
                     </p>
-                    <p className="text-white/80">
+                    <p className="text-white">
                       They <em>can</em> sell cars, advertise deals, and offer
                       financing, but everything has to be real, available, and
                       clearly explained before you agree to anything.
