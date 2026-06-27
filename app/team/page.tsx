@@ -228,7 +228,6 @@ export default function TeamPage() {
 						<em>same frustration.</em>
 					</>
 				}
-				subtitle="Meet the students from all over the U.S. who make up VINdicated"
 			/>
 
 			<section className="px-20 py-24 max-md:px-6 max-md:py-16">
@@ -260,11 +259,6 @@ export default function TeamPage() {
 												sizes="(max-width: 1024px) 208px, 280px"
 											/>
 										</div>
-										{/* Accent line */}
-										<div
-											className="absolute -bottom-2 left-6 right-6 h-1"
-											style={{ background: "var(--color-vivid)" }}
-										/>
 									</div>
 
 									{/* Info */}
@@ -279,11 +273,11 @@ export default function TeamPage() {
 											{member.position}
 										</p>
 										<p
-	className="text-[0.9rem] text-white/70 mb-5"
-	style={{ fontFamily: "var(--font-body)" }}
->
-	{member.school}
-</p>
+											className="text-[0.9rem] text-white/70 mb-5"
+											style={{ fontFamily: "var(--font-body)" }}
+										>
+											{member.school}
+										</p>
 										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
 											{member.bio}
 										</p>
@@ -293,7 +287,7 @@ export default function TeamPage() {
 									{member.socials && member.socials.length > 0 && (
 										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
 											{member.socials.map((s) => (
-												<a
+												
 													key={s.platform}
 													href={s.href}
 													target="_blank"
@@ -339,7 +333,7 @@ export default function TeamPage() {
 						developers, designers, educators, and advocates. If you believe car
 						buying should be fair for everyone, we want to hear from you.
 					</p>
-					<a
+					
 						href="/contact"
 						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
 						style={{ background: "var(--color-vivid)" }}
