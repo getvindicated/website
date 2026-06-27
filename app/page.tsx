@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="light-preview">
+    <>
       <RoadScene />
       <HomeHero />
       <Divider />
@@ -34,6 +34,6 @@ export default function HomePage() {
       <HomeQuote />
       <Divider />
       <HomeFounder />
-    </div>
+    </>
   );
 }
