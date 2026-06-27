@@ -8,9 +8,9 @@ import {
   Divider,
   SectionTitle,
   Accordion,
-  Checklist,
   Button,
 } from "@/components/ui";
+import { ScamNotebook } from "@/components/sections/ScamNotebook";
 
 // ── Pink Slip pins ──────────────────────────────────────────
 const pins = [
@@ -637,34 +637,7 @@ export default function FraudPage() {
           <SectionTitle className="mb-10">
             What to Do <em>After a Scam.</em>
           </SectionTitle>
-          <Checklist
-            items={[
-              {
-                strong: "Document everything immediately.",
-                text: "Dates, times, names. Save all texts, emails, and contracts.",
-              },
-              {
-                strong: "File with your state DMV.",
-                text: "Most states have consumer protection divisions for automotive fraud.",
-              },
-              {
-                strong: "File with the FTC.",
-                text: "reportfraud.ftc.gov: complaints build the database used to pursue enforcement.",
-              },
-              {
-                strong: "Contact the manufacturer.",
-                text: "Franchised dealerships have parent oversight. They take complaints seriously.",
-              },
-              {
-                strong: "Consider a consumer protection attorney.",
-                text: "Many work on contingency; you pay nothing upfront.",
-              },
-              {
-                strong: "Leave an honest public review.",
-                text: "Google, Yelp, BBB. You're protecting the next person.",
-              },
-            ]}
-          />
+          <ScamNotebook />
         </section>
       </FadeUp>
     </>
