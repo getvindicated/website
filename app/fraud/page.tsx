@@ -7,11 +7,10 @@ import {
   FadeUp,
   Divider,
   SectionTitle,
-  Accordion,
   Button,
 } from "@/components/ui";
 import { ScamNotebook } from "@/components/sections/ScamNotebook";
-
+import { RedFlagField } from "@/components/sections/RedFlagField";
 // ── Pink Slip pins ──────────────────────────────────────────
 const pins = [
   { n: 1, top: "6%", left: "43%", danger: false },
