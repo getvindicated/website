@@ -13,32 +13,14 @@ import { ScamNotebook } from "@/components/sections/ScamNotebook";
 import { RedFlagField } from "@/components/sections/RedFlagField";
 // ── Pink Slip pins ──────────────────────────────────────────
 // ── Pink Slip hotspots ───────────────────────────────────────
-// One rect per hotspot. The pin position and the highlight box
-// are both derived from this single rect, so they can never
-// drift apart from each other again.
+// One object per field: position, content, and styling all live
+// together, so nothing can drift out of sync with anything else.
 const hotspots = [
-  { id: 1, top: "3%", left: "20%", w: "45%", h: "7%", danger: false },
-  { id: 2, top: "30%", left: "2%", w: "55%", h: "18%", danger: false },
-  { id: 3, top: "4%", left: "62%", w: "34%", h: "9%", danger: true },
-  { id: 4, top: "13%", left: "2%", w: "50%", h: "7%", danger: false },
-  { id: 5, top: "51%", left: "2%", w: "95%", h: "11%", danger: true },
-  { id: 6, top: "63%", left: "2%", w: "95%", h: "16%", danger: true },
-];
-
-const cardData: Record<
-  number,
   {
-    typeLabel: string;
-    color: string;
-    title: React.ReactNode;
-    body: string;
-    verdict: string;
-    verdictColor: string;
-  }
-> = {
-  1: {
-    typeLabel: "01: What You're Looking At",
-    color: "var(--color-light)",
+    id: "title",
+    label: "Certificate of Title",
+    top: "4%", left: "27%", w: "44%", h: "5%",
+    danger: false,
     title: (
       <>
         California
@@ -47,13 +29,13 @@ const cardData: Record<
       </>
     ),
     body: "This is the \u201cpink slip,\u201d issued by the California DMV and the only legal proof that someone owns a vehicle. When you buy a car, the seller signs the back and hands it to you. You take it to the DMV to transfer it into your name. Without this step, the car is not legally yours, no matter what you paid.",
-    verdict:
-      "If a seller says you don't need the pink slip, that they'll \u201cmail it later,\u201d or that it's \u201clost\u201d: do not complete the purchase.",
-    verdictColor: "rgba(124,58,237,0.08)",
+    verdict: "If a seller says you don't need the pink slip, that they'll \u201cmail it later,\u201d or that it's \u201clost\u201d: do not complete the purchase.",
   },
-  2: {
-    typeLabel: "02: Registered Owner",
-    color: "var(--color-light)",
+  {
+    id: "owner",
+    label: "Registered Owner",
+    top: "25%", left: "8%", w: "48%", h: "13%",
+    danger: false,
     title: (
       <>
         Who Legally
@@ -62,13 +44,13 @@ const cardData: Record<
       </>
     ),
     body: "The name here must match the person selling you the car. Red flags: name doesn't match the seller's ID, the registered owner is an unknown business, or the seller claims to be selling \u201con behalf of\u201d someone without documentation.",
-    verdict:
-      "Always ask for the seller's government-issued ID. The name must match the title exactly.",
-    verdictColor: "rgba(201,168,76,0.08)",
+    verdict: "Always ask for the seller's government-issued ID. The name must match the title exactly.",
   },
-  3: {
-    typeLabel: "03: Critical Red Flag Zone",
-    color: "var(--color-red)",
+  {
+    id: "history",
+    label: "Vehicle History",
+    top: "6.5%", left: "61%", w: "34%", h: "5%",
+    danger: true,
     title: (
       <>
         Vehicle History
@@ -77,13 +59,13 @@ const cardData: Record<
       </>
     ),
     body: "This box records DMV flags: salvage designation, lemon law buyback, flood damage, or prior theft recovery. A \u201csalvage\u201d title means the car was declared a total loss by an insurer. Both salvage and rebuilt titles dramatically affect value.",
-    verdict:
-      "If you see any text in the Vehicle History box, research exactly what it means before proceeding.",
-    verdictColor: "rgba(214,59,59,0.08)",
+    verdict: "If you see any text in the Vehicle History box, research exactly what it means before proceeding.",
   },
-  4: {
-    typeLabel: "04: Vehicle ID Number",
-    color: "var(--color-light)",
+  {
+    id: "vin",
+    label: "Vehicle ID Number",
+    top: "12.5%", left: "8%", w: "47%", h: "5%",
+    danger: false,
     title: (
       <>
         The VIN Must
@@ -92,13 +74,13 @@ const cardData: Record<
       </>
     ),
     body: "The VIN is a unique 17-character code assigned at manufacture. Physically locate it on the car (dashboard and door jamb) and verify it matches this document character by character. A mismatch could indicate VIN cloning, where a stolen car takes the identity of a legitimate one.",
-    verdict:
-      "Enter the VIN at vehiclehistory.gov (free) or Carfax to check accident history and title status before anything else.",
-    verdictColor: "rgba(124,58,237,0.08)",
+    verdict: "Enter the VIN at vehiclehistory.gov (free) or Carfax to check accident history and title status before anything else.",
   },
-  5: {
-    typeLabel: "05: Signature Section",
-    color: "var(--color-red)",
+  {
+    id: "signature",
+    label: "Signature Section",
+    top: "47%", left: "8%", w: "88%", h: "7%",
+    danger: true,
     title: (
       <>
         The Seller Must Sign
@@ -107,13 +89,13 @@ const cardData: Record<
       </>
     ),
     body: "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale, not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership; you don't know to whom, or when.",
-    verdict:
-      "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record.",
-    verdictColor: "rgba(214,59,59,0.08)",
+    verdict: "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record.",
   },
-  6: {
-    typeLabel: "06: Odometer Disclosure",
-    color: "var(--color-red)",
+  {
+    id: "odometer",
+    label: "Odometer Disclosure",
+    top: "56%", left: "8%", w: "88%", h: "10%",
+    danger: true,
     title: (
       <>
         Mileage Fraud
@@ -122,20 +104,17 @@ const cardData: Record<
       </>
     ),
     body: "Federal law requires the seller to disclose actual mileage at time of sale. Odometer rollback is a federal offense under the Motor Vehicle Information and Cost Savings Act. Verify the reading here matches the car's physical odometer, then cross-check against the vehicle history report.",
-    verdict:
-      "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov.",
-    verdictColor: "rgba(214,59,59,0.08)",
+    verdict: "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov.",
   },
-};
+];
 
 function PinkSlipExplainer() {
-  const [active, setActive] = useState<number | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const active = hotspots.find((h) => h.id === activeId) || null;
 
   return (
-    <div
-      className="grid grid-cols-[1fr_1fr] gap-12 mt-12 max-lg:grid-cols-1"
-    >
-      {/* Document image + hotspots */}
+    <div className="grid grid-cols-[1fr_1fr] gap-12 mt-12 max-lg:grid-cols-1">
+      {/* Document image + soft highlight glow, no pins, no numbers */}
       <div className="relative select-none">
         <Image
           src="/pink-slip.png"
@@ -152,132 +131,66 @@ function PinkSlipExplainer() {
             transition: "filter 0.3s",
           }}
         />
-
-        {/* Leader lines, drawn from each pin to the center of its own rect */}
-        <svg
-          className="absolute inset-0 pointer-events-none"
-          style={{ width: "100%", height: "100%" }}
-        >
-          {hotspots.map((hl) => (
-            <line
-              key={hl.id}
-              x1={`calc(${hl.left} + 14px)`}
-              y1={`calc(${hl.top} + 14px)`}
-              x2={`calc(${hl.left} + ${hl.w} / 2)`}
-              y2={`calc(${hl.top} + ${hl.h} / 2)`}
-              stroke={hl.danger ? "var(--color-red)" : "var(--color-gold)"}
-              strokeWidth="1.5"
-              strokeDasharray="3 3"
-              opacity={active === hl.id ? 0.9 : 0}
-              style={{ transition: "opacity 0.3s" }}
-            />
-          ))}
-        </svg>
-
-        {/* Highlight boxes — now the actual clickable hit area */}
         {hotspots.map((hl) => (
-          <button
+          <div
             key={hl.id}
-            onClick={() => setActive(active === hl.id ? null : hl.id)}
-            className="absolute rounded-sm transition-opacity duration-300 border-0 bg-transparent cursor-pointer"
+            className="absolute rounded-md pointer-events-none transition-opacity duration-300"
             style={{
               top: hl.top,
               left: hl.left,
               width: hl.w,
               height: hl.h,
+              opacity: activeId === hl.id ? 1 : 0,
               border: `2px solid ${hl.danger ? "var(--color-red)" : "var(--color-gold)"}`,
               background: hl.danger
-                ? "rgba(214,59,59,0.1)"
-                : "rgba(201,168,76,0.1)",
-              opacity: active === hl.id ? 1 : 0,
+                ? "rgba(214,59,59,0.12)"
+                : "rgba(201,168,76,0.12)",
+              boxShadow: `0 0 24px 4px ${hl.danger ? "rgba(214,59,59,0.35)" : "rgba(201,168,76,0.35)"}`,
             }}
-            aria-label={`Hotspot ${hl.id}`}
           />
-        ))}
-
-        {/* Numbered pins, anchored to each rect's top-left corner */}
-        {hotspots.map((hl) => (
-          <button
-            key={hl.id}
-            onClick={() => setActive(active === hl.id ? null : hl.id)}
-            className="absolute w-8 h-8 rounded-full flex items-center justify-center text-white font-bold z-10 border-2 border-white/90 transition-transform duration-150 hotspot"
-            style={{
-              top: hl.top,
-              left: hl.left,
-              transform: "translate(-50%, -50%)",
-              background:
-                active === hl.id
-                  ? "var(--color-gold)"
-                  : hl.danger
-                    ? "var(--color-red)"
-                    : "var(--color-vivid)",
-              boxShadow: "0 3px 8px rgba(0,0,0,0.45)",
-              fontSize: "0.85rem",
-              lineHeight: 1,
-              fontVariantNumeric: "tabular-nums",
-            }}
-          >
-            {hl.id}
-          </button>
         ))}
       </div>
 
-      {/* Explainer panel */}
+      {/* Field list + explainer */}
       <div className="max-lg:!static" style={{ position: "sticky", top: "5rem" }}>
+        <div
+          className="flex flex-col mb-8"
+          style={{ borderTop: "1px solid var(--color-border)" }}
+        >
+          {hotspots.map((hl) => (
+            <button
+              key={hl.id}
+              onClick={() => setActiveId(activeId === hl.id ? null : hl.id)}
+              className="text-left py-3 px-1 text-[1.05rem] transition-colors duration-150"
+              style={{
+                borderBottom: "1px solid var(--color-border)",
+                color:
+                  activeId === hl.id
+                    ? hl.danger
+                      ? "#ff6b6b"
+                      : "var(--color-light)"
+                    : "var(--color-white)",
+                fontWeight: activeId === hl.id ? 700 : 400,
+              }}
+            >
+              {hl.label}
+            </button>
+          ))}
+        </div>
+
         {active === null ? (
-          <div
-            className="p-8 text-center"
-            style={{ border: "1px solid var(--color-border)" }}
-          >
-            <span className="block text-3xl mb-4 point-left max-lg:hidden">{"←"}</span>
-            <span className="hidden max-lg:block text-3xl mb-4">{"↑"}</span>
-            <p className="text-[0.9rem] text-white/85">
-              Click any numbered pin or highlighted box to learn what that section means
-            </p>
-          </div>
+          <p className="text-[0.9rem] text-white/85">
+            Click any field name above to learn what it means.
+          </p>
         ) : (
           <div className="slide-up">
-            <h3 className="text-[1.9rem] leading-[1.15] mb-5">
-              {cardData[active].title}
-            </h3>
+            <h3 className="text-[1.9rem] leading-[1.15] mb-5">{active.title}</h3>
             <p className="text-[1.15rem] text-white leading-[1.7] mb-6">
-              {cardData[active].body}
+              {active.body}
             </p>
             <p className="text-[1.15rem] text-white font-semibold leading-[1.7]">
-              {cardData[active].verdict}
+              {active.verdict}
             </p>
-            {/* Nav dots */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {hotspots.map((hl) => (
-                <button
-                  key={hl.id}
-                  onClick={() => setActive(hl.id)}
-                  className="px-3 py-1 text-[0.8rem] border transition-all duration-150"
-                  style={{
-                    borderColor:
-                      active === hl.id
-                        ? hl.danger
-                          ? "var(--color-red)"
-                          : "var(--color-vivid)"
-                        : "var(--color-border)",
-                    color:
-                      active === hl.id
-                        ? hl.danger
-                          ? "#ff6b6b"
-                          : "var(--color-light)"
-                        : "rgba(255,255,255,0.6)",
-                    background:
-                      active === hl.id
-                        ? hl.danger
-                          ? "rgba(214,59,59,0.08)"
-                          : "rgba(124,58,237,0.1)"
-                        : "transparent",
-                  }}
-                >
-                  0{hl.id}
-                </button>
-              ))}
-            </div>
           </div>
         )}
       </div>
