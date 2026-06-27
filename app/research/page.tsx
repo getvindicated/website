@@ -3,7 +3,6 @@ import {
   PageHero,
   FadeUp,
   Divider,
-  SectionLabel,
   SectionTitle,
   Button,
 } from "@/components/ui";
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
       "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
     url: "/research",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Research" }],
+    images: [{ url: "/preview.webp", alt: "VINdicated: Research" }],
   },
   twitter: {
     title: "Research",
@@ -73,7 +72,7 @@ export default function ResearchPage() {
   return (
     <>
       <PageHero
-        kicker="Evidence: Our Research"
+        kicker=""
         title={
           <>
             Anecdote isn’t enough.
@@ -91,14 +90,13 @@ export default function ResearchPage() {
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
-              <SectionLabel>Our Approach</SectionLabel>
               <SectionTitle>
                 Correspondence
                 <br />
                 <em>Audit Studies.</em>
               </SectionTitle>
             </div>
-            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white/80">
+            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white">
               <p>
                 Correspondence audit studies are a gold-standard method in
                 discrimination research. We send identically scripted inquiries
@@ -134,7 +132,6 @@ export default function ResearchPage() {
       {/* Active Studies */}
       <FadeUp>
         <section id="study1" className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionLabel>Active Studies</SectionLabel>
           <SectionTitle className="mb-12">
             What We&apos;re
             <br />
@@ -183,7 +180,6 @@ export default function ResearchPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
-          <SectionLabel>The Evidence Base</SectionLabel>
           <SectionTitle className="mb-12">
             What the Research
             <br />
@@ -196,8 +192,7 @@ export default function ResearchPage() {
             {stats.map(({ source, items }) => (
               <div key={source}>
                 <p
-                  className="text-[0.65rem] tracking-wide mb-5"
-                  style={{ color: "var(--color-light)" }}
+                  className="text-[0.95rem] mb-5 text-white"
                 >
                   {source}: Key Findings
                 </p>
@@ -230,7 +225,6 @@ export default function ResearchPage() {
           className="px-20 py-16 max-md:px-6"
           style={{ background: "var(--color-bg-page)", margin: 0 }}
         >
-          <SectionLabel>References</SectionLabel>
           <SectionTitle className="mb-10">
             Sources &amp;
             <br />
@@ -244,7 +238,7 @@ export default function ResearchPage() {
                   <>
                     Ayres, I., &amp; Siegelman, P. (1995). Race and gender
                     discrimination in bargaining for a new car.{" "}
-                    <em>The American Economic Review, 85</em>(3), 304–321.
+                    <em>The American Economic Review, 85</em>(3), 304-321.
                   </>
                 ),
                 note: "Source of the $1,100 / $410 / $92 figures and the 13% longer negotiation finding. 306 paired audits at Chicago-area dealerships.",
@@ -267,8 +261,7 @@ export default function ResearchPage() {
                 style={{ borderLeft: "3px solid var(--color-vivid)" }}
               >
                 <p
-                  className="text-[0.78rem] font-bold uppercase tracking-[0.04em] mb-2"
-                  style={{ color: "var(--color-light)" }}
+                  className="text-[0.95rem] font-bold mb-2 text-white"
                 >
                   {type}
                 </p>
@@ -292,14 +285,13 @@ export default function ResearchPage() {
             className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
           >
             <div>
-              <SectionLabel>Get Involved</SectionLabel>
               <SectionTitle>
                 Want to
                 <br />
                 <em>Participate?</em>
               </SectionTitle>
             </div>
-            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white/80">
+            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white">
               <p>
                 Our correspondence audit studies require volunteer testers, which are 
                 people willing to submit standardized inquiries to dealerships
