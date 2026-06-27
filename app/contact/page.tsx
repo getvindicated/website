@@ -5,7 +5,6 @@ import { submitContactForm } from "@/app/actions/email";
 import {
   PageHero,
   FadeUp,
-  SectionLabel,
   SectionTitle,
   Button,
 } from "@/components/ui";
