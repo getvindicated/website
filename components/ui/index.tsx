@@ -52,18 +52,6 @@ export function Button({
   );
 }
 
-// ── Section Label ────────────────────────────────────────────
-export function SectionLabel({ children }: { children: ReactNode }) {
-  return (
-    <p
-      className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-5"
-      style={{ color: "var(--color-light)" }}
-    >
-      {children}
-    </p>
-  );
-}
-
 // ── Section Title ────────────────────────────────────────────
 export function SectionTitle({
   children,
