@@ -566,14 +566,9 @@ export default function FraudPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
           <SectionTitle className="mb-10">
-            Red Flags That Should Make You <em>Pause.</em>
-          </SectionTitle>
-          <Accordion
-            items={redFlags.map((rf) => ({
-              trigger: rf.trigger,
-              body: rf.body,
-            }))}
-          />
+  Car Purchasing <em>Red Flags.</em>
+</SectionTitle>
+<RedFlagField />
         </section>
       </FadeUp>
 
