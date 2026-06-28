@@ -93,25 +93,11 @@ const team: TeamMember[] = [
 		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
 	},
 	{
-		name: "Malia LaVoie",
-		position: "Design Lead",
-		school: "Computer Science & Psychology, NYU",
-		photo: "/team/malia.jpg",
-		bio: "Malia LaVoie is the Design Lead at VINdicated. As a Computer Science and Psychology double major at NYU, she combines technical skill with human-centered design to create intuitive, user-friendly experiences that make automotive rights more accessible and easier to understand.",
-	},
-	{
 		name: "Evanceline Tang",
 		position: "Visual Design Lead",
 		school: "Biology, UCLA",
 		photo: "/team/evanceline.jpg",
 		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
-	},
-	{
-		name: "Stesha Simon",
-		position: "Data Analyst",
-		school: "Data Science & Economics, UC Berkeley",
-		photo: "/team/stesha.png",
-		bio: "Stesha Simon is a Data Science and Economics major at UC Berkeley, she's also involved in data science discovery research to help school districts across California evaluate their specific climate hazards, gaps in policy, and contributes to the interactive map and data analytics. She resonates with VINdicated's mission to prevent fraud by helping people recognize scams before they can cause real financial or personal harm.",
 	},
 	{
 		name: "Brisa Gómez",
@@ -149,13 +135,6 @@ const team: TeamMember[] = [
 		bio: "Catherine is an electrical engineering student at UCLA. She joined VINdicated because access to reliable transportation shouldn't rely on how you are perceived.",
 	},
 	{
-		name: "Abbas Baldiwala",
-		position: "Hardware Engineer",
-		school: "EECS, UC Berkeley",
-		photo: "/team/abbas.png",
-		bio: "Abbas Baldiwala is an EECS student at the University of California, Berkeley with experience in hardware systems, circuit design, and real-world engineering through roles at Zipline and Formula Electric at Berkeley. He's built projects ranging from PCB-based devices to algorithm visualizations, with a focus on making technical systems usable outside the lab. He's working with VINdicated because he wants to help people avoid getting taken advantage of.",
-	},
-	{
 		name: "Bryan Zhang",
 		position: "Software Engineer",
 		school: "Computer Science, UCLA",
@@ -168,20 +147,6 @@ const team: TeamMember[] = [
 		school: "Political Science & Geography, UCLA",
 		photo: "/team/jas.jpg",
 		bio: "Jas Wang is a 4th year at UCLA majoring in Political Science and Geography. Using GIS mapping skills, he helps VINdicated's data to be approachable when visualized. VINdicated is important to him because growing up in an immigrant community, he knows how immigrants are vulnerable too and are unfairly scammed.",
-	},
-	{
-		name: "Rahul Puritipati",
-		position: "Software Engineer",
-		school: "Computer Science, UCLA",
-		photo: "/team/rahul.jpg",
-		bio: "Rahul Puritipati is a first-year CS student at UCLA. Raised in Folsom, CA, he likes to watch gym TikToks and be a couch GM for the 49ers and Kings. He has done a significant amount of nonprofit work, mainly rebuilding local businesses' online presence and raising money for underprivileged youth in India.",
-	},
-	{
-		name: "Syed Omar Ahmed",
-		position: "Business Analyst",
-		school: "M.S. Business Analytics, CSU East Bay",
-		photo: "/team/syed.png",
-		bio: "As a current Masters in Business Analytics student at CSU East Bay with a foundation in Computer Science, Omar is committed to advancing the use of data, machine learning, and analytics to drive intelligent business decisions and transformative impact.",
 	},
 ];
 
