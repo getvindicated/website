@@ -8,6 +8,7 @@ import {
   InfoBox,
   Button,
 } from "@/components/ui";
+import { RightsPhoneDemo } from "@/components/sections/RightsPhoneDemo";
 
 export const metadata: Metadata = {
   title: "Know Your Rights",
