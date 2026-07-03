@@ -128,13 +128,6 @@ const team: TeamMember[] = [
 		bio: "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry.",
 	},
 	{
-		name: "Catherine Wong",
-		position: "Hardware Product Engineer",
-		school: "Electrical Engineering, UCLA",
-		photo: "/team/cather.jpg",
-		bio: "Catherine is an electrical engineering student at UCLA. She joined VINdicated because access to reliable transportation shouldn't rely on how you are perceived.",
-	},
-	{
 		name: "Bryan Zhang",
 		position: "Software Engineer",
 		school: "Computer Science, UCLA",
