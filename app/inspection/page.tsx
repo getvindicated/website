@@ -9,7 +9,6 @@ import {
   Divider,
   SectionTitle,
   Accordion,
-  Checklist,
   Pullquote,
   CardGrid,
   InfoBox,
@@ -55,7 +54,7 @@ const enginePins: {
   { id: 10, top: "64%", left: "88%", color: "red", title: "Fuse Box" },
 ];
 
-const colorMap: Record<
+const colorMap: Record
   PinColor,
   { bg: string; badge: string; text: string; label: string }
 > = {
@@ -303,7 +302,7 @@ function EngineDiagram() {
               <span
                 key={key}
                 className="flex items-center gap-1"
-                style={{ color: "rgba(255,255,255,0.85)" }}
+                style={{ color: "#fff" }}
               >
                 <span
                   className="w-[9px] h-[9px] rounded-full flex-shrink-0"
@@ -317,13 +316,13 @@ function EngineDiagram() {
           {/* Content */}
           {!active ? (
             <div className="flex-1 flex flex-col items-center justify-center gap-4 p-8 text-center">
-              <span className="text-3xl opacity-40">&#128269;</span>
+              <span className="text-3xl">&#128269;</span>
               <p className="text-[0.85rem] text-white">
                 Click any numbered pin
                 <br />
                 on the engine image
               </p>
-              <p className="text-[0.72rem] text-white/60">
+              <p className="text-[0.8rem] text-white">
                 10 components to inspect
               </p>
             </div>
@@ -349,7 +348,7 @@ function EngineDiagram() {
                 <p className="text-[1.65rem] font-extrabold leading-[1.2] mb-1">
                   {pin.title}
                 </p>
-                <p className="text-base text-white/85 italic">
+                <p className="text-base text-white italic">
                   {card.subtitle}
                 </p>
               </div>
@@ -434,7 +433,7 @@ function EngineDiagram() {
                         active === p.id
                           ? "var(--color-vivid)"
                           : "rgba(90,48,105,0.2)",
-                      color: active === p.id ? "#fff" : "rgba(255,255,255,0.6)",
+                      color: "#fff",
                     }}
                   >
                     {p.id}
@@ -445,6 +444,182 @@ function EngineDiagram() {
           ) : null}
         </div>
       </div>
+    </div>
+  );
+}
+
+// ── Winding Road: "How to Schedule a PPI" ────────────────────
+function CarIcon({ size = 32 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" }}
+    >
+      <path
+        d="M3.2 13.2l1.4-4.3A2.1 2.1 0 0 1 6.6 7.4h10.8a2.1 2.1 0 0 1 2 1.5l1.4 4.3v4.9a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-.9H6.2v.9a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-4.9z"
+        fill="var(--color-vivid)"
+        stroke="#fff"
+        strokeWidth="0.7"
+      />
+      <path d="M5.5 12.4l1-3.1h11l1 3.1z" fill="#fff" opacity="0.9" />
+      <circle cx="7.3" cy="17.6" r="1.5" fill="#0d0814" stroke="#fff" strokeWidth="0.6" />
+      <circle cx="16.7" cy="17.6" r="1.5" fill="#0d0814" stroke="#fff" strokeWidth="0.6" />
+    </svg>
+  );
+}
+
+type RoadItem = { strong: string; text: string };
+
+function WindingRoad({ items }: { items: RoadItem[] }) {
+  const [active, setActive] = useState<number | null>(null);
+  const [visited, setVisited] = useState<Set<number>>(new Set());
+
+  const width = 340;
+  const stepY = 168;
+  const topPad = 60;
+  const bottomPad = 60;
+  const height = topPad + (items.length - 1) * stepY + bottomPad;
+  const center = width / 2;
+  const amp = 92;
+
+  const stops = items.map((_, i) => ({
+    x: center + amp * Math.sin(i * 1.15 + 0.4),
+    y: topPad + i * stepY,
+  }));
+
+  let pathD = `M ${stops[0].x} ${stops[0].y}`;
+  for (let i = 1; i < stops.length; i++) {
+    const p0 = stops[i - 1];
+    const p1 = stops[i];
+    const midY = (p0.y + p1.y) / 2;
+    pathD += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+  }
+
+  const carStop = stops[active ?? 0];
+  const activeItem = active !== null ? items[active] : null;
+
+  const openStop = (i: number) => {
+    setActive(i);
+    setVisited((prev) => new Set(prev).add(i));
+  };
+
+  return (
+    <div className="relative">
+      <div
+        className="relative mx-auto"
+        style={{
+          width: "100%",
+          maxWidth: 460,
+          aspectRatio: `${width} / ${height}`,
+        }}
+      >
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid meet"
+          className="absolute inset-0 w-full h-full"
+        >
+          {/* Road surface */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="var(--color-bg-mid)"
+            strokeWidth="30"
+            strokeLinecap="round"
+          />
+          {/* Lane dashes */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="var(--color-gold)"
+            strokeWidth="3"
+            strokeDasharray="12 14"
+            strokeLinecap="round"
+            opacity="0.85"
+          />
+        </svg>
+
+        {/* Car marker */}
+        <div
+          className="absolute z-20 pointer-events-none"
+          style={{
+            left: `${(carStop.x / width) * 100}%`,
+            top: `${(carStop.y / height) * 100}%`,
+            transform: "translate(-50%, -58%)",
+            transition: "left 0.5s ease, top 0.5s ease",
+          }}
+        >
+          <CarIcon size={34} />
+        </div>
+
+        {/* Stops */}
+        {items.map((item, i) => {
+          const s = stops[i];
+          const isActive = active === i;
+          const isVisited = visited.has(i);
+          return (
+            <button
+              key={i}
+              onClick={() => openStop(i)}
+              className="absolute z-10 rounded-full px-4 py-2.5 text-[0.82rem] font-bold text-center leading-snug border-2 transition-all duration-200 max-w-[150px]"
+              style={{
+                left: `${(s.x / width) * 100}%`,
+                top: `${(s.y / height) * 100}%`,
+                transform: "translate(-50%, -50%)",
+                background: isActive
+                  ? "#fff"
+                  : isVisited
+                    ? "var(--color-vivid)"
+                    : "var(--color-bg-surface)",
+                color: isActive ? "var(--color-vivid)" : "#fff",
+                borderColor:
+                  isVisited || isActive
+                    ? "var(--color-vivid)"
+                    : "rgba(255,255,255,0.5)",
+                boxShadow: isActive
+                  ? "0 0 0 5px rgba(149,51,165,0.35)"
+                  : "0 2px 10px rgba(0,0,0,0.35)",
+              }}
+            >
+              {item.strong}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Modal */}
+      {activeItem && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.7)" }}
+          onClick={() => setActive(null)}
+        >
+          <div
+            className="relative max-w-[520px] w-full rounded-2xl p-8 max-md:p-6"
+            style={{
+              background: "var(--color-bg-surface)",
+              border: "1px solid var(--color-border)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActive(null)}
+              className="absolute top-4 right-4 text-white text-2xl leading-none"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <p className="text-[1.4rem] font-extrabold text-white mb-4 pr-8">
+              {activeItem.strong}
+            </p>
+            <p className="text-[1.05rem] text-white leading-[1.8]">
+              {activeItem.text}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -859,8 +1034,11 @@ export default function InspectionPage() {
       {/* How to schedule */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionTitle className="mb-10">How to Schedule a PPI</SectionTitle>
-          <Checklist
+          <SectionTitle className="mb-4">How to Schedule a PPI</SectionTitle>
+          <p className="text-[0.95rem] text-white leading-[1.7] max-w-[560px] mb-10">
+            Follow the road, stop by stop. Tap a stop to read what to do there.
+          </p>
+          <WindingRoad
             items={[
               {
                 strong: "Find your inspector first.",
