@@ -26,7 +26,7 @@ const CHAPTERS = [
     label: "UC Santa Cruz Chapter",
     school: "University of California, Santa Cruz",
     lead: "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead",
-    contact: "asvinod@ucsc.edu",
+    contact: "asvinod@ucsc.edu · gsambee@ucsc.edu",
     focus: "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
   },
 ];
