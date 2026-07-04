@@ -242,7 +242,7 @@ export default function VolunteerPage() {
         <section className="px-20 py-16 max-md:px-6">
           <p className="text-[1.05rem] text-white leading-[1.75] max-w-[600px]">
             Questions? Email us directly at{" "}
-            
+            <a
               href="mailto:getvindicated@outlook.com"
               className="underline"
               style={{ color: "var(--color-accent)" }}
