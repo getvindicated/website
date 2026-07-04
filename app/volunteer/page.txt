@@ -1,0 +1,257 @@
+"use client";
+
+import { useState } from "react";
+import { PageHero, FadeUp, Divider } from "@/components/ui";
+import { submitVolunteerApplication } from "@/app/actions/submitVolunteer";
+
+const ROLES = [
+  { value: "research-analyst", label: "Research Analyst", min_hours: 5 },
+  { value: "data-engineer", label: "Data Engineer / Analyst", min_hours: 5 },
+  { value: "software-engineer", label: "Software Engineer", min_hours: 5 },
+  { value: "outreach", label: "Outreach & Communications", min_hours: 3 },
+  { value: "legal-research", label: "Legal Research", min_hours: 3 },
+  { value: "design", label: "Graphic Design / Illustration", min_hours: 3 },
+];
+
+type FormState = "idle" | "submitting" | "success" | "error";
+
+export default function VolunteerPage() {
+  const [state, setState] = useState<FormState>("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setState("submitting");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const result = await submitVolunteerApplication({
+        name: data.get("name") as string,
+        email: data.get("email") as string,
+        role: data.get("role") as string,
+        hours: Number(data.get("hours")),
+        location: data.get("location") as string,
+        background: data.get("background") as string,
+        why: data.get("why") as string,
+        student: data.get("student") as string,
+      });
+
+      if (result.success) {
+        setState("success");
+        setMessage(result.message);
+      } else {
+        setState("error");
+        setMessage(result.message);
+      }
+    } catch {
+      setState("error");
+      setMessage("Something went wrong. Please try again or email us directly at getvindicated@outlook.com.");
+    }
+  }
+
+  if (state === "success") {
+    return (
+      <>
+        <PageHero
+          kicker=""
+          title={<>Application <em>received.</em></>}
+          subtitle="We'll be in touch within a few days. Check your inbox for a confirmation email."
+        />
+        <FadeUp>
+          <section className="px-20 py-24 max-md:px-6 max-md:py-16">
+            <p className="text-[1.15rem] text-white leading-[1.75] max-w-[600px]">
+              {message}
+            </p>
+          </section>
+        </FadeUp>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <PageHero
+        kicker=""
+        title={<>Join <em>VINdicated.</em></>}
+        subtitle="We're a student-led research nonprofit. If you believe car buying should be fair for everyone, we want to hear from you."
+      />
+
+      <FadeUp>
+        <section className="px-20 py-24 max-md:px-6 max-md:py-16">
+          <div className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1">
+
+            <div>
+              <h2 className="text-[clamp(1.8rem,3vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-6">
+                What we're <em>looking for.</em>
+              </h2>
+              <div style={{ borderTop: "1px solid var(--color-border)" }}>
+                {ROLES.map((role) => (
+                  <div
+                    key={role.value}
+                    className="py-5"
+                    style={{ borderBottom: "1px solid var(--color-border)" }}
+                  >
+                    <p className="text-[1.05rem] font-semibold text-white">{role.label}</p>
+                    <p className="text-[0.9rem] text-white/70 mt-1">
+                      {role.min_hours}+ hours per week
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[0.9rem] text-white/70 leading-[1.6] mt-8">
+                All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit. We offer research credits, co-authorship on published studies where applicable, and letters of recommendation.
+              </p>
+            </div>
+
+            <div>
+              {state === "error" && (
+                <p
+                  className="text-[0.95rem] leading-[1.6] mb-8 p-4"
+                  style={{
+                    background: "rgba(214,59,59,0.08)",
+                    borderLeft: "3px solid var(--color-red)",
+                    color: "var(--color-red)",
+                  }}
+                >
+                  {message}
+                </p>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-8">
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Full name</label>
+                  <input
+                    name="name"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Email address</label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    placeholder="you@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Role you're applying for</label>
+                  <select
+                    name="role"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    style={{ background: "var(--color-bg-page)" }}
+                  >
+                    <option value="" disabled>Select a role</option>
+                    {ROLES.map((role) => (
+                      <option key={role.value} value={role.value}>
+                        {role.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Hours available per week</label>
+                  <input
+                    name="hours"
+                    type="number"
+                    min="1"
+                    max="40"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    placeholder="e.g. 8"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Are you a current student or recent grad (within 2 years)?</label>
+                  <div className="flex gap-6 mt-1">
+                    {["Yes", "No"].map((opt) => (
+                      <label key={opt} className="flex items-center gap-2 text-white text-[1rem] cursor-pointer">
+                        <input
+                          type="radio"
+                          name="student"
+                          value={opt}
+                          required
+                          className="accent-[var(--color-vivid)]"
+                        />
+                        {opt}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Location (city, state or country)</label>
+                  <input
+                    name="location"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    placeholder="e.g. Los Angeles, CA"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Relevant background for this role</label>
+                  <textarea
+                    name="background"
+                    required
+                    rows={3}
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors resize-none"
+                    placeholder="Coursework, projects, jobs, or experience relevant to the role you picked"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white/70 mb-2">Why VINdicated?</label>
+                  <textarea
+                    name="why"
+                    required
+                    rows={3}
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors resize-none"
+                    placeholder="What draws you to this work specifically"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={state === "submitting"}
+                  className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ background: "var(--color-vivid)" }}
+                >
+                  {state === "submitting" ? "Submitting..." : "Submit Application"}
+                </button>
+
+              </form>
+            </div>
+          </div>
+        </section>
+      </FadeUp>
+
+      <Divider />
+
+      <FadeUp>
+        <section className="px-20 py-16 max-md:px-6">
+          <p className="text-[1.05rem] text-white leading-[1.75] max-w-[600px]">
+            Questions? Email us directly at{" "}
+            
+              href="mailto:getvindicated@outlook.com"
+              className="underline"
+              style={{ color: "var(--color-accent)" }}
+            >
+              getvindicated@outlook.com
+            </a>
+          </p>
+        </section>
+      </FadeUp>
+    </>
+  );
+}
