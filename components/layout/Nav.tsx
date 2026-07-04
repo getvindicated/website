@@ -317,7 +317,7 @@ function DesktopNavItem({
             <Link
               key={child.href}
               href={child.href}
-              className="block px-4 py-2 text-[0.82rem] text-white/75 no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#5a3069]/30"
+              className="block px-4 py-2 text-[0.82rem] text-white/75 no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#9630a6]/30
             >
               {child.label}
             </Link>
