@@ -39,9 +39,7 @@ const sideInfo = [
 ];
 
 const inputCls = `
-  w-full px-4 py-[0.9rem] text-[0.95rem] font-[Arial] outline-none transition-colors duration-200
-  bg-white/[0.04] border border-white/[0.08] text-white
-  focus:border-[#9630a6] focus:bg-[rgba(150,48,166,0.06)]
+  w-full bg-transparent border-b-2 border-white/20 focus:border-[#ff2d78] outline-none text-white text-[0.95rem] pb-2 transition-colors duration-200 placeholder:text-white/30
 `;
 
 function ContactForm() {
@@ -162,15 +160,18 @@ function ContactForm() {
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full py-[0.9rem] text-[0.85rem] font-semibold tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
-        style={{ background: "var(--color-vivid)" }}
-      >
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </button>
-
+     <button
+  type="submit"
+  disabled={isSubmitting}
+  className="flex items-center gap-3 px-8 py-[0.9rem] text-[0.95rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50"
+  style={{ background: "var(--color-vivid)" }}
+>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+  {isSubmitting ? "Sending..." : "Send it"}
+</button>
+      
       {error && (
         <div
           className="px-5 py-4 text-[0.9rem]"
