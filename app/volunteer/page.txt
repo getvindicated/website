@@ -17,17 +17,17 @@ const CHAPTERS = [
     value: "ucberkeley",
     label: "UC Berkeley Chapter",
     school: "University of California, Berkeley",
-    lead: "Halima Cherif Hminat",
-    contact: "getvindicated@outlook.com",
+    lead: "Halima Cherif Hminat, Research & Outreach Lead · Ameerah Zafar, Data Engineer",
+    contact: "halimacherif@berkeley.edu · azzafar@berkeley.edu",
     focus: "Data and outreach hub. Leads the interactive dealership risk map, contributes to data engineering on the audit study, and runs community-facing education and outreach initiatives.",
   },
   {
     value: "ucsc",
     label: "UC Santa Cruz Chapter",
     school: "University of California, Santa Cruz",
-    lead: "Chapter forming",
-    contact: "getvindicated@outlook.com",
-    focus: "Newly forming chapter. Will focus on consumer education, campus outreach, and expanding VINdicated's reach in the Central Coast region.",
+    lead: "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead",
+    contact: "asvinod@ucsc.edu",
+    focus: "Newly forming chapter focused on consumer education, campus outreach, and expanding VINdicated's reach in the Central Coast region. Led by Cognitive Science and Technology students.",
   },
 ];
 
