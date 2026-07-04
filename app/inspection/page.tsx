@@ -470,20 +470,20 @@ function CarIcon({ size = 32 }: { size?: number }) {
     </svg>
   );
 }
-
+// ── Winding Road: "How to Schedule a PPI" ────────────────────
 type RoadItem = { strong: string; text: string };
 
 function WindingRoad({ items }: { items: RoadItem[] }) {
   const [active, setActive] = useState<number | null>(null);
   const [visited, setVisited] = useState<Set<number>>(new Set());
 
-  const width = 340;
-  const stepY = 168;
-  const topPad = 60;
-  const bottomPad = 60;
+  const width = 400;
+  const stepY = 230;
+  const topPad = 90;
+  const bottomPad = 90;
   const height = topPad + (items.length - 1) * stepY + bottomPad;
   const center = width / 2;
-  const amp = 92;
+  const amp = 70;
 
   const stops = items.map((_, i) => ({
     x: center + amp * Math.sin(i * 1.15 + 0.4),
@@ -498,11 +498,11 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
     pathD += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
   }
 
-  const carStop = stops[active ?? 0];
   const activeItem = active !== null ? items[active] : null;
+  const activeStop = active !== null ? stops[active] : null;
 
   const openStop = (i: number) => {
-    setActive(i);
+    setActive((cur) => (cur === i ? null : i));
     setVisited((prev) => new Set(prev).add(i));
   };
 
@@ -512,7 +512,7 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
         className="relative mx-auto"
         style={{
           width: "100%",
-          maxWidth: 460,
+          maxWidth: 520,
           aspectRatio: `${width} / ${height}`,
         }}
       >
@@ -541,19 +541,6 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
           />
         </svg>
 
-        {/* Car marker */}
-        <div
-          className="absolute z-20 pointer-events-none"
-          style={{
-            left: `${(carStop.x / width) * 100}%`,
-            top: `${(carStop.y / height) * 100}%`,
-            transform: "translate(-50%, -58%)",
-            transition: "left 0.5s ease, top 0.5s ease",
-          }}
-        >
-          <CarIcon size={34} />
-        </div>
-
         {/* Stops */}
         {items.map((item, i) => {
           const s = stops[i];
@@ -563,7 +550,7 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
             <button
               key={i}
               onClick={() => openStop(i)}
-              className="absolute z-10 rounded-full px-4 py-2.5 text-[0.82rem] font-bold text-center leading-snug border-2 transition-all duration-200 max-w-[150px]"
+              className="absolute z-10 rounded-3xl px-7 py-6 text-[1.05rem] font-bold text-center leading-snug border-2 transition-all duration-200 w-[210px] max-md:w-[180px] max-md:text-[0.95rem] max-md:px-5 max-md:py-5"
               style={{
                 left: `${(s.x / width) * 100}%`,
                 top: `${(s.y / height) * 100}%`,
@@ -587,43 +574,60 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
             </button>
           );
         })}
-      </div>
 
-      {/* Modal */}
-      {activeItem && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-6"
-          style={{ background: "rgba(0,0,0,0.7)" }}
-          onClick={() => setActive(null)}
-        >
-          <div
-            className="relative max-w-[520px] w-full rounded-2xl p-8 max-md:p-6"
-            style={{
-              background: "var(--color-bg-surface)",
-              border: "1px solid var(--color-border)",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
+        {/* Explanation card: anchored directly above whichever stop is active */}
+        {activeItem && activeStop && (
+          <>
+            <div
+              className="fixed inset-0 z-40"
               onClick={() => setActive(null)}
-              className="absolute top-4 right-4 text-white text-2xl leading-none"
-              aria-label="Close"
+            />
+            <div
+              className="absolute z-50 rounded-2xl p-6 max-md:p-5"
+              style={{
+                left: `${(activeStop.x / width) * 100}%`,
+                top: `${(activeStop.y / height) * 100}%`,
+                transform: "translate(-50%, calc(-100% - 26px))",
+                width: 300,
+                maxWidth: "calc(100vw - 48px)",
+                background: "var(--color-bg-surface)",
+                border: "1px solid var(--color-vivid)",
+                boxShadow: "0 10px 40px rgba(0,0,0,0.55)",
+              }}
             >
-              &times;
-            </button>
-            <p className="text-[1.4rem] font-extrabold text-white mb-4 pr-8">
-              {activeItem.strong}
-            </p>
-            <p className="text-[1.05rem] text-white leading-[1.8]">
-              {activeItem.text}
-            </p>
-          </div>
-        </div>
-      )}
+              <button
+                onClick={() => setActive(null)}
+                className="absolute top-3 right-4 text-white text-2xl leading-none"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <p className="text-[1.15rem] font-extrabold text-white mb-3 pr-6">
+                {activeItem.strong}
+              </p>
+              <p className="text-[0.98rem] text-white leading-[1.7]">
+                {activeItem.text}
+              </p>
+              {/* Pointer triangle down toward the stop */}
+              <div
+                className="absolute left-1/2"
+                style={{
+                  bottom: -9,
+                  transform: "translateX(-50%)",
+                  width: 0,
+                  height: 0,
+                  borderLeft: "9px solid transparent",
+                  borderRight: "9px solid transparent",
+                  borderTop: "9px solid var(--color-vivid)",
+                }}
+              />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
-
 const inspectionAccordion = [
   {
     trigger: "Engine: The Heart of the Car",
