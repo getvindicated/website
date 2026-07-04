@@ -5,6 +5,7 @@ import { sendEmail } from "@/lib/brevo";
 interface VolunteerFormData {
   name: string;
   email: string;
+  chapter: string;
   role: string;
   hours: number;
   location: string;
@@ -28,6 +29,7 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
         <h2>New Volunteer Application</h2>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Chapter:</strong> ${data.chapter}</p>
         <p><strong>Role:</strong> ${data.role}</p>
         <p><strong>Hours per week:</strong> ${data.hours}</p>
         <p><strong>Location:</strong> ${data.location}</p>
