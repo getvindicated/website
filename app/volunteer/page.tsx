@@ -11,7 +11,7 @@ const CHAPTERS = [
     school: "University of California, Los Angeles",
     lead: "Rana Darwich, Founder & Executive Director",
     contact: "getvindicated@outlook.com",
-    focus: "Headquarters chapter. Leads the correspondence audit research on gender-based pricing discrimination at Toyota dealerships, manages the organization's IRB protocol, and runs all strategic and legal research partnerships.",
+    focus: "Built the interactive dealership risk map and leads VINdicated's core consumer research and data infrastructure.",
   },
   {
     value: "ucberkeley",
@@ -19,7 +19,7 @@ const CHAPTERS = [
     school: "University of California, Berkeley",
     lead: "Halima Cherif Hminat, Research & Outreach Lead · Ameerah Zafar, Data Engineer",
     contact: "halimacherif@berkeley.edu · azzafar@berkeley.edu",
-    focus: "Data and outreach hub. Leads the interactive dealership risk map, contributes to data engineering on the audit study, and runs community-facing education and outreach initiatives.",
+    focus: "Currently building out its membership. Focused on consumer education and outreach.",
   },
   {
     value: "ucsc",
@@ -27,10 +27,9 @@ const CHAPTERS = [
     school: "University of California, Santa Cruz",
     lead: "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead",
     contact: "asvinod@ucsc.edu",
-    focus: "Newly forming chapter focused on consumer education, campus outreach, and expanding VINdicated's reach in the Central Coast region. Led by Cognitive Science and Technology students.",
+    focus: "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
   },
 ];
-
 const ROLES = [
   { value: "research-analyst", label: "Research Analyst", min_hours: 5 },
   { value: "data-engineer", label: "Data Engineer / Analyst", min_hours: 5 },
@@ -139,7 +138,7 @@ export default function VolunteerPage() {
                 ))}
               </div>
               <p className="text-[0.9rem] text-white leading-[1.6] mt-8">
-                All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit. We offer research credits, co-authorship on published studies where applicable, and letters of recommendation.
+                All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit.
               </p>
             </div>
 
