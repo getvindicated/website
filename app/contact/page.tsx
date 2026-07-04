@@ -41,7 +41,7 @@ const sideInfo = [
 const inputCls = `
   w-full px-4 py-[0.9rem] text-[0.95rem] font-[Arial] outline-none transition-colors duration-200
   bg-white/[0.04] border border-white/[0.08] text-white
-  focus:border-[#5a3069] focus:bg-[rgba(124,58,237,0.06)]
+  focus:border-[#9630a6] focus:bg-[rgba(150,48,166,0.06)]
 `;
 
 function ContactForm() {
