@@ -4,6 +4,33 @@ import { useState } from "react";
 import { PageHero, FadeUp, Divider } from "@/components/ui";
 import { submitVolunteerApplication } from "@/app/actions/submitVolunteer";
 
+const CHAPTERS = [
+  {
+    value: "ucla",
+    label: "UCLA Chapter",
+    school: "University of California, Los Angeles",
+    lead: "Rana Darwich",
+    contact: "getvindicated@outlook.com",
+    focus: "Headquarters chapter. Leads the correspondence audit research on gender-based pricing discrimination at Toyota dealerships, manages the organization's IRB protocol, and runs all strategic and legal research partnerships.",
+  },
+  {
+    value: "ucberkeley",
+    label: "UC Berkeley Chapter",
+    school: "University of California, Berkeley",
+    lead: "Halima Cherif Hminat",
+    contact: "getvindicated@outlook.com",
+    focus: "Data and outreach hub. Leads the interactive dealership risk map, contributes to data engineering on the audit study, and runs community-facing education and outreach initiatives.",
+  },
+  {
+    value: "ucsc",
+    label: "UC Santa Cruz Chapter",
+    school: "University of California, Santa Cruz",
+    lead: "Chapter forming",
+    contact: "getvindicated@outlook.com",
+    focus: "Newly forming chapter. Will focus on consumer education, campus outreach, and expanding VINdicated's reach in the Central Coast region.",
+  },
+];
+
 const ROLES = [
   { value: "research-analyst", label: "Research Analyst", min_hours: 5 },
   { value: "data-engineer", label: "Data Engineer / Analyst", min_hours: 5 },
@@ -24,11 +51,11 @@ export default function VolunteerPage() {
     setState("submitting");
     const form = e.currentTarget;
     const data = new FormData(form);
-
     try {
       const result = await submitVolunteerApplication({
         name: data.get("name") as string,
         email: data.get("email") as string,
+        chapter: data.get("chapter") as string,
         role: data.get("role") as string,
         hours: Number(data.get("hours")),
         location: data.get("location") as string,
@@ -36,7 +63,6 @@ export default function VolunteerPage() {
         why: data.get("why") as string,
         student: data.get("student") as string,
       });
-
       if (result.success) {
         setState("success");
         setMessage(result.message);
@@ -60,9 +86,7 @@ export default function VolunteerPage() {
         />
         <FadeUp>
           <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-            <p className="text-[1.15rem] text-white leading-[1.75] max-w-[600px]">
-              {message}
-            </p>
+            <p className="text-[1.15rem] text-white leading-[1.75] max-w-[600px]">{message}</p>
           </section>
         </FadeUp>
       </>
@@ -74,33 +98,44 @@ export default function VolunteerPage() {
       <PageHero
         kicker=""
         title={<>Join <em>VINdicated.</em></>}
-        subtitle="We're a student-led research nonprofit. If you believe car buying should be fair for everyone, we want to hear from you."
+        subtitle="We're a student-led research nonprofit with chapters at UCLA, UC Berkeley, and UC Santa Cruz. Find your chapter and apply below."
       />
 
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
+          <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-14">
+            Our <em>Chapters.</em>
+          </h2>
+
+          <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-1 mb-20">
+            {CHAPTERS.map((ch) => (
+              <div key={ch.value}>
+                <p className="text-[1.4rem] font-semibold text-white mb-1">{ch.label}</p>
+                <p className="text-[1rem] text-white mb-4">{ch.school}</p>
+                <p className="text-[0.95rem] text-white leading-[1.7] mb-4">{ch.focus}</p>
+                <p className="text-[0.9rem] text-white">
+                  Chapter lead: <span className="font-semibold">{ch.lead}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+
           <div className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1">
 
             <div>
               <h2 className="text-[clamp(1.8rem,3vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-6">
                 What we're <em>looking for.</em>
               </h2>
-              <div style={{ borderTop: "1px solid var(--color-border)" }}>
+              <div>
                 {ROLES.map((role) => (
-                  <div
-                    key={role.value}
-                    className="py-5"
-                    style={{ borderBottom: "1px solid var(--color-border)" }}
-                  >
+                  <div key={role.value} className="py-4">
                     <p className="text-[1.05rem] font-semibold text-white">{role.label}</p>
-                    <p className="text-[0.9rem] text-white/70 mt-1">
-                      {role.min_hours}+ hours per week
-                    </p>
+                    <p className="text-[0.9rem] text-white mt-1">{role.min_hours}+ hours per week</p>
                   </div>
                 ))}
               </div>
-              <p className="text-[0.9rem] text-white/70 leading-[1.6] mt-8">
-                All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit. We offer research credits, co-authorship on published studies where applicable, and letters of recommendation.
+              <p className="text-[0.9rem] text-white leading-[1.6] mt-8">
+                All positions are remote and unpaid. We offer research credits, co-authorship on published studies where applicable, and letters of recommendation.
               </p>
             </div>
 
@@ -121,7 +156,22 @@ export default function VolunteerPage() {
               <form onSubmit={handleSubmit} className="space-y-8">
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Full name</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Which chapter are you applying to?</label>
+                  <select
+                    name="chapter"
+                    required
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors"
+                    style={{ background: "var(--color-bg-page)" }}
+                  >
+                    <option value="" disabled>Select a chapter</option>
+                    {CHAPTERS.map((ch) => (
+                      <option key={ch.value} value={ch.value}>{ch.label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white mb-2">Full name</label>
                   <input
                     name="name"
                     required
@@ -131,7 +181,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Email address</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Email address</label>
                   <input
                     name="email"
                     type="email"
@@ -142,7 +192,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Role you're applying for</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Role you're applying for</label>
                   <select
                     name="role"
                     required
@@ -151,15 +201,13 @@ export default function VolunteerPage() {
                   >
                     <option value="" disabled>Select a role</option>
                     {ROLES.map((role) => (
-                      <option key={role.value} value={role.value}>
-                        {role.label}
-                      </option>
+                      <option key={role.value} value={role.value}>{role.label}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Hours available per week</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Hours available per week</label>
                   <input
                     name="hours"
                     type="number"
@@ -172,17 +220,11 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Are you a current student or recent grad (within 2 years)?</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Are you a current student or recent grad (within 2 years)?</label>
                   <div className="flex gap-6 mt-1">
                     {["Yes", "No"].map((opt) => (
                       <label key={opt} className="flex items-center gap-2 text-white text-[1rem] cursor-pointer">
-                        <input
-                          type="radio"
-                          name="student"
-                          value={opt}
-                          required
-                          className="accent-[var(--color-vivid)]"
-                        />
+                        <input type="radio" name="student" value={opt} required />
                         {opt}
                       </label>
                     ))}
@@ -190,7 +232,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Location (city, state or country)</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Location (city, state or country)</label>
                   <input
                     name="location"
                     required
@@ -200,7 +242,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Relevant background for this role</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Relevant background for this role</label>
                   <textarea
                     name="background"
                     required
@@ -211,7 +253,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white/70 mb-2">Why VINdicated?</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Why VINdicated?</label>
                   <textarea
                     name="why"
                     required
@@ -241,12 +283,8 @@ export default function VolunteerPage() {
       <FadeUp>
         <section className="px-20 py-16 max-md:px-6">
           <p className="text-[1.05rem] text-white leading-[1.75] max-w-[600px]">
-            Questions? Email us directly at{" "}
-            
-              href="mailto:getvindicated@outlook.com"
-              className="underline"
-              style={{ color: "var(--color-accent)" }}
-            >
+            Questions? Email us at{" "}
+            <a href="mailto:getvindicated@outlook.com" className="underline" style={{ color: "var(--color-accent)" }}>
               getvindicated@outlook.com
             </a>
           </p>
