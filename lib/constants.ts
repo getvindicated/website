@@ -81,6 +81,7 @@ export const footerNav = [
     links: [
       { label: "Inspection Guide", href: "/inspection" },
       { label: "Fraud Prevention", href: "/fraud" },
+{ label: "Documents", href: "/documents" },
     //   { label: "Our Research", href: "/research" },
     //   { label: "PPI Guide", href: "/inspection" },
     //   { label: "Red Flag Checklist", href: "/fraud" },
