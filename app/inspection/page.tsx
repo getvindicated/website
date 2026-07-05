@@ -600,7 +600,7 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
               onClick={() => setActive(null)}
             />
             <div
-              className="absolute z-50 rounded-2xl py-5 pl-8 pr-6 max-md:py-4 max-md:pl-7 max-md:pr-5"
+              className="absolute z-50 rounded-2xl py-5 px-6 max-md:py-4 max-md:px-5"
               style={{
                 left: `${(activeStop.x / width) * 100}%`,
                 top: `${(activeStop.y / height) * 100}%`,
@@ -612,10 +612,6 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
                 boxShadow: "0 10px 40px rgba(0,0,0,0.55)",
               }}
             >
-              <span
-                className="absolute left-3 top-3 bottom-3 w-[4px] rounded-full"
-                style={{ background: "var(--color-vivid)" }}
-              />
               <button
                 onClick={() => setActive(null)}
                 className="absolute top-3 right-4 text-white text-2xl leading-none"
@@ -633,10 +629,6 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
                 {activeItem.text}
               </p>
             </div>
-          </>
-        )}
-      </div>
-    </div>
   );
 }
 const inspectionAccordion = [
