@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/constants";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
 // Types
 type NavLinkType = {
@@ -13,7 +15,30 @@ type NavLinkType = {
   children?: readonly { label: string; href: string }[];
 };
 
-export function Nav() {
+type NavDict = {
+  nav: Record<string, string>;
+};
+
+// Maps a nav item's canonical (un-localized) href to its key in the
+// dictionary. Items not listed here (Team, Volunteer, and dropdown
+// sub-links) fall back to the English label from lib/constants.ts
+// until they get their own dictionary entries in a later pass.
+const DICT_KEY_BY_HREF: Record<string, string> = {
+  "/": "home",
+  "/about": "about",
+  "/inspection": "inspection",
+  "/fraud": "fraud",
+  "/documents": "documents",
+  "/research": "research",
+  "/contact": "contact",
+};
+
+function labelFor(link: { label: string; href: string }, dict: NavDict) {
+  const key = DICT_KEY_BY_HREF[link.href];
+  return key ? (dict.nav[key] ?? link.label) : link.label;
+}
+
+export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -52,8 +77,10 @@ export function Nav() {
     };
   }, [menuOpen]);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = (href: string) => {
+    const target = localizeHref(locale, href);
+    return href === "/" ? pathname === target : pathname.startsWith(target);
+  };
 
   return (
     <>
@@ -67,7 +94,7 @@ export function Nav() {
       >
         {/* Logo */}
         <Link
-          href="/"
+          href={localizeHref(locale, "/")}
           className="flex items-center gap-3 no-underline relative z-[102]"
           onClick={closeMenu}
         >
@@ -88,26 +115,32 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex gap-8 list-none">
-          {navLinks.map((link) => (
-            <DesktopNavItem
-              key={link.href}
-              link={link as NavLinkType}
-              active={isActive(link.href)}
-              isOpen={activeDropdown === link.href}
-              onMouseEnter={() => {
-                clearCloseTimer();
-                setActiveDropdown(link.href);
-              }}
-              onMouseLeave={() => {
-                closeTimer.current = setTimeout(
-                  () => setActiveDropdown(null),
-                  300,
-                );
-              }}
-            />
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-8 list-none">
+            {navLinks.map((link) => (
+              <DesktopNavItem
+                key={link.href}
+                link={link as NavLinkType}
+                label={labelFor(link, dict)}
+                locale={locale}
+                dict={dict}
+                active={isActive(link.href)}
+                isOpen={activeDropdown === link.href}
+                onMouseEnter={() => {
+                  clearCloseTimer();
+                  setActiveDropdown(link.href);
+                }}
+                onMouseLeave={() => {
+                  closeTimer.current = setTimeout(
+                    () => setActiveDropdown(null),
+                    300,
+                  );
+                }}
+              />
+            ))}
+          </ul>
+          <LanguageSwitcher currentLocale={locale} />
+        </div>
 
         {/* Hamburger / Close toggle */}
         <button
@@ -148,6 +181,8 @@ export function Nav() {
         open={menuOpen}
         onClose={closeMenu}
         isActive={isActive}
+        locale={locale}
+        dict={dict}
       />
     </>
   );
@@ -158,10 +193,14 @@ function MobileMenu({
   open,
   onClose,
   isActive,
+  locale,
+  dict,
 }: {
   open: boolean;
   onClose: () => void;
   isActive: (href: string) => boolean;
+  locale: Locale;
+  dict: NavDict;
 }) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -196,21 +235,21 @@ function MobileMenu({
                 {/* Top-level link row */}
                 <div className="flex items-center">
                   <Link
-                    href={link.href}
+                    href={localizeHref(locale, link.href)}
                     onClick={onClose}
                     className="flex-1 py-4 text-[1.1rem] font-medium no-underline transition-colors"
                     style={{
                       color: active
                         ? "var(--color-accent)"
-                        : "rgba(255,255,255,0.85)",
+                        : "#fff",
                     }}
                   >
-                    {link.label}
+                    {labelFor(link, dict)}
                   </Link>
                   {hasChildren && (
                     <button
                       className="flex items-center justify-center w-11 h-11 bg-transparent border-none -mr-2"
-                      aria-label={`Expand ${link.label}`}
+                      aria-label={`Expand ${labelFor(link, dict)}`}
                       onClick={() =>
                         setExpanded(isExpanded ? null : link.href)
                       }
@@ -254,7 +293,7 @@ function MobileMenu({
                       {(link as NavLinkType).children!.map((child) => (
                         <Link
                           key={child.href}
-                          href={child.href}
+                          href={localizeHref(locale, child.href)}
                           onClick={onClose}
                           className="py-2 text-[0.88rem] no-underline transition-colors"
                           style={{ color: "var(--color-light)" }}
@@ -269,6 +308,11 @@ function MobileMenu({
             );
           })}
         </ul>
+
+        {/* Language switcher, reachable on mobile too */}
+        <div className="mt-6 pt-6" style={{ borderTop: "1px solid var(--color-border)" }}>
+          <LanguageSwitcher currentLocale={locale} />
+        </div>
       </div>
     </div>
   );
@@ -277,12 +321,18 @@ function MobileMenu({
 // ── Desktop Nav Item ────────────────────────────────────────
 function DesktopNavItem({
   link,
+  label,
+  locale,
+  dict,
   active,
   isOpen,
   onMouseEnter,
   onMouseLeave,
 }: {
   link: NavLinkType;
+  label: string;
+  locale: Locale;
+  dict: NavDict;
   active: boolean;
   isOpen: boolean;
   onMouseEnter: () => void;
@@ -295,7 +345,7 @@ function DesktopNavItem({
       onMouseLeave={onMouseLeave}
     >
       <Link
-        href={link.href}
+        href={localizeHref(locale, link.href)}
         className="text-[0.95rem] no-underline transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
         style={{
           color: "white",
@@ -303,7 +353,7 @@ function DesktopNavItem({
           fontWeight: active ? 600 : 400,
         }}
       >
-        {link.label}
+        {label}
       </Link>
       {link.children && isOpen && (
         <div
@@ -316,8 +366,8 @@ function DesktopNavItem({
           {link.children.map((child) => (
             <Link
               key={child.href}
-              href={child.href}
-              className="block px-4 py-2 text-[0.82rem] text-white/75 no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#9630a6]/30"
+              href={localizeHref(locale, child.href)}
+              className="block px-4 py-2 text-[0.82rem] text-white no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#9630a6]/30"
             >
               {child.label}
             </Link>
