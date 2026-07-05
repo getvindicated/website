@@ -7,16 +7,7 @@ import { PageHero, FadeUp } from "@/components/ui";
 // ── Types ─────────────────────────────────────────────────────
 type PinColor = "red" | "gold" | "purple" | "green";
 
-const pinColorMap: Record
-  PinColor,
-  {
-    bg: string;
-    border: string;
-    hoverBg: string;
-    hlBorder: string;
-    hlBg: string;
-  }
-> = {
+const pinColorMap: Record<PinColor, { bg: string; border: string; hoverBg: string; hlBorder: string; hlBg: string }> = {
   red: {
     bg: "var(--color-red)",
     border: "rgba(214,59,59,0.4)",
