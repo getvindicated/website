@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Tungkol Sa Amin",
+    "inspection": "Gabay sa Inspeksyon",
+    "fraud": "Pag-iwas sa Panloloko",
+    "documents": "Mga Dokumentong Ipinaliwanag",
+    "research": "Pananaliksik",
+    "contact": "Makipag-ugnayan"
+  },
+  "footer": {
+    "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+    "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
+    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
+    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto."
+  }
+}

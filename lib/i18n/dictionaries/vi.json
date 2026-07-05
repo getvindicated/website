@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "about": "Về Chúng Tôi",
+    "inspection": "Hướng Dẫn Kiểm Tra",
+    "fraud": "Phòng Chống Gian Lận",
+    "documents": "Giải Mã Tài Liệu",
+    "research": "Nghiên Cứu",
+    "contact": "Liên Hệ"
+  },
+  "footer": {
+    "tagline": "Giáo Dục. Trao Quyền. Minh Oan.",
+    "subtagline": "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.",
+    "copyright": "© 2026 VINdicated. Bảo lưu mọi quyền. Sáng lập bởi Rana Darwich.",
+    "mission": "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô."
+  }
+}
