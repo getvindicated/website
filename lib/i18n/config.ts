@@ -48,3 +48,12 @@ export function isRtl(locale: Locale): boolean {
 export function isValidLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
+
+// Prefixes an internal href with the current locale (e.g. "/about" ->
+// "/en/about", "/" -> "/en"). External links (http/https/mailto) pass
+// through unchanged.
+export function localizeHref(locale: Locale, href: string): string {
+  if (/^(https?:)?\/\//.test(href) || href.startsWith("mailto:")) return href;
+  if (href === "/") return `/${locale}`;
+  return `/${locale}${href}`;
+}
