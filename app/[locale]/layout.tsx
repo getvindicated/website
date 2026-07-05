@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import { Lora, Figtree } from "next/font/google";
+import { notFound } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 // import { CarCursor } from "@/components/ui/CarCursor";
 
 const lora = Lora({
@@ -19,6 +22,11 @@ const figtree = Figtree({
   weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
+
+// Pre-render all 10 locale routes at build time
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -59,18 +67,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) notFound();
+
+  const dict = await getDictionary(locale as Locale);
+
   return (
-    <html lang="en" className={`${lora.variable} ${figtree.variable}`}>
+    <html
+      lang={locale}
+      dir={isRtl(locale as Locale) ? "rtl" : "ltr"}
+      className={`${lora.variable} ${figtree.variable}`}
+    >
       <body className="min-h-screen antialiased">
         {/* <CarCursor /> */}
-        <Nav />
+        <Nav locale={locale as Locale} dict={dict} />
         <main>{children}</main>
-        <Footer />
+        <Footer locale={locale as Locale} dict={dict} />
       </body>
     </html>
   );
