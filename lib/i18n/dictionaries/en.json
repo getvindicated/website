@@ -13,5 +13,68 @@
     "subtagline": "Free automotive education for women, immigrants, and first-time buyers.",
     "copyright": "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.",
     "mission": "A nonprofit committed to gender equity in automotive commerce."
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "You Deserve",
+      "titleLine2": "to Buy a Car",
+      "titleEm": "Without Fear.",
+      "subtitle": "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community.",
+      "ctaPrimary": "Get the PPI Guide",
+      "ctaSecondary": "Our Story",
+      "stats": [
+        {
+          "label": "more Black male buyers are charged vs. white male buyers, even with the same car and same script",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "of Gen Z women feel discouraged from visiting a dealership due to gender discrimination",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "of non-white testers were given worse pricing at dealerships compared to white testers",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "longer negotiations faced by minority buyers, even with the same car and same price",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "Two pillars of",
+      "titleEm": "automotive justice.",
+      "pillars": [
+        {
+          "kicker": "Education",
+          "title": "Pre-Purchase Inspection Guide",
+          "body": "A step-by-step walkthrough of everything you should check, ask, and verify before handing over a dollar. Written for first-time buyers.",
+          "label": "Read the Guide"
+        },
+        {
+          "kicker": "Protection",
+          "title": "Fraud Prevention",
+          "body": "Real tactics used against buyers, named, explained, and countered. Know exactly what to say when a dealer tries to pressure you.",
+          "label": "Spot the Red Flags"
+        }
+      ]
+    },
+    "quote": {
+      "text": "Why should woman be kept in ignorance under the specious name of innocence?",
+      "cite": "Mary Wollstonecraft",
+      "source": "A Vindication of the Rights of Woman (1792)"
+    },
+    "founder": {
+      "titleLine1": "Founded at 19.",
+      "titleEm": "Out of necessity.",
+      "body1": "Three strikes at three different dealerships showed me the same thing: the system is designed to confuse you, rush you, and profit off what you don't know.",
+      "body2Prefix": "VINdicated exists because ",
+      "body2Bold": "I wish it had existed for me.",
+      "cta": "Read Rana's Full Story"
+    },
+    "meta": {
+      "title": "Educate. Empower. Vindicate.",
+      "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources."
+    }
   }
 }
