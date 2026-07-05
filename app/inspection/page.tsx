@@ -216,6 +216,41 @@ const engineCards: Record<number, CardContent> = {
   },
 };
 
+// Shared "bright bar on the left" callout, matching the Important/InfoBox
+// treatment used elsewhere on the site: rounded card, thin rounded accent
+// bar on the left, small bold colored label, plain white body text.
+function FlagCallout({
+  label,
+  text,
+  color,
+}: {
+  label: string;
+  text: string;
+  color: string;
+}) {
+  return (
+    <div
+      className="relative rounded-xl py-4 pl-7 pr-5"
+      style={{
+        background: "var(--color-bg-page)",
+        border: "1px solid var(--color-border)",
+      }}
+    >
+      <span
+        className="absolute left-2.5 top-2.5 bottom-2.5 w-[4px] rounded-full"
+        style={{ background: color }}
+      />
+      <p
+        className="text-[0.78rem] font-bold uppercase tracking-wide mb-1.5"
+        style={{ color }}
+      >
+        {label}
+      </p>
+      <p className="text-[1.02rem] text-white leading-[1.75]">{text}</p>
+    </div>
+  );
+}
+
 function EngineDiagram() {
   const [active, setActive] = useState<number | null>(null);
   const card = active ? engineCards[active] : null;
@@ -389,27 +424,17 @@ function EngineDiagram() {
                     ))}
                   </ol>
                 </div>
-                <div
-                  className="py-3 px-4 text-[1.05rem] leading-[1.75]"
-                  style={{
-                    borderLeft: `3px solid ${colorMap[card.flagColor].text}`,
-                    background: `${colorMap[card.flagColor].badge}`,
-                    color: colorMap[card.flagColor].text,
-                  }}
-                >
-                  {card.flag}
-                </div>
+                <FlagCallout
+                  label={colorMap[card.flagColor].label}
+                  text={card.flag}
+                  color={colorMap[card.flagColor].text}
+                />
                 {card.flag2 && (
-                  <div
-                    className="py-3 px-4 text-[1.05rem] leading-[1.75]"
-                    style={{
-                      borderLeft: "3px solid var(--color-gold)",
-                      background: "rgba(201,168,76,0.08)",
-                      color: "var(--color-gold)",
-                    }}
-                  >
-                    {card.flag2}
-                  </div>
+                  <FlagCallout
+                    label="Also Watch For"
+                    text={card.flag2}
+                    color="var(--color-gold)"
+                  />
                 )}
               </div>
 
@@ -521,7 +546,6 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
           preserveAspectRatio="xMidYMid meet"
           className="absolute inset-0 w-full h-full"
         >
-          {/* Road surface */}
           <path
             d={pathD}
             fill="none"
@@ -529,7 +553,6 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
             strokeWidth="30"
             strokeLinecap="round"
           />
-          {/* Lane dashes */}
           <path
             d={pathD}
             fill="none"
@@ -541,7 +564,8 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
           />
         </svg>
 
-        {/* Stops */}
+        {/* Stops — idle/active treatment matches the pink-slip hotspots:
+            dashed border at rest, colored border + tinted fill + glow when active */}
         {items.map((item, i) => {
           const s = stops[i];
           const isActive = active === i;
@@ -550,24 +574,23 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
             <button
               key={i}
               onClick={() => openStop(i)}
-              className="absolute z-10 rounded-3xl px-7 py-6 text-[1.05rem] font-bold text-center leading-snug border-2 transition-all duration-200 w-[210px] max-md:w-[180px] max-md:text-[0.95rem] max-md:px-5 max-md:py-5"
+              className="absolute z-10 rounded-3xl px-7 py-6 text-[1.05rem] font-bold text-center leading-snug transition-all duration-200 w-[210px] max-md:w-[180px] max-md:text-[0.95rem] max-md:px-5 max-md:py-5"
               style={{
                 left: `${(s.x / width) * 100}%`,
                 top: `${(s.y / height) * 100}%`,
                 transform: "translate(-50%, -50%)",
-                background: isActive
-                  ? "#fff"
-                  : isVisited
-                    ? "var(--color-vivid)"
+                background:
+                  isActive || isVisited
+                    ? "rgba(149,51,165,0.16)"
                     : "var(--color-bg-surface)",
-                color: isActive ? "var(--color-vivid)" : "#fff",
-                borderColor:
-                  isVisited || isActive
-                    ? "var(--color-vivid)"
-                    : "rgba(255,255,255,0.5)",
+                color: "#fff",
+                border:
+                  isActive || isVisited
+                    ? "2px solid var(--color-vivid)"
+                    : "1.5px dashed rgba(255,255,255,0.35)",
                 boxShadow: isActive
-                  ? "0 0 0 5px rgba(149,51,165,0.35)"
-                  : "0 2px 10px rgba(0,0,0,0.35)",
+                  ? "0 0 24px 4px rgba(149,51,165,0.35)"
+                  : "none",
               }}
             >
               {item.strong}
@@ -575,7 +598,9 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
           );
         })}
 
-        {/* Explanation card: anchored directly above whichever stop is active */}
+        {/* Explanation card: anchored directly above whichever stop is active,
+            styled like the Important/InfoBox callout — rounded card, bright
+            accent bar on the left, colored label, plain white body text */}
         {activeItem && activeStop && (
           <>
             <div
@@ -583,18 +608,22 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
               onClick={() => setActive(null)}
             />
             <div
-              className="absolute z-50 rounded-2xl p-6 max-md:p-5"
+              className="absolute z-50 rounded-2xl py-5 pl-8 pr-6 max-md:py-4 max-md:pl-7 max-md:pr-5"
               style={{
                 left: `${(activeStop.x / width) * 100}%`,
                 top: `${(activeStop.y / height) * 100}%`,
-                transform: "translate(-50%, calc(-100% - 26px))",
+                transform: "translate(-50%, calc(-100% - 22px))",
                 width: 300,
                 maxWidth: "calc(100vw - 48px)",
-                background: "var(--color-bg-surface)",
-                border: "1px solid var(--color-vivid)",
+                background: "var(--color-bg-page)",
+                border: "1px solid var(--color-border)",
                 boxShadow: "0 10px 40px rgba(0,0,0,0.55)",
               }}
             >
+              <span
+                className="absolute left-3 top-3 bottom-3 w-[4px] rounded-full"
+                style={{ background: "var(--color-vivid)" }}
+              />
               <button
                 onClick={() => setActive(null)}
                 className="absolute top-3 right-4 text-white text-2xl leading-none"
@@ -602,25 +631,15 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
               >
                 &times;
               </button>
-              <p className="text-[1.15rem] font-extrabold text-white mb-3 pr-6">
+              <p
+                className="text-[1.02rem] font-bold mb-2 pr-6"
+                style={{ color: "var(--color-light)" }}
+              >
                 {activeItem.strong}
               </p>
-              <p className="text-[0.98rem] text-white leading-[1.7]">
+              <p className="text-[0.98rem] text-white leading-[1.75]">
                 {activeItem.text}
               </p>
-              {/* Pointer triangle down toward the stop */}
-              <div
-                className="absolute left-1/2"
-                style={{
-                  bottom: -9,
-                  transform: "translateX(-50%)",
-                  width: 0,
-                  height: 0,
-                  borderLeft: "9px solid transparent",
-                  borderRight: "9px solid transparent",
-                  borderTop: "9px solid var(--color-vivid)",
-                }}
-              />
             </div>
           </>
         )}
