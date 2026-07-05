@@ -1,91 +1,84 @@
-"use client";
+import Image from "next/image";
 
-import { FadeUp, SectionTitle } from "@/components/ui";
+export function RoadScene() {
+  const stars = [
+    { top: 6, left: "8%", w: 2, delay: 0, dur: 2.2 },
+    { top: 14, left: "25%", w: 1.5, delay: 0.8, dur: 2.8 },
+    { top: 4, left: "55%", w: 2, delay: 1.2, dur: 1.9 },
+    { top: 18, left: "75%", w: 1, delay: 0.3, dur: 3.1, color: "#b088cc" },
+    { top: 8, left: "90%", w: 1.5, delay: 1.6, dur: 2.4 },
+  ];
 
-const findings = [
-  {
-    figure: "$1,100",
-    context: "price gap",
-    detail:
-      "Black male buyers were quoted $1,100 more than white male buyers for identical cars, using identical bargaining scripts.",
-    color: "white",
-  },
-  {
-    figure: "$410",
-    context: "price gap",
-    detail:
-      "Black women were quoted $410 more than white men. White women were quoted $92 more. The markup follows a clear hierarchy.",
-    color: "white",
-  },
-  {
-    figure: "13%",
-    context: "longer",
-    detail:
-      "Minority testers faced 13% longer negotiations than white male testers, even when using the same car and the same asking price.",
-    color: "white",
-  },
-  {
-    figure: "4%",
-    context: "of visits",
-    detail:
-      "Dealers made explicitly racist or sexist comments in 4% of controlled test visits. That is not a rounding error.",
-    color: "white",
-  },
-];
+  const stripeDelays = [0, -0.56, -1.12, -1.68, -2.24];
 
-export function HomeDashboard() {
   return (
-    <FadeUp>
-      <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-        <SectionTitle
-  className="mb-3"
-          style={
-            { fontSize: "clamp(2.4rem,5vw,4.2rem)" } as React.CSSProperties
-          }
-        >
-          The discrimination is <em>measurable.</em>
-          <br />
-          The harm is real.
-        </SectionTitle>
-        <p className="text-[0.88rem] text-white/60 leading-[1.6] max-w-[700px] mb-14">
-          Ayres, I. &amp; Siegelman, P. (1995). Race and gender discrimination
-          in bargaining for a new car. <em>The American Economic Review, 85</em>
-          (3), 304-321.
-        </p>
+    <div
+      className="relative overflow-hidden mt-[65px] max-md:mt-[53px]"
+      style={{
+        height: 140,
+        background: "linear-gradient(180deg, #0d0814 0%, #0d0814 65%)",
+      }}
+    >
+      {/* Horizon glow */}
+      <div
+        className="absolute left-0 right-0"
+        style={{
+          bottom: 58,
+          height: 30,
+          background:
+            "radial-gradient(ellipse 60% 100%, rgba(149,51,165,0.25) 0%, transparent 70%)",
+        }}
+      />
 
-        <div style={{ borderTop: "1px solid var(--color-border)" }}>
-          {findings.map((f) => (
-            <div
-              key={f.figure + f.context}
-              className="grid grid-cols-[160px_1fr] gap-6 py-9 max-md:grid-cols-1"
-              style={{
-                borderBottom: "1px solid var(--color-border)",
-              }}
-            >
-              <div>
-                <span
-  className="text-[clamp(2rem,4vw,2.8rem)] font-bold leading-[1]"
-  style={{
-    fontFamily: "var(--font-heading), Georgia, serif",
-    color: f.color,
-  }}
->
-  {f.figure}
-</span>
-<span
-  className="block text-[0.85rem] mt-1"
-  style={{ color: f.color, opacity: 0.85 }}
->
-  {f.context}
-</span>
-              </div>
-              <p className="text-[1rem] text-white leading-[1.7] pt-1 max-w-[560px]">
-                {f.detail}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </FadeUp>
+      {/* Stars */}
+      {stars.map((s, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full star"
+          style={{
+            top: s.top,
+            left: s.left,
+            width: s.w,
+            height: s.w,
+            background: s.color ?? "#fff",
+            animationDelay: `${s.delay}s`,
+            animationDuration: `${s.dur}s`,
+          }}
+        />
+      ))}
+
+      {/* Road */}
+      <div
+        className="absolute bottom-0 left-0 right-0 z-[1]"
+        style={{ height: 68, background: "#3f234a" }}
+      >
+        {stripeDelays.map((delay, i) => (
+          <div
+            key={i}
+            className="absolute road-stripe"
+            style={{
+              bottom: 30,
+              height: 5,
+              width: 72,
+              background: "#c9a84c",
+              borderRadius: 2,
+              animationDelay: `${delay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Driving car */}
+      <div className="absolute z-[5] car-drive" style={{ bottom: -10 }}>
+        <Image
+          src="/illus-car-purple.png"
+          alt="Purple car"
+          width={240}
+          height={135}
+          className="max-md:h-[100px] max-md:w-auto"
+          style={{ height: 135, width: "auto", display: "block" }}
+        />
+      </div>
+    </div>
   );
 }
