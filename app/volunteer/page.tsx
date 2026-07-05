@@ -145,10 +145,10 @@ export default function VolunteerPage() {
             <div>
               {state === "error" && (
                 <p
-                  className="text-[0.95rem] leading-[1.6] mb-8 p-4"
+                  className="text-[0.95rem] leading-[1.6] mb-8 p-4 rounded-xl"
                   style={{
                     background: "rgba(214,59,59,0.08)",
-                    borderLeft: "3px solid var(--color-red)",
+                    border: "1px solid rgba(214,59,59,0.3)",
                     color: "var(--color-red)",
                   }}
                 >
