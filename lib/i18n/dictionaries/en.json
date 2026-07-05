@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "inspection": "Inspection Guide",
+    "fraud": "Fraud Prevention",
+    "documents": "Documents Decoded",
+    "research": "Research",
+    "contact": "Contact"
+  },
+  "footer": {
+    "tagline": "Educate. Empower. Vindicate.",
+    "subtagline": "Free automotive education for women, immigrants, and first-time buyers.",
+    "copyright": "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.",
+    "mission": "A nonprofit committed to gender equity in automotive commerce."
+  }
+}

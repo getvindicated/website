@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "inspection": "检验指南",
+    "fraud": "防范欺诈",
+    "documents": "文件解读",
+    "research": "研究",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "tagline": "教育。赋能。维权。",
+    "subtagline": "为女性、移民和首次购车者提供免费的汽车知识教育。",
+    "copyright": "© 2026 VINdicated。保留所有权利。由 Rana Darwich 创立。",
+    "mission": "一家致力于促进汽车商务性别平等的非营利组织。"
+  }
+}
