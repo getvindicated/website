@@ -54,10 +54,7 @@ const enginePins: {
   { id: 10, top: "64%", left: "88%", color: "red", title: "Fuse Box" },
 ];
 
-const colorMap: Record
-  PinColor,
-  { bg: string; badge: string; text: string; label: string }
-> = {
+const colorMap: Record<PinColor, { bg: string; badge: string; text: string; label: string }> = {
   green: {
     bg: "#1a7a4a",
     badge: "rgba(26,122,74,0.2)",
