@@ -2,8 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { HomeDict } from "@/lib/i18n/home-dict";
 
-const stats = [
+// English fallback data — used for any locale whose dictionary
+// doesn't have a "home.hero" section translated yet.
+const fallbackStats = [
   {
     id: "stat1",
     target: 1100,
@@ -65,8 +69,23 @@ function animateCount(
   requestAnimationFrame(step);
 }
 
-export function HomeHero() {
+export function HomeHero({
+  locale,
+  dict,
+}: {
+  locale: Locale;
+  dict?: HomeDict;
+}) {
   const triggered = useRef(false);
+
+  // Merge translated stat labels/cites over the fallback numeric
+  // config (target/prefix/suffix/duration stay the same everywhere —
+  // only the label text and citation get translated).
+  const stats = fallbackStats.map((s, i) => ({
+    ...s,
+    label: dict?.hero?.stats?.[i]?.label ?? s.label,
+    cite: dict?.hero?.stats?.[i]?.cite ?? s.cite,
+  }));
 
   useEffect(() => {
     if (triggered.current) return;
@@ -77,6 +96,7 @@ export function HomeHero() {
         if (el) animateCount(el, target, prefix, suffix, dur);
       });
     }, 600);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -92,28 +112,29 @@ export function HomeHero() {
           width: "70%",
           height: "140%",
           background:
-            "radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(149,51,165,0.12) 0%, transparent 70%)",
         }}
       />
 
       {/* Left — text */}
       <div className="flex flex-col justify-center px-20 py-10 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
         <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
-          You Deserve
+          {dict?.hero?.titleLine1 ?? "You Deserve"}
           <br />
-          to Buy a Car
+          {dict?.hero?.titleLine2 ?? "to Buy a Car"}
           <br />
-          <em>Without Fear.</em>
+          <em>{dict?.hero?.titleEm ?? "Without Fear."}</em>
         </h1>
-        <p className="text-[1.05rem] leading-[1.7] text-white/80 max-w-[420px] mb-8">
-          VINdicated is built on the belief that car knowledge should be public
-          knowledge. We break down the systems that allow consumer
-          discrimination to thrive through education, research, and community.
+        <p className="text-[1.05rem] leading-[1.7] text-white max-w-[420px] mb-8">
+          {dict?.hero?.subtitle ??
+            "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community."}
         </p>
         <div className="flex gap-4 flex-wrap">
-          <Button href="/inspection">Get the PPI Guide</Button>
-          <Button href="/about" variant="outline">
-            Our Story
+          <Button href={localizeHref(locale, "/inspection")}>
+            {dict?.hero?.ctaPrimary ?? "Get the PPI Guide"}
+          </Button>
+          <Button href={localizeHref(locale, "/about")} variant="outline">
+            {dict?.hero?.ctaSecondary ?? "Our Story"}
           </Button>
         </div>
       </div>
