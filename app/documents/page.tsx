@@ -7,7 +7,7 @@ import { PageHero, FadeUp } from "@/components/ui";
 // ── Types ─────────────────────────────────────────────────────
 type PinColor = "red" | "gold" | "purple" | "green";
 
-const pinColorMap: Record<
+const pinColorMap: Record
   PinColor,
   {
     bg: string;
@@ -33,10 +33,10 @@ const pinColorMap: Record<
   },
   purple: {
     bg: "var(--color-vivid)",
-    border: "rgba(124,58,237,0.5)",
-    hoverBg: "rgba(124,58,237,0.08)",
+    border: "rgba(149,51,165,0.5)",
+    hoverBg: "rgba(149,51,165,0.08)",
     hlBorder: "var(--color-light)",
-    hlBg: "rgba(124,58,237,0.12)",
+    hlBg: "rgba(149,51,165,0.12)",
   },
   green: {
     bg: "#2d9e6b",
@@ -85,12 +85,10 @@ function DocExhibit({
   const card = active !== null ? cards[active] : null;
 
   return (
-    <div
-      className="grid grid-cols-[1fr_380px] max-lg:grid-cols-1"
-    >
+    <div className="grid grid-cols-[1fr_1fr] max-lg:grid-cols-1">
       {/* Image */}
       <div
-        className="p-5 max-md:p-3 border-r border-white/[0.08] overflow-y-auto max-lg:border-r-0 max-lg:border-b max-lg:!static max-lg:!max-h-none"
+        className="p-8 max-md:p-4 border-r border-white/[0.08] overflow-y-auto flex items-start justify-center max-lg:border-r-0 max-lg:border-b max-lg:!static max-lg:!max-h-none"
         style={{
           background: "var(--color-bg-mid)",
           maxHeight: "calc(100vh - 62px)",
@@ -98,14 +96,14 @@ function DocExhibit({
           top: 62,
         }}
       >
-        <div className="relative inline-block w-full">
+        <div className="relative inline-block w-full max-w-[440px] mx-auto">
           <Image
             src={image}
             alt={alt}
             width={0}
             height={0}
-            sizes="100vw"
-            className="w-full block h-auto"
+            sizes="440px"
+            className="w-full block h-auto rounded-lg"
           />
 
           {/* Highlights */}
@@ -184,9 +182,7 @@ function DocExhibit({
                 className="w-2 h-2 rounded-full flex-shrink-0"
                 style={{ background: pinColorMap[color].bg }}
               />
-              <span className="text-[0.55rem] uppercase tracking-[0.08em] text-white/60">
-                {label}
-              </span>
+              <span className="text-[0.7rem] text-white">{label}</span>
             </div>
           ))}
         </div>
@@ -206,7 +202,7 @@ function DocExhibit({
             >
               ↑
             </span>
-            <p className="text-[0.62rem] text-white/60">
+            <p className="text-[0.78rem] text-white">
               Click any numbered
               <br />
               pin on the document
@@ -219,7 +215,7 @@ function DocExhibit({
           >
             <div className="px-7 py-5">
               <p
-                className="text-[0.56rem] uppercase tracking-widest mb-2"
+                className="text-[0.85rem] font-bold mb-2"
                 style={{ color: pinColorMap[card.badgeColor].hlBorder }}
               >
                 {card.badge}
@@ -227,18 +223,23 @@ function DocExhibit({
               <h3 className="text-[1.2rem] font-bold leading-[1.15] mb-4">
                 {card.title}
               </h3>
-              <div className="text-[0.83rem] text-white/80 leading-[1.75] mb-4">
+              <div className="text-[0.83rem] text-white leading-[1.75] mb-4">
                 {card.body}
               </div>
               <div
-                className="px-4 py-3 border-l-[3px] text-[0.8rem] leading-[1.6]"
+                className="rounded-xl px-4 py-3 text-[0.85rem] leading-[1.65]"
                 style={{
-                  borderColor: pinColorMap[card.verdictColor].bg,
+                  border: "1px solid var(--color-border)",
                   background: pinColorMap[card.verdictColor].hoverBg,
-                  color: "#fff",
                 }}
               >
-                {card.verdict}
+                <p
+                  className="text-[0.75rem] font-bold mb-1.5"
+                  style={{ color: pinColorMap[card.verdictColor].hlBorder }}
+                >
+                  Bottom Line
+                </p>
+                <p className="text-white leading-[1.65]">{card.verdict}</p>
               </div>
             </div>
             {/* Nav */}
@@ -253,16 +254,13 @@ function DocExhibit({
                 <button
                   key={n}
                   onClick={() => setActive(n)}
-                  className="px-3 py-1 text-[0.52rem] uppercase tracking-[0.06em] border transition-all duration-150"
+                  className="px-3 py-1 text-[0.72rem] border rounded-full transition-all duration-150"
                   style={{
                     borderColor:
                       active === n
                         ? pinColorMap[color].bg
                         : "rgba(90,48,105,0.2)",
-                    color:
-                      active === n
-                        ? pinColorMap[color].hlBorder
-                        : "rgba(255,255,255,0.5)",
+                    color: active === n ? pinColorMap[color].hlBorder : "#fff",
                     background:
                       active === n ? pinColorMap[color].hoverBg : "none",
                   }}
@@ -429,7 +427,7 @@ function BuyersGuideAccordion() {
               }}
             >
               <span
-                className="text-[0.65rem] font-bold px-2 py-1 rounded-sm whitespace-nowrap flex-shrink-0"
+                className="text-[0.72rem] font-bold px-2 py-1 rounded-md whitespace-nowrap flex-shrink-0"
                 style={{
                   background: cfg.hoverBg,
                   color: cfg.hlBorder,
@@ -453,14 +451,23 @@ function BuyersGuideAccordion() {
             </button>
             {open === i && (
               <div className="px-7 pb-5 slide-up">
-                <div className="text-[0.87rem] text-white/80 leading-[1.72] mb-3">
+                <div className="text-[0.87rem] text-white leading-[1.72] mb-3">
                   {item.body}
                 </div>
                 <div
-                  className="px-4 py-3 border-l-[3px] text-[0.82rem] leading-[1.6] text-white"
-                  style={{ borderColor: cfg.bg, background: cfg.hoverBg }}
+                  className="rounded-xl px-4 py-3 text-[0.85rem] leading-[1.6]"
+                  style={{
+                    border: "1px solid var(--color-border)",
+                    background: cfg.hoverBg,
+                  }}
                 >
-                  {item.flag.text}
+                  <p
+                    className="text-[0.75rem] font-bold mb-1.5"
+                    style={{ color: cfg.hlBorder }}
+                  >
+                    What To Do
+                  </p>
+                  <p className="text-white leading-[1.6]">{item.flag.text}</p>
                 </div>
               </div>
             )}
@@ -506,7 +513,7 @@ export default function DocumentsPage() {
               <br />
               <em>Page One</em>
             </h2>
-            <p className="text-[0.88rem] text-white/70 leading-[1.7] max-w-[680px]">
+            <p className="text-[0.88rem] text-white leading-[1.7] max-w-[680px]">
               Every Carfax leads with the same structure: mileage and VIN,
               accident history, reliability forecast, and recent service. This
               walkthrough explains what each section means and how each finding
@@ -796,7 +803,7 @@ export default function DocumentsPage() {
               <br />
               <em>Page Two</em>
             </h2>
-            <p className="text-[0.88rem] text-white/70 leading-[1.7] max-w-[680px]">
+            <p className="text-[0.88rem] text-white leading-[1.7] max-w-[680px]">
               The second page is where the serious history lives: title brands,
               the additional history grid, and the ownership table. These
               sections can reveal problems that do not appear anywhere else.
@@ -1048,7 +1055,7 @@ export default function DocumentsPage() {
               <br />
               <em>What It Actually Means</em>
             </h2>
-            <p className="text-[0.88rem] text-white/70 leading-[1.7] max-w-[680px]">
+            <p className="text-[0.88rem] text-white leading-[1.7] max-w-[680px]">
               Federal law requires this form to be displayed in the window of
               every used car for sale at a dealership. Most buyers glance at it
               and move on. Here is what every section actually means.
@@ -1070,8 +1077,8 @@ export default function DocumentsPage() {
                 alt="FTC Buyers Guide"
                 width={0}
                 height={0}
-                sizes="(max-width: 768px) 100vw, 520px"
-                className="w-full max-w-[520px] block h-auto border"
+                sizes="(max-width: 768px) 100vw, 440px"
+                className="w-full max-w-[440px] block h-auto border rounded-lg"
                 style={{ borderColor: "rgba(90,48,105,0.2)" }}
               />
             </div>
@@ -1129,15 +1136,12 @@ export default function DocumentsPage() {
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >
-                <p
-                  className="text-[0.7rem] font-semibold uppercase tracking-[0.08em] pt-1"
-                  style={{ color }}
-                >
+                <p className="text-[0.8rem] font-bold pt-1" style={{ color }}>
                   {label}
                 </p>
                 <div>
                   <p className="text-[1.05rem] font-semibold mb-1">{title}</p>
-                  <p className="text-[0.93rem] leading-[1.65] text-white/75">
+                  <p className="text-[0.93rem] leading-[1.65] text-white">
                     {body}
                   </p>
                 </div>
