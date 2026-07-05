@@ -65,7 +65,7 @@ export default function AboutPage() {
                 <em>The American Economic Review, 85</em>(3), 304-321.
               </p>
             </div>
-            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white/80">
+            <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white">
               <p>
                 Research by Ian Ayres and Peter Siegelman found that{" "}
                 <strong className="text-white">
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <h2 className="text-[clamp(2rem,3.5vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
             Educate. Empower. <em>Vindicate.</em>
           </h2>
-          <p className="text-[0.88rem] text-white/70 leading-[1.5] max-w-[620px] mb-8">
+          <p className="text-[0.88rem] text-white leading-[1.5] max-w-[620px] mb-8">
             To dismantle consumer-level escort culture, one informed buyer at a
             time.
           </p>
@@ -201,7 +201,7 @@ export default function AboutPage() {
               >
                 <span
                   className="text-[1rem] font-bold pt-1"
-                  style={{ color: "var(--color-red)", opacity: 0.5 }}
+                  style={{ color: "var(--color-red)" }}
                 >
                   {num}
                 </span>
@@ -226,19 +226,21 @@ export default function AboutPage() {
           </div>
 
           {/* Pullquote */}
-          <div className="py-16 max-w-[720px]">
+          <div
+            className="my-16 max-w-[720px] rounded-2xl px-8 py-7 max-md:px-5"
+            style={{
+              background: "rgba(149,51,165,0.06)",
+              border: "1px solid var(--color-border)",
+            }}
+          >
             <blockquote
-              className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4 max-md:pl-5"
-              style={{
-                fontFamily: "var(--font-heading), Georgia, serif",
-                borderLeft: "3px solid var(--color-vivid)",
-                paddingLeft: "2rem",
-              }}
+              className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4"
+              style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
               I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect.
             </blockquote>
             <p
-              className="text-[0.7rem] uppercase tracking-[0.1em] ml-[calc(3px+2rem)]"
+              className="text-[0.9rem] font-bold"
               style={{ color: "var(--color-light)" }}
             >
               Rana Darwich, Founder of VINdicated
@@ -251,12 +253,12 @@ export default function AboutPage() {
           >
             <div>
               <p
-                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-4"
+                className="text-[0.85rem] font-bold mb-4"
                 style={{ color: "var(--color-accent)" }}
               >
                 About the Founder
               </p>
-              <p className="text-[1.05rem] leading-[1.75] text-white/80 mb-5">
+              <p className="text-[1.05rem] leading-[1.75] text-white mb-5">
                 Rana Darwich founded VINdicated at 19 after almost signing
 				a predatory arbitration clause at a dealership.
               </p>
@@ -265,14 +267,14 @@ export default function AboutPage() {
               </p>
             </div>
             <div
-              className="max-md:pl-5"
+              className="rounded-2xl px-8 py-7 max-md:px-5"
               style={{
-                borderLeft: "3px solid var(--color-accent)",
-                paddingLeft: "2rem",
+                background: "rgba(149,51,165,0.06)",
+                border: "1px solid var(--color-border)",
               }}
             >
               <p
-                className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] mb-4"
+                className="text-[0.85rem] font-bold mb-4"
                 style={{ color: "var(--color-accent)" }}
               >
                 Mary Wollstonecraft, 1792
