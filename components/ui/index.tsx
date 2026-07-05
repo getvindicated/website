@@ -145,7 +145,7 @@ export function PageHero({
         {title}
       </h1>
       {subtitle && (
-        <p className="relative text-xl text-white/80 max-w-[600px] leading-[1.75]">
+        <p className="relative text-xl text-white max-w-[600px] leading-[1.75]">
           {subtitle}
         </p>
       )}
@@ -158,10 +158,10 @@ export function PageHero({
 export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
   return (
     <blockquote
-      className="my-8 px-8 max-md:px-5 py-6"
+      className="my-8 px-8 max-md:px-5 py-6 rounded-2xl"
       style={{
-        borderLeft: "4px solid var(--color-vivid)",
-        background: "rgba(90,48,105,0.06)",
+        background: "rgba(149,51,165,0.06)",
+        border: "1px solid var(--color-border)",
       }}
     >
       <p
@@ -171,7 +171,7 @@ export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
         {quote}
       </p>
       <cite
-        className="not-italic text-[0.9rem]"
+        className="not-italic text-[0.9rem] font-bold"
         style={{ color: "var(--color-light)" }}
       >
         {cite}
@@ -190,22 +190,21 @@ export function WarningBox({
 }) {
   return (
     <div
-      className="my-8 px-8 max-md:px-5 py-6"
+      className="my-8 px-8 max-md:px-5 py-6 rounded-2xl"
       style={{
         background: "rgba(214,59,59,0.08)",
         border: "1px solid rgba(214,59,59,0.3)",
-        borderLeft: "4px solid var(--color-red)",
       }}
     >
       {label && (
         <p
-          className="text-[0.78rem] font-bold mb-3"
+          className="text-[0.85rem] font-bold mb-3"
           style={{ color: "var(--color-red)" }}
         >
           {label}
         </p>
       )}
-      <div className="text-[0.95rem] leading-[1.65]">{children}</div>
+      <div className="text-[0.95rem] leading-[1.65] text-white">{children}</div>
     </div>
   );
 }
@@ -222,22 +221,21 @@ export function InfoBox({
 }) {
   return (
     <div
-      className={`my-8 px-8 max-md:px-5 py-6 ${className}`}
+      className={`my-8 px-8 max-md:px-5 py-6 rounded-2xl ${className}`}
       style={{
-        background: "rgba(124,58,237,0.08)",
+        background: "rgba(149,51,165,0.08)",
         border: "1px solid var(--color-border)",
-        borderLeft: "4px solid var(--color-vivid)",
       }}
     >
       {label && (
         <p
-          className="text-[0.9rem] font-semibold mb-3"
+          className="text-[0.85rem] font-bold mb-3"
           style={{ color: "var(--color-light)" }}
         >
           {label}
         </p>
       )}
-      <div className="text-[0.95rem] leading-[1.65]">{children}</div>
+      <div className="text-[0.95rem] leading-[1.65] text-white">{children}</div>
     </div>
   );
 }
@@ -281,7 +279,7 @@ export function Tag({ children }: { children: ReactNode }) {
     <span
       className="inline-block text-[0.72rem] font-medium px-3 py-1 mr-1 mt-1"
       style={{
-        background: "rgba(124,58,237,0.15)",
+        background: "rgba(149,51,165,0.15)",
         border: "1px solid var(--color-border)",
         color: "var(--color-light)",
       }}
@@ -377,7 +375,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
             {card.title}
           </h3>
-          <div className="text-base text-white/80 leading-[1.7]">
+          <div className="text-base text-white leading-[1.7]">
             {card.body}
           </div>
           {card.link && (
