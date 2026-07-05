@@ -54,7 +54,7 @@ const enginePins: {
   { id: 10, top: "64%", left: "88%", color: "red", title: "Fuse Box" },
 ];
 
-const colorMap: Record<
+const colorMap: Record
   PinColor,
   { bg: string; badge: string; text: string; label: string }
 > = {
@@ -217,8 +217,8 @@ const engineCards: Record<number, CardContent> = {
 };
 
 // Shared "bright bar on the left" callout, matching the Important/InfoBox
-// treatment used elsewhere on the site: rounded card, thin rounded accent
-// bar on the left, small bold colored label, plain white body text.
+// treatment used elsewhere on the site: rounded card, small bold colored
+// label, plain white body text.
 function FlagCallout({
   label,
   text,
@@ -243,6 +243,7 @@ function FlagCallout({
     </div>
   );
 }
+
 function EngineDiagram() {
   const [active, setActive] = useState<number | null>(null);
   const card = active ? engineCards[active] : null;
@@ -466,28 +467,6 @@ function EngineDiagram() {
 }
 
 // ── Winding Road: "How to Schedule a PPI" ────────────────────
-function CarIcon({ size = 32 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" }}
-    >
-      <path
-        d="M3.2 13.2l1.4-4.3A2.1 2.1 0 0 1 6.6 7.4h10.8a2.1 2.1 0 0 1 2 1.5l1.4 4.3v4.9a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-.9H6.2v.9a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-4.9z"
-        fill="var(--color-vivid)"
-        stroke="#fff"
-        strokeWidth="0.7"
-      />
-      <path d="M5.5 12.4l1-3.1h11l1 3.1z" fill="#fff" opacity="0.9" />
-      <circle cx="7.3" cy="17.6" r="1.5" fill="#0d0814" stroke="#fff" strokeWidth="0.6" />
-      <circle cx="16.7" cy="17.6" r="1.5" fill="#0d0814" stroke="#fff" strokeWidth="0.6" />
-    </svg>
-  );
-}
-// ── Winding Road: "How to Schedule a PPI" ────────────────────
 type RoadItem = { strong: string; text: string };
 
 function WindingRoad({ items }: { items: RoadItem[] }) {
@@ -538,6 +517,7 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
           preserveAspectRatio="xMidYMid meet"
           className="absolute inset-0 w-full h-full"
         >
+          {/* Road surface */}
           <path
             d={pathD}
             fill="none"
@@ -545,6 +525,7 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
             strokeWidth="30"
             strokeLinecap="round"
           />
+          {/* Lane dashes */}
           <path
             d={pathD}
             fill="none"
@@ -591,8 +572,8 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
         })}
 
         {/* Explanation card: anchored directly above whichever stop is active,
-            styled like the Important/InfoBox callout — rounded card, bright
-            accent bar on the left, colored label, plain white body text */}
+            styled like the Important/InfoBox callout — rounded card,
+            colored label, plain white body text */}
         {activeItem && activeStop && (
           <>
             <div
@@ -629,8 +610,13 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
                 {activeItem.text}
               </p>
             </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
+
 const inspectionAccordion = [
   {
     trigger: "Engine: The Heart of the Car",
