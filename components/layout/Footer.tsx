@@ -1,7 +1,32 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/constants";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
 
-export function Footer() {
+type FooterDict = {
+  nav: Record<string, string>;
+  footer: {
+    tagline: string;
+    subtagline: string;
+    copyright: string;
+    mission: string;
+  };
+};
+
+// Maps a footer link's canonical href to its dictionary-covered nav
+// label, where one exists. Links without an entry here (Team,
+// LinkedIn, Instagram, "Get in Touch") keep their literal label from
+// lib/constants.ts.
+const DICT_KEY_BY_HREF: Record<string, string> = {
+  "/": "home",
+  "/about": "about",
+  "/inspection": "inspection",
+  "/fraud": "fraud",
+  "/documents": "documents",
+  "/research": "research",
+  "/contact": "contact",
+};
+
+export function Footer({ locale, dict }: { locale: Locale; dict: FooterDict }) {
   return (
     <footer
       className="border-t border-white/[0.08] px-20 max-md:px-6 pt-16 max-md:pt-10 pb-8"
@@ -11,14 +36,14 @@ export function Footer() {
         {/* Brand */}
         <div>
           <Link
-            href="/"
+            href={localizeHref(locale, "/")}
             className="text-2xl font-extrabold text-white no-underline block mb-4"
             style={{ fontFamily: "var(--font-body)" }}
           >
             <span style={{ color: "var(--color-light)" }}>VIN</span>dicated
           </Link>
           <p className="text-sm max-md:text-xs text-white leading-relaxed max-w-[280px]">
-            A nonprofit committed to gender equity in automotive commerce.
+            {dict.footer.mission}
           </p>
         </div>
 
@@ -32,19 +57,24 @@ export function Footer() {
               {col.heading}
             </h4>
             <ul className="list-none space-y-2">
-              {col.links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[0.85rem] max-md:text-[0.78rem] text-white no-underline transition-colors hover:text-white"
-                    {...("external" in link && link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {col.links.map((link) => {
+                const key = DICT_KEY_BY_HREF[link.href];
+                const isExternal = "external" in link && link.external;
+                const label = key ? (dict.nav?.[key] ?? link.label) : link.label;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={isExternal ? link.href : localizeHref(locale, link.href)}
+                      className="text-[0.85rem] max-md:text-[0.78rem] text-white no-underline transition-colors hover:text-white"
+                      {...(isExternal
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
@@ -52,10 +82,10 @@ export function Footer() {
 
       <div className="border-t border-white/[0.08] pt-6 flex justify-between items-center flex-wrap gap-2 max-md:flex-col max-md:text-center">
         <p className="text-[0.78rem] max-md:text-[0.68rem] text-white">
-          © 2026 VINdicated. All rights reserved. Founded by Rana Darwich.
+          {dict.footer.copyright}
         </p>
         <p className="text-[0.78rem] max-md:text-[0.68rem] text-white">
-          A nonprofit committed to gender equity in automotive commerce.
+          {dict.footer.mission}
         </p>
       </div>
     </footer>
