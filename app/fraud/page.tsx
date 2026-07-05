@@ -280,7 +280,7 @@ function PinkSlipExplainer() {
         </div>
 
         {active === null ? (
-          <p className="text-[0.9rem] text-white/85">
+          <p className="text-[0.9rem] text-white">
             Click directly on the document, or pick a field from the list above.
           </p>
         ) : (
