@@ -13,5 +13,68 @@
     "subtagline": "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.",
     "copyright": "© 2026 VINdicated. Todos los derechos reservados. Fundado por Rana Darwich.",
     "mission": "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz."
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Mereces Comprar",
+      "titleLine2": "un Auto",
+      "titleEm": "Sin Miedo.",
+      "subtitle": "VINdicated se basa en la creencia de que el conocimiento sobre autos debería ser un conocimiento público. Desglosamos los sistemas que permiten que prospere la discriminación al consumidor mediante la educación, la investigación y la comunidad.",
+      "ctaPrimary": "Ver la Guía de Inspección",
+      "ctaSecondary": "Nuestra Historia",
+      "stats": [
+        {
+          "label": "más se les cobra a los compradores varones negros en comparación con los compradores varones blancos, incluso con el mismo auto y el mismo guion",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "de las mujeres de la Generación Z se sienten desalentadas a visitar un concesionario debido a la discriminación de género",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "de los evaluadores no blancos recibieron peores precios en los concesionarios en comparación con los evaluadores blancos",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "de negociaciones más largas que enfrentan los compradores de minorías, incluso con el mismo auto y el mismo precio",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "Dos pilares de la",
+      "titleEm": "justicia automotriz.",
+      "pillars": [
+        {
+          "kicker": "Educación",
+          "title": "Guía de Inspección Previa a la Compra",
+          "body": "Una guía paso a paso de todo lo que debes revisar, preguntar y verificar antes de entregar un solo dólar. Escrita para compradores primerizos.",
+          "label": "Leer la Guía"
+        },
+        {
+          "kicker": "Protección",
+          "title": "Prevención de Fraude",
+          "body": "Tácticas reales utilizadas contra los compradores, nombradas, explicadas y contrarrestadas. Sabe exactamente qué decir cuando un vendedor intente presionarte.",
+          "label": "Ver las Señales de Alerta"
+        }
+      ]
+    },
+    "quote": {
+      "text": "¿Por qué debería mantenerse a la mujer en la ignorancia bajo el nombre engañoso de la inocencia?",
+      "cite": "Mary Wollstonecraft",
+      "source": "Vindicación de los Derechos de la Mujer (1792)"
+    },
+    "founder": {
+      "titleLine1": "Fundada a los 19.",
+      "titleEm": "Por necesidad.",
+      "body1": "Tres intentos fallidos en tres concesionarios distintos me mostraron lo mismo: el sistema está diseñado para confundirte, apresurarte y sacar provecho de lo que no sabes.",
+      "body2Prefix": "VINdicated existe porque ",
+      "body2Bold": "desearía que hubiera existido para mí.",
+      "cta": "Lee la Historia Completa de Rana"
+    },
+    "meta": {
+      "title": "Educar. Empoderar. Reivindicar.",
+      "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos."
+    }
   }
 }
