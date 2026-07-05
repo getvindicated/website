@@ -230,27 +230,19 @@ function FlagCallout({
 }) {
   return (
     <div
-      className="relative rounded-xl py-4 pl-7 pr-5"
+      className="rounded-xl py-4 px-5"
       style={{
         background: "var(--color-bg-page)",
         border: "1px solid var(--color-border)",
       }}
     >
-      <span
-        className="absolute left-2.5 top-2.5 bottom-2.5 w-[4px] rounded-full"
-        style={{ background: color }}
-      />
-      <p
-        className="text-[0.78rem] font-bold uppercase tracking-wide mb-1.5"
-        style={{ color }}
-      >
+      <p className="text-[0.85rem] font-bold mb-1.5" style={{ color }}>
         {label}
       </p>
       <p className="text-[1.02rem] text-white leading-[1.75]">{text}</p>
     </div>
   );
 }
-
 function EngineDiagram() {
   const [active, setActive] = useState<number | null>(null);
   const card = active ? engineCards[active] : null;
