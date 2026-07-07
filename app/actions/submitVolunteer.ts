@@ -41,11 +41,15 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
 
     // Rana gets CC'd on every application regardless of chapter, so she
     // has visibility across all three chapters as Executive Director.
-    // Remove this block if that's not what you want.
-    const ccRana =
-      data.chapter !== "ucla"
+    // ranadarwich05@gmail.com is CC'd on every application too (including
+    // UCLA's), as a backup inbox alongside the outlook.com address.
+    // Remove/edit this block if that's not what you want.
+    const ccRana = [
+      ...(data.chapter !== "ucla"
         ? [{ email: "getvindicated@outlook.com", name: "Rana Darwich" }]
-        : [];
+        : []),
+      { email: "ranadarwich05@gmail.com", name: "Rana Darwich" },
+    ];
 
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
