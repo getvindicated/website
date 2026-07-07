@@ -73,13 +73,12 @@ export function SectionTitle({
 }
 
 // ── Divider ──────────────────────────────────────────────────
+// Removed sitewide per request — kept as a no-op so the existing
+// <Divider /> calls and imports across every page don't need to be
+// touched individually. Delete this function (and its ~20 call sites)
+// if you want it gone from the codebase entirely rather than just hidden.
 export function Divider() {
-  return (
-    <hr
-      className="border-none h-px mx-20 max-md:mx-6"
-      style={{ background: "var(--color-border)" }}
-    />
-  );
+  return null;
 }
 
 // ── FadeUp wrapper ───────────────────────────────────────────
