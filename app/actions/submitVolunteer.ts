@@ -14,15 +14,43 @@ interface VolunteerFormData {
   student: string;
 }
 
+// Chapter value -> who should get the notification email.
+// Values must match the CHAPTERS options in app/[locale]/volunteer/page.tsx
+// ("ucla", "ucberkeley", "ucsc").
+const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
+  ucla: [{ email: "getvindicated@outlook.com", name: "Rana Darwich" }],
+  ucberkeley: [
+    { email: "halimacherif@berkeley.edu", name: "Halima Cherif Hminat" },
+    { email: "azzafar@berkeley.edu", name: "Ameerah Zafar" },
+  ],
+  ucsc: [
+    { email: "asvinod@ucsc.edu", name: "Ashwin Vinod" },
+    { email: "gsambee@ucsc.edu", name: "Gundeep Sambee" },
+  ],
+};
+
 export async function submitVolunteerApplication(data: VolunteerFormData) {
   try {
     if (!data.name || !data.email || !data.role) {
       return { success: false, message: "Name, email, and role are required." };
     }
 
+    // Falls back to the UCLA/Rana inbox for any unrecognized chapter value
+    // so an application never silently goes nowhere.
+    const recipients = CHAPTER_RECIPIENTS[data.chapter] ?? CHAPTER_RECIPIENTS.ucla;
+
+    // Rana gets CC'd on every application regardless of chapter, so she
+    // has visibility across all three chapters as Executive Director.
+    // Remove this block if that's not what you want.
+    const ccRana =
+      data.chapter !== "ucla"
+        ? [{ email: "getvindicated@outlook.com", name: "Rana Darwich" }]
+        : [];
+
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
-      to: [{ email: "getvindicated@outlook.com", name: "VINdicated Team" }],
+      to: recipients,
+      cc: ccRana,
       subject: `New Volunteer Application: ${data.role}`,
       replyTo: { email: data.email, name: data.name },
       htmlContent: `
