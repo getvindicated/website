@@ -62,8 +62,7 @@ export const navLinks = [
 //   },
   
   { label: "Documents", href: "/documents" },
-  { label: "Volunteer", href: "/volunteer" },
-  { label: "Contact", href: "/contact" },
+  { label: "Get Involved", href: "/join" },
 ] as const;
 
 // Footer columns
@@ -75,7 +74,7 @@ export const footerNav = [
       { label: "About Us", href: "/about" },
       { label: "Team", href: "/team" },
       { label: "Documents", href: "/documents" },
-      { label: "Contact", href: "/contact" },
+      { label: "Get Involved", href: "/join" },
     ],
   },
   {
@@ -99,7 +98,7 @@ export const footerNav = [
         external: true,
       },
       { label: "Instagram", href: "https://instagram.com", external: true },
-      { label: "Get in Touch", href: "/contact" },
+      { label: "Get in Touch", href: "/join" },
     ],
   },
 ] as const;
