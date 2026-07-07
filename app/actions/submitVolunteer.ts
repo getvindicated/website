@@ -12,6 +12,7 @@ interface VolunteerFormData {
   background: string;
   why: string;
   student: string;
+  resume?: { filename: string; base64: string };
 }
 
 // Chapter value -> who should get the notification email.
@@ -57,6 +58,9 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
       cc: ccRana,
       subject: `New Volunteer Application: ${data.role}`,
       replyTo: { email: data.email, name: data.name },
+      attachment: data.resume
+        ? [{ name: data.resume.filename, content: data.resume.base64 }]
+        : undefined,
       htmlContent: `
         <h2>New Volunteer Application</h2>
         <p><strong>Name:</strong> ${data.name}</p>
@@ -70,6 +74,7 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
         <p>${data.background.replace(/\n/g, "<br>")}</p>
         <p><strong>Why VINdicated:</strong></p>
         <p>${data.why.replace(/\n/g, "<br>")}</p>
+        <p><strong>Resume:</strong> ${data.resume ? "attached (" + data.resume.filename + ")" : "not provided"}</p>
       `,
     });
 
