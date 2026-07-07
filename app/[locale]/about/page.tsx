@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import {
   PageHero,
@@ -6,25 +5,16 @@ import {
   Divider,
   SectionTitle,
 } from "@/components/ui";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
-  openGraph: {
-    title: "About Us",
-    description:
-      "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
-    url: "/about",
-    type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: About Us" }],
-  },
-  twitter: {
-    title: "About Us",
-    description:
-      "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRouteMetadata(locale, "about", "/about");
+}
 
 export default function AboutPage() {
   return (

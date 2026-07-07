@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "../globals.css";
 import { Lora, Figtree } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -6,6 +5,7 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getRootMetadata } from "@/lib/i18n/metadata";
 // import { CarCursor } from "@/components/ui/CarCursor";
 
 const lora = Lora({
@@ -28,44 +28,14 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://getvindicated.org"
-  ),
-  title: {
-    default: "VINdicated | Educate. Empower. Vindicate.",
-    template: "%s | VINdicated",
-  },
-  description:
-    "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
-  openGraph: {
-    type: "website",
-    siteName: "VINdicated",
-    title: {
-      default: "VINdicated | Educate. Empower. Vindicate.",
-      template: "%s | VINdicated",
-    },
-    description:
-      "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
-    url: "/",
-    images: [
-      {
-        url: "/illus-woman-dealership.png",
-        alt: "VINdicated",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: {
-      default: "VINdicated | Educate. Empower. Vindicate.",
-      template: "%s | VINdicated",
-    },
-    description:
-      "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
-    images: ["/illus-woman-dealership.png"],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRootMetadata(locale);
+}
 
 export default async function RootLayout({
   children,

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   PageHero,
   FadeUp,
@@ -7,25 +6,16 @@ import {
   Button,
 } from "@/components/ui";
 import { StudyCard } from "@/components/sections/StudyCard";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Research",
-  description:
-    "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
-  openGraph: {
-    title: "Research",
-    description:
-      "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
-    url: "/research",
-    type: "website",
-    images: [{ url: "/preview.webp", alt: "VINdicated: Research" }],
-  },
-  twitter: {
-    title: "Research",
-    description:
-      "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRouteMetadata(locale, "research", "/research", "/preview.webp");
+}
 
 const stats = [
   {

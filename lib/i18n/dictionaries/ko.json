@@ -2,16 +2,166 @@
   "nav": {
     "home": "홈",
     "about": "소개",
+    "aboutWhoWeAre": "우리는 누구인가",
+    "aboutMission": "우리의 사명",
+    "aboutFounder": "창립자의 이야기",
+    "aboutProvides": "제공하는 것",
+    "team": "팀",
     "inspection": "검사 가이드",
+    "inspectionPpi": "PPI란?",
+    "inspectionEngine": "엔진 다이어그램",
+    "inspectionChecks": "검사원이 확인하는 것",
+    "inspectionWhere": "검사받는 곳",
+    "inspectionDealership": "딜러십 찾기",
     "fraud": "사기 예방",
+    "fraudOverview": "개요",
+    "fraudRedFlags": "위험 신호",
+    "fraudRights": "권리 알기",
+    "fraudAfter": "이후 대처",
     "documents": "문서 해설",
+    "volunteer": "자원봉사",
     "research": "연구",
     "contact": "문의하기"
+  },
+  "ui": {
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기",
+    "expandSection": "{label} 펼치기",
+    "languageSwitcher": "언어 변경"
   },
   "footer": {
     "tagline": "교육. 역량 강화. 정당한 권리 수호.",
     "subtagline": "여성, 이민자, 그리고 첫 자동차 구매자를 위한 무료 자동차 교육입니다.",
     "copyright": "© 2026 VINdicated. 모든 권리 보유. Rana Darwich 설립.",
-    "mission": "자동차 상거래의 성평등을 위해 힘쓰는 비영리 단체입니다."
+    "mission": "자동차 상거래의 성평등을 위해 힘쓰는 비영리 단체입니다.",
+    "columns": {
+      "navigate": "탐색",
+      "resources": "자료",
+      "connect": "연결"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "문의하기"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | 교육. 역량 강화. 권리 수호.",
+    "defaultDescription": "VINdicated는 자동차 지식이 공공 지식이어야 한다는 믿음에서 출발한 비영리 단체입니다. 우리는 소비자 차별을 지속시키는 구조를 설명합니다.",
+    "routes": {
+      "home": {
+        "title": "교육. 역량 강화. 권리 수호.",
+        "description": "VINdicated는 자동차 구매자가 딜러십에서 부당하게 이용당하지 않도록 돕는 무료 비영리 단체입니다. 무료 가이드, 연구, 권리 자료를 제공합니다.",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "소개",
+        "description": "Rana Darwich는 딜러십 차별을 직접 겪은 뒤 VINdicated를 설립했습니다. 자동차 구매자를 교육하고 역량을 강화하며 권리를 지키는 우리의 사명을 알아보세요.",
+        "imageAlt": "VINdicated: 소개"
+      },
+      "team": {
+        "title": "우리 팀",
+        "description": "VINdicated를 만드는 사람들, 즉 딜러십 차별에 맞서는 활동가, 연구자, 학생들을 만나보세요.",
+        "imageAlt": "VINdicated: 우리 팀"
+      },
+      "inspection": {
+        "title": "검사 가이드",
+        "description": "중고차를 사기 전에 확인해야 할 단계별 검사 가이드입니다. 엔진룸, 매장, 서류에서 무엇을 봐야 하는지 알아보세요.",
+        "imageAlt": "VINdicated: 검사 가이드"
+      },
+      "fraud": {
+        "title": "사기 예방",
+        "description": "흔한 딜러 사기를 알아보고 대응하는 법을 배우세요. 위험 신호, 법적 권리, 피해를 입었을 때의 대처법을 확인하세요.",
+        "imageAlt": "VINdicated: 사기 예방"
+      },
+      "documents": {
+        "title": "문서 해설",
+        "description": "차량 소유권 문서, Carfax 보고서, 금융 계약서 등 자동차 구매 서류를 이해하기 위한 인터랙티브 가이드입니다. 서명하기 전에 내용을 알아보세요.",
+        "imageAlt": "VINdicated: 문서 해설"
+      },
+      "research": {
+        "title": "연구",
+        "description": "VINdicated는 자동차 딜러십의 성별 및 인종별 가격 차이를 기록하는 통신 감사 연구를 수행합니다. 결과와 방법론을 읽어보세요.",
+        "imageAlt": "VINdicated: 연구"
+      },
+      "rights": {
+        "title": "권리 알기",
+        "description": "자동차 구매자로서의 법적 권리를 알아보세요. 연방법과 캘리포니아 법은 딜러십의 차별과 기만적 관행으로부터 여러분을 보호합니다.",
+        "imageAlt": "VINdicated: 권리 알기"
+      },
+      "contact": {
+        "title": "문의하기",
+        "description": "VINdicated에 연락해 자원봉사, 이야기 공유, 연구 참여 또는 파트너십을 문의하세요.",
+        "imageAlt": "VINdicated: 문의하기"
+      },
+      "volunteer": {
+        "title": "자원봉사",
+        "description": "학생 자원봉사자, 연구자, 엔지니어, 디자이너 또는 아웃리치 기여자로 VINdicated에 지원하세요.",
+        "imageAlt": "VINdicated: 자원봉사"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "당신은",
+      "titleLine2": "두려움 없이",
+      "titleEm": "차를 살 권리가 있습니다.",
+      "subtitle": "VINdicated는 자동차 지식이 공공 지식이어야 한다는 믿음에서 만들어졌습니다. 우리는 교육, 연구, 커뮤니티를 통해 소비자 차별을 가능하게 하는 구조를 설명합니다.",
+      "ctaPrimary": "PPI 가이드 보기",
+      "ctaSecondary": "우리 이야기",
+      "stats": [
+        {
+          "label": "는 같은 차량과 같은 대본을 사용해도 흑인 남성 구매자가 백인 남성 구매자보다 더 많이 제시받은 평균 금액입니다",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "의 Z세대 여성이 성별 차별 때문에 딜러십 방문을 꺼린다고 느낍니다",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "의 비백인 테스트 구매자가 백인 테스트 구매자보다 딜러십에서 더 나쁜 가격을 받았습니다",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "는 같은 차량과 같은 가격에서도 소수자 구매자가 더 오래 협상한 시간입니다",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "자동차 정의의",
+      "titleEm": "두 기둥.",
+      "pillars": [
+        {
+          "kicker": "교육",
+          "title": "구매 전 검사 가이드",
+          "body": "돈을 내기 전에 확인하고, 질문하고, 검증해야 할 모든 것을 단계별로 안내합니다. 첫 구매자를 위해 작성되었습니다.",
+          "label": "가이드 읽기"
+        },
+        {
+          "kicker": "보호",
+          "title": "사기 예방",
+          "body": "구매자를 상대로 실제 사용되는 전략을 이름 붙이고 설명하며 대응 방법을 제시합니다. 딜러가 압박할 때 정확히 무엇을 말해야 하는지 알 수 있습니다.",
+          "label": "위험 신호 보기"
+        }
+      ]
+    },
+    "quote": {
+      "text": "왜 여성은 순수함이라는 그럴듯한 이름 아래 무지 속에 갇혀 있어야 하는가?",
+      "cite": "Mary Wollstonecraft",
+      "source": "여성의 권리 옹호 (1792)"
+    },
+    "founder": {
+      "titleLine1": "19세에 시작했습니다.",
+      "titleEm": "필요했기 때문입니다.",
+      "body1": "세 곳의 서로 다른 딜러십에서 겪은 세 번의 좌절은 같은 사실을 보여주었습니다. 이 시스템은 당신을 혼란스럽게 하고, 서두르게 하며, 당신이 모르는 것을 이용해 이익을 얻도록 설계되어 있습니다.",
+      "body2Prefix": "VINdicated가 존재하는 이유는 ",
+      "body2Bold": "저에게도 이런 것이 있었으면 했기 때문입니다.",
+      "cta": "Rana의 전체 이야기 읽기"
+    },
+    "meta": {
+      "title": "교육. 역량 강화. 권리 수호.",
+      "description": "VINdicated는 자동차 구매자가 딜러십에서 부당하게 이용당하지 않도록 돕는 무료 비영리 단체입니다. 무료 가이드, 연구, 권리 자료를 제공합니다."
+    }
   }
 }

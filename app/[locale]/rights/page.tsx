@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   PageHero,
   FadeUp,
@@ -8,30 +7,16 @@ import {
   Button,
 } from "@/components/ui";
 import { RightsPhoneDemo } from "@/components/sections/RightsPhoneDemo";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Know Your Rights",
-  description:
-    "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
-  openGraph: {
-    title: "Know Your Rights",
-    description:
-      "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
-    url: "/rights",
-    type: "website",
-    images: [
-      {
-        url: "/preview.webp",
-        alt: "VINdicated: Know Your Rights",
-      },
-    ],
-  },
-  twitter: {
-    title: "Know Your Rights",
-    description:
-      "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRouteMetadata(locale, "rights", "/rights", "/preview.webp");
+}
 
 export default function RightsPage() {
   return (

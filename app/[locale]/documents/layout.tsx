@@ -1,23 +1,13 @@
-import type { Metadata } from "next";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Documents Decoded",
-  description:
-    "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
-  openGraph: {
-    title: "Documents Decoded",
-    description:
-      "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
-    url: "/documents",
-    type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Documents Decoded" }],
-  },
-  twitter: {
-    title: "Documents Decoded",
-    description:
-      "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRouteMetadata(locale, "documents", "/documents");
+}
 
 export default function DocumentsLayout({
   children,

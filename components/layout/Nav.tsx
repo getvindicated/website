@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/constants";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { SiteDictionary } from "@/lib/i18n/dictionary";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
 // Types
@@ -15,29 +16,43 @@ type NavLinkType = {
   children?: readonly { label: string; href: string }[];
 };
 
-type NavDict = {
-  nav: Record<string, string>;
-};
+type NavDict = Pick<SiteDictionary, "nav" | "ui">;
 
-// Maps a nav item's canonical (un-localized) href to its key in the
-// dictionary. Items not listed here (Team, Learning Resources and its
-// dropdown children, Get Involved) fall back to the English label from
-// lib/constants.ts until they get their own dictionary entries in a
-// later pass. /inspection, /fraud, and /documents were removed from this
-// map because those hrefs are now dropdown children under "Learning
-// Resources" rather than top-level items — leaving them mapped would
-// incorrectly override the "Learning Resources" parent label with the
-// translated "Inspection Guide" label.
 const DICT_KEY_BY_HREF: Record<string, string> = {
   "/": "home",
   "/about": "about",
+  "/about#mission": "aboutMission",
+  "/about#story": "aboutFounder",
+  "/about#vindicated-from": "aboutProvides",
+  "/team": "team",
+  "/inspection": "inspection",
+  "/inspection#engine-diagram": "inspectionEngine",
+  "/inspection#what-to-inspect": "inspectionChecks",
+  "/inspection#where-to-get": "inspectionWhere",
+  "/inspection#dealer-locators": "inspectionDealership",
+  "/fraud": "fraud",
+  "/fraud#red-flags": "fraudRedFlags",
+  "/fraud#know-your-rights": "fraudRights",
+  "/fraud#after": "fraudAfter",
+  "/documents": "documents",
+  "/volunteer": "volunteer",
   "/research": "research",
   "/contact": "contact",
 };
 
+const DICT_KEY_BY_LABEL: Record<string, string> = {
+  "Who We Are": "aboutWhoWeAre",
+  "What Is a PPI?": "inspectionPpi",
+  Overview: "fraudOverview",
+};
+
 function labelFor(link: { label: string; href: string }, dict: NavDict) {
-  const key = DICT_KEY_BY_HREF[link.href];
+  const key = DICT_KEY_BY_LABEL[link.label] ?? DICT_KEY_BY_HREF[link.href];
   return key ? (dict.nav[key] ?? link.label) : link.label;
+}
+
+function expandLabel(dict: NavDict, label: string) {
+  return dict.ui.expandSection.replace("{label}", label);
 }
 
 export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
@@ -141,13 +156,16 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
               />
             ))}
           </ul>
-          <LanguageSwitcher currentLocale={locale} />
+          <LanguageSwitcher
+            currentLocale={locale}
+            label={dict.ui.languageSwitcher}
+          />
         </div>
 
         {/* Hamburger / Close toggle */}
         <button
-          className="relative z-[102] flex lg:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          className="relative z-[102] flex md:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
+          aria-label={menuOpen ? dict.ui.closeMenu : dict.ui.openMenu}
           onClick={() => setMenuOpen((v) => !v)}
         >
           <span className="relative w-6 h-5 flex flex-col justify-center items-center">
@@ -251,7 +269,7 @@ function MobileMenu({
                   {hasChildren && (
                     <button
                       className="flex items-center justify-center w-11 h-11 bg-transparent border-none -mr-2"
-                      aria-label={`Expand ${labelFor(link, dict)}`}
+                      aria-label={expandLabel(dict, labelFor(link, dict))}
                       onClick={() =>
                         setExpanded(isExpanded ? null : link.href)
                       }
@@ -300,7 +318,7 @@ function MobileMenu({
                           className="py-2 text-[0.88rem] no-underline transition-colors"
                           style={{ color: "var(--color-light)" }}
                         >
-                          {child.label}
+                          {labelFor(child, dict)}
                         </Link>
                       ))}
                     </div>
@@ -313,7 +331,10 @@ function MobileMenu({
 
         {/* Language switcher, reachable on mobile too */}
         <div className="mt-6 pt-6" style={{ borderTop: "1px solid var(--color-border)" }}>
-          <LanguageSwitcher currentLocale={locale} />
+          <LanguageSwitcher
+            currentLocale={locale}
+            label={dict.ui.languageSwitcher}
+          />
         </div>
       </div>
     </div>
@@ -371,7 +392,7 @@ function DesktopNavItem({
               href={localizeHref(locale, child.href)}
               className="block px-4 py-2 text-[0.82rem] text-white no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#9630a6]/30"
             >
-              {child.label}
+              {labelFor(child, dict)}
             </Link>
           ))}
         </div>

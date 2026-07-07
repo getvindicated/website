@@ -337,7 +337,8 @@ const bgItems = [
       <>
         <p>
           A service contract (extended warranty) is optional and not free. The
-          word &quot;available&quot; means they want to sell it to you, but it doesn't necessarily mean you need
+          word &quot;available&quot; means they want to sell it to you, but it
+          doesn&apos;t necessarily mean you need
           it.
         </p>
       </>

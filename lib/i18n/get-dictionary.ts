@@ -1,6 +1,7 @@
 // lib/i18n/get-dictionary.ts
 import "server-only";
 import type { Locale } from "./config";
+import type { SiteDictionary } from "./dictionary";
 
 const dictionaries = {
   en: () => import("./dictionaries/en.json").then((m) => m.default),
@@ -15,7 +16,38 @@ const dictionaries = {
   "ar-EG": () => import("./dictionaries/ar-EG.json").then((m) => m.default),
 } as const;
 
-export async function getDictionary(locale: Locale) {
+type DictionaryFile = Record<string, unknown>;
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function mergeDictionary<T>(base: T, override: unknown): T {
+  if (override === undefined) return base;
+
+  if (Array.isArray(base)) {
+    if (!Array.isArray(override)) return base;
+    return base.map((item, index) =>
+      mergeDictionary(item, override[index]),
+    ) as T;
+  }
+
+  if (isRecord(base) && isRecord(override)) {
+    const merged: Record<string, unknown> = { ...base };
+    for (const [key, value] of Object.entries(override)) {
+      merged[key] = mergeDictionary(merged[key], value);
+    }
+    return merged as T;
+  }
+
+  return override as T;
+}
+
+export async function getDictionary(locale: Locale): Promise<SiteDictionary> {
+  const base = (await dictionaries.en()) as SiteDictionary;
+  if (locale === "en") return base;
+
   const loader = dictionaries[locale] ?? dictionaries.en;
-  return loader();
+  const override = (await loader()) as DictionaryFile;
+  return mergeDictionary(base, override);
 }

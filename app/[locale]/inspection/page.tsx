@@ -633,11 +633,11 @@ const inspectionAccordion = [
         </li>
         <li>
           <strong>Check engine light codes:</strong> Even if the light
-          isn't on, a mechanic can pull stored codes.
+          isn&apos;t on, a mechanic can pull stored codes.
         </li>
         <li>
           <strong>Compression test:</strong> Reveals internal engine wear
-          that visual inspection can't catch.
+          that visual inspection can&apos;t catch.
         </li>
       </ul>
     ),
@@ -711,7 +711,7 @@ const inspectionAccordion = [
     body: (
       <div className="space-y-3">
         <p>
-          A Carfax report helps but isn't the whole picture. A physical
+          A Carfax report helps but isn&apos;t the whole picture. A physical
           inspection can catch:
         </p>
         <ul className="space-y-2 ml-5 list-disc">
@@ -777,7 +777,7 @@ export default function InspectionPage() {
         kicker=""
         title={
           <>
-            Don't Buy a Car
+            Don&apos;t Buy a Car
             <br />
             <em>Without This.</em>
           </>
@@ -890,7 +890,7 @@ export default function InspectionPage() {
                 body: (
                   <>
                     <p className="mb-3">
-                      If you're buying a used Honda from a Mitsubishi
+                      If you&apos;re buying a used Honda from a Mitsubishi
                       dealership,{" "}
                       <strong>
                         take it to a Honda dealership for the PPI.
@@ -994,11 +994,11 @@ export default function InspectionPage() {
               { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
             }
           >
-            Why You're <em>Paying for Your Safety</em>
+            Why You&apos;re <em>Paying for Your Safety</em>
           </SectionTitle>
           <p className="text-[1.05rem] text-white leading-[1.75] max-w-[680px] mb-8">
-            A good inspector goes through the car systematically. Here's
-            what they're checking, and why each category matters.
+            A good inspector goes through the car systematically. Here&apos;s
+            what they&apos;re checking, and why each category matters.
           </p>
           <Accordion items={inspectionAccordion} />
         </section>
@@ -1059,10 +1059,10 @@ export default function InspectionPage() {
           <InfoBox label="Important">
             <p>
               If a seller stalls on producing service records or promises
-              they'll "get them later," schedule the inspection
+              they&apos;ll &quot;get them later,&quot; schedule the inspection
               before you commit emotionally.{" "}
               <strong>
-                Schedule the inspection before you're attached, not
+                Schedule the inspection before you&apos;re attached, not
                 after.
               </strong>
             </p>

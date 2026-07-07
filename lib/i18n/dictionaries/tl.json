@@ -2,16 +2,166 @@
   "nav": {
     "home": "Home",
     "about": "Tungkol Sa Amin",
+    "aboutWhoWeAre": "Sino Kami",
+    "aboutMission": "Aming Misyon",
+    "aboutFounder": "Mula sa Founder",
+    "aboutProvides": "Ano ang Ibinibigay Namin",
+    "team": "Team",
     "inspection": "Gabay sa Inspeksyon",
+    "inspectionPpi": "Ano ang PPI?",
+    "inspectionEngine": "Diagram ng Makina",
+    "inspectionChecks": "Ano ang Tinitingnan ng Inspector",
+    "inspectionWhere": "Saan Kumuha Nito",
+    "inspectionDealership": "Maghanap ng Dealership",
     "fraud": "Pag-iwas sa Panloloko",
+    "fraudOverview": "Overview",
+    "fraudRedFlags": "Mga Red Flag",
+    "fraudRights": "Alamin ang Iyong Karapatan",
+    "fraudAfter": "Ano ang Gagawin Pagkatapos",
     "documents": "Mga Dokumentong Ipinaliwanag",
+    "volunteer": "Mag-volunteer",
     "research": "Pananaliksik",
     "contact": "Makipag-ugnayan"
+  },
+  "ui": {
+    "openMenu": "Buksan ang menu",
+    "closeMenu": "Isara ang menu",
+    "expandSection": "Palawakin ang {label}",
+    "languageSwitcher": "Palitan ang wika"
   },
   "footer": {
     "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
     "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
     "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
-    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto."
+    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto.",
+    "columns": {
+      "navigate": "Mag-navigate",
+      "resources": "Mga Resource",
+      "connect": "Kumonekta"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "Makipag-ugnayan"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+    "defaultDescription": "Ang VINdicated ay isang nonprofit na naniniwalang dapat pampubliko ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa mga konsumer.",
+    "routes": {
+      "home": {
+        "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+        "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan.",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "Tungkol Sa Amin",
+        "description": "Itinatag ni Rana Darwich ang VINdicated matapos niyang maranasan mismo ang diskriminasyon sa dealership. Alamin ang aming misyong turuan, bigyang-kapangyarihan, at ipagtanggol ang mga bumibili ng kotse.",
+        "imageAlt": "VINdicated: Tungkol Sa Amin"
+      },
+      "team": {
+        "title": "Aming Team",
+        "description": "Kilalanin ang mga tao sa likod ng VINdicated: mga advocate, researcher, at estudyanteng lumalaban sa diskriminasyon sa dealership.",
+        "imageAlt": "VINdicated: Aming Team"
+      },
+      "inspection": {
+        "title": "Gabay sa Inspeksyon",
+        "description": "Sunud-sunod na gabay sa pag-inspeksyon ng used car bago bumili. Alamin kung ano ang dapat tingnan sa makina, sa lot, at sa papeles.",
+        "imageAlt": "VINdicated: Gabay sa Inspeksyon"
+      },
+      "fraud": {
+        "title": "Pag-iwas sa Panloloko",
+        "description": "Matutong kumilala at sumagot sa karaniwang panloloko ng dealer. Alamin ang mga red flag, legal na karapatan, at gagawin kung naloko ka.",
+        "imageAlt": "VINdicated: Pag-iwas sa Panloloko"
+      },
+      "documents": {
+        "title": "Mga Dokumentong Ipinaliwanag",
+        "description": "Mga interactive na gabay para maintindihan ang papeles sa pagbili ng kotse: pink slip, Carfax reports, financing contracts, at iba pa. Alamin ang pinipirmahan mo bago pumirma.",
+        "imageAlt": "VINdicated: Mga Dokumentong Ipinaliwanag"
+      },
+      "research": {
+        "title": "Pananaliksik",
+        "description": "Gumagawa ang VINdicated ng correspondence audit studies na nagdodokumento ng gender at racial pricing disparities sa car dealerships. Basahin ang aming findings at methodology.",
+        "imageAlt": "VINdicated: Pananaliksik"
+      },
+      "rights": {
+        "title": "Alamin ang Iyong Karapatan",
+        "description": "Alamin ang legal na karapatan mo bilang bumibili ng kotse. Pinoprotektahan ka ng federal at California laws laban sa diskriminasyon at mapanlinlang na gawain sa dealership.",
+        "imageAlt": "VINdicated: Alamin ang Iyong Karapatan"
+      },
+      "contact": {
+        "title": "Makipag-ugnayan",
+        "description": "Makipag-ugnayan sa VINdicated: mag-volunteer, ibahagi ang iyong kuwento, lumahok sa pananaliksik, o makipag-partner sa amin.",
+        "imageAlt": "VINdicated: Makipag-ugnayan"
+      },
+      "volunteer": {
+        "title": "Mag-volunteer",
+        "description": "Mag-apply para sumali sa VINdicated bilang student volunteer, researcher, engineer, designer, o outreach contributor.",
+        "imageAlt": "VINdicated: Mag-volunteer"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Karapat-dapat Kang",
+      "titleLine2": "Bumili ng Kotse",
+      "titleEm": "Nang Walang Takot.",
+      "subtitle": "Itinatag ang VINdicated sa paniniwalang dapat maging pampublikong kaalaman ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa konsumer sa pamamagitan ng edukasyon, pananaliksik, at komunidad.",
+      "ctaPrimary": "Kunin ang PPI Guide",
+      "ctaSecondary": "Aming Kuwento",
+      "stats": [
+        {
+          "label": "na dagdag na sinisingil sa Black male buyers kumpara sa white male buyers, kahit parehong kotse at parehong script",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "ng Gen Z women ang nadidiscourage pumunta sa dealership dahil sa gender discrimination",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "ng non-white testers ang binigyan ng mas masamang presyo sa dealership kumpara sa white testers",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "na mas mahabang negosasyon ang naranasan ng minority buyers, kahit parehong kotse at parehong presyo",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "Dalawang haligi ng",
+      "titleEm": "automotive justice.",
+      "pillars": [
+        {
+          "kicker": "Edukasyon",
+          "title": "Gabay sa Pre-Purchase Inspection",
+          "body": "Sunud-sunod na walkthrough ng lahat ng dapat mong tingnan, itanong, at i-verify bago maglabas ng pera. Isinulat para sa first-time buyers.",
+          "label": "Basahin ang Gabay"
+        },
+        {
+          "kicker": "Proteksyon",
+          "title": "Pag-iwas sa Panloloko",
+          "body": "Tunay na taktika laban sa buyers, pinangalanan, ipinaliwanag, at sinagot. Alamin kung ano mismo ang sasabihin kapag pine-pressure ka ng dealer.",
+          "label": "Tingnan ang Red Flags"
+        }
+      ]
+    },
+    "quote": {
+      "text": "Bakit dapat panatilihin sa kamangmangan ang babae sa ilalim ng mapanlinlang na pangalan ng inosensiya?",
+      "cite": "Mary Wollstonecraft",
+      "source": "A Vindication of the Rights of Woman (1792)"
+    },
+    "founder": {
+      "titleLine1": "Itinatag sa edad 19.",
+      "titleEm": "Dahil kailangan.",
+      "body1": "Tatlong strike sa tatlong magkakaibang dealership ang nagpakita sa akin ng parehong bagay: dinisenyo ang sistema para lituhin ka, madaliin ka, at pagkakitaan ang hindi mo alam.",
+      "body2Prefix": "Umiiral ang VINdicated dahil ",
+      "body2Bold": "sana mayroon na nito para sa akin noon.",
+      "cta": "Basahin ang Buong Kuwento ni Rana"
+    },
+    "meta": {
+      "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+      "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
+    }
   }
 }

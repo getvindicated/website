@@ -4,7 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { locales, localeLabels, type Locale } from "@/lib/i18n/config";
 
-export function LanguageSwitcher({ currentLocale }: { currentLocale: Locale }) {
+export function LanguageSwitcher({
+  currentLocale,
+  label = "Change language",
+}: {
+  currentLocale: Locale;
+  label?: string;
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -39,6 +45,7 @@ export function LanguageSwitcher({ currentLocale }: { currentLocale: Locale }) {
         }}
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-label={label}
       >
         {localeLabels[currentLocale]}
       </button>

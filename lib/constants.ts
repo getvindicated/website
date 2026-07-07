@@ -49,7 +49,9 @@ export const navLinks = [
 //     ],
 //   },
   
-  { label: "Get Involved", href: "/join" },
+  { label: "Documents", href: "/documents" },
+  { label: "Contact", href: "/contact" },
+  { label: "Volunteer", href: "/volunteer" },
 ] as const;
 
 // Footer columns
