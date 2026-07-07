@@ -20,15 +20,17 @@ type NavDict = {
 };
 
 // Maps a nav item's canonical (un-localized) href to its key in the
-// dictionary. Items not listed here (Team, Volunteer, and dropdown
-// sub-links) fall back to the English label from lib/constants.ts
-// until they get their own dictionary entries in a later pass.
+// dictionary. Items not listed here (Team, Learning Resources and its
+// dropdown children, Get Involved) fall back to the English label from
+// lib/constants.ts until they get their own dictionary entries in a
+// later pass. /inspection, /fraud, and /documents were removed from this
+// map because those hrefs are now dropdown children under "Learning
+// Resources" rather than top-level items — leaving them mapped would
+// incorrectly override the "Learning Resources" parent label with the
+// translated "Inspection Guide" label.
 const DICT_KEY_BY_HREF: Record<string, string> = {
   "/": "home",
   "/about": "about",
-  "/inspection": "inspection",
-  "/fraud": "fraud",
-  "/documents": "documents",
   "/research": "research",
   "/contact": "contact",
 };
@@ -115,7 +117,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           <ul className="flex gap-8 list-none">
             {navLinks.map((link) => (
               <DesktopNavItem
@@ -144,7 +146,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
 
         {/* Hamburger / Close toggle */}
         <button
-          className="relative z-[102] flex md:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
+          className="relative z-[102] flex lg:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((v) => !v)}
         >
@@ -211,7 +213,7 @@ function MobileMenu({
 
   return (
     <div
-      className="fixed inset-0 z-[99] flex flex-col md:hidden transition-all duration-300 ease-in-out"
+      className="fixed inset-0 z-[99] flex flex-col lg:hidden transition-all duration-300 ease-in-out"
       style={{
         background: "var(--color-bg-page)",
         opacity: open ? 1 : 0,
@@ -346,7 +348,7 @@ function DesktopNavItem({
     >
       <Link
         href={localizeHref(locale, link.href)}
-        className="text-[0.95rem] no-underline transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
+        className="text-[0.95rem] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
         style={{
           color: "white",
           fontFamily: "var(--font-heading), Georgia, serif",
