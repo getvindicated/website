@@ -280,12 +280,12 @@ export default function TeamPage() {
 						buying should be fair for everyone, we want to hear from you.
 					</p>
 				<a
-					href="/contact"
-					className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
-					style={{ background: "var(--color-vivid)" }}
-				>
-					Get in Touch
-				</a>
+					href="/join"
+	className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
+	style={{ background: "var(--color-vivid)" }}
+>
+	Get in Touch
+</a>
 				</section>
 			</FadeUp>
 		</>

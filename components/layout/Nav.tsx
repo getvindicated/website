@@ -132,7 +132,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           <ul className="flex gap-8 list-none">
             {navLinks.map((link) => (
               <DesktopNavItem
@@ -231,7 +231,7 @@ function MobileMenu({
 
   return (
     <div
-      className="fixed inset-0 z-[99] flex flex-col md:hidden transition-all duration-300 ease-in-out"
+      className="fixed inset-0 z-[99] flex flex-col lg:hidden transition-all duration-300 ease-in-out"
       style={{
         background: "var(--color-bg-page)",
         opacity: open ? 1 : 0,
@@ -369,7 +369,7 @@ function DesktopNavItem({
     >
       <Link
         href={localizeHref(locale, link.href)}
-        className="text-[0.95rem] no-underline transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
+        className="text-[0.95rem] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
         style={{
           color: "white",
           fontFamily: "var(--font-heading), Georgia, serif",
