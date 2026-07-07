@@ -30,24 +30,12 @@ export const navLinks = [
   },
   { label: "Team", href: "/team" },
   {
-    label: "Inspection Guide",
+    label: "Learning Resources",
     href: "/inspection",
     children: [
-      { label: "What Is a PPI?", href: "/inspection" },
-      { label: "Engine Diagram", href: "/inspection#engine-diagram" },
-      { label: "What Inspectors Check", href: "/inspection#what-to-inspect" },
-      { label: "Where to Get One", href: "/inspection#where-to-get" },
-      { label: "Find a Dealership", href: "/inspection#dealer-locators" },
-    ],
-  },
-  {
-    label: "Fraud Prevention",
-    href: "/fraud",
-    children: [
-      { label: "Overview", href: "/fraud" },
-      { label: "Red Flags", href: "/fraud#red-flags" },
-      { label: "Know Your Rights", href: "/fraud#know-your-rights" },
-      { label: "What to Do After", href: "/fraud#after" },
+      { label: "Inspection Guide", href: "/inspection" },
+      { label: "Fraud Prevention", href: "/fraud" },
+      { label: "Documents Decoded", href: "/documents" },
     ],
   },
 //   {
@@ -61,7 +49,6 @@ export const navLinks = [
 //     ],
 //   },
   
-  { label: "Documents", href: "/documents" },
   { label: "Get Involved", href: "/join" },
 ] as const;
 
