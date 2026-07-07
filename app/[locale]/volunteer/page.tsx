@@ -50,6 +50,27 @@ export default function VolunteerPage() {
     setState("submitting");
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    const resumeFile = data.get("resume") as File | null;
+    let resume: { filename: string; base64: string } | undefined;
+
+    if (resumeFile && resumeFile.size > 0) {
+      if (resumeFile.size > 5 * 1024 * 1024) {
+        setState("error");
+        setMessage("Your resume file is too large. Please upload a file under 5MB.");
+        return;
+      }
+      const base64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve((reader.result as string).split(",")[1]);
+        reader.onerror = () => reject(new Error("Could not read file"));
+        reader.readAsDataURL(resumeFile);
+      }).catch(() => undefined);
+      if (base64) {
+        resume = { filename: resumeFile.name, base64 };
+      }
+    }
+
     try {
       const result = await submitVolunteerApplication({
         name: data.get("name") as string,
@@ -61,6 +82,7 @@ export default function VolunteerPage() {
         background: data.get("background") as string,
         why: data.get("why") as string,
         student: data.get("student") as string,
+        resume,
       });
       if (result.success) {
         setState("success");
@@ -252,6 +274,17 @@ export default function VolunteerPage() {
                     rows={3}
                     className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors resize-none"
                     placeholder="Coursework, projects, jobs, or experience relevant to the role you picked"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[0.85rem] text-white mb-2">Resume (optional, PDF preferred, 5MB max)</label>
+                  <input
+                    name="resume"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[0.9rem] pb-2 transition-colors file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-[0.8rem] file:font-semibold file:cursor-pointer"
+                    style={{ color: "var(--color-light)" }}
                   />
                 </div>
 
