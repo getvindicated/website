@@ -11,6 +11,7 @@ export async function sendEmail({
     htmlContent,
     sender,
     replyTo,
+    attachment,
 }: {
     subject: string;
     to: { email: string; name: string }[];
@@ -18,6 +19,7 @@ export async function sendEmail({
     htmlContent: string;
     sender: { name: string; email: string };
     replyTo?: { email: string; name: string };
+    attachment?: { name: string; content: string }[];
 }) {
     if (!process.env.BREVO_API_KEY) {
         throw new Error("BREVO_API_KEY is missing");
@@ -31,6 +33,7 @@ export async function sendEmail({
 			htmlContent: `<html><body>${htmlContent}</body></html>`,
 			sender,
 			...(replyTo && { replyTo }),
+			...(attachment && attachment.length > 0 && { attachment }),
 		});
 	} catch (error: any) {
 		console.error(
