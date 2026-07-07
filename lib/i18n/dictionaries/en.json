@@ -2,17 +2,104 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
+    "aboutWhoWeAre": "Who We Are",
+    "aboutMission": "Our Mission",
+    "aboutFounder": "From the Founder",
+    "aboutProvides": "What We Provide",
+    "team": "Team",
     "inspection": "Inspection Guide",
+    "inspectionPpi": "What Is a PPI?",
+    "inspectionEngine": "Engine Diagram",
+    "inspectionChecks": "What Inspectors Check",
+    "inspectionWhere": "Where to Get One",
+    "inspectionDealership": "Find a Dealership",
     "fraud": "Fraud Prevention",
+    "fraudOverview": "Overview",
+    "fraudRedFlags": "Red Flags",
+    "fraudRights": "Know Your Rights",
+    "fraudAfter": "What to Do After",
     "documents": "Documents Decoded",
+    "volunteer": "Volunteer",
     "research": "Research",
     "contact": "Contact"
+  },
+  "ui": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "expandSection": "Expand {label}",
+    "languageSwitcher": "Change language"
   },
   "footer": {
     "tagline": "Educate. Empower. Vindicate.",
     "subtagline": "Free automotive education for women, immigrants, and first-time buyers.",
     "copyright": "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.",
-    "mission": "A nonprofit committed to gender equity in automotive commerce."
+    "mission": "A nonprofit committed to gender equity in automotive commerce.",
+    "columns": {
+      "navigate": "Navigate",
+      "resources": "Resources",
+      "connect": "Connect"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "Get in Touch"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | Educate. Empower. Vindicate.",
+    "defaultDescription": "VINdicated is a nonprofit built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive.",
+    "routes": {
+      "home": {
+        "title": "Educate. Empower. Vindicate.",
+        "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "About Us",
+        "description": "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
+        "imageAlt": "VINdicated: About Us"
+      },
+      "team": {
+        "title": "Our Team",
+        "description": "Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
+        "imageAlt": "VINdicated: Our Team"
+      },
+      "inspection": {
+        "title": "Inspection Guide",
+        "description": "A step-by-step guide to inspecting a used car before you buy. Know what to look for under the hood, on the lot, and in the paperwork.",
+        "imageAlt": "VINdicated: Inspection Guide"
+      },
+      "fraud": {
+        "title": "Fraud Prevention",
+        "description": "Learn to recognize and counter common dealer scams. Know the red flags, your legal rights under California and federal law, and what to do if you've been scammed.",
+        "imageAlt": "VINdicated: Fraud Prevention"
+      },
+      "documents": {
+        "title": "Documents Decoded",
+        "description": "Interactive guides to understanding car buying documents: the pink slip, Carfax reports, financing contracts, and more. Know what you're signing before you sign it.",
+        "imageAlt": "VINdicated: Documents Decoded"
+      },
+      "research": {
+        "title": "Research",
+        "description": "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
+        "imageAlt": "VINdicated: Research"
+      },
+      "rights": {
+        "title": "Know Your Rights",
+        "description": "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
+        "imageAlt": "VINdicated: Know Your Rights"
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Get in touch with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
+        "imageAlt": "VINdicated: Contact"
+      },
+      "volunteer": {
+        "title": "Volunteer",
+        "description": "Apply to join VINdicated as a student volunteer, researcher, engineer, designer, or outreach contributor.",
+        "imageAlt": "VINdicated: Volunteer"
+      }
+    }
   },
   "home": {
     "hero": {

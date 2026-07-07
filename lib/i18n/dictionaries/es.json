@@ -2,17 +2,104 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre Nosotros",
+    "aboutWhoWeAre": "Quiénes Somos",
+    "aboutMission": "Nuestra Misión",
+    "aboutFounder": "De la Fundadora",
+    "aboutProvides": "Lo Que Ofrecemos",
+    "team": "Equipo",
     "inspection": "Guía de Inspección",
+    "inspectionPpi": "¿Qué Es una PPI?",
+    "inspectionEngine": "Diagrama del Motor",
+    "inspectionChecks": "Qué Revisan los Inspectores",
+    "inspectionWhere": "Dónde Obtener Una",
+    "inspectionDealership": "Encuentra un Concesionario",
     "fraud": "Prevención de Fraude",
+    "fraudOverview": "Resumen",
+    "fraudRedFlags": "Señales de Alerta",
+    "fraudRights": "Conoce Tus Derechos",
+    "fraudAfter": "Qué Hacer Después",
     "documents": "Documentos Descifrados",
+    "volunteer": "Voluntariado",
     "research": "Investigación",
     "contact": "Contacto"
+  },
+  "ui": {
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "expandSection": "Expandir {label}",
+    "languageSwitcher": "Cambiar idioma"
   },
   "footer": {
     "tagline": "Educar. Empoderar. Reivindicar.",
     "subtagline": "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.",
     "copyright": "© 2026 VINdicated. Todos los derechos reservados. Fundado por Rana Darwich.",
-    "mission": "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz."
+    "mission": "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz.",
+    "columns": {
+      "navigate": "Navegar",
+      "resources": "Recursos",
+      "connect": "Conectar"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "Ponte en Contacto"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | Educar. Empoderar. Reivindicar.",
+    "defaultDescription": "VINdicated es una organización sin fines de lucro basada en la creencia de que el conocimiento sobre autos debe ser conocimiento público. Explicamos los sistemas que permiten que prospere la discriminación al consumidor.",
+    "routes": {
+      "home": {
+        "title": "Educar. Empoderar. Reivindicar.",
+        "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos.",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "Sobre Nosotros",
+        "description": "VINdicated fue fundada por Rana Darwich después de vivir discriminación en concesionarios en carne propia. Conoce nuestra misión de educar, empoderar y reivindicar a quienes compran autos.",
+        "imageAlt": "VINdicated: Sobre Nosotros"
+      },
+      "team": {
+        "title": "Nuestro Equipo",
+        "description": "Conoce a las personas detrás de VINdicated: defensoras, investigadoras y estudiantes que luchan contra la discriminación en concesionarios.",
+        "imageAlt": "VINdicated: Nuestro Equipo"
+      },
+      "inspection": {
+        "title": "Guía de Inspección",
+        "description": "Una guía paso a paso para inspeccionar un auto usado antes de comprarlo. Aprende qué revisar bajo el capó, en el lote y en los documentos.",
+        "imageAlt": "VINdicated: Guía de Inspección"
+      },
+      "fraud": {
+        "title": "Prevención de Fraude",
+        "description": "Aprende a reconocer y enfrentar estafas comunes de concesionarios. Conoce las señales de alerta, tus derechos legales y qué hacer si te estafaron.",
+        "imageAlt": "VINdicated: Prevención de Fraude"
+      },
+      "documents": {
+        "title": "Documentos Descifrados",
+        "description": "Guías interactivas para entender los documentos de compra de autos: título, reportes Carfax, contratos de financiamiento y más. Entiende lo que firmas antes de firmar.",
+        "imageAlt": "VINdicated: Documentos Descifrados"
+      },
+      "research": {
+        "title": "Investigación",
+        "description": "VINdicated realiza estudios de auditoría por correspondencia que documentan disparidades de precios por género y raza en concesionarios. Lee nuestros hallazgos y metodología.",
+        "imageAlt": "VINdicated: Investigación"
+      },
+      "rights": {
+        "title": "Conoce Tus Derechos",
+        "description": "Conoce tus derechos legales como comprador de autos. Las leyes federales y de California te protegen contra la discriminación y las prácticas engañosas en concesionarios.",
+        "imageAlt": "VINdicated: Conoce Tus Derechos"
+      },
+      "contact": {
+        "title": "Contacto",
+        "description": "Ponte en contacto con VINdicated: únete como voluntario, comparte tu historia, participa en investigaciones o colabora con nosotros.",
+        "imageAlt": "VINdicated: Contacto"
+      },
+      "volunteer": {
+        "title": "Voluntariado",
+        "description": "Postúlate para unirte a VINdicated como estudiante voluntario, investigador, ingeniero, diseñador o colaborador de alcance comunitario.",
+        "imageAlt": "VINdicated: Voluntariado"
+      }
+    }
   },
   "home": {
     "hero": {

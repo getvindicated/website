@@ -1,16 +1,9 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/constants";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { SiteDictionary } from "@/lib/i18n/dictionary";
 
-type FooterDict = {
-  nav: Record<string, string>;
-  footer: {
-    tagline: string;
-    subtagline: string;
-    copyright: string;
-    mission: string;
-  };
-};
+type FooterDict = Pick<SiteDictionary, "nav" | "footer">;
 
 // Maps a footer link's canonical href to its dictionary-covered nav
 // label, where one exists. Links without an entry here (Team,
@@ -19,11 +12,24 @@ type FooterDict = {
 const DICT_KEY_BY_HREF: Record<string, string> = {
   "/": "home",
   "/about": "about",
+  "/team": "team",
   "/inspection": "inspection",
   "/fraud": "fraud",
   "/documents": "documents",
   "/research": "research",
   "/contact": "contact",
+};
+
+const FOOTER_HEADING_KEY: Record<string, keyof SiteDictionary["footer"]["columns"]> = {
+  Navigate: "navigate",
+  Resources: "resources",
+  Connect: "connect",
+};
+
+const FOOTER_LINK_KEY: Record<string, keyof SiteDictionary["footer"]["links"]> = {
+  LinkedIn: "linkedIn",
+  Instagram: "instagram",
+  "Get in Touch": "getInTouch",
 };
 
 export function Footer({ locale, dict }: { locale: Locale; dict: FooterDict }) {
@@ -54,13 +60,18 @@ export function Footer({ locale, dict }: { locale: Locale; dict: FooterDict }) {
               className="text-[0.8rem] font-bold mb-5"
               style={{ color: "var(--color-light)" }}
             >
-              {col.heading}
+              {dict.footer.columns[FOOTER_HEADING_KEY[col.heading]] ?? col.heading}
             </h4>
             <ul className="list-none space-y-2">
               {col.links.map((link) => {
                 const key = DICT_KEY_BY_HREF[link.href];
                 const isExternal = "external" in link && link.external;
-                const label = key ? (dict.nav?.[key] ?? link.label) : link.label;
+                const footerLinkKey = FOOTER_LINK_KEY[link.label];
+                const label = footerLinkKey
+                  ? (dict.footer.links[footerLinkKey] ?? link.label)
+                  : key
+                    ? (dict.nav?.[key] ?? link.label)
+                    : link.label;
                 return (
                   <li key={link.href}>
                     <Link

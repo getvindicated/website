@@ -57,3 +57,11 @@ export function localizeHref(locale: Locale, href: string): string {
   if (href === "/") return `/${locale}`;
   return `/${locale}${href}`;
 }
+
+export function localizedPathnames(href: string): Record<string, string> {
+  const entries = locales.map((locale) => [locale, localizeHref(locale, href)]);
+  return Object.fromEntries([
+    ...entries,
+    ["x-default", localizeHref(defaultLocale, href)],
+  ]);
+}

@@ -6,7 +6,7 @@ import { HomeQuote } from "@/components/sections/HomeQuote";
 import { HomeFounder } from "@/components/sections/HomeFounder";
 import { Divider } from "@/components/ui";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import type { Locale } from "@/lib/i18n/config";
+import { localizedPathnames, localizeHref, type Locale } from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
 
 export async function generateMetadata({
@@ -23,16 +23,23 @@ export async function generateMetadata({
 
   return {
     title,
+    description,
+    alternates: {
+      canonical: localizeHref(locale as Locale, "/"),
+      languages: localizedPathnames("/"),
+    },
     openGraph: {
       title,
       description,
-      url: "/",
+      url: localizeHref(locale as Locale, "/"),
       type: "website",
+      locale,
       images: [{ url: "/preview.webp", alt: "VINdicated" }],
     },
     twitter: {
       title,
       description,
+      images: ["/preview.webp"],
     },
   };
 }

@@ -2,16 +2,166 @@
   "nav": {
     "home": "首页",
     "about": "关于我们",
+    "aboutWhoWeAre": "我们是谁",
+    "aboutMission": "我们的使命",
+    "aboutFounder": "创始人的故事",
+    "aboutProvides": "我们提供什么",
+    "team": "团队",
     "inspection": "检验指南",
+    "inspectionPpi": "什么是 PPI？",
+    "inspectionEngine": "发动机图解",
+    "inspectionChecks": "检验师会检查什么",
+    "inspectionWhere": "在哪里做检查",
+    "inspectionDealership": "查找经销商",
     "fraud": "防范欺诈",
+    "fraudOverview": "概览",
+    "fraudRedFlags": "危险信号",
+    "fraudRights": "了解你的权利",
+    "fraudAfter": "被骗后怎么办",
     "documents": "文件解读",
+    "volunteer": "志愿者",
     "research": "研究",
     "contact": "联系我们"
+  },
+  "ui": {
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "expandSection": "展开 {label}",
+    "languageSwitcher": "更改语言"
   },
   "footer": {
     "tagline": "教育。赋能。维权。",
     "subtagline": "为女性、移民和首次购车者提供免费的汽车知识教育。",
     "copyright": "© 2026 VINdicated。保留所有权利。由 Rana Darwich 创立。",
-    "mission": "一家致力于促进汽车商务性别平等的非营利组织。"
+    "mission": "一家致力于促进汽车商务性别平等的非营利组织。",
+    "columns": {
+      "navigate": "导航",
+      "resources": "资源",
+      "connect": "联系"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "联系我们"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | 教育。赋能。维权。",
+    "defaultDescription": "VINdicated 是一个非营利组织，基于一个信念：汽车知识应该是公共知识。我们拆解让消费者歧视得以延续的系统。",
+    "routes": {
+      "home": {
+        "title": "教育。赋能。维权。",
+        "description": "VINdicated 是一个免费的非营利组织，帮助购车者在经销商处不被利用。提供免费指南、研究和权益资源。",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "关于我们",
+        "description": "Rana Darwich 在亲身经历经销商歧视后创立了 VINdicated。了解我们教育、赋能并维护购车者权益的使命。",
+        "imageAlt": "VINdicated：关于我们"
+      },
+      "team": {
+        "title": "我们的团队",
+        "description": "认识 VINdicated 背后的人：倡导者、研究者和反对经销商歧视的学生。",
+        "imageAlt": "VINdicated：我们的团队"
+      },
+      "inspection": {
+        "title": "检验指南",
+        "description": "购买二手车前的逐步检验指南。了解在发动机舱、车场和文件中应该检查什么。",
+        "imageAlt": "VINdicated：检验指南"
+      },
+      "fraud": {
+        "title": "防范欺诈",
+        "description": "学习识别并应对常见经销商骗局。了解危险信号、你的法律权利，以及被骗后该怎么做。",
+        "imageAlt": "VINdicated：防范欺诈"
+      },
+      "documents": {
+        "title": "文件解读",
+        "description": "交互式指南，帮助理解购车文件：车辆所有权证、Carfax 报告、贷款合同等。签字前先知道自己签的是什么。",
+        "imageAlt": "VINdicated：文件解读"
+      },
+      "research": {
+        "title": "研究",
+        "description": "VINdicated 通过通信审计研究记录经销商中基于性别和种族的定价差异。阅读我们的发现和方法。",
+        "imageAlt": "VINdicated：研究"
+      },
+      "rights": {
+        "title": "了解你的权利",
+        "description": "了解你作为购车者的法律权利。联邦和加州法律保护你免受经销商歧视和欺骗性做法的伤害。",
+        "imageAlt": "VINdicated：了解你的权利"
+      },
+      "contact": {
+        "title": "联系我们",
+        "description": "联系 VINdicated：加入志愿团队、分享你的故事、参与研究或与我们合作。",
+        "imageAlt": "VINdicated：联系我们"
+      },
+      "volunteer": {
+        "title": "志愿者",
+        "description": "申请加入 VINdicated，成为学生志愿者、研究员、工程师、设计师或社区外展成员。",
+        "imageAlt": "VINdicated：志愿者"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "你应该能够",
+      "titleLine2": "买车",
+      "titleEm": "不再害怕。",
+      "subtitle": "VINdicated 建立在这样一个信念上：汽车知识应该是公共知识。我们通过教育、研究和社区，拆解让消费者歧视得以延续的系统。",
+      "ctaPrimary": "获取购前检查指南",
+      "ctaSecondary": "我们的故事",
+      "stats": [
+        {
+          "label": "是黑人男性买家相对白人男性买家平均多出的报价，即使是同一辆车和同一套话术",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "的 Z 世代女性因为担心性别歧视而不愿去经销商处",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "的非白人测试者在经销商处获得了比白人测试者更差的报价",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "是少数族裔买家面临的额外谈判时间，即使车辆和报价相同",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "汽车正义的",
+      "titleEm": "两大支柱。",
+      "pillars": [
+        {
+          "kicker": "教育",
+          "title": "购前检查指南",
+          "body": "在交钱前，逐步了解你应该检查、询问和核实的内容。为首次购车者编写。",
+          "label": "阅读指南"
+        },
+        {
+          "kicker": "保护",
+          "title": "防范欺诈",
+          "body": "真实的购车陷阱，被命名、解释并逐一应对。知道当经销商施压时该怎么说。",
+          "label": "查看危险信号"
+        }
+      ]
+    },
+    "quote": {
+      "text": "为什么要以天真的名义让女人保持无知？",
+      "cite": "Mary Wollstonecraft",
+      "source": "《女权辩护》（1792）"
+    },
+    "founder": {
+      "titleLine1": "19 岁创立。",
+      "titleEm": "源于必要。",
+      "body1": "在三个不同经销商处连续三次受挫后，我看清了同一件事：这个系统被设计成让你困惑、催促你，并从你不知道的事情中获利。",
+      "body2Prefix": "VINdicated 存在，是因为",
+      "body2Bold": "我希望当时也有这样的资源。",
+      "cta": "阅读 Rana 的完整故事"
+    },
+    "meta": {
+      "title": "教育。赋能。维权。",
+      "description": "VINdicated 是一个免费的非营利组织，帮助购车者在经销商处不被利用。提供免费指南、研究和权益资源。"
+    }
   }
 }

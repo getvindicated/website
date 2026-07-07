@@ -2,16 +2,166 @@
   "nav": {
     "home": "Trang Chủ",
     "about": "Về Chúng Tôi",
+    "aboutWhoWeAre": "Chúng Tôi Là Ai",
+    "aboutMission": "Sứ Mệnh",
+    "aboutFounder": "Từ Người Sáng Lập",
+    "aboutProvides": "Chúng Tôi Cung Cấp Gì",
+    "team": "Đội Ngũ",
     "inspection": "Hướng Dẫn Kiểm Tra",
+    "inspectionPpi": "PPI Là Gì?",
+    "inspectionEngine": "Sơ Đồ Động Cơ",
+    "inspectionChecks": "Thợ Kiểm Tra Xem Gì",
+    "inspectionWhere": "Kiểm Tra Ở Đâu",
+    "inspectionDealership": "Tìm Đại Lý",
     "fraud": "Phòng Chống Gian Lận",
+    "fraudOverview": "Tổng Quan",
+    "fraudRedFlags": "Dấu Hiệu Cảnh Báo",
+    "fraudRights": "Biết Quyền Của Bạn",
+    "fraudAfter": "Làm Gì Sau Đó",
     "documents": "Giải Mã Tài Liệu",
+    "volunteer": "Tình Nguyện",
     "research": "Nghiên Cứu",
     "contact": "Liên Hệ"
+  },
+  "ui": {
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "expandSection": "Mở rộng {label}",
+    "languageSwitcher": "Đổi ngôn ngữ"
   },
   "footer": {
     "tagline": "Giáo Dục. Trao Quyền. Minh Oan.",
     "subtagline": "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.",
     "copyright": "© 2026 VINdicated. Bảo lưu mọi quyền. Sáng lập bởi Rana Darwich.",
-    "mission": "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô."
+    "mission": "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô.",
+    "columns": {
+      "navigate": "Điều Hướng",
+      "resources": "Tài Nguyên",
+      "connect": "Kết Nối"
+    },
+    "links": {
+      "linkedIn": "LinkedIn",
+      "instagram": "Instagram",
+      "getInTouch": "Liên Hệ"
+    }
+  },
+  "meta": {
+    "defaultTitle": "VINdicated | Giáo Dục. Trao Quyền. Minh Oan.",
+    "defaultDescription": "VINdicated là một tổ chức phi lợi nhuận dựa trên niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng. Chúng tôi phân tích các hệ thống khiến phân biệt đối xử với người tiêu dùng tiếp diễn.",
+    "routes": {
+      "home": {
+        "title": "Giáo Dục. Trao Quyền. Minh Oan.",
+        "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn.",
+        "imageAlt": "VINdicated"
+      },
+      "about": {
+        "title": "Về Chúng Tôi",
+        "description": "VINdicated được Rana Darwich sáng lập sau khi trực tiếp trải qua phân biệt đối xử tại đại lý xe. Tìm hiểu sứ mệnh giáo dục, trao quyền và bảo vệ người mua xe của chúng tôi.",
+        "imageAlt": "VINdicated: Về Chúng Tôi"
+      },
+      "team": {
+        "title": "Đội Ngũ",
+        "description": "Gặp những người đứng sau VINdicated: các nhà vận động, nhà nghiên cứu và sinh viên chống lại phân biệt đối xử tại đại lý xe.",
+        "imageAlt": "VINdicated: Đội Ngũ"
+      },
+      "inspection": {
+        "title": "Hướng Dẫn Kiểm Tra",
+        "description": "Hướng dẫn từng bước để kiểm tra xe đã qua sử dụng trước khi mua. Biết cần xem gì dưới nắp capo, tại bãi xe và trong giấy tờ.",
+        "imageAlt": "VINdicated: Hướng Dẫn Kiểm Tra"
+      },
+      "fraud": {
+        "title": "Phòng Chống Gian Lận",
+        "description": "Học cách nhận biết và đối phó với các chiêu lừa phổ biến của đại lý. Biết dấu hiệu cảnh báo, quyền pháp lý của bạn và làm gì nếu bị lừa.",
+        "imageAlt": "VINdicated: Phòng Chống Gian Lận"
+      },
+      "documents": {
+        "title": "Giải Mã Tài Liệu",
+        "description": "Hướng dẫn tương tác để hiểu giấy tờ mua xe: giấy chủ quyền, báo cáo Carfax, hợp đồng tài chính và hơn thế nữa. Biết mình ký gì trước khi ký.",
+        "imageAlt": "VINdicated: Giải Mã Tài Liệu"
+      },
+      "research": {
+        "title": "Nghiên Cứu",
+        "description": "VINdicated thực hiện các nghiên cứu kiểm toán thư tín ghi nhận chênh lệch giá theo giới tính và chủng tộc tại đại lý xe. Đọc kết quả và phương pháp của chúng tôi.",
+        "imageAlt": "VINdicated: Nghiên Cứu"
+      },
+      "rights": {
+        "title": "Biết Quyền Của Bạn",
+        "description": "Biết quyền pháp lý của bạn khi mua xe. Luật liên bang và California bảo vệ bạn khỏi phân biệt đối xử và hành vi lừa dối tại đại lý.",
+        "imageAlt": "VINdicated: Biết Quyền Của Bạn"
+      },
+      "contact": {
+        "title": "Liên Hệ",
+        "description": "Liên hệ với VINdicated: tình nguyện cùng đội ngũ, chia sẻ câu chuyện, tham gia nghiên cứu hoặc hợp tác với chúng tôi.",
+        "imageAlt": "VINdicated: Liên Hệ"
+      },
+      "volunteer": {
+        "title": "Tình Nguyện",
+        "description": "Nộp đơn tham gia VINdicated với vai trò sinh viên tình nguyện, nhà nghiên cứu, kỹ sư, nhà thiết kế hoặc cộng tác viên tiếp cận cộng đồng.",
+        "imageAlt": "VINdicated: Tình Nguyện"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLine1": "Bạn Xứng Đáng",
+      "titleLine2": "Mua Xe",
+      "titleEm": "Không Sợ Hãi.",
+      "subtitle": "VINdicated được xây dựng trên niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng. Chúng tôi phân tích các hệ thống khiến phân biệt đối xử với người tiêu dùng tiếp diễn thông qua giáo dục, nghiên cứu và cộng đồng.",
+      "ctaPrimary": "Xem Hướng Dẫn PPI",
+      "ctaSecondary": "Câu Chuyện Của Chúng Tôi",
+      "stats": [
+        {
+          "label": "là số tiền người mua nam Da đen bị tính thêm so với người mua nam da trắng, ngay cả với cùng chiếc xe và cùng kịch bản",
+          "cite": "Ayres & Siegelman, 1995"
+        },
+        {
+          "label": "phụ nữ Gen Z cảm thấy nản lòng khi đến đại lý vì phân biệt giới tính",
+          "cite": "Morning Consult / Caribou, 2022"
+        },
+        {
+          "label": "người thử nghiệm không phải da trắng nhận được giá tệ hơn tại đại lý so với người thử nghiệm da trắng",
+          "cite": "National Fair Housing Alliance, 2018"
+        },
+        {
+          "label": "thời gian thương lượng lâu hơn mà người mua thuộc nhóm thiểu số phải đối mặt, dù cùng xe và cùng giá",
+          "cite": "Ayres & Siegelman, 1995"
+        }
+      ]
+    },
+    "cards": {
+      "titlePrefix": "Hai trụ cột của",
+      "titleEm": "công bằng ô tô.",
+      "pillars": [
+        {
+          "kicker": "Giáo dục",
+          "title": "Hướng Dẫn Kiểm Tra Trước Khi Mua",
+          "body": "Hướng dẫn từng bước về mọi thứ bạn nên kiểm tra, hỏi và xác minh trước khi trả tiền. Viết cho người mua lần đầu.",
+          "label": "Đọc Hướng Dẫn"
+        },
+        {
+          "kicker": "Bảo vệ",
+          "title": "Phòng Chống Gian Lận",
+          "body": "Những chiến thuật thật sự được dùng để gây bất lợi cho người mua, được gọi tên, giải thích và đối phó. Biết chính xác nên nói gì khi đại lý gây áp lực.",
+          "label": "Nhận Biết Dấu Hiệu"
+        }
+      ]
+    },
+    "quote": {
+      "text": "Tại sao phụ nữ lại phải bị giữ trong sự thiếu hiểu biết dưới cái tên giả tạo là sự ngây thơ?",
+      "cite": "Mary Wollstonecraft",
+      "source": "A Vindication of the Rights of Woman (1792)"
+    },
+    "founder": {
+      "titleLine1": "Sáng lập ở tuổi 19.",
+      "titleEm": "Vì cần thiết.",
+      "body1": "Ba lần vấp phải ở ba đại lý khác nhau cho tôi thấy cùng một điều: hệ thống được thiết kế để làm bạn rối, thúc ép bạn và kiếm lợi từ những gì bạn không biết.",
+      "body2Prefix": "VINdicated tồn tại vì ",
+      "body2Bold": "tôi ước nó đã tồn tại cho tôi.",
+      "cta": "Đọc Toàn Bộ Câu Chuyện Của Rana"
+    },
+    "meta": {
+      "title": "Giáo Dục. Trao Quyền. Minh Oan.",
+      "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn."
+    }
   }
 }

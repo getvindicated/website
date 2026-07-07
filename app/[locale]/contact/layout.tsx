@@ -1,23 +1,13 @@
-import type { Metadata } from "next";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
-  openGraph: {
-    title: "Contact",
-    description:
-      "Get in touch with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
-    url: "/contact",
-    type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Contact" }],
-  },
-  twitter: {
-    title: "Contact",
-    description:
-      "Get in touch with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return getRouteMetadata(locale, "contact", "/contact");
+}
 
 export default function ContactLayout({
   children,

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import {
 	PageHero,
@@ -6,27 +5,16 @@ import {
 	Divider,
 	SectionTitle,
 } from "@/components/ui";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
 
-export const metadata: Metadata = {
-	title: "Our Team",
-	description:
-		"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
-	openGraph: {
-		title: "Our Team",
-		description:
-			"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
-		url: "/team",
-		type: "website",
-		images: [
-  { url: "/preview.webp", alt: "VINdicated: Our Team" },
-],
-	},
-	twitter: {
-		title: "Our Team",
-		description:
-			"Meet the people behind VINdicated: advocates, researchers, and students fighting dealership discrimination.",
-	},
-};
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	return getRouteMetadata(locale, "team", "/team", "/preview.webp");
+}
 
 type Social = {
 	platform: "linkedin" | "github" | "instagram" | "website";

@@ -127,7 +127,7 @@ export default function VolunteerPage() {
 
             <div>
               <h2 className="text-[clamp(1.8rem,3vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-6">
-                What we're <em>looking for.</em>
+                What we&apos;re <em>looking for.</em>
               </h2>
               <div>
                 {ROLES.map((role) => (
@@ -195,7 +195,7 @@ export default function VolunteerPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[0.85rem] text-white mb-2">Role you're applying for</label>
+                  <label className="block text-[0.85rem] text-white mb-2">Role you&apos;re applying for</label>
                   <select
                     name="role"
                     required

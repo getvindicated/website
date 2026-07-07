@@ -6,10 +6,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return getRouteMetadata(locale, "inspection", "/inspection");
+  return getRouteMetadata(locale, "volunteer", "/volunteer", "/preview.webp");
 }
 
-export default function InspectionLayout({
+export default function VolunteerLayout({
   children,
 }: {
   children: React.ReactNode;
