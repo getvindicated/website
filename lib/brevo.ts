@@ -7,12 +7,14 @@ export const brevo = new BrevoClient({
 export async function sendEmail({
     subject,
     to,
+    cc,
     htmlContent,
     sender,
     replyTo,
 }: {
     subject: string;
     to: { email: string; name: string }[];
+    cc?: { email: string; name: string }[];
     htmlContent: string;
     sender: { name: string; email: string };
     replyTo?: { email: string; name: string };
@@ -25,6 +27,7 @@ export async function sendEmail({
 		return await brevo.transactionalEmails.sendTransacEmail({
 			subject,
 			to,
+			...(cc && cc.length > 0 && { cc }),
 			htmlContent: `<html><body>${htmlContent}</body></html>`,
 			sender,
 			...(replyTo && { replyTo }),
