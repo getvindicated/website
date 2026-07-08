@@ -369,55 +369,35 @@ export default async function AboutPage({
           </div>
 
           {/* Pullquote */}
-          <div className="my-16 max-w-[680px]">
-            <span
-              aria-hidden="true"
-              className="block leading-none mb-2"
+          <div
+            className="my-16 max-w-[680px] rounded-2xl px-8 py-7 max-md:px-5"
+            style={{ background: "var(--white)" }}
+          >
+            <blockquote
+              className="text-[clamp(1.3rem,2.8vw,1.9rem)] italic leading-[1.55] mb-4"
               style={{
                 fontFamily: "var(--font-heading), Georgia, serif",
-                fontSize: "3.5rem",
                 color: "var(--color-accent)",
-                opacity: 0.5,
               }}
-            >
-              &ldquo;
-            </span>
-            <blockquote
-              className="text-[clamp(1.3rem,2.8vw,1.9rem)] italic leading-[1.55] mb-5 -mt-6"
-              style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
               {d.story?.pullquote?.quote ??
                 "I reported Eddy. When the GM called to apologize, I said, \"I don't accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\""}
             </blockquote>
             <p
               className="text-[0.9rem] font-bold"
-              style={{ color: "var(--color-light)" }}
+              style={{ color: "var(--color-accent)" }}
             >
               {d.story?.pullquote?.attribution ??
                 "Rana Darwich, Founder of VINdicated"}
             </p>
           </div>
 
-          {/* Bio + Wollstonecraft, two columns */}
-          <div className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1">
-            <div>
-              <p
-                className="text-[0.85rem] font-bold mb-4"
-                style={{ color: "var(--color-accent)" }}
-              >
-                {d.story?.bio?.label ?? "About the Founder"}
-              </p>
-              <p className="text-[1.05rem] leading-[1.75] text-white mb-5">
-                {d.story?.bio?.body ??
-                  "Rana Darwich founded VINdicated at 19 after almost signing a predatory arbitration clause at a dealership."}
-              </p>
-              <p className="text-[1.15rem] font-semibold">
-                {d.story?.bio?.closingLine ?? "Now, it's your turn."}
-              </p>
-            </div>
-            <div className="flex items-center">
-              <WollstonecraftQuotes />
-            </div>
+          {/* Wollstonecraft quote carousel */}
+          <div
+            className="max-w-[680px] rounded-2xl px-8 py-7 max-md:px-5"
+            style={{ background: "var(--white)" }}
+          >
+            <WollstonecraftQuotes />
           </div>
 
           {/* Real-world presence */}
