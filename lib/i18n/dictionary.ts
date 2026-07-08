@@ -71,6 +71,18 @@ export type AboutDict = {
   };
 };
 
+export type TeamDict = {
+  hero?: { titleLine1?: string; titleEm?: string };
+  sectionTitle?: string;
+  members?: { position?: string; bio?: string }[];
+  cta?: {
+    headingPlain?: string;
+    headingEm?: string;
+    body?: string;
+    button?: string;
+  };
+};
+
 export type RouteMetadataKey =
   | "home"
   | "about"
