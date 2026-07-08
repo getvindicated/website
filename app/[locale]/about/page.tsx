@@ -5,7 +5,10 @@ import {
   Divider,
   SectionTitle,
 } from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
+import type { Locale } from "@/lib/i18n/config";
+import type { AboutDict, AboutTextSegment } from "@/lib/i18n/dictionary";
 
 export async function generateMetadata({
   params,
@@ -16,38 +19,129 @@ export async function generateMetadata({
   return getRouteMetadata(locale, "about", "/about");
 }
 
-export default function AboutPage() {
+function Segments({ segments }: { segments?: AboutTextSegment[] }) {
+  if (!segments) return null;
+  return (
+    <>
+      {segments.map((seg, i) =>
+        seg.bold ? (
+          <strong key={i} className="text-white">
+            {seg.text}
+          </strong>
+        ) : (
+          <span key={i}>{seg.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const dict = (await getDictionary(locale as Locale)) as { about?: AboutDict };
+  const d = dict.about ?? {};
+
+  const pillars = d.mission?.pillars ?? [
+    {
+      word: "Educate",
+      body: "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage.",
+    },
+    {
+      word: "Empower",
+      body: "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup.",
+    },
+    {
+      word: "Vindicate",
+      body: "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change.",
+    },
+  ];
+
+  const strikes = d.story?.strikes ?? [
+    {
+      num: "01",
+      label: "The Pink Slip Scam",
+      body: [
+        "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
+        "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
+      ],
+    },
+    {
+      num: "02",
+      label: "Facebook Marketplace",
+      body: [
+        "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
+        "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
+      ],
+    },
+    {
+      num: "03",
+      label: "South Coast Mitsubishi",
+      body: [
+        "I showed up to test drive a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\"",
+        "Then I paid for an independent inspection. They found issues. They handed me a financing contract at 30% APR. I know what a bad deal is. I didn't sign.",
+      ],
+    },
+  ];
+
+  const provideItems = d.provide?.items ?? [
+    {
+      cat: "Education",
+      title: "Free Automotive Workshops",
+      body: "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot.",
+    },
+    {
+      cat: "Tools",
+      title: "Online Resources & Guides",
+      body: "Step-by-step inspection guides, red flag checklists, script templates, and financing explainers. Designed for first-time buyers.",
+    },
+    {
+      cat: "Community",
+      title: "Vetted Mechanic Network",
+      body: "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you.",
+    },
+    {
+      cat: "Research",
+      title: "Correspondence Audit Studies",
+      body: "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities.",
+    },
+  ];
+
   return (
     <>
       <PageHero
         kicker=""
         title={
           <>
-            Built on the belief that car knowledge
+            {d.hero?.titlePlain ?? "Built on the belief that car knowledge"}
             <br />
-            <em>should be public knowledge.</em>
+            <em>{d.hero?.titleEm ?? "should be public knowledge."}</em>
           </>
         }
-        subtitle="VINdicated exists because we do not believe women should have to bring male protection just to buy a car safely."
+        subtitle={
+          d.hero?.subtitle ??
+          "VINdicated exists because we do not believe women should have to bring male protection just to buy a car safely."
+        }
       />
 
       {/* Why We Exist */}
       <FadeUp>
         <section id="why" className="px-12 py-24 max-md:px-6 max-md:py-16">
-  <div
-    className="grid grid-cols-[1fr_1fr] gap-12 items-start max-w-[1400px] mx-auto max-lg:grid-cols-1"
-  >
+          <div className="grid grid-cols-[1fr_1fr] gap-12 items-start max-w-[1400px] mx-auto max-lg:grid-cols-1">
             <div>
-             <SectionTitle
-  style={
-    { fontSize: "clamp(1.8rem,3vw,2.6rem)" } as React.CSSProperties
-  }
->
-                The discrimination
+              <SectionTitle
+                style={
+                  { fontSize: "clamp(1.8rem,3vw,2.6rem)" } as React.CSSProperties
+                }
+              >
+                {d.whyWeExist?.titleLine1 ?? "The discrimination"}
                 <br />
-                is <em>measurable.</em>
+                is <em>{d.whyWeExist?.titleEm ?? "measurable."}</em>
                 <br />
-                The harm is real.
+                {d.whyWeExist?.titleLine2 ?? "The harm is real."}
               </SectionTitle>
               <p className="text-[0.78rem] text-white leading-[1.6] mt-4 max-w-[340px]">
                 Ayres, I. &amp; Siegelman, P. (1995).
@@ -57,33 +151,18 @@ export default function AboutPage() {
             </div>
             <div className="space-y-5 text-[1.1rem] leading-[1.8] text-white">
               <p>
-                Research by Ian Ayres and Peter Siegelman found that{" "}
-                <strong className="text-white">
-                  Black male car buyers were quoted prices averaging $1,100
-                  higher
-                </strong>{" "}
-                than white male buyers for identical cars, even when using
-                identical bargaining scripts. Black women were quoted $410 more
-                than white men. White women were quoted $92 more than white men.
+                <Segments segments={d.whyWeExist?.para1} />
               </p>
               <p>
-                <strong className="text-white">
-                  48% of Gen Z women feel discouraged from visiting a dealership
-                </strong>{" "}
-                due to concern about gender-based discrimination (Morning
-                Consult for Caribou, 2022). This isn&apos;t paranoia. This is pattern
-                recognition.
+                <Segments segments={d.whyWeExist?.para2} />
               </p>
               <p>
-                Dealers made racist or sexist comments in{" "}
-                <strong className="text-white">4% of test visits</strong>. They
-                spent{" "}
-                <strong className="text-white">
-                  13% longer negotiating with &quot;minority&quot; testers
-                </strong>
-                .
+                <Segments segments={d.whyWeExist?.para3} />
               </p>
-              <p>And we&apos;re done pretending it&apos;s isolated incidents.</p>
+              <p>
+                {d.whyWeExist?.para4 ??
+                  "And we're done pretending it's isolated incidents."}
+              </p>
             </div>
           </div>
         </section>
@@ -96,31 +175,18 @@ export default function AboutPage() {
           className="relative overflow-hidden px-20 py-24 max-md:px-6 max-md:py-16"
           style={{ background: "var(--color-bg-page)", margin: 0 }}
         >
-        
           <h2 className="text-[clamp(2rem,3.5vw,3.2rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-3">
-            Educate. Empower. <em>Vindicate.</em>
+            {d.mission?.heading ?? "Educate. Empower."}{" "}
+            <em>{d.mission?.headingEm ?? "Vindicate."}</em>
           </h2>
           <p className="text-[0.88rem] text-white leading-[1.5] max-w-[620px] mb-8">
-            To dismantle consumer-level escort culture, one informed buyer at a
-            time.
+            {d.mission?.subheading ??
+              "To dismantle consumer-level escort culture, one informed buyer at a time."}
           </p>
           <div style={{ borderTop: "1px solid var(--color-border)" }}>
-            {[
-              {
-                word: "Educate",
-                body: "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage.",
-              },
-              {
-                word: "Empower",
-                body: "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup.",
-              },
-              {
-                word: "Vindicate",
-                body: "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change.",
-              },
-            ].map(({ word, body }) => (
+            {pillars.map(({ word, body }, i) => (
               <div
-                key={word}
+                key={i}
                 className="grid grid-cols-[240px_1fr] gap-6 py-10 max-md:grid-cols-1"
                 style={{
                   borderBottom: "1px solid var(--color-border)",
@@ -147,43 +213,18 @@ export default function AboutPage() {
       <FadeUp>
         <section id="story" className="px-20 py-24 max-md:px-6 max-md:py-16">
           <SectionTitle className="mb-3">
-            <em>Vindicated from what?</em>
+            <em>{d.story?.titleEm ?? "Vindicated from what?"}</em>
           </SectionTitle>
           <p className="text-[1.05rem] text-white leading-[1.7] max-w-[680px] mb-14">
-            Three strikes. Three completely different situations. The same
-            system every time.
+            {d.story?.subtitle ??
+              "Three strikes. Three completely different situations. The same system every time."}
           </p>
 
           {/* Strikes as timeline */}
           <div style={{ borderTop: "1px solid var(--color-border)" }}>
-            {[
-              {
-                num: "01",
-                label: "The Pink Slip Scam",
-                body: [
-                  "At 18, I was trying to buy a car from my friend\u2019s dad. He made me wait three months, promising the whole time to sell it to me.",
-                  "When the time finally came, he tried to tell me I didn\u2019t need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
-                ],
-              },
-              {
-                num: "02",
-                label: "Facebook Marketplace",
-                body: [
-                  "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
-                  "As soon as he found out I was female, the tone shifted completely. He told me, \u201CShut your mouth, bitch,\u201D and blocked me.",
-                ],
-              },
-              {
-                num: "03",
-                label: "South Coast Mitsubishi",
-                body: [
-                  "I showed up to test drive a car alone. When I came back with my sister to buy it, it suddenly read: \u201CBuy today or lose it.\u201D",
-                  "Then I paid for an independent inspection. They found issues. They handed me a financing contract at 30% APR. I know what a bad deal is. I didn\u2019t sign.",
-                ],
-              },
-            ].map(({ num, label, body }) => (
+            {strikes.map(({ num, label, body }, i) => (
               <div
-                key={num}
+                key={i}
                 className="grid grid-cols-[60px_200px_1fr] gap-6 max-md:gap-3 py-10 max-md:py-8 max-md:grid-cols-1"
                 style={{
                   borderBottom: "1px solid var(--color-border)",
@@ -202,9 +243,9 @@ export default function AboutPage() {
                   {label}
                 </h3>
                 <div className="space-y-3">
-                  {body.map((p, i) => (
+                  {body?.map((p, j) => (
                     <p
-                      key={i}
+                      key={j}
                       className="text-[0.97rem] text-white leading-[1.75]"
                     >
                       {p}
@@ -227,33 +268,33 @@ export default function AboutPage() {
               className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4"
               style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
-              I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect.
+              {d.story?.pullquote?.quote ??
+                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."}
             </blockquote>
             <p
               className="text-[0.9rem] font-bold"
               style={{ color: "var(--color-light)" }}
             >
-              Rana Darwich, Founder of VINdicated
+              {d.story?.pullquote?.attribution ??
+                "Rana Darwich, Founder of VINdicated"}
             </p>
           </div>
 
           {/* Bio + Wollstonecraft, two columns */}
-          <div
-            className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1"
-          >
+          <div className="grid grid-cols-[1fr_1fr] gap-12 max-lg:grid-cols-1">
             <div>
               <p
                 className="text-[0.85rem] font-bold mb-4"
                 style={{ color: "var(--color-accent)" }}
               >
-                About the Founder
+                {d.story?.bio?.label ?? "About the Founder"}
               </p>
               <p className="text-[1.05rem] leading-[1.75] text-white mb-5">
-                Rana Darwich founded VINdicated at 19 after almost signing
-				a predatory arbitration clause at a dealership.
+                {d.story?.bio?.body ??
+                  "Rana Darwich founded VINdicated at 19 after almost signing a predatory arbitration clause at a dealership."}
               </p>
               <p className="text-[1.15rem] font-semibold">
-                Now, it&apos;s your turn.
+                {d.story?.bio?.closingLine ?? "Now, it's your turn."}
               </p>
             </div>
             <div
@@ -267,14 +308,16 @@ export default function AboutPage() {
                 className="text-[0.85rem] font-bold mb-4"
                 style={{ color: "var(--color-accent)" }}
               >
-                Mary Wollstonecraft, 1792
+                {d.story?.wollstonecraft?.label ?? "Mary Wollstonecraft, 1792"}
               </p>
-             <p
+              <p
                 className="text-[clamp(1.2rem,2vw,1.5rem)] italic leading-[1.5]"
                 style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
               >
-                &quot;Strengthen the female mind by enlarging it, and there will be
-                an end to blind obedience.&quot;
+                &quot;
+                {d.story?.wollstonecraft?.quote ??
+                  "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."}
+                &quot;
               </p>
             </div>
           </div>
@@ -311,39 +354,18 @@ export default function AboutPage() {
               { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
             }
           >
-            Free. Accessible.
+            {d.provide?.titlePlain ?? "Free. Accessible."}
             <br />
-            <em>No strings attached.</em>
+            <em>{d.provide?.titleEm ?? "No strings attached."}</em>
           </SectionTitle>
           <p className="text-base text-white leading-[1.7] max-w-[680px] mb-14">
-            Everything VINdicated offers is free. No signup required, no upsell,
-            no catch.
+            {d.provide?.subtitle ??
+              "Everything VINdicated offers is free. No signup required, no upsell, no catch."}
           </p>
           <div style={{ borderTop: "1px solid var(--color-border)" }}>
-            {[
-              {
-                cat: "Education",
-                title: "Free Automotive Workshops",
-                body: "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot.",
-              },
-              {
-                cat: "Tools",
-                title: "Online Resources & Guides",
-                body: "Step-by-step inspection guides, red flag checklists, script templates, and financing explainers. Designed for first-time buyers.",
-              },
-              {
-                cat: "Community",
-                title: "Vetted Mechanic Network",
-                body: "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you.",
-              },
-              {
-                cat: "Research",
-                title: "Correspondence Audit Studies",
-                body: "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities.",
-              },
-            ].map(({ title, body }) => (
+            {provideItems.map(({ title, body }, i) => (
               <div
-                key={title}
+                key={i}
                 className="py-10"
                 style={{
                   borderBottom: "1px solid var(--color-border)",
