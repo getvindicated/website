@@ -82,6 +82,7 @@ export function WollstonecraftQuotes() {
           className="text-[clamp(1.2rem,2vw,1.5rem)] italic leading-[1.5] transition-opacity"
           style={{
             fontFamily: "var(--font-heading), Georgia, serif",
+            color: "var(--color-accent)",
             opacity: visible ? 1 : 0,
             transitionDuration: `${FADE_MS}ms`,
             minHeight: "5.5rem",
@@ -114,7 +115,7 @@ export function WollstonecraftQuotes() {
               height: 6,
               transitionDuration: `${FADE_MS}ms`,
               background:
-                i === index ? "var(--color-accent)" : "rgba(255,255,255,0.25)",
+                i === index ? "var(--color-accent)" : "rgba(149,51,165,0.25)",
             }}
           />
         ))}
