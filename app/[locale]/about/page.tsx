@@ -5,6 +5,7 @@ import {
   Divider,
   SectionTitle,
 } from "@/components/ui";
+import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
 import type { Locale } from "@/lib/i18n/config";
@@ -52,60 +53,6 @@ function RoadDivider() {
   );
 }
 
-// ── Mirror quote ──────────────────────────────────────────────
-// A pill-shaped "rearview mirror" with a small mount stalk above,
-// used for the founder pullquote and the Wollstonecraft citation.
-function MirrorQuote({
-  quote,
-  cite,
-  quoted = false,
-}: {
-  quote: string;
-  cite?: string;
-  quoted?: boolean;
-}) {
-  return (
-    <div className="w-full">
-      <div className="flex flex-col items-center" aria-hidden="true">
-        <div style={{ width: 3, height: 18, background: "var(--color-border)" }} />
-        <div
-          className="rounded-full"
-          style={{
-            width: 9,
-            height: 9,
-            background: "var(--color-accent)",
-            marginTop: -1,
-          }}
-        />
-      </div>
-      <blockquote
-        className="px-10 py-9 max-md:px-6 max-md:py-7 text-center"
-        style={{
-          borderRadius: 9999,
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(149,51,165,0.08) 55%)",
-          border: "1px solid var(--color-border)",
-          marginTop: -1,
-        }}
-      >
-        <p
-          className="text-[clamp(1.05rem,2.2vw,1.4rem)] italic leading-[1.5] mb-3"
-          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-        >
-          {quoted ? `\u201C${quote}\u201D` : quote}
-        </p>
-        {cite && (
-          <cite
-            className="not-italic text-[0.85rem] font-bold"
-            style={{ color: "var(--color-light)" }}
-          >
-            {cite}
-          </cite>
-        )}
-      </blockquote>
-    </div>
-  );
-}
 // stage 0 = Educate (key), 1 = Empower (spark), 2 = Vindicate (road)
 function IgnitionIcon({ stage }: { stage: number }) {
   if (stage === 0) {
@@ -469,16 +416,7 @@ export default async function AboutPage({
               </p>
             </div>
             <div className="flex items-center">
-              <MirrorQuote
-                quote={
-                  d.story?.wollstonecraft?.quote ??
-                  "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."
-                }
-                cite={
-                  d.story?.wollstonecraft?.label ?? "Mary Wollstonecraft, 1792"
-                }
-                quoted
-              />
+              <WollstonecraftQuotes />
             </div>
           </div>
 
