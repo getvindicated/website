@@ -423,17 +423,33 @@ export default async function AboutPage({
           </div>
 
           {/* Pullquote */}
-          <div className="my-16 max-w-[560px]">
-            <MirrorQuote
-              quote={
-                d.story?.pullquote?.quote ??
-                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."
-              }
-              cite={
-                d.story?.pullquote?.attribution ??
-                "Rana Darwich, Founder of VINdicated"
-              }
-            />
+          <div className="my-16 max-w-[680px]">
+            <span
+              aria-hidden="true"
+              className="block leading-none mb-2"
+              style={{
+                fontFamily: "var(--font-heading), Georgia, serif",
+                fontSize: "3.5rem",
+                color: "var(--color-accent)",
+                opacity: 0.5,
+              }}
+            >
+              &ldquo;
+            </span>
+            <blockquote
+              className="text-[clamp(1.3rem,2.8vw,1.9rem)] italic leading-[1.55] mb-5 -mt-6"
+              style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+            >
+              {d.story?.pullquote?.quote ??
+                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."}
+            </blockquote>
+            <p
+              className="text-[0.9rem] font-bold"
+              style={{ color: "var(--color-light)" }}
+            >
+              {d.story?.pullquote?.attribution ??
+                "Rana Darwich, Founder of VINdicated"}
+            </p>
           </div>
 
           {/* Bio + Wollstonecraft, two columns */}
