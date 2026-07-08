@@ -300,12 +300,12 @@ export default async function AboutPage({
             {pillars.map(({ word, body }, i) => (
               <div
                 key={i}
-                className="grid grid-cols-[240px_1fr] gap-6 py-10 max-md:grid-cols-1"
+                className="grid grid-cols-[320px_1fr] gap-6 py-10 max-md:grid-cols-1"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 flex-wrap min-w-0">
                   <IgnitionIcon stage={i} />
                   <h3
-                    className="text-[clamp(2rem,4vw,3rem)] tracking-[-0.02em] leading-[1]"
+                    className="text-[clamp(1.8rem,3.2vw,2.6rem)] tracking-[-0.02em] leading-[1]"
                     style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
                   >
                     {word}
