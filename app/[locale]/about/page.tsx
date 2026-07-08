@@ -371,7 +371,7 @@ export default async function AboutPage({
           {/* Pullquote */}
           <div
             className="my-16 max-w-[680px] rounded-2xl px-8 py-7 max-md:px-5"
-            style={{ background: "var(--white)" }}
+            style={{ background: "#ffffff" }}
           >
             <blockquote
               className="text-[clamp(1.3rem,2.8vw,1.9rem)] italic leading-[1.55] mb-4"
@@ -395,7 +395,7 @@ export default async function AboutPage({
           {/* Wollstonecraft quote carousel */}
           <div
             className="max-w-[680px] rounded-2xl px-8 py-7 max-md:px-5"
-            style={{ background: "var(--white)" }}
+            style={{ background: "#ffffff" }}
           >
             <WollstonecraftQuotes />
           </div>
