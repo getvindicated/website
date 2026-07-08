@@ -52,7 +52,60 @@ function RoadDivider() {
   );
 }
 
-// ── Ignition sequence icons for mission pillars ──
+// ── Mirror quote ──────────────────────────────────────────────
+// A pill-shaped "rearview mirror" with a small mount stalk above,
+// used for the founder pullquote and the Wollstonecraft citation.
+function MirrorQuote({
+  quote,
+  cite,
+  quoted = false,
+}: {
+  quote: string;
+  cite?: string;
+  quoted?: boolean;
+}) {
+  return (
+    <div className="w-full">
+      <div className="flex flex-col items-center" aria-hidden="true">
+        <div style={{ width: 3, height: 18, background: "var(--color-border)" }} />
+        <div
+          className="rounded-full"
+          style={{
+            width: 9,
+            height: 9,
+            background: "var(--color-accent)",
+            marginTop: -1,
+          }}
+        />
+      </div>
+      <blockquote
+        className="px-10 py-9 max-md:px-6 max-md:py-7 text-center"
+        style={{
+          borderRadius: 9999,
+          background:
+            "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(149,51,165,0.08) 55%)",
+          border: "1px solid var(--color-border)",
+          marginTop: -1,
+        }}
+      >
+        <p
+          className="text-[clamp(1.05rem,2.2vw,1.4rem)] italic leading-[1.5] mb-3"
+          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+        >
+          {quoted ? `\u201C${quote}\u201D` : quote}
+        </p>
+        {cite && (
+          <cite
+            className="not-italic text-[0.85rem] font-bold"
+            style={{ color: "var(--color-light)" }}
+          >
+            {cite}
+          </cite>
+        )}
+      </blockquote>
+    </div>
+  );
+}
 // stage 0 = Educate (key), 1 = Empower (spark), 2 = Vindicate (road)
 function IgnitionIcon({ stage }: { stage: number }) {
   if (stage === 0) {
@@ -370,27 +423,17 @@ export default async function AboutPage({
           </div>
 
           {/* Pullquote */}
-          <div
-            className="my-16 max-w-[720px] rounded-2xl px-8 py-7 max-md:px-5"
-            style={{
-              background: "rgba(149,51,165,0.06)",
-              border: "1px solid var(--color-border)",
-            }}
-          >
-            <blockquote
-              className="text-[clamp(1.2rem,2.5vw,1.8rem)] italic leading-[1.5] mb-4"
-              style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-            >
-              {d.story?.pullquote?.quote ??
-                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."}
-            </blockquote>
-            <p
-              className="text-[0.9rem] font-bold"
-              style={{ color: "var(--color-light)" }}
-            >
-              {d.story?.pullquote?.attribution ??
-                "Rana Darwich, Founder of VINdicated"}
-            </p>
+          <div className="my-16 max-w-[560px]">
+            <MirrorQuote
+              quote={
+                d.story?.pullquote?.quote ??
+                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."
+              }
+              cite={
+                d.story?.pullquote?.attribution ??
+                "Rana Darwich, Founder of VINdicated"
+              }
+            />
           </div>
 
           {/* Bio + Wollstonecraft, two columns */}
@@ -410,28 +453,17 @@ export default async function AboutPage({
                 {d.story?.bio?.closingLine ?? "Now, it's your turn."}
               </p>
             </div>
-            <div
-              className="rounded-2xl px-8 py-7 max-md:px-5"
-              style={{
-                background: "rgba(149,51,165,0.06)",
-                border: "1px solid var(--color-border)",
-              }}
-            >
-              <p
-                className="text-[0.85rem] font-bold mb-4"
-                style={{ color: "var(--color-accent)" }}
-              >
-                {d.story?.wollstonecraft?.label ?? "Mary Wollstonecraft, 1792"}
-              </p>
-              <p
-                className="text-[clamp(1.2rem,2vw,1.5rem)] italic leading-[1.5]"
-                style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-              >
-                &quot;
-                {d.story?.wollstonecraft?.quote ??
-                  "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."}
-                &quot;
-              </p>
+            <div className="flex items-center">
+              <MirrorQuote
+                quote={
+                  d.story?.wollstonecraft?.quote ??
+                  "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."
+                }
+                cite={
+                  d.story?.wollstonecraft?.label ?? "Mary Wollstonecraft, 1792"
+                }
+                quoted
+              />
             </div>
           </div>
 
