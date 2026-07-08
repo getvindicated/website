@@ -5,7 +5,10 @@ import {
 	Divider,
 	SectionTitle,
 } from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
+import type { Locale } from "@/lib/i18n/config";
+import type { TeamDict } from "@/lib/i18n/dictionary";
 
 export async function generateMetadata({
 	params,
@@ -23,11 +26,12 @@ type Social = {
 
 type TeamMember = {
 	name: string;
-	position: string;
 	school: string;
 	photo: string;
-	bio: string;
 	socials?: Social[];
+	// English fallbacks, used if a dictionary entry is missing for this index
+	position: string;
+	bio: string;
 };
 
 const team: TeamMember[] = [
@@ -162,26 +166,38 @@ function SocialIcon({ platform }: { platform: Social["platform"] }) {
 	}
 }
 
-export default function TeamPage() {
+export default async function TeamPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const dict = (await getDictionary(locale as Locale)) as { team?: TeamDict };
+	const d = dict.team ?? {};
+	const members = d.members;
+
 	return (
 		<>
 			<PageHero
 				kicker=""
 				title={
 					<>
-						Driven by the
+						{d.hero?.titleLine1 ?? "Driven by the"}
 						<br />
-						<em>same frustration.</em>
+						<em>{d.hero?.titleEm ?? "same frustration."}</em>
 					</>
 				}
 			/>
 
 			<section className="px-20 py-24 max-md:px-6 max-md:py-16">
-				<SectionTitle>Meet the Team</SectionTitle>
+				<SectionTitle>{d.sectionTitle ?? "Meet the Team"}</SectionTitle>
 
 				<div className="space-y-0">
-					{team.map((member, i) => (
-						<FadeUp key={member.name}>
+					{team.map((member, i) => {
+						const position = members?.[i]?.position ?? member.position;
+						const bio = members?.[i]?.bio ?? member.bio;
+						return (
+							<FadeUp key={member.name}>
 								<div
 									className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center"
 								>
@@ -213,19 +229,19 @@ export default function TeamPage() {
 											{member.name}
 										</h3>
 										<p
-	className="text-[1.15rem] font-bold mb-1"
-	style={{ color: "var(--color-accent)" }}
->
-	{member.position}
-</p>
-<p
-	className="text-[1.15rem] font-bold mb-5 text-white"
-	style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
->
-	{member.school}
-</p>
+											className="text-[1.15rem] font-bold mb-1"
+											style={{ color: "var(--color-accent)" }}
+										>
+											{position}
+										</p>
+										<p
+											className="text-[1.15rem] font-bold mb-5 text-white"
+											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+										>
+											{member.school}
+										</p>
 										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
-											{member.bio}
+											{bio}
 										</p>
 									</div>
 
@@ -233,34 +249,35 @@ export default function TeamPage() {
 									{member.socials && member.socials.length > 0 && (
 										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
 											{member.socials.map((s) => (
-											<a
-												key={s.platform}
-												href={s.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
-												style={{
-													border: "1px solid var(--color-border)",
-													background: "var(--color-bg-surface)",
-													color: "var(--color-light)",
-												}}
-												aria-label={`${member.name} on ${s.platform}`}
-											>
-												<SocialIcon platform={s.platform} />
-											</a>
-										))}
-									</div>
+												
+													key={s.platform}
+													href={s.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+													style={{
+														border: "1px solid var(--color-border)",
+														background: "var(--color-bg-surface)",
+														color: "var(--color-light)",
+													}}
+													aria-label={`${member.name} on ${s.platform}`}
+												>
+													<SocialIcon platform={s.platform} />
+												</a>
+											))}
+										</div>
 									)}
 								</div>
 
-							{i < team.length - 1 && (
-								<hr
-									className="border-none h-px"
-									style={{ background: "var(--color-border)" }}
-								/>
-							)}
-						</FadeUp>
-					))}
+								{i < team.length - 1 && (
+									<hr
+										className="border-none h-px"
+										style={{ background: "var(--color-border)" }}
+									/>
+								)}
+							</FadeUp>
+						);
+					})}
 				</div>
 			</section>
 
@@ -272,20 +289,20 @@ export default function TeamPage() {
 					style={{ background: "var(--color-bg-page)" }}
 				>
 					<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
-						Want to be part of <em>this?</em>
+						{d.cta?.headingPlain ?? "Want to be part of"}{" "}
+						<em>{d.cta?.headingEm ?? "this?"}</em>
 					</h2>
 					<p className="text-[1.05rem] text-white leading-[1.7] max-w-[540px] mx-auto">
-						VINdicated is always looking for passionate people: researchers,
-						developers, designers, educators, and advocates. If you believe car
-						buying should be fair for everyone, we want to hear from you.
+						{d.cta?.body ??
+							"VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you."}
 					</p>
-				<a
-					href="/join"
-	className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
-	style={{ background: "var(--color-vivid)" }}
->
-	Get in Touch
-</a>
+					
+						href="/join"
+						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
+						style={{ background: "var(--color-vivid)" }}
+					>
+						{d.cta?.button ?? "Get in Touch"}
+					</a>
 				</section>
 			</FadeUp>
 		</>
