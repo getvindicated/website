@@ -52,6 +52,103 @@ function RoadDivider() {
   );
 }
 
+// ── Ignition sequence icons for mission pillars ──
+// stage 0 = Educate (key), 1 = Empower (spark), 2 = Vindicate (road)
+function IgnitionIcon({ stage }: { stage: number }) {
+  if (stage === 0) {
+    return (
+      <svg
+        viewBox="0 0 44 44"
+        width={40}
+        height={40}
+        className="ignition-key flex-shrink-0"
+        aria-hidden="true"
+      >
+        <circle
+          cx="14"
+          cy="22"
+          r="8"
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="2.5"
+        />
+        <circle cx="14" cy="22" r="3" fill="var(--color-accent)" />
+        <line
+          x1="21"
+          y1="22"
+          x2="38"
+          y2="22"
+          stroke="var(--color-accent)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="30"
+          y1="22"
+          x2="30"
+          y2="28"
+          stroke="var(--color-accent)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <line
+          x1="35"
+          y1="22"
+          x2="35"
+          y2="27"
+          stroke="var(--color-accent)"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  if (stage === 1) {
+    return (
+      <svg
+        viewBox="0 0 44 44"
+        width={40}
+        height={40}
+        className="ignition-spark flex-shrink-0"
+        aria-hidden="true"
+      >
+        <path
+          d="M24 4 L10 25 H19 L16 40 L34 17 H24 L27 4 Z"
+          fill="var(--color-accent)"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 44 44"
+      width={40}
+      height={40}
+      className="flex-shrink-0"
+      aria-hidden="true"
+    >
+      <polygon
+        points="4,40 40,40 27,8 17,8"
+        fill="none"
+        stroke="var(--color-accent)"
+        strokeWidth="2"
+      />
+      <line
+        x1="22"
+        y1="12"
+        x2="22"
+        y2="36"
+        stroke="var(--color-accent)"
+        strokeWidth="2.5"
+        strokeDasharray="5 5"
+        className="ignition-road-dash"
+      />
+    </svg>
+  );
+}
+
 export default async function AboutPage({
   params,
 }: {
@@ -208,12 +305,15 @@ export default async function AboutPage({
                   borderBottom: "1px solid var(--color-border)",
                 }}
               >
-                <h3
-                  className="text-[clamp(2rem,4vw,3rem)] tracking-[-0.02em] leading-[1]"
-                  style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-                >
-                  {word}
-                </h3>
+                <div className="flex items-center gap-4">
+                  <IgnitionIcon stage={i} />
+                  <h3
+                    className="text-[clamp(2rem,4vw,3rem)] tracking-[-0.02em] leading-[1]"
+                    style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+                  >
+                    {word}
+                  </h3>
+                </div>
                 <p className="text-[1.05rem] text-white leading-[1.75] pt-1">
                   {body}
                 </p>
