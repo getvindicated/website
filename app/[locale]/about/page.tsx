@@ -3,6 +3,7 @@ import {
   PageHero,
   FadeUp,
   Divider,
+  RoadDivider,
   SectionTitle,
 } from "@/components/ui";
 import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes";
@@ -37,21 +38,6 @@ function Segments({ segments }: { segments?: AboutTextSegment[] }) {
   );
 }
 
-function RoadDivider() {
-  return (
-    <div
-      aria-hidden="true"
-      className="w-full"
-      style={{
-        height: 4,
-        borderRadius: 2,
-        background:
-          "repeating-linear-gradient(to right, var(--color-accent) 0px, var(--color-accent) 16px, transparent 16px, transparent 32px)",
-        opacity: 0.55,
-      }}
-    />
-  );
-}
 
 // stage 0 = Educate (key), 1 = Empower (spark), 2 = Vindicate (road)
 function IgnitionIcon({ stage }: { stage: number }) {
