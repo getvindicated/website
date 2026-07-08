@@ -44,6 +44,7 @@ const DICT_KEY_BY_LABEL: Record<string, string> = {
   "Who We Are": "aboutWhoWeAre",
   "What Is a PPI?": "inspectionPpi",
   Overview: "fraudOverview",
+  "Learning Resources": "learningResources",
 };
 
 function labelFor(link: { label: string; href: string }, dict: NavDict) {
