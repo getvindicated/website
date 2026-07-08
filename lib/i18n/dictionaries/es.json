@@ -163,5 +163,147 @@
       "title": "Educar. Empoderar. Reivindicar.",
       "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos."
     }
+  },
+  "about": {
+    "hero": {
+      "titlePlain": "Basado en la creencia de que el conocimiento sobre autos",
+      "titleEm": "debería ser de dominio público.",
+      "subtitle": "VINdicated existe porque no creemos que las mujeres deban llevar protección masculina solo para comprar un auto de forma segura."
+    },
+    "whyWeExist": {
+      "titleLine1": "La discriminación",
+      "titleEm": "es medible.",
+      "titleLine2": "El daño es real.",
+      "para1": [
+        {
+          "text": "Una investigación de Ian Ayres y Peter Siegelman encontró que a los "
+        },
+        {
+          "text": "compradores de autos hombres negros se les cotizaban precios en promedio $1,100 más altos",
+          "bold": true
+        },
+        {
+          "text": " que a los compradores hombres blancos por autos idénticos, incluso usando guiones de negociación idénticos. A las mujeres negras se les cotizó $410 más que a los hombres blancos. A las mujeres blancas se les cotizó $92 más que a los hombres blancos."
+        }
+      ],
+      "para2": [
+        {
+          "text": "El 48% de las mujeres de la Generación Z se sienten desanimadas a visitar un concesionario",
+          "bold": true
+        },
+        {
+          "text": " por preocupación de discriminación de género (Morning Consult para Caribou, 2022). Esto no es paranoia. Es reconocimiento de patrones."
+        }
+      ],
+      "para3": [
+        {
+          "text": "Los concesionarios hicieron comentarios racistas o sexistas en el "
+        },
+        {
+          "text": "4% de las visitas de prueba",
+          "bold": true
+        },
+        {
+          "text": ". Se tomaron "
+        },
+        {
+          "text": "13% más tiempo negociando con compradores de prueba de \"minorías\"",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ],
+      "para4": "Y ya no vamos a fingir que son incidentes aislados."
+    },
+    "mission": {
+      "heading": "Educar. Empoderar.",
+      "headingEm": "Vindicar.",
+      "subheading": "Desmantelar la cultura de escolta a nivel del consumidor, un comprador informado a la vez.",
+      "pillars": [
+        {
+          "word": "Educar",
+          "body": "Hacer que comprar un auto sea comprensible. Navegable. Traducimos el manual del concesionario a un lenguaje sencillo porque el conocimiento es poder de negociación."
+        },
+        {
+          "word": "Empoderar",
+          "body": "Construir la confianza para entrar sola, hacer las preguntas correctas y retirarse cuando sea necesario, sin vergüenza y sin necesitar refuerzo."
+        },
+        {
+          "word": "Vindicar",
+          "body": "Producir la investigación que documenta lo que los consumidores ya saben. Convertir la experiencia vivida en datos. Convertir los datos en cambio de políticas."
+        }
+      ]
+    },
+    "story": {
+      "titleEm": "¿Vindicada de qué?",
+      "subtitle": "Tres golpes. Tres situaciones completamente distintas. El mismo sistema cada vez.",
+      "strikes": [
+        {
+          "num": "01",
+          "label": "La estafa del título rosa",
+          "body": [
+            "A los 18 años, intentaba comprarle un auto al papá de mi amigo. Me hizo esperar tres meses, prometiendo todo el tiempo que me lo vendería.",
+            "Cuando por fin llegó el momento, trató de decirme que no necesitaba el título de propiedad. Estaba intentando estafarme. Sin el título a tu nombre, el auto no es legalmente tuyo, sin importar lo que hayas pagado."
+          ]
+        },
+        {
+          "num": "02",
+          "label": "Facebook Marketplace",
+          "body": [
+            "Intenté comprar un auto en Facebook Marketplace. La conversación empezó de forma normal, hablando de kilometraje, precio, cuándo podía ir a verlo.",
+            "En cuanto se dio cuenta de que yo era mujer, el tono cambió por completo. Me dijo: \"Cállate la boca, perra\", y me bloqueó."
+          ]
+        },
+        {
+          "num": "03",
+          "label": "South Coast Mitsubishi",
+          "body": [
+            "Fui sola a probar un auto. Cuando regresé con mi hermana para comprarlo, de repente el anuncio decía: \"Cómpralo hoy o piérdelo\".",
+            "Después pagué por una inspección independiente. Encontraron problemas. Me entregaron un contrato de financiamiento al 30% de interés anual. Sé reconocer un mal trato. No firmé."
+          ]
+        }
+      ],
+      "pullquote": {
+        "quote": "Denuncié a Eddy. Cuando el gerente general llamó a disculparse, le dije: no acepto tu disculpa. Espero que, ya sea que entre una chica de 19 años o un hombre de 50, traten a todos con respeto.",
+        "attribution": "Rana Darwich, fundadora de VINdicated"
+      },
+      "bio": {
+        "label": "Sobre la fundadora",
+        "body": "Rana Darwich fundó VINdicated a los 19 años, después de casi firmar una cláusula de arbitraje abusiva en un concesionario.",
+        "closingLine": "Ahora te toca a ti."
+      },
+      "wollstonecraft": {
+        "label": "Mary Wollstonecraft, 1792",
+        "quote": "Fortalezcan la mente femenina ampliándola, y llegará el fin de la obediencia ciega."
+      }
+    },
+    "provide": {
+      "titlePlain": "Gratis. Accesible.",
+      "titleEm": "Sin condiciones ocultas.",
+      "subtitle": "Todo lo que ofrece VINdicated es gratuito. Sin necesidad de registrarte, sin ventas adicionales, sin trampas.",
+      "items": [
+        {
+          "cat": "Educación",
+          "title": "Talleres automotrices gratuitos",
+          "body": "Sesiones lideradas por la comunidad que explican lo que los concesionarios no quieren que sepas, incluyendo financiamiento, reparaciones y tus derechos legales en el lote."
+        },
+        {
+          "cat": "Herramientas",
+          "title": "Recursos y guías en línea",
+          "body": "Guías de inspección paso a paso, listas de señales de alerta, plantillas de guiones y explicaciones de financiamiento. Diseñado para compradores primerizos."
+        },
+        {
+          "cat": "Comunidad",
+          "title": "Red de mecánicos verificados",
+          "body": "Estamos construyendo un directorio de mecánicos verificados por nuestra comunidad: mecánicos honestos que no te subestiman ni te presionan a comprar más."
+        },
+        {
+          "cat": "Investigación",
+          "title": "Estudios de auditoría por correspondencia",
+          "body": "Documentamos la discriminación con datos. Nuestros estudios en curso cuantifican las disparidades de precios basadas en género."
+        }
+      ]
+    }
   }
 }
