@@ -18,6 +18,7 @@ const DICT_KEY_BY_HREF: Record<string, string> = {
   "/documents": "documents",
   "/research": "research",
   "/contact": "contact",
+  "/join": "getInvolved",
 };
 
 const FOOTER_HEADING_KEY: Record<string, keyof SiteDictionary["footer"]["columns"]> = {
