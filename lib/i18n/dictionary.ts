@@ -32,6 +32,45 @@ export type HomeDict = {
   };
 };
 
+export type AboutTextSegment = { text?: string; bold?: boolean };
+
+export type AboutDict = {
+  hero?: {
+    titlePlain?: string;
+    titleEm?: string;
+    subtitle?: string;
+  };
+  whyWeExist?: {
+    titleLine1?: string;
+    titleEm?: string;
+    titleLine2?: string;
+    para1?: AboutTextSegment[];
+    para2?: AboutTextSegment[];
+    para3?: AboutTextSegment[];
+    para4?: string;
+  };
+  mission?: {
+    heading?: string;
+    headingEm?: string;
+    subheading?: string;
+    pillars?: { word?: string; body?: string }[];
+  };
+  story?: {
+    titleEm?: string;
+    subtitle?: string;
+    strikes?: { num?: string; label?: string; body?: string[] }[];
+    pullquote?: { quote?: string; attribution?: string };
+    bio?: { label?: string; body?: string; closingLine?: string };
+    wollstonecraft?: { label?: string; quote?: string };
+  };
+  provide?: {
+    titlePlain?: string;
+    titleEm?: string;
+    subtitle?: string;
+    items?: { cat?: string; title?: string; body?: string }[];
+  };
+};
+
 export type RouteMetadataKey =
   | "home"
   | "about"
