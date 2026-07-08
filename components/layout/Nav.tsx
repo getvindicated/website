@@ -164,7 +164,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
 
         {/* Hamburger / Close toggle */}
         <button
-          className="relative z-[102] flex md:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
+          className="relative z-[102] flex lg:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
           aria-label={menuOpen ? dict.ui.closeMenu : dict.ui.openMenu}
           onClick={() => setMenuOpen((v) => !v)}
         >
