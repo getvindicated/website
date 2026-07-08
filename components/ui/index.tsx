@@ -154,28 +154,48 @@ export function PageHero({
 }
 
 // ── Pullquote ────────────────────────────────────────────────
+// Styled as a price tag / hangtag: a die-cut shape with a pointed
+// tip and a punched "string hole," subtly rotated like it's hanging.
 export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
   return (
-    <blockquote
-      className="my-8 px-8 max-md:px-5 py-6 rounded-2xl"
-      style={{
-        background: "rgba(149,51,165,0.06)",
-        border: "1px solid var(--color-border)",
-      }}
-    >
-      <p
-        className="text-[clamp(1.05rem,2.5vw,1.3rem)] italic leading-[1.5] mb-3"
-        style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+    <div className="my-8 max-w-[760px]" style={{ transform: "rotate(-1.2deg)" }}>
+      <blockquote
+        className="relative pl-14 pr-8 py-7 max-md:pl-11 max-md:pr-5"
+        style={{
+          background: "rgba(149,51,165,0.08)",
+          border: "1px solid var(--color-border)",
+          clipPath:
+            "polygon(0 50%, 34px 0%, 100% 0%, 100% 100%, 34px 100%)",
+        }}
       >
-        {quote}
-      </p>
-      <cite
-        className="not-italic text-[0.9rem] font-bold"
-        style={{ color: "var(--color-light)" }}
-      >
-        {cite}
-      </cite>
-    </blockquote>
+        {/* Punched string hole */}
+        <span
+          aria-hidden="true"
+          className="absolute rounded-full"
+          style={{
+            top: "50%",
+            left: 16,
+            width: 10,
+            height: 10,
+            transform: "translateY(-50%)",
+            background: "var(--color-bg-page)",
+            border: "1.5px solid var(--color-accent)",
+          }}
+        />
+        <p
+          className="text-[clamp(1.05rem,2.5vw,1.3rem)] italic leading-[1.5] mb-3"
+          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+        >
+          {quote}
+        </p>
+        <cite
+          className="not-italic text-[0.9rem] font-bold"
+          style={{ color: "var(--color-light)" }}
+        >
+          {cite}
+        </cite>
+      </blockquote>
+    </div>
   );
 }
 
