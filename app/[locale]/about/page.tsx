@@ -36,6 +36,22 @@ function Segments({ segments }: { segments?: AboutTextSegment[] }) {
   );
 }
 
+function RoadDivider() {
+  return (
+    <div
+      aria-hidden="true"
+      className="w-full"
+      style={{
+        height: 4,
+        borderRadius: 2,
+        background:
+          "repeating-linear-gradient(to right, var(--color-accent) 0px, var(--color-accent) 16px, transparent 16px, transparent 32px)",
+        opacity: 0.55,
+      }}
+    />
+  );
+}
+
 export default async function AboutPage({
   params,
 }: {
@@ -362,26 +378,20 @@ export default async function AboutPage({
             {d.provide?.subtitle ??
               "Everything VINdicated offers is free. No signup required, no upsell, no catch."}
           </p>
-          <div style={{ borderTop: "1px solid var(--color-border)" }}>
-            {provideItems.map(({ title, body }, i) => (
-              <div
-                key={i}
-                className="py-10"
-                style={{
-                  borderBottom: "1px solid var(--color-border)",
-                }}
-              >
-                <div>
-                  <h3 className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-3">
-                    {title}
-                  </h3>
-                  <p className="text-[1rem] text-white leading-[1.7] max-w-[560px]">
-                    {body}
-                  </p>
-                </div>
+          <RoadDivider />
+          {provideItems.map(({ title, body }, i) => (
+            <div key={i}>
+              <div className="py-10">
+                <h3 className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-3">
+                  {title}
+                </h3>
+                <p className="text-[1rem] text-white leading-[1.7] max-w-[560px]">
+                  {body}
+                </p>
               </div>
-            ))}
-          </div>
+              <RoadDivider />
+            </div>
+          ))}
         </section>
       </FadeUp>
     </>
