@@ -296,14 +296,11 @@ export default async function AboutPage({
             {d.mission?.subheading ??
               "To dismantle consumer-level escort culture, one informed buyer at a time."}
           </p>
-          <div style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div>
             {pillars.map(({ word, body }, i) => (
               <div
                 key={i}
                 className="grid grid-cols-[240px_1fr] gap-6 py-10 max-md:grid-cols-1"
-                style={{
-                  borderBottom: "1px solid var(--color-border)",
-                }}
               >
                 <div className="flex items-center gap-4">
                   <IgnitionIcon stage={i} />
