@@ -162,7 +162,8 @@
     "meta": {
       "title": "Educate. Empower. Vindicate.",
       "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources."
-    ,
+    }
+  },
   "about": {
     "hero": {
       "titlePlain": "Built on the belief that car knowledge",
@@ -174,20 +175,44 @@
       "titleEm": "is measurable.",
       "titleLine2": "The harm is real.",
       "para1": [
-        { "text": "Research by Ian Ayres and Peter Siegelman found that " },
-        { "text": "Black male car buyers were quoted prices averaging $1,100 higher", "bold": true },
-        { "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more than white men. White women were quoted $92 more than white men." }
+        {
+          "text": "Research by Ian Ayres and Peter Siegelman found that "
+        },
+        {
+          "text": "Black male car buyers were quoted prices averaging $1,100 higher",
+          "bold": true
+        },
+        {
+          "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more than white men. White women were quoted $92 more than white men."
+        }
       ],
       "para2": [
-        { "text": "48% of Gen Z women feel discouraged from visiting a dealership", "bold": true },
-        { "text": " due to concern about gender-based discrimination (Morning Consult for Caribou, 2022). This isn't paranoia. This is pattern recognition." }
+        {
+          "text": "48% of Gen Z women feel discouraged from visiting a dealership",
+          "bold": true
+        },
+        {
+          "text": " due to concern about gender-based discrimination (Morning Consult for Caribou, 2022). This isn't paranoia. This is pattern recognition."
+        }
       ],
       "para3": [
-        { "text": "Dealers made racist or sexist comments in " },
-        { "text": "4% of test visits", "bold": true },
-        { "text": ". They spent " },
-        { "text": "13% longer negotiating with \"minority\" testers", "bold": true },
-        { "text": "." }
+        {
+          "text": "Dealers made racist or sexist comments in "
+        },
+        {
+          "text": "4% of test visits",
+          "bold": true
+        },
+        {
+          "text": ". They spent "
+        },
+        {
+          "text": "13% longer negotiating with \"minority\" testers",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
       ],
       "para4": "And we're done pretending it's isolated incidents."
     },
