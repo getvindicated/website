@@ -13,6 +13,7 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 type NavLinkType = {
   label: string;
   href: string;
+  standalone?: boolean;
   children?: readonly { label: string; href: string }[];
 };
 
@@ -155,6 +156,12 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
                     300,
                   );
                 }}
+                onToggleClick={() => {
+                  clearCloseTimer();
+                  setActiveDropdown((current) =>
+                    current === link.href ? null : link.href,
+                  );
+                }}
               />
             ))}
           </ul>
@@ -246,6 +253,7 @@ function MobileMenu({
         <ul className="list-none flex flex-col mt-4">
           {navLinks.map((link) => {
             const hasChildren = "children" in link && link.children;
+            const isStandalone = (link as NavLinkType).standalone !== false;
             const active = isActive(link.href);
             const isExpanded = expanded === link.href;
 
@@ -256,18 +264,32 @@ function MobileMenu({
               >
                 {/* Top-level link row */}
                 <div className="flex items-center">
-                  <Link
-                    href={localizeHref(locale, link.href)}
-                    onClick={onClose}
-                    className="flex-1 py-4 text-[1.1rem] font-medium no-underline transition-colors"
-                    style={{
-                      color: active
-                        ? "var(--color-accent)"
-                        : "#fff",
-                    }}
-                  >
-                    {labelFor(link, dict)}
-                  </Link>
+                  {isStandalone ? (
+                    <Link
+                      href={localizeHref(locale, link.href)}
+                      onClick={onClose}
+                      className="flex-1 py-4 text-[1.1rem] font-medium no-underline transition-colors"
+                      style={{
+                        color: active
+                          ? "var(--color-accent)"
+                          : "#fff",
+                      }}
+                    >
+                      {labelFor(link, dict)}
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      className="flex-1 py-4 text-left text-[1.1rem] font-medium bg-transparent border-none transition-colors"
+                      style={{ color: "#fff" }}
+                      aria-expanded={isExpanded}
+                      onClick={() =>
+                        setExpanded(isExpanded ? null : link.href)
+                      }
+                    >
+                      {labelFor(link, dict)}
+                    </button>
+                  )}
                   {hasChildren && (
                     <button
                       className="flex items-center justify-center w-11 h-11 bg-transparent border-none -mr-2"
@@ -353,6 +375,7 @@ function DesktopNavItem({
   isOpen,
   onMouseEnter,
   onMouseLeave,
+  onToggleClick,
 }: {
   link: NavLinkType;
   label: string;
@@ -362,39 +385,94 @@ function DesktopNavItem({
   isOpen: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  onToggleClick: () => void;
 }) {
+  const isStandalone = link.standalone !== false;
+  const sharedClassName =
+    "text-[0.95rem] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm";
+  const sharedStyle = {
+    color: "white",
+    fontFamily: "var(--font-heading), Georgia, serif",
+    fontWeight: active ? 600 : 400,
+  } as const;
+
   return (
     <li
       className="relative"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Link
-        href={localizeHref(locale, link.href)}
-        className="text-[0.95rem] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm"
-        style={{
-          color: "white",
-          fontFamily: "var(--font-heading), Georgia, serif",
-          fontWeight: active ? 600 : 400,
-        }}
-      >
-        {label}
-      </Link>
+      {isStandalone ? (
+        <Link
+          href={localizeHref(locale, link.href)}
+          className={sharedClassName}
+          style={sharedStyle}
+        >
+          {label}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={`${sharedClassName} bg-transparent border-none p-0 cursor-pointer`}
+          style={sharedStyle}
+          aria-haspopup="true"
+          aria-expanded={isOpen}
+          onClick={onToggleClick}
+        >
+          {label}
+        </button>
+      )}
       {link.children && isOpen && (
         <div
-          className="absolute top-full left-0 mt-2 min-w-[200px] rounded border border-white/[0.08] py-1 z-[99999]"
+          className="slide-up absolute top-full left-0 mt-3 min-w-[240px] rounded-xl py-2 z-[99999]"
           style={{
-            background: "#1a0a2e",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+            background: "#170b28",
+            border: "1px solid rgba(255,255,255,0.1)",
+            boxShadow: "0 16px 40px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.35)",
           }}
         >
-          {link.children.map((child) => (
+          {/* Pointer caret connecting the menu to its trigger */}
+          <span
+            aria-hidden="true"
+            className="absolute block w-3 h-3 rotate-45"
+            style={{
+              top: -6,
+              left: 24,
+              background: "#170b28",
+              borderLeft: "1px solid rgba(255,255,255,0.1)",
+              borderTop: "1px solid rgba(255,255,255,0.1)",
+            }}
+          />
+          {link.children.map((child, i) => (
             <Link
               key={child.href}
               href={localizeHref(locale, child.href)}
-              className="block px-4 py-2 text-[0.82rem] text-white no-underline whitespace-nowrap transition-colors hover:text-white hover:bg-[#9630a6]/30"
+              className="flex items-center justify-between gap-6 px-5 py-3 text-[0.88rem] font-medium no-underline whitespace-nowrap transition-colors duration-150"
+              style={{
+                color: "rgba(255,255,255,0.85)",
+                borderBottom:
+                  i < link.children!.length - 1
+                    ? "1px solid rgba(255,255,255,0.07)"
+                    : "none",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.background = "rgba(149,51,165,0.18)";
+                el.style.color = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLAnchorElement;
+                el.style.background = "transparent";
+                el.style.color = "rgba(255,255,255,0.85)";
+              }}
             >
               {labelFor(child, dict)}
+              <span
+                aria-hidden="true"
+                style={{ color: "var(--color-accent)", fontSize: "0.75rem" }}
+              >
+                →
+              </span>
             </Link>
           ))}
         </div>
