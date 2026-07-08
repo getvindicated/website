@@ -38,6 +38,7 @@ const DICT_KEY_BY_HREF: Record<string, string> = {
   "/volunteer": "volunteer",
   "/research": "research",
   "/contact": "contact",
+  "/join": "getInvolved",
 };
 
 const DICT_KEY_BY_LABEL: Record<string, string> = {
