@@ -3,6 +3,7 @@ import {
 	PageHero,
 	FadeUp,
 	Divider,
+	RoadDivider,
 	SectionTitle,
 } from "@/components/ui";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -270,10 +271,9 @@ export default async function TeamPage({
 								</div>
 
 								{i < team.length - 1 && (
-									<hr
-										className="border-none h-px"
-										style={{ background: "var(--color-border)" }}
-									/>
+									<div className="py-4">
+										<RoadDivider />
+									</div>
 								)}
 							</FadeUp>
 						);
