@@ -1,167 +1,309 @@
 {
   "nav": {
-    "home": "Trang Chủ",
-    "about": "Về Chúng Tôi",
-    "aboutWhoWeAre": "Chúng Tôi Là Ai",
-    "aboutMission": "Sứ Mệnh",
-    "aboutFounder": "Từ Người Sáng Lập",
-    "aboutProvides": "Chúng Tôi Cung Cấp Gì",
-    "team": "Đội Ngũ",
-    "inspection": "Hướng Dẫn Kiểm Tra",
-    "inspectionPpi": "PPI Là Gì?",
-    "inspectionEngine": "Sơ Đồ Động Cơ",
-    "inspectionChecks": "Thợ Kiểm Tra Xem Gì",
-    "inspectionWhere": "Kiểm Tra Ở Đâu",
-    "inspectionDealership": "Tìm Đại Lý",
-    "fraud": "Phòng Chống Gian Lận",
-    "fraudOverview": "Tổng Quan",
-    "fraudRedFlags": "Dấu Hiệu Cảnh Báo",
-    "fraudRights": "Biết Quyền Của Bạn",
-    "fraudAfter": "Làm Gì Sau Đó",
-    "documents": "Giải Mã Tài Liệu",
-    "volunteer": "Tình Nguyện",
-    "research": "Nghiên Cứu",
-    "contact": "Liên Hệ"
+    "home": "Home",
+    "about": "Tungkol Sa Amin",
+    "aboutWhoWeAre": "Sino Kami",
+    "aboutMission": "Aming Misyon",
+    "aboutFounder": "Mula sa Founder",
+    "aboutProvides": "Ano ang Ibinibigay Namin",
+    "team": "Team",
+    "inspection": "Gabay sa Inspeksyon",
+    "inspectionPpi": "Ano ang PPI?",
+    "inspectionEngine": "Diagram ng Makina",
+    "inspectionChecks": "Ano ang Tinitingnan ng Inspector",
+    "inspectionWhere": "Saan Kumuha Nito",
+    "inspectionDealership": "Maghanap ng Dealership",
+    "fraud": "Pag-iwas sa Panloloko",
+    "fraudOverview": "Overview",
+    "fraudRedFlags": "Mga Red Flag",
+    "fraudRights": "Alamin ang Iyong Karapatan",
+    "fraudAfter": "Ano ang Gagawin Pagkatapos",
+    "documents": "Mga Dokumentong Ipinaliwanag",
+    "volunteer": "Mag-volunteer",
+    "research": "Pananaliksik",
+    "contact": "Makipag-ugnayan"
   },
   "ui": {
-    "openMenu": "Mở menu",
-    "closeMenu": "Đóng menu",
-    "expandSection": "Mở rộng {label}",
-    "languageSwitcher": "Đổi ngôn ngữ"
+    "openMenu": "Buksan ang menu",
+    "closeMenu": "Isara ang menu",
+    "expandSection": "Palawakin ang {label}",
+    "languageSwitcher": "Palitan ang wika"
   },
   "footer": {
-    "tagline": "Giáo Dục. Trao Quyền. Minh Oan.",
-    "subtagline": "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.",
-    "copyright": "© 2026 VINdicated. Bảo lưu mọi quyền. Sáng lập bởi Rana Darwich.",
-    "mission": "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô.",
+    "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+    "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
+    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
+    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto.",
     "columns": {
-      "navigate": "Điều Hướng",
-      "resources": "Tài Nguyên",
-      "connect": "Kết Nối"
+      "navigate": "Mag-navigate",
+      "resources": "Mga Resource",
+      "connect": "Kumonekta"
     },
     "links": {
       "linkedIn": "LinkedIn",
       "instagram": "Instagram",
-      "getInTouch": "Liên Hệ"
+      "getInTouch": "Makipag-ugnayan"
     }
   },
   "meta": {
-    "defaultTitle": "VINdicated | Giáo Dục. Trao Quyền. Minh Oan.",
-    "defaultDescription": "VINdicated là một tổ chức phi lợi nhuận dựa trên niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng. Chúng tôi phân tích các hệ thống khiến phân biệt đối xử với người tiêu dùng tiếp diễn.",
+    "defaultTitle": "VINdicated | Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+    "defaultDescription": "Ang VINdicated ay isang nonprofit na naniniwalang dapat pampubliko ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa mga konsumer.",
     "routes": {
       "home": {
-        "title": "Giáo Dục. Trao Quyền. Minh Oan.",
-        "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn.",
+        "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+        "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan.",
         "imageAlt": "VINdicated"
       },
       "about": {
-        "title": "Về Chúng Tôi",
-        "description": "VINdicated được Rana Darwich sáng lập sau khi trực tiếp trải qua phân biệt đối xử tại đại lý xe. Tìm hiểu sứ mệnh giáo dục, trao quyền và bảo vệ người mua xe của chúng tôi.",
-        "imageAlt": "VINdicated: Về Chúng Tôi"
+        "title": "Tungkol Sa Amin",
+        "description": "Itinatag ni Rana Darwich ang VINdicated matapos niyang maranasan mismo ang diskriminasyon sa dealership. Alamin ang aming misyong turuan, bigyang-kapangyarihan, at ipagtanggol ang mga bumibili ng kotse.",
+        "imageAlt": "VINdicated: Tungkol Sa Amin"
       },
       "team": {
-        "title": "Đội Ngũ",
-        "description": "Gặp những người đứng sau VINdicated: các nhà vận động, nhà nghiên cứu và sinh viên chống lại phân biệt đối xử tại đại lý xe.",
-        "imageAlt": "VINdicated: Đội Ngũ"
+        "title": "Aming Team",
+        "description": "Kilalanin ang mga tao sa likod ng VINdicated: mga advocate, researcher, at estudyanteng lumalaban sa diskriminasyon sa dealership.",
+        "imageAlt": "VINdicated: Aming Team"
       },
       "inspection": {
-        "title": "Hướng Dẫn Kiểm Tra",
-        "description": "Hướng dẫn từng bước để kiểm tra xe đã qua sử dụng trước khi mua. Biết cần xem gì dưới nắp capo, tại bãi xe và trong giấy tờ.",
-        "imageAlt": "VINdicated: Hướng Dẫn Kiểm Tra"
+        "title": "Gabay sa Inspeksyon",
+        "description": "Sunud-sunod na gabay sa pag-inspeksyon ng used car bago bumili. Alamin kung ano ang dapat tingnan sa makina, sa lot, at sa papeles.",
+        "imageAlt": "VINdicated: Gabay sa Inspeksyon"
       },
       "fraud": {
-        "title": "Phòng Chống Gian Lận",
-        "description": "Học cách nhận biết và đối phó với các chiêu lừa phổ biến của đại lý. Biết dấu hiệu cảnh báo, quyền pháp lý của bạn và làm gì nếu bị lừa.",
-        "imageAlt": "VINdicated: Phòng Chống Gian Lận"
+        "title": "Pag-iwas sa Panloloko",
+        "description": "Matutong kumilala at sumagot sa karaniwang panloloko ng dealer. Alamin ang mga red flag, legal na karapatan, at gagawin kung naloko ka.",
+        "imageAlt": "VINdicated: Pag-iwas sa Panloloko"
       },
       "documents": {
-        "title": "Giải Mã Tài Liệu",
-        "description": "Hướng dẫn tương tác để hiểu giấy tờ mua xe: giấy chủ quyền, báo cáo Carfax, hợp đồng tài chính và hơn thế nữa. Biết mình ký gì trước khi ký.",
-        "imageAlt": "VINdicated: Giải Mã Tài Liệu"
+        "title": "Mga Dokumentong Ipinaliwanag",
+        "description": "Mga interactive na gabay para maintindihan ang papeles sa pagbili ng kotse: pink slip, Carfax reports, financing contracts, at iba pa. Alamin ang pinipirmahan mo bago pumirma.",
+        "imageAlt": "VINdicated: Mga Dokumentong Ipinaliwanag"
       },
       "research": {
-        "title": "Nghiên Cứu",
-        "description": "VINdicated thực hiện các nghiên cứu kiểm toán thư tín ghi nhận chênh lệch giá theo giới tính và chủng tộc tại đại lý xe. Đọc kết quả và phương pháp của chúng tôi.",
-        "imageAlt": "VINdicated: Nghiên Cứu"
+        "title": "Pananaliksik",
+        "description": "Gumagawa ang VINdicated ng correspondence audit studies na nagdodokumento ng gender at racial pricing disparities sa car dealerships. Basahin ang aming findings at methodology.",
+        "imageAlt": "VINdicated: Pananaliksik"
       },
       "rights": {
-        "title": "Biết Quyền Của Bạn",
-        "description": "Biết quyền pháp lý của bạn khi mua xe. Luật liên bang và California bảo vệ bạn khỏi phân biệt đối xử và hành vi lừa dối tại đại lý.",
-        "imageAlt": "VINdicated: Biết Quyền Của Bạn"
+        "title": "Alamin ang Iyong Karapatan",
+        "description": "Alamin ang legal na karapatan mo bilang bumibili ng kotse. Pinoprotektahan ka ng federal at California laws laban sa diskriminasyon at mapanlinlang na gawain sa dealership.",
+        "imageAlt": "VINdicated: Alamin ang Iyong Karapatan"
       },
       "contact": {
-        "title": "Liên Hệ",
-        "description": "Liên hệ với VINdicated: tình nguyện cùng đội ngũ, chia sẻ câu chuyện, tham gia nghiên cứu hoặc hợp tác với chúng tôi.",
-        "imageAlt": "VINdicated: Liên Hệ"
+        "title": "Makipag-ugnayan",
+        "description": "Makipag-ugnayan sa VINdicated: mag-volunteer, ibahagi ang iyong kuwento, lumahok sa pananaliksik, o makipag-partner sa amin.",
+        "imageAlt": "VINdicated: Makipag-ugnayan"
       },
       "volunteer": {
-        "title": "Tình Nguyện",
-        "description": "Nộp đơn tham gia VINdicated với vai trò sinh viên tình nguyện, nhà nghiên cứu, kỹ sư, nhà thiết kế hoặc cộng tác viên tiếp cận cộng đồng.",
-        "imageAlt": "VINdicated: Tình Nguyện"
+        "title": "Mag-volunteer",
+        "description": "Mag-apply para sumali sa VINdicated bilang student volunteer, researcher, engineer, designer, o outreach contributor.",
+        "imageAlt": "VINdicated: Mag-volunteer"
       }
     }
   },
   "home": {
     "hero": {
-      "titleLine1": "Bạn Xứng Đáng",
-      "titleLine2": "Mua Xe",
-      "titleEm": "Không Sợ Hãi.",
-      "subtitle": "VINdicated được xây dựng trên niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng. Chúng tôi phân tích các hệ thống khiến phân biệt đối xử với người tiêu dùng tiếp diễn thông qua giáo dục, nghiên cứu và cộng đồng.",
-      "ctaPrimary": "Xem Hướng Dẫn PPI",
-      "ctaSecondary": "Câu Chuyện Của Chúng Tôi",
+      "titleLine1": "Karapat-dapat Kang",
+      "titleLine2": "Bumili ng Kotse",
+      "titleEm": "Nang Walang Takot.",
+      "subtitle": "Itinatag ang VINdicated sa paniniwalang dapat maging pampublikong kaalaman ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa konsumer sa pamamagitan ng edukasyon, pananaliksik, at komunidad.",
+      "ctaPrimary": "Kunin ang PPI Guide",
+      "ctaSecondary": "Aming Kuwento",
       "stats": [
         {
-          "label": "là số tiền người mua nam Da đen bị tính thêm so với người mua nam da trắng, ngay cả với cùng chiếc xe và cùng kịch bản",
+          "label": "na dagdag na sinisingil sa Black male buyers kumpara sa white male buyers, kahit parehong kotse at parehong script",
           "cite": "Ayres & Siegelman, 1995"
         },
         {
-          "label": "phụ nữ Gen Z cảm thấy nản lòng khi đến đại lý vì phân biệt giới tính",
+          "label": "ng Gen Z women ang nadidiscourage pumunta sa dealership dahil sa gender discrimination",
           "cite": "Morning Consult / Caribou, 2022"
         },
         {
-          "label": "người thử nghiệm không phải da trắng nhận được giá tệ hơn tại đại lý so với người thử nghiệm da trắng",
+          "label": "ng non-white testers ang binigyan ng mas masamang presyo sa dealership kumpara sa white testers",
           "cite": "National Fair Housing Alliance, 2018"
         },
         {
-          "label": "thời gian thương lượng lâu hơn mà người mua thuộc nhóm thiểu số phải đối mặt, dù cùng xe và cùng giá",
+          "label": "na mas mahabang negosasyon ang naranasan ng minority buyers, kahit parehong kotse at parehong presyo",
           "cite": "Ayres & Siegelman, 1995"
         }
       ]
     },
     "cards": {
-      "titlePrefix": "Hai trụ cột của",
-      "titleEm": "công bằng ô tô.",
+      "titlePrefix": "Dalawang haligi ng",
+      "titleEm": "automotive justice.",
       "pillars": [
         {
-          "kicker": "Giáo dục",
-          "title": "Hướng Dẫn Kiểm Tra Trước Khi Mua",
-          "body": "Hướng dẫn từng bước về mọi thứ bạn nên kiểm tra, hỏi và xác minh trước khi trả tiền. Viết cho người mua lần đầu.",
-          "label": "Đọc Hướng Dẫn"
+          "kicker": "Edukasyon",
+          "title": "Gabay sa Pre-Purchase Inspection",
+          "body": "Sunud-sunod na walkthrough ng lahat ng dapat mong tingnan, itanong, at i-verify bago maglabas ng pera. Isinulat para sa first-time buyers.",
+          "label": "Basahin ang Gabay"
         },
         {
-          "kicker": "Bảo vệ",
-          "title": "Phòng Chống Gian Lận",
-          "body": "Những chiến thuật thật sự được dùng để gây bất lợi cho người mua, được gọi tên, giải thích và đối phó. Biết chính xác nên nói gì khi đại lý gây áp lực.",
-          "label": "Nhận Biết Dấu Hiệu"
+          "kicker": "Proteksyon",
+          "title": "Pag-iwas sa Panloloko",
+          "body": "Tunay na taktika laban sa buyers, pinangalanan, ipinaliwanag, at sinagot. Alamin kung ano mismo ang sasabihin kapag pine-pressure ka ng dealer.",
+          "label": "Tingnan ang Red Flags"
         }
       ]
     },
     "quote": {
-      "text": "Tại sao phụ nữ lại phải bị giữ trong sự thiếu hiểu biết dưới cái tên giả tạo là sự ngây thơ?",
+      "text": "Bakit dapat panatilihin sa kamangmangan ang babae sa ilalim ng mapanlinlang na pangalan ng inosensiya?",
       "cite": "Mary Wollstonecraft",
       "source": "A Vindication of the Rights of Woman (1792)"
     },
     "founder": {
-      "titleLine1": "Sáng lập ở tuổi 19.",
-      "titleEm": "Vì cần thiết.",
-      "body1": "Ba lần vấp phải ở ba đại lý khác nhau cho tôi thấy cùng một điều: hệ thống được thiết kế để làm bạn rối, thúc ép bạn và kiếm lợi từ những gì bạn không biết.",
-      "body2Prefix": "VINdicated tồn tại vì ",
-      "body2Bold": "tôi ước nó đã tồn tại cho tôi.",
-      "cta": "Đọc Toàn Bộ Câu Chuyện Của Rana"
+      "titleLine1": "Itinatag sa edad 19.",
+      "titleEm": "Dahil kailangan.",
+      "body1": "Tatlong strike sa tatlong magkakaibang dealership ang nagpakita sa akin ng parehong bagay: dinisenyo ang sistema para lituhin ka, madaliin ka, at pagkakitaan ang hindi mo alam.",
+      "body2Prefix": "Umiiral ang VINdicated dahil ",
+      "body2Bold": "sana mayroon na nito para sa akin noon.",
+      "cta": "Basahin ang Buong Kuwento ni Rana"
     },
     "meta": {
-      "title": "Giáo Dục. Trao Quyền. Minh Oan.",
-      "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn."
+      "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
+      "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
+    }
+  },
+  "about": {
+    "hero": {
+      "titlePlain": "Itinatag sa paniniwalang ang kaalaman tungkol sa sasakyan",
+      "titleEm": "ay dapat maging pampublikong kaalaman.",
+      "subtitle": "Umiiral ang VINdicated dahil hindi kami naniniwalang kailangang magsama ng lalaki ang babae para lang makabili ng kotse nang ligtas."
+    },
+    "whyWeExist": {
+      "titleLine1": "Ang diskriminasyon",
+      "titleEm": "ay masusukat.",
+      "titleLine2": "Totoo ang pinsala.",
+      "para1": [
+        {
+          "text": "Natuklasan ng pananaliksik nina Ian Ayres at Peter Siegelman na "
+        },
+        {
+          "text": "ang mga Black male buyer ay sinisingil ng average na $1,100 na mas mataas",
+          "bold": true
+        },
+        {
+          "text": " kumpara sa white male buyers para sa parehong kotse, kahit gumagamit ng eksaktong parehong bargaining script. Sinisingil ang Black women ng $410 na mas mataas kumpara sa white men. Sinisingil naman ang white women ng $92 na mas mataas."
+        }
+      ],
+      "para2": [
+        {
+          "text": "48% ng Gen Z women ang nadidiscourage pumunta sa dealership",
+          "bold": true
+        },
+        {
+          "text": " dahil sa alalahanin tungkol sa gender-based discrimination (Morning Consult para sa Caribou, 2022). Hindi ito paranoia. Ito ay pattern recognition."
+        }
+      ],
+      "para3": [
+        {
+          "text": "May racist o sexist na mga komento ang mga dealer sa "
+        },
+        {
+          "text": "4% ng test visits",
+          "bold": true
+        },
+        {
+          "text": ". Gumugol sila ng "
+        },
+        {
+          "text": "13% na mas mahabang oras sa negosasyon sa mga \"minority\" na tester",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ],
+      "para4": "At tapos na kaming magkunwaring hiwa-hiwalay at bihirang pangyayari lang ang mga ito."
+    },
+    "mission": {
+      "heading": "Turuan. Bigyang-kapangyarihan.",
+      "headingEm": "Ipagtanggol.",
+      "subheading": "Wasakin ang consumer-level na kultura ng \"escort\", isang informed buyer sa bawat pagkakataon.",
+      "pillars": [
+        {
+          "word": "Turuan",
+          "body": "Gawing madaling maintindihan ang pagbili ng kotse. Madaling ma-navigate. Isinasalin namin ang playbook ng dealer sa simpleng wika dahil ang kaalaman ay kapangyarihan."
+        },
+        {
+          "word": "Bigyang-kapangyarihan",
+          "body": "Bumuo ng tiwala sa sariling kakayahang pumasok nang mag-isa, magtanong ng tamang tanong, at lumayo kung kinakailangan, nang walang hiya, nang hindi kailangan ng kasamang lalaki."
+        },
+        {
+          "word": "Ipagtanggol",
+          "body": "Gumawa ng pananaliksik na nagdodokumento sa alam na ng mga konsumer. Gawing datos ang karanasan. Gawing pagbabago ng polisiya ang datos."
+        }
+      ]
+    },
+    "story": {
+      "titleEm": "Ipinagtanggol laban saan?",
+      "subtitle": "Tatlong beses. Tatlong magkakaibang sitwasyon. Parehong sistema sa bawat pagkakataon.",
+      "strikes": [
+        {
+          "num": "01",
+          "label": "Ang Pink Slip Scam",
+          "body": [
+            "Noong 18 anyos ako, sinusubukan kong bumili ng kotse mula sa tatay ng kaibigan ko. Pinaghintay niya ako ng tatlong buwan, patuloy na nangangako na ibebenta niya sa akin.",
+            "Nang dumating na ang oras, sinubukan niyang sabihin sa akin na hindi ko na kailangan ang pink slip. Sinusubukan niya akong lokohin. Kung wala sa pangalan mo ang title, legal na hindi mo pag-aari ang kotse, kahit magkano man ang binayad mo."
+          ]
+        },
+        {
+          "num": "02",
+          "label": "Facebook Marketplace",
+          "body": [
+            "Sinubukan kong bumili ng kotse sa Facebook Marketplace. Normal ang simula ng usapan: mileage, presyo, kung kailan ako makakapunta para tingnan.",
+            "Nang malaman niyang babae ako, biglang nagbago ang tono niya. Sinabi niya sa akin, \"Shut your mouth, bitch,\" at pagkatapos ay in-block niya ako."
+          ]
+        },
+        {
+          "num": "03",
+          "label": "South Coast Mitsubishi",
+          "body": [
+            "Nag-isa akong pumunta para mag-test drive ng kotse. Nang bumalik ako kasama ang kapatid kong babae para bilhin ito, biglang nagbago ang nakasulat: \"Buy today or lose it.\"",
+            "Nagbayad ako para sa independent inspection. Nakahanap sila ng problema. Binigyan nila ako ng financing contract na may 30% APR. Alam ko kung ano ang masamang deal. Hindi ako pumirma."
+          ]
+        }
+      ],
+      "pullquote": {
+        "quote": "Ini-report ko si Eddy. Nang tumawag ang GM para humingi ng paumanhin, sinabi ko: hindi ko tinatanggap ang paumanhin mo. Sana kung sino man ang papasok, 19 anyos na babae man o 50 anyos na lalaki, tratuhin ninyo silang lahat nang may respeto.",
+        "attribution": "Rana Darwich, Founder ng VINdicated"
+      },
+      "bio": {
+        "label": "Tungkol sa Founder",
+        "body": "Itinatag ni Rana Darwich ang VINdicated sa edad na 19, matapos halos pumirma sa isang predatory arbitration clause sa isang dealership.",
+        "closingLine": "Ngayon, turn mo na."
+      },
+      "wollstonecraft": {
+        "label": "Mary Wollstonecraft, 1792",
+        "quote": "Palakasin ang isip ng babae sa pamamagitan ng pagpapalawak nito, at magwawakas ang bulag na pagsunod."
+      }
+    },
+    "provide": {
+      "titlePlain": "Libre. Accessible.",
+      "titleEm": "Walang kundisyon.",
+      "subtitle": "Lahat ng inaalok ng VINdicated ay libre. Walang kailangang mag-sign up, walang upsell, walang catch.",
+      "items": [
+        {
+          "cat": "Edukasyon",
+          "title": "Libreng Automotive Workshops",
+          "body": "Mga session na pinamumunuan ng komunidad na nagpapaliwanag kung ano ang ayaw malaman ng mga dealer, kasama ang financing, repairs, at ang legal na karapatan mo sa lot."
+        },
+        {
+          "cat": "Mga Tool",
+          "title": "Online Resources at Gabay",
+          "body": "Sunud-sunod na inspection guide, red flag checklist, script templates, at financing explainer. Ginawa para sa first-time buyers."
+        },
+        {
+          "cat": "Komunidad",
+          "title": "Vetted Mechanic Network",
+          "body": "Gumagawa kami ng direktoryo ng mga mekanikong sinuri ng aming komunidad: mga tapat na mekanikong hindi ka babalewalain, hindi ka pipilitin bumili nang higit pa."
+        },
+        {
+          "cat": "Pananaliksik",
+          "title": "Correspondence Audit Studies",
+          "body": "Idinodokumento namin ang diskriminasyon gamit ang datos. Sinusukat ng aming patuloy na pananaliksik ang gender-based na pagkakaiba sa presyo."
+        }
+      ]
     }
   }
 }
