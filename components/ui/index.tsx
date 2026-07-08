@@ -427,7 +427,10 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
             <div className="flex-1 min-w-0">
               <p
                 className="text-[0.85rem] font-bold mb-4"
-                style={{ color: "var(--color-accent)" }}
+                style={{
+                  color: "var(--color-accent)",
+                  fontFamily: "var(--font-heading), Georgia, serif",
+                }}
               >
                 {card.num}
               </p>
