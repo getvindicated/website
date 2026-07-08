@@ -419,29 +419,18 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           <div
             key={card.num}
             className="flex gap-6 max-md:gap-4 p-8 max-md:p-5 rounded-2xl transition-colors duration-200"
-            style={{
-              background: recommended
-                ? "rgba(149,51,165,0.08)"
-                : "var(--color-bg-surface)",
-              border: recommended
-                ? "1px solid var(--color-accent)"
-                : "1px solid var(--color-border)",
-            }}
+            style={{ background: "var(--color-brand)" }}
           >
             <div className="flex-shrink-0 flex justify-center pt-1">
               <RouteIcon recommended={recommended} />
             </div>
             <div className="flex-1 min-w-0">
-              <span
-                className="inline-block text-[0.72rem] font-bold px-3 py-1 rounded-full mb-4"
-                style={{
-                  background: recommended ? "var(--color-accent)" : "transparent",
-                  color: recommended ? "#fff" : "var(--color-light)",
-                  border: recommended ? "none" : "1px solid var(--color-border)",
-                }}
+              <p
+                className="text-[0.85rem] font-bold mb-4"
+                style={{ color: "var(--color-accent)" }}
               >
                 {card.num}
-              </span>
+              </p>
               <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
                 {card.title}
               </h3>
