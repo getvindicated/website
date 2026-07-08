@@ -1056,8 +1056,14 @@ export default function InspectionPage() {
               },
             ]}
           />
-          <InfoBox label="Important">
-            <p>
+          <div className="my-8">
+            <p
+              className="text-[0.85rem] font-bold mb-3"
+              style={{ color: "var(--color-light)" }}
+            >
+              Important
+            </p>
+            <p className="text-[0.95rem] leading-[1.65] text-white">
               If a seller stalls on producing service records or promises
               they&apos;ll &quot;get them later,&quot; schedule the inspection
               before you commit emotionally.{" "}
@@ -1066,7 +1072,7 @@ export default function InspectionPage() {
                 after.
               </strong>
             </p>
-          </InfoBox>
+          </div>
         </section>
       </FadeUp>
     </>
