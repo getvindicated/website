@@ -21,7 +21,9 @@
     "documents": "Mga Dokumentong Ipinaliwanag",
     "volunteer": "Mag-volunteer",
     "research": "Pananaliksik",
-    "contact": "Makipag-ugnayan"
+    "contact": "Makipag-ugnayan",
+    "learningResources": "Mga Learning Resource",
+    "getInvolved": "Sumali"
   },
   "ui": {
     "openMenu": "Buksan ang menu",
@@ -162,6 +164,219 @@
     "meta": {
       "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
       "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
+    }
+  },
+  "about": {
+    "hero": {
+      "titlePlain": "Itinatag sa paniniwalang ang kaalaman tungkol sa sasakyan",
+      "titleEm": "ay dapat maging pampublikong kaalaman.",
+      "subtitle": "Umiiral ang VINdicated dahil hindi kami naniniwalang kailangang magsama ng lalaki ang babae para lang makabili ng kotse nang ligtas."
+    },
+    "whyWeExist": {
+      "titleLine1": "Ang diskriminasyon",
+      "titleEm": "ay masusukat.",
+      "titleLine2": "Totoo ang pinsala.",
+      "para1": [
+        {
+          "text": "Natuklasan ng pananaliksik nina Ian Ayres at Peter Siegelman na "
+        },
+        {
+          "text": "ang mga Black male buyer ay sinisingil ng average na $1,100 na mas mataas",
+          "bold": true
+        },
+        {
+          "text": " kumpara sa white male buyers para sa parehong kotse, kahit gumagamit ng eksaktong parehong bargaining script. Sinisingil ang Black women ng $410 na mas mataas kumpara sa white men. Sinisingil naman ang white women ng $92 na mas mataas."
+        }
+      ],
+      "para2": [
+        {
+          "text": "48% ng Gen Z women ang nadidiscourage pumunta sa dealership",
+          "bold": true
+        },
+        {
+          "text": " dahil sa alalahanin tungkol sa gender-based discrimination (Morning Consult para sa Caribou, 2022). Hindi ito paranoia. Ito ay pattern recognition."
+        }
+      ],
+      "para3": [
+        {
+          "text": "May racist o sexist na mga komento ang mga dealer sa "
+        },
+        {
+          "text": "4% ng test visits",
+          "bold": true
+        },
+        {
+          "text": ". Gumugol sila ng "
+        },
+        {
+          "text": "13% na mas mahabang oras sa negosasyon sa mga \"minority\" na tester",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ],
+      "para4": "At tapos na kaming magkunwaring hiwa-hiwalay at bihirang pangyayari lang ang mga ito."
+    },
+    "mission": {
+      "heading": "Turuan. Bigyang-kapangyarihan.",
+      "headingEm": "Ipagtanggol.",
+      "subheading": "Wasakin ang consumer-level na kultura ng \"escort\", isang informed buyer sa bawat pagkakataon.",
+      "pillars": [
+        {
+          "word": "Turuan",
+          "body": "Gawing madaling maintindihan ang pagbili ng kotse. Madaling ma-navigate. Isinasalin namin ang playbook ng dealer sa simpleng wika dahil ang kaalaman ay kapangyarihan."
+        },
+        {
+          "word": "Bigyang-kapangyarihan",
+          "body": "Bumuo ng tiwala sa sariling kakayahang pumasok nang mag-isa, magtanong ng tamang tanong, at lumayo kung kinakailangan, nang walang hiya, nang hindi kailangan ng kasamang lalaki."
+        },
+        {
+          "word": "Ipagtanggol",
+          "body": "Gumawa ng pananaliksik na nagdodokumento sa alam na ng mga konsumer. Gawing datos ang karanasan. Gawing pagbabago ng polisiya ang datos."
+        }
+      ]
+    },
+    "story": {
+      "titleEm": "Ipinagtanggol laban saan?",
+      "subtitle": "Tatlong beses. Tatlong magkakaibang sitwasyon. Parehong sistema sa bawat pagkakataon.",
+      "strikes": [
+        {
+          "num": "01",
+          "label": "Ang Pink Slip Scam",
+          "body": [
+            "Noong 18 anyos ako, sinusubukan kong bumili ng kotse mula sa tatay ng kaibigan ko. Pinaghintay niya ako ng tatlong buwan, patuloy na nangangako na ibebenta niya sa akin.",
+            "Nang dumating na ang oras, sinubukan niyang sabihin sa akin na hindi ko na kailangan ang pink slip. Sinusubukan niya akong lokohin. Kung wala sa pangalan mo ang title, legal na hindi mo pag-aari ang kotse, kahit magkano man ang binayad mo."
+          ]
+        },
+        {
+          "num": "02",
+          "label": "Facebook Marketplace",
+          "body": [
+            "Sinubukan kong bumili ng kotse sa Facebook Marketplace. Normal ang simula ng usapan: mileage, presyo, kung kailan ako makakapunta para tingnan.",
+            "Nang malaman niyang babae ako, biglang nagbago ang tono niya. Sinabi niya sa akin, \"Shut your mouth, bitch,\" at pagkatapos ay in-block niya ako."
+          ]
+        },
+        {
+          "num": "03",
+          "label": "South Coast Mitsubishi",
+          "body": [
+            "Nag-isa akong pumunta para mag-test drive ng kotse. Nang bumalik ako kasama ang kapatid kong babae para bilhin ito, biglang nagbago ang nakasulat: \"Buy today or lose it.\"",
+            "Nagbayad ako para sa independent inspection. Nakahanap sila ng problema. Binigyan nila ako ng financing contract na may 30% APR. Alam ko kung ano ang masamang deal. Hindi ako pumirma."
+          ]
+        }
+      ],
+      "pullquote": {
+        "quote": "Ini-report ko si Eddy. Nang tumawag ang GM para humingi ng paumanhin, sinabi ko: hindi ko tinatanggap ang paumanhin mo. Sana kung sino man ang papasok, 19 anyos na babae man o 50 anyos na lalaki, tratuhin ninyo silang lahat nang may respeto.",
+        "attribution": "Rana Darwich, Founder ng VINdicated"
+      },
+      "bio": {
+        "label": "Tungkol sa Founder",
+        "body": "Itinatag ni Rana Darwich ang VINdicated sa edad na 19, matapos halos pumirma sa isang predatory arbitration clause sa isang dealership.",
+        "closingLine": "Ngayon, turn mo na."
+      },
+      "wollstonecraft": {
+        "label": "Mary Wollstonecraft, 1792",
+        "quote": "Palakasin ang isip ng babae sa pamamagitan ng pagpapalawak nito, at magwawakas ang bulag na pagsunod."
+      }
+    },
+    "provide": {
+      "titlePlain": "Libre. Accessible.",
+      "titleEm": "Walang kundisyon.",
+      "subtitle": "Lahat ng inaalok ng VINdicated ay libre. Walang kailangang mag-sign up, walang upsell, walang catch.",
+      "items": [
+        {
+          "cat": "Edukasyon",
+          "title": "Libreng Automotive Workshops",
+          "body": "Mga session na pinamumunuan ng komunidad na nagpapaliwanag kung ano ang ayaw malaman ng mga dealer, kasama ang financing, repairs, at ang legal na karapatan mo sa lot."
+        },
+        {
+          "cat": "Mga Tool",
+          "title": "Online Resources at Gabay",
+          "body": "Sunud-sunod na inspection guide, red flag checklist, script templates, at financing explainer. Ginawa para sa first-time buyers."
+        },
+        {
+          "cat": "Komunidad",
+          "title": "Vetted Mechanic Network",
+          "body": "Gumagawa kami ng direktoryo ng mga mekanikong sinuri ng aming komunidad: mga tapat na mekanikong hindi ka babalewalain, hindi ka pipilitin bumili nang higit pa."
+        },
+        {
+          "cat": "Pananaliksik",
+          "title": "Correspondence Audit Studies",
+          "body": "Idinodokumento namin ang diskriminasyon gamit ang datos. Sinusukat ng aming patuloy na pananaliksik ang gender-based na pagkakaiba sa presyo."
+        }
+      ]
+    }
+  },
+  "team": {
+    "hero": {
+      "titleLine1": "Dala ng parehong",
+      "titleEm": "frustration."
+    },
+    "sectionTitle": "Kilalanin ang Team",
+    "members": [
+      {
+        "position": "Founder",
+        "bio": "Itinatag ni Rana ang VINdicated sa edad na 19 matapos siyang mailigtas ng isang business law term sa pagpirma ng predatory sales contract sa isang dealership. Ang nagsimula bilang personal breaking point ay naging misyon para wasakin ang mga sistemang nang-eexploit sa mga konsumer na pumapasok sa car lot nang mag-isa, walang backup. Pinamumunuan niya ang research initiatives at strategic direction ng VINdicated, dahil naniniwala siyang ang kaalaman tungkol sa sasakyan ay dapat pampublikong kaalaman."
+      },
+      {
+        "position": "Technical Lead",
+        "bio": "Pinamumunuan ni Ray Gan ang data at AI pipeline para sa interactive dealership risk map ng VINdicated. Dinisenyo niya ang LLM-based classification system na nagko-convert ng unstructured consumer reviews maging transparent, evidence-backed risk signals para sa mga bumibili ng kotse. Nag-aaral si Ray ng Computer Science and Linguistics sa UCLA."
+      },
+      {
+        "position": "Research & Outreach Lead",
+        "bio": "Si Halima Cherif Hminat ay estudyante ng Integrative Biology sa UC Berkeley, minor sa Sustainable Business and Policy, at nasa pre-dental track. Siya rin ay Research and Outreach Lead sa VINdicated at tumutulong gumawa ng resources para makagawa ang mga tao ng informed decisions nang may kumpiyansa. Sabi niya, importante ang misyon ng VINdicated dahil gusto niyang suportahan ang mga kababaihan sa pag-iwas sa unfair treatment sa pagbili at pagpapaayos ng kotse."
+      },
+      {
+        "position": "Data Engineer",
+        "bio": "Si Will Prawira ay double major sa Data Science & Applied Mathematics sa UCLA. Sa UCLA, kasali siya ngayon sa Bruin Sports Analytics bilang bahagi ng Tennis Consulting team, pati na sa NSDC bilang project lead. Aktibo siyang gumagawa sa VINdicated bilang data product engineer."
+      },
+      {
+        "position": "Data Engineer",
+        "bio": "Si Ameerah Zafar ay senior sa Chemical Engineering sa UC Berkeley, kasali rin siya sa Muslim Student Association ng Berkeley at sa Undergraduate Research tungkol sa coating mechanics. Tumutulong si Ameerah sa data research at graphic design sa VINdicated."
+      },
+      {
+        "position": "Software Engineer",
+        "bio": "Si Rizwaan Bana ay Computer Science major sa UCLA. Siya ang Software Lead sa VINdicated, kung saan gumagawa siya ng mga tool para tulungan ang mga konsumer na madaling makapag-navigate sa proseso ng pagbili ng kotse. Masigasig si Rizwaan sa paggamit ng teknolohiya para sa positive change at paggawang mas accessible ang impormasyon para sa lahat."
+      },
+      {
+        "position": "Empirical & Data Lead",
+        "bio": "Si Peter Dickson ay estudyante ng Data Science and Economics sa University of California, Berkeley, na may malakas na focus sa data analytics, financial modeling, at paglutas ng real-world na problema. Dala niya ang kombinasyon ng technical rigor at business insight, gamit ang mga tool tulad ng Python, SQL, at statistical modeling para kumuha ng meaningful insights mula sa complex datasets. Dahil sa curiosity at results-oriented na mindset, masigasig si Peter na gamitin ang data para tuklasin ang inefficiencies, kilalanin ang mga opportunity, at lumikha ng measurable value."
+      },
+      {
+        "position": "Visual Design Lead",
+        "bio": "Si Evanceline ay second year biology major sa UCLA. Masigasig siya sa paggamit ng art at design bilang paraan ng paghahatid ng mensahe. Sa pamamagitan ng kanyang art, sana matulungan niya ang mga tao na mas maintindihan ang VINdicated at ang existing inequalities at panganib sa automotive industry."
+      },
+      {
+        "position": "Data Analyst",
+        "bio": "Si Brisa Gómez ay first-year transfer psychology student. Lumaki sa Tijuana, México, masigasig sila sa research na may kinalaman sa underrepresented communities tulad ng kababaihan, taong may kapansanan, at queer identities. Sana maging behavioral therapist sila sa hinaharap. Sa libreng oras, gustong magbasa ng cheesy romance novels at gumawa ng creative writing."
+      },
+      {
+        "position": "Research Analyst",
+        "bio": "Si Fiona Wangsawidjaja ay kasalukuyang undergraduate student sa UCLA. Tumutulong siya sa data section ng VINdicated!"
+      },
+      {
+        "position": "Research Analyst",
+        "bio": "Si Ayat Ashraf ay Math/Econ major sa UCLA na interesado sa economic policymaking. Gumagawa siya ng research sa VINdicated, para sana makabili siya ng kotse in the future nang hindi na kailangang tumawag sa tatay niya ng 8,000 beses."
+      },
+      {
+        "position": "Research Analyst",
+        "bio": "Si Paul ay first-year student sa UC Berkeley na plano mag-major sa Integrative Biology sa pre-dental track. Excited siyang makatulong para gawing mas accessible ang reliable na impormasyon at suportahan ang mga taong nahaharap sa unfair practices sa automotive industry."
+      },
+      {
+        "position": "Software Engineer",
+        "bio": "Si Bryan Zhang ay CS major sa UCLA. Sa libreng oras, gustong maglaro ng basketball, volleyball, at magbake. Developer siya para sa VINdicated."
+      },
+      {
+        "position": "Software Engineer",
+        "bio": "Si Jas Wang ay 4th year sa UCLA, nag-major sa Political Science at Geography. Gamit ang GIS mapping skills, tumutulong siya para maging approachable ang data ng VINdicated pag na-visualize. Importante ang VINdicated sa kanya dahil lumaki siya sa immigrant community, alam niyang vulnerable din ang mga immigrant at unfairly nasa-scam."
+      }
+    ],
+    "cta": {
+      "headingPlain": "Gusto mo bang maging",
+      "headingEm": "bahagi nito?",
+      "body": "Lagi hinahanap ng VINdicated ang mga taong masigasig: researchers, developers, designers, educators, at advocates. Kung naniniwala kang dapat fair ang pagbili ng kotse para sa lahat, gusto naming marinig mula sa'yo.",
+      "button": "Makipag-ugnayan"
     }
   }
 }
