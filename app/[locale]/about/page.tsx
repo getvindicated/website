@@ -389,14 +389,11 @@ export default async function AboutPage({
           </p>
 
           {/* Strikes as timeline */}
-          <div style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div>
             {strikes.map(({ num, label, body }, i) => (
               <div
                 key={i}
                 className="grid grid-cols-[60px_200px_1fr] gap-6 max-md:gap-3 py-10 max-md:py-8 max-md:grid-cols-1"
-                style={{
-                  borderBottom: "1px solid var(--color-border)",
-                }}
               >
                 <span
                   className="text-[1rem] font-bold pt-1"
