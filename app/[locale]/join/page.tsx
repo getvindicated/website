@@ -116,9 +116,8 @@ export default function JoinPage() {
           >
             <button
               onClick={() => setTab("volunteer")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold text-white transition-colors"
               style={{
-                color: tab === "volunteer" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "volunteer" ? "2px solid var(--color-accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
@@ -127,9 +126,8 @@ export default function JoinPage() {
             </button>
             <button
               onClick={() => setTab("contact")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold text-white transition-colors"
               style={{
-                color: tab === "contact" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "contact" ? "2px solid var(--color-accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
