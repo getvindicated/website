@@ -887,6 +887,7 @@ export default function InspectionPage() {
               {
                 num: "Option 02: Best Option",
                 title: "Manufacturer Dealerships",
+                recommended: true,
                 body: (
                   <>
                     <p className="mb-3">
