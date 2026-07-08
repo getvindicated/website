@@ -374,59 +374,93 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
   );
 }
 
+// ── Route icon ───────────────────────────────────────────────
+// A start dot, a route line, and a destination pin — styled solid
+// and in accent purple for the recommended option, dashed and
+// muted for alternates. Used by CardGrid's route-picker layout.
+function RouteIcon({ recommended }: { recommended: boolean }) {
+  const color = recommended ? "var(--color-accent)" : "rgba(255,255,255,0.3)";
+  return (
+    <svg width="36" height="72" viewBox="0 0 36 72" aria-hidden="true">
+      <circle cx="18" cy="7" r="5" fill={color} />
+      <path
+        d="M18 13 C 6 24, 30 40, 18 54"
+        fill="none"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeDasharray={recommended ? undefined : "4 5"}
+        strokeLinecap="round"
+      />
+      <path
+        d="M18 54 C 12.5 54 9 58 9 62.5 C 9 68 18 72 18 72 C 18 72 27 68 27 62.5 C 27 58 23.5 54 18 54 Z"
+        fill={color}
+      />
+    </svg>
+  );
+}
+
 // ── Card Grid ────────────────────────────────────────────────
+// Presented as a GPS route picker: each option is a selectable
+// "route," with the recommended option visually highlighted the
+// way a maps app highlights its suggested route.
 type CardData = {
   num: string;
   title: string;
   body: ReactNode;
   link?: { href: string; label: string };
+  recommended?: boolean;
 };
 export function CardGrid({ cards }: { cards: CardData[] }) {
   return (
-    <div
-      className="grid gap-[1.5px] mt-12"
-      style={{
-        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-        background: "var(--color-border)",
-      }}
-    >
-      {cards.map((card) => (
-        <div
-          key={card.num}
-          className="p-10 max-md:p-6 transition-colors duration-200"
-          style={{ background: "var(--color-bg-surface)" }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.background =
-              "rgba(90,48,105,0.4)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.background =
-              "var(--color-bg-surface)";
-          }}
-        >
-          <p
-            className="text-[0.95rem] font-semibold mb-4"
-            style={{ color: "var(--color-light)" }}
+    <div className="flex flex-col gap-4 mt-12">
+      {cards.map((card) => {
+        const recommended = card.recommended ?? false;
+        return (
+          <div
+            key={card.num}
+            className="flex gap-6 max-md:gap-4 p-8 max-md:p-5 rounded-2xl transition-colors duration-200"
+            style={{
+              background: recommended
+                ? "rgba(149,51,165,0.08)"
+                : "var(--color-bg-surface)",
+              border: recommended
+                ? "1px solid var(--color-accent)"
+                : "1px solid var(--color-border)",
+            }}
           >
-            {card.num}
-          </p>
-          <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
-            {card.title}
-          </h3>
-          <div className="text-base text-white leading-[1.7]">
-            {card.body}
+            <div className="flex-shrink-0 flex justify-center pt-1">
+              <RouteIcon recommended={recommended} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <span
+                className="inline-block text-[0.72rem] font-bold px-3 py-1 rounded-full mb-4"
+                style={{
+                  background: recommended ? "var(--color-accent)" : "transparent",
+                  color: recommended ? "#fff" : "var(--color-light)",
+                  border: recommended ? "none" : "1px solid var(--color-border)",
+                }}
+              >
+                {card.num}
+              </span>
+              <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
+                {card.title}
+              </h3>
+              <div className="text-base text-white leading-[1.7]">
+                {card.body}
+              </div>
+              {card.link && (
+                <Link
+                  href={card.link.href}
+                  className="mt-4 block text-[0.68rem] no-underline transition-colors hover:underline"
+                  style={{ color: "var(--color-accent)" }}
+                >
+                  {card.link.label} →
+                </Link>
+              )}
+            </div>
           </div>
-          {card.link && (
-            <Link
-              href={card.link.href}
-              className="mt-4 block text-[0.68rem] no-underline transition-colors hover:underline"
-              style={{ color: "var(--color-accent)" }}
-            >
-              {card.link.label} →
-            </Link>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
