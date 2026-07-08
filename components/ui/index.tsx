@@ -81,6 +81,25 @@ export function Divider() {
   return null;
 }
 
+// ── Road Divider ─────────────────────────────────────────────
+// A thin dashed line in the brand accent color, styled like a
+// road's lane markings. Used in place of plain gray dividers.
+export function RoadDivider() {
+  return (
+    <div
+      aria-hidden="true"
+      className="w-full"
+      style={{
+        height: 4,
+        borderRadius: 2,
+        background:
+          "repeating-linear-gradient(to right, var(--color-accent) 0px, var(--color-accent) 16px, transparent 16px, transparent 32px)",
+        opacity: 0.55,
+      }}
+    />
+  );
+}
+
 // ── FadeUp wrapper ───────────────────────────────────────────
 export function FadeUp({
   children,
