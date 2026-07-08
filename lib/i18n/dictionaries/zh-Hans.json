@@ -21,7 +21,9 @@
     "documents": "文件解读",
     "volunteer": "志愿者",
     "research": "研究",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "learningResources": "学习资源",
+    "getInvolved": "参与我们"
   },
   "ui": {
     "openMenu": "打开菜单",
@@ -304,6 +306,77 @@
           "body": "我们用数据记录歧视现象。我们持续进行的研究量化了基于性别的定价差异。"
         }
       ]
+    }
+  },
+  "team": {
+    "hero": {
+      "titleLine1": "出于同样的",
+      "titleEm": "愤懑而行动。"
+    },
+    "sectionTitle": "认识我们的团队",
+    "members": [
+      {
+        "position": "创始人",
+        "bio": "Rana 在 19 岁那年，因为一个商业法术语，让她躲过了在经销商处签下一份掠夺性销售合同，从而创立了 VINdicated。最初的个人低谷，后来变成了一场使命：瓦解那些利用独自走进车行、没有后援的消费者的系统。她主导 VINdicated 的研究方向与战略，坚信汽车知识应该是公共知识。"
+      },
+      {
+        "position": "技术负责人",
+        "bio": "Ray Gan 负责 VINdicated 互动式经销商风险地图背后的数据和 AI 流程。他设计了基于大语言模型的分类系统，把非结构化的消费者评论转化为透明、有据可依的购车风险信号。Ray 在 UCLA 学习计算机科学与语言学。"
+      },
+      {
+        "position": "研究与外联负责人",
+        "bio": "Halima Cherif Hminat 就读于 UC Berkeley 综合生物学专业，辅修可持续商业与政策，同时走牙医预科方向。她也是 VINdicated 的研究与外联负责人，参与制作帮助人们自信做出明智决策的资源。她说 VINdicated 的使命对她很重要，因为她希望通过帮助女性避免在购车和维修中受到不公平对待来支持她们。"
+      },
+      {
+        "position": "数据工程师",
+        "bio": "Will Prawira 在 UCLA 双修数据科学与应用数学。他目前参与 Bruin Sports Analytics 的网球咨询团队，同时也是 NSDC 的项目负责人。他正积极以数据产品工程师的身份参与 VINdicated 的工作。"
+      },
+      {
+        "position": "数据工程师",
+        "bio": "Ameerah Zafar 是 UC Berkeley 化学工程专业的大四学生，同时参与 Berkeley 穆斯林学生协会，并从事涂层力学方向的本科研究。Ameerah 在 VINdicated 负责数据研究和平面设计。"
+      },
+      {
+        "position": "软件工程师",
+        "bio": "Rizwaan Bana 在 UCLA 主修计算机科学。他是 VINdicated 的软件负责人，构建帮助消费者顺畅完成购车流程的工具。Rizwaan 热衷于用技术推动积极的改变，让信息对每个人都更易获取。"
+      },
+      {
+        "position": "实证与数据负责人",
+        "bio": "Peter Dickson 在加州大学伯克利分校学习数据科学与经济学，专注于数据分析、金融建模和解决现实问题。他兼具技术严谨性和商业洞察力，善用 Python、SQL 和统计建模从复杂数据集中提取有意义的洞见。出于好奇心和以结果为导向的思维，Peter 热衷于用数据发现低效之处、识别机会并创造可衡量的价值。"
+      },
+      {
+        "position": "视觉设计负责人",
+        "bio": "Evanceline 是 UCLA 生物学专业的大二学生。她热衷于用艺术和设计作为传递信息的方式。她希望通过自己的作品，帮助人们更多地了解 VINdicated 以及汽车行业中存在的不平等和风险。"
+      },
+      {
+        "position": "数据分析师",
+        "bio": "Brisa Gómez 是心理学专业的大一转学生。在墨西哥蒂华纳长大的她，热衷于与女性、残障人士和酷儿群体等未被充分代表的社群相关的研究。她希望未来能成为一名行为治疗师。闲暇时，她喜欢读甜腻的爱情小说，也喜欢进行创意写作。"
+      },
+      {
+        "position": "研究分析员",
+        "bio": "Fiona Wangsawidjaja 是 UCLA 的在读本科生。她协助负责 VINdicated 的数据部分！"
+      },
+      {
+        "position": "研究分析员",
+        "bio": "Ayat Ashraf 在 UCLA 主修数学与经济学，对经济政策制定感兴趣。她在 VINdicated 从事研究工作，希望将来买车时不用再给爸爸打八千次电话求助。"
+      },
+      {
+        "position": "研究分析员",
+        "bio": "Paul 是 UC Berkeley 的大一新生，计划主修综合生物学，走牙医预科方向。他很期待能为让可靠信息更易获取、支持那些在汽车行业中可能遭遇不公平待遇的人贡献力量。"
+      },
+      {
+        "position": "软件工程师",
+        "bio": "Bryan Zhang 在 UCLA 主修计算机科学。闲暇时他喜欢打篮球、打排球和烘焙。他是 VINdicated 的开发者。"
+      },
+      {
+        "position": "软件工程师",
+        "bio": "Jas Wang 是 UCLA 大四学生，主修政治学与地理学。他运用 GIS 制图技能，帮助让 VINdicated 的数据在可视化后更易理解。VINdicated 对他很重要，因为在移民社区长大的他深知移民同样容易受到伤害，也常常被不公平地欺骗。"
+      }
+    ],
+    "cta": {
+      "headingPlain": "想成为",
+      "headingEm": "其中一员吗？",
+      "body": "VINdicated 一直在寻找充满热情的人：研究者、开发者、设计师、教育者和倡导者。如果你也相信买车对每个人来说都应该是公平的，我们很想听到你的声音。",
+      "button": "联系我们"
     }
   }
 }
