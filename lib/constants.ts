@@ -32,6 +32,7 @@ export const navLinks = [
   {
     label: "Learning Resources",
     href: "/inspection",
+    standalone: false,
     children: [
       { label: "Inspection Guide", href: "/inspection" },
       { label: "Fraud Prevention", href: "/fraud" },
