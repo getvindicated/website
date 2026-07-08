@@ -97,7 +97,7 @@ export function WollstonecraftQuotes() {
             transitionDuration: `${FADE_MS}ms`,
           }}
         >
-          Mary Wollstonecraft
+          Mary Wollstonecraft, {current.source}
         </p>
       </button>
 
