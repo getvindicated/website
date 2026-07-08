@@ -21,7 +21,9 @@
     "documents": "Documentos Descifrados",
     "volunteer": "Voluntariado",
     "research": "Investigación",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "learningResources": "Recursos Educativos",
+    "getInvolved": "Involúcrate"
   },
   "ui": {
     "openMenu": "Abrir menú",
@@ -304,6 +306,77 @@
           "body": "Documentamos la discriminación con datos. Nuestros estudios en curso cuantifican las disparidades de precios basadas en género."
         }
       ]
+    }
+  },
+  "team": {
+    "hero": {
+      "titleLine1": "Impulsados por la",
+      "titleEm": "misma frustración."
+    },
+    "sectionTitle": "Conoce al Equipo",
+    "members": [
+      {
+        "position": "Fundadora",
+        "bio": "Rana fundó VINdicated a los 19 años, después de que un término del derecho mercantil la salvara de firmar un contrato de venta abusivo en un concesionario. Lo que comenzó como un punto de quiebre personal se convirtió en una misión para desmantelar los sistemas que explotan a los consumidores que entran solos a un lote de autos. Ella lidera las iniciativas de investigación y la dirección estratégica de VINdicated, impulsada por la creencia de que el conocimiento sobre autos debería ser conocimiento público."
+      },
+      {
+        "position": "Líder Técnico",
+        "bio": "Ray Gan lidera el pipeline de datos e inteligencia artificial del mapa interactivo de riesgo de concesionarios de VINdicated. Diseñó el sistema de clasificación basado en LLM que convierte reseñas de consumidores no estructuradas en señales de riesgo transparentes y respaldadas por evidencia para los compradores de autos. Ray estudia Ciencias de la Computación y Lingüística en UCLA."
+      },
+      {
+        "position": "Líder de Investigación y Difusión",
+        "bio": "Halima Cherif Hminat estudia Biología Integrativa en UC Berkeley, con una especialización secundaria en Negocios Sostenibles y Políticas Públicas, y está en la vía pre-dental. También es Líder de Investigación y Difusión en VINdicated y contribuye a crear recursos que ayudan a las personas a tomar decisiones informadas con confianza. Dice que la misión de VINdicated es importante para ella porque quiere apoyar a las mujeres ayudándolas a prevenir el trato injusto al comprar y reparar autos."
+      },
+      {
+        "position": "Ingeniero de Datos",
+        "bio": "Will Prawira tiene doble especialización en Ciencia de Datos y Matemáticas Aplicadas en UCLA. En UCLA, participa actualmente en Bruin Sports Analytics como parte del equipo de consultoría de tenis, además de ser líder de proyecto en NSDC. Trabaja activamente en VINdicated como ingeniero de productos de datos."
+      },
+      {
+        "position": "Ingeniera de Datos",
+        "bio": "Ameerah Zafar es estudiante de último año de Ingeniería Química en UC Berkeley, y también participa en la Asociación de Estudiantes Musulmanes de Berkeley y en investigación de pregrado sobre mecánica de recubrimientos. Ameerah contribuye a la investigación de datos y al diseño gráfico en VINdicated."
+      },
+      {
+        "position": "Ingeniero de Software",
+        "bio": "Rizwaan Bana estudia Ciencias de la Computación en UCLA. Es el Líder de Software en VINdicated, donde construye herramientas que ayudan a los consumidores a navegar el proceso de compra de autos sin fricción. A Rizwaan le apasiona usar la tecnología para crear un cambio positivo y hacer que la información sea más accesible para todos."
+      },
+      {
+        "position": "Líder Empírico y de Datos",
+        "bio": "Peter Dickson estudia Ciencia de Datos y Economía en la Universidad de California, Berkeley, con un fuerte enfoque en análisis de datos, modelado financiero y resolución de problemas del mundo real. Aporta una combinación de rigor técnico y visión empresarial, utilizando herramientas como Python, SQL y modelado estadístico para extraer información valiosa de conjuntos de datos complejos. Impulsado por la curiosidad y una mentalidad orientada a resultados, a Peter le apasiona usar datos para descubrir ineficiencias, identificar oportunidades y crear valor medible."
+      },
+      {
+        "position": "Líder de Diseño Visual",
+        "bio": "Evanceline es estudiante de segundo año de Biología en UCLA. Le apasiona usar el arte y el diseño como medio para transmitir mensajes. A través de su arte, espera ayudar a las personas a entender más sobre VINdicated y las desigualdades y peligros existentes en la industria automotriz."
+      },
+      {
+        "position": "Analista de Datos",
+        "bio": "Brisa Gómez es estudiante de transferencia de primer año en Psicología. Criada en Tijuana, México, le apasiona la investigación relacionada con comunidades subrepresentadas como mujeres, personas con discapacidad e identidades queer. Espera convertirse en terapeuta conductual en el futuro. En su tiempo libre, le gusta leer novelas románticas ligeras y escribir de forma creativa."
+      },
+      {
+        "position": "Analista de Investigación",
+        "bio": "Fiona Wangsawidjaja es estudiante de licenciatura en UCLA. ¡Ayuda con la sección de datos de VINdicated!"
+      },
+      {
+        "position": "Analista de Investigación",
+        "bio": "Ayat Ashraf estudia Matemáticas y Economía en UCLA y le interesa la formulación de políticas económicas. Investiga en VINdicated, con la esperanza de algún día poder comprar un auto sin tener que llamar a su papá 8,000 veces."
+      },
+      {
+        "position": "Analista de Investigación",
+        "bio": "Paul es estudiante de primer año en UC Berkeley y planea especializarse en Biología Integrativa en la vía pre-dental. Está entusiasmado por contribuir a que la información confiable sea más accesible y por apoyar a las personas que pueden enfrentar prácticas injustas en la industria automotriz."
+      },
+      {
+        "position": "Ingeniero de Software",
+        "bio": "Bryan Zhang estudia Ciencias de la Computación en UCLA. En su tiempo libre disfruta jugar baloncesto, voleibol y hornear. Es desarrollador para VINdicated."
+      },
+      {
+        "position": "Ingeniero de Software",
+        "bio": "Jas Wang está en su cuarto año en UCLA, especializándose en Ciencias Políticas y Geografía. Usando habilidades de mapeo GIS, ayuda a que los datos de VINdicated sean más accesibles al visualizarlos. VINdicated es importante para él porque, al haber crecido en una comunidad de inmigrantes, sabe lo vulnerables que también son los inmigrantes y cómo son estafados injustamente."
+      }
+    ],
+    "cta": {
+      "headingPlain": "¿Quieres ser parte de",
+      "headingEm": "esto?",
+      "body": "VINdicated siempre está buscando personas apasionadas: investigadores, desarrolladores, diseñadores, educadores y defensores. Si crees que comprar un auto debería ser justo para todos, queremos saber de ti.",
+      "button": "Ponte en Contacto"
     }
   }
 }
