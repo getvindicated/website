@@ -241,14 +241,16 @@ export default async function AboutPage({
       body: [
         "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
         "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
+        "After that, I made a fake Facebook account under the name Randall, and had my brother call sellers on my behalf. I got better deals when they thought they were dealing with a man.",
       ],
     },
     {
       num: "03",
       label: "South Coast Mitsubishi",
       body: [
-        "I showed up to test drive a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\"",
-        "Then I paid for an independent inspection. They found issues. They handed me a financing contract at 30% APR. I know what a bad deal is. I didn't sign.",
+        "April 2025. I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" I asked for service records. I was told they were in a locked drawer, and the guy with the key wasn't there. They promised a 300-point inspection. Then 150. Then it was back in the locked drawer.",
+        "I paid for an independent inspection at a Toyota dealership. They found issues. When I drove back, there was a rattling noise. Eddy told me I broke the car during the test drive.",
+        "They handed me a financing contract with 30% APR. I was paying cash. \"Sign this until you bring a cashier's check.\" I asked where it said the contract would be voided. He pointed to an arbitration agreement. I took business law. I know what arbitration means. He got angry. I said, \"I know you're frustrated.\" He said, \"You would be correct,\" and left.",
       ],
     },
   ];
@@ -441,7 +443,7 @@ export default async function AboutPage({
               style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
               {d.story?.pullquote?.quote ??
-                "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect."}
+                "I reported Eddy. When the GM called to apologize, I said, \"I don't accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\""}
             </blockquote>
             <p
               className="text-[0.9rem] font-bold"
