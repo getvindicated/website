@@ -162,6 +162,123 @@
     "meta": {
       "title": "Educate. Empower. Vindicate.",
       "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources."
+    ,
+  "about": {
+    "hero": {
+      "titlePlain": "Built on the belief that car knowledge",
+      "titleEm": "should be public knowledge.",
+      "subtitle": "VINdicated exists because we do not believe women should have to bring male protection just to buy a car safely."
+    },
+    "whyWeExist": {
+      "titleLine1": "The discrimination",
+      "titleEm": "is measurable.",
+      "titleLine2": "The harm is real.",
+      "para1": [
+        { "text": "Research by Ian Ayres and Peter Siegelman found that " },
+        { "text": "Black male car buyers were quoted prices averaging $1,100 higher", "bold": true },
+        { "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more than white men. White women were quoted $92 more than white men." }
+      ],
+      "para2": [
+        { "text": "48% of Gen Z women feel discouraged from visiting a dealership", "bold": true },
+        { "text": " due to concern about gender-based discrimination (Morning Consult for Caribou, 2022). This isn't paranoia. This is pattern recognition." }
+      ],
+      "para3": [
+        { "text": "Dealers made racist or sexist comments in " },
+        { "text": "4% of test visits", "bold": true },
+        { "text": ". They spent " },
+        { "text": "13% longer negotiating with \"minority\" testers", "bold": true },
+        { "text": "." }
+      ],
+      "para4": "And we're done pretending it's isolated incidents."
+    },
+    "mission": {
+      "heading": "Educate. Empower.",
+      "headingEm": "Vindicate.",
+      "subheading": "To dismantle consumer-level escort culture, one informed buyer at a time.",
+      "pillars": [
+        {
+          "word": "Educate",
+          "body": "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage."
+        },
+        {
+          "word": "Empower",
+          "body": "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup."
+        },
+        {
+          "word": "Vindicate",
+          "body": "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change."
+        }
+      ]
+    },
+    "story": {
+      "titleEm": "Vindicated from what?",
+      "subtitle": "Three strikes. Three completely different situations. The same system every time.",
+      "strikes": [
+        {
+          "num": "01",
+          "label": "The Pink Slip Scam",
+          "body": [
+            "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
+            "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid."
+          ]
+        },
+        {
+          "num": "02",
+          "label": "Facebook Marketplace",
+          "body": [
+            "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
+            "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me."
+          ]
+        },
+        {
+          "num": "03",
+          "label": "South Coast Mitsubishi",
+          "body": [
+            "I showed up to test drive a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\"",
+            "Then I paid for an independent inspection. They found issues. They handed me a financing contract at 30% APR. I know what a bad deal is. I didn't sign."
+          ]
+        }
+      ],
+      "pullquote": {
+        "quote": "I reported Eddy. When the GM called to apologize, I said: I do not accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you will treat everyone with respect.",
+        "attribution": "Rana Darwich, Founder of VINdicated"
+      },
+      "bio": {
+        "label": "About the Founder",
+        "body": "Rana Darwich founded VINdicated at 19 after almost signing a predatory arbitration clause at a dealership.",
+        "closingLine": "Now, it's your turn."
+      },
+      "wollstonecraft": {
+        "label": "Mary Wollstonecraft, 1792",
+        "quote": "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."
+      }
+    },
+    "provide": {
+      "titlePlain": "Free. Accessible.",
+      "titleEm": "No strings attached.",
+      "subtitle": "Everything VINdicated offers is free. No signup required, no upsell, no catch.",
+      "items": [
+        {
+          "cat": "Education",
+          "title": "Free Automotive Workshops",
+          "body": "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot."
+        },
+        {
+          "cat": "Tools",
+          "title": "Online Resources & Guides",
+          "body": "Step-by-step inspection guides, red flag checklists, script templates, and financing explainers. Designed for first-time buyers."
+        },
+        {
+          "cat": "Community",
+          "title": "Vetted Mechanic Network",
+          "body": "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you."
+        },
+        {
+          "cat": "Research",
+          "title": "Correspondence Audit Studies",
+          "body": "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities."
+        }
+      ]
     }
   }
 }
