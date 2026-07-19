@@ -3,8 +3,8 @@ import {
 	PageHero,
 	FadeUp,
 	SectionTitle,
+	RoadDivider,
 } from "@/components/ui";
-import { RoadDivider } from "@/components/sections/RoadDivider";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
 import type { Locale } from "@/lib/i18n/config";
@@ -447,7 +447,7 @@ export default async function TeamPage({
 				})}
 			</section>
 
-			<RoadDivider height={48} />
+			<RoadDivider />
 
 			<FadeUp>
 				<section
