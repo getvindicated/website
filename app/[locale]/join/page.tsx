@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { PageHero, FadeUp, SectionTitle, Button } from "@/components/ui";
 import { submitVolunteerApplication } from "@/app/actions/submitVolunteer";
 import { submitContactForm } from "@/app/actions/email";
@@ -13,6 +14,7 @@ const CHAPTERS = [
     lead: "Rana Darwich, Founder & Executive Director",
     contact: "getvindicated@outlook.com",
     focus: "Built the interactive dealership risk map and leads VINdicated's core consumer research and data infrastructure.",
+    mascot: "/chapters/ucla-mascot.png",
   },
   {
     value: "ucberkeley",
@@ -21,6 +23,7 @@ const CHAPTERS = [
     lead: "Halima Cherif Hminat, Research & Outreach Lead · Ameerah Zafar, Data Engineer",
     contact: "halimacherif@berkeley.edu · azzafar@berkeley.edu",
     focus: "Currently building out its membership. Focused on consumer education and outreach.",
+    mascot: "/chapters/berkeley-mascot.png",
   },
   {
     value: "ucsc",
@@ -28,6 +31,7 @@ const CHAPTERS = [
     school: "University of California, Santa Cruz",
     lead: "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead",
     contact: "asvinod@ucsc.edu · gsambee@ucsc.edu",
+    mascot: "/chapters/ucsc-mascot.png",
     focus: "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
   },
 ];
@@ -84,7 +88,7 @@ export default function JoinPage() {
       <PageHero
         kicker=""
         title={<>Get <em>Involved.</em></>}
-        subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello; pick what fits below."
+        subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello — pick what fits below."
       />
 
       <FadeUp>
@@ -96,6 +100,15 @@ export default function JoinPage() {
           <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-1 mb-24">
             {CHAPTERS.map((ch) => (
               <div key={ch.value}>
+                {ch.mascot && (
+                  <Image
+                    src={ch.mascot}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="h-16 w-auto object-contain mb-4"
+                  />
+                )}
                 <p className="text-[1.4rem] font-semibold text-white mb-1">{ch.label}</p>
                 <p className="text-[1rem] text-white mb-5">{ch.school}</p>
                 <p className="text-[0.95rem] text-white leading-[1.7] mb-5">{ch.focus}</p>
@@ -116,8 +129,9 @@ export default function JoinPage() {
           >
             <button
               onClick={() => setTab("volunteer")}
-              className="px-5 py-3 text-[0.95rem] font-semibold text-white transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
               style={{
+                color: tab === "volunteer" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "volunteer" ? "2px solid var(--color-accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
@@ -126,8 +140,9 @@ export default function JoinPage() {
             </button>
             <button
               onClick={() => setTab("contact")}
-              className="px-5 py-3 text-[0.95rem] font-semibold text-white transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
               style={{
+                color: tab === "contact" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "contact" ? "2px solid var(--color-accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
