@@ -2,9 +2,9 @@ import Image from "next/image";
 import {
 	PageHero,
 	FadeUp,
-	Divider,
 	SectionTitle,
 } from "@/components/ui";
+import { RoadDivider } from "@/components/sections/RoadDivider";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
 import type { Locale } from "@/lib/i18n/config";
@@ -220,9 +220,9 @@ const CHAPTER_LABEL: Record<Chapter, string> = {
 };
 // Leadership has no single school mascot (it's cross-chapter), so no image.
 const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
-	ucla: "/chapters/ucla-mascot.png",
-	berkeley: "/chapters/berkeley-mascot.png",
-	ucsc: "/chapters/ucsc-mascot.png",
+	ucla: "/ucla-mascot.png",
+	berkeley: "/berkeley-mascot.png",
+	ucsc: "/ucsc-mascot.png",
 };
 
 function Initials({ name }: { name: string }) {
@@ -322,22 +322,19 @@ export default async function TeamPage({
 
 					return (
 						<div key={chapter} className="mb-20 last:mb-0">
-							<div
-								className="flex items-center gap-4 mb-8 pb-4"
-								style={{ borderBottom: "1px solid var(--color-border)" }}
-							>
+							<div className="flex items-center gap-5 mb-10">
 								{CHAPTER_MASCOT[chapter] && (
 									<Image
 										src={CHAPTER_MASCOT[chapter]!}
 										alt=""
-										width={40}
-										height={40}
-										className="h-10 w-auto object-contain"
+										width={64}
+										height={64}
+										className="h-14 w-auto object-contain"
 									/>
 								)}
 								<h3
-									className="text-[0.85rem] font-bold uppercase tracking-[0.08em]"
-									style={{ color: "var(--color-accent)" }}
+									className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.01em] text-white"
+									style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
 								>
 									{CHAPTER_LABEL[chapter]}
 								</h3>
@@ -373,6 +370,24 @@ export default async function TeamPage({
 														</div>
 													) : (
 														<Initials name={member.name} />
+													)}
+													{CHAPTER_MASCOT[member.chapter] && (
+														<div
+															className="absolute -bottom-3 -right-3 w-14 h-14 rounded-full flex items-center justify-center overflow-hidden max-lg:-right-1"
+															style={{
+																background: "var(--color-bg-page)",
+																border: "2px solid var(--color-vivid)",
+															}}
+															title={CHAPTER_LABEL[member.chapter]}
+														>
+															<Image
+																src={CHAPTER_MASCOT[member.chapter]!}
+																alt=""
+																width={40}
+																height={40}
+																className="h-9 w-auto object-contain"
+															/>
+														</div>
 													)}
 												</div>
 
@@ -422,12 +437,7 @@ export default async function TeamPage({
 												)}
 											</div>
 
-											{i < chapterMembers.length - 1 && (
-												<hr
-													className="border-none h-px"
-													style={{ background: "var(--color-border)" }}
-												/>
-											)}
+											{i < chapterMembers.length - 1 && <RoadDivider />}
 										</FadeUp>
 									);
 								})}
@@ -437,7 +447,7 @@ export default async function TeamPage({
 				})}
 			</section>
 
-			<Divider />
+			<RoadDivider height={48} />
 
 			<FadeUp>
 				<section
