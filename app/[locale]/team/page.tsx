@@ -227,9 +227,20 @@ const team: TeamMember[] = [
 // These are indices into the `team` array, not chapters, so translations
 // (which are indexed to `team`'s original order) still line up correctly
 // regardless of this display order.
+// Rendering order for the flat team list below -- deliberately mixed
+// round-robin across leadership/UCLA/Berkeley/UCSC so no group (including
+// leadership) clusters together. These are indices into the `team` array
+// above, not chapters -- translations (indexed to `team`'s original order)
+// still line up correctly regardless of this display order.
 const DISPLAY_ORDER: number[] = [
-	0, 5, 1, 7, 3, 14, 2, 9, 16, 4, 19, 12, 15, 6, 10, 17, 11, 13, 18, 8,
+	0, 3, 2, 14, 1, 9, 4, 15, 5, 12, 6, 16, 7, 10, 11, 17, 13, 19, 18, 8,
 ];
+// Leadership has no single school mascot (it's cross-chapter), so no logo.
+const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
+	ucla: "/ucla-mascot.png",
+	berkeley: "/berkeley-mascot.png",
+	ucsc: "/ucsc-mascot.png",
+};
 
 function Initials({ name }: { name: string }) {
 	const initials = name
@@ -321,6 +332,7 @@ export default async function TeamPage({
 						const member = team[dictI];
 						const position = members?.[dictI]?.position ?? member.position;
 						const bio = members?.[dictI]?.bio ?? member.bio;
+						const mascot = CHAPTER_MASCOT[member.chapter];
 						return (
 							<FadeUp key={member.name}>
 								<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
@@ -355,12 +367,23 @@ export default async function TeamPage({
 										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
 											{member.name}
 										</h3>
-										<p
-											className="text-[1.15rem] font-bold mb-1"
-											style={{ color: "var(--color-accent)" }}
-										>
-											{position}
-										</p>
+										<div className="flex items-center gap-2 mb-1 max-lg:justify-center">
+											<p
+												className="text-[1.15rem] font-bold"
+												style={{ color: "var(--color-accent)" }}
+											>
+												{position}
+											</p>
+											{mascot && (
+												<Image
+													src={mascot}
+													alt=""
+													width={28}
+													height={28}
+													className="h-7 w-auto object-contain"
+												/>
+											)}
+										</div>
 										<p
 											className="text-[1.15rem] font-bold mb-5 text-white"
 											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
