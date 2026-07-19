@@ -1,504 +1,447 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { PageHero, FadeUp, SectionTitle, Button } from "@/components/ui";
-import { submitVolunteerApplication } from "@/app/actions/submitVolunteer";
-import { submitContactForm } from "@/app/actions/email";
+import {
+	PageHero,
+	FadeUp,
+	SectionTitle,
+	RoadDivider,
+} from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getRouteMetadata } from "@/lib/i18n/metadata";
+import type { Locale } from "@/lib/i18n/config";
+import type { TeamDict } from "@/lib/i18n/dictionary";
 
-const CHAPTERS = [
-  {
-    value: "ucla",
-    label: "UCLA Chapter",
-    school: "University of California, Los Angeles",
-    lead: "Rana Darwich, Founder & Executive Director",
-    contact: "getvindicated@outlook.com",
-    focus: "Built the interactive dealership risk map and leads VINdicated's core consumer research and data infrastructure.",
-    mascot: "/chapters/ucla-mascot.png",
-  },
-  {
-    value: "ucberkeley",
-    label: "UC Berkeley Chapter",
-    school: "University of California, Berkeley",
-    lead: "Halima Cherif Hminat, Research & Outreach Lead · Ameerah Zafar, Data Engineer",
-    contact: "halimacherif@berkeley.edu · azzafar@berkeley.edu",
-    focus: "Currently building out its membership. Focused on consumer education and outreach.",
-    mascot: "/chapters/berkeley-mascot.png",
-  },
-  {
-    value: "ucsc",
-    label: "UC Santa Cruz Chapter",
-    school: "University of California, Santa Cruz",
-    lead: "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead",
-    contact: "asvinod@ucsc.edu · gsambee@ucsc.edu",
-    mascot: "/chapters/ucsc-mascot.png",
-    focus: "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
-  },
-];
-
-const ROLES = [
-  { value: "research-analyst", label: "Research Analyst", min_hours: 5 },
-  { value: "data-engineer", label: "Data Engineer / Analyst", min_hours: 5 },
-  { value: "software-engineer", label: "Software Engineer", min_hours: 5 },
-  { value: "outreach", label: "Outreach & Communications", min_hours: 3 },
-  { value: "legal-research", label: "Legal Research", min_hours: 3 },
-  { value: "design", label: "Graphic Design / Illustration", min_hours: 3 },
-];
-
-const TOPICS = [
-  { value: "volunteer", label: "Volunteering with VINdicated" },
-  { value: "research", label: "Participating in Research" },
-  { value: "story", label: "Sharing My Story" },
-  { value: "press", label: "Press & Media" },
-  { value: "partnership", label: "Partnership or Collaboration" },
-  { value: "grant", label: "Grants & Funding" },
-  { value: "general", label: "General Inquiry" },
-];
-
-const SIDE_INFO = [
-  {
-    cat: "Volunteer",
-    body: "We have teams for tech, content, design, and operations. If you want to contribute skills to a mission that matters, we'd love to have you.",
-  },
-  {
-    cat: "Research Participants",
-    body: "Our correspondence audit studies need testers. Participation is remote, anonymous, and directly contributes to publishable research on automotive discrimination.",
-  },
-  {
-    cat: "Share Your Story",
-    body: "Have you experienced discriminatory treatment at a dealership or from a private seller? Your story may contribute to our research or help us better serve our community.",
-  },
-  {
-    cat: "Press & Media",
-    body: "For media inquiries about VINdicated or our research, reach out directly. Our founder is available for comment on automotive consumer discrimination.",
-  },
-];
-
-const fieldCls =
-  "w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors";
-
-type Tab = "contact" | "volunteer";
-type FormState = "idle" | "submitting" | "success" | "error";
-
-export default function JoinPage() {
-  const [tab, setTab] = useState<Tab>("volunteer");
-
-  return (
-    <>
-      <PageHero
-        kicker=""
-        title={<>Get <em>Involved.</em></>}
-        subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello — pick what fits below."
-      />
-
-      <FadeUp>
-        <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-14">
-            Our <em>Chapters.</em>
-          </h2>
-
-          <div className="grid grid-cols-3 gap-10 max-lg:grid-cols-1 mb-24">
-            {CHAPTERS.map((ch) => (
-              <div key={ch.value}>
-                {ch.mascot && (
-                  <Image
-                    src={ch.mascot}
-                    alt=""
-                    width={64}
-                    height={64}
-                    className="h-16 w-auto object-contain mb-4"
-                  />
-                )}
-                <p className="text-[1.4rem] font-semibold text-white mb-1">{ch.label}</p>
-                <p className="text-[1rem] text-white mb-5">{ch.school}</p>
-                <p className="text-[0.95rem] text-white leading-[1.7] mb-5">{ch.focus}</p>
-                <p className="text-[0.9rem] text-white mb-1">
-                  <span className="font-semibold">Leads:</span> {ch.lead}
-                </p>
-                <p className="text-[0.9rem] text-white">
-                  <span className="font-semibold">Contact:</span> {ch.contact}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Tab toggle */}
-          <div
-            className="flex gap-2 mb-14 w-fit"
-            style={{ borderBottom: "1px solid var(--color-border)" }}
-          >
-            <button
-              onClick={() => setTab("volunteer")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
-              style={{
-                color: tab === "volunteer" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
-                borderBottom: tab === "volunteer" ? "2px solid var(--color-accent)" : "2px solid transparent",
-                marginBottom: -1,
-              }}
-            >
-              Apply to Volunteer
-            </button>
-            <button
-              onClick={() => setTab("contact")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
-              style={{
-                color: tab === "contact" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
-                borderBottom: tab === "contact" ? "2px solid var(--color-accent)" : "2px solid transparent",
-                marginBottom: -1,
-              }}
-            >
-              General Contact
-            </button>
-          </div>
-
-          {tab === "volunteer" ? <VolunteerPanel /> : <ContactPanel />}
-        </section>
-      </FadeUp>
-
-      <FadeUp>
-        <section className="px-20 py-16 max-md:px-6">
-          <p className="text-[1.05rem] text-white leading-[1.75] max-w-[600px]">
-            Questions? Email us at{" "}
-            <a href="mailto:getvindicated@outlook.com" className="underline" style={{ color: "var(--color-accent)" }}>
-              getvindicated@outlook.com
-            </a>
-          </p>
-        </section>
-      </FadeUp>
-    </>
-  );
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	return getRouteMetadata(locale, "team", "/team");
 }
 
-// ── Volunteer application panel ──────────────────────────────
-function VolunteerPanel() {
-  const [state, setState] = useState<FormState>("idle");
-  const [message, setMessage] = useState("");
+type Social = {
+	platform: "linkedin" | "github" | "instagram" | "website";
+	href: string;
+};
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setState("submitting");
-    const form = e.currentTarget;
-    const data = new FormData(form);
+type Chapter = "leadership" | "ucla" | "berkeley" | "ucsc";
 
-    const resumeFile = data.get("resume") as File | null;
-    let resume: { filename: string; base64: string } | undefined;
+type TeamMember = {
+	name: string;
+	school: string;
+	// Real uploaded photo path, or null if we don't have one yet
+	// (renders an initials placeholder instead of a broken image).
+	photo: string | null;
+	chapter: Chapter;
+	socials?: Social[];
+	// English fallbacks, used if a dictionary entry is missing for this index
+	position: string;
+	bio: string;
+};
 
-    if (resumeFile && resumeFile.size > 0) {
-      if (resumeFile.size > 5 * 1024 * 1024) {
-        setState("error");
-        setMessage("Your resume file is too large. Please upload a file under 5MB.");
-        return;
-      }
-      const base64 = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve((reader.result as string).split(",")[1]);
-        reader.onerror = () => reject(new Error("Could not read file"));
-        reader.readAsDataURL(resumeFile);
-      }).catch(() => undefined);
-      if (base64) {
-        resume = { filename: resumeFile.name, base64 };
-      }
-    }
+// IMPORTANT: this array's order is the source of truth for dictionary
+// translation lookups (dict.team.members[i] corresponds to team[i]).
+// New members must be APPENDED at the end, never inserted in the middle,
+// or every existing translated bio/position will shift and point at the
+// wrong person. Chapter grouping for display happens separately below
+// without reordering this array.
+const team: TeamMember[] = [
+	{
+		name: "Rana Darwich",
+		position: "Founder",
+		school: "UCLA",
+		photo: "/team/rana.jpg",
+		chapter: "leadership",
+		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
+	},
+	{
+		name: "Yinrui (Ray) Gan",
+		position: "Technical Lead",
+		school: "Computer Science & Linguistics, UCLA",
+		photo: "/team/ray.jpg",
+		chapter: "leadership",
+		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
+	},
+	{
+		name: "Halima Cherif Hminat",
+		position: "Research & Outreach Lead",
+		school: "Integrative Biology, UC Berkeley",
+		photo: "/team/halima.jpg",
+		chapter: "berkeley",
+		bio: "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also a Research and Outreach Lead at VINdicated and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs.",
+	},
+	{
+		name: "William Prawira",
+		position: "Data Engineer",
+		school: "Data Science & Applied Mathematics, UCLA",
+		photo: "/team/william.jpg",
+		chapter: "ucla",
+		bio: "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer.",
+	},
+	{
+		name: "Ameerah Zafar",
+		position: "Data Engineer",
+		school: "Chemical Engineering, UC Berkeley",
+		photo: "/team/ameerah.jpg",
+		chapter: "berkeley",
+		bio: "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated.",
+	},
+	{
+		name: "Rizwaan Bana",
+		position: "Software Engineer",
+		school: "Computer Science, UCLA",
+		photo: "/team/rizwaan.jpg",
+		chapter: "leadership",
+		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
+	},
+	{
+		name: "Peter Vincent Dickson",
+		position: "Empirical & Data Lead",
+		school: "Data Science & Economics, UC Berkeley",
+		photo: "/team/peter.png",
+		chapter: "berkeley",
+		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
+	},
+	{
+		name: "Evanceline Tang",
+		position: "Visual Design Lead",
+		school: "Biology, UCLA",
+		photo: "/team/evanceline.jpg",
+		chapter: "leadership",
+		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
+	},
+	{
+		name: "Brisa Gómez",
+		position: "Data Analyst",
+		school: "Psychology",
+		// Chapter not specified in original source data -- placeholder guess,
+		// confirm which chapter Brisa actually belongs to.
+		photo: "/team/brisa.png",
+		chapter: "ucla",
+		bio: "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing.",
+	},
+	{
+		name: "Fiona Wangsawidjaja",
+		position: "Research Analyst",
+		school: "UCLA",
+		photo: "/team/fiona.jpg",
+		chapter: "ucla",
+		bio: "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
+	},
+	{
+		name: "Ayat Ashraf",
+		position: "Research Analyst",
+		school: "Math/Econ, UCLA",
+		photo: "/team/ayat.png",
+		chapter: "ucla",
+		bio: "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
+	},
+	{
+		name: "Paul Ha",
+		position: "Research Analyst",
+		school: "Integrative Biology, UC Berkeley",
+		photo: "/team/paul.png",
+		chapter: "berkeley",
+		bio: "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry.",
+	},
+	{
+		name: "Bryan Zhang",
+		position: "Software Engineer",
+		school: "Computer Science, UCLA",
+		photo: "/team/bryan.png",
+		chapter: "ucla",
+		bio: "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated.",
+	},
+	{
+		name: "Jas Wang",
+		position: "Software Engineer",
+		school: "Political Science & Geography, UCLA",
+		photo: "/team/jas.jpg",
+		chapter: "ucla",
+		bio: "Jas Wang is a 4th year at UCLA majoring in Political Science and Geography. Using GIS mapping skills, he helps VINdicated's data to be approachable when visualized. VINdicated is important to him because growing up in an immigrant community, he knows how immigrants are vulnerable too and are unfairly scammed.",
+	},
+	// -- UCSC chapter, appended below. New additions always go at the end. --
+	{
+		name: "Gundeep Sambee",
+		position: "Outreach Lead",
+		school: "Cognitive Science, UC Santa Cruz",
+		photo: "/team/gundeep.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/gundeep-k-sambee/" }],
+		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
+	},
+	{
+		name: "Ujjwal Nigam",
+		position: "Research Analyst",
+		school: "Economics, UC Santa Cruz",
+		photo: "/team/ujjwal.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/ujjwal-nigam/" }],
+		bio: "Ujjwal is an Economics major interested in using statistical tools to solve economic and policy problems. He hopes to eventually work with a think tank or government agency as a policy analyst, turning advocacy into action. He has used QGIS, Python, R, and STATA to analyze the effectiveness of legislation and public policy, and brings that experience to VINdicated's mission of protecting consumers in automobile sales. His research interests include behavioral economics, health policy, antitrust, and public finance.",
+	},
+	{
+		name: "Nickolas Vela",
+		position: "Software Engineer",
+		school: "Computer Science, UC Santa Cruz",
+		photo: "/team/nickolas.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/nickvela" }],
+		bio: "Nick studies Computer Science at UC Santa Cruz and spends most of his time building projects, lifting weights, climbing rocks, and indulging in nerdy interests. He's a member of the Tech4Good Research Lab and has previously done geospatial work for the Overture Maps Foundation through UCSC's Project Terraforma. He's also a Resident Advisor at UCSC. Mostly, he likes making stuff, figuring out how things work, and developing software that helps people.",
+	},
+	{
+		name: "Adhya Maddukuri",
+		position: "Software Engineer",
+		school: "Technology & Information Management, UC Santa Cruz",
+		photo: "/team/adhya.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/adhya-maddukuri-82a88a339" }],
+		bio: "Adhya is a Technology and Information Management student at UC Santa Cruz with a passion for building technology that creates real-world impact, spanning software development, AI, data analytics, and product strategy. She's conducted undergraduate research in generative AI, consulted with nonprofits through 180 Degrees Consulting, and helped organize hackathons with NVIDIA and ASUS. She's currently a Software Development Engineering Intern at Heron Power, building software systems and strengthening her technical and problem-solving skills.",
+	},
+	{
+		name: "Vanessa Phan",
+		position: "Research Analyst",
+		school: "Computer Engineering, UC Santa Cruz",
+		photo: "/team/vanessa.jpg",
+		chapter: "ucsc",
+		socials: [
+			{ platform: "linkedin", href: "https://www.linkedin.com/in/vanessaphan06" },
+			{ platform: "github", href: "https://github.com/vqnnie" },
+		],
+		bio: "Vanessa is pursuing a degree in Computer Engineering with a concentration in Computer Systems, interested in the combination of software and electrical engineering, especially robotics and intelligent technologies. She's the Treasurer for the Society of Women Engineers at UC Santa Cruz, where she's secured more than $5,000 in funding this year, and has been involved in SlothLab as a developer. She wants to get more involved in research, digging into topics in detail and applying what she learns to build solutions.",
+	},
+];
 
-    try {
-      const result = await submitVolunteerApplication({
-        name: data.get("name") as string,
-        email: data.get("email") as string,
-        phone: data.get("phone") as string,
-        chapter: data.get("chapter") as string,
-        role: data.get("role") as string,
-        hours: Number(data.get("hours")),
-        location: data.get("location") as string,
-        background: data.get("background") as string,
-        why: data.get("why") as string,
-        student: data.get("student") as string,
-        resume,
-      });
-      if (result.success) {
-        setState("success");
-        setMessage(result.message);
-        form.reset();
-      } else {
-        setState("error");
-        setMessage(result.message);
-      }
-    } catch {
-      setState("error");
-      setMessage("Something went wrong. Please try again or email us directly at getvindicated@outlook.com.");
-    }
-  }
+// Rendering order for the flat team list below -- intentionally NOT
+// grouped/sorted by chapter. Leadership (indices 0, 5, 1, 7 in the `team`
+// array above) is placed near the top; everyone else is interspersed.
+// These are indices into the `team` array, not chapters, so translations
+// (which are indexed to `team`'s original order) still line up correctly
+// regardless of this display order.
+const DISPLAY_ORDER: number[] = [
+	0, 5, 1, 7, 3, 14, 2, 9, 16, 4, 12, 15, 6, 10, 17, 11, 13, 18, 8,
+];
+const CHAPTER_LABEL: Record<Chapter, string> = {
+	leadership: "Leadership",
+	ucla: "UCLA Chapter",
+	berkeley: "UC Berkeley Chapter",
+	ucsc: "UC Santa Cruz Chapter",
+};
+// Leadership has no single school mascot (it's cross-chapter), so no image.
+const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
+	ucla: "/ucla-mascot.png",
+	berkeley: "/berkeley-mascot.png",
+	ucsc: "/ucsc-mascot.png",
+};
 
-  if (state === "success") {
-    return (
-      <div className="max-w-[600px]">
-        <SectionTitle className="mb-5">
-          Application <em>received.</em>
-        </SectionTitle>
-        <p className="text-[1.05rem] text-white leading-[1.7]">{message}</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1">
-      <div>
-        <h2 className="text-[clamp(1.8rem,3vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-6">
-          What we're <em>looking for.</em>
-        </h2>
-        <div>
-          {ROLES.map((role) => (
-            <div key={role.value} className="py-4">
-              <p className="text-[1.05rem] font-semibold text-white">{role.label}</p>
-              <p className="text-[0.9rem] text-white mt-1">{role.min_hours}+ hours per week</p>
-            </div>
-          ))}
-        </div>
-        <p className="text-[0.9rem] text-white leading-[1.6] mt-8">
-          All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit.
-        </p>
-      </div>
-
-      <div>
-        {state === "error" && (
-          <p
-            className="text-[0.95rem] leading-[1.6] mb-8 p-4 rounded-xl"
-            style={{
-              background: "rgba(214,59,59,0.08)",
-              border: "1px solid rgba(214,59,59,0.3)",
-              color: "var(--color-red)",
-            }}
-          >
-            {message}
-          </p>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Which chapter are you applying to?</label>
-            <select name="chapter" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
-              <option value="" disabled>Select a chapter</option>
-              {CHAPTERS.map((ch) => (
-                <option key={ch.value} value={ch.value}>{ch.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Full name</label>
-            <input name="name" required className={fieldCls} placeholder="Your full name" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Email address</label>
-            <input name="email" type="email" required className={fieldCls} placeholder="you@example.com" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Phone number</label>
-            <input name="phone" type="tel" required className={fieldCls} placeholder="(555) 555-0100" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Role you're applying for</label>
-            <select name="role" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
-              <option value="" disabled>Select a role</option>
-              {ROLES.map((role) => (
-                <option key={role.value} value={role.value}>{role.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Hours available per week</label>
-            <input name="hours" type="number" min="1" max="40" required className={fieldCls} placeholder="e.g. 8" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Are you a current student or recent grad (within 2 years)?</label>
-            <div className="flex gap-6 mt-1">
-              {["Yes", "No"].map((opt) => (
-                <label key={opt} className="flex items-center gap-2 text-white text-[1rem] cursor-pointer">
-                  <input type="radio" name="student" value={opt} required />
-                  {opt}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Location (city, state or country)</label>
-            <input name="location" required className={fieldCls} placeholder="e.g. Los Angeles, CA" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Relevant background for this role</label>
-            <textarea name="background" required rows={3} className={`${fieldCls} resize-none`} placeholder="Coursework, projects, jobs, or experience relevant to the role you picked" />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Resume (optional, PDF preferred, 5MB max)</label>
-            <input
-              name="resume"
-              type="file"
-              accept=".pdf,.doc,.docx"
-              className={`${fieldCls} text-[0.9rem] file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-[0.8rem] file:font-semibold file:cursor-pointer`}
-              style={{ color: "var(--color-light)" }}
-            />
-          </div>
-
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Why VINdicated?</label>
-            <textarea name="why" required rows={3} className={`${fieldCls} resize-none`} placeholder="What draws you to this work specifically" />
-          </div>
-
-          <button
-            type="submit"
-            disabled={state === "submitting"}
-            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ background: "var(--color-vivid)" }}
-          >
-            {state === "submitting" ? "Submitting..." : "Submit Application"}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+function Initials({ name }: { name: string }) {
+	const initials = name
+		.split(" ")
+		.filter(Boolean)
+		.slice(0, 2)
+		.map((w) => w[0])
+		.join("")
+		.toUpperCase();
+	return (
+		<div
+			className="absolute inset-0 flex items-center justify-center"
+			style={{
+				border: "1px solid var(--color-border)",
+				background: "var(--color-bg-surface)",
+			}}
+		>
+			<span
+				className="text-[clamp(2rem,4vw,3.2rem)] font-bold"
+				style={{ color: "var(--color-light)" }}
+			>
+				{initials}
+			</span>
+		</div>
+	);
 }
 
-// ── General contact panel ────────────────────────────────────
-function ContactPanel() {
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+function SocialIcon({ platform }: { platform: Social["platform"] }) {
+	const size = 18;
+	switch (platform) {
+		case "linkedin":
+			return (
+				<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+				</svg>
+			);
+		case "github":
+			return (
+				<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+				</svg>
+			);
+		case "instagram":
+			return (
+				<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+					<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+				</svg>
+			);
+		case "website":
+			return (
+				<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+					<circle cx="12" cy="12" r="10" />
+					<path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+				</svg>
+			);
+	}
+}
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-    setSubmitted(false);
+export default async function TeamPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	const dict = (await getDictionary(locale as Locale)) as { team?: TeamDict };
+	const d = dict.team ?? {};
+	const members = d.members;
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const data = {
-      firstName: formData.get("firstName") as string,
-      lastName: formData.get("lastName") as string,
-      email: formData.get("email") as string,
-      topic: formData.get("topic") as string,
-      message: formData.get("message") as string,
-    };
+	return (
+		<>
+			<PageHero
+				kicker=""
+				title={
+					<>
+						{d.hero?.titleLine1 ?? "Driven by the"}
+						<br />
+						<em>{d.hero?.titleEm ?? "same frustration."}</em>
+					</>
+				}
+			/>
 
-    try {
-      const res = await submitContactForm(data);
-      if (res.success) {
-        setSubmitted(true);
-        form.reset();
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        setError(res.error || "Something went wrong.");
-      }
-    } catch {
-      setError("Failed to send message.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
+			<section className="px-20 py-24 max-md:px-6 max-md:py-16">
+				<SectionTitle className="mb-16">
+					{d.sectionTitle ?? "Meet the Team"}
+				</SectionTitle>
 
-  return (
-    <div className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1">
-      <div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-          <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-            <div>
-              <label className="block text-[0.85rem] text-white mb-2">First name</label>
-              <input name="firstName" required className={fieldCls} placeholder="Your" />
-            </div>
-            <div>
-              <label className="block text-[0.85rem] text-white mb-2">Last name</label>
-              <input name="lastName" required className={fieldCls} placeholder="Name" />
-            </div>
-          </div>
+				<div className="space-y-0">
+					{DISPLAY_ORDER.map((dictI, i) => {
+						const member = team[dictI];
+						const position = members?.[dictI]?.position ?? member.position;
+						const bio = members?.[dictI]?.bio ?? member.bio;
+						const mascot = CHAPTER_MASCOT[member.chapter];
+						return (
+							<FadeUp key={member.name}>
+								<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
+									{/* Photo + chapter logo, side by side */}
+									<div className="flex items-center gap-4 max-lg:flex-col">
+										<div
+											className="relative w-full max-lg:w-52"
+											style={{ aspectRatio: "1 / 1" }}
+										>
+											{member.photo ? (
+												<div
+													className="absolute inset-0 overflow-hidden"
+													style={{
+														border: "1px solid var(--color-border)",
+														background: "var(--color-bg-surface)",
+													}}
+												>
+													<Image
+														src={member.photo}
+														alt={member.name}
+														fill
+														className="object-cover"
+														sizes="(max-width: 1024px) 208px, 280px"
+													/>
+												</div>
+											) : (
+												<Initials name={member.name} />
+											)}
+										</div>
+										{mascot && (
+											<Image
+												src={mascot}
+												alt=""
+												width={72}
+												height={72}
+												title={CHAPTER_LABEL[member.chapter]}
+												className="h-16 w-auto object-contain flex-shrink-0"
+											/>
+										)}
+									</div>
 
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Email address</label>
-            <input name="email" type="email" required className={fieldCls} placeholder="you@example.com" />
-          </div>
+									{/* Info */}
+									<div>
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+											{member.name}
+										</h3>
+										<p
+											className="text-[1.15rem] font-bold mb-1"
+											style={{ color: "var(--color-accent)" }}
+										>
+											{position}
+										</p>
+										<p
+											className="text-[1.15rem] font-bold mb-5 text-white"
+											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+										>
+											{member.school}
+										</p>
+										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
+											{bio}
+										</p>
+									</div>
 
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">I'm reaching out about…</label>
-            <select name="topic" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
-              <option value="" disabled>Select a topic</option>
-              {TOPICS.map((t) => (
-                <option key={t.value} value={t.label}>{t.label}</option>
-              ))}
-            </select>
-          </div>
+									{/* Socials */}
+									{member.socials && member.socials.length > 0 && (
+										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
+											{member.socials.map((s) => (
+												<a
+													key={s.platform}
+													href={s.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+													style={{
+														border: "1px solid var(--color-border)",
+														background: "var(--color-bg-surface)",
+														color: "var(--color-light)",
+													}}
+													aria-label={`${member.name} on ${s.platform}`}
+												>
+													<SocialIcon platform={s.platform} />
+												</a>
+											))}
+										</div>
+									)}
+								</div>
 
-          <div>
-            <label className="block text-[0.85rem] text-white mb-2">Message</label>
-            <textarea name="message" required rows={5} className={`${fieldCls} resize-none`} placeholder="Tell us what's on your mind..." />
-          </div>
+								{i < DISPLAY_ORDER.length - 1 && <RoadDivider />}
+							</FadeUp>
+						);
+					})}
+				</div>
+			</section>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ background: "var(--color-vivid)" }}
-          >
-            {isSubmitting ? "Sending..." : "Send it"}
-          </button>
+			<RoadDivider />
 
-          {error && (
-            <p
-              className="text-[0.95rem] leading-[1.6] p-4 rounded-xl"
-              style={{
-                background: "rgba(214,59,59,0.08)",
-                border: "1px solid rgba(214,59,59,0.3)",
-                color: "var(--color-red)",
-              }}
-            >
-              {error}
-            </p>
-          )}
-
-          {submitted && (
-            <p
-              className="text-[0.95rem] leading-[1.6] p-4 rounded-xl text-white"
-              style={{
-                background: "rgba(149,51,165,0.1)",
-                border: "1px solid var(--color-border)",
-              }}
-            >
-              Message received. We&apos;ll be in touch soon.
-            </p>
-          )}
-        </form>
-      </div>
-
-      <div>
-        <SectionTitle className="mb-10">
-          <em>Join the movement.</em>
-        </SectionTitle>
-
-        <div className="mb-12" style={{ borderTop: "1px solid var(--color-border)" }}>
-          {SIDE_INFO.map(({ cat, body }) => (
-            <div key={cat} className="py-7" style={{ borderBottom: "1px solid var(--color-border)" }}>
-              <h3 className="text-[1.15rem] leading-[1.3] mb-2" style={{ fontFamily: "var(--font-heading), Georgia, serif" }}>
-                {cat}
-              </h3>
-              <p className="text-[0.95rem] text-white leading-[1.7]">{body}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex gap-4">
-          <Button href="https://linkedin.com/company/vindicated" variant="outline" className="flex-1 text-center" external>
-            LinkedIn
-          </Button>
-          <Button href="https://instagram.com" variant="outline" className="flex-1 text-center" external>
-            Instagram
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
+			<FadeUp>
+				<section
+					className="px-20 py-24 max-md:px-6 max-md:py-16 text-center"
+					style={{ background: "var(--color-bg-page)" }}
+				>
+					<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
+						{d.cta?.headingPlain ?? "Want to be part of"}{" "}
+						<em>{d.cta?.headingEm ?? "this?"}</em>
+					</h2>
+					<p className="text-[1.05rem] text-white leading-[1.7] max-w-[540px] mx-auto">
+						{d.cta?.body ??
+							"VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you."}
+					</p>
+					<a
+						href="/join"
+						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
+						style={{ background: "var(--color-vivid)" }}
+					>
+						{d.cta?.button ?? "Get in Touch"}
+					</a>
+				</section>
+			</FadeUp>
+		</>
+	);
 }
