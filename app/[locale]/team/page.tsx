@@ -3,7 +3,6 @@ import {
 	PageHero,
 	FadeUp,
 	Divider,
-	RoadDivider,
 	SectionTitle,
 } from "@/components/ui";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -17,7 +16,7 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	return getRouteMetadata(locale, "team", "/team", "/preview.webp");
+	return getRouteMetadata(locale, "team", "/team");
 }
 
 type Social = {
@@ -25,22 +24,34 @@ type Social = {
 	href: string;
 };
 
+type Chapter = "leadership" | "ucla" | "berkeley" | "ucsc";
+
 type TeamMember = {
 	name: string;
 	school: string;
-	photo: string;
+	// Real uploaded photo path, or null if we don't have one yet
+	// (renders an initials placeholder instead of a broken image).
+	photo: string | null;
+	chapter: Chapter;
 	socials?: Social[];
 	// English fallbacks, used if a dictionary entry is missing for this index
 	position: string;
 	bio: string;
 };
 
+// IMPORTANT: this array's order is the source of truth for dictionary
+// translation lookups (dict.team.members[i] corresponds to team[i]).
+// New members must be APPENDED at the end, never inserted in the middle,
+// or every existing translated bio/position will shift and point at the
+// wrong person. Chapter grouping for display happens separately below
+// without reordering this array.
 const team: TeamMember[] = [
 	{
 		name: "Rana Darwich",
 		position: "Founder",
 		school: "UCLA",
 		photo: "/team/rana.jpg",
+		chapter: "leadership",
 		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
 	},
 	{
@@ -48,6 +59,7 @@ const team: TeamMember[] = [
 		position: "Technical Lead",
 		school: "Computer Science & Linguistics, UCLA",
 		photo: "/team/ray.jpg",
+		chapter: "leadership",
 		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
 	},
 	{
@@ -55,6 +67,7 @@ const team: TeamMember[] = [
 		position: "Research & Outreach Lead",
 		school: "Integrative Biology, UC Berkeley",
 		photo: "/team/halima.jpg",
+		chapter: "berkeley",
 		bio: "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also a Research and Outreach Lead at VINdicated and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs.",
 	},
 	{
@@ -62,6 +75,7 @@ const team: TeamMember[] = [
 		position: "Data Engineer",
 		school: "Data Science & Applied Mathematics, UCLA",
 		photo: "/team/william.jpg",
+		chapter: "ucla",
 		bio: "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer.",
 	},
 	{
@@ -69,6 +83,7 @@ const team: TeamMember[] = [
 		position: "Data Engineer",
 		school: "Chemical Engineering, UC Berkeley",
 		photo: "/team/ameerah.jpg",
+		chapter: "berkeley",
 		bio: "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated.",
 	},
 	{
@@ -76,6 +91,7 @@ const team: TeamMember[] = [
 		position: "Software Engineer",
 		school: "Computer Science, UCLA",
 		photo: "/team/rizwaan.jpg",
+		chapter: "leadership",
 		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone.",
 	},
 	{
@@ -83,6 +99,7 @@ const team: TeamMember[] = [
 		position: "Empirical & Data Lead",
 		school: "Data Science & Economics, UC Berkeley",
 		photo: "/team/peter.png",
+		chapter: "berkeley",
 		bio: "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value.",
 	},
 	{
@@ -90,13 +107,17 @@ const team: TeamMember[] = [
 		position: "Visual Design Lead",
 		school: "Biology, UCLA",
 		photo: "/team/evanceline.jpg",
+		chapter: "leadership",
 		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
 		name: "Brisa Gómez",
 		position: "Data Analyst",
 		school: "Psychology",
+		// Chapter not specified in original source data -- placeholder guess,
+		// confirm which chapter Brisa actually belongs to.
 		photo: "/team/brisa.png",
+		chapter: "ucla",
 		bio: "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing.",
 	},
 	{
@@ -104,6 +125,7 @@ const team: TeamMember[] = [
 		position: "Research Analyst",
 		school: "UCLA",
 		photo: "/team/fiona.jpg",
+		chapter: "ucla",
 		bio: "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
 	},
 	{
@@ -111,6 +133,7 @@ const team: TeamMember[] = [
 		position: "Research Analyst",
 		school: "Math/Econ, UCLA",
 		photo: "/team/ayat.png",
+		chapter: "ucla",
 		bio: "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
 	},
 	{
@@ -118,6 +141,7 @@ const team: TeamMember[] = [
 		position: "Research Analyst",
 		school: "Integrative Biology, UC Berkeley",
 		photo: "/team/paul.png",
+		chapter: "berkeley",
 		bio: "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry.",
 	},
 	{
@@ -125,6 +149,7 @@ const team: TeamMember[] = [
 		position: "Software Engineer",
 		school: "Computer Science, UCLA",
 		photo: "/team/bryan.png",
+		chapter: "ucla",
 		bio: "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated.",
 	},
 	{
@@ -132,9 +157,99 @@ const team: TeamMember[] = [
 		position: "Software Engineer",
 		school: "Political Science & Geography, UCLA",
 		photo: "/team/jas.jpg",
+		chapter: "ucla",
 		bio: "Jas Wang is a 4th year at UCLA majoring in Political Science and Geography. Using GIS mapping skills, he helps VINdicated's data to be approachable when visualized. VINdicated is important to him because growing up in an immigrant community, he knows how immigrants are vulnerable too and are unfairly scammed.",
 	},
+	// -- UCSC chapter, appended below. New additions always go at the end. --
+	{
+		name: "Gundeep Sambee",
+		position: "Outreach Lead",
+		school: "Cognitive Science, UC Santa Cruz",
+		photo: "/team/gundeep.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/gundeep-k-sambee/" }],
+		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
+	},
+	{
+		name: "Ujjwal Nigam",
+		position: "Research Analyst",
+		school: "Economics, UC Santa Cruz",
+		photo: "/team/ujjwal.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/ujjwal-nigam/" }],
+		bio: "Ujjwal is an Economics major interested in using statistical tools to solve economic and policy problems. He hopes to eventually work with a think tank or government agency as a policy analyst, turning advocacy into action. He has used QGIS, Python, R, and STATA to analyze the effectiveness of legislation and public policy, and brings that experience to VINdicated's mission of protecting consumers in automobile sales. His research interests include behavioral economics, health policy, antitrust, and public finance.",
+	},
+	{
+		name: "Nickolas Vela",
+		position: "Software Engineer",
+		school: "Computer Science, UC Santa Cruz",
+		photo: "/team/nickolas.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/nickvela" }],
+		bio: "Nick studies Computer Science at UC Santa Cruz and spends most of his time building projects, lifting weights, climbing rocks, and indulging in nerdy interests. He's a member of the Tech4Good Research Lab and has previously done geospatial work for the Overture Maps Foundation through UCSC's Project Terraforma. He's also a Resident Advisor at UCSC. Mostly, he likes making stuff, figuring out how things work, and developing software that helps people.",
+	},
+	{
+		name: "Adhya Maddukuri",
+		position: "Software Engineer",
+		school: "Technology & Information Management, UC Santa Cruz",
+		photo: "/team/adhya.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/adhya-maddukuri-82a88a339" }],
+		bio: "Adhya is a Technology and Information Management student at UC Santa Cruz with a passion for building technology that creates real-world impact, spanning software development, AI, data analytics, and product strategy. She's conducted undergraduate research in generative AI, consulted with nonprofits through 180 Degrees Consulting, and helped organize hackathons with NVIDIA and ASUS. She's currently a Software Development Engineering Intern at Heron Power, building software systems and strengthening her technical and problem-solving skills.",
+	},
+	{
+		name: "Vanessa Phan",
+		position: "Research Analyst",
+		school: "Computer Engineering, UC Santa Cruz",
+		photo: "/team/vanessa.jpg",
+		chapter: "ucsc",
+		socials: [
+			{ platform: "linkedin", href: "https://www.linkedin.com/in/vanessaphan06" },
+			{ platform: "github", href: "https://github.com/vqnnie" },
+		],
+		bio: "Vanessa is pursuing a degree in Computer Engineering with a concentration in Computer Systems, interested in the combination of software and electrical engineering, especially robotics and intelligent technologies. She's the Treasurer for the Society of Women Engineers at UC Santa Cruz, where she's secured more than $5,000 in funding this year, and has been involved in SlothLab as a developer. She wants to get more involved in research, digging into topics in detail and applying what she learns to build solutions.",
+	},
 ];
+
+const CHAPTER_ORDER: Chapter[] = ["leadership", "ucla", "berkeley", "ucsc"];
+const CHAPTER_LABEL: Record<Chapter, string> = {
+	leadership: "Leadership",
+	ucla: "UCLA Chapter",
+	berkeley: "UC Berkeley Chapter",
+	ucsc: "UC Santa Cruz Chapter",
+};
+// Leadership has no single school mascot (it's cross-chapter), so no image.
+const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
+	ucla: "/chapters/ucla-mascot.png",
+	berkeley: "/chapters/berkeley-mascot.png",
+	ucsc: "/chapters/ucsc-mascot.png",
+};
+
+function Initials({ name }: { name: string }) {
+	const initials = name
+		.split(" ")
+		.filter(Boolean)
+		.slice(0, 2)
+		.map((w) => w[0])
+		.join("")
+		.toUpperCase();
+	return (
+		<div
+			className="absolute inset-0 flex items-center justify-center"
+			style={{
+				border: "1px solid var(--color-border)",
+				background: "var(--color-bg-surface)",
+			}}
+		>
+			<span
+				className="text-[clamp(2rem,4vw,3.2rem)] font-bold"
+				style={{ color: "var(--color-light)" }}
+			>
+				{initials}
+			</span>
+		</div>
+	);
+}
 
 function SocialIcon({ platform }: { platform: Social["platform"] }) {
 	const size = 18;
@@ -177,6 +292,10 @@ export default async function TeamPage({
 	const d = dict.team ?? {};
 	const members = d.members;
 
+	// Attach each member's original array index (dictI) before grouping,
+	// so translations still line up correctly after we split by chapter.
+	const withIndex = team.map((member, dictI) => ({ member, dictI }));
+
 	return (
 		<>
 			<PageHero
@@ -191,94 +310,131 @@ export default async function TeamPage({
 			/>
 
 			<section className="px-20 py-24 max-md:px-6 max-md:py-16">
-				<SectionTitle>{d.sectionTitle ?? "Meet the Team"}</SectionTitle>
+				<SectionTitle className="mb-16">
+					{d.sectionTitle ?? "Meet the Team"}
+				</SectionTitle>
 
-				<div className="space-y-0">
-					{team.map((member, i) => {
-						const position = members?.[i]?.position ?? member.position;
-						const bio = members?.[i]?.bio ?? member.bio;
-						return (
-							<FadeUp key={member.name}>
-								<div
-									className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center"
-								>
-									{/* Photo */}
-									<div
-										className="relative w-full max-lg:w-52 max-lg:mx-auto"
-										style={{ aspectRatio: "1 / 1" }}
-									>
-										<div
-											className="absolute inset-0 overflow-hidden"
-											style={{
-												border: "1px solid var(--color-border)",
-												background: "var(--color-bg-surface)",
-											}}
-										>
-											<Image
-												src={member.photo}
-												alt={member.name}
-												fill
-												className="object-cover"
-												sizes="(max-width: 1024px) 208px, 280px"
-											/>
-										</div>
-									</div>
+				{CHAPTER_ORDER.map((chapter) => {
+					const chapterMembers = withIndex.filter(
+						({ member }) => member.chapter === chapter,
+					);
+					if (chapterMembers.length === 0) return null;
 
-									{/* Info */}
-									<div>
-										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
-											{member.name}
-										</h3>
-										<p
-											className="text-[1.15rem] font-bold mb-1"
-											style={{ color: "var(--color-accent)" }}
-										>
-											{position}
-										</p>
-										<p
-											className="text-[1.15rem] font-bold mb-5 text-white"
-											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-										>
-											{member.school}
-										</p>
-										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
-											{bio}
-										</p>
-									</div>
-
-									{/* Socials */}
-									{member.socials && member.socials.length > 0 && (
-										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
-											{member.socials.map((s) => (
-											<a
-												key={s.platform}
-													href={s.href}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
-													style={{
-														border: "1px solid var(--color-border)",
-														background: "var(--color-bg-surface)",
-														color: "var(--color-light)",
-													}}
-													aria-label={`${member.name} on ${s.platform}`}
-												>
-													<SocialIcon platform={s.platform} />
-												</a>
-											))}
-										</div>
-									)}
-								</div>
-
-								{i < team.length - 1 && (
-									<div className="py-4">
-										<RoadDivider />
-									</div>
+					return (
+						<div key={chapter} className="mb-20 last:mb-0">
+							<div
+								className="flex items-center gap-4 mb-8 pb-4"
+								style={{ borderBottom: "1px solid var(--color-border)" }}
+							>
+								{CHAPTER_MASCOT[chapter] && (
+									<Image
+										src={CHAPTER_MASCOT[chapter]!}
+										alt=""
+										width={40}
+										height={40}
+										className="h-10 w-auto object-contain"
+									/>
 								)}
-							</FadeUp>
-						);
-					})}
-				</div>
+								<h3
+									className="text-[0.85rem] font-bold uppercase tracking-[0.08em]"
+									style={{ color: "var(--color-accent)" }}
+								>
+									{CHAPTER_LABEL[chapter]}
+								</h3>
+							</div>
+
+							<div className="space-y-0">
+								{chapterMembers.map(({ member, dictI }, i) => {
+									const position = members?.[dictI]?.position ?? member.position;
+									const bio = members?.[dictI]?.bio ?? member.bio;
+									return (
+										<FadeUp key={member.name}>
+											<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
+												{/* Photo */}
+												<div
+													className="relative w-full max-lg:w-52 max-lg:mx-auto"
+													style={{ aspectRatio: "1 / 1" }}
+												>
+													{member.photo ? (
+														<div
+															className="absolute inset-0 overflow-hidden"
+															style={{
+																border: "1px solid var(--color-border)",
+																background: "var(--color-bg-surface)",
+															}}
+														>
+															<Image
+																src={member.photo}
+																alt={member.name}
+																fill
+																className="object-cover"
+																sizes="(max-width: 1024px) 208px, 280px"
+															/>
+														</div>
+													) : (
+														<Initials name={member.name} />
+													)}
+												</div>
+
+												{/* Info */}
+												<div>
+													<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+														{member.name}
+													</h3>
+													<p
+														className="text-[1.15rem] font-bold mb-1"
+														style={{ color: "var(--color-accent)" }}
+													>
+														{position}
+													</p>
+													<p
+														className="text-[1.15rem] font-bold mb-5 text-white"
+														style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+													>
+														{member.school}
+													</p>
+													<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
+														{bio}
+													</p>
+												</div>
+
+												{/* Socials */}
+												{member.socials && member.socials.length > 0 && (
+													<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
+														{member.socials.map((s) => (
+															<a
+																key={s.platform}
+																href={s.href}
+																target="_blank"
+																rel="noopener noreferrer"
+																className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+																style={{
+																	border: "1px solid var(--color-border)",
+																	background: "var(--color-bg-surface)",
+																	color: "var(--color-light)",
+																}}
+																aria-label={`${member.name} on ${s.platform}`}
+															>
+																<SocialIcon platform={s.platform} />
+															</a>
+														))}
+													</div>
+												)}
+											</div>
+
+											{i < chapterMembers.length - 1 && (
+												<hr
+													className="border-none h-px"
+													style={{ background: "var(--color-border)" }}
+												/>
+											)}
+										</FadeUp>
+									);
+								})}
+							</div>
+						</div>
+					);
+				})}
 			</section>
 
 			<Divider />
@@ -296,8 +452,8 @@ export default async function TeamPage({
 						{d.cta?.body ??
 							"VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you."}
 					</p>
-				<a
-					href="/join"
+					<a
+						href="/join"
 						className="inline-block mt-10 px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200 text-white hover:-translate-y-0.5"
 						style={{ background: "var(--color-vivid)" }}
 					>
