@@ -215,7 +215,7 @@ const team: TeamMember[] = [
 		// Confirm/correct if there's an actual title for him.
 		position: "Software Engineer",
 		school: "Computer Science, UC Berkeley",
-		photo: "/team/daryen (1).jpg",
+		photo: "/team/daryen.jpg",
 		chapter: "berkeley",
 		bio: "Daryen Romero is a Computer Science student at UC Berkeley. Joining VINdicated is important to him because he wants to help others be informed about the importance of buying a car and not be afraid. He also wants to speak out and help others understand how people can be taken advantage of if they are a woman or a different race.",
 	},
