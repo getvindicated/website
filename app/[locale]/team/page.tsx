@@ -209,21 +209,27 @@ const team: TeamMember[] = [
 		],
 		bio: "Vanessa is pursuing a degree in Computer Engineering with a concentration in Computer Systems, interested in the combination of software and electrical engineering, especially robotics and intelligent technologies. She's the Treasurer for the Society of Women Engineers at UC Santa Cruz, where she's secured more than $5,000 in funding this year, and has been involved in SlothLab as a developer. She wants to get more involved in research, digging into topics in detail and applying what she learns to build solutions.",
 	},
+	{
+		name: "Daryen Romero",
+		// No position stated in the source bio -- inferred from his major (CS).
+		// Confirm/correct if there's an actual title for him.
+		position: "Software Engineer",
+		school: "Computer Science, UC Berkeley",
+		photo: "/team/daryen.jpg",
+		chapter: "berkeley",
+		bio: "Daryen Romero is a Computer Science student at UC Berkeley. Joining VINdicated is important to him because he wants to help others be informed about the importance of buying a car and not be afraid. He also wants to speak out and help others understand how people can be taken advantage of if they are a woman or a different race.",
+	},
 ];
 
-const CHAPTER_ORDER: Chapter[] = ["leadership", "ucla", "berkeley", "ucsc"];
-const CHAPTER_LABEL: Record<Chapter, string> = {
-	leadership: "Leadership",
-	ucla: "UCLA Chapter",
-	berkeley: "UC Berkeley Chapter",
-	ucsc: "UC Santa Cruz Chapter",
-};
-// Leadership has no single school mascot (it's cross-chapter), so no image.
-const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
-	ucla: "/ucla-mascot.png",
-	berkeley: "/berkeley-mascot.png",
-	ucsc: "/ucsc-mascot.png",
-};
+// Rendering order for the flat team list below -- intentionally NOT
+// grouped/sorted by chapter. Leadership (indices 0, 5, 1, 7 in the `team`
+// array above) is placed near the top; everyone else is interspersed.
+// These are indices into the `team` array, not chapters, so translations
+// (which are indexed to `team`'s original order) still line up correctly
+// regardless of this display order.
+const DISPLAY_ORDER: number[] = [
+	0, 5, 1, 7, 3, 14, 2, 9, 16, 4, 19, 12, 15, 6, 10, 17, 11, 13, 18, 8,
+];
 
 function Initials({ name }: { name: string }) {
 	const initials = name
@@ -292,10 +298,6 @@ export default async function TeamPage({
 	const d = dict.team ?? {};
 	const members = d.members;
 
-	// Attach each member's original array index (dictI) before grouping,
-	// so translations still line up correctly after we split by chapter.
-	const withIndex = team.map((member, dictI) => ({ member, dictI }));
-
 	return (
 		<>
 			<PageHero
@@ -314,137 +316,91 @@ export default async function TeamPage({
 					{d.sectionTitle ?? "Meet the Team"}
 				</SectionTitle>
 
-				{CHAPTER_ORDER.map((chapter) => {
-					const chapterMembers = withIndex.filter(
-						({ member }) => member.chapter === chapter,
-					);
-					if (chapterMembers.length === 0) return null;
-
-					return (
-						<div key={chapter} className="mb-20 last:mb-0">
-							<div className="flex items-center gap-5 mb-10">
-								{CHAPTER_MASCOT[chapter] && (
-									<Image
-										src={CHAPTER_MASCOT[chapter]!}
-										alt=""
-										width={64}
-										height={64}
-										className="h-14 w-auto object-contain"
-									/>
-								)}
-								<h3
-									className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.01em] text-white"
-									style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-								>
-									{CHAPTER_LABEL[chapter]}
-								</h3>
-							</div>
-
-							<div className="space-y-0">
-								{chapterMembers.map(({ member, dictI }, i) => {
-									const position = members?.[dictI]?.position ?? member.position;
-									const bio = members?.[dictI]?.bio ?? member.bio;
-									return (
-										<FadeUp key={member.name}>
-											<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
-												{/* Photo */}
-												<div
-													className="relative w-full max-lg:w-52 max-lg:mx-auto"
-													style={{ aspectRatio: "1 / 1" }}
-												>
-													{member.photo ? (
-														<div
-															className="absolute inset-0 overflow-hidden"
-															style={{
-																border: "1px solid var(--color-border)",
-																background: "var(--color-bg-surface)",
-															}}
-														>
-															<Image
-																src={member.photo}
-																alt={member.name}
-																fill
-																className="object-cover"
-																sizes="(max-width: 1024px) 208px, 280px"
-															/>
-														</div>
-													) : (
-														<Initials name={member.name} />
-													)}
-													{CHAPTER_MASCOT[member.chapter] && (
-														<div
-															className="absolute -bottom-3 -right-3 w-14 h-14 rounded-full flex items-center justify-center overflow-hidden max-lg:-right-1"
-															style={{
-																background: "var(--color-bg-page)",
-																border: "2px solid var(--color-vivid)",
-															}}
-															title={CHAPTER_LABEL[member.chapter]}
-														>
-															<Image
-																src={CHAPTER_MASCOT[member.chapter]!}
-																alt=""
-																width={40}
-																height={40}
-																className="h-9 w-auto object-contain"
-															/>
-														</div>
-													)}
-												</div>
-
-												{/* Info */}
-												<div>
-													<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
-														{member.name}
-													</h3>
-													<p
-														className="text-[1.15rem] font-bold mb-1"
-														style={{ color: "var(--color-accent)" }}
-													>
-														{position}
-													</p>
-													<p
-														className="text-[1.15rem] font-bold mb-5 text-white"
-														style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-													>
-														{member.school}
-													</p>
-													<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
-														{bio}
-													</p>
-												</div>
-
-												{/* Socials */}
-												{member.socials && member.socials.length > 0 && (
-													<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
-														{member.socials.map((s) => (
-															<a
-																key={s.platform}
-																href={s.href}
-																target="_blank"
-																rel="noopener noreferrer"
-																className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
-																style={{
-																	border: "1px solid var(--color-border)",
-																	background: "var(--color-bg-surface)",
-																	color: "var(--color-light)",
-																}}
-																aria-label={`${member.name} on ${s.platform}`}
-															>
-																<SocialIcon platform={s.platform} />
-															</a>
-														))}
-													</div>
-												)}
+				<div className="space-y-0">
+					{DISPLAY_ORDER.map((dictI, i) => {
+						const member = team[dictI];
+						const position = members?.[dictI]?.position ?? member.position;
+						const bio = members?.[dictI]?.bio ?? member.bio;
+						return (
+							<FadeUp key={member.name}>
+								<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
+									{/* Photo */}
+									<div
+										className="relative w-full max-lg:w-52"
+										style={{ aspectRatio: "1 / 1" }}
+									>
+										{member.photo ? (
+											<div
+												className="absolute inset-0 overflow-hidden"
+												style={{
+													border: "1px solid var(--color-border)",
+													background: "var(--color-bg-surface)",
+												}}
+											>
+												<Image
+													src={member.photo}
+													alt={member.name}
+													fill
+													className="object-cover"
+													sizes="(max-width: 1024px) 208px, 280px"
+												/>
 											</div>
+										) : (
+											<Initials name={member.name} />
+										)}
+									</div>
 
-											{i < chapterMembers.length - 1 && <RoadDivider />}
-										</FadeUp>
-									);
-								})}
-							</div>
-						</div>
-					);
-				})}
+									{/* Info */}
+									<div>
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+											{member.name}
+										</h3>
+										<p
+											className="text-[1.15rem] font-bold mb-1"
+											style={{ color: "var(--color-accent)" }}
+										>
+											{position}
+										</p>
+										<p
+											className="text-[1.15rem] font-bold mb-5 text-white"
+											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+										>
+											{member.school}
+										</p>
+										<p className="text-[0.95rem] text-white leading-[1.75] max-w-140">
+											{bio}
+										</p>
+									</div>
+
+									{/* Socials */}
+									{member.socials && member.socials.length > 0 && (
+										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
+											{member.socials.map((s) => (
+												<a
+													key={s.platform}
+													href={s.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+													style={{
+														border: "1px solid var(--color-border)",
+														background: "var(--color-bg-surface)",
+														color: "var(--color-light)",
+													}}
+													aria-label={`${member.name} on ${s.platform}`}
+												>
+													<SocialIcon platform={s.platform} />
+												</a>
+											))}
+										</div>
+									)}
+								</div>
+
+								{i < DISPLAY_ORDER.length - 1 && <RoadDivider />}
+							</FadeUp>
+						);
+					})}
+				</div>
 			</section>
 
 			<RoadDivider />
