@@ -424,55 +424,31 @@ function DesktopNavItem({
       )}
       {link.children && isOpen && (
         <div
-          className="slide-up absolute top-full left-0 mt-3 min-w-[240px] rounded-xl py-2 z-[99999]"
+          className="slide-up absolute top-full left-0 mt-2 min-w-[220px] rounded-lg py-1.5 z-[99999]"
           style={{
             background: "#170b28",
             border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 16px 40px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.35)",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
           }}
         >
-          {/* Pointer caret connecting the menu to its trigger */}
-          <span
-            aria-hidden="true"
-            className="absolute block w-3 h-3 rotate-45"
-            style={{
-              top: -6,
-              left: 24,
-              background: "#170b28",
-              borderLeft: "1px solid rgba(255,255,255,0.1)",
-              borderTop: "1px solid rgba(255,255,255,0.1)",
-            }}
-          />
-          {link.children.map((child, i) => (
+          {link.children.map((child) => (
             <Link
               key={child.href}
               href={localizeHref(locale, child.href)}
-              className="flex items-center justify-between gap-6 px-5 py-3 text-[0.88rem] font-medium no-underline whitespace-nowrap transition-colors duration-150"
+              className="block px-4 py-2 text-[0.9rem] no-underline whitespace-nowrap transition-colors duration-150"
               style={{
-                color: "rgba(255,255,255,0.85)",
-                borderBottom:
-                  i < link.children!.length - 1
-                    ? "1px solid rgba(255,255,255,0.07)"
-                    : "none",
+                color: "white",
+                fontFamily: "var(--font-heading), Georgia, serif",
               }}
               onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "rgba(149,51,165,0.18)";
-                el.style.color = "#fff";
+                (e.currentTarget as HTMLAnchorElement).style.color =
+                  "var(--color-accent)";
               }}
               onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "transparent";
-                el.style.color = "rgba(255,255,255,0.85)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "white";
               }}
             >
               {labelFor(child, dict)}
-              <span
-                aria-hidden="true"
-                style={{ color: "var(--color-accent)", fontSize: "0.75rem" }}
-              >
-                →
-              </span>
             </Link>
           ))}
         </div>
