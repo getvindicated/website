@@ -88,7 +88,7 @@ export default function JoinPage() {
       <PageHero
         kicker=""
         title={<>Get <em>Involved.</em></>}
-        subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello — pick what fits below."
+        subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello, pick what fits below."
       />
 
       <FadeUp>
