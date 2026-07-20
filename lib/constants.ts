@@ -32,11 +32,25 @@ export const navLinks = [
   {
     label: "Learning Resources",
     href: "/inspection",
-    standalone: false,
     children: [
-      { label: "Inspection Guide", href: "/inspection" },
-      { label: "Fraud Prevention", href: "/fraud" },
-      { label: "Documents Decoded", href: "/documents" },
+      {
+        label: "Inspection Guide",
+        href: "/inspection",
+        description: "Know what to check before you buy.",
+        icon: "inspection",
+      },
+      {
+        label: "Fraud Prevention",
+        href: "/fraud",
+        description: "Spot the scams before they cost you.",
+        icon: "fraud",
+      },
+      {
+        label: "Documents Decoded",
+        href: "/documents",
+        description: "Understand every paper before you sign.",
+        icon: "documents",
+      },
     ],
   },
 //   {
