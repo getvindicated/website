@@ -14,7 +14,12 @@ type NavLinkType = {
   label: string;
   href: string;
   standalone?: boolean;
-  children?: readonly { label: string; href: string }[];
+  children?: readonly {
+    label: string;
+    href: string;
+    description?: string;
+    icon?: string;
+  }[];
 };
 
 type NavDict = Pick<SiteDictionary, "nav" | "ui">;
@@ -366,6 +371,37 @@ function MobileMenu({
 }
 
 // ── Desktop Nav Item ────────────────────────────────────────
+function NavDropdownIcon({ icon }: { icon: string }) {
+  const size = 20;
+  switch (icon) {
+    case "inspection":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="M20 20l-4.8-4.8" />
+        </svg>
+      );
+    case "fraud":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z" />
+          <path d="M12 8v5" />
+          <path d="M12 16.5h.01" />
+        </svg>
+      );
+    case "documents":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <path d="M14 2v6h6" />
+          <path d="M9 13h6M9 17h6" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 function DesktopNavItem({
   link,
   label,
@@ -424,33 +460,73 @@ function DesktopNavItem({
       )}
       {link.children && isOpen && (
         <div
-          className="slide-up absolute top-full left-0 mt-2 min-w-[220px] rounded-lg py-1.5 z-[99999]"
+          className="slide-up absolute top-full left-0 mt-2 rounded-lg z-[99999]"
           style={{
             background: "#170b28",
             border: "1px solid rgba(255,255,255,0.1)",
             boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+            minWidth: link.children.some((c) => c.description) ? 300 : 220,
+            padding: link.children.some((c) => c.description) ? 8 : 6,
           }}
         >
-          {link.children.map((child) => (
-            <Link
-              key={child.href}
-              href={localizeHref(locale, child.href)}
-              className="block px-4 py-2 text-[0.9rem] no-underline whitespace-nowrap transition-colors duration-150"
-              style={{
-                color: "white",
-                fontFamily: "var(--font-heading), Georgia, serif",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color =
-                  "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.color = "white";
-              }}
-            >
-              {labelFor(child, dict)}
-            </Link>
-          ))}
+          {link.children.map((child) =>
+            child.description ? (
+              <Link
+                key={child.href}
+                href={localizeHref(locale, child.href)}
+                className="flex items-start gap-3 rounded-md px-3 py-3 no-underline transition-colors duration-150"
+                style={{ color: "white" }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background =
+                    "rgba(149,51,165,0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background =
+                    "transparent";
+                }}
+              >
+                <span
+                  className="flex-shrink-0 mt-0.5"
+                  style={{ color: "var(--color-accent)" }}
+                >
+                  {child.icon && <NavDropdownIcon icon={child.icon} />}
+                </span>
+                <span>
+                  <span
+                    className="block text-[0.92rem] font-medium mb-0.5"
+                    style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+                  >
+                    {labelFor(child, dict)}
+                  </span>
+                  <span
+                    className="block text-[0.78rem] leading-snug"
+                    style={{ color: "rgba(255,255,255,0.6)" }}
+                  >
+                    {child.description}
+                  </span>
+                </span>
+              </Link>
+            ) : (
+              <Link
+                key={child.href}
+                href={localizeHref(locale, child.href)}
+                className="block px-4 py-2 text-[0.9rem] no-underline whitespace-nowrap transition-colors duration-150"
+                style={{
+                  color: "white",
+                  fontFamily: "var(--font-heading), Georgia, serif",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    "var(--color-accent)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = "white";
+                }}
+              >
+                {labelFor(child, dict)}
+              </Link>
+            ),
+          )}
         </div>
       )}
     </li>
