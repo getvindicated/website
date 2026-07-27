@@ -149,10 +149,11 @@ export function HomeHero({
                   id={s.id}
                   className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
                   style={{
-                    fontFamily: "var(--font-heading), Georgia, serif",
-                    color: "var(--color-accent)",
-                    minWidth: "110px",
-                  }}
+  fontFamily: "var(--font-heading), Georgia, serif",
+  color: "var(--color-accent)",
+  width: "170px",
+  fontVariantNumeric: "tabular-nums",
+}}
                 >
                   {s.prefix}0{s.suffix}
                 </span>
