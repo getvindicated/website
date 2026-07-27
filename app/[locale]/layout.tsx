@@ -2,6 +2,7 @@ import "../globals.css";
 import { Lora, Figtree } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
+import { Starfield } from "@/components/ui/Starfield";
 import { Footer } from "@/components/layout/Footer";
 import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -56,11 +57,12 @@ export default async function RootLayout({
       className={`${lora.variable} ${figtree.variable}`}
     >
       <body className="min-h-screen antialiased">
-        {/* <CarCursor /> */}
-        <Nav locale={locale as Locale} dict={dict} />
-        <main>{children}</main>
-        <Footer locale={locale as Locale} dict={dict} />
-      </body>
+  <Starfield />
+  {/* <CarCursor /> */}
+  <Nav locale={locale as Locale} dict={dict} />
+  <main>{children}</main>
+  <Footer locale={locale as Locale} dict={dict} />
+</body>
     </html>
   );
 }
