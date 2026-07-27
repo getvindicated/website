@@ -151,7 +151,7 @@ export function HomeHero({
                   style={{
   fontFamily: "var(--font-heading), Georgia, serif",
   color: "var(--color-accent)",
-  width: "170px",
+  width: "260px",
   fontVariantNumeric: "tabular-nums",
 }}
                 >
