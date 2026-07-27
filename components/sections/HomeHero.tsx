@@ -137,7 +137,7 @@ export function HomeHero({
         {/* Stats */}
         <div
           className="w-full max-w-[480px] relative"
-          style={{ borderTop: "4px solid #ff2d78" }}
+          style={{ borderTop: "1px solid #c9a3e0" }}
         >
           {stats.map((s) => (
             <div
