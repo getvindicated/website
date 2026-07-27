@@ -154,7 +154,7 @@ export function HomeHero({
               className="py-5"
               style={{ borderBottom: "1px solid var(--color-border)" }}
             >
-              <div className="flex items-baseline gap-4 max-sm:flex-col max-sm:gap-1">
+              <div className="flex items-center gap-4 max-sm:flex-col max-sm:gap-1">
                 <span
   id={s.id}
   className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
