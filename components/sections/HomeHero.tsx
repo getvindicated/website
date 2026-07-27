@@ -142,7 +142,7 @@ export function HomeHero({
             <div
               key={s.id}
               className="py-5"
-              style={{ borderBottom: "4px solid #ff2d78" }}
+              style={{ borderBottom: "1px solid #c9a3e0" }}
             >
               <div className="flex items-center gap-4 max-sm:flex-col max-sm:gap-1">
                 <span
