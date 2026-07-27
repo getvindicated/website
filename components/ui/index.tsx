@@ -1,461 +1,170 @@
 "use client";
-
-import { useEffect, useRef, ReactNode } from "react";
-import Link from "next/link";
-
-// ── Button ──────────────────────────────────────────────────
-type ButtonProps = {
-  href?: string;
-  onClick?: () => void;
-  variant?: "primary" | "outline";
-  children: ReactNode;
-  className?: string;
-  external?: boolean;
-};
-export function Button({
-  href,
-  onClick,
-  variant = "primary",
-  children,
-  className = "",
-  external,
-}: ButtonProps) {
-  const base =
-    "inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide no-underline rounded-2xl border-2 transition-all duration-150 ease-out " +
-    "shadow-[4px_4px_0_var(--color-light)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-light)] " +
-    "active:translate-x-[4px] active:translate-y-[4px] active:shadow-none";
-  const styles = {
-    primary: "text-white",
-    outline: "text-white hover:text-[var(--color-light)]",
+import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { HomeDict } from "@/lib/i18n/home-dict";
+// English fallback data — used for any locale whose dictionary
+// doesn't have a "home.hero" section translated yet.
+const fallbackStats = [
+  {
+    id: "stat1",
+    target: 1100,
+    prefix: "$",
+    suffix: "",
+    dur: 1800,
+    label:
+      "more Black male buyers are charged vs. white male buyers, even with the same car and same script",
+    cite: "Ayres & Siegelman, 1995",
+  },
+  {
+    id: "stat2",
+    target: 48,
+    prefix: "",
+    suffix: "%",
+    dur: 1600,
+    label:
+      "of Gen Z women feel discouraged from visiting a dealership due to gender discrimination",
+    cite: "Morning Consult / Caribou, 2022",
+  },
+  {
+    id: "stat3",
+    target: 62.5,
+    prefix: "",
+    suffix: "%",
+    dur: 1400,
+    label:
+      "of non-white testers were given worse pricing at dealerships compared to white testers",
+    cite: "National Fair Housing Alliance, 2018",
+  },
+  {
+    id: "stat4",
+    target: 13,
+    prefix: "",
+    suffix: "%",
+    dur: 1500,
+    label:
+      "longer negotiations faced by minority buyers, even with the same car and same price",
+    cite: "Ayres & Siegelman, 1995",
+  },
+];
+function animateCount(
+  el: HTMLElement,
+  target: number,
+  prefix: string,
+  suffix: string,
+  duration: number,
+) {
+  let startTime: number | null = null;
+  const step = (now: number) => {
+    if (!startTime) startTime = now;
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent =
+      prefix + Math.round(eased * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
   };
-
-  const style: React.CSSProperties =
-    variant === "primary"
-      ? { background: "var(--color-vivid)", borderColor: "var(--color-light)" }
-      : { background: "transparent", borderColor: "var(--color-light)" };
-
-  const cls = `${base} ${styles[variant]} ${className}`;
-
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className={cls}
-        style={style}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      >
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <button onClick={onClick} className={cls} style={style}>
-      {children}
-    </button>
-  );
+  requestAnimationFrame(step);
 }
-
-// ── Section Title ────────────────────────────────────────────
-export function SectionTitle({
-  children,
-  className = "",
-  style,
+export function HomeHero({
+  locale,
+  dict,
 }: {
-  children: ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
+  locale: Locale;
+  dict?: HomeDict;
 }) {
-  return (
-    <h2
-      className={`text-[clamp(2.5rem,5vw,4.2rem)] font-semibold leading-[1.05] tracking-[-0.02em] ${className}`}
-      style={style}
-    >
-      {children}
-    </h2>
-  );
-}
-
-// ── Divider ──────────────────────────────────────────────────
-// Removed sitewide per request — kept as a no-op so the existing
-// <Divider /> calls and imports across every page don't need to be
-// touched individually. Delete this function (and its ~20 call sites)
-// if you want it gone from the codebase entirely rather than just hidden.
-export function Divider() {
-  return null;
-}
-
-// ── Road Divider ─────────────────────────────────────────────
-// A thin dashed line in the brand accent color, styled like a
-// road's lane markings. Used in place of plain gray dividers.
-export function RoadDivider() {
-  return (
-    <div
-      aria-hidden="true"
-      className="w-full"
-      style={{
-        height: 4,
-        borderRadius: 2,
-        background:
-          "repeating-linear-gradient(to right, var(--color-accent) 0px, var(--color-accent) 16px, transparent 16px, transparent 32px)",
-        opacity: 0.55,
-      }}
-    />
-  );
-}
-
-// ── FadeUp wrapper ───────────────────────────────────────────
-export function FadeUp({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-
+  const triggered = useRef(false);
+  // Merge translated stat labels/cites over the fallback numeric
+  // config (target/prefix/suffix/duration stay the same everywhere —
+  // only the label text and citation get translated).
+  const stats = fallbackStats.map((s, i) => ({
+    ...s,
+    label: dict?.hero?.stats?.[i]?.label ?? s.label,
+    cite: dict?.hero?.stats?.[i]?.cite ?? s.cite,
+  }));
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) el.classList.add("visible");
-      },
-      { threshold: 0.1 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    if (triggered.current) return;
+    triggered.current = true;
+    setTimeout(() => {
+      stats.forEach(({ id, target, prefix, suffix, dur }) => {
+        const el = document.getElementById(id);
+        if (el) animateCount(el, target, prefix, suffix, dur);
+      });
+    }, 600);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
-    <div ref={ref} className={`fade-up ${className}`}>
-      {children}
-    </div>
-  );
-}
-
-// ── Page Hero ────────────────────────────────────────────────
-export function PageHero({
-  kicker,
-  title,
-  subtitle,
-  children,
-}: {
-  kicker: string;
-  title: ReactNode;
-  subtitle?: string;
-  children?: ReactNode;
-}) {
-  return (
-    <div   className="relative overflow-hidden px-20 pt-40 pb-20 max-md:px-6 max-md:pt-28 max-md:pb-12"   style={{ borderBottom: "3px dashed rgba(207,139,216,0.5)" }} >
+    <div
+      className="grid grid-cols-[1fr_1fr] min-h-[500px] max-md:min-h-0 relative max-lg:grid-cols-1"
+    >
+      {/* Glow */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute pointer-events-none"
         style={{
+          top: "-20%",
+          right: "-10%",
+          width: "70%",
+          height: "140%",
           background:
-            "linear-gradient(135deg, rgba(180,130,210,0.12) 0%, transparent 60%)",
+            "radial-gradient(ellipse, rgba(149,51,165,0.12) 0%, transparent 70%)",
         }}
       />
-      {kicker && (
-        <p
-          className="relative text-[1rem] font-semibold mb-5"
-          style={{ color: "var(--color-light)" }}
-        >
-          {kicker}
+      {/* Left — text */}
+      <div className="flex flex-col justify-center px-20 py-10 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
+        <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
+          {dict?.hero?.titleLine1 ?? "You Deserve"}
+          <br />
+          {dict?.hero?.titleLine2 ?? "to Buy a Car"}
+          <br />
+          <em>{dict?.hero?.titleEm ?? "Without Fear."}</em>
+        </h1>
+        <p className="text-[1.05rem] leading-[1.7] text-white max-w-[420px] mb-8">
+          {dict?.hero?.subtitle ??
+            "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community."}
         </p>
-      )}
-      <h1 className="relative text-[clamp(3rem,5vw,5.5rem)] font-semibold leading-[1] tracking-[-0.02em] max-w-[900px] mb-6">
-        {title}
-      </h1>
-      {subtitle && (
-        <p className="relative text-xl text-white max-w-[600px] leading-[1.75]">
-          {subtitle}
-        </p>
-      )}
-      {children}
-    </div>
-  );
-}
-
-// ── Pullquote ────────────────────────────────────────────────
-// Styled as a price tag / hangtag: a die-cut shape with a pointed
-// tip and a punched "string hole," subtly rotated like it's hanging.
-export function Pullquote({ quote, cite }: { quote: string; cite: string }) {
-  return (
-    <div className="my-8 max-w-[760px]" style={{ transform: "rotate(-1.2deg)" }}>
-      <blockquote
-        className="relative pl-14 pr-8 py-7 max-md:pl-11 max-md:pr-5"
-        style={{
-          background: "rgba(149,51,165,0.08)",
-          border: "1px solid var(--color-border)",
-          clipPath:
-            "polygon(0 50%, 34px 0%, 100% 0%, 100% 100%, 34px 100%)",
-        }}
-      >
-        {/* Punched string hole */}
-        <span
-          aria-hidden="true"
-          className="absolute rounded-full"
-          style={{
-            top: "50%",
-            left: 16,
-            width: 10,
-            height: 10,
-            transform: "translateY(-50%)",
-            background: "var(--color-bg-page)",
-            border: "1.5px solid var(--color-accent)",
-          }}
-        />
-        <p
-          className="text-[clamp(1.05rem,2.5vw,1.3rem)] italic leading-[1.5] mb-3"
-          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-        >
-          {quote}
-        </p>
-        <cite
-          className="not-italic text-[0.9rem] font-bold"
-          style={{ color: "var(--color-light)" }}
-        >
-          {cite}
-        </cite>
-      </blockquote>
-    </div>
-  );
-}
-
-// ── Warning Box ──────────────────────────────────────────────
-export function WarningBox({
-  label,
-  children,
-}: {
-  label?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div
-      className="my-8 px-8 max-md:px-5 py-6 rounded-2xl"
-      style={{
-        background: "rgba(214,59,59,0.08)",
-        border: "1px solid rgba(214,59,59,0.3)",
-      }}
-    >
-      {label && (
-        <p
-          className="text-[0.85rem] font-bold mb-3"
-          style={{ color: "var(--color-red)" }}
-        >
-          {label}
-        </p>
-      )}
-      <div className="text-[0.95rem] leading-[1.65] text-white">{children}</div>
-    </div>
-  );
-}
-
-// ── Info Box ─────────────────────────────────────────────────
-export function InfoBox({
-  label,
-  children,
-  className = "",
-}: {
-  label?: string;
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`my-8 px-8 max-md:px-5 py-6 rounded-2xl ${className}`}
-      style={{
-        background: "rgba(149,51,165,0.08)",
-        border: "1px solid var(--color-border)",
-      }}
-    >
-      {label && (
-        <p
-          className="text-[0.85rem] font-bold mb-3"
-          style={{ color: "var(--color-light)" }}
-        >
-          {label}
-        </p>
-      )}
-      <div className="text-[0.95rem] leading-[1.65] text-white">{children}</div>
-    </div>
-  );
-}
-
-// ── Checklist ────────────────────────────────────────────────
-export function Checklist({
-  items,
-}: {
-  items: { strong: string; text?: string }[];
-}) {
-  return (
-    <ul className="list-none mt-6">
-      {items.map((item, i) => (
-        <li
-          key={i}
-          className="flex gap-4 py-4 text-[1.05rem] leading-[1.7]"
-          style={{ borderBottom: "1px solid var(--color-border)" }}
-        >
-          <span
-            style={{
-              color: "var(--color-light)",
-              flexShrink: 0,
-              marginTop: "0.1rem",
-            }}
-          >
-            →
-          </span>
-          <span>
-            <strong className="text-white">{item.strong}</strong>
-            {item.text && " " + item.text}
-          </span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-// ── Tag ──────────────────────────────────────────────────────
-export function Tag({ children }: { children: ReactNode }) {
-  return (
-    <span
-      className="inline-block text-[0.72rem] font-medium px-3 py-1 mr-1 mt-1"
-      style={{
-        background: "rgba(149,51,165,0.15)",
-        border: "1px solid var(--color-border)",
-        color: "var(--color-light)",
-      }}
-    >
-      {children}
-    </span>
-  );
-}
-
-// ── Accordion ────────────────────────────────────────────────
-import { useState } from "react";
-
-type AccordionItem = {
-  trigger: string;
-  body: ReactNode;
-  defaultOpen?: boolean;
-};
-
-export function Accordion({ items }: { items: AccordionItem[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(
-    items.findIndex((i) => i.defaultOpen),
-  );
-
-  return (
-    <div
-      className="mt-8"
-      style={{ borderTop: "1px solid var(--color-border)" }}
-    >
-      {items.map((item, i) => (
-        <div key={i} style={{ borderBottom: "1px solid var(--color-border)" }}>
-          <button
-            className="w-full text-left py-7 flex justify-between items-center gap-4 bg-transparent border-none"
-            onClick={() => setOpenIndex(openIndex === i ? null : i)}
-          >
-            <h3 className="text-[clamp(1rem,2.5vw,1.25rem)] leading-[1.3]">
-              {item.trigger}
-            </h3>
-            <span
-              className="text-[1.4rem] flex-shrink-0 transition-transform duration-300"
-              style={{
-                color: "var(--color-accent)",
-                transform: openIndex === i ? "rotate(45deg)" : "none",
-              }}
-            >
-              +
-            </span>
-          </button>
-          {openIndex === i && (
-            <div className="pb-8 text-[1.1rem] leading-[1.9]">{item.body}</div>
-          )}
+        <div className="flex gap-4 flex-wrap">
+          <Button href={localizeHref(locale, "/inspection")}>
+            {dict?.hero?.ctaPrimary ?? "Get the PPI Guide"}
+          </Button>
+          <Button href={localizeHref(locale, "/about")} variant="outline">
+            {dict?.hero?.ctaSecondary ?? "Our Story"}
+          </Button>
         </div>
-      ))}
-    </div>
-  );
-}
-
-// ── Route icon ───────────────────────────────────────────────
-// A start dot, a route line, and a destination pin — styled solid
-// and in accent purple for the recommended option, dashed and
-// muted for alternates. Used by CardGrid's route-picker layout.
-function RouteIcon({ recommended }: { recommended: boolean }) {
-  const color = recommended ? "var(--color-accent)" : "rgba(255,255,255,0.3)";
-  return (
-    <svg width="36" height="72" viewBox="0 0 36 72" aria-hidden="true">
-      <circle cx="18" cy="7" r="5" fill={color} />
-      <path
-        d="M18 13 C 6 24, 30 40, 18 54"
-        fill="none"
-        stroke={color}
-        strokeWidth="2.5"
-        strokeDasharray={recommended ? undefined : "4 5"}
-        strokeLinecap="round"
-      />
-      <path
-        d="M18 54 C 12.5 54 9 58 9 62.5 C 9 68 18 72 18 72 C 18 72 27 68 27 62.5 C 27 58 23.5 54 18 54 Z"
-        fill={color}
-      />
-    </svg>
-  );
-}
-
-// ── Card Grid ────────────────────────────────────────────────
-// Presented as a GPS route picker: each option is a selectable
-// "route," with the recommended option visually highlighted the
-// way a maps app highlights its suggested route.
-type CardData = {
-  num: string;
-  title: string;
-  body: ReactNode;
-  link?: { href: string; label: string };
-  recommended?: boolean;
-};
-export function CardGrid({ cards }: { cards: CardData[] }) {
-  return (
-    <div className="flex flex-col gap-4 mt-12">
-      {cards.map((card) => {
-        const recommended = card.recommended ?? false;
-        return (
-          <div
-            key={card.num}
-            className="flex gap-6 max-md:gap-4 p-8 max-md:p-5 rounded-2xl transition-colors duration-200"
-            style={{ background: "var(--color-brand)" }}
-          >
-            <div className="flex-shrink-0 flex justify-center pt-1">
-              <RouteIcon recommended={recommended} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p
-                className="text-[0.85rem] font-bold mb-4"
-                style={{
-                  color: "var(--color-accent)",
-                  fontFamily: "var(--font-heading), Georgia, serif",
-                }}
-              >
-                {card.num}
-              </p>
-              <h3 className="text-[1.25rem] mb-3 leading-[1.2]">
-                {card.title}
-              </h3>
-              <div className="text-base text-white leading-[1.7]">
-                {card.body}
-              </div>
-              {card.link && (
-                <Link
-                  href={card.link.href}
-                  className="mt-4 block text-[0.68rem] no-underline transition-colors hover:underline"
-                  style={{ color: "var(--color-accent)" }}
+      </div>
+      {/* Right — stats as stacked list */}
+      <div
+        className="flex items-center justify-center px-8 pr-20 py-10 relative max-lg:px-6 max-lg:pb-12"
+      >
+        {/* Stats */}
+        <div
+          className="w-full max-w-[480px] relative"
+          style={{ borderTop: "3px dashed rgba(207,139,216,0.5)" }}
+        >
+          {stats.map((s) => (
+            <div
+              key={s.id}
+              className="py-5"
+              style={{ borderBottom: "3px dashed rgba(207,139,216,0.5)" }}
+            >
+              <div className="flex items-center gap-4 max-sm:flex-col max-sm:gap-1">
+                <span
+                  id={s.id}
+                  className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
+                  style={{
+                    fontFamily: "var(--font-heading), Georgia, serif",
+                    color: "var(--color-accent)",
+                    minWidth: "110px",
+                  }}
                 >
-                  {card.link.label} →
-                </Link>
-              )}
+                  {s.prefix}0{s.suffix}
+                </span>
+                <p className="text-[1.05rem] text-white leading-[1.6]">
+                  {s.label} ({s.cite})
+                </p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
