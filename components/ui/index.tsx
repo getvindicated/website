@@ -21,15 +21,18 @@ export function Button({
   external,
 }: ButtonProps) {
   const base =
-    "inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold tracking-wide no-underline transition-all duration-200";
+    "inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide no-underline rounded-2xl border-2 transition-all duration-150 ease-out " +
+    "shadow-[4px_4px_0_var(--color-light)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-light)] " +
+    "active:translate-x-[4px] active:translate-y-[4px] active:shadow-none";
   const styles = {
-    primary: "text-white hover:-translate-y-0.5",
-    outline:
-      "text-white border border-white/[0.08] hover:border-[var(--color-light)] hover:text-[var(--color-light)]",
+    primary: "text-white",
+    outline: "text-white hover:text-[var(--color-light)]",
   };
 
-  const style =
-    variant === "primary" ? { background: "var(--color-vivid)" } : {};
+  const style: React.CSSProperties =
+    variant === "primary"
+      ? { background: "var(--color-vivid)", borderColor: "var(--color-light)" }
+      : { background: "transparent", borderColor: "var(--color-light)" };
 
   const cls = `${base} ${styles[variant]} ${className}`;
 
