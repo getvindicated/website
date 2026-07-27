@@ -1,10 +1,8 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
-
 // English fallback data — used for any locale whose dictionary
 // doesn't have a "home.hero" section translated yet.
 const fallbackStats = [
@@ -49,7 +47,6 @@ const fallbackStats = [
     cite: "Ayres & Siegelman, 1995",
   },
 ];
-
 function animateCount(
   el: HTMLElement,
   target: number,
@@ -68,7 +65,6 @@ function animateCount(
   };
   requestAnimationFrame(step);
 }
-
 export function HomeHero({
   locale,
   dict,
@@ -77,7 +73,6 @@ export function HomeHero({
   dict?: HomeDict;
 }) {
   const triggered = useRef(false);
-
   // Merge translated stat labels/cites over the fallback numeric
   // config (target/prefix/suffix/duration stay the same everywhere —
   // only the label text and citation get translated).
@@ -86,7 +81,6 @@ export function HomeHero({
     label: dict?.hero?.stats?.[i]?.label ?? s.label,
     cite: dict?.hero?.stats?.[i]?.cite ?? s.cite,
   }));
-
   useEffect(() => {
     if (triggered.current) return;
     triggered.current = true;
@@ -98,7 +92,6 @@ export function HomeHero({
     }, 600);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <div
       className="grid grid-cols-[1fr_1fr] min-h-[500px] max-md:min-h-0 relative max-lg:grid-cols-1"
@@ -115,7 +108,6 @@ export function HomeHero({
             "radial-gradient(ellipse, rgba(149,51,165,0.12) 0%, transparent 70%)",
         }}
       />
-
       {/* Left — text */}
       <div className="flex flex-col justify-center px-20 py-10 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
         <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
@@ -138,7 +130,6 @@ export function HomeHero({
           </Button>
         </div>
       </div>
-
       {/* Right — stats as stacked list */}
       <div
         className="flex items-center justify-center px-8 pr-20 py-10 relative max-lg:px-6 max-lg:pb-12"
@@ -146,29 +137,29 @@ export function HomeHero({
         {/* Stats */}
         <div
           className="w-full max-w-[480px] relative"
-          style={{ borderTop: "1px solid var(--color-border)" }}
+          style={{ borderTop: "4px solid #ff2d78" }}
         >
           {stats.map((s) => (
             <div
               key={s.id}
               className="py-5"
-              style={{ borderBottom: "1px solid var(--color-border)" }}
+              style={{ borderBottom: "4px solid #ff2d78" }}
             >
               <div className="flex items-center gap-4 max-sm:flex-col max-sm:gap-1">
                 <span
-  id={s.id}
-  className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
-  style={{
-    fontFamily: "var(--font-heading), Georgia, serif",
-    color: "var(--color-accent)",
-    minWidth: "110px",
-  }}
->
-  {s.prefix}0{s.suffix}
-</span>
-<p className="text-[1.05rem] text-white leading-[1.6]">
-  {s.label} ({s.cite})
-</p>
+                  id={s.id}
+                  className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
+                  style={{
+                    fontFamily: "var(--font-heading), Georgia, serif",
+                    color: "var(--color-accent)",
+                    minWidth: "110px",
+                  }}
+                >
+                  {s.prefix}0{s.suffix}
+                </span>
+                <p className="text-[1.05rem] text-white leading-[1.6]">
+                  {s.label} ({s.cite})
+                </p>
               </div>
             </div>
           ))}
