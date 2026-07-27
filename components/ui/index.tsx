@@ -146,7 +146,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <div className="relative overflow-hidden px-20 pt-40 pb-20 border-b border-white/[0.08] max-md:px-6 max-md:pt-28 max-md:pb-12">
+    <div   className="relative overflow-hidden px-20 pt-40 pb-20 max-md:px-6 max-md:pt-28 max-md:pb-12"   style={{ borderBottom: "3px dashed rgba(207,139,216,0.5)" }} >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
