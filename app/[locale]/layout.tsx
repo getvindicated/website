@@ -57,7 +57,7 @@ export default async function RootLayout({
       className={`${lora.variable} ${figtree.variable}`}
     >
       <body className="min-h-screen antialiased">
-  <Starfield />
+  {/* <Starfield /> */}
   {/* <CarCursor /> */}
   <Nav locale={locale as Locale} dict={dict} />
   <main>{children}</main>

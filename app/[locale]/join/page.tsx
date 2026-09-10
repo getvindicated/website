@@ -86,6 +86,7 @@ export default function JoinPage() {
   return (
     <>
       <PageHero
+        contained
         kicker=""
         title={<>Get <em>Involved.</em></>}
         subtitle="Volunteer with a chapter, share your story, participate in our research, or just say hello, pick what fits below."
@@ -93,6 +94,7 @@ export default function JoinPage() {
 
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
+        <div className="max-w-[1400px] mx-auto">
           <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.1] tracking-[-0.02em] mb-14">
             Our <em>Chapters.</em>
           </h2>
@@ -129,7 +131,7 @@ export default function JoinPage() {
           >
             <button
               onClick={() => setTab("volunteer")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors cursor-pointer"
               style={{
                 color: tab === "volunteer" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "volunteer" ? "2px solid var(--color-accent)" : "2px solid transparent",
@@ -140,7 +142,7 @@ export default function JoinPage() {
             </button>
             <button
               onClick={() => setTab("contact")}
-              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors"
+              className="px-5 py-3 text-[0.95rem] font-semibold transition-colors cursor-pointer"
               style={{
                 color: tab === "contact" ? "var(--color-accent)" : "rgba(255,255,255,0.6)",
                 borderBottom: tab === "contact" ? "2px solid var(--color-accent)" : "2px solid transparent",
@@ -152,17 +154,20 @@ export default function JoinPage() {
           </div>
 
           {tab === "volunteer" ? <VolunteerPanel /> : <ContactPanel />}
+        </div>
         </section>
       </FadeUp>
 
       <FadeUp>
         <section className="px-20 py-16 max-md:px-6">
+        <div className="max-w-[1400px] mx-auto">
           <p className="text-[1.05rem] text-white leading-[1.75] max-w-[600px]">
             Questions? Email us at{" "}
             <a href="mailto:getvindicated@outlook.com" className="underline" style={{ color: "var(--color-accent)" }}>
               getvindicated@outlook.com
             </a>
           </p>
+        </div>
         </section>
       </FadeUp>
     </>
@@ -354,8 +359,8 @@ function VolunteerPanel() {
           <button
             type="submit"
             disabled={state === "submitting"}
-            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ background: "var(--color-vivid)" }}
+            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide text-white rounded-2xl border-2 transition-all duration-150 ease-out shadow-[4px_4px_0_var(--color-light)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-light)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: "var(--color-vivid)", borderColor: "var(--color-light)" }}
           >
             {state === "submitting" ? "Submitting..." : "Submit Application"}
           </button>
@@ -441,8 +446,8 @@ function ContactPanel() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ background: "var(--color-vivid)" }}
+            className="inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide text-white rounded-2xl border-2 transition-all duration-150 ease-out shadow-[4px_4px_0_var(--color-light)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-light)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ background: "var(--color-vivid)", borderColor: "var(--color-light)" }}
           >
             {isSubmitting ? "Sending..." : "Send it"}
           </button>

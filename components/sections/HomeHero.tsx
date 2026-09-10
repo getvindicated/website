@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Button } from "@/components/ui";
+import { Button, FadeUp } from "@/components/ui";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
 // English fallback data — used for any locale whose dictionary
@@ -84,6 +84,13 @@ export function HomeHero({
   useEffect(() => {
     if (triggered.current) return;
     triggered.current = true;
+    // Freeze each number's box to its final rendered width up front, so the
+    // label beside it can never shift as the digits change during count-up.
+    stats.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      const wrap = el?.parentElement;
+      if (wrap) wrap.style.width = `${wrap.getBoundingClientRect().width}px`;
+    });
     setTimeout(() => {
       stats.forEach(({ id, target, prefix, suffix, dur }) => {
         const el = document.getElementById(id);
@@ -93,8 +100,9 @@ export function HomeHero({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
+    <div className="px-20 max-lg:px-6 relative">
     <div
-      className="grid grid-cols-[1fr_1fr] min-h-[500px] max-md:min-h-0 relative max-lg:grid-cols-1"
+      className="grid grid-cols-[1fr_1fr] relative max-lg:grid-cols-1 max-w-[1400px] mx-auto"
     >
       {/* Glow */}
       <div
@@ -109,61 +117,81 @@ export function HomeHero({
         }}
       />
       {/* Left — text */}
-      <div className="flex flex-col justify-center px-20 py-10 pl-20 max-lg:px-6 max-lg:pt-20 max-lg:pb-8">
-        <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
-          {dict?.hero?.titleLine1 ?? "You Deserve"}
-          <br />
-          {dict?.hero?.titleLine2 ?? "to Buy a Car"}
-          <br />
-          <em>{dict?.hero?.titleEm ?? "Without Fear."}</em>
-        </h1>
-        <p className="text-[1.05rem] leading-[1.7] text-white max-w-[420px] mb-8">
-          {dict?.hero?.subtitle ??
-            "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community."}
-        </p>
-        <div className="flex gap-4 flex-wrap">
-          <Button href={localizeHref(locale, "/inspection")}>
-            {dict?.hero?.ctaPrimary ?? "Get the PPI Guide"}
-          </Button>
-          <Button href={localizeHref(locale, "/about")} variant="outline">
-            {dict?.hero?.ctaSecondary ?? "Our Story"}
-          </Button>
-        </div>
+      <div className="flex flex-col justify-center pr-20 py-16 max-lg:pr-0 max-lg:pt-20 max-lg:pb-8">
+        <FadeUp>
+          <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
+            {dict?.hero?.titleLine1 ?? "You Deserve"}
+            <br />
+            {dict?.hero?.titleLine2 ?? "to Buy a Car"}
+            <br />
+            <em>{dict?.hero?.titleEm ?? "Without Fear."}</em>
+          </h1>
+        </FadeUp>
+        <FadeUp style={{ transitionDelay: "120ms" }}>
+          <p className="text-[1.05rem] leading-[1.7] text-white max-w-[420px] mb-8">
+            {dict?.hero?.subtitle ??
+              "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community."}
+          </p>
+        </FadeUp>
+        <FadeUp style={{ transitionDelay: "240ms" }}>
+          <div className="flex gap-4 flex-wrap">
+            <Button href={localizeHref(locale, "/inspection")}>
+              {dict?.hero?.ctaPrimary ?? "Get the PPI Guide"}
+            </Button>
+            <Button href={localizeHref(locale, "/about")} variant="outline">
+              {dict?.hero?.ctaSecondary ?? "Our Story"}
+            </Button>
+          </div>
+        </FadeUp>
       </div>
       {/* Right — stats as stacked list */}
       <div
-        className="flex items-center justify-center px-8 pr-20 py-10 relative max-lg:px-6 max-lg:pb-12"
+        className="flex items-center justify-center pl-8 py-16 relative max-lg:pl-0 max-lg:pb-12"
       >
         {/* Stats */}
         <div
   className="w-full max-w-[480px] relative"
 >
-          {stats.map((s) => (
+          {stats.map((s, i) => {
+            const finalText = `${s.prefix}${Math.round(s.target).toLocaleString()}${s.suffix}`;
+            return (
+            <FadeUp key={s.id} style={{ transitionDelay: `${i * 100}ms` }}>
             <div
-              key={s.id}
-              className="py-5"
-              style={{ borderBottom: "1px solid #c9a3e0" }}
+              className="py-5 transition-transform duration-300 ease-out hover:translate-x-1"
+              style={{ borderBottom: "2px solid #c9a3e0" }}
             >
-              <div className="flex items-center gap-4 max-sm:flex-col max-sm:gap-1">
+              <div className="flex items-center gap-5 max-sm:flex-col max-sm:items-start max-sm:gap-1">
                 <span
-                  id={s.id}
-                  className="text-[clamp(3rem,5vw,4rem)] font-bold leading-[1] flex-shrink-0"
+                  className="grid flex-shrink-0"
                   style={{
   fontFamily: "var(--font-heading), Georgia, serif",
   color: "var(--color-accent)",
-  minWidth: "110px",
 }}
                 >
-                  {s.prefix}0{s.suffix}
+                  <span
+                    aria-hidden="true"
+                    className="invisible col-start-1 row-start-1 text-[clamp(2.25rem,4vw,3.25rem)] font-bold leading-[1]"
+                  >
+                    {finalText}
+                  </span>
+                  <span
+                    id={s.id}
+                    className="col-start-1 row-start-1 text-[clamp(2.25rem,4vw,3.25rem)] font-bold leading-[1]"
+                  >
+                    {s.prefix}0{s.suffix}
+                  </span>
                 </span>
-                <p className="text-[1.05rem] text-white leading-[1.6]">
+                <p className="text-[0.95rem] text-white leading-[1.55]">
                   {s.label} ({s.cite})
                 </p>
               </div>
             </div>
-          ))}
+            </FadeUp>
+            );
+          })}
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -242,7 +242,7 @@
       "subtitle": "Ba lần vấp ngã. Ba tình huống hoàn toàn khác nhau. Cùng một hệ thống mỗi lần.",
       "strikes": [
         {
-          "num": "01",
+          "num": "1",
           "label": "Vụ Lừa Đảo Giấy Chủ Quyền",
           "body": [
             "Năm 18 tuổi, tôi cố mua một chiếc xe từ bố của bạn tôi. Ông ấy bắt tôi chờ ba tháng, suốt thời gian đó luôn hứa sẽ bán xe cho tôi.",
@@ -250,7 +250,7 @@
           ]
         },
         {
-          "num": "02",
+          "num": "2",
           "label": "Facebook Marketplace",
           "body": [
             "Tôi từng thử mua xe trên Facebook Marketplace. Cuộc trò chuyện bắt đầu bình thường với số km đã đi, giá cả, khi nào tôi có thể đến xem.",
@@ -258,7 +258,7 @@
           ]
         },
         {
-          "num": "03",
+          "num": "3",
           "label": "South Coast Mitsubishi",
           "body": [
             "Tôi đã đến lái thử xe một mình. Khi tôi quay lại cùng em gái để mua xe, thông tin đột nhiên đổi thành: \"Mua hôm nay hoặc mất xe.\"",
@@ -314,64 +314,48 @@
       "titleEm": "cùng một sự bức xúc."
     },
     "sectionTitle": "Gặp Gỡ Đội Ngũ",
-    "members": [
-      {
+    "members": {
+      "Rana Darwich": {
         "position": "Người Sáng Lập",
         "bio": "Rana thành lập VINdicated ở tuổi 19, sau khi một thuật ngữ luật kinh doanh đã cứu cô khỏi việc ký một hợp đồng bán hàng mang tính bóc lột tại một đại lý xe. Điều bắt đầu như một điểm vỡ cá nhân đã trở thành một sứ mệnh: xóa bỏ những hệ thống bóc lột người tiêu dùng bước vào bãi xe một mình, không có ai hỗ trợ. Cô dẫn dắt các sáng kiến nghiên cứu và định hướng chiến lược của VINdicated, với niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng."
       },
-      {
-        "position": "Trưởng Nhóm Kỹ Thuật",
-        "bio": "Ray Gan dẫn dắt hệ thống dữ liệu và AI cho bản đồ rủi ro đại lý tương tác của VINdicated. Anh đã thiết kế hệ thống phân loại dựa trên LLM biến các đánh giá của người tiêu dùng chưa có cấu trúc thành các tín hiệu rủi ro minh bạch, có bằng chứng cho người mua xe. Ray học Khoa học Máy tính và Ngôn ngữ học tại UCLA."
-      },
-      {
-        "position": "Trưởng Nhóm Nghiên Cứu & Tiếp Cận Cộng Đồng",
-        "bio": "Halima Cherif Hminat là sinh viên ngành Sinh học Tổng hợp tại UC Berkeley, học phụ ngành Kinh doanh Bền vững và Chính sách, và đang theo hướng tiền nha khoa. Cô cũng là Trưởng nhóm Nghiên cứu và Tiếp cận Cộng đồng tại VINdicated, đóng góp vào việc tạo ra các nguồn tài liệu giúp mọi người đưa ra quyết định sáng suốt một cách tự tin. Cô nói sứ mệnh của VINdicated quan trọng với cô vì cô muốn hỗ trợ phụ nữ bằng cách giúp họ tránh bị đối xử bất công khi mua và sửa xe."
-      },
-      {
-        "position": "Kỹ Sư Dữ Liệu",
-        "bio": "Will Prawira học kép ngành Khoa học Dữ liệu và Toán Ứng dụng tại UCLA. Tại UCLA, anh hiện tham gia Bruin Sports Analytics trong đội tư vấn quần vợt, cũng như là trưởng dự án tại NSDC. Anh đang tích cực làm việc tại VINdicated với vai trò kỹ sư sản phẩm dữ liệu."
-      },
-      {
-        "position": "Kỹ Sư Dữ Liệu",
-        "bio": "Ameerah Zafar là sinh viên năm cuối ngành Kỹ thuật Hóa học tại UC Berkeley, cô cũng tham gia Hiệp hội Sinh viên Hồi giáo Berkeley và nghiên cứu bậc đại học về cơ học lớp phủ. Ameerah đóng góp vào nghiên cứu dữ liệu và thiết kế đồ họa tại VINdicated."
-      },
-      {
+      "Rizwaan Bana": {
         "position": "Kỹ Sư Phần Mềm",
         "bio": "Rizwaan Bana học chuyên ngành Khoa học Máy tính tại UCLA. Anh là Trưởng nhóm Phần mềm tại VINdicated, nơi anh xây dựng các công cụ giúp người tiêu dùng vượt qua quy trình mua xe một cách suôn sẻ. Rizwaan đam mê sử dụng công nghệ để tạo ra thay đổi tích cực và làm cho thông tin dễ tiếp cận hơn với mọi người."
       },
-      {
-        "position": "Trưởng Nhóm Thực Nghiệm & Dữ Liệu",
-        "bio": "Peter Dickson là sinh viên ngành Khoa học Dữ liệu và Kinh tế học tại Đại học California, Berkeley, với trọng tâm mạnh mẽ vào phân tích dữ liệu, mô hình hóa tài chính và giải quyết vấn đề thực tế. Anh mang đến sự kết hợp giữa tính nghiêm ngặt kỹ thuật và tầm nhìn kinh doanh, sử dụng các công cụ như Python, SQL và mô hình thống kê để rút ra những hiểu biết có ý nghĩa từ các tập dữ liệu phức tạp. Được thúc đẩy bởi sự tò mò và tư duy hướng đến kết quả, Peter đam mê sử dụng dữ liệu để phát hiện sự kém hiệu quả, xác định cơ hội và tạo ra giá trị có thể đo lường được."
+      "William Prawira": {
+        "position": "Kỹ Sư Dữ Liệu",
+        "bio": "Will Prawira học kép ngành Khoa học Dữ liệu và Toán Ứng dụng tại UCLA. Tại UCLA, anh hiện tham gia Bruin Sports Analytics trong đội tư vấn quần vợt, cũng như là trưởng dự án tại NSDC. Anh đang tích cực làm việc tại VINdicated với vai trò kỹ sư sản phẩm dữ liệu."
       },
-      {
-        "position": "Trưởng Nhóm Thiết Kế Hình Ảnh",
-        "bio": "Evanceline là sinh viên năm hai ngành sinh học tại UCLA. Cô đam mê sử dụng nghệ thuật và thiết kế như một phương tiện truyền tải thông điệp. Thông qua nghệ thuật của mình, cô hy vọng giúp mọi người hiểu thêm về VINdicated và những bất bình đẳng cũng như nguy hiểm hiện có trong ngành công nghiệp ô tô."
+      "Halima Cherif Hminat": {
+        "position": "Trưởng Nhóm Nghiên Cứu & Tiếp Cận Cộng Đồng",
+        "bio": "Halima Cherif Hminat là sinh viên ngành Sinh học Tổng hợp tại UC Berkeley, học phụ ngành Kinh doanh Bền vững và Chính sách, và đang theo hướng tiền nha khoa. Cô cũng là Trưởng nhóm Nghiên cứu và Tiếp cận Cộng đồng tại VINdicated, đóng góp vào việc tạo ra các nguồn tài liệu giúp mọi người đưa ra quyết định sáng suốt một cách tự tin. Cô nói sứ mệnh của VINdicated quan trọng với cô vì cô muốn hỗ trợ phụ nữ bằng cách giúp họ tránh bị đối xử bất công khi mua và sửa xe."
       },
-      {
-        "position": "Nhà Phân Tích Dữ Liệu",
-        "bio": "Brisa Gómez là sinh viên chuyển trường năm nhất ngành tâm lý học. Lớn lên ở Tijuana, México, họ đam mê nghiên cứu liên quan đến các cộng đồng chưa được đại diện đầy đủ như phụ nữ, người khuyết tật và cộng đồng queer. Họ hy vọng trở thành nhà trị liệu hành vi trong tương lai. Trong thời gian rảnh, họ thích đọc tiểu thuyết lãng mạn nhẹ nhàng và viết sáng tạo."
+      "Yinrui (Ray) Gan": {
+        "position": "Trưởng Nhóm Kỹ Thuật",
+        "bio": "Ray Gan dẫn dắt hệ thống dữ liệu và AI cho bản đồ rủi ro đại lý tương tác của VINdicated. Anh đã thiết kế hệ thống phân loại dựa trên LLM biến các đánh giá của người tiêu dùng chưa có cấu trúc thành các tín hiệu rủi ro minh bạch, có bằng chứng cho người mua xe. Ray học Khoa học Máy tính và Ngôn ngữ học tại UCLA."
       },
-      {
+      "Fiona Wangsawidjaja": {
         "position": "Chuyên Viên Nghiên Cứu",
         "bio": "Fiona Wangsawidjaja là sinh viên đại học hiện tại ở UCLA. Cô ấy giúp đỡ phần dữ liệu của VINdicated!"
       },
-      {
+      "Ameerah Zafar": {
+        "position": "Kỹ Sư Dữ Liệu",
+        "bio": "Ameerah Zafar là sinh viên năm cuối ngành Kỹ thuật Hóa học tại UC Berkeley, cô cũng tham gia Hiệp hội Sinh viên Hồi giáo Berkeley và nghiên cứu bậc đại học về cơ học lớp phủ. Ameerah đóng góp vào nghiên cứu dữ liệu và thiết kế đồ họa tại VINdicated."
+      },
+      "Evanceline Tang": {
+        "position": "Trưởng Nhóm Thiết Kế Hình Ảnh",
+        "bio": "Evanceline là sinh viên năm hai ngành sinh học tại UCLA. Cô đam mê sử dụng nghệ thuật và thiết kế như một phương tiện truyền tải thông điệp. Thông qua nghệ thuật của mình, cô hy vọng giúp mọi người hiểu thêm về VINdicated và những bất bình đẳng cũng như nguy hiểm hiện có trong ngành công nghiệp ô tô."
+      },
+      "Ayat Ashraf": {
         "position": "Chuyên Viên Nghiên Cứu",
         "bio": "Ayat Ashraf học chuyên ngành Toán/Kinh tế tại UCLA, quan tâm đến việc hoạch định chính sách kinh tế. Cô thực hiện nghiên cứu tại VINdicated, hy vọng trong tương lai có thể mua xe mà không cần gọi điện cho bố 8.000 lần."
       },
-      {
-        "position": "Chuyên Viên Nghiên Cứu",
-        "bio": "Paul là sinh viên năm nhất tại UC Berkeley, dự định chuyên ngành Sinh học Tổng hợp theo hướng tiền nha khoa. Anh rất hào hứng được đóng góp vào việc làm cho thông tin đáng tin cậy dễ tiếp cận hơn và hỗ trợ những người có thể gặp phải các hành vi bất công trong ngành công nghiệp ô tô."
-      },
-      {
-        "position": "Kỹ Sư Phần Mềm",
-        "bio": "Bryan Zhang học chuyên ngành Khoa học Máy tính tại UCLA. Trong thời gian rảnh, anh thích chơi bóng rổ, bóng chuyền và làm bánh. Anh là nhà phát triển cho VINdicated."
-      },
-      {
-        "position": "Kỹ Sư Phần Mềm",
-        "bio": "Jas Wang là sinh viên năm 4 tại UCLA, chuyên ngành Khoa học Chính trị và Địa lý. Sử dụng kỹ năng lập bản đồ GIS, anh giúp dữ liệu của VINdicated dễ tiếp cận hơn khi được trực quan hóa. VINdicated quan trọng với anh vì lớn lên trong một cộng đồng người nhập cư, anh biết người nhập cư cũng dễ bị tổn thương và bị lừa gạt bất công như thế nào."
+      "Brisa Gómez": {
+        "position": "Nhà Phân Tích Dữ Liệu",
+        "bio": "Brisa Gómez là sinh viên chuyển trường năm nhất ngành tâm lý học. Lớn lên ở Tijuana, México, họ đam mê nghiên cứu liên quan đến các cộng đồng chưa được đại diện đầy đủ như phụ nữ, người khuyết tật và cộng đồng queer. Họ hy vọng trở thành nhà trị liệu hành vi trong tương lai. Trong thời gian rảnh, họ thích đọc tiểu thuyết lãng mạn nhẹ nhàng và viết sáng tạo."
       }
-    ],
+    },
     "cta": {
       "headingPlain": "Bạn muốn trở thành",
       "headingEm": "một phần của điều này?",

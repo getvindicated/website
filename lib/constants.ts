@@ -22,10 +22,30 @@ export const navLinks = [
     label: "About",
     href: "/about",
     children: [
-      { label: "Who We Are", href: "/about" },
-      { label: "Our Mission", href: "/about#mission" },
-      { label: "From the Founder", href: "/about#story" },
-      { label: "What We Provide", href: "/about#vindicated-from" },
+      {
+        label: "Who We Are",
+        href: "/about",
+        description: "The mission behind VINdicated.",
+        icon: "who",
+      },
+      {
+        label: "Our Mission",
+        href: "/about#mission",
+        description: "Educate, empower, and vindicate.",
+        icon: "mission",
+      },
+      {
+        label: "From the Founder",
+        href: "/about#story",
+        description: "Rana's story, and why we exist.",
+        icon: "founder",
+      },
+      {
+        label: "What We Provide",
+        href: "/about#vindicated-from",
+        description: "Free workshops, guides, and tools.",
+        icon: "provide",
+      },
     ],
   },
   { label: "Team", href: "/team" },
@@ -63,7 +83,6 @@ export const navLinks = [
 //       { label: "Get Involved", href: "/research#get-involved" },
 //     ],
 //   },
-  
   { label: "Get Involved", href: "/join" },
 ] as const;
 

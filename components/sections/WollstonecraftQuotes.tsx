@@ -109,7 +109,7 @@ export function WollstonecraftQuotes() {
             type="button"
             onClick={() => goTo(i)}
             aria-label={`Go to quote ${i + 1} of ${QUOTES.length}`}
-            className="rounded-full transition-all"
+            className="rounded-full transition-all cursor-pointer"
             style={{
               width: i === index ? 20 : 6,
               height: 6,

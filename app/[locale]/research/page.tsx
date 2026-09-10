@@ -1,7 +1,6 @@
 import {
   PageHero,
   FadeUp,
-  Divider,
   SectionTitle,
   Button,
 } from "@/components/ui";
@@ -117,8 +116,6 @@ export default function ResearchPage() {
         </section>
       </FadeUp>
 
-      <Divider />
-
       {/* Active Studies */}
       <FadeUp>
         <section id="study1" className="px-20 py-24 max-md:px-6 max-md:py-16">
@@ -160,8 +157,6 @@ export default function ResearchPage() {
           ))}
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Evidence Base */}
       <FadeUp>
@@ -206,8 +201,6 @@ export default function ResearchPage() {
           </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Sources */}
       <FadeUp>
@@ -262,8 +255,6 @@ export default function ResearchPage() {
           </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Get Involved */}
       <FadeUp>

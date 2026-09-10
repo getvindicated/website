@@ -4,7 +4,6 @@ import { HomeHero } from "@/components/sections/HomeHero";
 import { HomeCards } from "@/components/sections/HomeCards";
 import { HomeQuote } from "@/components/sections/HomeQuote";
 import { HomeFounder } from "@/components/sections/HomeFounder";
-import { Divider } from "@/components/ui";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { localizedPathnames, localizeHref, type Locale } from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
@@ -56,11 +55,8 @@ export default async function HomePage({
     <>
       <RoadScene />
       <HomeHero locale={locale as Locale} dict={dict.home} />
-      <Divider />
       <HomeCards locale={locale as Locale} dict={dict.home} />
-      <Divider />
       <HomeQuote dict={dict.home} />
-      <Divider />
       <HomeFounder locale={locale as Locale} dict={dict.home} />
     </>
   );

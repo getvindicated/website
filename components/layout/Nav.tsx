@@ -178,7 +178,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: NavDict }) {
 
         {/* Hamburger / Close toggle */}
         <button
-          className="relative z-[102] flex lg:hidden justify-center items-center w-10 h-10 bg-transparent border-none"
+          className="relative z-[102] flex lg:hidden justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer"
           aria-label={menuOpen ? dict.ui.closeMenu : dict.ui.openMenu}
           onClick={() => setMenuOpen((v) => !v)}
         >
@@ -285,7 +285,7 @@ function MobileMenu({
                   ) : (
                     <button
                       type="button"
-                      className="flex-1 py-4 text-left text-[1.1rem] font-medium bg-transparent border-none transition-colors"
+                      className="flex-1 py-4 text-left text-[1.1rem] font-medium bg-transparent border-none transition-colors cursor-pointer"
                       style={{ color: "#fff" }}
                       aria-expanded={isExpanded}
                       onClick={() =>
@@ -297,7 +297,7 @@ function MobileMenu({
                   )}
                   {hasChildren && (
                     <button
-                      className="flex items-center justify-center w-11 h-11 bg-transparent border-none -mr-2"
+                      className="flex items-center justify-center w-11 h-11 bg-transparent border-none -mr-2 cursor-pointer"
                       aria-label={expandLabel(dict, labelFor(link, dict))}
                       onClick={() =>
                         setExpanded(isExpanded ? null : link.href)
@@ -397,6 +397,36 @@ function NavDropdownIcon({ icon }: { icon: string }) {
           <path d="M9 13h6M9 17h6" />
         </svg>
       );
+    case "who":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M4.5 20c1.4-3.8 4.3-5.7 7.5-5.7s6.1 1.9 7.5 5.7" />
+        </svg>
+      );
+    case "mission":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="8.5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="12" cy="12" r="0.6" fill="currentColor" />
+        </svg>
+      );
+    case "founder":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7.5 8.5c-2 0-3.2 1.5-3.2 3.4 0 2.1 1.5 3.4 3.2 3.4.3 1.6-.5 3-1.8 3.7 2.4 0 4.3-1.7 4.3-4.7V12c0-2.3-1-3.5-2.5-3.5z" fill="currentColor" stroke="none" />
+          <path d="M17 8.5c-2 0-3.2 1.5-3.2 3.4 0 2.1 1.5 3.4 3.2 3.4.3 1.6-.5 3-1.8 3.7 2.4 0 4.3-1.7 4.3-4.7V12c0-2.3-1-3.5-2.5-3.5z" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "provide":
+      return (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3.5 9.5L12 6l8.5 3.5L12 13z" />
+          <path d="M3.5 9.5V16L12 19.5 20.5 16V9.5" />
+          <path d="M12 13v6.5" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -425,9 +455,8 @@ function DesktopNavItem({
 }) {
   const isStandalone = link.standalone !== false;
   const sharedClassName =
-    "text-[0.95rem] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm";
+    "text-[0.95rem] text-white hover:text-[var(--color-accent)] no-underline transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0a14] rounded-sm";
   const sharedStyle = {
-    color: "white",
     fontFamily: "var(--font-heading), Georgia, serif",
     fontWeight: active ? 600 : 400,
   } as const;

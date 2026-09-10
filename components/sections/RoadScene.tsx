@@ -9,7 +9,7 @@ export function RoadScene() {
     { top: 8, left: "90%", w: 1.5, delay: 1.6, dur: 2.4 },
   ];
 
-  const stripeDelays = [0, -0.56, -1.12, -1.68, -2.24];
+  const stripeDelays = [0, -0.7448, -1.4896, -2.2344, -2.9792];
 
   return (
     <div
@@ -69,7 +69,7 @@ export function RoadScene() {
       </div>
 
       {/* Driving car */}
-      <div className="absolute z-[5] car-drive" style={{ bottom: -10 }}>
+      <div className="absolute z-[5] car-drive" style={{ bottom: -10, width: 240 }}>
         <Image
           src="/illus-car-purple.png"
           alt="Purple car"

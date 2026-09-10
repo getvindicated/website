@@ -336,8 +336,8 @@ export function RightsPhoneDemo() {
   return (
     <div className="rpd-stage">
       <style>{`
-        .rpd-stage { display: flex; flex-direction: column; align-items: center; }
-        .rpd-phone { width: 340px; height: 700px; background: #040207; border-radius: 48px; padding: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset, 0 40px 90px -20px rgba(0,0,0,0.6); position: relative; }
+        .rpd-stage { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .rpd-phone { width: min(340px, calc(100vw - 3rem)); aspect-ratio: 340 / 700; background: #040207; border-radius: 48px; padding: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset, 0 40px 90px -20px rgba(0,0,0,0.6); position: relative; }
         .rpd-screen { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 36px; overflow: hidden; --rpd-ink:#16131d; --rpd-purple:#6d33c9; --rpd-vivid:#9630a6; --rpd-vivid-deep:#7a2685; --rpd-danger:#c23b32; --rpd-line:rgba(0,0,0,0.1); }
         .rpd-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; background: #000; border-radius: 18px; z-index: 50; }
         .rpd-home-indicator { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 110px; height: 4px; background: rgba(0,0,0,0.3); border-radius: 4px; z-index: 50; }

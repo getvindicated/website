@@ -74,7 +74,10 @@ export type AboutDict = {
 export type TeamDict = {
   hero?: { titleLine1?: string; titleEm?: string };
   sectionTitle?: string;
-  members?: { position?: string; bio?: string }[];
+  // Keyed by the member's full name (matches `name` in the `team` array in
+  // app/[locale]/team/page.tsx), not array position -- so translations stay
+  // correct no matter how that array is reordered, trimmed, or added to.
+  members?: Record<string, { position?: string; bio?: string }>;
   cta?: {
     headingPlain?: string;
     headingEm?: string;

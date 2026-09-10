@@ -78,13 +78,20 @@ export function ScamNotebook() {
         .sn-page-top { z-index: 10; }
         .sn-clone { z-index: 15; transform-style: preserve-3d; transform-origin: top center; transform: rotateX(0deg); transition: transform 0.62s cubic-bezier(.45,.05,.55,.95); backface-visibility: hidden; }
         .sn-clone.sn-flipping { transform: rotateX(-178deg); }
-        .sn-num { font-size: 3.2rem; line-height: 1; color: #7c3aed; display: block; margin-bottom: 14px; }
-        .sn-strong { font-size: 2.5rem; line-height: 1.2; color: #15121d; font-weight: 700; margin: 0 0 16px; }
-        .sn-text { font-size: 1.75rem; line-height: 1.4; color: #15121d; margin: 0; }
+        .sn-num { font-size: clamp(2.1rem, 9vw, 3.2rem); line-height: 1; color: #7c3aed; display: block; margin-bottom: 14px; }
+        .sn-strong { font-size: clamp(1.5rem, 6.5vw, 2.5rem); line-height: 1.25; color: #15121d; font-weight: 700; margin: 0 0 16px; }
+        .sn-text { font-size: clamp(1.1rem, 4.5vw, 1.75rem); line-height: 1.4; color: #15121d; margin: 0; }
         .sn-hint { position: absolute; bottom: 22px; right: 30px; font-size: 1.2rem; color: #7c3aed; opacity: 0.75; }
         .sn-dots { display: flex; gap: 7px; margin-top: 24px; justify-content: center; }
         .sn-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.25); }
         .sn-dot.sn-done { background: #c9a6e0; }
+        @media (max-width: 480px) {
+          .sn-notebook { height: 480px; }
+          .sn-page { padding: 44px 22px 30px 42px; }
+          .sn-page::before { left: 26px; }
+          .sn-spiral { left: 18px; right: 18px; }
+          .sn-hint { right: 22px; font-size: 1rem; }
+        }
       `}</style>
 
       <div className="sn-outer">

@@ -12,6 +12,8 @@ export function LanguageSwitcher({
   label?: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [triggerHovered, setTriggerHovered] = useState(false);
+  const [hoveredLocale, setHoveredLocale] = useState<Locale | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
@@ -37,11 +39,14 @@ export function LanguageSwitcher({
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="text-[0.85rem] font-semibold px-3 py-2 rounded-lg transition-colors duration-150"
+        onMouseEnter={() => setTriggerHovered(true)}
+        onMouseLeave={() => setTriggerHovered(false)}
+        className="text-[0.85rem] font-semibold px-3 py-2 rounded-lg transition-colors duration-150 cursor-pointer"
         style={{
           color: "#fff",
           border: "1px solid var(--color-border)",
-          background: open ? "rgba(149,51,165,0.14)" : "transparent",
+          background:
+            open || triggerHovered ? "rgba(149,51,165,0.14)" : "transparent",
         }}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -64,10 +69,17 @@ export function LanguageSwitcher({
             <button
               key={locale}
               onClick={() => switchTo(locale)}
-              className="w-full text-left px-4 py-2.5 text-[0.9rem] transition-colors duration-150"
+              onMouseEnter={() => setHoveredLocale(locale)}
+              onMouseLeave={() => setHoveredLocale(null)}
+              className="w-full text-left px-4 py-2.5 text-[0.9rem] transition-colors duration-150 cursor-pointer"
               style={{
                 color: "#fff",
-                background: locale === currentLocale ? "rgba(149,51,165,0.16)" : "transparent",
+                background:
+                  locale === currentLocale
+                    ? "rgba(149,51,165,0.16)"
+                    : locale === hoveredLocale
+                      ? "rgba(149,51,165,0.1)"
+                      : "transparent",
                 fontWeight: locale === currentLocale ? 700 : 400,
               }}
               role="option"

@@ -1,7 +1,6 @@
 import {
   PageHero,
   FadeUp,
-  Divider,
   SectionTitle,
   InfoBox,
   Button,
@@ -50,8 +49,6 @@ export default function RightsPage() {
     </div>
   </section>
 </FadeUp>
-
-      <Divider />
 
       {/* Bottom CTA */}
       <FadeUp>

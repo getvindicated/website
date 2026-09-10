@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   PageHero,
   FadeUp,
-  Divider,
   SectionTitle,
   Button,
 } from "@/components/ui";
@@ -262,7 +261,7 @@ function PinkSlipExplainer() {
             <button
               key={hl.id}
               onClick={() => selectHotspot(hl.id)}
-              className="text-left py-3 px-1 text-[1.05rem] transition-colors duration-150"
+              className="text-left py-3 px-1 text-[1.05rem] transition-colors duration-150 cursor-pointer"
               style={{
                 borderBottom: "1px solid var(--color-border)",
                 color:
@@ -594,8 +593,6 @@ export default function FraudPage() {
         </section>
       </FadeUp>
 
-      <Divider />
-
       {/* Red Flags */}
       <FadeUp>
         <section
@@ -608,8 +605,6 @@ export default function FraudPage() {
           <RedFlagField />
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Know Your Rights */}
       <FadeUp>
@@ -659,8 +654,6 @@ export default function FraudPage() {
           </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* After a scam */}
       <FadeUp>

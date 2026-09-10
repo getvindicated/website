@@ -40,9 +40,6 @@
 }
 
 /* ── Base ── */
-html {
-  scroll-behavior: smooth;
-}
 body {
   background: var(--color-bg-page);
   color: #fff;
@@ -79,7 +76,6 @@ h2 em,
 h3 em,
 h4 em {
   font-style: italic;
-  color: var(--color-accent);
 }
 
 /* ── Custom cursor ── */
@@ -132,7 +128,7 @@ h4 em {
   }
 }
 .road-stripe {
-  animation: road-stripes 2.8s linear infinite;
+  animation: road-stripes 3.724s linear infinite;
 }
 @keyframes star-twinkle {
   0%,
@@ -148,14 +144,14 @@ h4 em {
 }
 @keyframes car-drive {
   0% {
-    left: -340px;
+    left: -30%;
   }
   100% {
     left: 110%;
   }
 }
 .car-drive {
-  animation: car-drive 13s linear infinite;
+  animation: car-drive 5.431s linear infinite;
 }
 
 /* ── Ignition sequence icons (about page mission pillars) ── */

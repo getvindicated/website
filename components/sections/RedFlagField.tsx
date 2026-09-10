@@ -66,6 +66,15 @@ export function RedFlagField() {
         .rf-content-script { font-size: 1.05rem; line-height: 1.6; color: #fff; margin: 0; }
         .rf-content-script strong { font-weight: 700; }
         .rf-empty-hint { text-align: center; margin-top: 30px; font-size: 1rem; color: #fff; }
+        @media (max-width: 480px) {
+          .rf-field { padding: 0 4px; height: 190px; }
+          .rf-pole-wrap { height: 140px; }
+          .rf-pole { height: 95px; }
+          .rf-flag-unit.rf-active .rf-pole { height: 125px; }
+          .rf-pennant { width: 32px; height: 22px; }
+          .rf-flag-num { font-size: 0.66rem; top: 4px; left: 7px; }
+          .rf-flag-label { font-size: 0.74rem; max-width: 58px; margin-top: 10px; }
+        }
       `}</style>
 
       <div className="rf-field">

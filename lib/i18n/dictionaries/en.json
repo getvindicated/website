@@ -185,7 +185,7 @@
           "bold": true
         },
         {
-          "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more than white men. White women were quoted $92 more than white men."
+          "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more and white women $92 more than white men."
         }
       ],
       "para2": [
@@ -242,7 +242,7 @@
       "subtitle": "Three strikes. Three completely different situations. The same system every time.",
       "strikes": [
         {
-          "num": "01",
+          "num": "1",
           "label": "The Pink Slip Scam",
           "body": [
             "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
@@ -250,7 +250,7 @@
           ]
         },
         {
-          "num": "02",
+          "num": "2",
           "label": "Facebook Marketplace",
           "body": [
             "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
@@ -259,7 +259,7 @@
           ]
         },
         {
-          "num": "03",
+          "num": "3",
           "label": "South Coast Mitsubishi",
           "body": [
             "April 2025. I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" I asked for service records. I was told they were in a locked drawer, and the guy with the key wasn't there. They promised a 300-point inspection. Then 150. Then it was back in the locked drawer.",
@@ -316,64 +316,48 @@
       "titleEm": "same frustration."
     },
     "sectionTitle": "Meet the Team",
-    "members": [
-      {
-        "position": "Founder",
+    "members": {
+      "Rana Darwich": {
+        "position": "Founder & President",
         "bio": "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge."
       },
-      {
-        "position": "Technical Lead",
-        "bio": "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA."
-      },
-      {
-        "position": "Research & Outreach Lead",
-        "bio": "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also a Research and Outreach Lead at VINdicated and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs."
-      },
-      {
-        "position": "Data Engineer",
-        "bio": "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer."
-      },
-      {
-        "position": "Data Engineer",
-        "bio": "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated."
-      },
-      {
-        "position": "Software Engineer",
+      "Rizwaan Bana": {
+        "position": "Chapter Director",
         "bio": "Rizwaan Bana is a Computer Science major at UCLA. He is the Software Lead at VINdicated, where he builds tools to help consumers navigate the car-buying process without friction. Rizwaan is passionate about using technology to create positive change and making information more accessible for everyone."
       },
-      {
-        "position": "Empirical & Data Lead",
-        "bio": "Peter Dickson is a Data Science and Economics student at the University of California, Berkeley, with a strong focus on data analytics, financial modeling, and real-world problem solving. He brings a combination of technical rigor and business insight, leveraging tools such as Python, SQL, and statistical modeling to extract meaningful insights from complex datasets. Driven by curiosity and a results-oriented mindset, Peter is passionate about using data to uncover inefficiencies, identify opportunities, and create measurable value."
+      "William Prawira": {
+        "position": "Internal Vice President",
+        "bio": "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer."
       },
-      {
-        "position": "Visual Design Lead",
-        "bio": "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry."
+      "Halima Cherif Hminat": {
+        "position": "External Vice President",
+        "bio": "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also a Research and Outreach Lead at VINdicated and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs."
       },
-      {
-        "position": "Data Analyst",
-        "bio": "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing."
+      "Yinrui (Ray) Gan": {
+        "position": "Data Lead",
+        "bio": "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA."
       },
-      {
-        "position": "Research Analyst",
+      "Fiona Wangsawidjaja": {
+        "position": "President",
         "bio": "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!"
       },
-      {
-        "position": "Research Analyst",
+      "Ameerah Zafar": {
+        "position": "Internal Vice President",
+        "bio": "Ameerah Zafar is a senior studying Chemical Engineering at UC Berkeley, she's also involved in Berkeley's Muslim Student Association and Undergraduate Research in coating mechanics. Ameerah contributes to data research and graphic design at VINdicated."
+      },
+      "Evanceline Tang": {
+        "position": "Design Lead & Outreach Lead",
+        "bio": "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry."
+      },
+      "Ayat Ashraf": {
+        "position": "External Vice President",
         "bio": "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future."
       },
-      {
-        "position": "Research Analyst",
-        "bio": "Paul is a first-year student at UC Berkeley planning to major in Integrative Biology on a pre-dental track. He is excited to contribute to making reliable information more accessible and supporting people who may face unfair practices in the auto industry."
-      },
-      {
-        "position": "Software Engineer",
-        "bio": "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated."
-      },
-      {
-        "position": "Software Engineer",
-        "bio": "Jas Wang is a 4th year at UCLA majoring in Political Science and Geography. Using GIS mapping skills, he helps VINdicated's data to be approachable when visualized. VINdicated is important to him because growing up in an immigrant community, he knows how immigrants are vulnerable too and are unfairly scammed."
+      "Brisa Gómez": {
+        "position": "Technical Writing Lead",
+        "bio": "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing."
       }
-    ],
+    },
     "cta": {
       "headingPlain": "Want to be part of",
       "headingEm": "this?",

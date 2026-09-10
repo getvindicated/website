@@ -123,7 +123,7 @@ function DocExhibit({
             return (
               <button
                 key={n}
-                className="absolute w-[22px] h-[22px] rounded-full flex items-center justify-center text-[0.54rem] font-semibold text-white border border-white/80 z-20 transition-all duration-150"
+                className="absolute w-[22px] h-[22px] rounded-full flex items-center justify-center text-[0.54rem] font-semibold text-white border border-white/80 z-20 transition-all duration-150 cursor-pointer"
                 style={{
                   top,
                   left,
@@ -245,7 +245,7 @@ function DocExhibit({
                 <button
                   key={n}
                   onClick={() => setActive(n)}
-                  className="px-3 py-1 text-[0.72rem] border rounded-full transition-all duration-150"
+                  className="px-3 py-1 text-[0.72rem] border rounded-full transition-all duration-150 cursor-pointer"
                   style={{
                     borderColor:
                       active === n

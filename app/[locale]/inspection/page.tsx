@@ -6,12 +6,12 @@ import Link from "next/link";
 import {
   PageHero,
   FadeUp,
-  Divider,
   SectionTitle,
   Accordion,
   Pullquote,
   CardGrid,
   InfoBox,
+  WarningBox,
 } from "@/components/ui";
 
 // ── Engine diagram pins ──────────────────────────────────────
@@ -246,10 +246,32 @@ function EngineDiagram() {
   const card = active ? engineCards[active] : null;
   const pin = active ? enginePins.find((p) => p.id === active) : null;
   const scrollRef = useRef<HTMLDivElement>(null);
+  const imageWrapRef = useRef<HTMLDivElement>(null);
+  const [panelHeight, setPanelHeight] = useState<number | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
   }, [active]);
+
+  // Keep the detail panel capped to the engine image's rendered height
+  // (which is set by aspect-ratio, not content) so long descriptions
+  // scroll inside the panel instead of stretching the image taller.
+  useEffect(() => {
+    const el = imageWrapRef.current;
+    if (!el) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setPanelHeight(mq.matches ? el.clientHeight : undefined);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    mq.addEventListener("change", update);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener("change", update);
+    };
+  }, []);
 
   return (
     <div
@@ -260,16 +282,18 @@ function EngineDiagram() {
       }}
     >
       <div
-        className="px-16 py-14 border-b max-md:px-6"
+        className="px-20 py-14 border-b max-md:px-6"
         style={{ borderColor: "var(--color-border)" }}
       >
-        <h2 className="text-[4rem] mb-3">
-          What to <em>Actually</em> Look For
-        </h2>
-        <p className="text-[0.92rem] text-white leading-[1.7] max-w-[680px]">
-          Click any numbered pin on the engine to learn what that component
-          does, how to inspect it yourself, and what condition it should be in.
-        </p>
+        <div className="max-w-[1400px] mx-auto flex justify-between items-end gap-10 max-md:flex-col max-md:items-start max-md:gap-3">
+          <h2 className="text-[4rem] max-md:text-[2.6rem]">
+            What to <em>Actually</em> Look For
+          </h2>
+          <p className="text-[0.92rem] text-white leading-[1.7] max-w-[360px] text-right mb-2 max-md:text-left max-md:mb-0">
+            Click any numbered pin on the engine to learn what that component
+            does, how to inspect it yourself, and what condition it should be in.
+          </p>
+        </div>
       </div>
 
       <div
@@ -277,6 +301,7 @@ function EngineDiagram() {
       >
         {/* Image + pins */}
         <div
+          ref={imageWrapRef}
           className="relative overflow-hidden"
           style={{ background: "var(--color-bg-surface)", aspectRatio: "3/2" }}
         >
@@ -290,7 +315,7 @@ function EngineDiagram() {
             <button
               key={p.id}
               onClick={() => setActive(active === p.id ? null : p.id)}
-              className="absolute w-[30px] h-[30px] rounded-full flex items-center justify-center text-white font-bold border-2 border-white/90 z-10 transition-all duration-150"
+              className="absolute w-[30px] h-[30px] rounded-full flex items-center justify-center text-white font-bold border-2 border-white/90 z-10 transition-all duration-150 cursor-pointer"
               style={{
                 top: p.top,
                 left: p.left,
@@ -313,6 +338,7 @@ function EngineDiagram() {
           style={{
             background: "var(--color-bg-page)",
             borderColor: "var(--color-border)",
+            height: panelHeight,
           }}
         >
           {/* Legend */}
@@ -360,16 +386,6 @@ function EngineDiagram() {
                   borderColor: "var(--color-border)",
                 }}
               >
-                <span
-                  className="inline-flex items-center text-[0.7rem] font-bold px-2 py-1 rounded mb-3 border"
-                  style={{
-                    background: colorMap[pin.color].badge,
-                    color: colorMap[pin.color].text,
-                    borderColor: colorMap[pin.color].text + "66",
-                  }}
-                >
-                  {colorMap[pin.color].label}
-                </span>
                 <p className="text-[1.65rem] font-extrabold leading-[1.2] mb-1">
                   {pin.title}
                 </p>
@@ -440,7 +456,7 @@ function EngineDiagram() {
                   <button
                     key={p.id}
                     onClick={() => setActive(p.id)}
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-[0.62rem] font-bold border transition-all duration-150"
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-[0.62rem] font-bold border transition-all duration-150 cursor-pointer"
                     style={{
                       background:
                         active === p.id ? "var(--color-vivid)" : "transparent",
@@ -468,44 +484,126 @@ type RoadItem = { strong: string; text: string };
 
 function WindingRoad({ items }: { items: RoadItem[] }) {
   const [active, setActive] = useState<number | null>(null);
+  const [hovered, setHovered] = useState<number | null>(null);
   const [visited, setVisited] = useState<Set<number>>(new Set());
 
-  const width = 400;
-  const stepY = 230;
+  // Snakes left-to-right, then right-to-left on the next row, so the
+  // road stays short and wide instead of one long vertical scroll.
+  const [cols, setCols] = useState(1);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setCols(mq.matches ? 3 : 1);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Measured in pixels so the popup card can be clamped to the actual
+  // rendered width instead of the viewport — on narrow phones the road
+  // container is much narrower than 100vw, and a viewport-based max
+  // width let the card spill past the container's edges.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setContainerWidth(entry.contentRect.width);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Fades/scales the popup in on open rather than snapping into view.
+  const [entered, setEntered] = useState(false);
+
+  const width = cols === 1 ? 400 : 1040;
+  const stepY = cols === 1 ? 230 : 170;
   const topPad = 90;
   const bottomPad = 90;
-  const height = topPad + (items.length - 1) * stepY + bottomPad;
-  const center = width / 2;
+  const rows = Math.ceil(items.length / cols);
+  const height = topPad + (rows - 1) * stepY + bottomPad;
+  const colWidth = width / cols;
   const amp = 70;
 
-  const stops = items.map((_, i) => ({
-    x: center + amp * Math.sin(i * 1.15 + 0.4),
-    y: topPad + i * stepY,
-  }));
+  const stops = items.map((_, i) => {
+    const row = Math.floor(i / cols);
+    const idxInRow = i % cols;
+    const col = row % 2 === 0 ? idxInRow : cols - 1 - idxInRow;
+    return {
+      x:
+        cols === 1
+          ? width / 2 - amp * Math.sin(i * 1.15 + 0.4)
+          : colWidth * (col + 0.5),
+      y: topPad + row * stepY,
+    };
+  });
 
+  // Bows each segment perpendicular to its direction (up/down for
+  // horizontal stretches, left/right for the vertical connectors),
+  // alternating sign so the road reads as one continuous curvy line.
+  const bulge = 34;
   let pathD = `M ${stops[0].x} ${stops[0].y}`;
   for (let i = 1; i < stops.length; i++) {
     const p0 = stops[i - 1];
     const p1 = stops[i];
-    const midY = (p0.y + p1.y) / 2;
-    pathD += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+    const dx = p1.x - p0.x;
+    const dy = p1.y - p0.y;
+    const horizontal = Math.abs(dx) >= Math.abs(dy);
+    const sign = i % 2 === 0 ? -1 : 1;
+    const c1x = horizontal ? p0.x + dx * 0.33 : p0.x + sign * bulge;
+    const c1y = horizontal ? p0.y + sign * bulge : p0.y + dy * 0.33;
+    const c2x = horizontal ? p0.x + dx * 0.66 : p1.x + sign * bulge;
+    const c2y = horizontal ? p1.y + sign * bulge : p0.y + dy * 0.66;
+    pathD += ` C ${c1x} ${c1y}, ${c2x} ${c2y}, ${p1.x} ${p1.y}`;
   }
 
-  const activeItem = active !== null ? items[active] : null;
-  const activeStop = active !== null ? stops[active] : null;
+  const shown = hovered !== null ? hovered : active;
+  const shownItem = shown !== null ? items[shown] : null;
+  const shownStop = shown !== null ? stops[shown] : null;
+  const shownRow = shown !== null ? Math.floor(shown / cols) : 0;
+  const flipBelow = shownRow === 0;
+
+  // Clamp the popup card to the measured container so it can never
+  // spill past the road's own edges, regardless of viewport width.
+  const sidePad = 12;
+  const scale = containerWidth ? containerWidth / width : 0;
+  const popupWidthPx = containerWidth
+    ? Math.min(300, containerWidth - sidePad * 2)
+    : 300;
+  const popupLeftPx =
+    shownStop && containerWidth
+      ? Math.min(
+          Math.max(shownStop.x * scale - popupWidthPx / 2, sidePad),
+          containerWidth - popupWidthPx - sidePad
+        )
+      : 0;
+
+  useEffect(() => {
+    if (shown === null) return;
+    setEntered(false);
+    const id = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(id);
+  }, [shown]);
 
   const openStop = (i: number) => {
     setActive((cur) => (cur === i ? null : i));
     setVisited((prev) => new Set(prev).add(i));
   };
 
+  const dismiss = () => {
+    setActive(null);
+    setHovered(null);
+  };
+
   return (
     <div className="relative">
       <div
+        ref={containerRef}
         className="relative mx-auto"
         style={{
           width: "100%",
-          maxWidth: 520,
+          maxWidth: cols === 1 ? 520 : 1040,
           aspectRatio: `${width} / ${height}`,
         }}
       >
@@ -539,72 +637,93 @@ function WindingRoad({ items }: { items: RoadItem[] }) {
         {items.map((item, i) => {
           const s = stops[i];
           const isActive = active === i;
+          const isShown = shown === i;
           const isVisited = visited.has(i);
           return (
             <button
               key={i}
               onClick={() => openStop(i)}
-              className="absolute z-10 rounded-3xl px-7 py-6 text-[1.05rem] font-bold text-center leading-snug transition-all duration-200 w-[210px] max-md:w-[180px] max-md:text-[0.95rem] max-md:px-5 max-md:py-5"
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              onFocus={() => setHovered(i)}
+              onBlur={() => setHovered(null)}
+              className="absolute z-10 select-none rounded-3xl px-7 py-6 text-[1.05rem] font-bold text-center leading-snug transition-all duration-200 w-[210px] max-md:w-[180px] max-md:text-[0.95rem] max-md:px-5 max-md:py-5 cursor-pointer"
               style={{
                 left: `${(s.x / width) * 100}%`,
                 top: `${(s.y / height) * 100}%`,
-                transform: "translate(-50%, -50%)",
+                transform: `translate(-50%, -50%) scale(${isShown ? 1.04 : 1})`,
                 background:
                   isActive || isVisited
                     ? "rgba(149,51,165,0.16)"
                     : "var(--color-bg-surface)",
                 color: "#fff",
                 border:
-                  isActive || isVisited
+                  isActive || isShown || isVisited
                     ? "2px solid var(--color-vivid)"
                     : "1.5px dashed rgba(255,255,255,0.35)",
-                boxShadow: isActive
+                boxShadow: isShown
                   ? "0 0 24px 4px rgba(149,51,165,0.35)"
                   : "none",
               }}
             >
+              <span
+                className="absolute -top-3 -left-3 w-7 h-7 rounded-full flex items-center justify-center text-[0.75rem] font-bold text-white border-2"
+                style={{
+                  background: "var(--color-vivid)",
+                  borderColor: "var(--color-bg-page)",
+                }}
+              >
+                {i + 1}
+              </span>
               {item.strong}
             </button>
           );
         })}
 
-        {/* Explanation card: anchored directly above whichever stop is active,
-            styled like the Important/InfoBox callout — rounded card,
-            colored label, plain white body text */}
-        {activeItem && activeStop && (
+        {/* Explanation card: shows on hover as a transient preview, and
+            stays pinned after a click until dismissed. Flips below the
+            stop for the top row so it never overlaps the button. */}
+        {shownItem && shownStop && (
           <>
+            {active !== null && (
+              <div className="fixed inset-0 z-40" onClick={dismiss} />
+            )}
             <div
-              className="fixed inset-0 z-40"
-              onClick={() => setActive(null)}
-            />
-            <div
-              className="absolute z-50 rounded-2xl py-5 px-6 max-md:py-4 max-md:px-5"
+              className="absolute z-50 select-none rounded-2xl py-5 px-6 max-md:py-4 max-md:px-5 pointer-events-none"
               style={{
-                left: `${(activeStop.x / width) * 100}%`,
-                top: `${(activeStop.y / height) * 100}%`,
-                transform: "translate(-50%, calc(-100% - 22px))",
-                width: 300,
-                maxWidth: "calc(100vw - 48px)",
+                left: `${popupLeftPx}px`,
+                top: `${(shownStop.y / height) * 100}%`,
+                transform: `${
+                  flipBelow
+                    ? "translateY(26px)"
+                    : "translateY(calc(-100% - 26px))"
+                } scale(${entered ? 1 : 0.95})`,
+                transformOrigin: flipBelow ? "top center" : "bottom center",
+                opacity: entered ? 1 : 0,
+                transition: "opacity 180ms ease, transform 180ms ease",
+                width: popupWidthPx,
                 background: "var(--color-bg-page)",
                 border: "1px solid var(--color-border)",
                 boxShadow: "0 10px 40px rgba(0,0,0,0.55)",
               }}
             >
-              <button
-                onClick={() => setActive(null)}
-                className="absolute top-3 right-4 text-white text-2xl leading-none"
-                aria-label="Close"
-              >
-                &times;
-              </button>
+              {active === shown && (
+                <button
+                  onClick={dismiss}
+                  className="absolute top-3 right-4 text-white text-2xl leading-none cursor-pointer pointer-events-auto"
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+              )}
               <p
                 className="text-[1.02rem] font-bold mb-2 pr-6"
                 style={{ color: "var(--color-light)" }}
               >
-                {activeItem.strong}
+                {shownItem.strong}
               </p>
               <p className="text-[0.98rem] text-white leading-[1.75]">
-                {activeItem.text}
+                {shownItem.text}
               </p>
             </div>
           </>
@@ -775,12 +894,16 @@ export default function InspectionPage() {
     <>
       <PageHero
         kicker=""
+        contained
         title={
           <>
             Don&apos;t Buy a Car
             <br />
             <em>Without This.</em>
           </>
+        }
+        titleStyle={
+          { fontSize: "clamp(2.6rem,4.2vw,4.6rem)" } as React.CSSProperties
         }
         subtitle="A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100-200 and can save you thousands."
       />
@@ -791,30 +914,35 @@ export default function InspectionPage() {
           id="ppi-basics"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
+          <div className="max-w-[1400px] mx-auto">
           <div
-            className="grid grid-cols-[1fr_1fr] gap-20 items-start max-lg:grid-cols-1"
+            className="grid grid-cols-[540px_1fr] gap-20 items-start max-lg:grid-cols-1 max-lg:gap-12"
           >
             <div>
               <SectionTitle
                 style={
-                  { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
+                  { fontSize: "clamp(2rem,3.6vw,3rem)" } as React.CSSProperties
                 }
               >
                 What Is a<br />
                 <em>Pre-Purchase Inspection?</em>
               </SectionTitle>
-            </div>
-            <div className="space-y-5">
-              <p className="text-[1.1rem] leading-[1.85] text-white">
-                A PPI is when you pay an <strong>independent mechanic</strong>{" "}
-                , not the seller, not the dealership, to inspect a
+              <p className="text-[1.1rem] leading-[1.85] text-white mt-10 max-w-[540px]">
+                A PPI is when you pay an <strong>independent mechanic</strong>,
+                not the seller, not the dealership, to inspect a
                 car before you buy it.
               </p>
+              <p className="text-[1.1rem] leading-[1.85] text-white mt-5 max-w-[540px]">
+                A good PPI costs <strong>$100-$200</strong> and is the
+                single most powerful tool you have before signing anything.
+              </p>
+            </div>
+            <div className="max-w-[460px] ml-auto max-lg:ml-0">
               <p
-                className="text-[1rem] font-semibold mt-8 mb-4"
-                style={{ color: "var(--color-light)" }}
+                className="text-[1.15rem] font-bold mb-5"
+                style={{ color: "#d8b4fe" }}
               >
-                This is different from
+                A PPI is not the same as
               </p>
               <div style={{ borderTop: "1px solid var(--color-border)" }}>
                 {[
@@ -822,33 +950,30 @@ export default function InspectionPage() {
                   { term: "Your own visual check", def: "you\u2019re not a trained mechanic." },
                   { term: "A test drive", def: "you can\u2019t see what\u2019s happening under the hood." },
                 ].map(({ term, def }) => (
-                  <p
+                  <div
                     key={term}
-                    className="text-[1rem] text-white leading-[1.7] py-3"
+                    className="py-4"
                     style={{ borderBottom: "1px solid var(--color-border)" }}
                   >
-                    <strong className="text-white">{term}:</strong> {def}
-                  </p>
+                    <p className="text-[1.02rem] font-bold text-white mb-1">
+                      {term}
+                    </p>
+                    <p className="text-[0.95rem] text-white/70 leading-[1.6]">
+                      {def}
+                    </p>
+                  </div>
                 ))}
               </div>
-              <p className="text-[1.1rem] leading-[1.85] text-white mt-8">
-                A good PPI costs <strong>$100-$200</strong> and is the
-                single most powerful tool you have before signing anything.
-              </p>
-              <p
-                className="text-[1.15rem] italic leading-[1.6] mt-6"
-                style={{ color: "var(--color-red)" }}
-              >
+              <WarningBox className="!mt-4">
                 If a dealer refuses to let you take the car to an
-                independent mechanic; walk away. That refusal is your
+                independent mechanic, walk away. That refusal is your
                 answer.
-              </p>
+              </WarningBox>
             </div>
+          </div>
           </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Engine Diagram */}
       <FadeUp>
@@ -857,19 +982,18 @@ export default function InspectionPage() {
         </section>
       </FadeUp>
 
-      <Divider />
-
       {/* Where to get one */}
       <FadeUp>
         <section
           id="where-to-get"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
+          <div className="max-w-[1400px] mx-auto">
           <SectionTitle className="mb-12">Where to Get a PPI</SectionTitle>
           <CardGrid
             cards={[
               {
-                num: "Option 01: National Services",
+                num: "National Services",
                 title: "Independent Inspection Services",
                 body: (
                   <>
@@ -885,7 +1009,7 @@ export default function InspectionPage() {
                 ),
               },
               {
-                num: "Option 02: Best Option",
+                num: "Manufacturer Network",
                 title: "Manufacturer Dealerships",
                 recommended: true,
                 body: (
@@ -906,21 +1030,20 @@ export default function InspectionPage() {
                 ),
               },
               {
-                num: "Option 03: If You Have It",
+                num: "If You Have It",
                 title: "AAA Membership",
                 body: "Many AAA locations offer free or discounted PPIs for members. Check your local AAA auto service center.",
               },
               {
-                num: "Option 04: If You Trust Them",
+                num: "If You Trust Them",
                 title: "Trusted Local Mechanics",
                 body: 'If you have a mechanic you trust, ask if they do PPIs. Red flags: they refuse to put findings in writing, they rush through it, or they tell you "everything looks fine" without checking anything.',
               },
             ]}
           />
+          </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Dealer locators */}
       <FadeUp>
@@ -928,6 +1051,7 @@ export default function InspectionPage() {
           id="dealer-locators"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
+          <div className="max-w-[1400px] mx-auto">
           <SectionTitle className="mb-3">
             Find a <em>Manufacturer Dealership</em>
           </SectionTitle>
@@ -936,26 +1060,15 @@ export default function InspectionPage() {
             dealership for your PPI. They know that brand, have the right tools,
             and have zero incentive to lie.
           </p>
-          <div
-            className="grid grid-cols-4 gap-[1.5px] max-md:grid-cols-2"
-            style={{ background: "#000" }}
-          >
+          <div className="grid grid-cols-4 gap-4 max-md:grid-cols-2">
             {brands.map((brand) => (
               <Link
                 key={brand.name}
                 href={brand.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-4 p-8 max-md:p-5 no-underline transition-colors duration-200 group relative overflow-hidden"
-                style={{ background: "#000" }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background =
-                    "#111";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background =
-                    "#000";
-                }}
+                className="flex flex-col items-center gap-4 p-8 max-md:p-6 rounded-2xl border border-[var(--color-border)] no-underline transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)]"
+                style={{ background: "var(--color-bg-surface)" }}
               >
                 <div className="w-[72px] h-[72px] max-md:w-[56px] max-md:h-[56px] flex items-center justify-center">
                   <Image
@@ -966,22 +1079,15 @@ export default function InspectionPage() {
                     className="object-contain"
                   />
                 </div>
-                <div className="text-center">
-                  <p className="text-[1.05rem] font-bold text-white">
-                    {brand.name}
-                  </p>
-                </div>
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"
-                  style={{ background: "var(--color-vivid)" }}
-                />
+                <p className="text-[1.05rem] font-bold text-white">
+                  {brand.name}
+                </p>
               </Link>
             ))}
           </div>
+          </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* What inspectors check */}
       <FadeUp>
@@ -989,8 +1095,9 @@ export default function InspectionPage() {
           id="what-to-inspect"
           className="px-20 py-24 max-md:px-6 max-md:py-16"
         >
+          <div className="max-w-[1400px] mx-auto">
           <SectionTitle
-            className="mb-4"
+            className="mb-8"
             style={
               { fontSize: "clamp(2.4rem,5vw,4rem)" } as React.CSSProperties
             }
@@ -1002,10 +1109,9 @@ export default function InspectionPage() {
             what they&apos;re checking, and why each category matters.
           </p>
           <Accordion items={inspectionAccordion} />
+          </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* Pullquote */}
       <FadeUp>
@@ -1013,20 +1119,30 @@ export default function InspectionPage() {
           className="px-20 py-24 max-md:px-6 max-md:py-16"
           style={{ background: "var(--color-bg-surface)", margin: 0 }}
         >
+          <div className="max-w-[1400px] mx-auto">
           <Pullquote
-			quote={`"Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself."`}
+			quote={
+              <>
+                Your salesperson is not your friend, your partner, or
+                someone looking out for your <strong>best interests</strong>.
+                They&apos;re paid on <strong>commission</strong>. The more
+                you pay, the more they make. This doesn&apos;t mean
+                they&apos;re evil. It just means you need to{" "}
+                <strong>protect yourself</strong>.
+              </>
+            }
             cite="Rana Darwich, VINdicated Founder"
           />
+          </div>
         </section>
       </FadeUp>
-
-      <Divider />
 
       {/* How to schedule */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <SectionTitle className="mb-4">How to Schedule a PPI</SectionTitle>
-          <p className="text-[0.95rem] text-white leading-[1.7] max-w-[560px] mb-10">
+          <div className="max-w-[1400px] mx-auto">
+          <SectionTitle className="mb-4 text-center">How to Schedule a PPI</SectionTitle>
+          <p className="text-[0.95rem] text-white leading-[1.7] max-w-[560px] mx-auto mb-10 text-center">
             Follow the road, stop by stop. Tap a stop to read what to do there.
           </p>
           <WindingRoad
@@ -1057,22 +1173,19 @@ export default function InspectionPage() {
               },
             ]}
           />
-          <div className="my-8">
-            <p
-              className="text-[0.85rem] font-bold mb-3"
-              style={{ color: "var(--color-light)" }}
-            >
-              Important
-            </p>
-            <p className="text-[0.95rem] leading-[1.65] text-white">
-              If a seller stalls on producing service records or promises
-              they&apos;ll &quot;get them later,&quot; schedule the inspection
-              before you commit emotionally.{" "}
-              <strong>
-                Schedule the inspection before you&apos;re attached, not
-                after.
-              </strong>
-            </p>
+          <InfoBox
+            label="Important"
+            className="mx-auto"
+            style={{ maxWidth: 1040 }}
+          >
+            If a seller stalls on producing service records or promises
+            they&apos;ll &quot;get them later,&quot; schedule the inspection
+            before you commit emotionally.{" "}
+            <strong>
+              Schedule the inspection before you&apos;re attached, not
+              after.
+            </strong>
+          </InfoBox>
           </div>
         </section>
       </FadeUp>
