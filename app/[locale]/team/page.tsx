@@ -112,7 +112,7 @@ const team: TeamMember[] = [
 		name: "Noirit Ghosh Choudhuri",
 		position: "Internal Vice President",
 		school: "Computer Science, UC Berkeley",
-		photo: "/team/noirit.png",
+		photo: "/team/noirit.jpg",
 		chapter: "berkeley",
 		campus: "ucb",
 		bio: "Noirit Ghosh Choudhuri is a Computer Science major at UC Berkeley. He is the Internal Vice President of the VINdicated chapter at UC Berkeley. Through his experience developing multiple real world projects, Noirit has built strong technical and collaborative skills that he wants to use to build more solutions to pressing societal issues, such as the one VINdicated stands to fight.",
