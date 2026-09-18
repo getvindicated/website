@@ -16,6 +16,10 @@ import { getRouteMetadata } from "@/lib/i18n/metadata";
 import type { Locale } from "@/lib/i18n/config";
 import type { TeamDict } from "@/lib/i18n/dictionary";
 
+// Solid background color for this page. Matches the purple already used
+// for --color-accent elsewhere in the design (rgba(149,51,165,...)).
+const PAGE_BG = "#9533A5";
+
 export async function generateMetadata({
 	params,
 }: {
@@ -147,14 +151,14 @@ const team: TeamMember[] = [
 		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
 	},
 	{
-    name: "Fernando Cedillo-Hernandez",
-    position: "Research Lead",
-    school: "Biology & Political Science, UCLA",
-    photo: "/team/fernando.png",
-    chapter: "ucla",
-    campus: "ucla",
-    bio: "Fernando Cedillo-Hernandez is a Biology and Political Science double major at UCLA, with minors in Biomedical Research and Community Engagement and Social Change. He brings a background in research and civic advocacy to his role as Research Lead at VINdicated, driven by a commitment to expanding equitable access and protection for underserved communities. Outside VINdicated, Fernando is involved in leadership and community engagement work across UCLA, including advocacy for immigrant and working-class students.",
-},
+		name: "Fernando Cedillo-Hernandez",
+		position: "Research Lead",
+		school: "Biology & Political Science, UCLA",
+		photo: "/team/fernando.png",
+		chapter: "ucla",
+		campus: "ucla",
+		bio: "Fernando Cedillo-Hernandez is a Biology and Political Science double major at UCLA, with minors in Biomedical Research and Community Engagement and Social Change. He brings a background in research and civic advocacy to his role as Research Lead at VINdicated, driven by a commitment to expanding equitable access and protection for underserved communities. Outside VINdicated, Fernando is involved in leadership and community engagement work across UCLA, including advocacy for immigrant and working-class students.",
+	},
 	{
 		name: "Yinrui (Ray) Gan",
 		position: "Data Lead",
@@ -183,14 +187,14 @@ const team: TeamMember[] = [
 		bio: "N/A",
 	},
 	{
-    name: "Rouqaya Elbanna",
-    position: "Fountain Valley HS Lead",
-    school: "Fountain Valley High School",
-    photo: "/team/rouqaya.png",
-    chapter: "ucla",
-    campus: "ucla",
-    bio: "Rouqaya Elbanna is a student at Fountain Valley High School. She is the Fountain Valley HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
-},
+		name: "Rouqaya Elbanna",
+		position: "Fountain Valley HS Lead",
+		school: "Fountain Valley High School",
+		photo: "/team/rouqaya.png",
+		chapter: "ucla",
+		campus: "ucla",
+		bio: "Rouqaya Elbanna is a student at Fountain Valley High School. She is the Fountain Valley HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
+	},
 	{
 		name: "Daryen Romero",
 		position: "Technical Writing Lead",
@@ -270,7 +274,7 @@ export default async function TeamPage({
 		}));
 
 	return (
-		<>
+		<div style={{ background: PAGE_BG }}>
 			<PageHero
 				kicker=""
 				contained
@@ -299,7 +303,7 @@ export default async function TeamPage({
 			<FadeUp>
 				<section
 					className="px-20 py-24 max-md:px-6 max-md:py-16 text-center"
-					style={{ background: "var(--color-bg-page)" }}
+					style={{ background: PAGE_BG }}
 				>
 					<div className="max-w-[1400px] mx-auto">
 						<h2 className="text-[clamp(2.4rem,5vw,4rem)] leading-[1.05] tracking-[-0.01em] mb-6">
@@ -316,6 +320,6 @@ export default async function TeamPage({
 					</div>
 				</section>
 			</FadeUp>
-		</>
+		</div>
 	);
 }
