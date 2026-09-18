@@ -188,12 +188,11 @@ const team: TeamMember[] = [
 	},
 	{
 		name: "Rouqaya Elbanna",
-		position: "Fountain Valley HS Lead",
-		school: "Fountain Valley High School",
+		position: "High School Lead",
 		photo: "/team/rouqaya.png",
 		chapter: "ucla",
 		campus: "ucla",
-		bio: "Rouqaya Elbanna is a student at Fountain Valley High School. She is the Fountain Valley HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
+		bio: "Rouqaya Elbanna is the HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
 	},
 	{
 		name: "Daryen Romero",
