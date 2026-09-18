@@ -150,7 +150,7 @@ const team: TeamMember[] = [
     name: "Fernando",
     position: "Research Lead",
     school: "Biology & Political Science, UCLA",
-    photo: "/team/fernando.jpg",
+    photo: "/team/fernando.png",
     chapter: "ucla",
     campus: "ucla",
     bio: "Fernando Cedillo-Hernandez is a Biology and Political Science double major at UCLA, with minors in Biomedical Research and Community Engagement and Social Change. He brings a background in research and civic advocacy to his role as Research Lead at VINdicated, driven by a commitment to expanding equitable access and protection for underserved communities. Outside VINdicated, Fernando is involved in leadership and community engagement work across UCLA, including advocacy for immigrant and working-class students.",
