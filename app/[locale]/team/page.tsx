@@ -183,15 +183,6 @@ const team: TeamMember[] = [
 		bio: "N/A",
 	},
 	{
-		name: "Sara",
-		position: "Projects Lead",
-		school: "UC Berkeley",
-		photo: null,
-		chapter: "berkeley",
-		campus: "ucb",
-		bio: "N/A",
-	},
-	{
 		name: "Rouqaya Elbanna",
 		position: "Fountain Valley HS Lead",
 		school: "N/A",
