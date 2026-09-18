@@ -85,7 +85,7 @@ const team: TeamMember[] = [
 		name: "Ashwin Vinod",
 		position: "President",
 		school: "UCSC",
-		photo: null,
+		photo: "/team/ashwin.jpg",
 		chapter: "ucsc",
 		campus: "ucsc",
 		bio: "Ashwin Vinod is a Computer Science major at UCSC. He is the President of the VINdicated chapter at UCSC. Through involvement in various research labs and software engineering experiences, Ashwin has built a technical foundation that he wants to use to push computational research that benefits the community, and provide educational opportunities for his community. Ashwin previously interned at IBM as a Software Developer Intern, and is continuing his interest in research as part of the AIEA Lab @ UCSC, focused on explainable artificial intelligence.",
