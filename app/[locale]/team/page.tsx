@@ -57,7 +57,7 @@ const team: TeamMember[] = [
 		name: "Rana Darwich",
 		position: "Founder & President",
 		school: "UC Berkeley",
-		photo: "/team/rana.jpg",
+		photo: "/team/rana.png",
 		chapter: "leadership",
 		campus: "ucb",
 		bio: "Rana founded VINdicated at 19 after a business law vocabulary word saved her from signing a predatory sales contract at a dealership. What started as a personal breaking point became a mission to dismantle the systems that exploit consumers who walk onto a car lot without backup. She leads VINdicated's research initiatives and strategic direction, driven by the belief that car knowledge should be public knowledge.",
