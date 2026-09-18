@@ -147,7 +147,7 @@ const team: TeamMember[] = [
 		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
 	},
 	{
-    name: "Fernando",
+    name: Fernando Cedillo-Hernandez,
     position: "Research Lead",
     school: "Biology & Political Science, UCLA",
     photo: "/team/fernando.png",
