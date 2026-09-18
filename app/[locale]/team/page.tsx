@@ -189,6 +189,7 @@ const team: TeamMember[] = [
 	{
 		name: "Rouqaya Elbanna",
 		position: "High School Lead",
+		school: "N/A",
 		photo: "/team/rouqaya.png",
 		chapter: "ucla",
 		campus: "ucla",
