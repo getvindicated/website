@@ -178,15 +178,6 @@ const team: TeamMember[] = [
 		bio: "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
 	},
 	{
-		name: "Will",
-		position: "Data Analytics Lead",
-		school: "N/A",
-		photo: null,
-		chapter: "ucsc",
-		campus: "ucsc",
-		bio: "N/A",
-	},
-	{
 		name: "Rouqaya Elbanna",
 		position: "High School Lead",
 		school: "N/A",
