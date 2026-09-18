@@ -18,7 +18,7 @@ import type { TeamDict } from "@/lib/i18n/dictionary";
 
 // Solid background color for this page. Matches the purple already used
 // for --color-accent elsewhere in the design (rgba(149,51,165,...)).
-const PAGE_BG = "#9533A5";
+const PAGE_BG = "#1A0821";
 
 export async function generateMetadata({
 	params,
