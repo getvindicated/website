@@ -60,8 +60,8 @@ const team: TeamMember[] = [
 	{
 		name: "Rana Darwich",
 		position: "Founder & President",
-		school: "UC Berkeley Chapter",
-		photo: "/team/rana.png",
+		school: "UC Berkeley",
+		photo: "/team/ranadar%20picture.png",
 		chapter: "leadership",
 		campus: "ucb",
 		bio: "Rana Darwich is a student researcher at UC Berkeley and the Founder & President of VINdicated, which now runs chapters at UCLA, Berkeley, and UC Santa Cruz. She is a Research Assistant at UC Berkeley's School of Education studying gender equity in university athletics funding, a Research Apprentice at Berkeley Law's Center for Comparative Inequality and Anti-Discrimination Law, and a former Student Researcher at the Political Violence Lab. She previously interned at Amazon and is currently an Opinion writer at The Daily Californian.",
@@ -79,11 +79,11 @@ const team: TeamMember[] = [
 	{
 		name: "Fiona Wangsawidjaja",
 		position: "President",
-		school: "UCLA",
+		school: "Statistics & Data Science, UCLA",
 		photo: "/team/fiona.jpg",
 		chapter: "ucla",
 		campus: "ucla",
-		bio: "Fiona Wangsawidjaja is a current undergraduate student at UCLA. She helps out with the data section of VINdicated!",
+		bio: "Fiona Wangsawidjaja is a Statistics and Data Science major at UCLA and the current President of the UCLA VINdicated chapter. Fiona loves to educate and help her community when she can, whether through her past experience as a coding tutor, helping others learn about the digital world through conferences, or here at VINdicated, where she hopes people can benefit from accessible automotive literacy. She has experience specializing in data through organizations such as DataRes and NSDC, teaching high school students about data, building data analysis projects, and consulting companies.",
 	},
 	{
 		name: "Ashwin Vinod",
@@ -97,11 +97,11 @@ const team: TeamMember[] = [
 	{
 		name: "William Prawira",
 		position: "Internal Vice President",
-		school: "Data Science & Applied Mathematics, UCLA",
+		school: "Math & Data Science, UCLA",
 		photo: "/team/william.jpg",
 		chapter: "ucla",
 		campus: "ucla",
-		bio: "Will Prawira is a Data Science & Applied Mathematics double major at UCLA. At UCLA, he's currently involved in Bruin Sports Analytics as part of the Tennis Consulting team, as well as NSDC as a project lead. He is actively working on VINdicated as a data product engineer.",
+		bio: "Will Prawira is a Math & Data Science major at UCLA and the Internal VP of the VINdicated chapter there. With his background in data science and industry experience, Will hopes to push a culture of rapid, high-quality execution, turning ambitious ideas into valuable resources for the community. He is currently interning at Navitas Semiconductor through the academic year as a Reliability Intern, where he develops tools and applications focused on automation and product lifetime prediction modeling.",
 	},
 	{
 		name: "Ayat Ashraf",
@@ -169,15 +169,6 @@ const team: TeamMember[] = [
 		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
 	},
 	{
-   		name: "Jordan Acle",
-    	position: "Data Lead",
-    	school: "Data Science, UC Berkeley",
-    	photo: null,
-    	chapter: "berkeley",
-    	campus: "ucb",
-    	bio: "Jordan Acle is a Data Science student at UC Berkeley and the Data Lead for the VINdicated chapter there, bringing hands-on experience in machine learning, data analysis, and data engineering to the role. He currently works as a Product Strategy Intern at Innov8AI, contributing to a trust-centered health AI platform, and serves UC Berkeley's community as a Data Science Peer Advisor and Hello World Mentor, helping new students build confidence and find their footing on campus.",
-	},
-	{
 		name: "Evanceline Tang",
 		position: "Design Lead & Outreach Lead",
 		school: "Biology, UCLA",
@@ -197,12 +188,12 @@ const team: TeamMember[] = [
 	},
 	{
 		name: "Rouqaya Elbanna",
-		position: "HS Lead",
-		school: "High School",
+		position: "Fountain Valley HS Lead",
+		school: "Fountain Valley High School",
 		photo: "/team/rouqaya.png",
 		chapter: "ucla",
 		campus: "ucla",
-		bio: "Rouqaya Elbanna is a High School student. She is the HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
+		bio: "Rouqaya Elbanna is a student at Fountain Valley High School. She is the Fountain Valley HS Lead at VINdicated, where she works to bring the organization's consumer protection mission to a wider student audience. She previously served as Vice President of TEDxAIS Jeddah Youth and was selected for the Learn with Leaders Future Doctors Fellowship, where her capstone health education campaign on Alzheimer's caregiving earned Best Presentation of the cohort. An aspiring physician, Rouqaya also competes as a varsity volleyball athlete and was honored with her school's Female Scholar Athlete Award.",
 	},
 	{
 		name: "Daryen Romero",
@@ -233,7 +224,7 @@ const team: TeamMember[] = [
 		photo: "/team/brisa.png",
 		chapter: "ucla",
 		campus: "ucla",
-		bio: "Brisa Gómez is a first-year transfer psychology student. Raised in Tijuana, México, they are passionate about research related to underrepresented communities such as women, people with disabilities, and queer identities. They hope to become a behavioral therapist in the future. In their free time, they like to read cheesy romance novels and do creative writing.",
+		bio: "Brisa Gómez is a fourth-year Psychology major at UCLA and the Technical Writing Lead at UCLA. Through their involvement in various writing and translation projects, Brisa wants to use that experience to promote accessible and comprehensive resources that are inclusive to vulnerable populations.",
 	},
 	{
 		name: "Ujjwal Nigam",
