@@ -60,7 +60,7 @@ const team: TeamMember[] = [
 	{
 		name: "Rana Darwich",
 		position: "Founder & President",
-		school: "UC Berkeley",
+		school: "UC Berkeley Chapter",
 		photo: "/team/ranadar%20picture.png",
 		chapter: "leadership",
 		campus: "ucb",
