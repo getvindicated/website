@@ -74,8 +74,9 @@ const SIDE_INFO = [
   },
 ];
 
+// Borderless, filled-box style for form fields (no underline).
 const fieldCls =
-  "w-full bg-transparent border-b border-white/20 focus:border-white/60 outline-none text-white text-[1rem] pb-2 transition-colors";
+  "w-full bg-white/5 rounded-lg px-4 py-3 outline-none text-white text-[1rem] transition-colors focus:bg-white/10";
 
 type Tab = "contact" | "volunteer";
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -280,7 +281,7 @@ function VolunteerPanel() {
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label className="block text-[0.85rem] text-white mb-2">Which chapter are you applying to?</label>
-            <select name="chapter" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
+            <select name="chapter" required className={fieldCls}>
               <option value="" disabled>Select a chapter</option>
               {CHAPTERS.map((ch) => (
                 <option key={ch.value} value={ch.value}>{ch.label}</option>
@@ -305,7 +306,7 @@ function VolunteerPanel() {
 
           <div>
             <label className="block text-[0.85rem] text-white mb-2">Role you're applying for</label>
-            <select name="role" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
+            <select name="role" required className={fieldCls}>
               <option value="" disabled>Select a role</option>
               {ROLES.map((role) => (
                 <option key={role.value} value={role.value}>{role.label}</option>
@@ -430,7 +431,7 @@ function ContactPanel() {
 
           <div>
             <label className="block text-[0.85rem] text-white mb-2">I'm reaching out about…</label>
-            <select name="topic" required className={fieldCls} style={{ background: "var(--color-bg-page)" }}>
+            <select name="topic" required className={fieldCls}>
               <option value="" disabled>Select a topic</option>
               {TOPICS.map((t) => (
                 <option key={t.value} value={t.label}>{t.label}</option>
