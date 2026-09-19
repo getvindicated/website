@@ -169,6 +169,15 @@ const team: TeamMember[] = [
 		bio: "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
 	},
 	{
+   		name: "Jordan Acle",
+    	position: "Data Lead",
+    	school: "Data Science, UC Berkeley",
+    	photo: null,
+    	chapter: "berkeley",
+    	campus: "ucb",
+    	bio: "Jordan Acle is a Data Science student at UC Berkeley and the Data Lead for the VINdicated chapter there, bringing hands-on experience in machine learning, data analysis, and data engineering to the role. He currently works as a Product Strategy Intern at Innov8AI, contributing to a trust-centered health AI platform, and serves UC Berkeley's community as a Data Science Peer Advisor and Hello World Mentor, helping new students build confidence and find their footing on campus.",
+	},
+	{
 		name: "Evanceline Tang",
 		position: "Design Lead & Outreach Lead",
 		school: "Biology, UCLA",
