@@ -61,7 +61,7 @@ const team: TeamMember[] = [
 		name: "Rana Darwich",
 		position: "Founder & President",
 		school: "UC Berkeley",
-		photo: "/team/rana.png",
+		photo: "/team/ranadar%20picture.png",
 		chapter: "leadership",
 		campus: "ucb",
 		bio: "Rana Darwich is a student researcher at UC Berkeley and the Founder & President of VINdicated, which now runs chapters at UCLA, Berkeley, and UC Santa Cruz. She is a Research Assistant at UC Berkeley's School of Education studying gender equity in university athletics funding, a Research Apprentice at Berkeley Law's Center for Comparative Inequality and Anti-Discrimination Law, and a former Student Researcher at the Political Violence Lab. She previously interned at Amazon and is currently an Opinion writer at The Daily Californian.",
