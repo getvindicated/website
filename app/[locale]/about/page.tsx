@@ -9,7 +9,7 @@ import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes
 import { StoryCarousel } from "@/components/sections/StoryCarousel";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
-import type { Locale } from "@/lib/i18n/config";
+import { localeDict, type Locale } from "@/lib/i18n/config";
 import type { AboutDict, AboutTextSegment } from "@/lib/i18n/dictionary";
 
 export async function generateMetadata({
@@ -142,7 +142,7 @@ export default async function AboutPage({
 }) {
   const { locale } = await params;
   const dict = (await getDictionary(locale as Locale)) as { about?: AboutDict };
-  const d = dict.about ?? {};
+  const d = localeDict(locale, dict.about) ?? {};
 
   const pillars = d.mission?.pillars ?? [
     {

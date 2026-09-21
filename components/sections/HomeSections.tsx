@@ -147,7 +147,7 @@ export function HomeFounder({ locale, dict }: { locale: Locale; dict?: HomeDict 
           </Button>
         </FadeUp>
       </div>
-      <FadeUp style={{ transitionDelay: "180ms" }}>
+      {/* <FadeUp style={{ transitionDelay: "180ms" }}>
         <div
           className="relative w-full max-w-[340px] mx-auto max-lg:max-w-[260px]"
           style={{ aspectRatio: "1 / 1" }}
@@ -168,7 +168,7 @@ export function HomeFounder({ locale, dict }: { locale: Locale; dict?: HomeDict 
             />
           </div>
         </div>
-      </FadeUp>
+      </FadeUp> */}
       </div>
     </section>
   );

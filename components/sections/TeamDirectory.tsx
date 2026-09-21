@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import { FadeUp } from "@/components/ui";
 
@@ -9,28 +9,38 @@ export type Social = {
 	href: string;
 };
 
-export type Chapter = "leadership" | "ucla" | "berkeley" | "ucsc";
-
-export type Campus = "ucla" | "ucb" | "ucsc";
+export type Chapter = "leadership" | "ucla" | "ucb" | "ucsc";
 
 export type TeamMemberView = {
 	name: string;
 	position: string;
 	bio: string;
-	school: string;
-	campus: Campus;
+	major?: string;
 	chapter: Chapter;
 	photo: string | null;
 	socials?: Social[];
 };
 
-// Keyed by campus (not chapter) so every member gets a mascot, including
-// leadership-chapter members who are cross-chapter but still belong to a
-// real campus.
-const CAMPUS_MASCOT: Record<Campus, string> = {
+const CHAPTER_OPTIONS: { value: "all" | Chapter; label: string }[] = [
+	{ value: "all", label: "All" },
+	{ value: "leadership", label: "Leadership" },
+	{ value: "ucla", label: "UCLA" },
+	{ value: "ucb", label: "UC Berkeley" },
+	{ value: "ucsc", label: "UC Santa Cruz" },
+];
+
+// No mascot for "leadership" -- it isn't tied to a single campus.
+const CHAPTER_MASCOT: Partial<Record<Chapter, string>> = {
 	ucla: "/ucla-mascot.png",
 	ucb: "/berkeley-mascot.png",
 	ucsc: "/ucsc-mascot.png",
+};
+
+// No school name for "leadership" -- it isn't tied to a single campus.
+const CHAPTER_SCHOOL: Partial<Record<Chapter, string>> = {
+	ucla: "UCLA",
+	ucb: "UC Berkeley",
+	ucsc: "UC Santa Cruz",
 };
 
 function Initials({ name }: { name: string }) {
@@ -104,106 +114,180 @@ function positionRank(position: string): number {
 }
 
 export function TeamDirectory({ members }: { members: TeamMemberView[] }) {
+	const [query, setQuery] = useState("");
+	const [chapter, setChapter] = useState<"all" | Chapter>("all");
+
 	const sorted = useMemo(
 		() =>
 			[...members].sort((a, b) => positionRank(a.position) - positionRank(b.position)),
 		[members],
 	);
 
+	const filtered = useMemo(() => {
+		const q = query.trim().toLowerCase();
+		return sorted.filter((m) => {
+			if (chapter !== "all" && m.chapter !== chapter) return false;
+			if (!q) return true;
+			return (
+				m.name.toLowerCase().includes(q) ||
+				(m.major?.toLowerCase().includes(q) ?? false) ||
+				m.position.toLowerCase().includes(q)
+			);
+		});
+	}, [sorted, query, chapter]);
+
 	return (
 		<div>
-			<div className="space-y-0">
-				{sorted.map((member) => {
-					const mascot = CAMPUS_MASCOT[member.campus];
-					return (
-						<FadeUp key={member.name}>
-							<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
-								{/* Photo */}
-								<div
-									className="relative w-full max-lg:w-52"
-									style={{ aspectRatio: "1 / 1" }}
-								>
-									{member.photo ? (
-										<div
-											className="absolute inset-0 overflow-hidden"
-											style={{
-												border: "1px solid var(--color-border)",
-												background: "var(--color-bg-surface)",
-											}}
-										>
-											<Image
-												src={member.photo}
-												alt={member.name}
-												fill
-												className="object-cover"
-												sizes="(max-width: 1024px) 208px, 280px"
-											/>
-										</div>
-									) : (
-										<Initials name={member.name} />
-									)}
-								</div>
+			{/* Search + school filter */}
+			<div className="flex flex-wrap items-center gap-3 mb-14 max-md:mb-10">
+				<input
+					type="text"
+					value={query}
+					onChange={(e) => setQuery(e.target.value)}
+					placeholder="Search the team by name, major, or role"
+					aria-label="Search the team"
+					className="flex-1 min-w-[240px] text-[0.95rem] px-4 py-3 rounded-lg outline-none transition-colors duration-150 focus:border-[var(--color-accent)]"
+					style={{
+						background: "var(--color-bg-surface)",
+						border: "1px solid var(--color-border)",
+						color: "#fff",
+					}}
+				/>
+				<div
+					className="flex gap-2 flex-wrap"
+					role="group"
+					aria-label="Filter by chapter"
+				>
+					{CHAPTER_OPTIONS.map((opt) => (
+						<button
+							key={opt.value}
+							type="button"
+							onClick={() => setChapter(opt.value)}
+							aria-pressed={chapter === opt.value}
+							className="text-[0.85rem] font-semibold px-4 py-3 rounded-lg cursor-pointer transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+							style={{
+								color: "#fff",
+								border: "1px solid var(--color-border)",
+								background:
+									chapter === opt.value
+										? "rgba(149,51,165,0.16)"
+										: "transparent",
+								outlineColor:
+									chapter === opt.value ? "var(--color-accent)" : undefined,
+							}}
+						>
+							{opt.label}
+						</button>
+					))}
+				</div>
+			</div>
 
-								{/* Info */}
-								<div>
-									<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
-										{member.name}
-									</h3>
-									<p
-										className="text-[1.15rem] font-bold mb-1"
-										style={{ color: "var(--color-accent)" }}
+			{filtered.length === 0 ? (
+				<p className="py-16 text-center text-[1rem] text-white/60">
+					No one matches that search.
+				</p>
+			) : (
+				<div className="space-y-0">
+					{filtered.map((member) => {
+						const mascot = CHAPTER_MASCOT[member.chapter];
+						const school = CHAPTER_SCHOOL[member.chapter];
+						const label = member.major
+							? school
+								? `${member.major}, ${school}`
+								: member.major
+							: school;
+						return (
+							<FadeUp key={member.name}>
+								<div className="grid grid-cols-[280px_1fr_auto] gap-10 items-center py-12 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:text-center max-lg:justify-items-center">
+									{/* Photo */}
+									<div
+										className="relative w-full max-lg:w-52"
+										style={{ aspectRatio: "1 / 1" }}
 									>
-										{member.position}
-									</p>
-									<div className="flex items-center gap-2 mb-5 max-lg:justify-center">
-										<p
-											className="text-[1.15rem] font-bold text-white"
-											style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-										>
-											{member.school}
-										</p>
-										{mascot && (
-											<Image
-												src={mascot}
-												alt=""
-												width={28}
-												height={28}
-												className="h-7 w-auto object-contain"
-											/>
-										)}
-									</div>
-									<p className="text-[0.95rem] text-white leading-[1.75] max-w-202">
-										{member.bio}
-									</p>
-								</div>
-
-								{/* Socials */}
-								{member.socials && member.socials.length > 0 && (
-									<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
-										{member.socials.map((s) => (
-											<a
-												key={s.platform}
-												href={s.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+										{member.photo ? (
+											<div
+												className="absolute inset-0 overflow-hidden"
 												style={{
 													border: "1px solid var(--color-border)",
 													background: "var(--color-bg-surface)",
-													color: "var(--color-light)",
 												}}
-												aria-label={`${member.name} on ${s.platform}`}
 											>
-												<SocialIcon platform={s.platform} />
-											</a>
-										))}
+												<Image
+													src={member.photo}
+													alt={member.name}
+													fill
+													className="object-cover"
+													sizes="(max-width: 1024px) 208px, 280px"
+												/>
+											</div>
+										) : (
+											<Initials name={member.name} />
+										)}
 									</div>
-								)}
-							</div>
-						</FadeUp>
-					);
-				})}
-			</div>
+
+									{/* Info */}
+									<div>
+										<h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] tracking-[-0.01em] mb-2">
+											{member.name}
+										</h3>
+										<p
+											className="text-[1.15rem] font-bold mb-1"
+											style={{ color: "var(--color-accent)" }}
+										>
+											{member.position}
+										</p>
+										<div className="flex items-center gap-2 mb-5 max-lg:justify-center">
+											{label && (
+												<p
+													className="text-[1.15rem] font-bold text-white"
+													style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+												>
+													{label}
+												</p>
+											)}
+											{mascot && (
+												<Image
+													src={mascot}
+													alt=""
+													width={28}
+													height={28}
+													className="h-7 w-auto object-contain"
+												/>
+											)}
+										</div>
+										<p className="text-[0.95rem] text-white leading-[1.75] max-w-202">
+											{member.bio}
+										</p>
+									</div>
+
+									{/* Socials */}
+									{member.socials && member.socials.length > 0 && (
+										<div className="flex flex-col gap-3 max-lg:flex-row max-lg:mt-2">
+											{member.socials.map((s) => (
+												<a
+													key={s.platform}
+													href={s.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="flex items-center justify-center w-10 h-10 transition-colors duration-200 hover:scale-110"
+													style={{
+														border: "1px solid var(--color-border)",
+														background: "var(--color-bg-surface)",
+														color: "var(--color-light)",
+													}}
+													aria-label={`${member.name} on ${s.platform}`}
+												>
+													<SocialIcon platform={s.platform} />
+												</a>
+											))}
+										</div>
+									)}
+								</div>
+							</FadeUp>
+						);
+					})}
+				</div>
+			)}
 		</div>
 	);
 }

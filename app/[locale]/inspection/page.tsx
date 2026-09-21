@@ -11,7 +11,6 @@ import {
   Pullquote,
   CardGrid,
   InfoBox,
-  WarningBox,
 } from "@/components/ui";
 
 // ── Engine diagram pins ──────────────────────────────────────
@@ -949,26 +948,29 @@ export default function InspectionPage() {
                   { term: "The seller\u2019s inspection", def: "they\u2019re trying to sell you the car." },
                   { term: "Your own visual check", def: "you\u2019re not a trained mechanic." },
                   { term: "A test drive", def: "you can\u2019t see what\u2019s happening under the hood." },
-                ].map(({ term, def }) => (
+                ].map(({ term, def }, i) => (
                   <div
                     key={term}
-                    className="py-4"
+                    className="flex gap-4 py-4"
                     style={{ borderBottom: "1px solid var(--color-border)" }}
                   >
-                    <p className="text-[1.02rem] font-bold text-white mb-1">
-                      {term}
-                    </p>
-                    <p className="text-[0.95rem] text-white/70 leading-[1.6]">
-                      {def}
-                    </p>
+                    <span
+                      className="text-[1.15rem] font-bold shrink-0"
+                      style={{ color: "#d8b4fe" }}
+                    >
+                      {i + 1}
+                    </span>
+                    <div>
+                      <p className="text-[1.02rem] font-bold text-white mb-1">
+                        {term}
+                      </p>
+                      <p className="text-[0.95rem] text-white/70 leading-[1.6]">
+                        {def}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
-              <WarningBox className="!mt-4">
-                If a dealer refuses to let you take the car to an
-                independent mechanic, walk away. That refusal is your
-                answer.
-              </WarningBox>
             </div>
           </div>
           </div>
@@ -1067,8 +1069,8 @@ export default function InspectionPage() {
                 href={brand.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-4 p-8 max-md:p-6 rounded-2xl border border-[var(--color-border)] no-underline transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)]"
-                style={{ background: "var(--color-bg-surface)" }}
+                className="flex flex-col items-center gap-4 p-8 max-md:p-6 rounded-2xl border-2 border-[var(--color-border)] no-underline transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)]"
+                style={{ background: "var(--color-bg-page)" }}
               >
                 <div className="w-[72px] h-[72px] max-md:w-[56px] max-md:h-[56px] flex items-center justify-center">
                   <Image
@@ -1156,16 +1158,8 @@ export default function InspectionPage() {
                 text: '"I\'d like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag; walk away.',
               },
               {
-                strong: "You take the car to the mechanic",
-                text: 'for private sellers. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Get it in writing.',
-              },
-              {
-                strong: "Get the report in writing.",
-                text: "Every finding, documented. No verbal summaries. You want a paper trail, for both negotiating and your own records.",
-              },
-              {
-                strong: "Use the findings to negotiate.",
-                text: "Found a leaking CV boot? That's $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
+                strong: "Take it in, get it in writing, then negotiate.",
+                text: 'For private sellers, take the car straight to your mechanic. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Insist on every finding documented, no verbal summaries, then use the report to negotiate. Found a leaking CV boot? That\'s $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.',
               },
               {
                 strong: "You can still walk away after a PPI.",

@@ -5,7 +5,12 @@ import { HomeCards } from "@/components/sections/HomeCards";
 import { HomeQuote } from "@/components/sections/HomeQuote";
 import { HomeFounder } from "@/components/sections/HomeFounder";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import { localizedPathnames, localizeHref, type Locale } from "@/lib/i18n/config";
+import {
+  localeDict,
+  localizedPathnames,
+  localizeHref,
+  type Locale,
+} from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
 
 export async function generateMetadata({
@@ -15,9 +20,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const dict = (await getDictionary(locale as Locale)) as { home?: HomeDict };
-  const title = dict.home?.meta?.title ?? "Educate. Empower. Vindicate.";
+  const home = localeDict(locale, dict.home);
+  const title = home?.meta?.title ?? "Educate. Empower. Vindicate.";
   const description =
-    dict.home?.meta?.description ??
+    home?.meta?.description ??
     "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.";
 
   return {
@@ -50,14 +56,15 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const dict = (await getDictionary(locale as Locale)) as { home?: HomeDict };
+  const home = localeDict(locale, dict.home);
 
   return (
     <>
       <RoadScene />
-      <HomeHero locale={locale as Locale} dict={dict.home} />
-      <HomeCards locale={locale as Locale} dict={dict.home} />
-      <HomeQuote dict={dict.home} />
-      <HomeFounder locale={locale as Locale} dict={dict.home} />
+      <HomeHero locale={locale as Locale} dict={home} />
+      <HomeCards locale={locale as Locale} dict={home} />
+      <HomeQuote dict={home} />
+      {/* <HomeFounder locale={locale as Locale} dict={home} /> */}
     </>
   );
 }
