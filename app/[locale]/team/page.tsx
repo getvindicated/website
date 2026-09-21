@@ -212,14 +212,14 @@ const team: TeamMember[] = [
 		chapter: "ucb",
 		bio: "Chino is an Electrical and Computer Engineering major at UC Berkeley and a Software Engineer for the VINdicated chapter there. He brings extensive experience combining technical knowledge with societal impact, having previously focused on supporting underprivileged communities in Thailand. Chino hopes to bring that same drive for impact to VINdicated's mission.",
 	},
-	// {
-	// 	name: "William Guo",
-	// 	position: "Software Engineer",
-	// 	major: "Computer Science",
-	// 	photo: null,
-	// 	chapter: "ucsc",
-	// 	bio: "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. Having gone through the stressful process of searching for the right vehicle himself, William resonates deeply with VINdicated's mission and believes the basics of what to look for in a major purchase like a car should be more readily available to everyone.",
-	// },
+	{
+		name: "William Guo",
+		position: "Software Engineer",
+		major: "Computer Science",
+		photo: "/team/williamguo.png",
+		chapter: "ucsc",
+		bio: "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. Having gone through the stressful process of searching for the right vehicle himself, William resonates deeply with VINdicated's mission and believes the basics of what to look for in a major purchase like a car should be more readily available to everyone.",
+	},
 	{
 		name: "Daniel",
 		position: "Data Engineer",
@@ -245,7 +245,7 @@ const team: TeamMember[] = [
 		bio: "Ian de la Houssaye is a Mechanical Engineering student and the Software Lead for the VINdicated chapter at UC Berkeley. He has a passion for building technology that solves real-world problems. Ian founded and led his high school's competitive robotics team, helping it become one of San Diego's top-performing teams while directing the development of its software and autonomous systems. Through these experiences, he has developed strong technical, leadership, and collaborative skills that he hopes to use to advance VINdicated's mission.",
 	},
 	{
-		name: "James Chang",
+		name: "James Cheng",
 		position: "Data Engineer",
 		major: "Data Science & Cognitive Science",
 		photo: "/team/james.png",
