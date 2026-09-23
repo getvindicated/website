@@ -6,7 +6,6 @@ import {
   Pullquote,
 } from "@/components/ui";
 import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes";
-import { StoryCarousel } from "@/components/sections/StoryCarousel";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
 import { localeDict, type Locale } from "@/lib/i18n/config";
@@ -378,9 +377,33 @@ export default async function AboutPage({
                 "Three strikes. Three completely different situations. The same system every time."}
             </p>
 
-            {/* Strikes as a route timeline */}
-            <div className="mt-12 max-md:mt-8 w-[75%] max-md:w-full">
-              <StoryCarousel strikes={strikes} />
+            {/* Strikes, text only */}
+            <div className="mt-12 max-md:mt-8 max-w-[800px] flex flex-col gap-12">
+              {strikes.map(({ num, label, body }) => (
+                <div
+                  key={num}
+                  className="border-l-2 pl-6"
+                  style={{ borderColor: "var(--color-accent)" }}
+                >
+                  <p
+                    className="text-[0.75rem] uppercase tracking-[0.15em] mb-2"
+                    style={{ color: "var(--color-accent)" }}
+                  >
+                    Strike {num}
+                  </p>
+                  <h3
+                    className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] tracking-[-0.01em] mb-4"
+                    style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
+                  >
+                    {label}
+                  </h3>
+                  {body.map((p, i) => (
+                    <p key={i} className="text-[1rem] text-white leading-[1.75] mb-3">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              ))}
             </div>
 
             {/* Pullquote */}
