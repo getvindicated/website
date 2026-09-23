@@ -120,6 +120,15 @@ const team: TeamMember[] = [
 		bio: "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also the EVP at VINdicated @ UC Berkeley and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs.",
 	},
 	{
+		name: "Gundeep Sambee",
+		position: "Internal Vice President",
+		major: "Cognitive Science",
+		photo: "/team/gundeep.jpg",
+		chapter: "ucsc",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/gundeep-k-sambee/" }],
+		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
+	},
+	{
 		name: "Adhya Maddukuri",
 		position: "External Vice President",
 		major: "Technology & Information Management",
@@ -127,15 +136,6 @@ const team: TeamMember[] = [
 		chapter: "ucsc",
 		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/adhya-maddukuri-82a88a339" }],
 		bio: "Adhya is a Technology and Information Management student at UC Santa Cruz with a passion for building technology that creates real-world impact, spanning software development, AI, data analytics, and product strategy. She's conducted undergraduate research in generative AI, consulted with nonprofits through 180 Degrees Consulting, and helped organize hackathons with NVIDIA and ASUS. She's currently a Software Development Engineering Intern at Heron Power, building software systems and strengthening her technical and problem-solving skills.",
-	},
-	{
-		name: "Gundeep Sambee",
-		position: "Outreach Lead",
-		major: "Cognitive Science",
-		photo: "/team/gundeep.jpg",
-		chapter: "ucsc",
-		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/gundeep-k-sambee/" }],
-		bio: "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
 	},
 	{
 		name: "Fernando Cedillo-Hernandez",
