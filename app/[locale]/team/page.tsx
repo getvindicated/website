@@ -63,14 +63,6 @@ const team: TeamMember[] = [
 		bio: "Rana Darwich is a student researcher at UC Berkeley and the Founder & President of VINdicated, which now runs chapters at UCLA, Berkeley, and UC Santa Cruz. She is a Research Assistant at UC Berkeley's School of Education studying gender equity in university athletics funding, a Research Apprentice at Berkeley Law's Center for Comparative Inequality and Anti-Discrimination Law, and a former Student Researcher at the Political Violence Lab. She previously interned at Amazon and is currently an Opinion writer at The Daily Californian.",
 	},
 	{
-		name: "Rizwaan Bana",
-		position: "Chapter Director",
-		photo: "/team/rizwaan.jpg",
-		chapter: "leadership",
-		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/rizwaanbana/" }],
-		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Chapter Director at VINdicated, where he helps streamline the different chapters' outreach and project strategies. He also serves as the Internal Vice President of Bruin Software Engineers, Dev Team Project Manager for ACM @ UCLA, and Web Chair for UPE @ UCLA.",
-	},
-	{
 		name: "Fiona Wangsawidjaja",
 		position: "President",
 		major: "Statistics & Data Science",
@@ -86,6 +78,14 @@ const team: TeamMember[] = [
 		chapter: "ucsc",
 		socials: [{ platform: "website", href: "https://aiea-lab.github.io" }],
 		bio: "Ashwin Vinod is a Computer Science major at UCSC. He is the President of the VINdicated chapter at UCSC. Through involvement in various research labs and software engineering experiences, Ashwin has built a technical foundation that he wants to use to push computational research that benefits the community, and provide educational opportunities for his community. Ashwin previously interned at IBM as a Software Developer Intern, and is continuing his interest in research as part of the AIEA Lab @ UCSC, focused on explainable artificial intelligence.",
+	},
+	{
+		name: "Rizwaan Bana",
+		position: "UCLA Chapter Director",
+		photo: "/team/rizwaan.jpg",
+		chapter: "leadership",
+		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/rizwaanbana/" }],
+		bio: "Rizwaan Bana is a Computer Science major at UCLA. He is the Chapter Director at VINdicated @ UCLA, where he helps streamline the chapters' outreach and project strategies. He also serves as the Internal Vice President of Bruin Software Engineers, Dev Team Project Manager for ACM @ UCLA, and Web Chair for UPE @ UCLA.",
 	},
 	{
 		name: "William Prawira",
