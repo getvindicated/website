@@ -328,14 +328,10 @@ export default async function AboutPage({
             {/* Strikes, text only */}
             <div className="mt-12 max-md:mt-8 max-w-[800px] flex flex-col gap-12">
               {strikes.map(({ num, label, body }) => (
-                <div
-                  key={num}
-                  className="border-l-2 pl-6"
-                  style={{ borderColor: "var(--color-accent)" }}
-                >
+                <div key={num}>
                   <p
-                    className="text-[0.75rem] uppercase tracking-[0.15em] mb-2"
-                    style={{ color: "var(--color-accent)" }}
+                    className="text-[clamp(1.4rem,2.5vw,1.8rem)] leading-[1.2] text-white mb-2"
+                    style={{ fontFamily: '"Times New Roman", Times, serif' }}
                   >
                     Strike {num}
                   </p>
