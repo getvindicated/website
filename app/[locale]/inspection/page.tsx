@@ -1158,8 +1158,16 @@ export default function InspectionPage() {
                 text: '"I\'d like to have this inspected by an independent mechanic before purchasing." Any seller who refuses is a red flag; walk away.',
               },
               {
-                strong: "Take it in, get it in writing, then negotiate.",
-                text: 'For private sellers, take the car straight to your mechanic. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Insist on every finding documented, no verbal summaries, then use the report to negotiate. Found a leaking CV boot? That\'s $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.',
+                strong: "You take the car to the mechanic",
+                text: 'for private sellers. For dealerships, negotiate: "I\'d like to take it for an extended test drive to a mechanic I\'ve already booked." Get it in writing.',
+              },
+              {
+                strong: "Get the report in writing.",
+                text: "Every finding, documented. No verbal summaries. You want a paper trail, for both negotiating and your own records.",
+              },
+              {
+                strong: "Use the findings to negotiate.",
+                text: "Found a leaking CV boot? That's $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale.",
               },
               {
                 strong: "You can still walk away after a PPI.",

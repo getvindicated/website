@@ -8,8 +8,8 @@ import {
 import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
-import { localeDict, type Locale } from "@/lib/i18n/config";
-import type { AboutDict, AboutTextSegment } from "@/lib/i18n/dictionary";
+import type { Locale } from "@/lib/i18n/config";
+import type { AboutTextSegment } from "@/lib/i18n/dictionary";
 
 export async function generateMetadata({
   params,
@@ -20,8 +20,7 @@ export async function generateMetadata({
   return getRouteMetadata(locale, "about", "/about");
 }
 
-function Segments({ segments }: { segments?: AboutTextSegment[] }) {
-  if (!segments) return null;
+function Segments({ segments }: { segments: AboutTextSegment[] }) {
   return (
     <>
       {segments.map((seg, i) =>
@@ -140,75 +139,12 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const dict = (await getDictionary(locale as Locale)) as { about?: AboutDict };
-  const d = localeDict(locale, dict.about) ?? {};
+  const dict = await getDictionary(locale as Locale);
+  const d = dict.about;
 
-  const pillars = d.mission?.pillars ?? [
-    {
-      word: "Educate",
-      body: "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage.",
-    },
-    {
-      word: "Empower",
-      body: "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup.",
-    },
-    {
-      word: "Vindicate",
-      body: "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change.",
-    },
-  ];
-
-  const strikes = d.story?.strikes ?? [
-    {
-      num: "1",
-      label: "The Pink Slip Scam",
-      body: [
-        "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
-        "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid.",
-      ],
-    },
-    {
-      num: "2",
-      label: "Facebook Marketplace",
-      body: [
-        "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
-        "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
-        "After that, I made a fake Facebook account under the name Randall, and had my brother call sellers on my behalf. I got better deals when they thought they were dealing with a man.",
-      ],
-    },
-    {
-      num: "3",
-      label: "South Coast Mitsubishi",
-      body: [
-        "April 2025. I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" I asked for service records. I was told they were in a locked drawer, and the guy with the key wasn't there. They promised a 300-point inspection. Then 150. Then it was back in the locked drawer.",
-        "I paid for an independent inspection at a Toyota dealership. They found issues. When I drove back, there was a rattling noise. Eddy told me I broke the car during the test drive.",
-        "They handed me a financing contract with 30% APR. I was paying cash. \"Sign this until you bring a cashier's check.\" I asked where it said the contract would be voided. He pointed to an arbitration agreement. I took business law. I know what arbitration means. He got angry. I said, \"I know you're frustrated.\" He said, \"You would be correct,\" and left.",
-      ],
-    },
-  ];
-
-  const provideItems = d.provide?.items ?? [
-    {
-      cat: "Education",
-      title: "Free Automotive Workshops",
-      body: "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot.",
-    },
-    {
-      cat: "Tools",
-      title: "Online Resources & Guides",
-      body: "Step-by-step inspection guides, red flag checklists, script templates, and financing explainers. Designed for first-time buyers.",
-    },
-    {
-      cat: "Community",
-      title: "Vetted Mechanic Network",
-      body: "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you.",
-    },
-    {
-      cat: "Research",
-      title: "Correspondence Audit Studies",
-      body: "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities.",
-    },
-  ];
+  const pillars = d.mission.pillars;
+  const strikes = d.story.strikes;
+  const provideItems = d.provide.items;
 
   return (
     <>
@@ -217,9 +153,9 @@ export default async function AboutPage({
         contained
         title={
           <>
-            {d.hero?.titlePlain ?? "Built on the belief that car knowledge"}
+            {d.hero.titlePlain}
             <br />
-            <em>{d.hero?.titleEm ?? "should be public knowledge."}</em>
+            <em>{d.hero.titleEm}</em>
           </>
         }
         titleStyle={
@@ -228,10 +164,7 @@ export default async function AboutPage({
             maxWidth: "1100px",
           } as React.CSSProperties
         }
-        subtitle={
-          d.hero?.subtitle ??
-          "VINdicated exists because we do not believe women should have to bring male protection just to buy a car safely."
-        }
+        subtitle={d.hero.subtitle}
       />
 
       {/* Why We Exist */}
@@ -242,11 +175,11 @@ export default async function AboutPage({
               className="mb-3"
               style={{ fontSize: "clamp(2rem,3.8vw,3.2rem)" } as React.CSSProperties}
             >
-              {d.whyWeExist?.titleLine1 ?? "The discrimination"}{" "}
-              <em>{d.whyWeExist?.titleEm ?? "is measurable."}</em>
+              {d.whyWeExist.titleLine1}{" "}
+              <em>{d.whyWeExist.titleEm}</em>
               {/*
               <br />
-              <em>{d.whyWeExist?.titleLine2 ?? "The harm is real."}</em>
+              <em>{d.whyWeExist.titleLine2}</em>
               */}
             </SectionTitle>
             <p className="text-[0.75rem] text-white/60 leading-[1.5] max-w-[600px] mb-10">
@@ -255,7 +188,7 @@ export default async function AboutPage({
             </p>
 
             <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-1">
-              {[d.whyWeExist?.para1, d.whyWeExist?.para2, d.whyWeExist?.para3].map(
+              {[d.whyWeExist.para1, d.whyWeExist.para2, d.whyWeExist.para3].map(
                 (para, i) => (
                   <div
                     key={i}
@@ -278,9 +211,7 @@ export default async function AboutPage({
               style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
             >
               {(() => {
-                const text =
-                  d.whyWeExist?.para4 ??
-                  "And we're done pretending it's isolated incidents.";
+                const text = d.whyWeExist.para4;
                 const words = text.split(" ");
                 const idx = words.findIndex(
                   (w) => w.toLowerCase().replace(/[^a-z']/gi, "") === "done",
@@ -318,12 +249,10 @@ export default async function AboutPage({
               className="mb-3"
               style={{ fontSize: "clamp(2rem,3.8vw,3.2rem)" } as React.CSSProperties}
             >
-              {d.mission?.heading ?? "Educate. Empower."}{" "}
-              <em>{d.mission?.headingEm ?? "Vindicate."}</em>
+              {d.mission.heading} <em>{d.mission.headingEm}</em>
             </SectionTitle>
             <p className="text-[0.95rem] text-white leading-[1.6] max-w-[600px] mb-10">
-              {d.mission?.subheading ??
-                "To dismantle consumer-level escort culture, one informed buyer at a time."}
+              {d.mission.subheading}
             </p>
             <div>
               {pillars.map(({ word, body }, i) => (
@@ -350,6 +279,26 @@ export default async function AboutPage({
         </section>
       </FadeUp>
 
+      {/* Berkeley chapter */}
+      <FadeUp>
+        <section className="px-20 py-16 max-md:px-6 max-md:py-10">
+          <div className="max-w-[1400px] mx-auto">
+            <Image
+              src="/berkeley-team.jpg"
+              alt="VINdicated's UC Berkeley chapter team"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto rounded-lg"
+              style={{
+                maxHeight: "480px",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </section>
+      </FadeUp>
+
       {/* Founder story */}
       <FadeUp>
         <section id="story" className="px-20 py-24 max-md:px-6 max-md:py-16">
@@ -359,7 +308,7 @@ export default async function AboutPage({
               style={{ fontSize: "clamp(2rem,3.8vw,3.2rem)" } as React.CSSProperties}
             >
               {(() => {
-                const title = d.story?.titleEm ?? "Vindicated from what?";
+                const title = d.story.titleEm;
                 const words = title.split(" ");
                 const last = words.pop();
                 const rest = words.join(" ");
@@ -373,8 +322,7 @@ export default async function AboutPage({
               })()}
             </SectionTitle>
             <p className="text-[0.95rem] text-white leading-[1.6] max-w-[600px] mb-10">
-              {d.story?.subtitle ??
-                "Three strikes. Three completely different situations. The same system every time."}
+              {d.story.subtitle}
             </p>
 
             {/* Strikes, text only */}
@@ -410,14 +358,8 @@ export default async function AboutPage({
             <div className="mt-16">
               <Pullquote
                 size="large"
-                quote={
-                  d.story?.pullquote?.quote ??
-                  "I reported Eddy. When the GM called to apologize, I said, \"I don't accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\""
-                }
-                cite={
-                  d.story?.pullquote?.attribution ??
-                  "Rana Darwich, Founder of VINdicated"
-                }
+                quote={d.story.pullquote.quote}
+                cite={d.story.pullquote.attribution}
               />
             </div>
 
@@ -463,12 +405,10 @@ export default async function AboutPage({
               className="mb-3"
               style={{ fontSize: "clamp(2rem,3.8vw,3.2rem)" } as React.CSSProperties}
             >
-              {d.provide?.titlePlain ?? "Free. Accessible."}{" "}
-              <em>{d.provide?.titleEm ?? "No strings attached."}</em>
+              {d.provide.titlePlain} <em>{d.provide.titleEm}</em>
             </SectionTitle>
             <p className="text-[0.95rem] text-white leading-[1.6] max-w-[600px] mb-10">
-              {d.provide?.subtitle ??
-                "Everything VINdicated offers is free. No signup required, no upsell, no catch."}
+              {d.provide.subtitle}
             </p>
             <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
               {provideItems.map(({ title, body }, i) => (

@@ -90,7 +90,7 @@ export async function getRouteMetadata(
       images: [
         {
           url: image,
-          alt: routeMeta.imageAlt ?? `VINdicated: ${title}`,
+          alt: routeMeta.imageAlt,
         },
       ],
     },

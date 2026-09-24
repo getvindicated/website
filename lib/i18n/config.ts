@@ -26,12 +26,6 @@ export const locales: Locale[] = [
 
 export const defaultLocale: Locale = "en";
 
-// When true, the default locale (English) always renders the hardcoded
-// copy baked into pages/components and ignores dictionaries/en.json
-// entirely -- only non-English locales read from the dict. Flip to false
-// to have English read from the dict like every other locale.
-export const ENGLISH_BYPASSES_DICT = true;
-
 export const localeLabels: Record<Locale, string> = {
   en: "English",
   es: "Español",
@@ -53,17 +47,6 @@ export function isRtl(locale: Locale): boolean {
 
 export function isValidLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
-}
-
-// Gates a dict slice behind ENGLISH_BYPASSES_DICT: for English it returns
-// undefined (so callers' `dict?.foo ?? "hardcoded"` fallbacks kick in),
-// for every other locale it passes the dict slice through unchanged.
-export function localeDict<T>(
-  locale: string,
-  dict: T | undefined,
-): T | undefined {
-  if (ENGLISH_BYPASSES_DICT && locale === defaultLocale) return undefined;
-  return dict;
 }
 
 // Prefixes an internal href with the current locale (e.g. "/about" ->

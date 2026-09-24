@@ -15,6 +15,11 @@ export type TeamMemberView = {
 	name: string;
 	position: string;
 	bio: string;
+	// Sort key, computed by the page from the member's *English* position
+	// via lib/team-rank.ts's positionRank() so the ordering is identical
+	// in every locale -- not derived from the translated `position` text
+	// above, which positionRank's English-only regexes wouldn't match.
+	rank: number;
 	major?: string;
 	chapter: Chapter;
 	photo: string | null;
@@ -100,26 +105,12 @@ function SocialIcon({ platform }: { platform: Social["platform"] }) {
 	}
 }
 
-// Founder > chapter directors > president > internal VP > VP > external VP
-// > leads > everyone else. Ties keep the order members were given in.
-function positionRank(position: string): number {
-	if (/founder/i.test(position)) return 0;
-	if (/chapter director/i.test(position)) return 1;
-	if (/president/i.test(position) && !/vice/i.test(position)) return 2;
-	if (/internal vice president/i.test(position)) return 3;
-	if (/external vice president/i.test(position)) return 5;
-	if (/vice president/i.test(position)) return 4;
-	if (/\blead(s)?\b/i.test(position)) return 6;
-	return 7;
-}
-
 export function TeamDirectory({ members }: { members: TeamMemberView[] }) {
 	const [query, setQuery] = useState("");
 	const [chapter, setChapter] = useState<"all" | Chapter>("all");
 
 	const sorted = useMemo(
-		() =>
-			[...members].sort((a, b) => positionRank(a.position) - positionRank(b.position)),
+		() => [...members].sort((a, b) => a.rank - b.rank),
 		[members],
 	);
 

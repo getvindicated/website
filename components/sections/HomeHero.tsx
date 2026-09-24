@@ -3,49 +3,13 @@ import { useEffect, useRef } from "react";
 import { Button, FadeUp } from "@/components/ui";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import type { HomeDict } from "@/lib/i18n/home-dict";
-// English fallback data — used for any locale whose dictionary
-// doesn't have a "home.hero" section translated yet.
-const fallbackStats = [
-  {
-    id: "stat1",
-    target: 1100,
-    prefix: "$",
-    suffix: "",
-    dur: 1800,
-    label:
-      "more Black male buyers are charged vs. white male buyers, even with the same car and same script",
-    cite: "Ayres & Siegelman, 1995",
-  },
-  {
-    id: "stat2",
-    target: 48,
-    prefix: "",
-    suffix: "%",
-    dur: 1600,
-    label:
-      "of Gen Z women feel discouraged from visiting a dealership due to gender discrimination",
-    cite: "Morning Consult / Caribou, 2022",
-  },
-  {
-    id: "stat3",
-    target: 62.5,
-    prefix: "",
-    suffix: "%",
-    dur: 1400,
-    label:
-      "of non-white testers were given worse pricing at dealerships compared to white testers",
-    cite: "National Fair Housing Alliance, 2018",
-  },
-  {
-    id: "stat4",
-    target: 13,
-    prefix: "",
-    suffix: "%",
-    dur: 1500,
-    label:
-      "longer negotiations faced by minority buyers, even with the same car and same price",
-    cite: "Ayres & Siegelman, 1995",
-  },
+// Animation config per stat -- not translatable content, so it lives here
+// rather than in the dict. Labels/cites always come from dict.hero.stats.
+const statConfig = [
+  { id: "stat1", target: 1100, prefix: "$", suffix: "", dur: 1800 },
+  { id: "stat2", target: 48, prefix: "", suffix: "%", dur: 1600 },
+  { id: "stat3", target: 62.5, prefix: "", suffix: "%", dur: 1400 },
+  { id: "stat4", target: 13, prefix: "", suffix: "%", dur: 1500 },
 ];
 function animateCount(
   el: HTMLElement,
@@ -70,16 +34,13 @@ export function HomeHero({
   dict,
 }: {
   locale: Locale;
-  dict?: HomeDict;
+  dict: HomeDict;
 }) {
   const triggered = useRef(false);
-  // Merge translated stat labels/cites over the fallback numeric
-  // config (target/prefix/suffix/duration stay the same everywhere —
-  // only the label text and citation get translated).
-  const stats = fallbackStats.map((s, i) => ({
+  const stats = statConfig.map((s, i) => ({
     ...s,
-    label: dict?.hero?.stats?.[i]?.label ?? s.label,
-    cite: dict?.hero?.stats?.[i]?.cite ?? s.cite,
+    label: dict.hero.stats[i].label,
+    cite: dict.hero.stats[i].cite,
   }));
   useEffect(() => {
     if (triggered.current) return;
@@ -120,26 +81,25 @@ export function HomeHero({
       <div className="flex flex-col justify-center pr-20 py-16 max-lg:pr-0 max-lg:pt-20 max-lg:pb-8">
         <FadeUp>
           <h1 className="text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.02em] mb-5">
-            {dict?.hero?.titleLine1 ?? "You Deserve"}
+            {dict.hero.titleLine1}
             <br />
-            {dict?.hero?.titleLine2 ?? "to Buy a Car"}
+            {dict.hero.titleLine2}
             <br />
-            <em>{dict?.hero?.titleEm ?? "Without Fear."}</em>
+            <em>{dict.hero.titleEm}</em>
           </h1>
         </FadeUp>
         <FadeUp style={{ transitionDelay: "120ms" }}>
           <p className="text-[1.05rem] leading-[1.7] text-white max-w-[420px] mb-8">
-            {dict?.hero?.subtitle ??
-              "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community."}
+            {dict.hero.subtitle}
           </p>
         </FadeUp>
         <FadeUp style={{ transitionDelay: "240ms" }}>
           <div className="flex gap-4 flex-wrap">
             <Button href={localizeHref(locale, "/inspection")}>
-              {dict?.hero?.ctaPrimary ?? "Get the PPI Guide"}
+              {dict.hero.ctaPrimary}
             </Button>
             <Button href={localizeHref(locale, "/about")} variant="outline">
-              {dict?.hero?.ctaSecondary ?? "Our Story"}
+              {dict.hero.ctaSecondary}
             </Button>
           </div>
         </FadeUp>

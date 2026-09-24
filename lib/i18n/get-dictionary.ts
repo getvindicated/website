@@ -44,6 +44,8 @@ function mergeDictionary<T>(base: T, override: unknown): T {
 }
 
 export async function getDictionary(locale: Locale): Promise<SiteDictionary> {
+  // en.json is asserted against SiteDictionary at compile time in
+  // dictionaries/en.check.ts, so this cast is safe.
   const base = (await dictionaries.en()) as SiteDictionary;
   if (locale === "en") return base;
 

@@ -6,12 +6,10 @@ import { HomeQuote } from "@/components/sections/HomeQuote";
 import { HomeFounder } from "@/components/sections/HomeFounder";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import {
-  localeDict,
   localizedPathnames,
   localizeHref,
   type Locale,
 } from "@/lib/i18n/config";
-import type { HomeDict } from "@/lib/i18n/home-dict";
 
 export async function generateMetadata({
   params,
@@ -19,12 +17,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = (await getDictionary(locale as Locale)) as { home?: HomeDict };
-  const home = localeDict(locale, dict.home);
-  const title = home?.meta?.title ?? "Educate. Empower. Vindicate.";
-  const description =
-    home?.meta?.description ??
-    "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.";
+  const dict = await getDictionary(locale as Locale);
+  const title = dict.home.meta.title;
+  const description = dict.home.meta.description;
 
   return {
     title,
@@ -55,8 +50,8 @@ export default async function HomePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const dict = (await getDictionary(locale as Locale)) as { home?: HomeDict };
-  const home = localeDict(locale, dict.home);
+  const dict = await getDictionary(locale as Locale);
+  const home = dict.home;
 
   return (
     <>

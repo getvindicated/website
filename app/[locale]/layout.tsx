@@ -1,4 +1,5 @@
 import "../globals.css";
+import Script from "next/script";
 import { Lora, Figtree } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/layout/Nav";
@@ -57,6 +58,16 @@ export default async function RootLayout({
       className={`${lora.variable} ${figtree.variable}`}
     >
       <body className="min-h-screen antialiased">
+        <Script
+          src="https://u.ops.rizwaan.dev/ping.js"
+          data-website-id="83e986f5-6c1d-4501-85cb-df41e10839ef"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://u.ops.rizwaan.dev/recorder.js"
+          data-website-id="83e986f5-6c1d-4501-85cb-df41e10839ef"
+          strategy="afterInteractive"
+        />
   {/* <Starfield /> */}
   {/* <CarCursor /> */}
   <Nav locale={locale as Locale} dict={dict} />
