@@ -1,8 +1,8 @@
+import Image from "next/image";
 import {
   PageHero,
   FadeUp,
   SectionTitle,
-  Pullquote,
 } from "@/components/ui";
 import { WollstonecraftQuotes } from "@/components/sections/WollstonecraftQuotes";
 import {
@@ -38,10 +38,6 @@ const tablingPhotos: CarouselPhoto[] = [
     alt: "Two VINdicated volunteers standing beside the UCLA VINdicated display board",
   },
   {
-    src: "/ucla-tabling-2.jpg",
-    alt: "VINdicated volunteers talking with a UCLA student at their tabling booth",
-  },
-  {
     src: "/ucla-tabling-3.jpg",
     alt: "Students gathering around the VINdicated table at a busy UCLA activities fair",
   },
@@ -49,6 +45,17 @@ const tablingPhotos: CarouselPhoto[] = [
     src: "/ucla-tabling-4.jpg",
     alt: "A VINdicated volunteer sharing free car-buying resources with a student at UCLA",
   },
+];
+
+// Videos live in /public/videos. Add or remove entries here.
+// poster = optional still image shown before the video plays.
+const videos: { src: string; poster?: string; label: string }[] = [
+  {
+    src: "/videos/video-1.mp4",
+    poster: "/videos/video-1-poster.jpg",
+    label: "VINdicated video filmed on the UC Berkeley campus",
+  },
+  { src: "/videos/video-2.mp4", label: "VINdicated video 2" },
 ];
 
 export async function generateMetadata({
@@ -76,102 +83,6 @@ function Segments({ segments }: { segments: AboutTextSegment[] }) {
   );
 }
 
-
-// stage 0 = Educate (key), 1 = Empower (spark), 2 = Vindicate (road)
-function IgnitionIcon({ stage }: { stage: number }) {
-  if (stage === 0) {
-    return (
-      <svg
-        viewBox="0 0 44 44"
-        width={40}
-        height={40}
-        className="ignition-key flex-shrink-0"
-        aria-hidden="true"
-      >
-        <circle
-          cx="14"
-          cy="22"
-          r="8"
-          fill="none"
-          stroke="var(--color-accent)"
-          strokeWidth="2.5"
-        />
-        <circle cx="14" cy="22" r="3" fill="var(--color-accent)" />
-        <line
-          x1="21"
-          y1="22"
-          x2="38"
-          y2="22"
-          stroke="var(--color-accent)"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <line
-          x1="30"
-          y1="22"
-          x2="30"
-          y2="28"
-          stroke="var(--color-accent)"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <line
-          x1="35"
-          y1="22"
-          x2="35"
-          y2="27"
-          stroke="var(--color-accent)"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    );
-  }
-
-  if (stage === 1) {
-    return (
-      <svg
-        viewBox="0 0 44 44"
-        width={40}
-        height={40}
-        className="ignition-spark flex-shrink-0"
-        aria-hidden="true"
-      >
-        <path
-          d="M24 4 L10 25 H19 L16 40 L34 17 H24 L27 4 Z"
-          fill="var(--color-accent)"
-        />
-      </svg>
-    );
-  }
-
-  return (
-    <svg
-      viewBox="0 0 44 44"
-      width={40}
-      height={40}
-      className="flex-shrink-0"
-      aria-hidden="true"
-    >
-      <polygon
-        points="4,40 40,40 27,8 17,8"
-        fill="none"
-        stroke="var(--color-accent)"
-        strokeWidth="2"
-      />
-      <line
-        x1="22"
-        y1="12"
-        x2="22"
-        y2="36"
-        stroke="var(--color-accent)"
-        strokeWidth="2.5"
-        strokeDasharray="5 5"
-        className="ignition-road-dash"
-      />
-    </svg>
-  );
-}
 
 export default async function AboutPage({
   params,
@@ -294,26 +205,30 @@ export default async function AboutPage({
             <p className="text-[0.95rem] text-white leading-[1.6] max-w-[600px] mb-10">
               {d.mission.subheading}
             </p>
-            <div>
-              {pillars.map(({ word, body }, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-[320px_1fr] gap-6 py-10 items-start max-md:grid-cols-1"
-                >
-                  <div className="flex items-center gap-4 flex-wrap min-w-0">
-                    <IgnitionIcon stage={i} />
+            <div className="grid grid-cols-[minmax(280px,420px)_1fr] gap-16 items-center max-lg:grid-cols-1 max-lg:gap-10">
+              <Image
+                src="/berkeley-campanile-team.jpg"
+                alt="VINdicated UC Berkeley chapter members posing on the lawn beneath the Campanile"
+                width={618}
+                height={1080}
+                sizes="(max-width: 1024px) 100vw, 420px"
+                className="w-full h-auto rounded-lg max-lg:max-h-[520px] max-lg:object-cover max-lg:object-[center_70%]"
+              />
+              <div className="flex flex-col gap-12">
+                {pillars.map(({ word, body }, i) => (
+                  <div key={i}>
                     <h3
-                      className="text-[clamp(1.8rem,3.2vw,2.6rem)] tracking-[-0.02em] leading-[1]"
+                      className="text-[clamp(1.8rem,3.2vw,2.6rem)] tracking-[-0.02em] leading-[1] mb-4"
                       style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
                     >
                       {word}
                     </h3>
+                    <p className="text-[1.05rem] text-white leading-[1.75]">
+                      {body}
+                    </p>
                   </div>
-                  <p className="text-[1.05rem] text-white leading-[1.75] pt-1">
-                    {body}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -382,12 +297,16 @@ export default async function AboutPage({
               ))}
             </div>
 
-            {/* Pullquote */}
+            {/* Tabling photo */}
             <div className="mt-16">
-              <Pullquote
-                size="large"
-                quote={d.story.pullquote.quote}
-                cite={d.story.pullquote.attribution}
+              <Image
+                src="/ucla-tabling-2.jpg"
+                alt="VINdicated volunteers talking with a UCLA student at their tabling booth"
+                width={1024}
+                height={576}
+                sizes="(max-width: 1400px) 100vw, 1400px"
+                className="w-full h-auto rounded-lg"
+                style={{ maxHeight: "560px", objectFit: "cover" }}
               />
             </div>
 
@@ -411,6 +330,31 @@ export default async function AboutPage({
                 label="Photos of VINdicated tabling at UCLA"
               />
             </div>
+          </div>
+        </section>
+      </FadeUp>
+
+      {/* Videos */}
+      <FadeUp>
+        <section id="videos" className="px-20 py-16 max-md:px-6 max-md:py-10">
+          <div
+            className={`max-w-[1400px] mx-auto grid gap-6 ${
+              videos.length > 1 ? "grid-cols-2 max-md:grid-cols-1" : "grid-cols-1"
+            }`}
+          >
+            {videos.map((v) => (
+              <video
+                key={v.src}
+                src={v.src}
+                poster={v.poster}
+                aria-label={v.label}
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full h-auto rounded-lg bg-black"
+                style={{ maxHeight: "560px" }}
+              />
+            ))}
           </div>
         </section>
       </FadeUp>
