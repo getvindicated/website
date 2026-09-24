@@ -16,17 +16,17 @@ import type { AboutTextSegment } from "@/lib/i18n/dictionary";
 
 const berkeleyPhotos: CarouselPhoto[] = [
   {
-    src: "/about/berkeley-team-1.jpg",
+    src: "/team-photos/berkeley-team-1.jpg",
     alt: "VINdicated's UC Berkeley chapter team standing arm in arm in front of Doe Library and the Campanile",
     position: "center 65%",
   },
   {
-    src: "/about/berkeley-team-2.jpg",
+    src: "/team-photos/berkeley-team-2.jpg",
     alt: "VINdicated's UC Berkeley chapter team posing on the lawn by Doe Library",
     position: "center 60%",
   },
   {
-    src: "/about/berkeley-team-3.jpg",
+    src: "/team-photos/berkeley-team-3.jpg",
     alt: "VINdicated's UC Berkeley chapter team making playful poses beneath the Campanile",
     position: "center 75%",
   },
@@ -34,19 +34,19 @@ const berkeleyPhotos: CarouselPhoto[] = [
 
 const tablingPhotos: CarouselPhoto[] = [
   {
-    src: "/about/ucla-tabling-1.jpg",
+    src: "/team-photos/ucla-tabling-1.jpg",
     alt: "Two VINdicated volunteers standing beside the UCLA VINdicated display board",
   },
   {
-    src: "/about/ucla-tabling-2.jpg",
+    src: "/team-photos/ucla-tabling-2.jpg",
     alt: "VINdicated volunteers talking with a UCLA student at their tabling booth",
   },
   {
-    src: "/about/ucla-tabling-3.jpg",
+    src: "/team-photos/ucla-tabling-3.jpg",
     alt: "Students gathering around the VINdicated table at a busy UCLA activities fair",
   },
   {
-    src: "/about/ucla-tabling-4.jpg",
+    src: "/team-photos/ucla-tabling-4.jpg",
     alt: "A VINdicated volunteer sharing free car-buying resources with a student at UCLA",
   },
 ];
