@@ -345,7 +345,7 @@ export default async function AboutPage({
                   >
                     {label}
                   </h3>
-                  {body.map((p, i) => (
+                  {(body ?? []).map((p, i) => (
                     <p key={i} className="text-[1rem] text-white leading-[1.75] mb-3">
                       {p}
                     </p>
