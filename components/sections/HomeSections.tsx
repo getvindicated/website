@@ -17,7 +17,6 @@ export function HomeCards({ locale, dict }: { locale: Locale; dict: HomeDict }) 
     kicker: dict.cards.pillars[i].kicker,
     title: dict.cards.pillars[i].title,
     body: dict.cards.pillars[i].body,
-    label: dict.cards.pillars[i].label,
   }));
 
   return (
@@ -50,15 +49,6 @@ export function HomeCards({ locale, dict }: { locale: Locale; dict: HomeDict }) 
                 <p className="text-[1rem] text-white leading-[1.7]">
                   {p.body}
                 </p>
-                <span
-                  className="text-[0.75rem] font-medium pt-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-md:opacity-100"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  {p.label}{" "}
-                  <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">
-                    →
-                  </span>
-                </span>
               </Link>
             </FadeUp>
           ))}
