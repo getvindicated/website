@@ -69,29 +69,24 @@ export function HomeCards({ locale, dict }: { locale: Locale; dict: HomeDict }) 
   );
 }
 
-export function HomeQuote({ dict }: { dict: HomeDict }) {
+// Formerly the Wollstonecraft quote; now a tabling photo.
+// Keeps the same props so the home page doesn't need to change.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function HomeQuote(_props: { dict: HomeDict }) {
   return (
-    <section className="px-20 py-24 text-center max-md:px-6 max-md:py-16">
+    <section className="px-20 py-24 max-md:px-6 max-md:py-16">
       <div className="max-w-[1400px] mx-auto">
-      <FadeUp>
-        <blockquote
-          className="text-[clamp(1.6rem,3vw,2.6rem)] italic leading-[1.35] max-w-[800px] mx-auto mb-8"
-          style={{ fontFamily: "var(--font-heading), Georgia, serif" }}
-        >
-          &quot;{dict.quote.text}&quot;
-        </blockquote>
-      </FadeUp>
-      <FadeUp style={{ transitionDelay: "150ms" }}>
-        <cite
-          className="not-italic text-[clamp(2.8rem,5vw,4.5rem)] font-semibold tracking-[-0.02em] block mb-2"
-          style={{ fontFamily: "var(--font-heading), Georgia, serif", color: "var(--color-accent)" }}
-        >
-          {dict.quote.cite}
-        </cite>
-      </FadeUp>
-      <FadeUp style={{ transitionDelay: "300ms" }}>
-        <p className="text-[0.95rem] italic">{dict.quote.source}</p>
-      </FadeUp>
+        <FadeUp>
+          <Image
+            src="/ucla-tabling-2.jpg"
+            alt="VINdicated volunteers talking with a UCLA student at their tabling booth"
+            width={1024}
+            height={576}
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            className="w-full h-auto rounded-lg"
+            style={{ maxHeight: "560px", objectFit: "cover" }}
+          />
+        </FadeUp>
       </div>
     </section>
   );
