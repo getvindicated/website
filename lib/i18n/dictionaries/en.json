@@ -330,7 +330,7 @@
         "bio": "Ashwin Vinod is a Computer Science major at UCSC. He is the President of the VINdicated chapter at UCSC. Through involvement in various research labs and software engineering experiences, Ashwin has built a technical foundation that he wants to use to push computational research that benefits the community, and provide educational opportunities for his community. Ashwin previously interned at IBM as a Software Developer Intern, and is continuing his interest in research as part of the AIEA Lab @ UCSC, focused on explainable artificial intelligence."
       },
       "Rizwaan Bana": {
-        "position": "UCLA Chapter Director",
+        "position": "Chapter Director",
         "bio": "Rizwaan Bana is a Computer Science major at UCLA. He is the Chapter Director at VINdicated @ UCLA, where he helps streamline the chapters' outreach and project strategies. He also serves as the Internal Vice President of Bruin Software Engineers, Dev Team Project Manager for ACM @ UCLA, and Web Chair for UPE @ UCLA."
       },
       "William Prawira": {
@@ -420,6 +420,10 @@
       "Rahul Puritipati": {
         "position": "Software Engineer",
         "bio": "Rahul Puritipati is a first-year CS student at UCLA. Raised in Folsom, CA, he likes to watch gym TikToks and be a couch GM for the 49ers and Kings. He has done a significant amount of nonprofit work, mainly rebuilding local businesses' online presence and raising money for underprivileged youth in India."
+      },
+      "Jordan Acle": {
+        "position": "Data Lead",
+        "bio": "Jordan Acle is a Data Science student at UC Berkeley and the Data Lead for the VINdicated chapter there, bringing hands-on experience in machine learning, data analysis, and data engineering to the role. He currently works as a Product Strategy Intern at Innov8AI, contributing to a trust-centered health AI platform, and serves UC Berkeley's community as a Data Science Peer Advisor and Hello World Mentor, helping new students build confidence and find their footing on campus."
       }
     },
     "cta": {

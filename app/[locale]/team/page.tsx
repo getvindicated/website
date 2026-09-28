@@ -121,6 +121,12 @@ const team: TeamMember[] = [
 		chapter: "ucla",
 	},
 	{
+		name: "Jordan Acle",
+		major: "Data Science",
+		photo: "/team/jordan.jpg",
+		chapter: "ucb",
+	},
+	{
 		name: "Yinrui (Ray) Gan",
 		major: "Computer Science & Linguistics",
 		photo: "/team/ray.jpg",

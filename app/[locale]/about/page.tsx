@@ -223,7 +223,7 @@ export default async function AboutPage({
                     >
                       {word}
                     </h3>
-                    <p className="text-[1.05rem] text-white leading-[1.75]">
+                    <p className="text-[1.05rem] text-white leading-[1.75] w-[66%] max-md:w-full">
                       {body}
                     </p>
                   </div>
