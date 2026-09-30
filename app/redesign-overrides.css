@@ -484,3 +484,18 @@
 .rd .radios input {
   width: auto;
 }
+
+/* ---------- Dealer Map ---------- */
+.rd .nw-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rd .news-note {
+  margin-top: 22px;
+}
+.rd .vd-launch:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+}

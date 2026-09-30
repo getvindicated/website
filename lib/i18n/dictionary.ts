@@ -44,6 +44,7 @@ export type InspectionPageDict = EnJson["inspectionPage"];
 export type FraudPageDict = EnJson["fraudPage"];
 export type DocumentsPageDict = EnJson["documentsPage"];
 export type JoinPageDict = EnJson["joinPage"];
+export type MapPageDict = EnJson["mapPage"];
 
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
@@ -216,7 +217,8 @@ export type RouteMetadataKey =
 	| "research"
 	| "rights"
 	| "contact"
-	| "volunteer";
+	| "volunteer"
+	| "map";
 
 export type RouteMetadataDict = {
 	title: string;
@@ -271,6 +273,7 @@ export type SiteDictionary = {
 	fraudPage: FraudPageDict;
 	documentsPage: DocumentsPageDict;
 	joinPage: JoinPageDict;
+	mapPage: MapPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };
