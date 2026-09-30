@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { ApplyForm } from "@/components/sections/join/ApplyForm";
+import { ContactForm } from "@/components/sections/join/ContactForm";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -70,6 +71,14 @@ export default async function JoinPage({
         <div className="wrap apply-wrap">
           <h2 className="h2">{d.form.title}</h2>
           <ApplyForm dict={d} />
+        </div>
+      </section>
+
+      <section className="band" id="contact">
+        <div className="wrap apply-wrap">
+          <h2 className="h2">{d.contact.title}</h2>
+          <p className="lede mt18">{d.contact.body}</p>
+          <ContactForm dict={d.contact} />
         </div>
       </section>
     </div>

@@ -1,1 +1,0 @@
-export { HomeQuote } from "./HomeSections";

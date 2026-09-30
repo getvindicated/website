@@ -45,7 +45,7 @@ export function SiteFooter({
           href: SOCIAL_URLS.instagramBerkeley,
         },
         { label: footer.links.instagramUcsc, href: SOCIAL_URLS.instagramUcsc },
-        { label: footer.links.getInTouch, href: href("/join#apply") },
+        { label: footer.links.getInTouch, href: href("/join#contact") },
       ],
     },
   ];

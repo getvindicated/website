@@ -2242,6 +2242,30 @@
       "badEmail": "Enter a valid email address, like name@school.edu.",
       "tooLarge": "Your resume file is too large. Please upload a file under 5MB.",
       "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
+    },
+    "contact": {
+      "title": "Or just say hello.",
+      "body": "Press, partnerships, research participation, or your own story: send us a note and we'll get back to you.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "topic": "I'm reaching out about…",
+      "topicPlaceholder": "Select a topic",
+      "topics": [
+        "Volunteering with VINdicated",
+        "Participating in Research",
+        "Sharing My Story",
+        "Press & Media",
+        "Partnership or Collaboration",
+        "Grants & Funding",
+        "General Inquiry"
+      ],
+      "message": "Message",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "missing": "Please add your email and a message.",
+      "sent": "Thanks! Your message is on its way, and we sent a copy to your inbox.",
+      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
     }
   },
   "mapPage": {

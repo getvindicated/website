@@ -499,3 +499,7 @@
   outline: 3px solid var(--purple);
   outline-offset: 4px;
 }
+[dir="rtl"] .rd-hdr .drop {
+  left: auto;
+  right: 0;
+}

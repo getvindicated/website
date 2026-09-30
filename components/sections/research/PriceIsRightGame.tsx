@@ -414,7 +414,10 @@ function Reveal({
 }
 
 // Slides the car in from the side each time a new round mounts it.
-function CarPhoto(props: {
+function CarPhoto({
+  alt,
+  ...props
+}: {
   src: string;
   alt: string;
   width: number;
@@ -430,6 +433,7 @@ function CarPhoto(props: {
   return (
     <Image
       {...props}
+      alt={alt}
       className={shown ? "in" : undefined}
       sizes="(max-width: 760px) 90vw, 420px"
     />
