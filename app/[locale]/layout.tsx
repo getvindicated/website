@@ -1,10 +1,12 @@
 import "../globals.css";
+import "../redesign.css";
+import "../redesign-overrides.css";
 import Script from "next/script";
-import { Lora, Figtree } from "next/font/google";
+import { Lora, Figtree, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
-import { Nav } from "@/components/layout/Nav";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Starfield } from "@/components/ui/Starfield";
-import { Footer } from "@/components/layout/Footer";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRootMetadata } from "@/lib/i18n/metadata";
@@ -22,6 +24,14 @@ const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+// Redesign typeface (see app/redesign.css).
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -55,7 +65,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={isRtl(locale as Locale) ? "rtl" : "ltr"}
-      className={`${lora.variable} ${figtree.variable}`}
+      className={`${lora.variable} ${figtree.variable} ${jakarta.variable}`}
     >
       <body className="min-h-screen antialiased">
         <Script
@@ -70,9 +80,9 @@ export default async function RootLayout({
         />
   {/* <Starfield /> */}
   {/* <CarCursor /> */}
-  <Nav locale={locale as Locale} dict={dict} />
+  <SiteHeader locale={locale as Locale} dict={dict} />
   <main>{children}</main>
-  <Footer locale={locale as Locale} dict={dict} />
+  <SiteFooter locale={locale as Locale} dict={dict} />
 </body>
     </html>
   );

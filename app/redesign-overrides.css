@@ -1,0 +1,508 @@
+/*
+ * Next.js-specific adjustments on top of the generated app/redesign.css.
+ * Keep prototype styles in redesign.css (regenerate it with
+ * scripts/scope-prototype-css.py) and put anything hand-written here.
+ */
+
+/* globals.css gives legacy headings Lora; the redesign uses one family. */
+.rd h1,
+.rd h2,
+.rd h3,
+.rd h4 {
+  font-family: var(--font);
+}
+.rd ul,
+.rd ol {
+  margin: 0;
+}
+.rd .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.rd button {
+  font-family: inherit;
+}
+
+/* ---------- Header ---------- */
+.rd-hdr {
+  z-index: 100;
+  -webkit-backdrop-filter: blur(12px);
+}
+.rd-hdr .nav {
+  gap: 16px;
+}
+.rd-hdr .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rd-hdr .lang {
+  position: relative;
+}
+.rd-hdr .lang > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.rd-hdr .lang > button:hover {
+  background: var(--tint);
+}
+.rd-hdr .lang ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 190px;
+  list-style: none;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -20px rgba(42, 15, 49, 0.3);
+  z-index: 5;
+}
+[dir="rtl"] .rd-hdr .lang ul {
+  right: auto;
+  left: 0;
+}
+.rd-hdr .lang li button {
+  display: block;
+  width: 100%;
+  text-align: start;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.rd-hdr .lang li button:hover,
+.rd-hdr .lang li button[aria-selected="true"] {
+  background: var(--tint);
+  color: var(--purple);
+}
+.rd-hdr .lang li button[aria-selected="true"] {
+  font-weight: 700;
+}
+/* The language picker takes room, so collapse to the burger a bit earlier. */
+@media (max-width: 1080px) {
+  .rd-hdr .links {
+    display: none;
+  }
+  .rd-hdr .burger {
+    display: block;
+  }
+  .rd-hdr.open .links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 14px 20px 24px;
+    border-bottom: 1px solid var(--line);
+    max-height: calc(100dvh - 76px);
+    overflow: auto;
+  }
+  .rd-hdr.open .drop {
+    display: flex;
+    position: static;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0 6px 14px;
+    min-width: 0;
+  }
+  .rd-hdr .links .btn {
+    margin: 10px 0 0;
+  }
+}
+
+/* ---------- Home ---------- */
+.rd .hero-photo img {
+  height: auto;
+}
+.rd .strip h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.rd .sources {
+  list-style: none;
+  padding: 0;
+}
+.rd .pir-tags {
+  list-style: none;
+  padding: 0;
+}
+.rd .pir-tags li {
+  background: var(--tint);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+.rd .pv .h2 {
+  margin-top: 14px;
+}
+.rd .pv .lede {
+  margin-top: 16px;
+}
+.rd .pv .btn {
+  margin-top: 26px;
+}
+.rd .pv-photo img {
+  width: auto;
+  height: auto;
+}
+.rd .aisteps {
+  list-style: none;
+  padding: 0;
+}
+.rd .ai-tips .ctas {
+  margin-top: 28px;
+}
+.rd .checks svg {
+  width: 22px;
+  height: 22px;
+}
+.rd .pcard {
+  display: block;
+  text-align: start;
+}
+.rd .pcard-line {
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.rd .pcard-line:hover {
+  border-color: var(--purple);
+  box-shadow: 0 24px 48px -28px rgba(94, 26, 107, 0.45);
+}
+.rd .story-body .btn {
+  margin-top: 6px;
+}
+.rd .rotator span {
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
+}
+
+/* ---------- Right-to-left locales ---------- */
+[dir="rtl"] .rd .campus-go svg,
+[dir="rtl"] .rd .arrow-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .rd .campus:hover .campus-go svg {
+  transform: scaleX(-1) translateX(4px);
+}
+[dir="rtl"] .rd .soc-go {
+  right: auto;
+  left: 20px;
+}
+
+/* ---------- Shared ---------- */
+.rd .inline-link {
+  color: var(--purple);
+  font-weight: 700;
+}
+.rd .inline-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- About ---------- */
+.rd .a-hero p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.rd .fv-section {
+  padding-top: 88px;
+}
+.rd .pull {
+  margin-inline: 0;
+}
+.rd figure.quote-band {
+  margin: 0;
+}
+.rd .quote-band blockquote {
+  margin: 0;
+}
+
+/* ---------- Team ---------- */
+/* The campus filter toggles are buttons with aria-pressed, not tabs. */
+.rd .tabs button[aria-pressed="true"] {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .avatar-img {
+  width: 96px;
+  height: 96px;
+}
+.rd .vbox {
+  margin: auto;
+}
+.rd .team-cta section {
+  padding-top: 0;
+}
+
+/* ---------- Projects ---------- */
+.rd .chips-sm {
+  list-style: none;
+  padding: 0;
+}
+.rd .chips-sm li {
+  background: var(--tint);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.rd .pir-tags li.bad {
+  background: #fbe1df;
+  color: #7a1a14;
+}
+.rd .pir-tags li.loc {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .pir-note {
+  text-align: start;
+}
+.rd .pir-photo img {
+  width: auto;
+  height: auto;
+}
+.rd .pir h4:focus,
+.rd .pir-verdict:focus {
+  outline: none;
+}
+/* Clear both the site header and the sticky track nav when jumping here. */
+.rd #pir {
+  scroll-margin-top: 170px;
+}
+.rd .track-nav .wrap {
+  position: relative;
+}
+
+/* ---------- Inspection ---------- */
+/* Clip the zoomed engine to its own box so, on mobile, the card can sit
+   below it without the zoomed image spilling over the page. */
+.rd .insp-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.rd .insp-zoom img {
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .rd .insp-frame {
+    background: none;
+    box-shadow: none;
+  }
+  .rd .insp-frame::before {
+    display: none;
+  }
+  .rd .insp-view {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 3/2;
+    border-radius: 18px;
+    background: #e9e9ee;
+    box-shadow: 0 30px 60px -30px rgba(42, 15, 49, 0.45);
+  }
+  .rd .insp-zoom,
+  .rd .insp-hots {
+    height: auto;
+    padding-bottom: 0;
+    bottom: 0;
+  }
+}
+.rd .notlist b {
+  display: block;
+}
+.rd .where-rec {
+  border: 2px solid var(--purple);
+}
+.rd .where-rec .tag {
+  margin-bottom: 12px;
+}
+.rd .dealers-title {
+  font-size: 1.5rem;
+}
+.rd .dealers-body {
+  margin-top: 10px;
+}
+.rd .acc-outro {
+  margin-top: 12px;
+}
+.rd .quote-pad section {
+  padding-top: 88px;
+}
+.rd .mt18 {
+  margin-top: 18px;
+}
+.rd .h3-sm {
+  font-size: 1.25rem;
+}
+
+/* ---------- Fraud ---------- */
+.rd .fs-cell b,
+.rd .fs-pay s {
+  font-family: var(--font-caveat), "Caveat", "Segoe Print", cursive;
+}
+.rd .nw h3,
+.rd .nw-dek {
+  font-family: var(--font-bitter), "Bitter", Georgia, serif;
+}
+.rd .flip {
+  display: block;
+  width: 100%;
+  text-align: start;
+}
+.rd .bro .h2,
+.rd .bro .lede {
+  margin-top: 14px;
+}
+.rd .fs .ctas,
+.rd .fs .say {
+  margin-top: 20px;
+}
+.rd .fs .ai-src {
+  text-align: start;
+}
+.rd .apr-bar-key .k2.red {
+  background: var(--red);
+}
+@media (max-width: 760px) {
+  /* Put the contract card above the scene so the day badge can't cover it. */
+  .rd .yoyo-stage {
+    display: flex;
+    flex-direction: column;
+  }
+  .rd .yy-contract {
+    order: -1;
+  }
+  .rd .yy-day {
+    top: 0;
+    bottom: auto;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 560px) {
+  /* The hidden-term strip wraps to two lines here; give it room. */
+  .rd .fs-paper-wrap {
+    padding-bottom: 96px;
+  }
+  .rd .fs-hidden {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    transform: translateY(-96px);
+  }
+  .rd .fs-hidden.out {
+    transform: none;
+  }
+}
+
+/* ---------- Documents ---------- */
+.rd .guide-explorer {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+@media (max-width: 960px) {
+  .rd .guide-explorer {
+    grid-template-columns: 1fr;
+  }
+}
+.rd .guide-explorer .acc {
+  margin-top: 0;
+}
+.rd .guide-explorer summary .tag {
+  margin-inline-end: 10px;
+}
+
+/* ---------- Get Involved ---------- */
+.rd .apply-wrap {
+  max-width: 900px;
+}
+.rd ul.roles {
+  list-style: none;
+  padding: 0;
+}
+.rd .roles li {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 22px;
+}
+.rd .roles li b {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.rd .form-note:empty,
+.rd .form-ok:empty {
+  display: none;
+}
+.rd .form-note {
+  color: var(--red);
+}
+/* Long option text shouldn't stretch the grid past the viewport. */
+.rd form.apply > * {
+  min-width: 0;
+}
+.rd .fld input,
+.rd .fld select,
+.rd .fld textarea {
+  width: 100%;
+  min-width: 0;
+}
+.rd .radios input {
+  width: auto;
+}
+
+/* ---------- Dealer Map ---------- */
+.rd .nw-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rd .news-note {
+  margin-top: 22px;
+}
+.rd .vd-launch:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+}
+[dir="rtl"] .rd-hdr .drop {
+  left: auto;
+  right: 0;
+}
+.rd .law-notice {
+  margin: 0 0 20px;
+}

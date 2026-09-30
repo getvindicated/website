@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { RoadScene } from "@/components/sections/RoadScene";
-import { HomeHero } from "@/components/sections/HomeHero";
-import { HomeCards } from "@/components/sections/HomeCards";
-import { HomeQuote } from "@/components/sections/HomeQuote";
-import { HomeFounder } from "@/components/sections/HomeFounder";
+import { HomeHero } from "@/components/sections/home/HomeHero";
+import { ResearchSources } from "@/components/sections/home/ResearchSources";
+import { PublicKnowledge } from "@/components/sections/home/PublicKnowledge";
+import { EqualFooting } from "@/components/sections/home/EqualFooting";
+import { PriceIsRightPreview } from "@/components/sections/home/PriceIsRightPreview";
+import { CampusChapters } from "@/components/sections/home/CampusChapters";
+import { FollowLinks } from "@/components/sections/home/FollowLinks";
+import { AiScams } from "@/components/sections/home/AiScams";
+import { Pillars } from "@/components/sections/home/Pillars";
+import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
+import { FreeResources } from "@/components/sections/home/FreeResources";
+import { HomeCta } from "@/components/sections/home/HomeCta";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import {
   localizedPathnames,
@@ -51,15 +58,35 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  const home = dict.home;
+  const home = dict.homePage;
+  const href = (h: string) => localizeHref(locale as Locale, h);
+
+  const ppi = href("/inspection");
+  const fraud = href("/fraud");
+  const story = href("/about#story");
 
   return (
-    <>
-      <RoadScene />
-      <HomeHero locale={locale as Locale} dict={home} />
-      <HomeCards locale={locale as Locale} dict={home} />
-      <HomeQuote dict={home} />
-      {/* <HomeFounder locale={locale as Locale} dict={home} /> */}
-    </>
+    <div className="rd rd-page">
+      <HomeHero dict={home.hero} ppiHref={ppi} storyHref={story} />
+      <ResearchSources dict={home.sources} />
+      <PublicKnowledge dict={home.publicKnowledge} ppiHref={ppi} fraudHref={fraud} />
+      <EqualFooting dict={home.footing} />
+      <PriceIsRightPreview
+        dict={home.preview}
+        locale={locale}
+        gameHref={href("/research#pir")}
+      />
+      <CampusChapters dict={home.chapters} joinHref={href("/join")} />
+      <FollowLinks dict={home.follow} />
+      <AiScams dict={home.ai} rightsHref={href("/fraud#law")} />
+      <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />
+      <FounderStrikes dict={home.strikes} storyHref={story} />
+      <FreeResources dict={home.free} />
+      <HomeCta
+        dict={home.cta}
+        ppiHref={ppi}
+        documentsHref={href("/documents")}
+      />
+    </div>
   );
 }

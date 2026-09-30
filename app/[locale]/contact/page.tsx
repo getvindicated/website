@@ -9,5 +9,5 @@ export default async function ContactRedirect({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  redirect(localizeHref(locale as Locale, "/join"));
+  redirect(localizeHref(locale as Locale, "/join#contact"));
 }

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><rect width="640" height="360" fill="#2a0f31"/>
+<g opacity=".18" stroke="#c77dd4" stroke-width="1"><path d="M0 0H640"/><path d="M0 24H640"/><path d="M0 48H640"/><path d="M0 72H640"/><path d="M0 96H640"/><path d="M0 120H640"/><path d="M0 144H640"/><path d="M0 168H640"/><path d="M0 192H640"/><path d="M0 216H640"/><path d="M0 240H640"/><path d="M0 264H640"/><path d="M0 288H640"/><path d="M0 312H640"/><path d="M0 336H640"/></g>
+<rect x="210" y="40" width="220" height="300" rx="28" fill="#140a18" stroke="#c77dd4" stroke-width="3"/>
+<rect x="224" y="58" width="192" height="120" rx="12" fill="#3a1644"/>
+<path d="M250 150c0-10 5-16 14-18l24-5 18-18c4-4 9-6 15-6h40c6 0 11 2 15 6l16 17 20 4c8 2 12 7 12 15v7H250z" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="320" y="210" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="38" fill="#fff">$36,240</text>
+<text x="320" y="238" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="700" font-size="15" fill="#c77dd4">SENT TO A DEALER THAT DIDN'T EXIST</text>
+<rect x="244" y="262" width="152" height="40" rx="20" fill="#b3261e"/><text x="320" y="288" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="16" fill="#fff">Delivered?</text>
+<circle cx="120" cy="250" r="8" fill="#9533A5"/><path d="M120 250C170 180 150 110 210 110" stroke="#9533A5" stroke-width="4" fill="none" stroke-dasharray="3 9" stroke-linecap="round"/>
+<path d="M520 90c-14 0-24 10-24 24 0 18 24 38 24 38s24-20 24-38c0-14-10-24-24-24z" fill="#b3261e"/><circle cx="520" cy="114" r="8" fill="#fff"/></svg>
