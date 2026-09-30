@@ -445,3 +445,42 @@
 .rd .guide-explorer summary .tag {
   margin-inline-end: 10px;
 }
+
+/* ---------- Get Involved ---------- */
+.rd .apply-wrap {
+  max-width: 900px;
+}
+.rd ul.roles {
+  list-style: none;
+  padding: 0;
+}
+.rd .roles li {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 22px;
+}
+.rd .roles li b {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.rd .form-note:empty,
+.rd .form-ok:empty {
+  display: none;
+}
+.rd .form-note {
+  color: var(--red);
+}
+/* Long option text shouldn't stretch the grid past the viewport. */
+.rd form.apply > * {
+  min-width: 0;
+}
+.rd .fld input,
+.rd .fld select,
+.rd .fld textarea {
+  width: 100%;
+  min-width: 0;
+}
+.rd .radios input {
+  width: auto;
+}

@@ -43,6 +43,7 @@ export type ResearchPageDict = EnJson["researchPage"];
 export type InspectionPageDict = EnJson["inspectionPage"];
 export type FraudPageDict = EnJson["fraudPage"];
 export type DocumentsPageDict = EnJson["documentsPage"];
+export type JoinPageDict = EnJson["joinPage"];
 
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
@@ -269,6 +270,7 @@ export type SiteDictionary = {
 	inspectionPage: InspectionPageDict;
 	fraudPage: FraudPageDict;
 	documentsPage: DocumentsPageDict;
+	joinPage: JoinPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };

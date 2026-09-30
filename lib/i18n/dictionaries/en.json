@@ -2166,5 +2166,77 @@
         }
       ]
     }
+  },
+  "joinPage": {
+    "hero": {
+      "title": "Get involved.",
+      "body": "Volunteer with a chapter, share your story, participate in our research, or just say hello. Pick what fits below.",
+      "ctaPrimary": "Apply to volunteer",
+      "ctaSecondary": "Our chapters"
+    },
+    "chapters": {
+      "title": "Our chapters.",
+      "leadsLabel": "Leads:",
+      "items": [
+        {
+          "tag": "UCLA",
+          "name": "UCLA Chapter",
+          "school": "University of California, Los Angeles",
+          "focus": "Built the interactive dealership risk map and leads VINdicated's core consumer research and data infrastructure.",
+          "leads": "Rana Darwich, Founder & Executive Director"
+        },
+        {
+          "tag": "UC Berkeley",
+          "name": "UC Berkeley Chapter",
+          "school": "University of California, Berkeley",
+          "focus": "Currently building out its membership. Focused on consumer education and outreach.",
+          "leads": "Halima Cherif Hminat, Research & Outreach Lead · Ameerah Zafar, Data Engineer"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "name": "UC Santa Cruz Chapter",
+          "school": "University of California, Santa Cruz",
+          "focus": "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
+          "leads": "Ashwin Vinod, President · Gundeep Sambee, Outreach Lead"
+        }
+      ]
+    },
+    "roles": {
+      "title": "What we're looking for.",
+      "body": "All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit.",
+      "hours": "{n}+ hours per week",
+      "items": [
+        "Research Analyst",
+        "Data Engineer / Analyst",
+        "Software Engineer",
+        "Outreach & Communications",
+        "Legal Research",
+        "Graphic Design / Illustration"
+      ]
+    },
+    "form": {
+      "title": "Apply to volunteer.",
+      "chapter": "Which chapter are you applying to?",
+      "chapterPlaceholder": "Select a chapter",
+      "role": "Role you're applying for",
+      "rolePlaceholder": "Select a role",
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "hours": "Hours available per week",
+      "student": "Are you a current student or recent grad (within 2 years)?",
+      "yes": "Yes",
+      "no": "No",
+      "location": "Location (city, state or country)",
+      "background": "Relevant background for this role",
+      "resume": "Resume (optional, PDF preferred, 5MB max)",
+      "why": "Why VINdicated?",
+      "submit": "Submit application",
+      "submitting": "Sending…",
+      "missing": "Please fill in chapter, role, full name, and email.",
+      "badEmail": "Enter a valid email address, like name@school.edu.",
+      "tooLarge": "Your resume file is too large. Please upload a file under 5MB.",
+      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
+    }
   }
 }
