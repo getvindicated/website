@@ -10,8 +10,9 @@ const CAMPUSES = [
     frame: "royce",
     src: "/images/campus/royce-hall.webp",
     width: 697,
-    height: 358,
-    sizes: "(max-width: 720px) 60vw, 280px",
+    height: 321,
+    // Sized by height (60% of the frame), so it renders wider than the card.
+    sizes: "(max-width: 720px) 120vw, 560px",
   },
   {
     chapter: "berkeley",
@@ -19,7 +20,8 @@ const CAMPUSES = [
     src: "/images/campus/campanile.webp",
     width: 523,
     height: 477,
-    sizes: "(max-width: 720px) 80vw, 400px",
+    // Sized by height (96% of the frame).
+    sizes: "(max-width: 720px) 95vw, 460px",
   },
   {
     chapter: "ucsc",
