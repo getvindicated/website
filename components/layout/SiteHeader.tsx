@@ -45,7 +45,7 @@ const NAV: NavItem[] = [
       { key: "inspection", href: "/inspection" },
       { key: "fraud", href: "/fraud" },
       { key: "documents", href: "/documents" },
-      { key: "dealerMap", href: "/map" },
+      // Dealer Map (/map) is hidden until its legal review is done.
     ],
   },
 ];

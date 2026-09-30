@@ -24,7 +24,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return getRouteMetadata(locale, "map", "/map");
+  // Unlisted until the map's legal review is done: reachable by URL, but
+  // not in the nav, footer, sitemap, or search results.
+  return {
+    ...(await getRouteMetadata(locale, "map", "/map")),
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function MapPage({

@@ -143,6 +143,18 @@ export default async function FraudPage({
             <Law card={d.law.holder} className="mt24" />
           </div>
           <h3 className="law-h">{d.law.californiaTitle}</h3>
+          <div className="alert law-notice" role="note">
+            <b>{d.law.californiaNotice.title}</b>
+            {d.law.californiaNotice.body}{" "}
+            <a
+              className="inline-link"
+              href="https://calmatters.org/politics/2025/12/california-new-law-buying-cars/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {d.law.californiaNotice.link}
+            </a>
+          </div>
           <div className="grid2 law">
             {d.law.california.map((c) => (
               <Law key={c.tag} card={c} />

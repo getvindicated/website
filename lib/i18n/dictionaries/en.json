@@ -1968,7 +1968,7 @@
         {
           "tag": "AB68: Cancellation",
           "title": "You can undo the purchase within 2 days, but you have to buy this right at signing.",
-          "body": "California does not have an automatic cooling-off period. However, every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75 to 1% of the purchase price plus a restocking fee if used, but it gives you a legal exit.",
+          "body": "Every licensed dealer must offer you a 2-day contract cancellation option on used cars priced $40,000 or less. It costs $75 to 1% of the purchase price plus a restocking fee if used, but it gives you a legal exit.",
           "say": "\"I'd like to purchase the 2-day contract cancellation option.\""
         },
         {
@@ -1989,7 +1989,12 @@
           "body": "No dealer can require you to purchase GAP insurance, an extended warranty, paint protection, or any other add-on as a condition of getting your loan approved. If a finance manager implies you \"have to\" take an add-on to qualify, that's a lie, and it's illegal.",
           "say": "\"Please show me in writing where it says this is required to get financing.\" Watch what happens next."
         }
-      ]
+      ],
+      "californiaNotice": {
+        "title": "This section is being updated.",
+        "body": "A new California law, SB 766, takes effect October 1, 2026. It gives many used-car buyers new return rights and changes some of the rules below. Until we've updated these cards, check the details before you rely on them.",
+        "link": "Read CalMatters' summary of the new law"
+      }
     },
     "after": {
       "title": "What to do after a scam.",
