@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
     "aboutWhoWeAre": "Who We Are",
     "aboutMission": "Our Mission",
     "aboutFounder": "From the Founder",
@@ -23,13 +23,16 @@
     "research": "Research",
     "contact": "Contact",
     "learningResources": "Learning Resources",
-    "getInvolved": "Get Involved"
+    "getInvolved": "Get Involved",
+    "projects": "Projects",
+    "dealerMap": "Dealer Risk Map"
   },
   "ui": {
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "expandSection": "Expand {label}",
-    "languageSwitcher": "Change language"
+    "languageSwitcher": "Change language",
+    "homeLabel": "VINdicated home"
   },
   "footer": {
     "tagline": "Educate. Empower. Vindicate.",
@@ -39,13 +42,21 @@
     "columns": {
       "navigate": "Navigate",
       "resources": "Resources",
-      "connect": "Connect"
+      "connect": "Connect",
+      "organization": "Organization"
     },
     "links": {
       "linkedIn": "LinkedIn",
       "instagram": "Instagram",
-      "getInTouch": "Get in Touch"
-    }
+      "getInTouch": "Get in Touch",
+      "aboutUs": "About Us",
+      "instagramUcla": "Instagram · UCLA",
+      "instagramBerkeley": "Instagram · UC Berkeley",
+      "instagramUcsc": "Instagram · UC Santa Cruz"
+    },
+    "about": "VINdicated is a student-led consumer advocacy nonprofit. We make car knowledge public knowledge through free guides, community workshops, and student research, so no one gets taken advantage of buying, financing, or fixing a car.",
+    "rights": "© 2026 VINdicated. All rights reserved.",
+    "founded": "Founded by Rana Darwich."
   },
   "meta": {
     "defaultTitle": "VINdicated | Educate. Empower. Vindicate.",
@@ -164,6 +175,298 @@
     "meta": {
       "title": "Educate. Empower. Vindicate.",
       "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "titleLead": "VINdicated makes it easy to",
+      "phrases": [
+        "walk in alone.",
+        "spot a fake listing.",
+        "read the contract.",
+        "ask the right questions.",
+        "walk away."
+      ],
+      "body": "Dealers, private sellers, and now AI-powered scammers all count on buyers not knowing the rules. We make the rules public, for free, for everyone.",
+      "ctaPrimary": "Get the PPI Guide",
+      "ctaSecondary": "Our story",
+      "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them",
+      "cards": [
+        {
+          "title": "Inspection passed",
+          "body": "Independent mechanic"
+        },
+        {
+          "title": "Red flag spotted",
+          "body": "Seller wants a wire transfer"
+        },
+        {
+          "title": "APR 6.9%",
+          "body": "Within CA limit"
+        }
+      ]
+    },
+    "sources": {
+      "heading": "Grounded in research from",
+      "items": [
+        "Federal Trade Commission",
+        "The American Economic Review",
+        "National Fair Housing Alliance"
+      ]
+    },
+    "publicKnowledge": {
+      "title": "Car knowledge should be public knowledge.",
+      "body": "Everyone gets taken advantage of at some point: first-time buyers, seasoned ones, people paying cash, people financing. VINdicated translates the dealer playbook into plain language, from inspection checklists to financing explainers to the scripts that get you out of a pressure sale, so you can walk in alone and walk out with a fair deal.",
+      "ctaPrimary": "Start the inspection guide",
+      "ctaSecondary": "See common scams",
+      "phoneLabel": "Example of VINdicated flagging dealer red flags on a phone",
+      "clock": "2:14",
+      "appName": "VINdicated",
+      "notifs": [
+        {
+          "time": "now",
+          "body": "Red flag: this dealer's site only takes wire transfers up front. Ask to see the car in person first."
+        },
+        {
+          "time": "2 min ago",
+          "body": "Red flag: a financing contract on a cash deal. Don't sign until you know how it's voided."
+        },
+        {
+          "time": "5 min ago",
+          "body": "Checklist done. Ask for the service records before you negotiate."
+        }
+      ]
+    },
+    "footing": {
+      "title": "Nobody walks in on equal footing.",
+      "body": "The price you get depends on who's asking, and new tools are making it easier than ever to take advantage of buyers.",
+      "quoteA": "Quote A",
+      "quoteB": "Quote B",
+      "rows": [
+        {
+          "stat": "$1,100",
+          "title": "Same car. Same script. Different price.",
+          "body": "Black male car buyers were quoted prices averaging $1,100 higher than white male buyers for identical cars, using identical bargaining scripts. Black women were quoted $410 more than white men, and white women $92 more.",
+          "cite": "Ayres & Siegelman, The American Economic Review, 1995"
+        },
+        {
+          "stat": "$36,240",
+          "title": "Financed for a car that never existed.",
+          "body": "A careful buyer found a fairly priced truck on Facebook Marketplace, from what looked like a real Texas dealer. The paperwork, the bank approval, even a live delivery tracker all checked out. The dealer was an AI-assisted clone, and the truck was never real.",
+          "cite": "The Drive, September 2026"
+        },
+        {
+          "stat": "13%",
+          "title": "Longer at the table, worse at the counter.",
+          "body": "Dealers spent 13% longer negotiating with minority testers and made racist or sexist comments in 4% of test visits. In a separate study, 63% of non-white testers were given worse pricing than white testers.",
+          "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
+        }
+      ]
+    },
+    "preview": {
+      "tag": "Preview",
+      "title": "Think you can spot a fair price?",
+      "body": "Our UC Berkeley team is building Price Is Right, a game that trains your eye for a good deal. Here's a taste.",
+      "cta": "Play the full preview",
+      "carAlt": "Gray 2018 Honda Civic sedan",
+      "carName": "2018 Honda Civic LX",
+      "carTags": [
+        "72,000 miles",
+        "Clean title",
+        "1 owner"
+      ],
+      "question": "What's a fair price?",
+      "optionsLabel": "Price options",
+      "right": "Nailed it.",
+      "over": "You'd overpay by {amount}.",
+      "low": "Too low.",
+      "breakdown": "Base value $15,200, plus $400 for low miles and $300 for one owner.",
+      "playAll": "Play all three cars →"
+    },
+    "chapters": {
+      "title": "Find us on campus.",
+      "body": "Three UC chapters, one mission. Pick your campus and join the students changing how cars are sold.",
+      "items": [
+        {
+          "tag": "UCLA",
+          "title": "Go up Janss Steps",
+          "body": "Our founding chapter. Builds the dealership risk map and leads VINdicated's core research and data work.",
+          "cta": "Join UCLA",
+          "alt": "Royce Hall at UCLA"
+        },
+        {
+          "tag": "UC Berkeley",
+          "title": "Go to Sproul",
+          "body": "Building out its membership now, with a focus on consumer education and on-campus outreach.",
+          "cta": "Join Berkeley",
+          "alt": "Sather Tower, the Campanile, at UC Berkeley"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "title": "Go to the Quarry Amphitheater",
+          "body": "Brings a technical lens to consumer protection, focused on algorithmic discrimination and AI bias in auto retail.",
+          "cta": "Join UCSC",
+          "alt": "The Quarry Amphitheater at UC Santa Cruz, surrounded by redwoods"
+        }
+      ]
+    },
+    "follow": {
+      "title": "Follow VINdicated.",
+      "body": "Tabling days, new guides, and the scams we're seeing right now, from every chapter.",
+      "links": [
+        {
+          "platform": "LinkedIn · All chapters",
+          "handle": "VINdicated"
+        },
+        {
+          "platform": "Instagram · UCLA",
+          "handle": "@vindicatedbruins"
+        },
+        {
+          "platform": "Instagram · UC Berkeley",
+          "handle": "@ucb_vindicated"
+        },
+        {
+          "platform": "Instagram · UC Santa Cruz",
+          "handle": "@ucsc_vindicated"
+        }
+      ]
+    },
+    "ai": {
+      "title": "AI is making it worse.",
+      "body": "Scammers now use AI to clone real dealerships, generate listing photos, and fake the paperwork that used to prove a seller was legit. Here's how one buyer lost a truck that never existed.",
+      "steps": [
+        {
+          "title": "A listing that looks normal",
+          "body": "A fairly priced SUV shows up on Facebook Marketplace, boosted to reach more buyers."
+        },
+        {
+          "title": "A dealer that almost exists",
+          "body": "Scammers clone a real dealership down to the paperwork, dropping a single word from its name."
+        },
+        {
+          "title": "Real money, fake seller",
+          "body": "A major lender approves the loan and wires $36,240 to the fake dealer."
+        },
+        {
+          "title": "A delivery to nowhere",
+          "body": "A spoofed tracker shows the car crossing the country. It \"arrives\" at an empty street."
+        }
+      ],
+      "art": {
+        "boosted": "Boosted",
+        "license": "DEALER LICENSE",
+        "dealerName": "Route Motor",
+        "dealerDropped": "Co.",
+        "loanFunded": "Loan funded",
+        "loanAmount": "$36,240",
+        "now": "now",
+        "delivered": "Delivered?"
+      },
+      "source": "Based on reporting by Caleb Jacobs in The Drive, September 2026.",
+      "saveStat": "$0",
+      "saveTitle": "What he ended up owing.",
+      "saveBody": "Because he'd saved every message and document, the buyer used the FTC Holder Rule to get out of the loan. Most people don't know that rule exists.",
+      "saveCta": "Learn your rights",
+      "tipsTitle": "Before you pay anyone",
+      "tips": [
+        "Search the dealer's name with \"scam,\" \"review,\" or \"complaint.\"",
+        "Don't rely on glowing reviews. A clone borrows the real dealer's reputation.",
+        "Ask to see the car and the lot in person. If they refuse, walk away.",
+        "Too far to visit? Send a mobile inspector. A real seller won't mind.",
+        "Never pay up front by wire transfer only."
+      ],
+      "ftcCta": "Read the FTC alert",
+      "reportCta": "Report a scam"
+    },
+    "pillars": {
+      "title": "Two pillars of automotive justice.",
+      "body": "Free guides that go with you from the lot to the finance office.",
+      "items": [
+        {
+          "title": "Pre-Purchase Inspection Guide",
+          "body": "A step-by-step walkthrough of everything you should check, ask, and verify before handing over a dollar. Written for first-time buyers."
+        },
+        {
+          "title": "Fraud Prevention",
+          "body": "Real tactics used against buyers, named, explained, and countered. Know exactly what to say when a dealer tries to pressure you."
+        }
+      ]
+    },
+    "strikes": {
+      "title": "Vindicated from what?",
+      "body": "Three strikes. Three completely different situations. The same system every time.",
+      "tabsLabel": "Founder's three strikes",
+      "tab": "Strike {n}",
+      "items": [
+        {
+          "n": "01",
+          "title": "The Pink Slip Scam",
+          "meta": "Age 18 · a private sale",
+          "paras": [
+            "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
+            "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid."
+          ]
+        },
+        {
+          "n": "02",
+          "title": "Facebook Marketplace",
+          "meta": "An online listing",
+          "paras": [
+            "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
+            "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
+            "After that, I made a fake Facebook account under the name Randall, and had my brother call sellers on my behalf. I got better deals when they thought they were dealing with a man."
+          ]
+        },
+        {
+          "n": "03",
+          "title": "South Coast Mitsubishi",
+          "meta": "April 2025 · a dealership",
+          "paras": [
+            "I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" They promised a 300-point inspection. Then 150. Then the service records were in a locked drawer.",
+            "They handed me a financing contract with 30% APR on a cash deal and pointed to an arbitration agreement when I asked how it would be voided."
+          ]
+        }
+      ],
+      "readMore": "Read the full story"
+    },
+    "free": {
+      "title": "Free. Accessible. No strings attached.",
+      "body": "Everything VINdicated offers is free. No signup required, no upsell, no catch.",
+      "planTitle": "Every buyer",
+      "price": "$0",
+      "checks": [
+        "Pre-purchase inspection guide",
+        "Red flag checklists",
+        "Script templates for pressure tactics",
+        "Financing explainers",
+        "Documents decoded",
+        "Know-your-rights resources"
+      ],
+      "offers": [
+        {
+          "title": "Free automotive workshops",
+          "body": "Community-led sessions on financing, repairs, and your legal rights on the lot."
+        },
+        {
+          "title": "Vetted mechanic network",
+          "body": "Honest mechanics, vetted by our community, who won't talk down to you or upsell you."
+        },
+        {
+          "title": "Online resources & guides",
+          "body": "Step-by-step guides designed for first-time buyers."
+        },
+        {
+          "title": "Student research projects",
+          "body": "Teams studying language access, sales practices, and California consumer law."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to buy your next car without fear?",
+      "body": "Start with the inspection guide, learn the tactics dealers use, and know exactly what to say before you sign anything.",
+      "primary": "Get the PPI Guide",
+      "secondary": "Decode your documents"
     }
   },
   "about": {
