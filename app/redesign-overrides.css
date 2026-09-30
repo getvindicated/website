@@ -305,3 +305,66 @@
 .rd .track-nav .wrap {
   position: relative;
 }
+
+/* ---------- Inspection ---------- */
+/* Clip the zoomed engine to its own box so, on mobile, the card can sit
+   below it without the zoomed image spilling over the page. */
+.rd .insp-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.rd .insp-zoom img {
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .rd .insp-frame {
+    background: none;
+    box-shadow: none;
+  }
+  .rd .insp-frame::before {
+    display: none;
+  }
+  .rd .insp-view {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 3/2;
+    border-radius: 18px;
+    background: #e9e9ee;
+    box-shadow: 0 30px 60px -30px rgba(42, 15, 49, 0.45);
+  }
+  .rd .insp-zoom,
+  .rd .insp-hots {
+    height: auto;
+    padding-bottom: 0;
+    bottom: 0;
+  }
+}
+.rd .notlist b {
+  display: block;
+}
+.rd .where-rec {
+  border: 2px solid var(--purple);
+}
+.rd .where-rec .tag {
+  margin-bottom: 12px;
+}
+.rd .dealers-title {
+  font-size: 1.5rem;
+}
+.rd .dealers-body {
+  margin-top: 10px;
+}
+.rd .acc-outro {
+  margin-top: 12px;
+}
+.rd .quote-pad section {
+  padding-top: 88px;
+}
+.rd .mt18 {
+  margin-top: 18px;
+}
+.rd .h3-sm {
+  font-size: 1.25rem;
+}

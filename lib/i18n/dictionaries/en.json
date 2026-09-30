@@ -1212,5 +1212,411 @@
       "body": "You'll learn the tools on the team. What matters is curiosity and a few hours a week.",
       "button": "Apply to a project"
     }
+  },
+  "inspectionPage": {
+    "hero": {
+      "title": "Don't buy a car without this.",
+      "body": "A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100–200 and can save you thousands.",
+      "ctaPrimary": "How to schedule a PPI",
+      "ctaSecondary": "Where to get one"
+    },
+    "what": {
+      "title": "What is a pre-purchase inspection?",
+      "body": [
+        "A PPI is when you pay an ",
+        {
+          "b": "independent mechanic"
+        },
+        ", not the seller, not the dealership, to inspect a car before you buy it. A good PPI costs ",
+        {
+          "b": "$100–$200"
+        },
+        " and is the single most powerful tool you have before signing anything."
+      ],
+      "notTitle": "A PPI is not the same as",
+      "nots": [
+        {
+          "title": "The seller's inspection",
+          "body": "They're trying to sell you the car."
+        },
+        {
+          "title": "Your own visual check",
+          "body": "You're not a trained mechanic."
+        },
+        {
+          "title": "A test drive",
+          "body": "You can't see what's happening under the hood."
+        }
+      ]
+    },
+    "engine": {
+      "title": "Inspect it yourself.",
+      "body": "Tap any glowing part, or start a guided inspection. We'll zoom in, walk you through the check, and keep score as you go.",
+      "progress": "{n} of {total} checked",
+      "start": "Start guided inspection",
+      "imageAlt": "Illustrated engine bay with labeled parts including the fuse box, intake air tube, brake fluid reservoir, spark plugs, battery, coolant reservoir, radiator, and fan",
+      "inspect": "Inspect {part}",
+      "close": "Close",
+      "of": "{n} of {total}",
+      "how": "How to check",
+      "back": "Back",
+      "markChecked": "Mark checked →",
+      "nextPart": "Next part →",
+      "severity": {
+        "easy": "Easy to check",
+        "watch": "Watch carefully",
+        "red": "Serious red flag",
+        "know": "Need to know"
+      },
+      "doneTitle": "Inspection complete.",
+      "doneBody": "You've checked all 9. Anything you flagged is a question for your mechanic, or a reason to negotiate.",
+      "reset": "Start over",
+      "parts": [
+        {
+          "t": "Fuse Box",
+          "sub": "The box that keeps the car's electricity safe",
+          "what": "The fuse box holds small safety pieces called fuses that protect every electrical circuit. If something goes wrong, a fuse blows to stop damage, like a safety switch.",
+          "steps": [
+            "Ask to open the lid. Look for blown fuses; the metal strip inside will be broken.",
+            "Look for mismatched fuses. A 30-amp fuse in a 10-amp slot means someone bypassed an electrical problem, which is dangerous.",
+            "Check for burn marks, melting, or a burnt smell.",
+            "Look for dirt, water stains, or rust. The inside should be clean and dry.",
+            "Check for messy, taped, or spliced wiring. Clean factory wiring is normal."
+          ],
+          "flag": "Red flag: blown or mismatched fuses, burn marks, or messy wiring mean existing electrical problems, some of the hardest and most expensive to diagnose on a used car."
+        },
+        {
+          "t": "Intake Air Tube & Filter",
+          "sub": "Where the engine breathes",
+          "what": "The big ribbed tube carries air from the air filter box into the engine. Inside that box, a paper or foam filter keeps dust and debris out.",
+          "steps": [
+            "Look along the tube for cracks, splits, or loose clamps.",
+            "Find the filter box the tube connects to and open it if you can (usually 2 to 4 clips).",
+            "Hold the filter up to the light. Clean is light gray or white; dirty is dark gray or black."
+          ],
+          "flag": "A badly clogged filter on a car with \"full service history\" is a red flag: the records are incomplete, or the seller is exaggerating. Filters cost $15 to $30 and should be replaced every 15,000 to 30,000 miles."
+        },
+        {
+          "t": "Brake Fluid Reservoir",
+          "sub": "Small tank, big safety signal",
+          "what": "This translucent tank feeds the brakes. Brake fluid absorbs moisture over time, which quietly weakens braking.",
+          "steps": [
+            "Read the level through the side of the tank. It should sit between MIN and MAX.",
+            "Check the color. Clear to light amber is healthy; dark brown means it's overdue.",
+            "A low level can mean worn brake pads or a leak. Ask when the brakes were last serviced.",
+            "On the test drive, the pedal should feel firm, not soft or spongy."
+          ],
+          "flag": "Red flag: a spongy pedal, or fluid that's dark and low, means brake work before you buy. Brakes are never a place to cut corners."
+        },
+        {
+          "t": "Spark Plugs & Coils",
+          "sub": "What makes each cylinder fire",
+          "what": "Spark plugs ignite the fuel in each cylinder. On most modern engines they sit under ignition coils, the red boots on top of this engine.",
+          "steps": [
+            "Look at the coil boots for cracks or damage.",
+            "Ask your mechanic to check for oil pooling in the spark plug wells, a sign of a leaking gasket.",
+            "On the test drive, notice any rough idle, shaking, or hesitation when you accelerate.",
+            "Ask when the plugs were last replaced. Many are due somewhere around 60,000 to 100,000 miles."
+          ],
+          "flag": "A misfire or oil in the plug wells is a repair item you can negotiate on. A flashing check engine light means an active misfire: stop the test drive."
+        },
+        {
+          "t": "Oil Filler Cap",
+          "sub": "Open this: what's inside tells you a lot",
+          "what": "The oil filler cap is where new oil goes in. It takes two seconds to open, and what you see inside tells you things the dipstick alone cannot.",
+          "steps": [
+            "Twist it counterclockwise and lift off. Look at the underside of the cap and inside the opening.",
+            "Look for any white or cream-colored residue, froth, or buildup.",
+            "Smell inside briefly. It should smell like oil, nothing chemical or sweet."
+          ],
+          "flag": "Serious red flag: white or creamy residue that looks like mayonnaise is oil mixing with coolant, often from a blown head gasket. That repair can exceed $3,000. Walk away or negotiate hard.",
+          "flag2": "Also watch for: thick, tar-like sludge. It means the engine went long stretches without oil changes, which shortens its life."
+        },
+        {
+          "t": "Battery",
+          "sub": "Corrosion tells the story. So does the date.",
+          "what": "The 12-volt battery powers the starter and all the electronics. Most last 3 to 5 years, and replacement runs $100 to $250.",
+          "steps": [
+            "Look for a date sticker on the top or side.",
+            "Check the terminals for white, blue, or green fuzzy corrosion.",
+            "Look at the case for bulging, cracks, or leaks."
+          ],
+          "flag": "Red flags: heavy corrosion, a battery 4+ years old, or a bulging case. A visibly old battery is a fair $150 to $250 ask off the price."
+        },
+        {
+          "t": "Coolant Reservoir",
+          "sub": "Never open when hot. Read it cold.",
+          "what": "The coolant reservoir is a translucent plastic tank that holds the engine's coolant. You can read it without opening anything.",
+          "steps": [
+            "Look through the side of the tank to see the level.",
+            "Check that it sits between the MIN and MAX marks.",
+            "Look at the color. Coolant should be bright green, orange, pink, or blue.",
+            "Only open the cap if the engine is completely cold. Hot coolant under pressure can cause serious burns."
+          ],
+          "flag": "Red flags: brown or rusty coolant means neglect. Milky or foamy coolant means oil has mixed in, a head gasket failure costing $1,500 to $3,000+."
+        },
+        {
+          "t": "Serpentine Belt",
+          "sub": "One belt runs almost everything",
+          "what": "The serpentine belt drives the alternator, power steering, AC, and water pump. If it breaks while driving, you lose all of them at once.",
+          "steps": [
+            "With the engine off, find the wide, flat ribbed belt looping around several pulleys at the front of the engine.",
+            "Look at the ribbed side. Fine cracks between the ribs are the first sign of aging.",
+            "Check the smooth back side. A glazed, shiny look means it's slipping.",
+            "Ask your mechanic to estimate how much life is left."
+          ],
+          "flag": "Price impact: a new belt costs $75 to $200 installed. If it looks worn, use it to negotiate; it isn't a deal-breaker."
+        },
+        {
+          "t": "Radiator & Fan",
+          "sub": "The system that keeps the engine from overheating",
+          "what": "The radiator sits at the very front. Hot coolant flows through it, and air through its fins cools it before it heads back to the engine. The fan pulls extra air through when the car is sitting still.",
+          "steps": [
+            "With the engine cold, look for bent fins, cracks, or dried green, orange, or pink residue.",
+            "Check around the base and hoses for wet spots or coolant stains.",
+            "Start the engine and let it idle a few minutes. The fan should kick on.",
+            "Watch the temperature gauge on the test drive. It should stay in the normal range."
+          ],
+          "flag": "Red flag: any coolant leak is a repair before purchase. A cracked radiator runs $300 to $900, and overheating on the test drive is a serious warning."
+        }
+      ]
+    },
+    "where": {
+      "title": "Where to get a PPI.",
+      "recommended": "Recommended",
+      "cards": [
+        {
+          "title": "Independent inspection services",
+          "paras": [
+            [
+              {
+                "b": "Lemon Squad"
+              },
+              " (lemonsquad.com): Mobile service, 110-point inspection. Cost: $150–250."
+            ],
+            [
+              {
+                "b": "CARCHEX"
+              },
+              " (carchex.com): Mobile or shop-based, detailed report. Cost: $100–200."
+            ]
+          ]
+        },
+        {
+          "title": "Manufacturer dealerships",
+          "paras": [
+            [
+              "If you're buying a used Honda from a Mitsubishi dealership, ",
+              {
+                "b": "take it to a Honda dealership for the PPI."
+              }
+            ],
+            [
+              "They know that brand inside and out, have the right diagnostic equipment, and have zero incentive to lie. Cost: usually $100–150."
+            ]
+          ]
+        },
+        {
+          "title": "AAA membership",
+          "paras": [
+            [
+              "Many AAA locations offer free or discounted PPIs for members. Check your local AAA auto service center."
+            ]
+          ]
+        },
+        {
+          "title": "Trusted local mechanics",
+          "paras": [
+            [
+              "If you have a mechanic you trust, ask if they do PPIs. Red flags: they refuse to put findings in writing, they rush through it, or they tell you \"everything looks fine\" without checking anything."
+            ]
+          ]
+        }
+      ],
+      "dealersTitle": "Find a manufacturer dealership",
+      "dealersBody": "Buying a used Honda from a Mitsubishi dealer? Take it to a Honda dealership for your PPI."
+    },
+    "checks": {
+      "title": "Why you're paying for your safety.",
+      "body": "A good inspector goes through the car systematically. Here's what they're checking, and why each category matters.",
+      "items": [
+        {
+          "title": "Engine: the heart of the car",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Oil leaks:"
+              },
+              " Is oil dripping from the engine? Small leaks become big repairs."
+            ],
+            [
+              {
+                "b": "Coolant leaks:"
+              },
+              " Overheating can destroy an engine quickly and expensively."
+            ],
+            [
+              {
+                "b": "Timing belt/chain:"
+              },
+              " If this snaps while driving, your engine could be totaled."
+            ],
+            [
+              {
+                "b": "Check engine light codes:"
+              },
+              " Even if the light isn't on, a mechanic can pull stored codes."
+            ],
+            [
+              {
+                "b": "Compression test:"
+              },
+              " Reveals internal engine wear that visual inspection can't catch."
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Transmission: often the most expensive fix",
+          "intro": "Transmission repairs can cost $3,000–$8,000. An inspector checks for:",
+          "points": [
+            [
+              "Smooth gear shifts (automatics and manuals)"
+            ],
+            [
+              "Fluid condition and color (should be clear pink or red, not brown or burnt)"
+            ],
+            [
+              "Slipping between gears under acceleration"
+            ],
+            [
+              "Unusual sounds during gear changes"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Brakes: non-negotiable safety",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Brake pad thickness:"
+              },
+              " Under 3mm means immediate replacement."
+            ],
+            [
+              {
+                "b": "Rotor condition:"
+              },
+              " Scored, cracked, or warped rotors affect stopping distance."
+            ],
+            [
+              {
+                "b": "Brake fluid:"
+              },
+              " Old fluid absorbs moisture and reduces braking performance."
+            ],
+            [
+              {
+                "b": "ABS function:"
+              },
+              " Anti-lock braking systems require specific diagnostic tools to verify."
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Suspension & steering",
+          "intro": "Suspension issues directly affect handling and safety at highway speeds, and are one of the most commonly missed problems in seller-provided inspections.",
+          "points": [
+            [
+              "Ball joints, tie rods, and control arms"
+            ],
+            [
+              "CV axle boots (watch for cracking or grease spray on surrounding surfaces)"
+            ],
+            [
+              "Shock absorbers and struts"
+            ],
+            [
+              "Steering rack condition"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Body & frame: accident history",
+          "intro": "A Carfax report helps but isn't the whole picture. A physical inspection can catch:",
+          "points": [
+            [
+              "Uneven panel gaps (signs of bodywork after an accident)"
+            ],
+            [
+              "Mismatched paint (inconsistent sheen = repainted panel)"
+            ],
+            [
+              "Frame damage or previous straightening"
+            ],
+            [
+              "Undercarriage rust, especially in previously-northeastern cars"
+            ]
+          ],
+          "outro": [
+            {
+              "b": "Pro tip:"
+            },
+            " Get a Carfax AND a physical inspection. They catch different things."
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "“Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself.”",
+      "cite": "Rana Darwich, VINdicated Founder"
+    },
+    "schedule": {
+      "label": "How to schedule a PPI",
+      "title": "How to schedule a PPI.",
+      "body": "Keep scrolling. The car stops at each step.",
+      "introTag": "6 stops",
+      "introTitle": "Start your engine.",
+      "introBody": "Scroll to drive.",
+      "stop": "Stop {n} of {total}",
+      "stops": [
+        {
+          "title": "Find your inspector first.",
+          "body": "Before you fall in love with a car. Having a go-to mechanic removes the pressure to scramble when you find a car you like."
+        },
+        {
+          "title": "Tell the seller upfront.",
+          "body": "\"I'd like to have this inspected by an independent mechanic before purchasing.\" Any seller who refuses is a red flag; walk away."
+        },
+        {
+          "title": "You take the car to the mechanic.",
+          "body": "For private sellers, you drive it there. For dealerships, negotiate: \"I'd like to take it for an extended test drive to a mechanic I've already booked.\" Get it in writing."
+        },
+        {
+          "title": "Get the report in writing.",
+          "body": "Every finding, documented. No verbal summaries. You want a paper trail, for both negotiating and your own records."
+        },
+        {
+          "title": "Use the findings to negotiate.",
+          "body": "Found a leaking CV boot? That's $300-600 in repairs. Ask the seller to reduce the price accordingly or fix it before sale."
+        },
+        {
+          "title": "You can still walk away after a PPI.",
+          "body": "If the findings are serious and the seller won't negotiate, you didn't waste your money. You saved yourself from a much bigger loss."
+        }
+      ],
+      "alertTitle": "Important",
+      "alert": [
+        "If a seller stalls on producing service records or promises they'll \"get them later,\" schedule the inspection before you commit emotionally. ",
+        {
+          "b": "Schedule the inspection before you're attached, not after."
+        }
+      ]
+    }
   }
 }

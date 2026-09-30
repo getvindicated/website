@@ -40,6 +40,7 @@ type EnJson = typeof import("./dictionaries/en.json");
 export type AboutPageDict = EnJson["aboutPage"];
 export type TeamPageDict = EnJson["teamPage"];
 export type ResearchPageDict = EnJson["researchPage"];
+export type InspectionPageDict = EnJson["inspectionPage"];
 
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
@@ -263,6 +264,7 @@ export type SiteDictionary = {
 	aboutPage: AboutPageDict;
 	teamPage: TeamPageDict;
 	researchPage: ResearchPageDict;
+	inspectionPage: InspectionPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };
