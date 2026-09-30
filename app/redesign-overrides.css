@@ -506,3 +506,23 @@
 .rd .law-notice {
   margin: 0 0 20px;
 }
+
+/* Unruh Act quote under the Home stats heading. */
+.rd .footing-law {
+  max-width: 760px;
+  margin: 18px auto 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.rd .footing-law blockquote {
+  margin: 0;
+  font-style: italic;
+}
+.rd .footing-law cite {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 700;
+  color: #5e1a6b;
+}

@@ -1,3 +1,5 @@
+import type { RichText } from "@/components/sections/shared/Rich";
+
 export type HomeDict = {
 	hero: {
 		titleLine1: string;
@@ -62,7 +64,8 @@ export type HomePageDict = {
 	sources: { heading: string; items: string[] };
 	publicKnowledge: {
 		title: string;
-		body: string;
+		// Rich text: plain strings plus { b } for the bold phrase.
+		body: RichText;
 		ctaPrimary: string;
 		ctaSecondary: string;
 		phoneLabel: string;
@@ -72,6 +75,9 @@ export type HomePageDict = {
 	};
 	footing: {
 		title: string;
+		// Unruh Civil Rights Act excerpt shown under the heading.
+		quote: string;
+		quoteCite: string;
 		body: string;
 		quoteA: string;
 		quoteB: string;

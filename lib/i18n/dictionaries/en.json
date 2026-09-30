@@ -192,7 +192,7 @@
         "ask the right questions.",
         "walk away."
       ],
-      "body": "Dealers, private sellers, and now AI-powered scammers all count on buyers not knowing the rules. We make the rules public, for free, for everyone.",
+      "body": "Most people buy a car without basic car knowledge. Putting that much money into something without knowing what it's worth can be financially devastating. So we explain it all in plain language, for free.",
       "ctaPrimary": "Get the PPI Guide",
       "ctaSecondary": "Our story",
       "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them",
@@ -212,7 +212,7 @@
       ]
     },
     "sources": {
-      "heading": "Grounded in research from",
+      "heading": "Our numbers come from",
       "items": [
         "Federal Trade Commission",
         "The American Economic Review",
@@ -221,7 +221,13 @@
     },
     "publicKnowledge": {
       "title": "Car knowledge should be public knowledge.",
-      "body": "Everyone gets taken advantage of at some point: first-time buyers, seasoned ones, people paying cash, people financing. VINdicated translates the dealer playbook into plain language, from inspection checklists to financing explainers to the scripts that get you out of a pressure sale, so you can walk in alone and walk out with a fair deal.",
+      "body": [
+        "It happens to first-time buyers and to people who've bought ten cars. To be informed is to be confident, and to be confident is to not be taken advantage of. We created inspection checklists, financing explainers, and scripts for when a salesperson is pushing you, so you know what you're agreeing to. We want you to be ",
+        {
+          "b": "confident and informed"
+        },
+        "."
+      ],
       "ctaPrimary": "Start the inspection guide",
       "ctaSecondary": "See common scams",
       "phoneLabel": "Example of VINdicated flagging dealer red flags on a phone",
@@ -243,26 +249,28 @@
       ]
     },
     "footing": {
-      "title": "Nobody walks in on equal footing.",
-      "body": "The price you get depends on who's asking, and new tools are making it easier than ever to take advantage of buyers.",
+      "title": "You shouldn't pay more because of who you are. In California, it's illegal.",
+      "quote": "“All persons within the jurisdiction of this state are free and equal, and no matter what their sex, race, color, religion, ancestry, national origin… are entitled to the full and equal accommodations, advantages, facilities, privileges, or services in all business establishments of every kind whatsoever.”",
+      "quoteCite": "Unruh Civil Rights Act, Cal. Civ. Code § 51",
+      "body": "Studies show dealers quote different prices to different people. Scammers also have better tools now.",
       "quoteA": "Quote A",
       "quoteB": "Quote B",
       "rows": [
         {
           "stat": "$1,100",
-          "title": "Same car. Same script. Different price.",
+          "title": "Black men were quoted $1,100 more for the same car.",
           "body": "Black male car buyers were quoted prices averaging $1,100 higher than white male buyers for identical cars, using identical bargaining scripts. Black women were quoted $410 more than white men, and white women $92 more.",
           "cite": "Ayres & Siegelman, The American Economic Review, 1995"
         },
         {
           "stat": "$36,240",
-          "title": "Financed for a car that never existed.",
+          "title": "One buyer financed a truck that didn't exist.",
           "body": "A careful buyer found a fairly priced truck on Facebook Marketplace, from what looked like a real Texas dealer. The paperwork, the bank approval, even a live delivery tracker all checked out. The dealer was an AI-assisted clone, and the truck was never real.",
           "cite": "The Drive, September 2026"
         },
         {
           "stat": "13%",
-          "title": "Longer at the table, worse at the counter.",
+          "title": "Minority buyers negotiated longer and still got worse prices.",
           "body": "Dealers spent 13% longer negotiating with minority testers and made racist or sexist comments in 4% of test visits. In a separate study, 63% of non-white testers were given worse pricing than white testers.",
           "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
         }
@@ -270,7 +278,7 @@
     },
     "preview": {
       "tag": "Preview",
-      "title": "Think you can spot a fair price?",
+      "title": "Guess what a used car is worth.",
       "body": "Our UC Berkeley team is building Price Is Right, a game that trains your eye for a good deal. Here's a taste.",
       "cta": "Play the full preview",
       "carAlt": "Gray 2018 Honda Civic sedan",
@@ -290,7 +298,7 @@
     },
     "chapters": {
       "title": "Find us on campus.",
-      "body": "Three UC chapters, one mission. Pick your campus and join the students changing how cars are sold.",
+      "body": "We have chapters at UCLA, UC Berkeley, and UC Santa Cruz. Find yours and come to a meeting.",
       "items": [
         {
           "tag": "UCLA",
@@ -317,7 +325,7 @@
     },
     "follow": {
       "title": "Follow VINdicated.",
-      "body": "Tabling days, new guides, and the scams we're seeing right now, from every chapter.",
+      "body": "We post tabling dates, new guides, and scams people tell us about.",
       "links": [
         {
           "platform": "LinkedIn · All chapters",
@@ -338,23 +346,23 @@
       ]
     },
     "ai": {
-      "title": "AI is making it worse.",
-      "body": "Scammers now use AI to clone real dealerships, generate listing photos, and fake the paperwork that used to prove a seller was legit. Here's how one buyer lost a truck that never existed.",
+      "title": "Scammers are using AI now, too.",
+      "body": "Fake dealer websites, listing photos, and paperwork are getting easier to make. Here's what happened to one buyer in September.",
       "steps": [
         {
-          "title": "A listing that looks normal",
+          "title": "The listing looked normal",
           "body": "A fairly priced SUV shows up on Facebook Marketplace, boosted to reach more buyers."
         },
         {
-          "title": "A dealer that almost exists",
+          "title": "The dealer was a copy",
           "body": "Scammers clone a real dealership down to the paperwork, dropping a single word from its name."
         },
         {
-          "title": "Real money, fake seller",
+          "title": "The bank paid the fake dealer",
           "body": "A major lender approves the loan and wires $36,240 to the fake dealer."
         },
         {
-          "title": "A delivery to nowhere",
+          "title": "The truck never came",
           "body": "A spoofed tracker shows the car crossing the country. It \"arrives\" at an empty street."
         }
       ],
@@ -370,7 +378,7 @@
       },
       "source": "Based on reporting by Caleb Jacobs in The Drive, September 2026.",
       "saveStat": "$0",
-      "saveTitle": "What he ended up owing.",
+      "saveTitle": "He didn't have to repay the loan.",
       "saveBody": "Because he'd saved every message and document, the buyer used the FTC Holder Rule to get out of the loan. Most people don't know that rule exists.",
       "saveCta": "Learn your rights",
       "tipsTitle": "Before you pay anyone",
@@ -385,7 +393,7 @@
       "reportCta": "Report a scam"
     },
     "pillars": {
-      "title": "Two pillars of automotive justice.",
+      "title": "Start with these two guides.",
       "body": "Free guides that go with you from the lot to the finance office.",
       "items": [
         {
@@ -394,7 +402,7 @@
         },
         {
           "title": "Fraud Prevention",
-          "body": "Real tactics used against buyers, named, explained, and countered. Know exactly what to say when a dealer tries to pressure you."
+          "body": "Common tricks dealers use, and what to say back."
         }
       ]
     },
@@ -436,8 +444,8 @@
       "readMore": "Read the full story"
     },
     "free": {
-      "title": "Free. Accessible. No strings attached.",
-      "body": "Everything VINdicated offers is free. No signup required, no upsell, no catch.",
+      "title": "Everything we make is free.",
+      "body": "You don't need an account, and we don't sell anything.",
       "planTitle": "Every buyer",
       "price": "$0",
       "checks": [
@@ -455,7 +463,7 @@
         },
         {
           "title": "Vetted mechanic network",
-          "body": "Honest mechanics, vetted by our community, who won't talk down to you or upsell you."
+          "body": "Mechanics our members have used and trust."
         },
         {
           "title": "Online resources & guides",
@@ -468,8 +476,8 @@
       ]
     },
     "cta": {
-      "title": "Ready to buy your next car without fear?",
-      "body": "Start with the inspection guide, learn the tactics dealers use, and know exactly what to say before you sign anything.",
+      "title": "Buying a car soon?",
+      "body": "Start with the inspection guide, then read up on common dealer tricks.",
       "primary": "Get the PPI Guide",
       "secondary": "Decode your documents"
     }
