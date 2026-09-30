@@ -38,6 +38,7 @@ type TitleBody = { title: string; body: string };
 // base dictionary every locale merges onto (see get-dictionary.ts).
 type EnJson = typeof import("./dictionaries/en.json");
 export type AboutPageDict = EnJson["aboutPage"];
+export type TeamPageDict = EnJson["teamPage"];
 
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
@@ -259,6 +260,7 @@ export type SiteDictionary = {
 	home: HomeDict;
 	homePage: HomePageDict;
 	aboutPage: AboutPageDict;
+	teamPage: TeamPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };

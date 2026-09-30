@@ -847,5 +847,36 @@
       "primary": "Get involved",
       "secondary": "Meet the team"
     }
+  },
+  "teamPage": {
+    "hero": {
+      "title": "Driven by the same frustration.",
+      "body": "Meet the students, researchers, and builders behind VINdicated across three UC campuses."
+    },
+    "filterLabel": "Filter team by campus",
+    "filters": {
+      "all": "All",
+      "leadership": "Leadership",
+      "ucla": "UCLA",
+      "ucb": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "watchLabel": "Watch {name}'s video intro",
+    "watch": "Meet {name}",
+    "dialogLabel": "Team member video",
+    "close": "Close video",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "website": "Website"
+    },
+    "cta": {
+      "title": "Want to be part of this?",
+      "body": "VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you.",
+      "button": "Get in touch"
+    }
   }
 }

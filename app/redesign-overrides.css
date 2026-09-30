@@ -248,3 +248,20 @@
 .rd .quote-band blockquote {
   margin: 0;
 }
+
+/* ---------- Team ---------- */
+/* The campus filter toggles are buttons with aria-pressed, not tabs. */
+.rd .tabs button[aria-pressed="true"] {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .avatar-img {
+  width: 96px;
+  height: 96px;
+}
+.rd .vbox {
+  margin: auto;
+}
+.rd .team-cta section {
+  padding-top: 0;
+}
