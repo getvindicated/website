@@ -41,6 +41,14 @@ export function EqualFooting({ dict }: { dict: HomePageDict["footing"] }) {
       <div className="wrap">
         <div className="center">
           <h2 className="h2">{dict.title}</h2>
+          <figure className="footing-law">
+            <blockquote>
+              <p>{dict.quote}</p>
+            </blockquote>
+            <figcaption>
+              <cite>{dict.quoteCite}</cite>
+            </figcaption>
+          </figure>
           <p className="lede">{dict.body}</p>
         </div>
         <div className="rows">
