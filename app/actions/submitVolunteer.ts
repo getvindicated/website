@@ -20,7 +20,11 @@ interface VolunteerFormData {
 // Values must match the CHAPTERS options in app/[locale]/volunteer/page.tsx
 // ("ucla", "ucberkeley", "ucsc").
 const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
-  ucla: [{ email: "getvindicated@outlook.com", name: "Rana Darwich" }],
+  ucla: [
+    { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja" },
+    { email: "prawira.j.william@gmail.com", name: "William Prawira" },
+    { email: "rizwaanbana@g.ucla.edu", name: "Rizwaan Bana" },
+  ],
   ucberkeley: [
     { email: "halimacherif@berkeley.edu", name: "Halima Cherif Hminat" },
     { email: "azzafar@berkeley.edu", name: "Ameerah Zafar" },
@@ -37,8 +41,8 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
       return { success: false, message: "Name, email, and role are required." };
     }
 
-    // Falls back to the UCLA/Rana inbox for any unrecognized chapter value
-    // so an application never silently goes nowhere.
+    // Falls back to the UCLA chapter leads for any unrecognized chapter
+    // value so an application never silently goes nowhere.
     const recipients = CHAPTER_RECIPIENTS[data.chapter] ?? CHAPTER_RECIPIENTS.ucla;
 
     // Rana gets CC'd on every application regardless of chapter, so she

@@ -9,8 +9,8 @@ const CHAPTERS = [
     value: "ucla",
     label: "UCLA Chapter",
     school: "University of California, Los Angeles",
-    lead: "Rana Darwich",
-    contact: "getvindicated@outlook.com",
+    lead: "Fiona Wangsawidjaja, President · William Prawira, Internal Vice President · Rizwaan Bana, Chapter Director",
+    contact: "fionarhine@ucla.edu · prawira.j.william@gmail.com · rizwaanbana@g.ucla.edu",
     focus: "Headquarters chapter. Leads the correspondence audit research on gender-based pricing discrimination at Toyota dealerships, manages the organization's IRB protocol, and runs all strategic and legal research partnerships.",
   },
   {
