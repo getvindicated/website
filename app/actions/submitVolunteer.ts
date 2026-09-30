@@ -25,10 +25,8 @@ const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
     { email: "prawira.j.william@gmail.com", name: "William Prawira" },
     { email: "rizwaanbana@g.ucla.edu", name: "Rizwaan Bana" },
   ],
-  ucberkeley: [
-    { email: "halimacherif@berkeley.edu", name: "Halima Cherif Hminat" },
-    { email: "azzafar@berkeley.edu", name: "Ameerah Zafar" },
-  ],
+  // Rana is already CC'd on every non-UCLA application (see ccRana below).
+  ucberkeley: [{ email: "noiritgc@gmail.com", name: "Noirit Ghosh Choudhuri" }],
   ucsc: [
     { email: "asvinod@ucsc.edu", name: "Ashwin Vinod" },
     { email: "gsambee@ucsc.edu", name: "Gundeep Sambee" },

@@ -18,7 +18,7 @@ const CHAPTERS = [
     label: "UC Berkeley Chapter",
     school: "University of California, Berkeley",
     lead: "Rana Darwich, President · Noirit Ghosh Choudhuri, Internal Vice President · Halima Cherif Hminat, External Vice President",
-    contact: "halimacherif@berkeley.edu · azzafar@berkeley.edu",
+    contact: "noiritgc@gmail.com",
     focus: "Data and outreach hub. Leads the interactive dealership risk map, contributes to data engineering on the audit study, and runs community-facing education and outreach initiatives.",
   },
   {
