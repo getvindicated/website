@@ -188,13 +188,13 @@ export function PriceIsRightGame({
 
       {phase === "start" && (
         <div className="pir-start">
-          <label htmlFor="pir-state" className="pir-label">
+          <label htmlFor="pirState" className="pir-label">
             {dict.stateLabel}
           </label>
           <p>{dict.stateBody}</p>
           <div className="pir-start-row">
             <select
-              id="pir-state"
+              id="pirState"
               ref={selectRef}
               value={state}
               onChange={(e) => setState(e.target.value as StateCode | "")}
@@ -208,6 +208,7 @@ export function PriceIsRightGame({
             </select>
             <button
               type="button"
+              id="pirGo"
               className="btn btn-solid"
               disabled={!state}
               onClick={startGame}
@@ -260,7 +261,7 @@ export function PriceIsRightGame({
 
           {phase === "guess" && (
             <div className="pir-guess">
-              <label htmlFor="pir-slider" className="pir-label">
+              <label htmlFor="pirSlider" className="pir-label">
                 {dict.guessLabel}
               </label>
               <div className="pir-val" aria-hidden="true">
@@ -268,7 +269,7 @@ export function PriceIsRightGame({
               </div>
               <input
                 type="range"
-                id="pir-slider"
+                id="pirSlider"
                 min={MIN}
                 max={MAX}
                 step={250}

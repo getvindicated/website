@@ -368,3 +368,64 @@
 .rd .h3-sm {
   font-size: 1.25rem;
 }
+
+/* ---------- Fraud ---------- */
+.rd .fs-cell b,
+.rd .fs-pay s {
+  font-family: var(--font-caveat), "Caveat", "Segoe Print", cursive;
+}
+.rd .nw h3,
+.rd .nw-dek {
+  font-family: var(--font-bitter), "Bitter", Georgia, serif;
+}
+.rd .flip {
+  display: block;
+  width: 100%;
+  text-align: start;
+}
+.rd .bro .h2,
+.rd .bro .lede {
+  margin-top: 14px;
+}
+.rd .fs .ctas,
+.rd .fs .say {
+  margin-top: 20px;
+}
+.rd .fs .ai-src {
+  text-align: start;
+}
+.rd .apr-bar-key .k2.red {
+  background: var(--red);
+}
+@media (max-width: 760px) {
+  /* Put the contract card above the scene so the day badge can't cover it. */
+  .rd .yoyo-stage {
+    display: flex;
+    flex-direction: column;
+  }
+  .rd .yy-contract {
+    order: -1;
+  }
+  .rd .yy-day {
+    top: 0;
+    bottom: auto;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 560px) {
+  /* The hidden-term strip wraps to two lines here; give it room. */
+  .rd .fs-paper-wrap {
+    padding-bottom: 96px;
+  }
+  .rd .fs-hidden {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    transform: translateY(-96px);
+  }
+  .rd .fs-hidden.out {
+    transform: none;
+  }
+}
