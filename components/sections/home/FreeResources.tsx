@@ -1,5 +1,5 @@
 import type { HomePageDict } from "@/lib/i18n/dictionary";
-import { CheckIcon } from "./icons";
+import { CheckIcon } from "../shared/icons";
 
 export function FreeResources({ dict }: { dict: HomePageDict["free"] }) {
   return (

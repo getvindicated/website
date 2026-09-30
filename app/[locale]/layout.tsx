@@ -1,5 +1,6 @@
 import "../globals.css";
 import "../redesign.css";
+import "../redesign-overrides.css";
 import Script from "next/script";
 import { Lora, Figtree, Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";

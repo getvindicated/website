@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { HomePageDict } from "@/lib/i18n/dictionary";
-import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "../shared/usePrefersReducedMotion";
 
 // A phone lock screen whose notifications slide in one by one the first
 // time it scrolls into view.

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { HomePageDict } from "@/lib/i18n/dictionary";
-import { CheckIcon } from "./icons";
+import { CheckIcon } from "../shared/icons";
 
 const FONT = "Plus Jakarta Sans,sans-serif";
 const FTC_ALERT =

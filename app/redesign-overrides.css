@@ -1,0 +1,250 @@
+/*
+ * Next.js-specific adjustments on top of the generated app/redesign.css.
+ * Keep prototype styles in redesign.css (regenerate it with
+ * scripts/scope-prototype-css.py) and put anything hand-written here.
+ */
+
+/* globals.css gives legacy headings Lora; the redesign uses one family. */
+.rd h1,
+.rd h2,
+.rd h3,
+.rd h4 {
+  font-family: var(--font);
+}
+.rd ul,
+.rd ol {
+  margin: 0;
+}
+.rd .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.rd button {
+  font-family: inherit;
+}
+
+/* ---------- Header ---------- */
+.rd-hdr {
+  z-index: 100;
+  -webkit-backdrop-filter: blur(12px);
+}
+.rd-hdr .nav {
+  gap: 16px;
+}
+.rd-hdr .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rd-hdr .lang {
+  position: relative;
+}
+.rd-hdr .lang > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.rd-hdr .lang > button:hover {
+  background: var(--tint);
+}
+.rd-hdr .lang ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 190px;
+  list-style: none;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -20px rgba(42, 15, 49, 0.3);
+  z-index: 5;
+}
+[dir="rtl"] .rd-hdr .lang ul {
+  right: auto;
+  left: 0;
+}
+.rd-hdr .lang li button {
+  display: block;
+  width: 100%;
+  text-align: start;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.rd-hdr .lang li button:hover,
+.rd-hdr .lang li button[aria-selected="true"] {
+  background: var(--tint);
+  color: var(--purple);
+}
+.rd-hdr .lang li button[aria-selected="true"] {
+  font-weight: 700;
+}
+/* The language picker takes room, so collapse to the burger a bit earlier. */
+@media (max-width: 1080px) {
+  .rd-hdr .links {
+    display: none;
+  }
+  .rd-hdr .burger {
+    display: block;
+  }
+  .rd-hdr.open .links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 14px 20px 24px;
+    border-bottom: 1px solid var(--line);
+    max-height: calc(100dvh - 76px);
+    overflow: auto;
+  }
+  .rd-hdr.open .drop {
+    display: flex;
+    position: static;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0 6px 14px;
+    min-width: 0;
+  }
+  .rd-hdr .links .btn {
+    margin: 10px 0 0;
+  }
+}
+
+/* ---------- Home ---------- */
+.rd .hero-photo img {
+  height: auto;
+}
+.rd .strip h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.rd .sources {
+  list-style: none;
+  padding: 0;
+}
+.rd .pir-tags {
+  list-style: none;
+  padding: 0;
+}
+.rd .pir-tags li {
+  background: var(--tint);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+.rd .pv .h2 {
+  margin-top: 14px;
+}
+.rd .pv .lede {
+  margin-top: 16px;
+}
+.rd .pv .btn {
+  margin-top: 26px;
+}
+.rd .pv-photo img {
+  width: auto;
+  height: auto;
+}
+.rd .aisteps {
+  list-style: none;
+  padding: 0;
+}
+.rd .ai-tips .ctas {
+  margin-top: 28px;
+}
+.rd .checks svg {
+  width: 22px;
+  height: 22px;
+}
+.rd .pcard {
+  display: block;
+  text-align: start;
+}
+.rd .pcard-line {
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.rd .pcard-line:hover {
+  border-color: var(--purple);
+  box-shadow: 0 24px 48px -28px rgba(94, 26, 107, 0.45);
+}
+.rd .story-body .btn {
+  margin-top: 6px;
+}
+.rd .rotator span {
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
+}
+
+/* ---------- Right-to-left locales ---------- */
+[dir="rtl"] .rd .campus-go svg,
+[dir="rtl"] .rd .arrow-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .rd .campus:hover .campus-go svg {
+  transform: scaleX(-1) translateX(4px);
+}
+[dir="rtl"] .rd .soc-go {
+  right: auto;
+  left: 20px;
+}
+
+/* ---------- Shared ---------- */
+.rd .inline-link {
+  color: var(--purple);
+  font-weight: 700;
+}
+.rd .inline-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- About ---------- */
+.rd .a-hero p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.rd .fv-section {
+  padding-top: 88px;
+}
+.rd .pull {
+  margin-inline: 0;
+}
+.rd figure.quote-band {
+  margin: 0;
+}
+.rd .quote-band blockquote {
+  margin: 0;
+}

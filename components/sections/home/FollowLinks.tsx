@@ -1,6 +1,6 @@
 import type { HomePageDict } from "@/lib/i18n/dictionary";
 import { SOCIAL_URLS } from "@/lib/social";
-import { ArrowUpRightIcon } from "./icons";
+import { ArrowUpRightIcon } from "../shared/icons";
 
 const LINKS = [
   { url: SOCIAL_URLS.linkedin, kind: "linkedin" },

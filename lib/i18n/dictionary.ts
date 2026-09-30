@@ -34,6 +34,11 @@ export type HomeDict = {
 
 type TitleBody = { title: string; body: string };
 
+// Redesigned inner pages take their copy types straight from en.json, the
+// base dictionary every locale merges onto (see get-dictionary.ts).
+type EnJson = typeof import("./dictionaries/en.json");
+export type AboutPageDict = EnJson["aboutPage"];
+
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
 	hero: {
@@ -253,6 +258,7 @@ export type SiteDictionary = {
 	};
 	home: HomeDict;
 	homePage: HomePageDict;
+	aboutPage: AboutPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };

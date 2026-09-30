@@ -735,5 +735,117 @@
       "body": "VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you.",
       "button": "Get in Touch"
     }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Car knowledge should be public knowledge.",
+      "body": "VINdicated exists because no one should need to bring backup just to buy a car safely."
+    },
+    "zoom": {
+      "label": "Photos of VINdicated chapters",
+      "titleLine1": "Three campuses.",
+      "titleLine2": "One mission.",
+      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz, making sure no buyer walks onto a lot unprepared.",
+      "pause": "Pause slideshow",
+      "play": "Play slideshow",
+      "alts": [
+        "VINdicated's UC Berkeley chapter on the lawn in front of Doe Library, with the Campanile behind them",
+        "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner",
+        "Two VINdicated volunteers holding a VINdicated sign at UC Berkeley",
+        "VINdicated volunteers at their UCLA tabling booth on a sunny activities day",
+        "VINdicated's UC Berkeley chapter posing by Doe Library",
+        "Two VINdicated volunteers beside the UCLA VINdicated display board",
+        "A VINdicated volunteer sharing free car-buying resources with a student at UCLA",
+        "VINdicated's UC Berkeley chapter beneath the Campanile, seen from farther back",
+        "A VINdicated volunteer talking with a UCLA student at the table",
+        "A VINdicated volunteer pointing to the UCLA display board"
+      ]
+    },
+    "mission": {
+      "title": "Educate. Empower. Vindicate.",
+      "body": "One informed buyer at a time.",
+      "items": [
+        {
+          "title": "Educate",
+          "body": "We translate the dealer playbook into plain language, because knowledge is leverage."
+        },
+        {
+          "title": "Empower",
+          "body": "The confidence to walk in alone, ask the right questions, and walk away without needing backup."
+        },
+        {
+          "title": "Vindicate",
+          "body": "Research that turns lived experience into data, and data into policy change."
+        }
+      ]
+    },
+    "story": {
+      "title": "Three strikes. One system.",
+      "body": "Rana Darwich started VINdicated after three very different car purchases went wrong in exactly the same way: a seller counting on her not knowing the rules.",
+      "quote": "\"I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\"",
+      "quoteCite": "Rana Darwich, Founder",
+      "strikes": [
+        {
+          "n": "01",
+          "tag": "Age 18 · private sale",
+          "title": "The pink slip scam",
+          "body": "A family friend made her wait three months to buy his car, then told her she didn't need the pink slip. Without the title in your name, the car isn't legally yours, no matter what you paid."
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "The tone shift",
+          "body": "The conversation was normal until the seller realized she was a woman. Then came the insult and the block. When she messaged sellers as \"Randall\" and had her brother call, the deals got better."
+        },
+        {
+          "n": "03",
+          "tag": "April 2025 · dealership",
+          "title": "The locked drawer",
+          "body": "Service records that were always \"in a locked drawer.\" An inspection promise that shrank from 300 points to 150. A 30% APR financing contract on a cash deal, with an arbitration clause in place of a way out. She recognized it, said no, and reported the salesperson."
+        }
+      ]
+    },
+    "video": {
+      "label": "Rana Darwich, VINdicated's founder, talking about why she started VINdicated, filmed at UC Berkeley",
+      "play": "Play the founder video, 34 seconds",
+      "length": "0:34",
+      "title": "Hear it from Rana.",
+      "body": "Thirty-four seconds from the Berkeley lawn, on why VINdicated exists and who it's for.",
+      "name": "Rana Darwich",
+      "role": "Founder & President, VINdicated"
+    },
+    "quote": {
+      "text": "Everyone gets taken advantage of eventually. The difference is whether you know it's happening.",
+      "cite": "The idea behind VINdicated"
+    },
+    "provide": {
+      "title": "Free. Accessible. No strings attached.",
+      "body": "No signup, no upsell, no catch.",
+      "items": [
+        {
+          "title": "Workshops",
+          "body": "Community-led sessions on financing, repairs, and your rights on the lot."
+        },
+        {
+          "title": "Guides",
+          "body": "Inspection walkthroughs, red flag checklists, scripts, and financing explainers."
+        },
+        {
+          "title": "Mechanic network",
+          "body": "A community-vetted directory of mechanics who don't talk down or upsell."
+        },
+        {
+          "title": "Research projects",
+          "body": "Eleven student teams building apps, data tools, research, and content."
+        }
+      ],
+      "projectsLink": "See the projects"
+    },
+    "cta": {
+      "title": "Help us make car buying fair.",
+      "body": "Join a chapter, work on a research project, or bring a workshop to your campus.",
+      "primary": "Get involved",
+      "secondary": "Meet the team"
+    }
   }
 }
