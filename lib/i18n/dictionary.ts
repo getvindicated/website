@@ -39,6 +39,7 @@ type TitleBody = { title: string; body: string };
 type EnJson = typeof import("./dictionaries/en.json");
 export type AboutPageDict = EnJson["aboutPage"];
 export type TeamPageDict = EnJson["teamPage"];
+export type ResearchPageDict = EnJson["researchPage"];
 
 // Copy for the redesigned home page (components/sections/home/*).
 export type HomePageDict = {
@@ -261,6 +262,7 @@ export type SiteDictionary = {
 	homePage: HomePageDict;
 	aboutPage: AboutPageDict;
 	teamPage: TeamPageDict;
+	researchPage: ResearchPageDict;
 	about: AboutDict;
 	team: TeamDict;
 };

@@ -93,9 +93,9 @@
         "imageAlt": "VINdicated: Documents Decoded"
       },
       "research": {
-        "title": "Research",
-        "description": "VINdicated conducts correspondence audit studies documenting gender and racial pricing disparities at car dealerships. Read our findings and methodology.",
-        "imageAlt": "VINdicated: Research"
+        "title": "Projects",
+        "description": "Eleven student projects across four teams: apps, data tools, research, and content that help people buy, finance, and fix cars without getting taken advantage of.",
+        "imageAlt": "VINdicated: Projects"
       },
       "rights": {
         "title": "Know Your Rights",
@@ -877,6 +877,340 @@
       "title": "Want to be part of this?",
       "body": "VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you.",
       "button": "Get in touch"
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "title": "Eleven projects. Four teams. Pick yours.",
+      "body": "Students across our chapters are building apps, crunching data, doing research, and making content that helps people buy, finance, and fix cars without getting taken advantage of."
+    },
+    "navLabel": "Project teams",
+    "status": "Now forming",
+    "skillsLabel": "Skills",
+    "membersLabel": "Team size",
+    "chapters": {
+      "ucla": "UCLA",
+      "berkeley": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "tracks": {
+      "app": {
+        "title": "App Development",
+        "body": "Building the apps people will use to learn about cars and shop safely.",
+        "projects": [
+          {
+            "name": "Project Duolingo",
+            "desc": "An app like Duolingo, but instead of learning languages, people learn about cars and how they work.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2–4 members",
+            "join": "Join Duolingo"
+          },
+          {
+            "name": "Project Marketplace",
+            "desc": "A marketplace like Facebook Marketplace, built just for cars and spare parts, with built-in verification to cut down on scams.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2–4 members",
+            "join": "Join Marketplace"
+          }
+        ]
+      },
+      "data": {
+        "title": "Data",
+        "body": "Turning messy public data into tools that tell buyers the truth.",
+        "projects": [
+          {
+            "name": "Project Crosscheck",
+            "desc": "Gathers vehicle safety ratings from multiple testing programs so people can compare models side by side.",
+            "skills": [
+              "APIs",
+              "Web scraping",
+              "Statistics"
+            ],
+            "members": "5 members",
+            "join": "Join Crosscheck"
+          },
+          {
+            "name": "Project Carcam",
+            "desc": "Takes a photo of vehicle damage and estimates the repair cost, and whether the fix is necessary at all.",
+            "skills": [
+              "Multimodal model APIs",
+              "Data evaluation"
+            ],
+            "members": "5 members",
+            "join": "Join Carcam"
+          },
+          {
+            "name": "Project Price Is Right",
+            "desc": "Shows a car's model, mileage, and history, and asks players to guess the price. Targets come from real listing data.",
+            "skills": [
+              "Basic statistics",
+              "Machine learning"
+            ],
+            "members": "5 members",
+            "join": "Join Price Is Right"
+          }
+        ]
+      },
+      "research": {
+        "title": "Research",
+        "body": "Qualitative and legal research on how buying a car goes wrong, and how to fix it.",
+        "projects": [
+          {
+            "name": "Project Spanish Lang",
+            "desc": "Examines how language and communication affect consumers' ability to understand and navigate the car-buying process.",
+            "skills": [
+              "Qualitative research",
+              "Literature and document analysis"
+            ],
+            "members": "4–6 members",
+            "join": "Join Spanish Lang"
+          },
+          {
+            "name": "Project Price Gaps",
+            "desc": "Examines how consumers describe and interpret sales practices: communication style, persuasion, pressure, transparency, and trust.",
+            "skills": [
+              "Qualitative research",
+              "Thematic analysis"
+            ],
+            "members": "4–6 members",
+            "join": "Join Price Gaps"
+          },
+          {
+            "name": "Project Legal",
+            "desc": "Researches California automotive consumer protections and builds an accessible guide for people dealing with accidents, dealership disputes, fraud, repairs, and other car issues.",
+            "skills": [
+              "Legal and document research",
+              "Writing"
+            ],
+            "members": "6–10 members",
+            "join": "Join Legal"
+          }
+        ]
+      },
+      "outreach": {
+        "title": "Outreach & Content",
+        "body": "Getting what we know in front of the people who need it.",
+        "projects": [
+          {
+            "name": "Project Comics",
+            "desc": "Creates comics that illustrate common auto scam situations.",
+            "skills": [
+              "Illustration",
+              "Drawing"
+            ],
+            "members": "2–3 members",
+            "join": "Join Comics"
+          },
+          {
+            "name": "Project Spanish",
+            "desc": "Creates a series of funny social posts for Spanish-speaking audiences (think puns and Spanglish) and checks the site's translation.",
+            "skills": [
+              "Spanish"
+            ],
+            "members": "2–3 members",
+            "join": "Join Spanish"
+          },
+          {
+            "name": "Project Booklet",
+            "desc": "Creates a brief, comprehensive guide to automotive basics.",
+            "skills": [
+              "Online research",
+              "Writing",
+              "Design"
+            ],
+            "members": "3–5 members",
+            "join": "Join Booklet"
+          }
+        ]
+      }
+    },
+    "game": {
+      "tag": "Preview · UC Berkeley",
+      "title": "Try Price Is Right.",
+      "body": "Guess what this car should cost. Then see what pushed the price up or down.",
+      "score": "Score",
+      "stateLabel": "First, where are you buying?",
+      "stateBody": "Used-car prices shift from state to state. Pick yours and we'll adjust every fair price to match.",
+      "statePlaceholder": "Choose a state",
+      "start": "Start game",
+      "round": "Round {n} of {total}",
+      "changeState": "Change state",
+      "guessLabel": "Your guess",
+      "lockIn": "Lock in my guess",
+      "compareGuess": "Your guess",
+      "compareFair": "Fair price in {state}",
+      "comparePoints": "Points",
+      "nailed": "Nailed it.",
+      "over": "You'd have overpaid by {amount}.",
+      "under": "You guessed {amount} under.",
+      "why": "Why this price",
+      "tip": "Tip: {tip}",
+      "next": "Next car →",
+      "seeScore": "See my score",
+      "done": "Session complete · {state}",
+      "points": "{points} points",
+      "doneBody": "Mileage, title status, accidents, owners, and even your state all move the price. Now you know what to look for before you make an offer.",
+      "again": "Play again",
+      "otherState": "Try another state",
+      "stateAdjust": "{state} market, {note}",
+      "disclaimer": "Preview: sample rounds with illustrative prices and state adjustments. The full game launches after the November 6 demo and pulls fair prices from live listing data.",
+      "regions": {
+        "west": "where commuter sedans are in demand",
+        "mountain": "where trucks hold value for snow and towing",
+        "southwest": "where trucks sell high",
+        "midwest": "where road salt means more rust risk",
+        "south": "with steady truck demand",
+        "northeast": "where city buyers favor sedans"
+      },
+      "rounds": [
+        {
+          "name": "2018 Honda Civic LX",
+          "alt": "Gray 2018 Honda Civic sedan",
+          "tags": [
+            "72,000 miles",
+            "Clean title",
+            "1 owner"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "Low miles for its age",
+            "One owner"
+          ],
+          "tip": "One owner and a full service history are worth paying a little more for."
+        },
+        {
+          "name": "2015 Ford F-150 XL",
+          "alt": "White 2015 Ford F-150 pickup truck",
+          "tags": [
+            "138,000 miles",
+            "Accident reported",
+            "3 owners"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "High mileage",
+            "Accident on the history report",
+            "Three owners"
+          ],
+          "tip": "An accident on the report should always lower the price, even if the truck looks perfect."
+        },
+        {
+          "name": "2020 Toyota Camry LE",
+          "alt": "Black 2020 Toyota Camry sedan",
+          "tags": [
+            "41,000 miles",
+            "Rebuilt title",
+            "2 owners"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "Low miles",
+            "Rebuilt title",
+            "Two owners"
+          ],
+          "tip": "Rebuilt titles usually sell for 20 to 40% less. If the asking price doesn't reflect that, walk away."
+        }
+      ],
+      "states": {
+        "AL": "Alabama",
+        "AK": "Alaska",
+        "AZ": "Arizona",
+        "AR": "Arkansas",
+        "CA": "California",
+        "CO": "Colorado",
+        "CT": "Connecticut",
+        "DE": "Delaware",
+        "DC": "District of Columbia",
+        "FL": "Florida",
+        "GA": "Georgia",
+        "HI": "Hawaii",
+        "ID": "Idaho",
+        "IL": "Illinois",
+        "IN": "Indiana",
+        "IA": "Iowa",
+        "KS": "Kansas",
+        "KY": "Kentucky",
+        "LA": "Louisiana",
+        "ME": "Maine",
+        "MD": "Maryland",
+        "MA": "Massachusetts",
+        "MI": "Michigan",
+        "MN": "Minnesota",
+        "MS": "Mississippi",
+        "MO": "Missouri",
+        "MT": "Montana",
+        "NE": "Nebraska",
+        "NV": "Nevada",
+        "NH": "New Hampshire",
+        "NJ": "New Jersey",
+        "NM": "New Mexico",
+        "NY": "New York",
+        "NC": "North Carolina",
+        "ND": "North Dakota",
+        "OH": "Ohio",
+        "OK": "Oklahoma",
+        "OR": "Oregon",
+        "PA": "Pennsylvania",
+        "RI": "Rhode Island",
+        "SC": "South Carolina",
+        "SD": "South Dakota",
+        "TN": "Tennessee",
+        "TX": "Texas",
+        "UT": "Utah",
+        "VT": "Vermont",
+        "VA": "Virginia",
+        "WA": "Washington",
+        "WV": "West Virginia",
+        "WI": "Wisconsin",
+        "WY": "Wyoming"
+      }
+    },
+    "timeline": {
+      "title": "The six-week build",
+      "body": "Price Is Right goes from empty repo to final demo by November 6.",
+      "week": "Week {n}",
+      "now": "We're here",
+      "weeks": [
+        [
+          "Sep 28",
+          "Set up the repo, database, and app skeleton."
+        ],
+        [
+          "Oct 5",
+          "Choose data sources and pipeline tools; start building screens."
+        ],
+        [
+          "Oct 12",
+          "Finish the data pipeline and connect it to the app."
+        ],
+        [
+          "Oct 19",
+          "Build guessing, scoring, and the price reveal; fix bugs."
+        ],
+        [
+          "Oct 26",
+          "Finish the car-price part of the app."
+        ],
+        [
+          "Nov 2",
+          "Test end to end, fix bugs, final demo Nov 6."
+        ]
+      ]
+    },
+    "cta": {
+      "title": "No experience? That's fine.",
+      "body": "You'll learn the tools on the team. What matters is curiosity and a few hours a week.",
+      "button": "Apply to a project"
     }
   }
 }

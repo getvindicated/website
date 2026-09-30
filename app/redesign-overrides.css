@@ -265,3 +265,43 @@
 .rd .team-cta section {
   padding-top: 0;
 }
+
+/* ---------- Projects ---------- */
+.rd .chips-sm {
+  list-style: none;
+  padding: 0;
+}
+.rd .chips-sm li {
+  background: var(--tint);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.rd .pir-tags li.bad {
+  background: #fbe1df;
+  color: #7a1a14;
+}
+.rd .pir-tags li.loc {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .pir-note {
+  text-align: start;
+}
+.rd .pir-photo img {
+  width: auto;
+  height: auto;
+}
+.rd .pir h4:focus,
+.rd .pir-verdict:focus {
+  outline: none;
+}
+/* Clear both the site header and the sticky track nav when jumping here. */
+.rd #pir {
+  scroll-margin-top: 170px;
+}
+.rd .track-nav .wrap {
+  position: relative;
+}
