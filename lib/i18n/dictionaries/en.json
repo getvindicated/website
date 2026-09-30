@@ -2017,5 +2017,154 @@
       "primary": "See real documents decoded",
       "secondary": "Inspection guide"
     }
+  },
+  "documentsPage": {
+    "hero": {
+      "title": "Real documents. Decoded.",
+      "body": "A vehicle history report decoded pin by pin, plus the FTC Buyers Guide explained in plain English: the two documents every used car buyer needs to understand.",
+      "ctaPrimary": "Read a history report",
+      "ctaSecondary": "Read the Buyers Guide"
+    },
+    "severity": {
+      "easy": "Easy to check",
+      "watch": "Watch carefully",
+      "red": "Serious red flag",
+      "know": "Need to know"
+    },
+    "tour": {
+      "countIntro": "{total} stops",
+      "countStep": "{n} / {total}"
+    },
+    "page1": {
+      "title": "How to read a Carfax, page one.",
+      "body": "Mileage and VIN, accident history, reliability, and recent service. Scroll to walk through each section and what it means for the price.",
+      "imageAlt": "Page one of a sample Carfax vehicle history report for a 2013 Honda Accord",
+      "intro": "Scroll and each section of the report lights up.",
+      "items": [
+        {
+          "title": "195,555 Miles: What High Mileage Means",
+          "body": "Under 100k: low mileage, most systems within lifespan. 100k–150k: the sweet spot; depreciation happened, systems still good. 150k–200k: high, but a well-maintained Honda can reach 250k–300k+. This car averaged 10,257 mi/yr under Owner 3, well below the 15,000/yr average, and the 2013 Accord uses a timing chain, not a belt, removing one major high-mileage expense.",
+          "say": "Price range: at 195k miles, a 2013 Accord EX-L in good condition should be roughly $7,000–$10,000 depending on condition."
+        },
+        {
+          "title": "No Accidents Reported: A Real Green Flag, With One Caveat",
+          "body": "No insurance claims, police reports, or rental damage reports across all three owners. For a 13-year-old car at 195k miles, this is genuinely significant. A clean accident history supports $1,000–$2,000 in premium vs. comparable cars with reported accidents.",
+          "say": "The caveat: \"no accidents reported\" doesn't mean no accidents ever. Many accidents go unreported, and a physical inspection catches unreported damage."
+        },
+        {
+          "title": "Good Reliability Forecast: What \"Good\" Means at 195k Miles",
+          "body": "Top 50% vs. similar vehicles at similar mileage, average repair cost $350/year. Budget for ongoing repairs: spark plugs ($150–200), accessory belt ($150–300), CV axles ($300–500), eventually timing chain ($800–1,200).",
+          "say": "Budget $500–$1,000/year for maintenance at this mileage. Factor it into your offer as honest financial planning."
+        },
+        {
+          "title": "17 Records, 3 Owners, Personal Use, California",
+          "body": "17 service records means maintenance was done at shops that report to Carfax. Personal vehicle across all three owners is better than commercial or fleet use. California ownership means no rust from northeastern salt-belt states.",
+          "say": "All-California ownership is a genuine positive. It extends mechanical lifespan meaningfully."
+        },
+        {
+          "title": "The Report's Own Disclaimer: This Isn't Enough Alone",
+          "body": "The fine print says other problems may not have been reported, and to use the report alongside an inspection and test drive. The report is telling you directly: don't rely on it alone.",
+          "say": "Non-negotiable: a clean report is necessary but not sufficient. Always pair it with an independent physical inspection."
+        },
+        {
+          "title": "Oil Changed August 2025: What Recent Service Signals",
+          "body": "The current owner maintained this car right up to nearly 200,000 miles. A car serviced regularly to the point of sale suggests the owner wasn't hiding a developing problem.",
+          "say": "What to ask for: physical receipts, not just the report summary. Gaps in the record should be explained by the current seller."
+        }
+      ]
+    },
+    "page2": {
+      "title": "How to read a Carfax, page two.",
+      "body": "Title brands, the history grid, and the ownership table: the sections that reveal problems nothing else will. Scroll to walk through them.",
+      "imageAlt": "Page two of a sample Carfax vehicle history report showing the history grid, title history, and ownership table",
+      "intro": "Now the serious history. Keep scrolling.",
+      "items": [
+        {
+          "title": "The Checks That Matter Most: Any Flag Here Changes Everything",
+          "body": "Total Loss: declared worth less than repair costs; these vehicles are worth 30–50% less. Structural/Frame Damage: affects handling and crash safety permanently. Airbag Deployment: indicates a serious collision. Odometer Rollback: federal crime; walk away immediately.",
+          "say": "Any flag in this grid is a serious negotiating point or a deal-ender. \"Total Loss\" or \"Structural Damage\" should make you question the asking price by 30%+ or walk away."
+        },
+        {
+          "title": "Title Brands and What They Mean",
+          "body": "Salvage: total loss; legally cannot be resold without rebuild and inspection. Rebuilt/Reconstructed: was salvage, was repaired; typically 20–40% below clean title. Flood/Fire/Hail: flood cars are especially problematic because electrical corrosion can appear years later. Lemon Law Buyback: must be disclosed; legal to resell but represents known defect history.",
+          "say": "The buyback guarantee covers DMV-reported brands. It does not cover unreported damage, which is why the physical inspection remains essential."
+        },
+        {
+          "title": "Reading the Ownership Table: Tenure Matters More Than Count",
+          "body": "Long tenures (3+ years each): owners who kept the car for years typically cared for it. Short tenures (under 12 months): always ask what the current seller knows about why. Many owners in quick succession: that car has a story.",
+          "say": "The ideal profile: one or two long-term owners who drove average or below-average annual mileage."
+        },
+        {
+          "title": "When Someone Only Kept It a Few Months",
+          "body": "A short tenure doesn't automatically mean a problem, but it deserves an explanation. Check: did they do multiple repairs during that tenure? Where did they buy it from? Does the mileage add up to normal driving?",
+          "say": "What to say: \"I noticed the previous owner only kept this car for [X] months. Do you have any information about why they sold?\" Their answer, or their hesitation, is data."
+        },
+        {
+          "title": "Calculating Mileage Yourself",
+          "body": "Subtract the starting odometer from the ending odometer to get total miles per owner. Divide by tenure in months and multiply by 12 to get the annual rate. Compare to the 12,000–15,000 mile industry average.",
+          "say": "Why this matters: the annual mileage rate reveals how the car was used, which tells you more than total mileage alone."
+        }
+      ]
+    },
+    "guide": {
+      "title": "The sticker in every used car window. What it means.",
+      "body": "Federal law requires this form to be displayed in the window of every used car for sale at a dealership. Most buyers glance at it and move on. Here is what every section means.",
+      "imageAlt": "The FTC Buyers Guide form displayed in used car windows",
+      "items": [
+        {
+          "tag": "Most important",
+          "title": "\"As is, no dealer warranty\"",
+          "body": "This is the most important box on the form. If the \"As Is\" box is checked, the dealer is telling you: if anything breaks after you drive off the lot, that is entirely your problem. No refunds. No repairs. No obligation.",
+          "say": "What to do: if a car is sold \"As Is,\" price that risk into your offer. Budget for potential repairs, and get an independent inspection before you buy. It is the only protection you have."
+        },
+        {
+          "tag": "Know this",
+          "title": "\"Dealer warranty\": full or limited",
+          "body": "If the Dealer Warranty box is checked, the dealer is promising to cover certain repairs for a limited time. Full Warranty means 100%. Limited Warranty means a percentage, so read those numbers carefully.",
+          "say": "Always ask for the warranty in writing. The form says what systems are covered and for how long. Verbal warranties are nearly impossible to enforce."
+        },
+        {
+          "tag": "Know this",
+          "title": "\"Manufacturer's warranty still applies\"",
+          "body": "The original factory warranty has not yet expired. Some of the car's components are still covered by the manufacturer, not the dealer. This is genuinely valuable.",
+          "say": "Look up the warranty terms for that specific make and model. A car still under manufacturer warranty is worth more."
+        },
+        {
+          "tag": "Watch this",
+          "title": "\"Service contract\" available at extra charge",
+          "body": "A service contract (extended warranty) is optional and not free. The word \"available\" means they want to sell it to you, not that you need it.",
+          "say": "If you want extended coverage, compare the dealer's price to third-party providers. The dealer version is almost always more expensive for the same coverage."
+        },
+        {
+          "tag": "Protects you",
+          "title": "\"Spoken promises are difficult to enforce\"",
+          "body": "This line is federal law telling you directly: do not trust verbal promises. Any promise a dealer makes that is not written on the contract does not legally exist.",
+          "say": "The rule: if they won't write it down, they don't intend to keep it."
+        },
+        {
+          "tag": "Know this",
+          "title": "\"Ask the dealer if your mechanic can inspect\"",
+          "body": "This line is also federal law. You do not need to ask permission; you have the right. California law additionally requires dealers to post a sign inside the dealership stating this.",
+          "say": "Always get the inspection. A $100–$200 inspection before purchase is the cheapest insurance you can buy."
+        }
+      ],
+      "keys": [
+        {
+          "kicker": "The most important line",
+          "title": "\"Keep this form.\"",
+          "body": "The Buyers Guide is part of the contract. Keep your copy. If the dealer warranty promises don't match what they told you, this is your evidence."
+        },
+        {
+          "kicker": "Federal violation",
+          "title": "Removing the sticker before sale is illegal.",
+          "body": "16 C.F.R. 455 prohibits removing the Buyers Guide before consumer purchase. If it's not in the window, that's a federal violation you can report to the FTC."
+        },
+        {
+          "kicker": "Check these two things",
+          "title": "VIN + warranty status",
+          "body": "Cross-check the VIN on the Buyers Guide with the dashboard VIN and the title. Note exactly which warranty box is checked before any conversation about price."
+        }
+      ]
+    }
   }
 }

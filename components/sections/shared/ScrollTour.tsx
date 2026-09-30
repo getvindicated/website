@@ -71,7 +71,11 @@ export function ScrollTour({
       const FH = frame.clientHeight;
       const r = rects[current];
       const pad = 0.012;
-      const z = Math.min(maxZoom, (0.8 * FW) / (r.w * W), (0.8 * FH) / (r.h * H));
+      // Never below 1: wide rects would otherwise shrink the page.
+      const z = Math.max(
+        1,
+        Math.min(maxZoom, (0.8 * FW) / (r.w * W), (0.8 * FH) / (r.h * H)),
+      );
       const cx = (r.x + r.w / 2) * W;
       const cy = (r.y + r.h / 2) * H;
       const tx = Math.min(0, Math.max(FW - W * z, FW / 2 - cx * z));

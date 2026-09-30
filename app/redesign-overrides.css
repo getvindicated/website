@@ -429,3 +429,19 @@
     transform: none;
   }
 }
+
+/* ---------- Documents ---------- */
+.rd .guide-explorer {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+@media (max-width: 960px) {
+  .rd .guide-explorer {
+    grid-template-columns: 1fr;
+  }
+}
+.rd .guide-explorer .acc {
+  margin-top: 0;
+}
+.rd .guide-explorer summary .tag {
+  margin-inline-end: 10px;
+}
