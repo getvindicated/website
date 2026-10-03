@@ -12,6 +12,7 @@ import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
 import { FreeResources } from "@/components/sections/home/FreeResources";
 import { HomeCta } from "@/components/sections/home/HomeCta";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { SHARE_IMAGE } from "@/lib/i18n/metadata";
 import {
   localizedPathnames,
   localizeHref,
@@ -41,12 +42,12 @@ export async function generateMetadata({
       url: localizeHref(locale as Locale, "/"),
       type: "website",
       locale,
-      images: [{ url: "/preview.webp", alt: "VINdicated" }],
+      images: [SHARE_IMAGE],
     },
     twitter: {
       title,
       description,
-      images: ["/preview.webp"],
+      images: [SHARE_IMAGE.url],
     },
   };
 }

@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return getRouteMetadata(locale, "research", "/research", "/preview.webp");
+  return getRouteMetadata(locale, "research", "/research");
 }
 
 const TRACK_ICONS: Record<TrackKey, ReactNode> = {

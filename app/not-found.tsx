@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SHARE_IMAGE } from "@/lib/i18n/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "404: Page Not Found",
     description: "This page doesn't exist. Return to VINdicated to find the resources you need.",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated" }],
+    images: [SHARE_IMAGE],
   },
 };
 

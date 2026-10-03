@@ -6,7 +6,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return getRouteMetadata(locale, "volunteer", "/volunteer", "/preview.webp");
+  return getRouteMetadata(locale, "volunteer", "/volunteer");
 }
 
 export default function VolunteerLayout({

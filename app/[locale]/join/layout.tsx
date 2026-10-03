@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SHARE_IMAGE } from "@/lib/i18n/metadata";
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -10,9 +11,11 @@ export const metadata: Metadata = {
       "Get involved with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
     url: "/join",
     type: "website",
-    images: [{ url: "/illus-woman-dealership.png", alt: "VINdicated: Get Involved" }],
+    images: [SHARE_IMAGE],
   },
   twitter: {
+    card: "summary_large_image",
+    images: [SHARE_IMAGE.url],
     title: "Get Involved",
     description:
       "Get involved with VINdicated: volunteer with our team, share your story, participate in research, or partner with us.",
