@@ -36,10 +36,9 @@ export function PriceIsRightPreview({
           : dict.low;
 
   return (
-    <section className="band" id="pir-preview">
+    <section id="pir-preview">
       <div className="wrap pv">
         <div>
-          <span className="tag pv-tag">{dict.tag}</span>
           <h2 className="h2">{dict.title}</h2>
           <p className="lede">{dict.body}</p>
           <Link className="btn btn-line" href={gameHref}>

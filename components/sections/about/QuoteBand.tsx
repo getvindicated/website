@@ -2,7 +2,7 @@ export function QuoteBand({ text, cite }: { text: string; cite: string }) {
   return (
     <section>
       <div className="wrap">
-        <figure className="quote-band">
+        <figure className="quote">
           <blockquote>
             <p>{text}</p>
           </blockquote>

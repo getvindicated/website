@@ -28,10 +28,12 @@ export function FounderStrikes({
   }
 
   return (
-    <section>
-      <div className="wrap center">
-        <h2 className="h2">{dict.title}</h2>
-        <p className="lede">{dict.body}</p>
+    <section className="band">
+      <div className="wrap">
+        <div className="intro">
+          <h2 className="h2">{dict.title}</h2>
+          <p className="lede">{dict.body}</p>
+        </div>
         <div className="tabs mt48" role="tablist" aria-label={dict.tabsLabel}>
           {dict.items.map((s, i) => (
             <button

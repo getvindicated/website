@@ -74,48 +74,9 @@ export function HomeHero({
             sizes="(max-width: 960px) calc(100vw - 40px), 600px"
             preload
           />
-          <HeroCard className="hp-c1" tone="ok" card={dict.cards[0]} />
-          <HeroCard className="hp-c2" tone="bad" card={dict.cards[1]} />
-          <HeroCard className="hp-c3" tone="pur" card={dict.cards[2]} />
+          <figcaption>{dict.caption}</figcaption>
         </figure>
       </div>
     </section>
-  );
-}
-
-function HeroCard({
-  className,
-  tone,
-  card,
-}: {
-  className: string;
-  tone: "ok" | "bad" | "pur";
-  card: { title: string; body: string };
-}) {
-  return (
-    <div className={`hp-card ${className}`}>
-      <span className={`hp-ic ${tone}`} aria-hidden="true">
-        {tone === "bad" ? (
-          "!"
-        ) : (
-          <svg
-            width={tone === "ok" ? 16 : 14}
-            height={tone === "ok" ? 16 : 14}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12l5 5 9-10" />
-          </svg>
-        )}
-      </span>
-      <span>
-        <b>{card.title}</b>
-        <em>{card.body}</em>
-      </span>
-    </div>
   );
 }
