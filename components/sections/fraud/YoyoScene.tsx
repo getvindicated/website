@@ -12,7 +12,7 @@ const Y = 324;
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 
-// Scroll-driven: the car drives home, the phone appears, and the dealer
+// Scroll-driven: the car drives home, the phone rings, and the dealer
 // reels it back in on a string.
 export function YoyoScene({ dict }: { dict: Dict }) {
   const reduce = usePrefersReducedMotion();
@@ -44,6 +44,7 @@ export function YoyoScene({ dict }: { dict: Dict }) {
       car.setAttribute("transform", `translate(${x},${Y + wob})`);
       const ringing = p > 0.4 && p < 0.62;
       phone.setAttribute("opacity", ringing ? "1" : "0");
+      phone.classList.toggle("ring", ringing);
       str.setAttribute("opacity", p > 0.45 && p < 0.8 ? "1" : "0");
       const sag = p < 0.5 ? 40 : 10;
       str.setAttribute("d", `M310 300 Q ${(310 + x - 88) / 2} ${300 + sag} ${x - 88} ${Y - 6}`);
@@ -74,7 +75,7 @@ export function YoyoScene({ dict }: { dict: Dict }) {
     <section id="yoyo" className="yoyo" ref={sectionRef} aria-label={dict.label}>
       <div className="yoyo-sticky">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{dict.title}</h2>
             <p className="lede">{dict.body}</p>
           </div>
@@ -148,7 +149,7 @@ export function YoyoScene({ dict }: { dict: Dict }) {
 
 function Caption({ tag, text }: { tag: string; text: string }) {
   return (
-    <div className="yy-caption" aria-hidden="true">
+    <div className="yy-caption in" aria-hidden="true">
       <span className="tag">{tag}</span>
       <p>{text}</p>
     </div>

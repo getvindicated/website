@@ -31,12 +31,13 @@ export default async function JoinPage({
 
       <section className="pt0" id="chapters">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.chapters.title}</h2>
           </div>
           <div className="chapters">
             {d.chapters.items.map((c) => (
               <div className="card chapter" key={c.name}>
+                <span className="tag">{c.tag}</span>
                 <h3>{c.name}</h3>
                 <div className="u">{c.school}</div>
                 <p className="d">{c.focus}</p>
@@ -49,9 +50,9 @@ export default async function JoinPage({
         </div>
       </section>
 
-      <section className="pt0">
+      <section className="band">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.roles.title}</h2>
             <p className="lede">{d.roles.body}</p>
           </div>
@@ -73,7 +74,7 @@ export default async function JoinPage({
         </div>
       </section>
 
-      <section className="pt0" id="contact">
+      <section className="band" id="contact">
         <div className="wrap apply-wrap">
           <h2 className="h2">{d.contact.title}</h2>
           <p className="lede mt18">{d.contact.body}</p>

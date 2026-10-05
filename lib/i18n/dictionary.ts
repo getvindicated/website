@@ -60,7 +60,7 @@ export type HomePageDict = {
 		ctaPrimary: string;
 		ctaSecondary: string;
 		photoAlt: string;
-		caption: string;
+		cards: TitleBody[];
 	};
 	sources: { heading: string; items: string[] };
 	publicKnowledge: {
@@ -69,6 +69,10 @@ export type HomePageDict = {
 		body: RichText;
 		ctaPrimary: string;
 		ctaSecondary: string;
+		phoneLabel: string;
+		clock: string;
+		appName: string;
+		notifs: { time: string; body: string }[];
 	};
 	footing: {
 		title: string;
@@ -76,9 +80,12 @@ export type HomePageDict = {
 		quote: string;
 		quoteCite: string;
 		body: string;
+		quoteA: string;
+		quoteB: string;
 		rows: { stat: string; title: string; body: string; cite: string }[];
 	};
 	preview: {
+		tag: string;
 		title: string;
 		body: string;
 		cta: string;
@@ -104,6 +111,30 @@ export type HomePageDict = {
 		body: string;
 		links: { platform: string; handle: string }[];
 	};
+	ai: {
+		title: string;
+		body: string;
+		steps: TitleBody[];
+		art: {
+			boosted: string;
+			license: string;
+			dealerName: string;
+			dealerDropped: string;
+			loanFunded: string;
+			loanAmount: string;
+			now: string;
+			delivered: string;
+		};
+		source: string;
+		saveStat: string;
+		saveTitle: string;
+		saveBody: string;
+		saveCta: string;
+		tipsTitle: string;
+		tips: string[];
+		ftcCta: string;
+		reportCta: string;
+	};
 	pillars: { title: string; body: string; items: TitleBody[] };
 	strikes: {
 		title: string;
@@ -122,7 +153,7 @@ export type HomePageDict = {
 		checks: string[];
 		offers: TitleBody[];
 	};
-	cta: { title: string; body: string; primary: string };
+	cta: { title: string; body: string; primary: string; secondary: string };
 };
 
 export type AboutTextSegment = { text: string; bold?: boolean };
