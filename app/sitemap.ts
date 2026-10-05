@@ -11,6 +11,8 @@ const routes = [
   { href: "/fraud", changeFrequency: "monthly", priority: 0.8 },
   { href: "/documents", changeFrequency: "monthly", priority: 0.8 },
   { href: "/rights", changeFrequency: "monthly", priority: 0.7 },
+  { href: "/map", changeFrequency: "monthly", priority: 0.7 },
+  { href: "/map/methods", changeFrequency: "yearly", priority: 0.5 },
   { href: "/research", changeFrequency: "monthly", priority: 0.6 },
   { href: "/team", changeFrequency: "monthly", priority: 0.6 },
   { href: "/join", changeFrequency: "monthly", priority: 0.6 },

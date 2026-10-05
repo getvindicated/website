@@ -116,6 +116,11 @@
         "title": "Dealer Risk Map",
         "description": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, from pressure tactics to surprise fees.",
         "imageAlt": "VINdicated: Dealer Risk Map"
+      },
+      "mapMethods": {
+        "title": "How We Made the Dealer Risk Map",
+        "description": "Where the Dealer Risk Map's information comes from, how an AI model sorted the reviews, how tiers work, and what the map can't tell you.",
+        "imageAlt": "VINdicated: How we made the Dealer Risk Map"
       }
     }
   },
@@ -2286,115 +2291,15 @@
       "title": "Know the lot before you walk onto it.",
       "body": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, from pressure tactics to surprise fees."
     },
-    "disclaimer": {
-      "title": "The VINdisclaimer.",
-      "lede": "Read this before you open the map. It explains what the map is, how we made it, and what it can't tell you.",
-      "items": [
-        {
-          "title": "This is a summary of opinions, not a verdict.",
-          "body": "Everything on this map comes from public reviews written by other people. The tiers, categories, and quotes describe what those reviewers said. They are not VINdicated's findings, accusations, or statements of fact about any business, and they do not mean a dealership broke the law or did anything wrong."
-        },
-        {
-          "title": "The sample is small.",
-          "body": "We read up to five public Google reviews per dealership, the ones Google made available when we collected the data, for 100 dealerships on LA's Westside. A dealership may have hundreds of reviews we didn't read. Five reviews can't tell you how a business treats most customers."
-        },
-        {
-          "title": "An AI model sorted the reviews, checked against human labels.",
-          "body": "Reviews were classified by a language model following strict written rules. Our team hand-labeled a set of reviews (a “gold” set) and tested the model against it to confirm it sorts complaints the way a careful person would. No model is perfect: it can still misread sarcasm or context, or put a complaint in the wrong category, and not every individual result on the map was re-checked by hand."
-        },
-        {
-          "title": "We can't verify what reviewers say.",
-          "body": "We don't know who wrote each review or whether it's accurate. Reviews can be mistaken, exaggerated, outdated, about a problem the dealership later fixed, or fake. We haven't contacted the dealerships or the reviewers."
-        },
-        {
-          "title": "It's a snapshot in time.",
-          "body": "The data was collected in September 2026. Staff, ownership, and practices change, and so do reviews. A dealership's tier may not reflect how it operates today."
-        },
-        {
-          "title": "“Clear” isn't an endorsement. “Flagged” isn't a warning to stay away.",
-          "body": "A clear dealership can still treat you badly, and a flagged one may treat you well. Use the map as one reason to ask more questions, never as your only source."
-        },
-        {
-          "title": "Not legal, financial, or professional advice.",
-          "body": "Nothing here is advice about any purchase, contract, or dispute. Always read your paperwork, get an independent pre-purchase inspection, and talk to a qualified professional about your situation."
-        },
-        {
-          "title": "Protecting people's privacy.",
-          "body": "We removed employees' names from the quotes we show. Complaints are about how a business was described, not about any individual."
-        },
-        {
-          "title": "No affiliation.",
-          "body": "VINdicated is an independent student nonprofit. We're not affiliated with, paid by, or endorsed by any dealership, manufacturer, or Google. Business names and trademarks belong to their owners."
-        },
-        {
-          "title": "Provided as is.",
-          "body": "We work to keep this accurate but make no guarantees about its completeness or accuracy, and we're not responsible for decisions made based on it."
-        },
-        {
-          "title": "Something wrong? Tell us.",
-          "body": "If you represent a dealership, or you think a review was misread, contact us at getvindicated@outlook.com with the dealership's name and what you believe is inaccurate. We'll review it and correct or remove information that's wrong."
-        }
-      ],
-      "howTitle": "How we made it.",
-      "steps": [
-        {
-          "title": "Collect",
-          "body": "We gathered public Google Maps listings for 100 dealerships and service centers in Santa Monica, Beverly Hills, West LA, Culver City, and West Hollywood, with up to five public reviews each."
-        },
-        {
-          "title": "Classify",
-          "body": "A language model, tested against reviews our team labeled by hand, read each review and sorted complaints into eight categories. It could only flag a complaint by quoting the reviewer's exact words, about that dealership, that wasn't already resolved. Minor gripes, speculation, and general negativity don't count."
-        },
-        {
-          "title": "Tier",
-          "body": "Clear: no review contained a qualifying complaint. Caution: at least one review contained a complaint. Flagged: at least one review described several different kinds of problems at once."
-        },
-        {
-          "title": "Show",
-          "body": "We display the tier, how many of the reviews we read were flagged, one short quote per concern with staff names removed, and a link so you can read every review yourself on Google."
-        }
-      ],
-      "catsTitle": "The eight complaint categories",
-      "catsBody": "Our classifier only counts a complaint if it can point to the reviewer's own words, about this dealership, that wasn't already made right. Minor gripes don't count.",
-      "cats": [
-        {
-          "title": "Price & fee surprises",
-          "body": "Charged more than advertised or agreed: hidden fees, last-minute markups, unauthorized add-ons or repairs."
-        },
-        {
-          "title": "Vehicle misrepresented",
-          "body": "The car's condition, history, or availability wasn't what they said, or a repair wasn't really fixed."
-        },
-        {
-          "title": "Contract & document issues",
-          "body": "Paperwork that was confusing, altered, or withheld, like unclear loan terms or a delayed title."
-        },
-        {
-          "title": "Pressure & manipulation",
-          "body": "Aggressive or dishonest tactics to rush or force a decision."
-        },
-        {
-          "title": "Post-sale neglect",
-          "body": "After the sale or service, the dealer went quiet or didn't keep its promises."
-        },
-        {
-          "title": "Discriminatory treatment",
-          "body": "The reviewer says they were treated worse because of who they are."
-        },
-        {
-          "title": "Poor service",
-          "body": "Rude, dismissive, or unprofessional staff, or long unexplained delays."
-        },
-        {
-          "title": "Other complaint",
-          "body": "A specific, real complaint that doesn't fit the categories above."
-        }
-      ],
-      "fine": "Classifier version 1.5.0, validated against our hand-labeled gold set and run September 24, 2026. Tier rules are applied automatically to the classified reviews.",
-      "accept": "I understand this map summarizes a small sample of reviewers' opinions, sorted by an AI model. It isn't verified fact, a rating of any business, or advice.",
+    "gate": {
+      "title": "Before you look",
+      "body": "This map shows what people said in public Google reviews of 100 dealerships on LA's Westside. An AI model sorted the reviews, and we checked it against reviews our team labeled by hand. It isn't a rating of any business, a statement of fact, or legal advice. Read the reviews yourself before you decide anything.",
+      "check": "I understand this map summarizes reviewers' opinions.",
       "open": "Open the map",
-      "launchTitle": "Open the satellite map",
-      "launchBody": "Opens in a new tab. Zoom all the way in to see each lot from above."
+      "methodsLink": "How we made this map →",
+      "frameTitle": "Dealer Risk Map: satellite map of 100 dealerships on LA's Westside",
+      "fullScreen": "Open the map full screen",
+      "loading": "Loading the map…"
     },
     "news": {
       "title": "Learn from others.",
@@ -2448,6 +2353,129 @@
         }
       ],
       "footnote": "Headlines belong to their publications. Summaries and illustrations by VINdicated. Stories link to outside publications, which we don't control."
+    }
+  },
+  "mapMethods": {
+    "title": "How we made the Dealer Risk Map",
+    "intro": "This page explains where the map's information comes from, how we sorted it, and what it can't tell you.",
+    "back": "← Back to the map",
+    "sections": {
+      "onMap": {
+        "title": "What's on the map",
+        "paras": [
+          "The map shows 100 dealerships and service centers in Santa Monica, Beverly Hills, West LA, Culver City, and West Hollywood. We collected the data in September 2026."
+        ]
+      },
+      "sources": {
+        "title": "Where the reviews come from",
+        "paras": [
+          "For each dealership, we read up to five public Google reviews. These are the reviews Google made available when we collected the data. They aren't the newest reviews or all of a dealership's reviews, and a dealership may have hundreds of reviews we didn't read."
+        ]
+      },
+      "sorting": {
+        "title": "How reviews were sorted",
+        "paras": [
+          "A language model read each review and sorted the complaints in it into eight categories. We used classifier version 1.5.0 and ran it on September 24, 2026. Before using it, we tested it against a set of reviews our team labeled by hand, to check that it sorts complaints the way a careful person would."
+        ],
+        "rulesIntro": "A complaint only counts if it meets all three of these rules:",
+        "rules": [
+          "It's in the reviewer's own words. The model has to quote them.",
+          "It's about this dealership.",
+          "It wasn't already resolved."
+        ],
+        "rulesOutro": "Minor gripes, speculation, and general negativity don't count.",
+        "catsIntro": "The eight complaint categories are:",
+        "cats": [
+          {
+            "title": "Price & fee surprises",
+            "body": "Charged more than advertised or agreed: hidden fees, last-minute markups, unauthorized add-ons or repairs."
+          },
+          {
+            "title": "Vehicle misrepresented",
+            "body": "The car's condition, history, or availability wasn't what they said, or a repair wasn't really fixed."
+          },
+          {
+            "title": "Contract & document issues",
+            "body": "Paperwork that was confusing, altered, or withheld, like unclear loan terms or a delayed title."
+          },
+          {
+            "title": "Pressure & manipulation",
+            "body": "Aggressive or dishonest tactics to rush or force a decision."
+          },
+          {
+            "title": "Post-sale neglect",
+            "body": "After the sale or service, the dealer went quiet or didn't keep its promises."
+          },
+          {
+            "title": "Discriminatory treatment",
+            "body": "The reviewer says they were treated worse because of who they are."
+          },
+          {
+            "title": "Poor service",
+            "body": "Rude, dismissive, or unprofessional staff, or long unexplained delays."
+          },
+          {
+            "title": "Other complaint",
+            "body": "A specific, real complaint that doesn't fit the categories above."
+          }
+        ]
+      },
+      "tiers": {
+        "title": "How tiers work",
+        "items": [
+          {
+            "name": "Clear",
+            "body": "No review we read contained a qualifying complaint."
+          },
+          {
+            "name": "Caution",
+            "body": "At least one review contained a complaint."
+          },
+          {
+            "name": "Flagged",
+            "body": "At least one review described several different kinds of problems at once."
+          }
+        ]
+      },
+      "shown": {
+        "title": "What we show",
+        "intro": "For each dealership, the map shows:",
+        "items": [
+          "Its tier.",
+          "How many of the reviews we read were flagged.",
+          "One short quote for each concern, with employee names removed.",
+          "A link to read all of its reviews on Google."
+        ]
+      },
+      "limits": {
+        "title": "Limits",
+        "items": [
+          "The sample is small. Five reviews can't tell you how a business treats most of its customers.",
+          "The model can make mistakes. It can misread sarcasm or context, or put a complaint in the wrong category, and not every result on the map was re-checked by hand.",
+          "We can't verify what reviewers say. Reviews can be mistaken, exaggerated, outdated, about a problem the dealership later fixed, or fake. We haven't contacted the dealerships or the reviewers.",
+          "It's a snapshot in time. Staff, ownership, and practices change, and so do reviews. A dealership's tier may not reflect how it operates today.",
+          "A Clear tier isn't an endorsement, and a Flagged tier isn't a warning to stay away. A Clear dealership can still treat you badly, and a Flagged one may treat you well. Use the map as one reason to ask more questions."
+        ]
+      },
+      "independence": {
+        "title": "Independence",
+        "paras": [
+          "VINdicated is an independent student nonprofit. We aren't affiliated with, paid by, or endorsed by any dealership, manufacturer, or Google. Business names and trademarks belong to their owners."
+        ]
+      },
+      "advice": {
+        "title": "Not advice, provided as is",
+        "paras": [
+          "Nothing on the map or this page is legal or financial advice about any purchase, contract, or dispute. Read your paperwork, get an independent pre-purchase inspection, and talk to a qualified professional about your situation.",
+          "We work to keep the map accurate, but it's provided as is. We make no guarantees that it's complete or correct, and we aren't responsible for decisions made based on it."
+        ]
+      },
+      "corrections": {
+        "title": "Corrections",
+        "before": "If you represent a dealership or think a review was misread, email ",
+        "email": "getvindicated@outlook.com",
+        "after": " with the dealership's name and what you think is wrong. We'll review it and fix or remove anything inaccurate."
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { DisclaimerGate } from "@/components/sections/map/DisclaimerGate";
+import { MapGate } from "@/components/sections/map/MapGate";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
-import type { Locale } from "@/lib/i18n/config";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { bitter } from "@/lib/fonts";
 
-// The satellite map itself is a standalone Leaflet page in public/vindimap
-// (from the redesign handoff), opened in a new tab after the disclaimer.
-const MAP_HREF = "/vindimap/index.html";
+// The satellite map is a standalone Leaflet page in public/vindimap (from
+// the redesign handoff). It's embedded here after the visitor accepts the
+// short disclaimer, and can also be opened full screen.
+const MAP_SRC = "/vindimap/index.html";
 
 // Same order as mapPage.news.items.
 const NEWS = [
@@ -24,12 +25,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  // Unlisted until the map's legal review is done: reachable by URL, but
-  // not in the nav, footer, sitemap, or search results.
-  return {
-    ...(await getRouteMetadata(locale, "map", "/map")),
-    robots: { index: false, follow: false },
-  };
+  return getRouteMetadata(locale, "map", "/map");
 }
 
 export default async function MapPage({
@@ -45,7 +41,11 @@ export default async function MapPage({
       <PageHero title={d.hero.title} body={d.hero.body} />
       <section className="pt0">
         <div className="wrap">
-          <DisclaimerGate dict={d.disclaimer} mapHref={MAP_HREF} />
+          <MapGate
+            dict={d.gate}
+            mapSrc={MAP_SRC}
+            methodsHref={localizeHref(locale as Locale, "/map/methods")}
+          />
         </div>
       </section>
       <section className="band" id="news">
