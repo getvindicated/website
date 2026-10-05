@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import type { HomePageDict } from "@/lib/i18n/dictionary";
+import type { ResearchPageDict } from "@/lib/i18n/dictionary";
 
 const FONT = "Plus Jakarta Sans,sans-serif";
 
-export function EqualFooting({ dict }: { dict: HomePageDict["footing"] }) {
+export function EqualFooting({ dict }: { dict: ResearchPageDict["footing"] }) {
   const art: ReactNode[] = [
     <svg key="quotes" viewBox="0 0 340 250" aria-hidden="true">
       <rect x="30" y="130" width="100" height="90" rx="10" fill="#d9b8df" />

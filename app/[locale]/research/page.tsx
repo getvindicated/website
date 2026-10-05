@@ -3,8 +3,7 @@ import { PageHero } from "@/components/sections/shared/PageHero";
 import { ChecklistArt, CtaBand } from "@/components/sections/shared/CtaBand";
 import { TrackNav } from "@/components/sections/research/TrackNav";
 import { ProjectCard } from "@/components/sections/research/ProjectCard";
-import { PriceIsRightGame } from "@/components/sections/research/PriceIsRightGame";
-import { BuildTimeline } from "@/components/sections/research/BuildTimeline";
+import { EqualFooting } from "@/components/sections/research/EqualFooting";
 import { TRACKS, type TrackKey } from "@/components/sections/research/projects";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
@@ -53,6 +52,7 @@ export default async function ResearchPage({
   return (
     <div className="rd rd-page">
       <PageHero title={d.hero.title} body={d.hero.body} />
+      <EqualFooting dict={d.footing} />
       <TrackNav
         label={d.navLabel}
         items={TRACKS.map((t) => ({
@@ -92,12 +92,6 @@ export default async function ResearchPage({
                   />
                 ))}
               </div>
-              {track.key === "data" && (
-                <>
-                  <PriceIsRightGame dict={d.game} locale={locale} />
-                  <BuildTimeline dict={d.timeline} />
-                </>
-              )}
             </div>
           </section>
         );

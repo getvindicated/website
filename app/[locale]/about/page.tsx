@@ -6,6 +6,7 @@ import { FounderStory } from "@/components/sections/about/FounderStory";
 import { FounderVideo } from "@/components/sections/about/FounderVideo";
 import { QuoteBand } from "@/components/sections/about/QuoteBand";
 import { WhatWeProvide } from "@/components/sections/about/WhatWeProvide";
+import { AiScams } from "@/components/sections/about/AiScams";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
@@ -42,6 +43,7 @@ export default async function AboutPage({
       </PageHero>
       <ZoomSlideshow dict={dict.zoom} />
       <MissionPillars dict={dict.mission} />
+      <AiScams dict={dict.ai} rightsHref={href("/fraud#law")} />
       <FounderStory dict={dict.story} />
       <FounderVideo dict={dict.video} />
       <QuoteBand text={dict.quote.text} cite={dict.quote.cite} />

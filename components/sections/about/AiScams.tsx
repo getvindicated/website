@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { HomePageDict } from "@/lib/i18n/dictionary";
+import type { AboutPageDict } from "@/lib/i18n/dictionary";
 import { CheckIcon } from "../shared/icons";
 
 const FONT = "Plus Jakarta Sans,sans-serif";
@@ -11,7 +11,7 @@ export function AiScams({
   dict,
   rightsHref,
 }: {
-  dict: HomePageDict["ai"];
+  dict: AboutPageDict["ai"];
   rightsHref: string;
 }) {
   const a = dict.art;
