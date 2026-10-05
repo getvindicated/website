@@ -10,7 +10,15 @@ import {
 import { getDictionary } from "./get-dictionary";
 import type { RouteMetadataKey } from "./dictionary";
 
-const defaultImage = "/illus-woman-dealership.png";
+// The picture link previews show (iMessage, Slack, social posts) for every
+// page: 1200x630, the standard Open Graph size.
+export const SHARE_IMAGE = {
+  url: "/og-image.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Automotive Literacy with VINdicated",
+};
+
 
 function safeLocale(value: string): Locale {
   return isValidLocale(value) ? value : defaultLocale;
@@ -43,12 +51,7 @@ export async function getRootMetadata(localeParam: string): Promise<Metadata> {
       description: dict.meta.defaultDescription,
       url: localizeHref(locale, "/"),
       locale,
-      images: [
-        {
-          url: defaultImage,
-          alt: "VINdicated",
-        },
-      ],
+      images: [SHARE_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
@@ -57,7 +60,7 @@ export async function getRootMetadata(localeParam: string): Promise<Metadata> {
         template: "%s | VINdicated",
       },
       description: dict.meta.defaultDescription,
-      images: [defaultImage],
+      images: [SHARE_IMAGE.url],
     },
   };
 }
@@ -66,7 +69,6 @@ export async function getRouteMetadata(
   localeParam: string,
   route: RouteMetadataKey,
   href: string,
-  image = defaultImage,
 ): Promise<Metadata> {
   const locale = safeLocale(localeParam);
   const dict = await getDictionary(locale);
@@ -87,18 +89,13 @@ export async function getRouteMetadata(
       url: localizeHref(locale, href),
       type: "website",
       locale,
-      images: [
-        {
-          url: image,
-          alt: routeMeta.imageAlt,
-        },
-      ],
+      images: [SHARE_IMAGE],
     },
     twitter: {
       title,
       description,
       card: "summary_large_image",
-      images: [image],
+      images: [SHARE_IMAGE.url],
     },
   };
 }

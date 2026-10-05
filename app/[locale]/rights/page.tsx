@@ -14,7 +14,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return getRouteMetadata(locale, "rights", "/rights", "/preview.webp");
+  return getRouteMetadata(locale, "rights", "/rights");
 }
 
 export default function RightsPage() {
