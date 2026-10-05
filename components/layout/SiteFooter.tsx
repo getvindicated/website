@@ -32,6 +32,7 @@ export function SiteFooter({
         { label: nav.inspection, href: href("/inspection") },
         { label: nav.fraud, href: href("/fraud") },
         { label: nav.documents, href: href("/documents") },
+        { label: nav.dealerMap, href: href("/map") },
       ],
     },
     {
