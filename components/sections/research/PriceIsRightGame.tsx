@@ -85,7 +85,6 @@ export function PriceIsRightGame({
   const [guess, setGuess] = useState(START_GUESS);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
-  const [animate, setAnimate] = useState(false);
   const selectRef = useRef<HTMLSelectElement>(null);
   const focusRef = useRef<HTMLElement | null>(null);
 
@@ -112,14 +111,6 @@ export function PriceIsRightGame({
   // Move focus to the new content after each phase change.
   useEffect(() => {
     focusRef.current?.focus();
-  }, [phase, round]);
-
-  useEffect(() => {
-    if (phase !== "reveal") return setAnimate(false);
-    const r = requestAnimationFrame(() =>
-      requestAnimationFrame(() => setAnimate(true)),
-    );
-    return () => cancelAnimationFrame(r);
   }, [phase, round]);
 
   function partsFor(i: number): [string, number][] {
@@ -176,7 +167,6 @@ export function PriceIsRightGame({
     <div className="pir" id="pir">
       <div className="pir-head">
         <div>
-          <span className="tag pv-tag">{dict.tag}</span>
           <h3>{dict.title}</h3>
           <p>{dict.body}</p>
         </div>
@@ -224,12 +214,12 @@ export function PriceIsRightGame({
           {phase !== "done" && (
             <div className="pir-car">
               <div className="pir-photo">
-                <CarPhoto
-                  key={car.img}
+                <Image
                   src={car.img}
                   alt={carCopy.alt}
                   width={car.width}
                   height={car.height}
+                  sizes="(max-width: 760px) 90vw, 420px"
                 />
               </div>
               <div className="pir-info">
@@ -295,7 +285,6 @@ export function PriceIsRightGame({
               stateCode={state as StateCode}
               tip={carCopy.tip}
               money={money}
-              animate={animate}
               last={round === ROUNDS.length - 1}
               onNext={next}
               focusRef={focusRef}
@@ -334,7 +323,6 @@ function Reveal({
   stateCode,
   tip,
   money,
-  animate,
   last,
   onNext,
   focusRef,
@@ -344,7 +332,6 @@ function Reveal({
   stateCode: StateCode;
   tip: string;
   money: (n: number) => string;
-  animate: boolean;
   last: boolean;
   onNext: () => void;
   focusRef: React.MutableRefObject<HTMLElement | null>;
@@ -363,7 +350,7 @@ function Reveal({
     i === 0 ? money(v) : v === 0 ? money(0) : `${v > 0 ? "+" : "−"}${money(Math.abs(v))}`;
 
   return (
-    <div className={`pir-reveal${animate ? " go" : ""}`}>
+    <div className="pir-reveal">
       <div className="pir-cmp">
         <div>
           <span>{dict.compareGuess}</span>
@@ -393,7 +380,6 @@ function Reveal({
           <li
             key={label}
             className={i === parts.length - 1 ? "state" : undefined}
-            style={{ "--d": `${i * 120}ms` } as CSSProperties}
           >
             <span>{label}</span>
             <i
@@ -410,32 +396,5 @@ function Reveal({
         {last ? dict.seeScore : dict.next}
       </button>
     </div>
-  );
-}
-
-// Slides the car in from the side each time a new round mounts it.
-function CarPhoto({
-  alt,
-  ...props
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-}) {
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const r = requestAnimationFrame(() =>
-      requestAnimationFrame(() => setShown(true)),
-    );
-    return () => cancelAnimationFrame(r);
-  }, []);
-  return (
-    <Image
-      {...props}
-      alt={alt}
-      className={shown ? "in" : undefined}
-      sizes="(max-width: 760px) 90vw, 420px"
-    />
   );
 }

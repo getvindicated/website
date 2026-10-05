@@ -3,20 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
-import { ScrollTour, type TourRect } from "@/components/sections/shared/ScrollTour";
-import { FlagsChatTour } from "@/components/sections/fraud/FlagsChatTour";
+import { AnnotatedImage, type MarkerRect } from "@/components/sections/shared/AnnotatedImage";
+import { RedFlags } from "@/components/sections/fraud/RedFlags";
 import { YoyoScene } from "@/components/sections/fraud/YoyoScene";
 import { FourSquare } from "@/components/sections/fraud/FourSquare";
 import { FeeReceipt } from "@/components/sections/fraud/FeeReceipt";
 import { AprCalculator } from "@/components/sections/fraud/AprCalculator";
-import { FlipCards } from "@/components/sections/fraud/FlipCards";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { caveat } from "@/lib/fonts";
 
 // Pink slip boxes, as fractions of public/pink-slip.png. `danger` boxes
-// get a red tag. Same order as fraudPage.pinkSlip.items.
-const SLIP: (TourRect & { danger: boolean })[] = [
+// get a red marker and tag. Same order as fraudPage.pinkSlip.items.
+const SLIP: (MarkerRect & { danger: boolean })[] = [
   { x: 0.27, y: 0.04, w: 0.44, h: 0.05, danger: false },
   { x: 0.08, y: 0.25, w: 0.48, h: 0.13, danger: false },
   { x: 0.61, y: 0.065, w: 0.34, h: 0.05, danger: true },
@@ -29,7 +28,7 @@ type LawCard = { tag: string; title: string; body: string; say: string };
 function Law({ card, className }: { card: LawCard; className?: string }) {
   return (
     <div className={`card${className ? ` ${className}` : ""}`}>
-      <span className="tag">{card.tag}</span>
+      <p className="label">{card.tag}</p>
       <h3>{card.title}</h3>
       <p>{card.body}</p>
       <div className="say">{card.say}</div>
@@ -61,21 +60,17 @@ export default async function FraudPage({
 
       <section className="pt0" id="pinkslip">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.pinkSlip.title}</h2>
             <p className="lede">{d.pinkSlip.body}</p>
           </div>
-          <ScrollTour
-            className="tour-doc"
-            zoom={1.9}
+          <AnnotatedImage
             image={{ src: "/pink-slip.png", alt: d.pinkSlip.imageAlt, width: 1040, height: 1212 }}
-            rects={SLIP}
+            rects={SLIP.map((r) => ({ ...r, red: r.danger }))}
             intro={d.pinkSlip.intro}
-            countIntro={d.tour.countIntro}
-            countStep={d.tour.countStep}
-            cards={d.pinkSlip.items.map((h, i) => (
+            items={d.pinkSlip.items.map((h, i) => (
               <Fragment key={h.label}>
-                <span className={`tag ${SLIP[i].danger ? "sev-red" : "sev-know"}`}>{h.label}</span>
+                <p className={`label${SLIP[i].danger ? " red" : ""}`}>{h.label}</p>
                 <h3>{h.title}</h3>
                 <p>{h.body}</p>
                 <div className="say">{h.say}</div>
@@ -87,19 +82,19 @@ export default async function FraudPage({
 
       <section className="band" id="flags">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.flags.title}</h2>
             <p className="lede">{d.flags.body}</p>
           </div>
-          <FlagsChatTour dict={d.flags} />
+          <RedFlags dict={d.flags} />
         </div>
       </section>
 
       <YoyoScene dict={d.yoyo} />
 
-      <section className="band" id="foursquare">
+      <section id="foursquare">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.fourSquare.title}</h2>
             <p className="lede">{d.fourSquare.body}</p>
           </div>
@@ -109,7 +104,7 @@ export default async function FraudPage({
 
       <section id="receipt">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.receipt.title}</h2>
             <p className="lede">{d.receipt.body}</p>
           </div>
@@ -119,7 +114,7 @@ export default async function FraudPage({
 
       <section className="band" id="apr">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.apr.title}</h2>
             <p className="lede">{d.apr.body}</p>
           </div>
@@ -129,7 +124,7 @@ export default async function FraudPage({
 
       <section id="law">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.law.title}</h2>
             <p className="lede">{d.law.body}</p>
           </div>
@@ -163,17 +158,21 @@ export default async function FraudPage({
         </div>
       </section>
 
-      <section className="band">
-        <div className="wrap">
-          <div className="center">
-            <h2 className="h2">{d.after.title}</h2>
-            <p className="lede">{d.after.body}</p>
-          </div>
-          <FlipCards items={d.after.items} />
+      <section className="band" id="after">
+        <div className="wrap prose">
+          <h2 className="h2">{d.after.title}</h2>
+          <ol className="num-list">
+            {d.after.items.map((it) => (
+              <li key={it.front}>
+                <h3>{it.front}</h3>
+                <p>{it.back}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="pt0 brochure-section" id="brochure">
+      <section id="brochure">
         <div className="wrap">
           <div className="bro">
             <div className="bro-cover">
@@ -186,13 +185,9 @@ export default async function FraudPage({
               />
             </div>
             <div>
-              <span className="tag">{d.brochure.tag}</span>
               <h2 className="h2">{d.brochure.title}</h2>
               <p className="lede">{d.brochure.body}</p>
-              <div className="bro-soon">
-                <span className="dot-live" aria-hidden="true" />
-                {d.brochure.soon}
-              </div>
+              <p className="bro-soon">{d.brochure.soon}</p>
             </div>
           </div>
         </div>
@@ -203,13 +198,6 @@ export default async function FraudPage({
         body={d.cta.body}
         primary={{ label: d.cta.primary, href: href("/documents") }}
         secondary={{ label: d.cta.secondary, href: href("/inspection") }}
-        art={
-          <svg viewBox="0 0 260 260" aria-hidden="true">
-            <circle cx="130" cy="130" r="120" fill="rgba(255,255,255,.12)" />
-            <path d="M130 50l70 30v50c0 45-30 75-70 90-40-15-70-45-70-90V80z" fill="#fff" />
-            <path d="M100 135l22 22 40-44" fill="none" stroke="#9533A5" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        }
       />
     </div>
   );

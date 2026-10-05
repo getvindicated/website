@@ -6,7 +6,6 @@ import { EqualFooting } from "@/components/sections/home/EqualFooting";
 import { PriceIsRightPreview } from "@/components/sections/home/PriceIsRightPreview";
 import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
-import { AiScams } from "@/components/sections/home/AiScams";
 import { Pillars } from "@/components/sections/home/Pillars";
 import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
 import { FreeResources } from "@/components/sections/home/FreeResources";
@@ -79,15 +78,10 @@ export default async function HomePage({
       />
       <CampusChapters dict={home.chapters} joinHref={href("/join")} />
       <FollowLinks dict={home.follow} />
-      <AiScams dict={home.ai} rightsHref={href("/fraud#law")} />
       <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />
       <FounderStrikes dict={home.strikes} storyHref={story} />
       <FreeResources dict={home.free} />
-      <HomeCta
-        dict={home.cta}
-        ppiHref={ppi}
-        documentsHref={href("/documents")}
-      />
+      <HomeCta dict={home.cta} ppiHref={ppi} />
     </div>
   );
 }

@@ -2,16 +2,16 @@ import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { ScrollTour, type TourRect } from "@/components/sections/shared/ScrollTour";
+import { AnnotatedImage, type MarkerRect } from "@/components/sections/shared/AnnotatedImage";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { DocumentsPageDict } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n/config";
 
 type Severity = "easy" | "watch" | "red" | "know";
 
-// Spotlight rects on the Carfax screenshots (fractions of the image) and
+// Marker boxes on the Carfax screenshots (fractions of the image) and
 // each stop's severity. Same order as documentsPage.page1/page2.items.
-const PAGE1: (TourRect & { s: Severity })[] = [
+const PAGE1: (MarkerRect & { s: Severity })[] = [
   { x: 0.01, y: 0.2, w: 0.97, h: 0.07, s: "know" },
   { x: 0.19, y: 0.3, w: 0.4, h: 0.13, s: "easy" },
   { x: 0.19, y: 0.43, w: 0.4, h: 0.11, s: "know" },
@@ -19,7 +19,7 @@ const PAGE1: (TourRect & { s: Severity })[] = [
   { x: 0.01, y: 0.54, w: 0.97, h: 0.04, s: "red" },
   { x: 0.01, y: 0.63, w: 0.97, h: 0.17, s: "easy" },
 ];
-const PAGE2: (TourRect & { s: Severity })[] = [
+const PAGE2: (MarkerRect & { s: Severity })[] = [
   { x: 0.01, y: 0.13, w: 0.97, h: 0.39, s: "easy" },
   { x: 0.01, y: 0.515, w: 0.97, h: 0.175, s: "know" },
   { x: 0.01, y: 0.7, w: 0.97, h: 0.13, s: "know" },
@@ -28,7 +28,7 @@ const PAGE2: (TourRect & { s: Severity })[] = [
 ];
 const GUIDE_TAGS: Severity[] = ["red", "watch", "know", "watch", "easy", "know"];
 
-function CarfaxTour({
+function CarfaxPage({
   d,
   page,
   src,
@@ -37,22 +37,15 @@ function CarfaxTour({
   d: DocumentsPageDict;
   page: DocumentsPageDict["page1"];
   src: string;
-  rects: (TourRect & { s: Severity })[];
+  rects: (MarkerRect & { s: Severity })[];
 }) {
   return (
-    <ScrollTour
-      className="tour-doc"
-      zoom={2}
+    <AnnotatedImage
       image={{ src, alt: page.imageAlt, width: 1275, height: 1650 }}
-      rects={rects}
-      intro={page.intro}
-      countIntro={d.tour.countIntro}
-      countStep={d.tour.countStep}
-      cards={page.items.map((it, i) => (
+      rects={rects.map((r) => ({ ...r, red: r.s === "red" }))}
+      items={page.items.map((it, i) => (
         <Fragment key={it.title}>
-          <span className={`tag sev-${rects[i].s}`}>
-            {i + 1} · {d.severity[rects[i].s]}
-          </span>
+          <span className={`tag sev-${rects[i].s}`}>{d.severity[rects[i].s]}</span>
           <h3>{it.title}</h3>
           <p>{it.body}</p>
           {it.say && <div className="say">{it.say}</div>}
@@ -85,27 +78,27 @@ export default async function DocumentsPage({
 
       <section className="pt0" id="report">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.page1.title}</h2>
             <p className="lede">{d.page1.body}</p>
           </div>
-          <CarfaxTour d={d} page={d.page1} src="/carfax-p1.png" rects={PAGE1} />
+          <CarfaxPage d={d} page={d.page1} src="/carfax-p1.png" rects={PAGE1} />
         </div>
       </section>
 
       <section className="band" id="report2">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.page2.title}</h2>
             <p className="lede">{d.page2.body}</p>
           </div>
-          <CarfaxTour d={d} page={d.page2} src="/carfax-p2.png" rects={PAGE2} />
+          <CarfaxPage d={d} page={d.page2} src="/carfax-p2.png" rects={PAGE2} />
         </div>
       </section>
 
       <section id="buyers-guide">
         <div className="wrap">
-          <div className="center">
+          <div className="intro">
             <h2 className="h2">{d.guide.title}</h2>
             <p className="lede">{d.guide.body}</p>
           </div>
@@ -135,7 +128,7 @@ export default async function DocumentsPage({
               ))}
             </div>
           </div>
-          <div className="grid3 key3 mt56">
+          <div className="grid3 key3 mt48">
             {d.guide.keys.map((k) => (
               <div className="card" key={k.title}>
                 <h4>{k.kicker}</h4>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { HomePageDict } from "@/lib/i18n/dictionary";
-import { PhoneNotifications } from "./PhoneNotifications";
 import { Rich } from "../shared/Rich";
 
 export function PublicKnowledge({
@@ -15,8 +14,8 @@ export function PublicKnowledge({
   return (
     <section>
       <div className="wrap what">
+        <h2 className="h2">{dict.title}</h2>
         <div>
-          <h2 className="h2">{dict.title}</h2>
           <p className="lede">
             <Rich text={dict.body} />
           </p>
@@ -29,7 +28,6 @@ export function PublicKnowledge({
             </Link>
           </div>
         </div>
-        <PhoneNotifications dict={dict} />
       </div>
     </section>
   );
