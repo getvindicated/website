@@ -1,6 +1,6 @@
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { CtaBand } from "@/components/sections/shared/CtaBand";
-import { PhotoGrid } from "@/components/sections/about/PhotoGrid";
+import { CtaBand, PeopleArt } from "@/components/sections/shared/CtaBand";
+import { ZoomSlideshow } from "@/components/sections/about/ZoomSlideshow";
 import { MissionPillars } from "@/components/sections/about/MissionPillars";
 import { FounderStory } from "@/components/sections/about/FounderStory";
 import { FounderVideo } from "@/components/sections/about/FounderVideo";
@@ -31,12 +31,21 @@ export default async function AboutPage({
 
   return (
     <div className="rd rd-page">
-      <PageHero title={dict.hero.title} body={dict.hero.body} />
-      <PhotoGrid dict={dict.photos} />
+      <PageHero
+        className="a-hero"
+        centered
+        title={dict.hero.title}
+        body={dict.hero.body}
+      >
+        <div className="scroll-cue" aria-hidden="true">
+          <span />
+        </div>
+      </PageHero>
+      <ZoomSlideshow dict={dict.zoom} />
       <MissionPillars dict={dict.mission} />
+      <AiScams dict={dict.ai} rightsHref={href("/fraud#law")} />
       <FounderStory dict={dict.story} />
       <FounderVideo dict={dict.video} />
-      <AiScams dict={dict.ai} rightsHref={href("/fraud#law")} />
       <QuoteBand text={dict.quote.text} cite={dict.quote.cite} />
       <WhatWeProvide dict={dict.provide} projectsHref={href("/research")} />
       <CtaBand
@@ -44,6 +53,7 @@ export default async function AboutPage({
         body={dict.cta.body}
         primary={{ label: dict.cta.primary, href: href("/join") }}
         secondary={{ label: dict.cta.secondary, href: href("/team") }}
+        art={<PeopleArt />}
       />
     </div>
   );
