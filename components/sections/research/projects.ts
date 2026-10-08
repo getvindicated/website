@@ -15,41 +15,38 @@ export type RoleKey =
 export type ProjectMeta = {
   chapter?: ChapterKey;
   role: RoleKey;
-  // Seats shown as dots: `filled` guaranteed, `range` more possible, out of 10.
-  filled: number;
-  range: number;
 };
 
 export const TRACKS: { key: TrackKey; projects: ProjectMeta[] }[] = [
   {
     key: "app",
     projects: [
-      { role: "software", filled: 2, range: 2 },
-      { role: "software", filled: 2, range: 2 },
+      { role: "software" },
+      { role: "software" },
     ],
   },
   {
     key: "data",
     projects: [
-      { role: "data", filled: 5, range: 0 },
-      { chapter: "berkeley", role: "data", filled: 5, range: 0 },
-      { chapter: "berkeley", role: "data", filled: 5, range: 0 },
+      { role: "data" },
+      { chapter: "berkeley", role: "data" },
+      { chapter: "berkeley", role: "data" },
     ],
   },
   {
     key: "research",
     projects: [
-      { chapter: "ucla", role: "research", filled: 4, range: 2 },
-      { chapter: "ucla", role: "research", filled: 4, range: 2 },
-      { chapter: "ucla", role: "legal", filled: 6, range: 4 },
+      { chapter: "ucla", role: "research" },
+      { chapter: "ucla", role: "research" },
+      { chapter: "ucla", role: "legal" },
     ],
   },
   {
     key: "outreach",
     projects: [
-      { role: "design", filled: 2, range: 1 },
-      { role: "outreach", filled: 2, range: 1 },
-      { role: "outreach", filled: 3, range: 2 },
+      { role: "design" },
+      { role: "outreach" },
+      { role: "outreach" },
     ],
   },
 ];

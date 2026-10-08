@@ -1,18 +1,7 @@
 /*
- * Next.js-specific adjustments on top of the generated app/redesign.css.
- * Keep prototype styles in redesign.css (regenerate it with
- * scripts/scope-prototype-css.py) and put anything hand-written here.
- * Note: border-radius values in redesign.css were switched to the
- * --radius-* variables below by hand; redo that after regenerating.
+ * Next.js-specific adjustments and the plain layouts added after the
+ * prototype. Base styles live in app/redesign.css.
  */
-
-/* Corner radii shared by every redesigned page. True circles (dots,
-   pins, play buttons, step numbers) keep 50%. */
-.rd {
-  --radius-card: 6px;
-  --radius-btn: 6px;
-  --radius-tag: 4px;
-}
 
 /* globals.css gives legacy headings Lora; the redesign uses one family. */
 .rd h1,
@@ -43,7 +32,6 @@
 /* ---------- Header ---------- */
 .rd-hdr {
   z-index: 100;
-  -webkit-backdrop-filter: blur(12px);
 }
 .rd-hdr .nav {
   gap: 16px;
@@ -66,12 +54,11 @@
   color: var(--ink);
   background: transparent;
   border: 1px solid var(--line);
-  border-radius: var(--radius-btn);
   padding: 8px 14px;
   cursor: pointer;
 }
 .rd-hdr .lang > button:hover {
-  background: var(--tint);
+  border-color: var(--purple);
 }
 .rd-hdr .lang ul {
   position: absolute;
@@ -82,8 +69,6 @@
   padding: 8px;
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  box-shadow: 0 20px 40px -20px rgba(42, 15, 49, 0.3);
   z-index: 5;
 }
 [dir="rtl"] .rd-hdr .lang ul {
@@ -99,14 +84,14 @@
   color: var(--ink);
   background: none;
   border: 0;
-  border-radius: var(--radius-btn);
   padding: 9px 12px;
   cursor: pointer;
 }
 .rd-hdr .lang li button:hover,
 .rd-hdr .lang li button[aria-selected="true"] {
-  background: var(--tint);
   color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .rd-hdr .lang li button[aria-selected="true"] {
   font-weight: 700;
@@ -138,7 +123,6 @@
     display: flex;
     position: static;
     border: 0;
-    box-shadow: none;
     padding: 0 0 6px 14px;
     min-width: 0;
   }
@@ -146,34 +130,240 @@
     margin: 10px 0 0;
   }
 }
+[dir="rtl"] .rd-hdr .drop {
+  left: auto;
+  right: 0;
+}
+
+/* ---------- Shared ---------- */
+/* Section intros sit on the left, above whatever follows. */
+.rd .intro {
+  max-width: 760px;
+}
+.rd .intro .lede {
+  margin-top: 16px;
+}
+/* A single left-aligned reading column. */
+.rd .prose > * {
+  max-width: 840px;
+}
+.rd .prose > .lede {
+  margin-top: 16px;
+}
+.rd .split-head {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: start;
+}
+.rd .split-head .lede {
+  margin-top: 16px;
+}
+@media (max-width: 860px) {
+  .rd .split-head {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+.rd .inline-link {
+  color: var(--purple);
+  font-weight: 700;
+}
+.rd .inline-link:hover {
+  text-decoration: underline;
+}
+/* A small text label above a heading, such as a law's name. */
+.rd .label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin: 0 0 8px;
+}
+.rd .label.red {
+  color: var(--red);
+}
+/* Severity labels keep their color as a small square chip. */
+.rd .tag[class*="sev-"] {
+  padding: 3px 8px;
+}
+.rd .link-card {
+  display: block;
+  transition: border-color 0.2s;
+}
+.rd .link-card:hover {
+  border-color: var(--purple);
+}
+.rd .link-card:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.rd .link-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.rd .link-card p {
+  line-height: 1.7;
+}
+/* Numbered steps: the number in the margin, then a heading and a line. */
+.rd .num-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+  counter-reset: n;
+}
+.rd .num-list li {
+  counter-increment: n;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .num-list li::before {
+  content: counter(n);
+  grid-row: span 2;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--purple);
+}
+.rd .num-list h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+.rd .num-list p {
+  margin-top: 6px;
+  line-height: 1.7;
+}
+.rd .prose .alert {
+  margin-top: 28px;
+}
+/* Closing call to action: heading, a line of text, a button. */
+.rd .cta .lede {
+  margin: 14px 0 28px;
+}
+.rd .quote blockquote {
+  margin: 0;
+}
+.rd .quote {
+  margin: 0;
+  max-width: 880px;
+  border-left: 4px solid var(--purple);
+  padding-left: 28px;
+}
+.rd .quote p {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.rd .quote cite {
+  display: block;
+  margin-top: 14px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+[dir="rtl"] .rd .quote {
+  border-left: 0;
+  border-right: 4px solid var(--purple);
+  padding-left: 0;
+  padding-right: 28px;
+}
 
 /* ---------- Home ---------- */
-.rd .hero-photo img {
-  height: auto;
+.rd .hero-photo figcaption {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--purple-deep);
 }
 .rd .strip h2 {
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0;
 }
 .rd .sources {
   list-style: none;
   padding: 0;
 }
+.rd .what .lede {
+  margin: 0 0 28px;
+}
+@media (max-width: 960px) {
+  .rd .what {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+/* Unruh Act quote under the stats heading. */
+.rd .footing-law {
+  max-width: 760px;
+  margin: 18px 0 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--line);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.rd .footing-law blockquote {
+  margin: 0;
+  font-style: italic;
+}
+.rd .footing-law cite {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--purple-deep);
+}
+.rd .stats {
+  list-style: none;
+  padding: 0;
+  margin-top: 48px;
+}
+.rd .stats li {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .stats h3 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+.rd .stats p {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 720px;
+}
+.rd .stats cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--purple-deep);
+}
+@media (max-width: 760px) {
+  .rd .stats li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
 .rd .pir-tags {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
-.rd .pir-tags li {
-  background: var(--tint);
-  border-radius: var(--radius-tag);
-  padding: 6px 12px;
-  font-weight: 700;
-  font-size: 0.92rem;
-  line-height: 1.3;
+.rd .pir-tags li.bad {
+  color: var(--red);
 }
-.rd .pv .h2 {
-  margin-top: 14px;
+.rd .pir-tags li.loc {
+  color: var(--purple);
 }
 .rd .pv .lede {
   margin-top: 16px;
@@ -185,85 +375,191 @@
   width: auto;
   height: auto;
 }
-.rd .aisteps {
+.rd .campus-grid {
+  margin-top: 48px;
+}
+.rd .campus-body h3 {
+  line-height: 1.3;
+}
+.rd .campus:hover .campus-go {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.rd .follow-list {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
 }
-.rd .ai-tips .ctas {
-  margin-top: 28px;
+.rd .follow-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .follow-list span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+.rd .follow-list b {
+  font-size: 1.1rem;
+}
+.rd .follow-list a:hover b {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 560px) {
+  .rd .follow-list {
+    grid-template-columns: 1fr;
+  }
+}
+.rd .tabs {
+  margin-top: 36px;
+}
+.rd .story-body p {
+  font-size: 1.05rem;
+}
+.rd .story-body .btn {
+  margin-top: 6px;
 }
 .rd .checks svg {
   width: 22px;
   height: 22px;
 }
-.rd .pcard {
-  display: block;
-  text-align: start;
-}
-.rd .pcard-line {
-  border: 1px solid var(--line);
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
-.rd .pcard-line:hover {
-  border-color: var(--purple);
-  box-shadow: 0 24px 48px -28px rgba(94, 26, 107, 0.45);
-}
-.rd .story-body .btn {
-  margin-top: 6px;
-}
-.rd .rotator span {
-  transition:
-    opacity 0.35s,
-    transform 0.35s;
-}
-
-/* ---------- Right-to-left locales ---------- */
-[dir="rtl"] .rd .campus-go svg,
-[dir="rtl"] .rd .arrow-flip {
-  transform: scaleX(-1);
-}
-[dir="rtl"] .rd .campus:hover .campus-go svg {
-  transform: scaleX(-1) translateX(4px);
-}
-[dir="rtl"] .rd .soc-go {
-  right: auto;
-  left: 20px;
-}
-
-/* ---------- Shared ---------- */
-.rd .inline-link {
-  color: var(--purple);
-  font-weight: 700;
-}
-.rd .inline-link:hover {
-  text-decoration: underline;
+.rd .offer h4 {
+  font-size: 1.05rem;
 }
 
 /* ---------- About ---------- */
-.rd .a-hero p {
-  margin-left: auto;
-  margin-right: auto;
+.rd .photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 24px;
+  margin-top: 40px;
+}
+.rd .photo-grid figure {
+  margin: 0;
+}
+.rd .photo-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
+.rd .photo-grid figcaption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+@media (max-width: 640px) {
+  .rd .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.rd .pillar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.rd .pillar p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.rd .strike {
+  margin-top: 40px;
+}
+.rd .strike h3 {
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+.rd .strike-n {
+  color: var(--purple);
+  margin-right: 6px;
+}
+.rd .strike-meta {
+  margin: 4px 0 10px;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+.rd .strike p:last-child {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+.rd .pull {
+  margin: 44px 0 0;
 }
 .rd .fv-section {
   padding-top: 88px;
 }
-.rd .pull {
-  margin-inline: 0;
+.rd .ai {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: start;
 }
-.rd figure.quote-band {
-  margin: 0;
+.rd .ai .lede {
+  margin-top: 16px;
 }
-.rd .quote-band blockquote {
+.rd .ai-side {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.rd .ai-save h3 {
+  font-size: 1.4rem;
+  margin: 10px 0 8px;
+}
+.rd .ai-save p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.rd .ai-tips h3 {
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+.rd .ai-tips .ctas {
+  margin-top: 24px;
+}
+@media (max-width: 900px) {
+  .rd .ai {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.rd .def-list {
   margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+}
+.rd .def-list div {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .def-list dt {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.rd .def-list dd {
+  margin: 4px 0 0;
+  line-height: 1.7;
+}
+@media (max-width: 560px) {
+  .rd .def-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Team ---------- */
 /* The campus filter toggles are buttons with aria-pressed, not tabs. */
 .rd .tabs button[aria-pressed="true"] {
-  background: var(--purple);
-  color: #fff;
+  color: var(--purple);
+  border-bottom-color: var(--purple);
 }
 .rd .avatar-img {
   width: 96px;
@@ -277,25 +573,21 @@
 }
 
 /* ---------- Projects ---------- */
-.rd .chips-sm {
-  list-style: none;
-  padding: 0;
+.rd section .intro + .projects {
+  margin-top: 40px;
 }
-.rd .chips-sm li {
-  background: var(--tint);
-  color: var(--ink);
-  border-radius: var(--radius-tag);
-  padding: 4px 12px;
+.rd .proj-chapter {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--purple-deep);
 }
-.rd .pir-tags li.bad {
-  background: #fbe1df;
-  color: #7a1a14;
+.rd .proj-meta dt {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple-deep);
 }
-.rd .pir-tags li.loc {
-  background: var(--purple);
-  color: #fff;
+.rd .proj-meta dd {
+  margin: 2px 0 0;
 }
 .rd .pir-note {
   text-align: start;
@@ -323,7 +615,6 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border-radius: var(--radius-card);
 }
 .rd .insp-zoom img {
   height: 100%;
@@ -331,7 +622,6 @@
 @media (max-width: 900px) {
   .rd .insp-frame {
     background: none;
-    box-shadow: none;
   }
   .rd .insp-frame::before {
     display: none;
@@ -340,9 +630,7 @@
     position: relative;
     inset: auto;
     aspect-ratio: 3/2;
-    border-radius: var(--radius-card);
     background: #e9e9ee;
-    box-shadow: 0 30px 60px -30px rgba(42, 15, 49, 0.45);
   }
   .rd .insp-zoom,
   .rd .insp-hots {
@@ -354,12 +642,6 @@
 .rd .notlist b {
   display: block;
 }
-.rd .where-rec {
-  border: 2px solid var(--purple);
-}
-.rd .where-rec .tag {
-  margin-bottom: 12px;
-}
 .rd .dealers-title {
   font-size: 1.5rem;
 }
@@ -369,9 +651,6 @@
 .rd .acc-outro {
   margin-top: 12px;
 }
-.rd .quote-pad section {
-  padding-top: 88px;
-}
 .rd .mt18 {
   margin-top: 18px;
 }
@@ -379,23 +658,103 @@
   font-size: 1.25rem;
 }
 
+/* ---------- Annotated document images (Fraud, Documents) ---------- */
+.rd .annot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+  align-items: start;
+}
+.rd .annot-img {
+  position: relative;
+  border: 1px solid var(--line);
+}
+.rd .annot-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rd .annot-box {
+  position: absolute;
+  border: 2px solid var(--purple);
+}
+.rd .annot-box.red {
+  border-color: var(--red);
+}
+.rd .annot-box .annot-n {
+  position: absolute;
+  top: -2px;
+  left: -26px;
+}
+.rd .annot-n {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--purple);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.rd .annot-n.red,
+.rd .annot-box.red .annot-n {
+  background: var(--red);
+}
+.rd .annot-intro {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.rd .annot-list {
+  list-style: none;
+  padding: 0;
+}
+.rd .annot-list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .annot-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.rd .annot-list h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 6px 0 8px;
+}
+.rd .annot-list p {
+  line-height: 1.7;
+}
+@media (max-width: 900px) {
+  .rd .annot {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .rd .annot-img {
+    margin-left: 26px;
+  }
+}
+
 /* ---------- Fraud ---------- */
 .rd .fs-cell b,
 .rd .fs-pay s {
   font-family: var(--font-caveat), "Caveat", "Segoe Print", cursive;
 }
-.rd .nw h3,
-.rd .nw-dek {
-  font-family: var(--font-bitter), "Bitter", Georgia, serif;
-}
-.rd .flip {
-  display: block;
-  width: 100%;
-  text-align: start;
-}
-.rd .bro .h2,
 .rd .bro .lede {
   margin-top: 14px;
+}
+@media (max-width: 760px) {
+  .rd .bro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .rd .bro-cover {
+    max-width: 240px;
+  }
 }
 .rd .fs .ctas,
 .rd .fs .say {
@@ -406,6 +765,50 @@
 }
 .rd .apr-bar-key .k2.red {
   background: var(--red);
+}
+.rd .law-notice {
+  margin: 0 0 20px;
+}
+.rd .flag-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+.rd .flag-list > li {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .flag-list h3 {
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+.rd .flag-list dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 28px;
+}
+.rd .flag-list dt {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 6px;
+}
+.rd .flag-list dd {
+  margin: 0;
+  line-height: 1.7;
+}
+.rd .flag-list dd p + p {
+  margin-top: 10px;
+}
+.rd .flag-list q {
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  .rd .flag-list dl {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 @media (max-width: 760px) {
   /* Put the contract card above the scene so the day badge can't cover it. */
@@ -422,21 +825,6 @@
     font-size: 0.8rem;
     padding: 4px 12px;
     white-space: nowrap;
-  }
-}
-@media (max-width: 560px) {
-  /* The hidden-term strip wraps to two lines here; give it room. */
-  .rd .fs-paper-wrap {
-    padding-bottom: 96px;
-  }
-  .rd .fs-hidden {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    transform: translateY(-96px);
-  }
-  .rd .fs-hidden.out {
-    transform: none;
   }
 }
 
@@ -457,17 +845,16 @@
 }
 
 /* ---------- Get Involved ---------- */
-.rd .apply-wrap {
-  max-width: 900px;
+.rd .apply-wrap > * {
+  max-width: 836px;
 }
 .rd ul.roles {
   list-style: none;
   padding: 0;
 }
 .rd .roles li {
-  background: var(--bg);
-  border-radius: var(--radius-card);
-  padding: 22px;
+  border-top: 1px solid var(--line);
+  padding: 16px 0;
 }
 .rd .roles li b {
   display: block;
@@ -496,56 +883,11 @@
 }
 
 /* ---------- Dealer Map ---------- */
-.rd .nw-img img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.rd .news-note {
-  margin-top: 22px;
-}
-.rd .vd-launch:focus-visible {
-  outline: 3px solid var(--purple);
-  outline-offset: 4px;
-}
-[dir="rtl"] .rd-hdr .drop {
-  left: auto;
-  right: 0;
-}
-.rd .law-notice {
-  margin: 0 0 20px;
-}
-
-/* Unruh Act quote under the Home stats heading. */
-.rd .footing-law {
-  max-width: 760px;
-  margin: 18px auto 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  text-align: center;
-}
-.rd .footing-law blockquote {
-  margin: 0;
-  font-style: italic;
-}
-.rd .footing-law cite {
-  display: block;
-  margin-top: 6px;
-  font-style: normal;
-  font-weight: 700;
-  color: #5e1a6b;
-}
-
-/* ---------- Dealer Map ---------- */
-/* Short disclaimer gate: same card as the prototype's VINdisclaimer, smaller. */
 .rd .vd-short {
   max-width: 680px;
-  margin: 0 auto;
 }
 .rd .vd-short .vd-title {
   font-size: clamp(1.9rem, 4vw, 2.6rem);
-  letter-spacing: -0.03em;
 }
 .rd .vd-short .vd-lede {
   font-size: 1.05rem;
@@ -579,9 +921,7 @@
   width: 100%;
   height: min(78vh, 760px);
   min-height: 520px;
-  border: 4px solid var(--ink);
-  border-radius: var(--radius-card);
-  box-shadow: 10px 10px 0 var(--purple);
+  border: 1px solid var(--line);
   background: #e9e9ee;
 }
 .rd .map-embed-links {
@@ -602,10 +942,41 @@
   .rd .map-embed iframe {
     height: 78vh;
     min-height: 480px;
-    border-width: 3px;
-    border-radius: var(--radius-card);
-    box-shadow: 6px 6px 0 var(--purple);
   }
+}
+.rd .news-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+}
+.rd .news-list li {
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+.rd .news-list h3 {
+  font-size: 1.3rem;
+  line-height: 1.35;
+}
+.rd .news-list h3 a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.rd .news-list h3 a:hover {
+  color: var(--purple);
+  text-decoration-color: currentColor;
+}
+.rd .news-list p {
+  line-height: 1.7;
+}
+.rd .news-list .news-by {
+  margin: 6px 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+.rd .news-list p + p {
+  margin-top: 8px;
 }
 
 /* Methods page: plain, text-first. */
@@ -630,7 +1001,6 @@
 }
 .rd .methods h2 {
   font-size: 1.5rem;
-  letter-spacing: -0.02em;
   margin-bottom: 12px;
 }
 .rd .methods p,
@@ -669,12 +1039,11 @@
   gap: 12px;
 }
 .rd .methods-tiers div {
-  background: var(--tint);
-  border-radius: var(--radius-card);
-  padding: 14px 18px;
+  border-left: 3px solid var(--line);
+  padding: 4px 0 4px 16px;
 }
 .rd .methods-tiers dt {
-  font-weight: 800;
+  font-weight: 700;
 }
 .rd .methods-tiers dd {
   margin: 2px 0 0;
@@ -692,4 +1061,116 @@
 }
 .rd .methods-back-end {
   margin-top: 48px;
+}
+
+/* Slight corner radius on the flat design: boxes and buttons get 3px,
+   small tags 2px. Circles (dots, pins, play buttons) keep 50%. */
+.rd {
+  --radius-card: 3px;
+  --radius-btn: 3px;
+  --radius-tag: 2px;
+}
+.rd .card,
+.rd .cta,
+.rd .say,
+.rd details,
+.rd .campus,
+.rd .proj,
+.rd .bro,
+.rd .bro-cover img,
+.rd .flagbox,
+.rd .form-ok,
+.rd .plan-card,
+.rd .roles div,
+.rd .roles li,
+.rd .methods-tiers div,
+.rd .map-embed iframe,
+.rd .hero-photo img,
+.rd .bg-img,
+.rd .avatar,
+.rd .avatar-img,
+.rd .avatar-play,
+.rd .story-meta,
+.rd .fv-player,
+.rd .vbox-in,
+.rd .drop,
+.rd-hdr .lang ul,
+.rd .apr-controls,
+.rd .apr-results,
+.rd .apr-verdict,
+.rd .fs-chat,
+.rd .fs-total,
+.rd .yy-contract,
+.rd .insp-card,
+.rd .insp-done,
+.rd .insp-frame,
+.rd .insp-view,
+.rd .pir,
+.rd .pir-cmp div,
+.rd .pir-photo,
+.rd .pir-score,
+.rd .pir-start,
+.rd .pv-card,
+.rd .pv-photo,
+.rd .vd {
+  border-radius: var(--radius-card);
+}
+.rd .btn,
+.rd .watch,
+.rd .vd-go,
+.rd .drop a,
+.rd .links > li > a,
+.rd .track-nav a,
+.rd .fld input,
+.rd .fld select,
+.rd .fld textarea,
+.rd .tabs,
+.rd .tabs button,
+.rd .seg,
+.rd .seg button,
+.rd .stepper,
+.rd .insp-chips button,
+.rd .pv-opts button,
+.rd .rc-lines button,
+.rd .rc-lines li,
+.rd #pirState,
+.rd-hdr .lang > button,
+.rd-hdr .lang li button {
+  border-radius: var(--radius-btn);
+}
+.rd .tag,
+.rd .bro-soon,
+.rd .fv-len,
+.rd .tl-now,
+.rd .track-nav a b,
+.rd .yy-day {
+  border-radius: var(--radius-tag);
+}
+
+/* Home: pre-purchase inspection explainer. */
+.rd .ppi .offer {
+  margin-bottom: 32px;
+}
+.rd .ppi .offer h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+.rd .ppi-rule {
+  grid-column: 1 / -1;
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+.rd .ppi-sub {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.2;
+}
+
+/* About: tighten the quote → "What we provide" → closing CTA run. */
+.rd #provide {
+  padding-top: 0;
+  padding-bottom: 64px;
+}
+.rd #provide + .cta {
+  padding-top: 64px;
 }

@@ -3,7 +3,7 @@ import { CheckIcon } from "../shared/icons";
 
 export function FreeResources({ dict }: { dict: HomePageDict["free"] }) {
   return (
-    <section className="band" id="free">
+    <section id="free">
       <div className="wrap plan">
         <div>
           <h2 className="h2">{dict.title}</h2>

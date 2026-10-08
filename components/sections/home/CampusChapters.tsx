@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { HomePageDict } from "@/lib/i18n/dictionary";
-import { ArrowRightIcon } from "../shared/icons";
 
-// Arched frames echo the arches of Royce Hall and the Campanile.
 const CAMPUSES = [
   {
     chapter: "ucla",
@@ -44,7 +42,7 @@ export function CampusChapters({
   return (
     <section className="pt0" id="chapters-home">
       <div className="wrap">
-        <div className="center">
+        <div className="intro">
           <h2 className="h2">{dict.title}</h2>
           <p className="lede">{dict.body}</p>
         </div>
@@ -71,7 +69,7 @@ export function CampusChapters({
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
                   <span className="campus-go">
-                    {item.cta} <ArrowRightIcon />
+                    {item.cta}
                   </span>
                 </div>
               </Link>

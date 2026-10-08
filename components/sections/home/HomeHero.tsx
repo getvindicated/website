@@ -74,6 +74,7 @@ export function HomeHero({
             sizes="(max-width: 960px) calc(100vw - 40px), 600px"
             preload
           />
+          <figcaption>{dict.caption}</figcaption>
         </figure>
       </div>
     </section>

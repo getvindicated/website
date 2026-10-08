@@ -60,18 +60,22 @@ export type HomePageDict = {
 		ctaPrimary: string;
 		ctaSecondary: string;
 		photoAlt: string;
+		caption: string;
 	};
 	sources: { heading: string; items: string[] };
 	publicKnowledge: {
 		title: string;
 		// Rich text: plain strings plus { b } for the bold phrase.
 		body: RichText;
-		ctaPrimary: string;
-		ctaSecondary: string;
-		phoneLabel: string;
-		clock: string;
-		appName: string;
-		notifs: { time: string; body: string }[];
+		cta: string;
+	};
+	footing: {
+		title: string;
+		// Unruh Civil Rights Act excerpt shown under the heading.
+		quote: string;
+		quoteCite: string;
+		body: string;
+		rows: { stat: string; title: string; body: string; cite: string }[];
 	};
 	chapters: {
 		title: string;
@@ -84,6 +88,15 @@ export type HomePageDict = {
 		links: { platform: string; handle: string }[];
 	};
 	pillars: { title: string; body: string; items: TitleBody[] };
+	strikes: {
+		title: string;
+		body: string;
+		tabsLabel: string;
+		// "{n}" is replaced with the strike number.
+		tab: string;
+		items: { n: string; title: string; meta: string; paras: string[] }[];
+		readMore: string;
+	};
 	free: {
 		title: string;
 		body: string;
@@ -92,7 +105,15 @@ export type HomePageDict = {
 		checks: string[];
 		offers: TitleBody[];
 	};
-	cta: { title: string; body: string; primary: string; secondary: string };
+	// Pre-purchase inspection explainer near the top of the home page.
+	ppi: {
+		title: string;
+		// Rich text: plain strings plus { b } for the bold phrase.
+		body: RichText;
+		items: TitleBody[];
+		primary: string;
+		secondary: string;
+	};
 };
 
 export type AboutTextSegment = { text: string; bold?: boolean };

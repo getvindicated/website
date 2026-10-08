@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FraudPageDict } from "@/lib/i18n/dictionary";
-import { usePrefersReducedMotion } from "../shared/usePrefersReducedMotion";
 import { formatMoney } from "./money";
 
 type Dict = FraudPageDict["fourSquare"];
@@ -18,72 +17,23 @@ const BAR_MAX = 26000;
 const WHO = ["them", "me", "them", "me", "them", "flagchip"] as const;
 
 export function FourSquare({ dict, locale }: { dict: Dict; locale: string }) {
-  const reduce = usePrefersReducedMotion();
   const [step, setStep] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
   const [shown, setShown] = useState(1);
-  const [bump, setBump] = useState(0);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const rootRef = useRef<HTMLDivElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
-  const stepRef = useRef(0);
-  stepRef.current = step;
   const money = (n: number) => formatMoney(n, locale);
   const last = STEPS.length - 1;
 
-  const clear = () => {
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-  };
-
+  // Each ask adds the buyer's line and the dealer's answer to the chat.
   const ask = () => {
-    const s = stepRef.current;
-    if (s >= last) return;
-    setShown((v) => v + 1);
-    timers.current.push(
-      setTimeout(() => {
-        setPrev(s);
-        setStep(s + 1);
-        setShown((v) => (s + 1 === last ? dict.lines.length : v + 1));
-        setBump((b) => b + 1);
-      }, reduce ? 0 : 700),
-    );
-  };
-
-  const autoplay = () => {
-    if (reduce) return;
-    timers.current.push(setTimeout(ask, 1200));
-    timers.current.push(setTimeout(ask, 3400));
+    if (step >= last) return;
+    setStep(step + 1);
+    setShown(step + 1 === last ? dict.lines.length : shown + 2);
   };
 
   const reset = () => {
-    clear();
-    stepRef.current = 0;
     setStep(0);
-    setPrev(null);
     setShown(1);
   };
-
-  // Play once when it first scrolls into view.
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (es) => {
-        if (es.some((e) => e.isIntersecting)) {
-          io.disconnect();
-          autoplay();
-        }
-      },
-      { threshold: 0.5 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      clear();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const c = chatRef.current;
@@ -92,7 +42,7 @@ export function FourSquare({ dict, locale }: { dict: Dict; locale: string }) {
 
   const st = STEPS[step];
   return (
-    <div className="fs mt56" ref={rootRef}>
+    <div className="fs mt48">
       <div className="fs-paper-wrap">
         <div className="fs-paper" role="group" aria-label={dict.sheetLabel}>
           <div className="fs-cell">
@@ -109,15 +59,11 @@ export function FourSquare({ dict, locale }: { dict: Dict; locale: string }) {
           </div>
           <div className="fs-cell fs-pay">
             <span>{dict.monthly}</span>
-            <b key={`p${bump}`} className={prev !== null ? "pop" : undefined}>
-              {money(st.pay)}
-            </b>
-            <s key={`o${bump}`} className={prev !== null ? "go" : undefined}>
-              {prev !== null ? money(STEPS[prev].pay) : ""}
-            </s>
+            <b>{money(st.pay)}</b>
+            {step > 0 && <s>{money(STEPS[step - 1].pay)}</s>}
           </div>
         </div>
-        <div key={`t${bump}`} className={`fs-hidden${step > 0 ? " out bump" : ""}`}>
+        <div className="fs-hidden" hidden={step === 0}>
           <span>{dict.hidden}</span>
           <b>{dict.months.replace("{n}", String(st.n))}</b>
         </div>
@@ -156,20 +102,14 @@ export function FourSquare({ dict, locale }: { dict: Dict; locale: string }) {
             id="fsAsk"
             className="btn btn-solid"
             disabled={step >= last}
-            onClick={() => {
-              clear();
-              ask();
-            }}
+            onClick={ask}
           >
             {dict.ask}
           </button>
           <button
             type="button"
             className="btn btn-line"
-            onClick={() => {
-              reset();
-              autoplay();
-            }}
+            onClick={reset}
           >
             {dict.replay}
           </button>
