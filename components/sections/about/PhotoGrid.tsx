@@ -27,7 +27,6 @@ export function PhotoGrid({ dict }: { dict: AboutPageDict["photos"] }) {
                 height={p.height}
                 sizes="(max-width: 760px) calc(100vw - 40px), 560px"
               />
-              <figcaption>{dict.items[i].caption}</figcaption>
             </figure>
           ))}
         </div>

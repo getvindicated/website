@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { ZoomSlideshow } from "@/components/sections/about/ZoomSlideshow";
 import { PhotoGrid } from "@/components/sections/about/PhotoGrid";
 import { MissionPillars } from "@/components/sections/about/MissionPillars";
 import { FounderStory } from "@/components/sections/about/FounderStory";
@@ -31,7 +32,17 @@ export default async function AboutPage({
 
   return (
     <div className="rd rd-page">
-      <PageHero title={dict.hero.title} body={dict.hero.body} />
+      <PageHero
+        className="a-hero"
+        centered
+        title={dict.hero.title}
+        body={dict.hero.body}
+      >
+        <div className="scroll-cue" aria-hidden="true">
+          <span />
+        </div>
+      </PageHero>
+      <ZoomSlideshow dict={dict.zoom} />
       <PhotoGrid dict={dict.photos} />
       <MissionPillars dict={dict.mission} />
       <FounderStory dict={dict.story} />

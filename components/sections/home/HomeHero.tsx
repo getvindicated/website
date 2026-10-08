@@ -6,8 +6,11 @@ import Link from "next/link";
 import type { HomePageDict } from "@/lib/i18n/dictionary";
 import { usePrefersReducedMotion } from "../shared/usePrefersReducedMotion";
 
-const ROTATE_MS = 2600;
-const FADE_MS = 350;
+// Typewriter timings (ms).
+const TYPE_MS = 70;
+const ERASE_MS = 35;
+const HOLD_MS = 1600;
+const GAP_MS = 300;
 
 export function HomeHero({
   dict,
@@ -19,27 +22,47 @@ export function HomeHero({
   storyHref: string;
 }) {
   const reduce = usePrefersReducedMotion();
-  const [index, setIndex] = useState(0);
-  const [out, setOut] = useState(false);
-  const count = dict.phrases.length;
+  const phrases = dict.phrases;
+  const [text, setText] = useState("");
+  const [busy, setBusy] = useState(true);
 
+  // Type a phrase, hold it, erase it, then move to the next one.
   useEffect(() => {
-    if (reduce || count < 2) return;
-    let fade: ReturnType<typeof setTimeout>;
-    const tick = setInterval(() => {
-      setOut(true);
-      fade = setTimeout(() => {
-        setIndex((i) => (i + 1) % count);
-        setOut(false);
-      }, FADE_MS);
-    }, ROTATE_MS);
-    return () => {
-      clearInterval(tick);
-      clearTimeout(fade);
+    if (reduce || phrases.length === 0) return;
+    let timer: ReturnType<typeof setTimeout>;
+    let i = 0;
+    let n = 0;
+    let erasing = false;
+    const tick = () => {
+      const phrase = phrases[i];
+      if (!erasing) {
+        n += 1;
+        setText(phrase.slice(0, n));
+        if (n < phrase.length) {
+          setBusy(true);
+          timer = setTimeout(tick, TYPE_MS);
+        } else {
+          setBusy(false);
+          erasing = true;
+          timer = setTimeout(tick, HOLD_MS);
+        }
+      } else {
+        n -= 1;
+        setBusy(true);
+        setText(phrase.slice(0, n));
+        if (n > 0) {
+          timer = setTimeout(tick, ERASE_MS);
+        } else {
+          erasing = false;
+          i = (i + 1) % phrases.length;
+          setBusy(false);
+          timer = setTimeout(tick, GAP_MS);
+        }
+      }
     };
-  }, [reduce, count]);
-
-  const shown = reduce ? 0 : index;
+    timer = setTimeout(tick, GAP_MS);
+    return () => clearTimeout(timer);
+  }, [reduce, phrases]);
 
   return (
     <section className="hero">
@@ -50,9 +73,21 @@ export function HomeHero({
             {/* Screen readers get one stable heading; the rotating words are visual only. */}
             <span className="sr-only">{dict.phrases[0]}</span>
             <span className="rotator" aria-hidden="true">
-              <span className={out ? "out" : undefined}>
-                {dict.phrases[shown]}
+              {/* Every phrase, invisible and stacked, so the box is always as
+                  tall as the longest one and the page never jumps. */}
+              <span className="rot-sizer">
+                {phrases.map((p) => (
+                  <span key={p}>{p}</span>
+                ))}
               </span>
+              {reduce ? (
+                <span className="rot-text">{phrases[0]}</span>
+              ) : (
+                <span className="rot-text">
+                  {text}
+                  <i className={`rot-caret${busy ? " busy" : ""}`} />
+                </span>
+              )}
             </span>
           </h1>
           <p>{dict.body}</p>
@@ -74,7 +109,6 @@ export function HomeHero({
             sizes="(max-width: 960px) calc(100vw - 40px), 600px"
             preload
           />
-          <figcaption>{dict.caption}</figcaption>
         </figure>
       </div>
     </section>
