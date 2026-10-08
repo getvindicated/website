@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/sections/home/HomeHero";
-import { ResearchSources } from "@/components/sections/home/ResearchSources";
 import { PpiExplainer } from "@/components/sections/home/PpiExplainer";
 import { EqualFooting } from "@/components/sections/home/EqualFooting";
 import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
 import { Pillars } from "@/components/sections/home/Pillars";
-import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
 import { FreeResources } from "@/components/sections/home/FreeResources";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SHARE_IMAGE } from "@/lib/i18n/metadata";
@@ -66,7 +64,6 @@ export default async function HomePage({
   return (
     <div className="rd rd-page">
       <HomeHero dict={home.hero} ppiHref={ppi} storyHref={story} />
-      <ResearchSources dict={home.sources} />
       <PpiExplainer
         dict={home.ppi}
         knowledge={home.publicKnowledge}
@@ -78,7 +75,6 @@ export default async function HomePage({
       <CampusChapters dict={home.chapters} joinHref={href("/join")} />
       <FollowLinks dict={home.follow} />
       <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />
-      <FounderStrikes dict={home.strikes} storyHref={story} />
       <FreeResources dict={home.free} />
     </div>
   );

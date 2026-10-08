@@ -2,10 +2,13 @@ import type { HomePageDict } from "@/lib/i18n/dictionary";
 
 export function EqualFooting({ dict }: { dict: HomePageDict["footing"] }) {
   return (
-    <section className="band">
+    <section className="band footing">
       <div className="wrap">
-        <div className="intro">
-          <h2 className="h2">{dict.title}</h2>
+        <div className="footing-top">
+          <div>
+            <h2 className="h2">{dict.title}</h2>
+            <p className="lede">{dict.body}</p>
+          </div>
           <figure className="footing-law">
             <blockquote>
               <p>{dict.quote}</p>
@@ -14,17 +17,14 @@ export function EqualFooting({ dict }: { dict: HomePageDict["footing"] }) {
               <cite>{dict.quoteCite}</cite>
             </figcaption>
           </figure>
-          <p className="lede">{dict.body}</p>
         </div>
         <ul className="stats">
           {dict.rows.map((row) => (
             <li key={row.stat}>
               <div className="big">{row.stat}</div>
-              <div>
-                <h3>{row.title}</h3>
-                <p>{row.body}</p>
-                <cite>{row.cite}</cite>
-              </div>
+              <h3>{row.title}</h3>
+              <p>{row.body}</p>
+              <cite>{row.cite}</cite>
             </li>
           ))}
         </ul>
