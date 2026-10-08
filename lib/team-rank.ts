@@ -1,5 +1,6 @@
 // Founder > chapter directors > president > internal VP > VP > external VP
-// > leads > everyone else. Ties keep the order members were given in.
+// > strategists > leads > everyone else. Ties keep the order members were
+// given in.
 // Takes the member's *English* position -- callers must not pass a
 // translated string, since these regexes only match English text. Plain
 // module (no "use client") so both the server-rendered team page and the
@@ -11,6 +12,7 @@ export function positionRank(position: string): number {
 	if (/internal vice president/i.test(position)) return 3;
 	if (/external vice president/i.test(position)) return 5;
 	if (/vice president/i.test(position)) return 4;
+	if (/strategist/i.test(position)) return 5.5;
 	if (/\blead(s)?\b/i.test(position)) return 6;
 	return 7;
 }
