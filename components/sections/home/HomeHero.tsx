@@ -23,16 +23,17 @@ export function HomeHero({
 }) {
   const reduce = usePrefersReducedMotion();
   const phrases = dict.phrases;
-  const [text, setText] = useState("");
-  const [busy, setBusy] = useState(true);
+  // Start with the first phrase fully shown so the heading is never blank.
+  const [text, setText] = useState(phrases[0] ?? "");
+  const [busy, setBusy] = useState(false);
 
-  // Type a phrase, hold it, erase it, then move to the next one.
+  // Hold the phrase, erase it, then type the next one.
   useEffect(() => {
     if (reduce || phrases.length === 0) return;
     let timer: ReturnType<typeof setTimeout>;
     let i = 0;
-    let n = 0;
-    let erasing = false;
+    let n = phrases[0].length;
+    let erasing = true;
     const tick = () => {
       const phrase = phrases[i];
       if (!erasing) {
@@ -60,7 +61,7 @@ export function HomeHero({
         }
       }
     };
-    timer = setTimeout(tick, GAP_MS);
+    timer = setTimeout(tick, HOLD_MS);
     return () => clearTimeout(timer);
   }, [reduce, phrases]);
 
