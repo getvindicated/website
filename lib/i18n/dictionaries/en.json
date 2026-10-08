@@ -64,12 +64,12 @@
     "routes": {
       "home": {
         "title": "Educate. Empower. Vindicate.",
-        "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources.",
+        "description": "VINdicated is a free nonprofit that helps people buy cars without getting taken advantage of. Free guides, research, and know-your-rights resources.",
         "imageAlt": "VINdicated"
       },
       "about": {
         "title": "About Us",
-        "description": "VINdicated was founded by Rana Darwich after experiencing dealership discrimination firsthand. Learn about our mission to educate, empower, and vindicate car buyers.",
+        "description": "VINdicated was founded by Rana Darwich after she was discriminated against while buying a car. Read how it started and what we do.",
         "imageAlt": "VINdicated: About Us"
       },
       "team": {
@@ -114,7 +114,7 @@
       },
       "map": {
         "title": "Dealer Risk Map",
-        "description": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, from pressure tactics to surprise fees.",
+        "description": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, including pressure tactics and surprise fees.",
         "imageAlt": "VINdicated: Dealer Risk Map"
       },
       "mapMethods": {
@@ -184,7 +184,7 @@
     },
     "meta": {
       "title": "Educate. Empower. Vindicate.",
-      "description": "VINdicated is a free nonprofit helping car buyers navigate dealerships without being taken advantage of. Free guides, research, and know-your-rights resources."
+      "description": "VINdicated is a free nonprofit that helps people buy cars without getting taken advantage of. Free guides, research, and know-your-rights resources."
     }
   },
   "homePage": {
@@ -236,7 +236,7 @@
         {
           "stat": "$36,240",
           "title": "One buyer financed a truck that didn't exist.",
-          "body": "A careful buyer found a fairly priced truck on Facebook Marketplace, from what looked like a real Texas dealer. The paperwork, the bank approval, even a live delivery tracker all checked out. The dealer was an AI-assisted clone, and the truck was never real.",
+          "body": "A careful buyer found a fairly priced truck on Facebook Marketplace, listed by what looked like a real Texas dealer. The paperwork and the bank approval checked out, and a tracker showed the truck on its way. The dealer was a fake copy of a real one, made with AI tools, and the truck didn't exist.",
           "cite": "The Drive, September 2026"
         },
         {
@@ -268,7 +268,7 @@
         {
           "tag": "UC Santa Cruz",
           "title": "Go to the Quarry Amphitheater",
-          "body": "Brings a technical lens to consumer protection, focused on algorithmic discrimination and AI bias in auto retail.",
+          "body": "Works on the technical side of consumer protection, studying algorithmic discrimination and AI bias in car sales.",
           "cta": "Join UCSC",
           "alt": "The Quarry Amphitheater at UC Santa Cruz, surrounded by redwoods"
         }
@@ -298,11 +298,11 @@
     },
     "pillars": {
       "title": "Start with these two guides.",
-      "body": "Free guides that go with you from the lot to the finance office.",
+      "body": "Free guides you can pull up at the dealership.",
       "items": [
         {
           "title": "Pre-Purchase Inspection Guide",
-          "body": "A step-by-step walkthrough of everything you should check, ask, and verify before handing over a dollar. Written for first-time buyers."
+          "body": "What to check and what to ask before you pay anything. Written for first-time buyers."
         },
         {
           "title": "Fraud Prevention",
@@ -575,7 +575,7 @@
       },
       "Rizwaan Bana": {
         "position": "Strategist",
-        "bio": "Rizwaan Bana is a Computer Science major at UCLA. He is a Strategist at VINdicated @ UCLA, where he helps streamline the chapters' outreach and project strategies. He also serves as the Internal Vice President of Bruin Software Engineers, Dev Team Project Manager for ACM @ UCLA, and Web Chair for UPE @ UCLA."
+        "bio": "Rizwaan Bana is a Computer Science major at UCLA. He is a Strategist at VINdicated @ UCLA, where he helps organize the chapters' outreach and project plans. He is also the Internal Vice President of Bruin Software Engineers, Dev Team Project Manager for ACM @ UCLA, and Web Chair for UPE @ UCLA."
       },
       "William Prawira": {
         "position": "Internal Vice President",
@@ -627,11 +627,11 @@
       },
       "Brisa Gómez": {
         "position": "Technical Writing Lead",
-        "bio": "Brisa Gómez is a fourth-year Psychology major at UCLA and the Technical Writing Lead at UCLA. Through their involvement in various writing and translation projects, Brisa wants to use that experience to promote accessible and comprehensive resources that are inclusive to vulnerable populations."
+        "bio": "Brisa Gómez is a fourth-year Psychology major at UCLA and the Technical Writing Lead at UCLA. Through their writing and translation projects, Brisa wants to make resources that are easy to use and inclusive of vulnerable populations."
       },
       "Pierce Kosobayashi": {
         "position": "Project Manager",
-        "bio": "Pierce Kosobayashi is a fourth-year Media Studies and Education student at UC Berkeley. He brings a background in digital and retail automotive sales and finance, along with experience in OEM sales analysis and marketing, to his work as Project Manager at VINdicated. A car enthusiast at heart, Pierce wants to use his industry experience to help future buyers navigate the process with confidence. Outside VINdicated, he enjoys ocean swimming, hiking, and spending time with his dog and cat."
+        "bio": "Pierce Kosobayashi is a fourth-year Media Studies and Education student at UC Berkeley. He brings a background in digital and retail automotive sales and finance, along with experience in OEM sales analysis and marketing, to his work as Project Manager at VINdicated. A car enthusiast, Pierce wants to use what he learned in the industry to help future buyers get through the process. Outside VINdicated, he enjoys ocean swimming, hiking, and spending time with his dog and cat."
       },
       "Chino Sawatyanont": {
         "position": "Software Engineer",
@@ -639,7 +639,7 @@
       },
       "William Guo": {
         "position": "Software Engineer",
-        "bio": "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. Having gone through the stressful process of searching for the right vehicle himself, William resonates deeply with VINdicated's mission and believes the basics of what to look for in a major purchase like a car should be more readily available to everyone."
+        "bio": "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. He went through the stressful process of finding the right car himself, and he thinks the basics of what to look for in a big purchase like a car should be easier for everyone to find."
       },
       "Daniel": {
         "position": "Data Engineer",
@@ -647,7 +647,7 @@
       },
       "Chloe Lin": {
         "position": "Outreach Lead",
-        "bio": "Chloe Lin is an Integrative Biology student at UC Berkeley serving as Outreach Lead at VINdicated. Her experience advocating for women and underrepresented communities drives her commitment to bridging knowledge gaps in the automotive industry. She is dedicated to empowering everyday consumers to navigate car purchases and maintenance with clarity and confidence."
+        "bio": "Chloe Lin is an Integrative Biology student at UC Berkeley and the Outreach Lead at VINdicated. She has advocated for women and underrepresented communities, and she wants everyday buyers to understand car purchases and maintenance well enough to make their own calls."
       },
       "Ian de la Houssaye": {
         "position": "Software Lead",
@@ -684,9 +684,9 @@
     },
     "zoom": {
       "label": "Photos of VINdicated chapters",
-      "titleLine1": "Three campuses.",
-      "titleLine2": "One mission.",
-      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz, making sure no buyer walks onto a lot unprepared.",
+      "titleLine1": "UCLA, UC Berkeley,",
+      "titleLine2": "and UC Santa Cruz.",
+      "body": "Students making sure nobody walks onto a lot unprepared.",
       "pause": "Pause slideshow",
       "play": "Play slideshow",
       "alts": [
@@ -703,8 +703,8 @@
       ]
     },
     "photos": {
-      "title": "Three campuses. One mission.",
-      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz, making sure no buyer walks onto a lot unprepared.",
+      "title": "Our chapters",
+      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz who table, teach, and run research on car buying.",
       "items": [
         {
           "alt": "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner"
@@ -722,24 +722,24 @@
     },
     "mission": {
       "title": "Educate. Empower. Vindicate.",
-      "body": "One informed buyer at a time.",
+      "body": "Our motto, and the order we work in.",
       "items": [
         {
           "title": "Educate",
-          "body": "We translate the dealer playbook into plain language, because knowledge is leverage."
+          "body": "We translate the dealer playbook into plain language, because most of those tricks only work on people who haven't heard of them."
         },
         {
           "title": "Empower",
-          "body": "The confidence to walk in alone, ask the right questions, and walk away without needing backup."
+          "body": "Knowing enough to walk in alone, and to leave if the deal feels wrong."
         },
         {
           "title": "Vindicate",
-          "body": "Research that turns lived experience into data, and data into policy change."
+          "body": "Research that documents what buyers go through, so it can be used to change policy."
         }
       ]
     },
     "story": {
-      "title": "Three strikes. One system.",
+      "title": "Why Rana started VINdicated",
       "body": "Rana Darwich started VINdicated after three very different car purchases went wrong in exactly the same way: a seller counting on her not knowing the rules.",
       "quote": "\"I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\"",
       "quoteCite": "Rana Darwich, Founder",
@@ -754,13 +754,13 @@
           "n": "02",
           "tag": "Facebook Marketplace",
           "title": "The tone shift",
-          "body": "The conversation was normal until the seller realized she was a woman. Then came the insult and the block. When she messaged sellers as \"Randall\" and had her brother call, the deals got better."
+          "body": "The conversation was normal until the seller realized she was a woman. He insulted her and blocked her. Later, when she messaged sellers as \"Randall\" and had her brother call, she got better deals."
         },
         {
           "n": "03",
           "tag": "April 2025 · dealership",
           "title": "The locked drawer",
-          "body": "Service records that were always \"in a locked drawer.\" An inspection promise that shrank from 300 points to 150. A 30% APR financing contract on a cash deal, with an arbitration clause in place of a way out. She recognized it, said no, and reported the salesperson."
+          "body": "The dealer said the service records were \"in a locked drawer,\" and the promised 300-point inspection shrank to 150. Then they handed her a financing contract at 30% APR on a cash deal, with an arbitration clause instead of a way to cancel. She recognized it, said no, and reported the salesperson."
         }
       ]
     },
@@ -769,13 +769,13 @@
       "play": "Play the founder video, 34 seconds",
       "length": "0:34",
       "title": "Hear it from Rana.",
-      "body": "Thirty-four seconds from the Berkeley lawn, on why VINdicated exists and who it's for.",
+      "body": "Rana on why she started VINdicated and who it's for, filmed at UC Berkeley.",
       "name": "Rana Darwich",
       "role": "Founder & President, VINdicated"
     },
     "ai": {
       "title": "Scammers are using AI now, too.",
-      "body": "Fake dealer websites, listing photos, and paperwork are getting easier to make. Here's what happened to one buyer in September.",
+      "body": "Fake dealer websites, listing photos, and paperwork are getting easier to make. This is what happened to one buyer in September.",
       "steps": [
         {
           "title": "The listing looked normal",
@@ -802,7 +802,7 @@
       "tipsTitle": "Before you pay anyone",
       "tips": [
         "Search the dealer's name with \"scam,\" \"review,\" or \"complaint.\"",
-        "Don't rely on glowing reviews. A clone borrows the real dealer's reputation.",
+        "Don't trust a dealer just because its reviews are good. A fake site can borrow a real dealer's reviews.",
         "Ask to see the car and the lot in person. If they refuse, walk away.",
         "Too far to visit? Send a mobile inspector. A real seller won't mind.",
         "Never pay up front by wire transfer only."
@@ -811,12 +811,12 @@
       "reportCta": "Report a scam"
     },
     "quote": {
-      "text": "Everyone gets taken advantage of eventually. The difference is whether you know it's happening.",
+      "text": "Everyone gets taken advantage of at some point. We want you to notice when it's happening.",
       "cite": "The idea behind VINdicated"
     },
     "provide": {
-      "title": "Free. Accessible. No strings attached.",
-      "body": "No signup, no upsell, no catch.",
+      "title": "What we offer",
+      "body": "You don't have to sign up, and we aren't selling anything.",
       "items": [
         {
           "title": "Workshops",
@@ -871,13 +871,13 @@
     },
     "cta": {
       "title": "Want to be part of this?",
-      "body": "VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you.",
+      "body": "We're looking for researchers, developers, designers, and people who like teaching. If you want car buying to be fair, get in touch.",
       "button": "Get in touch"
     }
   },
   "researchPage": {
     "hero": {
-      "title": "Eleven projects. Four teams. Pick yours.",
+      "title": "Eleven projects across four teams.",
       "body": "Students across our chapters are building apps, crunching data, doing research, and making content that helps people buy, finance, and fix cars without getting taken advantage of."
     },
     "navLabel": "Project teams",
@@ -921,7 +921,7 @@
       },
       "data": {
         "title": "Data",
-        "body": "Turning messy public data into tools that tell buyers the truth.",
+        "body": "Turning messy public data into tools buyers can use.",
         "projects": [
           {
             "name": "Project Crosscheck",
@@ -962,7 +962,7 @@
         "projects": [
           {
             "name": "Project Spanish Lang",
-            "desc": "Examines how language and communication affect consumers' ability to understand and navigate the car-buying process.",
+            "desc": "Examines how language and communication affect whether consumers understand the car-buying process.",
             "skills": [
               "Qualitative research",
               "Literature and document analysis"
@@ -1017,7 +1017,7 @@
           },
           {
             "name": "Project Booklet",
-            "desc": "Creates a brief, comprehensive guide to automotive basics.",
+            "desc": "Creates a short guide to car basics.",
             "skills": [
               "Online research",
               "Writing",
@@ -1038,7 +1038,7 @@
   "inspectionPage": {
     "hero": {
       "title": "Don't buy a car without this.",
-      "body": "A pre-purchase inspection (PPI) is the single most important thing you can do before buying a used car. It costs $100–200 and can save you thousands.",
+      "body": "A pre-purchase inspection (PPI) is the most useful thing you can do before buying a used car. It costs $100–200 and can save you thousands.",
       "ctaPrimary": "How to schedule a PPI",
       "ctaSecondary": "Where to get one"
     },
@@ -1053,7 +1053,7 @@
         {
           "b": "$100–$200"
         },
-        " and is the single most powerful tool you have before signing anything."
+        " and is your best chance to catch problems before you sign anything."
       ],
       "notTitle": "A PPI is not the same as",
       "nots": [
@@ -1109,7 +1109,7 @@
         },
         {
           "t": "Intake Air Tube & Filter",
-          "sub": "Where the engine breathes",
+          "sub": "The engine's air supply",
           "what": "The big ribbed tube carries air from the air filter box into the engine. Inside that box, a paper or foam filter keeps dust and debris out.",
           "steps": [
             "Look along the tube for cracks, splits, or loose clamps.",
@@ -1120,15 +1120,15 @@
         },
         {
           "t": "Brake Fluid Reservoir",
-          "sub": "Small tank, big safety signal",
-          "what": "This translucent tank feeds the brakes. Brake fluid absorbs moisture over time, which quietly weakens braking.",
+          "sub": "The brake fluid tank",
+          "what": "This translucent tank feeds the brakes. Brake fluid absorbs moisture over time, which slowly makes the brakes less effective.",
           "steps": [
             "Read the level through the side of the tank. It should sit between MIN and MAX.",
             "Check the color. Clear to light amber is healthy; dark brown means it's overdue.",
             "A low level can mean worn brake pads or a leak. Ask when the brakes were last serviced.",
             "On the test drive, the pedal should feel firm, not soft or spongy."
           ],
-          "flag": "Red flag: a spongy pedal, or fluid that's dark and low, means brake work before you buy. Brakes are never a place to cut corners."
+          "flag": "Red flag: a spongy pedal, or fluid that's dark and low, means the brakes need work before you buy."
         },
         {
           "t": "Spark Plugs & Coils",
@@ -1144,7 +1144,7 @@
         },
         {
           "t": "Oil Filler Cap",
-          "sub": "Open this: what's inside tells you a lot",
+          "sub": "Worth opening",
           "what": "The oil filler cap is where new oil goes in. It takes two seconds to open, and what you see inside tells you things the dipstick alone cannot.",
           "steps": [
             "Twist it counterclockwise and lift off. Look at the underside of the cap and inside the opening.",
@@ -1156,7 +1156,7 @@
         },
         {
           "t": "Battery",
-          "sub": "Corrosion tells the story. So does the date.",
+          "sub": "Check the terminals and the date",
           "what": "The 12-volt battery powers the starter and all the electronics. Most last 3 to 5 years, and replacement runs $100 to $250.",
           "steps": [
             "Look for a date sticker on the top or side.",
@@ -1167,7 +1167,7 @@
         },
         {
           "t": "Coolant Reservoir",
-          "sub": "Never open when hot. Read it cold.",
+          "sub": "Check it with the engine cold",
           "what": "The coolant reservoir is a translucent plastic tank that holds the engine's coolant. You can read it without opening anything.",
           "steps": [
             "Look through the side of the tank to see the level.",
@@ -1179,7 +1179,7 @@
         },
         {
           "t": "Serpentine Belt",
-          "sub": "One belt runs almost everything",
+          "sub": "Drives most of the engine's accessories",
           "what": "The serpentine belt drives the alternator, power steering, AC, and water pump. If it breaks while driving, you lose all of them at once.",
           "steps": [
             "With the engine off, find the wide, flat ribbed belt looping around several pulleys at the front of the engine.",
@@ -1234,7 +1234,7 @@
               }
             ],
             [
-              "They know that brand inside and out, have the right diagnostic equipment, and have zero incentive to lie. Cost: usually $100–150."
+              "They know the brand, have the right diagnostic tools, and have no stake in the sale. Cost: usually $100–150."
             ]
           ]
         },
@@ -1260,10 +1260,10 @@
     },
     "checks": {
       "title": "Why you're paying for your safety.",
-      "body": "A good inspector goes through the car systematically. Here's what they're checking, and why each category matters.",
+      "body": "A good inspector goes through the car one system at a time. This is what they check, and why each part matters.",
       "items": [
         {
-          "title": "Engine: the heart of the car",
+          "title": "Engine",
           "intro": "",
           "points": [
             [
@@ -1319,7 +1319,7 @@
           "outro": []
         },
         {
-          "title": "Brakes: non-negotiable safety",
+          "title": "Brakes",
           "intro": "",
           "points": [
             [
@@ -1415,7 +1415,7 @@
         },
         {
           "title": "Get the report in writing.",
-          "body": "Every finding, documented. No verbal summaries. You want a paper trail, for both negotiating and your own records."
+          "body": "Ask for every finding in writing, not a verbal summary. You'll want the paper trail for negotiating and for your own records."
         },
         {
           "title": "Use the findings to negotiate.",
@@ -1423,7 +1423,7 @@
         },
         {
           "title": "You can still walk away after a PPI.",
-          "body": "If the findings are serious and the seller won't negotiate, you didn't waste your money. You saved yourself from a much bigger loss."
+          "body": "If the findings are serious and the seller won't negotiate, the inspection still paid for itself. It kept you from a much bigger loss."
         }
       ],
       "alertTitle": "Important",
@@ -1438,7 +1438,7 @@
   "fraudPage": {
     "hero": {
       "title": "Know what they're doing.",
-      "body": "Real tactics used against buyers. Named, explained, and countered, because knowing you're being scammed is the first step to walking away.",
+      "body": "Tactics dealers and scammers actually use on buyers, and what to say when it happens to you.",
       "ctaPrimary": "See the red flags",
       "ctaSecondary": "Know your rights"
     },
@@ -1479,7 +1479,7 @@
         {
           "label": "Signature Section",
           "title": "The Seller Must Sign in Front of You.",
-          "body": "This is where the registered owner legally releases their interest in the vehicle. This must be signed in front of you at the time of sale, not pre-signed, not signed later, not by someone other than the registered owner. A pre-signed title means someone already released ownership; you don't know to whom, or when.",
+          "body": "This is where the registered owner legally releases their interest in the vehicle. The registered owner has to sign it in front of you at the time of sale. A pre-signed title means someone already released ownership, and you don't know to whom or when.",
           "say": "Never accept: a pre-signed title, a blank signature section, or a signature from anyone other than the registered owner of record."
         },
         {
@@ -1493,7 +1493,7 @@
     "flags": {
       "title": "Car purchasing red flags.",
       "body": "Six things dealers say, and exactly how to answer. Scroll to play each conversation.",
-      "intro": "Here's what you'll hear on the lot.",
+      "intro": "Things you'll hear on the lot.",
       "dealer": "Dealer",
       "floor": "Sales floor",
       "start": "Scroll to start the first conversation.",
@@ -1572,7 +1572,7 @@
         },
         {
           "tag": "A week later",
-          "text": "You've shown your friends. You've traded in your old car. Then the phone rings."
+          "text": "A week later, after you've traded in your old car, the dealer calls."
         },
         {
           "tag": "The yank",
@@ -1580,7 +1580,7 @@
         },
         {
           "tag": "The new deal",
-          "text": "A new contract with a higher rate. And your trade-in? \"Already sold.\""
+          "text": "They want you to sign a new contract at a higher rate, and your trade-in has \"already been sold.\""
         },
         {
           "tag": "How to stop it",
@@ -1616,7 +1616,7 @@
     },
     "receipt": {
       "title": "Read the receipt line by line.",
-      "body": "Tap any charge on this sample new-car receipt. It opens right there to tell you whether the law requires it, whether you can negotiate it, or whether it's a red flag.",
+      "body": "Tap any charge on this sample new-car receipt to see whether the law requires it, whether you can negotiate it, or whether it's a red flag.",
       "categories": {
         "req": "Required by law",
         "neg": "Negotiable",
@@ -1647,7 +1647,7 @@
         {
           "name": "Market adjustment",
           "short": "Extra markup over the sticker price.",
-          "long": "This is pure dealer profit with no product behind it. You can refuse it, negotiate it to zero, or buy somewhere that doesn't add it.",
+          "long": "It's dealer profit with nothing behind it. You can refuse it, or buy from a dealer that doesn't add one.",
           "say": "\"I'm not paying a market adjustment. Take it off or I'll shop elsewhere.\""
         },
         {
@@ -1695,7 +1695,7 @@
         {
           "name": "California tire fee",
           "short": "State fee on new tires.",
-          "long": "A state-mandated fee collected on each new tire sold. Small, legitimate, and required.",
+          "long": "A state fee collected on each new tire sold. It's small, and it's required.",
           "say": ""
         },
         {
@@ -1831,7 +1831,7 @@
       "soon": "New edition coming soon as a free download."
     },
     "cta": {
-      "title": "You walked in knowing nothing. Now you know everything.",
+      "title": "Next, learn the paperwork.",
       "body": "Keep going: learn to read the documents dealers hand you, and get the car inspected before you sign.",
       "primary": "See real documents decoded",
       "secondary": "Inspection guide"
@@ -1867,23 +1867,23 @@
         },
         {
           "title": "No Accidents Reported: A Real Green Flag, With One Caveat",
-          "body": "No insurance claims, police reports, or rental damage reports across all three owners. For a 13-year-old car at 195k miles, this is genuinely significant. A clean accident history supports $1,000–$2,000 in premium vs. comparable cars with reported accidents.",
+          "body": "No insurance claims, police reports, or rental damage reports across all three owners. For a 13-year-old car at 195k miles, that's a good sign. A clean accident history supports $1,000–$2,000 more than comparable cars with reported accidents.",
           "say": "The caveat: \"no accidents reported\" doesn't mean no accidents ever. Many accidents go unreported, and a physical inspection catches unreported damage."
         },
         {
           "title": "Good Reliability Forecast: What \"Good\" Means at 195k Miles",
           "body": "Top 50% vs. similar vehicles at similar mileage, average repair cost $350/year. Budget for ongoing repairs: spark plugs ($150–200), accessory belt ($150–300), CV axles ($300–500), eventually timing chain ($800–1,200).",
-          "say": "Budget $500–$1,000/year for maintenance at this mileage. Factor it into your offer as honest financial planning."
+          "say": "Budget $500–$1,000 a year for maintenance at this mileage, and factor it into your offer."
         },
         {
           "title": "17 Records, 3 Owners, Personal Use, California",
           "body": "17 service records means maintenance was done at shops that report to Carfax. Personal vehicle across all three owners is better than commercial or fleet use. California ownership means no rust from northeastern salt-belt states.",
-          "say": "All-California ownership is a genuine positive. It extends mechanical lifespan meaningfully."
+          "say": "All-California ownership is a plus. The car hasn't been through salt-belt winters, so it should last longer mechanically."
         },
         {
           "title": "The Report's Own Disclaimer: This Isn't Enough Alone",
           "body": "The fine print says other problems may not have been reported, and to use the report alongside an inspection and test drive. The report is telling you directly: don't rely on it alone.",
-          "say": "Non-negotiable: a clean report is necessary but not sufficient. Always pair it with an independent physical inspection."
+          "say": "A clean report isn't enough on its own. Always get an independent inspection too."
         },
         {
           "title": "Oil Changed August 2025: What Recent Service Signals",
@@ -1894,19 +1894,19 @@
     },
     "page2": {
       "title": "How to read a Carfax, page two.",
-      "body": "Title brands, the history grid, and the ownership table: the sections that reveal problems nothing else will.",
+      "body": "Title brands, the history grid, and the ownership table. This is where the biggest problems show up.",
       "imageAlt": "Page two of a sample Carfax vehicle history report showing the history grid, title history, and ownership table",
       "intro": "Now the serious history. Keep scrolling.",
       "items": [
         {
-          "title": "The Checks That Matter Most: Any Flag Here Changes Everything",
+          "title": "The Checks That Matter Most",
           "body": "Total Loss: declared worth less than repair costs; these vehicles are worth 30–50% less. Structural/Frame Damage: affects handling and crash safety permanently. Airbag Deployment: indicates a serious collision. Odometer Rollback: federal crime; walk away immediately.",
           "say": "Any flag in this grid is a serious negotiating point or a deal-ender. \"Total Loss\" or \"Structural Damage\" should make you question the asking price by 30%+ or walk away."
         },
         {
           "title": "Title Brands and What They Mean",
           "body": "Salvage: total loss; legally cannot be resold without rebuild and inspection. Rebuilt/Reconstructed: was salvage, was repaired; typically 20–40% below clean title. Flood/Fire/Hail: flood cars are especially problematic because electrical corrosion can appear years later. Lemon Law Buyback: must be disclosed; legal to resell but represents known defect history.",
-          "say": "The buyback guarantee covers DMV-reported brands. It does not cover unreported damage, which is why the physical inspection remains essential."
+          "say": "The buyback guarantee covers DMV-reported brands. It doesn't cover unreported damage, which is why you still need the physical inspection."
         },
         {
           "title": "Reading the Ownership Table: Tenure Matters More Than Count",
@@ -1916,24 +1916,24 @@
         {
           "title": "When Someone Only Kept It a Few Months",
           "body": "A short tenure doesn't automatically mean a problem, but it deserves an explanation. Check: did they do multiple repairs during that tenure? Where did they buy it from? Does the mileage add up to normal driving?",
-          "say": "What to say: \"I noticed the previous owner only kept this car for [X] months. Do you have any information about why they sold?\" Their answer, or their hesitation, is data."
+          "say": "What to say: \"I noticed the previous owner only kept this car for [X] months. Do you have any information about why they sold?\" Pay attention to how they answer."
         },
         {
           "title": "Calculating Mileage Yourself",
           "body": "Subtract the starting odometer from the ending odometer to get total miles per owner. Divide by tenure in months and multiply by 12 to get the annual rate. Compare to the 12,000–15,000 mile industry average.",
-          "say": "Why this matters: the annual mileage rate reveals how the car was used, which tells you more than total mileage alone."
+          "say": "The yearly rate tells you more about how the car was used than the total does."
         }
       ]
     },
     "guide": {
       "title": "The sticker in every used car window. What it means.",
-      "body": "Federal law requires this form to be displayed in the window of every used car for sale at a dealership. Most buyers glance at it and move on. Here is what every section means.",
+      "body": "Federal law requires this form to be displayed in the window of every used car for sale at a dealership. Most buyers glance at it and move on. This is what each section means.",
       "imageAlt": "The FTC Buyers Guide form displayed in used car windows",
       "items": [
         {
           "tag": "Most important",
           "title": "\"As is, no dealer warranty\"",
-          "body": "This is the most important box on the form. If the \"As Is\" box is checked, the dealer is telling you: if anything breaks after you drive off the lot, that is entirely your problem. No refunds. No repairs. No obligation.",
+          "body": "This is the most important box on the form. If the \"As Is\" box is checked, the dealer is telling you that if anything breaks after you drive off the lot, it's your problem. They don't owe you a refund or a repair.",
           "say": "What to do: if a car is sold \"As Is,\" price that risk into your offer. Budget for potential repairs, and get an independent inspection before you buy. It is the only protection you have."
         },
         {
@@ -1945,7 +1945,7 @@
         {
           "tag": "Know this",
           "title": "\"Manufacturer's warranty still applies\"",
-          "body": "The original factory warranty has not yet expired. Some of the car's components are still covered by the manufacturer, not the dealer. This is genuinely valuable.",
+          "body": "The original factory warranty hasn't expired yet. Some of the car's components are still covered by the manufacturer, not the dealer, and that's worth something.",
           "say": "Look up the warranty terms for that specific make and model. A car still under manufacturer warranty is worth more."
         },
         {
@@ -1958,13 +1958,13 @@
           "tag": "Protects you",
           "title": "\"Spoken promises are difficult to enforce\"",
           "body": "This line is federal law telling you directly: do not trust verbal promises. Any promise a dealer makes that is not written on the contract does not legally exist.",
-          "say": "The rule: if they won't write it down, they don't intend to keep it."
+          "say": "If they won't write it down, assume they won't do it."
         },
         {
           "tag": "Know this",
           "title": "\"Ask the dealer if your mechanic can inspect\"",
-          "body": "This line is also federal law. You do not need to ask permission; you have the right. California law additionally requires dealers to post a sign inside the dealership stating this.",
-          "say": "Always get the inspection. A $100–$200 inspection before purchase is the cheapest insurance you can buy."
+          "body": "This line is also federal law. You don't need to ask permission; you have the right. California also requires dealers to post a sign inside the dealership saying so.",
+          "say": "Always get the inspection. $100–$200 is cheap next to the repairs it can catch."
         }
       ],
       "keys": [
@@ -2012,7 +2012,7 @@
         {
           "name": "UC Santa Cruz Chapter",
           "school": "University of California, Santa Cruz",
-          "focus": "Focused on algorithmic discrimination and AI bias in automotive retail, bringing a technical lens to consumer protection.",
+          "focus": "Focused on algorithmic discrimination and AI bias in car sales.",
           "leads": "Ashwin Vinod, President · Gundeep Sambee, Internal Vice President"
         }
       ]
@@ -2082,7 +2082,7 @@
   "mapPage": {
     "hero": {
       "title": "Know the lot before you walk onto it.",
-      "body": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, from pressure tactics to surprise fees."
+      "body": "A satellite map of 100 dealerships on LA's Westside and what their public reviews describe, including pressure tactics and surprise fees."
     },
     "gate": {
       "title": "Before you look",
