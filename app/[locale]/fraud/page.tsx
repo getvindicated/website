@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand } from "@/components/sections/shared/CtaBand";
-import { AnnotatedImage, type MarkerRect } from "@/components/sections/shared/AnnotatedImage";
-import { RedFlags } from "@/components/sections/fraud/RedFlags";
+import { ScrollTour, type TourRect } from "@/components/sections/shared/ScrollTour";
+import { FlagsChatTour } from "@/components/sections/fraud/FlagsChatTour";
 import { YoyoScene } from "@/components/sections/fraud/YoyoScene";
 import { FourSquare } from "@/components/sections/fraud/FourSquare";
 import { FeeReceipt } from "@/components/sections/fraud/FeeReceipt";
@@ -14,8 +14,8 @@ import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { caveat } from "@/lib/fonts";
 
 // Pink slip boxes, as fractions of public/pink-slip.png. `danger` boxes
-// get a red marker and tag. Same order as fraudPage.pinkSlip.items.
-const SLIP: (MarkerRect & { danger: boolean })[] = [
+// get a red tag. Same order as fraudPage.pinkSlip.items.
+const SLIP: (TourRect & { danger: boolean })[] = [
   { x: 0.27, y: 0.04, w: 0.44, h: 0.05, danger: false },
   { x: 0.08, y: 0.25, w: 0.48, h: 0.13, danger: false },
   { x: 0.61, y: 0.065, w: 0.34, h: 0.05, danger: true },
@@ -64,13 +64,17 @@ export default async function FraudPage({
             <h2 className="h2">{d.pinkSlip.title}</h2>
             <p className="lede">{d.pinkSlip.body}</p>
           </div>
-          <AnnotatedImage
+          <ScrollTour
+            className="tour-doc"
+            zoom={1.9}
             image={{ src: "/pink-slip.png", alt: d.pinkSlip.imageAlt, width: 1040, height: 1212 }}
-            rects={SLIP.map((r) => ({ ...r, red: r.danger }))}
+            rects={SLIP}
             intro={d.pinkSlip.intro}
-            items={d.pinkSlip.items.map((h, i) => (
+            countIntro={d.tour.countIntro}
+            countStep={d.tour.countStep}
+            cards={d.pinkSlip.items.map((h, i) => (
               <Fragment key={h.label}>
-                <p className={`label${SLIP[i].danger ? " red" : ""}`}>{h.label}</p>
+                <span className={`tag ${SLIP[i].danger ? "sev-red" : "sev-know"}`}>{h.label}</span>
                 <h3>{h.title}</h3>
                 <p>{h.body}</p>
                 <div className="say">{h.say}</div>
@@ -86,7 +90,7 @@ export default async function FraudPage({
             <h2 className="h2">{d.flags.title}</h2>
             <p className="lede">{d.flags.body}</p>
           </div>
-          <RedFlags dict={d.flags} />
+          <FlagsChatTour dict={d.flags} />
         </div>
       </section>
 
