@@ -60,7 +60,6 @@ export type HomePageDict = {
 		ctaPrimary: string;
 		ctaSecondary: string;
 		photoAlt: string;
-		caption: string;
 	};
 	sources: { heading: string; items: string[] };
 	publicKnowledge: {

@@ -200,8 +200,7 @@
       "body": "Most people buy a car without basic car knowledge. Putting that much money into something without knowing what it's worth can be financially devastating. So we explain it all in plain language, for free.",
       "ctaPrimary": "Get the Inspection Guide",
       "ctaSecondary": "Our story",
-      "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them",
-      "caption": "VINdicated's UC Berkeley chapter at Doe Library."
+      "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them"
     },
     "sources": {
       "heading": "Our numbers come from",
@@ -683,25 +682,41 @@
       "title": "Car knowledge should be public knowledge.",
       "body": "VINdicated exists because no one should need to bring backup just to buy a car safely."
     },
+    "zoom": {
+      "label": "Photos of VINdicated chapters",
+      "titleLine1": "Three campuses.",
+      "titleLine2": "One mission.",
+      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz, making sure no buyer walks onto a lot unprepared.",
+      "pause": "Pause slideshow",
+      "play": "Play slideshow",
+      "alts": [
+        "VINdicated's UC Berkeley chapter on the lawn in front of Doe Library, with the Campanile behind them",
+        "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner",
+        "Two VINdicated volunteers holding a VINdicated sign at UC Berkeley",
+        "VINdicated volunteers at their UCLA tabling booth on a sunny activities day",
+        "VINdicated's UC Berkeley chapter posing by Doe Library",
+        "Two VINdicated volunteers beside the UCLA VINdicated display board",
+        "A VINdicated volunteer sharing free car-buying resources with a student at UCLA",
+        "VINdicated's UC Berkeley chapter beneath the Campanile, seen from farther back",
+        "A VINdicated volunteer talking with a UCLA student at the table",
+        "A VINdicated volunteer pointing to the UCLA display board"
+      ]
+    },
     "photos": {
       "title": "Three campuses. One mission.",
       "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz, making sure no buyer walks onto a lot unprepared.",
       "items": [
         {
-          "alt": "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner",
-          "caption": "Tabling on the UC Berkeley campus."
+          "alt": "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner"
         },
         {
-          "alt": "Two VINdicated volunteers holding a VINdicated sign at UC Berkeley",
-          "caption": "Two Berkeley volunteers with our sign."
+          "alt": "Two VINdicated volunteers holding a VINdicated sign at UC Berkeley"
         },
         {
-          "alt": "VINdicated volunteers at their UCLA tabling booth on a sunny activities day",
-          "caption": "Our booth on a UCLA activities day."
+          "alt": "VINdicated volunteers at their UCLA tabling booth on a sunny activities day"
         },
         {
-          "alt": "A VINdicated volunteer sharing free car-buying resources with a student at UCLA",
-          "caption": "Sharing free car-buying guides at UCLA."
+          "alt": "A VINdicated volunteer sharing free car-buying resources with a student at UCLA"
         }
       ]
     },
@@ -1427,11 +1442,15 @@
       "ctaPrimary": "See the red flags",
       "ctaSecondary": "Know your rights"
     },
+    "tour": {
+      "countIntro": "{total} stops",
+      "countStep": "{n} / {total}"
+    },
     "pinkSlip": {
       "title": "This document is your only proof you own the car.",
       "body": "A California Certificate of Title, the \"pink slip,\" is the legal document that proves ownership.",
       "imageAlt": "Sample California Certificate of Title",
-      "intro": "Six boxes decide whether the car is really yours.",
+      "intro": "Six boxes decide whether the car is really yours. Scroll to spotlight each one.",
       "items": [
         {
           "label": "Certificate of Title",
@@ -1473,8 +1492,14 @@
     },
     "flags": {
       "title": "Car purchasing red flags.",
-      "body": "Six things dealers say, and exactly how to answer.",
+      "body": "Six things dealers say, and exactly how to answer. Scroll to play each conversation.",
+      "intro": "Here's what you'll hear on the lot.",
+      "dealer": "Dealer",
+      "floor": "Sales floor",
+      "start": "Scroll to start the first conversation.",
+      "counter": "Red flag {n} of {total}",
       "tag": "Red flag {n}",
+      "chip": "Red flag",
       "whatToDo": "What to do: {text}",
       "items": [
         {
@@ -1519,10 +1544,7 @@
           "dealer": "We only take wire transfers. It ships tomorrow and here's your tracking link!",
           "you": "I'll see the car in person or send an inspector first. No wire."
         }
-      ],
-      "theySay": "What they say",
-      "means": "What it means",
-      "sayBack": "What to say back"
+      ]
     },
     "yoyo": {
       "label": "The yo-yo scam, animated",
@@ -1822,6 +1844,10 @@
       "ctaPrimary": "Read a history report",
       "ctaSecondary": "Read the Buyers Guide"
     },
+    "tour": {
+      "countIntro": "{total} stops",
+      "countStep": "{n} / {total}"
+    },
     "severity": {
       "easy": "Easy to check",
       "watch": "Watch carefully",
@@ -1832,6 +1858,7 @@
       "title": "How to read a Carfax, page one.",
       "body": "Mileage and VIN, accident history, reliability, and recent service.",
       "imageAlt": "Page one of a sample Carfax vehicle history report for a 2013 Honda Accord",
+      "intro": "Scroll and each section of the report lights up.",
       "items": [
         {
           "title": "195,555 Miles: What High Mileage Means",
@@ -1869,6 +1896,7 @@
       "title": "How to read a Carfax, page two.",
       "body": "Title brands, the history grid, and the ownership table: the sections that reveal problems nothing else will.",
       "imageAlt": "Page two of a sample Carfax vehicle history report showing the history grid, title history, and ownership table",
+      "intro": "Now the serious history. Keep scrolling.",
       "items": [
         {
           "title": "The Checks That Matter Most: Any Flag Here Changes Everything",
