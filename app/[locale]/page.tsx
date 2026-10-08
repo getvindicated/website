@@ -3,7 +3,6 @@ import { HomeHero } from "@/components/sections/home/HomeHero";
 import { ResearchSources } from "@/components/sections/home/ResearchSources";
 import { PpiExplainer } from "@/components/sections/home/PpiExplainer";
 import { EqualFooting } from "@/components/sections/home/EqualFooting";
-import { PriceIsRightPreview } from "@/components/sections/home/PriceIsRightPreview";
 import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
 import { Pillars } from "@/components/sections/home/Pillars";
@@ -76,11 +75,6 @@ export default async function HomePage({
         fraudHref={fraud}
       />
       <EqualFooting dict={home.footing} />
-      <PriceIsRightPreview
-        dict={home.preview}
-        locale={locale}
-        gameHref={href("/research#pir")}
-      />
       <CampusChapters dict={home.chapters} joinHref={href("/join")} />
       <FollowLinks dict={home.follow} />
       <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />

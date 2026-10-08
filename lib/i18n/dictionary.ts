@@ -77,22 +77,6 @@ export type HomePageDict = {
 		body: string;
 		rows: { stat: string; title: string; body: string; cite: string }[];
 	};
-	preview: {
-		title: string;
-		body: string;
-		cta: string;
-		carAlt: string;
-		carName: string;
-		carTags: string[];
-		question: string;
-		optionsLabel: string;
-		right: string;
-		// "{amount}" is replaced with the formatted dollar difference.
-		over: string;
-		low: string;
-		breakdown: string;
-		playAll: string;
-	};
 	chapters: {
 		title: string;
 		body: string;
