@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Spec for /board. Member emails and phone numbers are placeholders here; the real list is loaded from scripts/board-members.local.json, which is not committed. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VINdicated at Berkeley</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<style>
+/* Plain faculty-page layout: one white column, centered nav, light display name; interaction lives in quiet controls */
+:root {
+  --bg: #ffffff;
+  --fg: #1d1a1f;
+  --soft: #4a4550;
+  --rule: #dcd8df;
+  --tint: #f6eff8;
+  --accent: #9533A5;
+  --done: #2f6b3a;
+  --prog: #8a5a00;
+  --body: "Lato", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 300 17px/1.6 var(--body); }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 28px 80px; padding-inline: 20px; }
+nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; }
+nav a { color: var(--soft); font-weight: 700; text-decoration: none; letter-spacing: .03em; }
+nav a[aria-current="page"] { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1 { text-align: center; font-weight: 300; font-size: clamp(34px, 7vw, 58px); letter-spacing: .06em; margin: 30px 0 4px; }
+.sub { text-align: center; color: var(--soft); margin: 0 0 36px; }
+h2 { font-weight: 700; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+h3 { font-weight: 700; font-size: 17px; margin: 0 0 4px; }
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 22px; }
+a { color: var(--accent); }
+.muted { color: var(--soft); }
+.small { font-size: 15px; }
+.num { font-variant-numeric: tabular-nums; }
+.note { border: 1px solid var(--accent); padding: 10px 14px; font-size: 15px; font-weight: 400; margin-bottom: 14px; }
+.cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0 48px; }
+.cols > * { min-width: 0; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+
+/* controls */
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.chip { font: inherit; font-size: 15px; font-weight: 400; padding: 4px 12px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; border-radius: 0; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+.chip .ct { opacity: 1; margin-left: 4px; font-variant-numeric: tabular-nums; }
+input[type=search], input[type=text], select, textarea { font: inherit; font-weight: 300; padding: 7px 10px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); }
+input[type=search] { flex: 1 1 220px; min-width: 0; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-weight: 400; text-decoration: underline; cursor: pointer; }
+
+/* dates */
+.dates { list-style: none; padding: 0; }
+.dates li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.dates .d { font-weight: 700; font-variant-numeric: tabular-nums; }
+.dates li.past { color: var(--soft); }
+.dates .left { font-size: 15px; color: var(--accent); font-weight: 400; }
+
+/* board chart */
+.chart { display: grid; gap: 22px; }
+.tier { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; position: relative; }
+.tier + .tier::before { content: ""; position: absolute; top: -12px; left: 50%; height: 10px; border-left: 1px solid var(--soft); }
+.teams { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; border-top: 1px solid var(--soft); padding-top: 18px; }
+.team h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; color: var(--soft); }
+.team { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.person { text-align: left; font: inherit; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); padding: 8px 12px; cursor: pointer; border-radius: 0; width: 100%; }
+.tier .person { width: 200px; text-align: center; }
+.person .n { display: block; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.person .r { display: block; font-size: 15px; color: var(--soft); }
+.person.lead { border-color: var(--fg); }
+.person.open { border-style: dashed; cursor: default; }
+.person.open .n { font-weight: 400; color: var(--soft); }
+.person[aria-expanded="true"] { border-color: var(--accent); background: var(--tint); }
+.person.dim { opacity: .28; }
+.card { border: 1px solid var(--accent); padding: 16px 18px; margin-top: 18px; display: grid; gap: 6px; }
+.card .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.card .row span:first-child { width: 64px; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
+.table { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th { text-align: left; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--fg); white-space: nowrap; }
+td { vertical-align: top; padding: 10px 10px 10px 0; border-bottom: 1px solid var(--rule); }
+.st-done, .st-Completed, .st-Confirmed { color: var(--done); font-weight: 700; }
+.st-prog, .st-Planning { color: var(--prog); font-weight: 700; }
+.st-Idea { color: var(--soft); font-weight: 700; }
+
+/* assignments */
+.progress { height: 6px; background: var(--rule); margin: 4px 0 18px; }
+.progress span { display: block; height: 100%; background: var(--accent); }
+.assign { border-bottom: 1px solid var(--rule); }
+.assign summary { list-style: none; display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: baseline; padding: 12px 0; cursor: pointer; }
+.assign summary::-webkit-details-marker { display: none; }
+.assign summary .who::before { content: "+ "; color: var(--accent); font-weight: 700; }
+.assign[open] summary .who::before { content: "− "; }
+.assign .who { font-weight: 700; }
+.assign .body { padding: 0 0 16px 18px; }
+.tasks { list-style: none; padding: 0; margin: 0 0 10px; }
+.tasks li { display: flex; gap: 10px; align-items: flex-start; padding: 3px 0; }
+.tasks input { margin-top: 6px; accent-color: var(--accent); }
+.tasks li.ticked label { text-decoration: line-through; color: var(--soft); }
+.subs { font-size: 15px; margin: 6px 0 10px; }
+.subs strong { font-weight: 700; }
+form.submit-form { display: grid; gap: 14px; max-width: 640px; }
+form label { display: grid; gap: 4px; font-weight: 400; }
+textarea { min-height: 130px; resize: vertical; width: 100%; }
+form select { width: 100%; }
+.btn { justify-self: start; background: var(--accent); color: #fff; border: 0; border-radius: 0; padding: 10px 22px; font: inherit; font-weight: 700; cursor: pointer; }
+
+/* projects */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 36px; }
+.proj-grid ul { padding-left: 18px; }
+.cal { display: grid; gap: 0; }
+.week { border-bottom: 1px solid var(--rule); }
+.week summary { list-style: none; display: grid; grid-template-columns: 70px 120px 1fr; gap: 12px; padding: 10px 0; cursor: pointer; align-items: baseline; }
+.week summary::-webkit-details-marker { display: none; }
+.week.now summary { background: var(--tint); padding-inline: 8px; }
+.week .wk { font-weight: 700; }
+.week .tag { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-left: 8px; }
+.week .items { list-style: none; padding: 0 0 12px 82px; margin: 0; }
+.week .items li { display: grid; grid-template-columns: 76px 1fr; gap: 10px; padding: 3px 0; }
+.week .items .track { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); padding-top: 3px; }
+@media (max-width: 560px) {
+  .week summary { grid-template-columns: 60px 1fr; }
+  .week summary .goal { grid-column: 1 / -1; }
+  .week .items { padding-left: 0; }
+  .tier .person { width: 100%; }
+  .assign summary { grid-template-columns: 1fr auto; }
+  .assign summary .due { display: none; }
+}
+.meeting { padding: 12px 0 14px; border-bottom: 1px solid var(--rule); }
+
+/* socials calendar */
+.calhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 6px 0 10px; }
+.calhead h3 { margin: 0; font-weight: 300; font-size: 24px; letter-spacing: .04em; }
+.month { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-top: 1px solid var(--fg); border-left: 1px solid var(--rule); }
+.month .dow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.month .day { min-height: 92px; padding: 4px 6px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.month .day.other { background: #faf9fa; color: #b3adb6; }
+.month .day.today .dn { background: var(--fg); color: var(--bg); padding: 0 5px; }
+.month .dn { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; align-self: flex-start; }
+.ev { font: inherit; font-size: 13px; line-height: 1.3; text-align: left; border: 0; border-left: 3px solid var(--accent); background: var(--tint); color: var(--fg); padding: 3px 5px; cursor: pointer; border-radius: 0; overflow-wrap: anywhere; }
+.ev.x { border-left-color: #1f5f8b; background: #eef4f9; }
+.ev.o { border-left-color: var(--soft); background: #f3f2f4; }
+.ev.org { border-left-color: var(--prog); background: #fbf5e9; cursor: default; }
+.ev[aria-pressed="true"] { outline: 2px solid var(--accent); }
+.ev.hide { display: none; }
+.evgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.evgrid > * { min-width: 0; }
+input[type=date] { font: inherit; font-weight: 300; padding: 7px 10px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); width: 100%; }
+form input[type=text] { width: 100%; }
+@media (max-width: 480px) { .evgrid { grid-template-columns: 1fr; } }
+.agenda { list-style: none; padding: 0; margin: 0; }
+.agenda li { display: grid; grid-template-columns: 110px 1fr auto; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.agenda .when { font-weight: 700; font-variant-numeric: tabular-nums; }
+.agenda .tag { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--soft); }
+@media (max-width: 640px) {
+  .month .day { min-height: 54px; padding: 3px; }
+  .ev { font-size: 0; height: 8px; padding: 0; }
+  .month .dow { font-size: 11px; padding: 4px 3px; }
+  .agenda li { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav aria-label="Sections">
+  <a href="#home" data-tab="home" aria-current="page">Home</a>
+  <a href="#board" data-tab="board">Board</a>
+  <a href="#projects" data-tab="projects">Projects</a>
+  <a href="#assignments" data-tab="assignments">Assignments</a>
+  <a href="#socials" data-tab="socials">Socials</a>
+  <a href="#meetings" data-tab="meetings">Meetings</a>
+</nav>
+
+<h1>VINDICATED</h1>
+<p class="sub">UC Berkeley chapter · Board hub, Fall 2026</p>
+
+<!-- HOME -->
+<section id="tab-home">
+  <div class="cols">
+    <div>
+      <h2>Logistics &amp; Quick Links</h2>
+      <ul>
+        <li>First meeting: <a href="#" title="Link to add">VINdicated Cal Meeting 1</a></li>
+        <li>General Google Drive for all info: <a href="#" title="Link to add">Google Drive folder</a></li>
+        <li>Socials planner: <button class="linkbtn" data-go="socials">Fall 2026 socials</button></li>
+        <li>Price Is Right calendar: <button class="linkbtn" data-go="projects">6-week plan</button></li>
+      </ul>
+
+      <h2>Announcements</h2>
+      <div class="meeting">
+        <h3>New deliverables rule, effective Oct 9</h3>
+        <p>Round 2 deliverables are due <strong>Monday, Oct 12 at 11:59pm</strong>. Every task needs proof submitted through this page. If any deliverable is missing after the deadline, you're off the board. <button class="linkbtn" data-go="assignments">See your tasks</button></p>
+      </div>
+      <div class="meeting">
+        <h3>Board meeting 09/27</h3>
+        <p class="muted small">Updates · Partnerships · Logistics</p>
+      </div>
+      <div class="meeting">
+        <h3>Attendance, board meeting 09/21</h3>
+        <p>Everyone attended except Halima and Saad.</p>
+      </div>
+      <div class="meeting">
+        <h3>Socials</h3>
+        <p>First social: VINdiBasketball at the RSF, Saturday Oct 17, 2–4pm. <button class="linkbtn" data-go="socials">See the socials calendar</button></p>
+      </div>
+    </div>
+    <div>
+      <h2>Key Dates</h2>
+      <ul class="dates" id="dates"></ul>
+
+      <h2>At a Glance</h2>
+      <ul class="dates" id="glance"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section id="tab-board" hidden>
+  <h2>Board Chart</h2>
+  <div class="bar" role="group" aria-label="Filter by team" id="team-chips"></div>
+  <div class="bar">
+    <input type="search" id="board-search" placeholder="Search by name, role, or email" aria-label="Search members">
+    <button class="chip" id="view-toggle" aria-pressed="false">List view</button>
+  </div>
+  <div id="chart-view">
+    <div class="chart" id="chart"></div>
+    <div class="card" id="person-card" hidden></div>
+  </div>
+  <div class="table" id="list-view" hidden>
+    <table>
+      <thead><tr><th>Name</th><th>Role</th><th>Team</th><th>Email</th><th>Phone</th></tr></thead>
+      <tbody id="list-rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="tab-projects" hidden>
+  <h2>All Projects</h2>
+  <div class="proj-grid">
+    <div><h3>Tech</h3><ul><li>Project Duolingo</li><li>Project Marketplace</li><li>Project Crosscheck</li><li>Project Carcam <span class="muted">· Berkeley</span></li><li>Project Price Is Right <span class="muted">· Berkeley</span></li></ul></div>
+    <div><h3>Research</h3><ul><li>Project Spanish Lang</li><li>Project Price Gap</li><li>Project Legal</li><li>Uber Project</li></ul></div>
+    <div><h3>Outreach &amp; Content</h3><ul><li>Project Comics</li><li>Project Spanish</li><li>Project Booklet</li></ul></div>
+  </div>
+
+  <h2>Project Price Is Right</h2>
+  <div class="cols">
+    <div>
+      <p>A game that teaches people what used cars are worth so they don't overpay. Players see a real car with its mileage, accident history, title status and region, guess the price, then see the fair price and what moved it up or down.</p>
+      <p><strong>Modes:</strong> Quick Play (five random rounds) and a Daily Challenge where everyone gets the same car, with a streak counter.</p>
+      <p><strong>Screens:</strong> Home, Round, Reveal (fair price, score, price breakdown, one scam tip), Summary.</p>
+    </div>
+    <div>
+      <p><strong>How it fits together:</strong> a data pipeline collects listings and calculates fair prices, writes finished rounds to the database, the backend serves them through an API, and the React Native app reads only from that API.</p>
+      <p class="muted small">Spec and calendar by Noirit, submitted Oct 8.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">6-week calendar</h3>
+  <div class="bar" role="group" aria-label="Filter calendar by track" id="track-chips"></div>
+  <div class="cal" id="cal"></div>
+</section>
+
+<!-- ASSIGNMENTS -->
+<section id="tab-assignments" hidden>
+  <h2>Round 2 · Due Mon, Oct 12, 11:59pm</h2>
+  <p class="note"><strong>The rule:</strong> every task lists the proof it needs. "I reached out" is not proof. If any of your deliverables is missing after the deadline, you are removed from the board. No extensions unless you ask Rana before the deadline.</p>
+  <p class="small num" id="assign-summary"></p>
+  <div class="progress"><span id="assign-bar"></span></div>
+  <div class="bar" role="group" aria-label="Filter by status" id="status-chips"></div>
+  <div id="assign-list"></div>
+
+  <details class="assign" style="margin-top:18px">
+    <summary><span class="who">Round 1 archive · due Sep 26</span><span></span><span class="muted small" id="r1-count"></span></summary>
+    <div class="body table"><table><tbody id="r1-rows"></tbody></table></div>
+  </details>
+
+  <h2 id="submit-heading">Submit your work</h2>
+  <p class="note">Preview only. Nothing is sent from this page yet. On the live site, this form emails your submission and any files to Rana through Brevo.</p>
+  <form class="submit-form" id="submit-form" novalidate>
+    <label for="f-name">Your name<select id="f-name"></select></label>
+    <label for="f-task">Which assignment<select id="f-task"></select></label>
+    <label for="f-text">Notes or written deliverable
+      <textarea id="f-text" placeholder="Paste your write-up, call notes, links, or anything Rana should read."></textarea></label>
+    <label for="f-files">Proof (required): screenshots, docs, call logs<input id="f-files" type="file" multiple></label>
+    <button class="btn" type="submit">Submit</button>
+    <p id="f-result" hidden style="font-weight:400"></p>
+  </form>
+</section>
+
+<!-- SOCIALS -->
+<section id="tab-socials" hidden>
+  <h2>Fall 2026 Socials</h2>
+  <div class="bar" role="group" aria-label="Filter socials" id="social-chips"></div>
+  <p><button class="btn" id="ev-add" type="button">Add a social</button></p>
+  <div class="calhead">
+    <button class="chip" id="m-prev" aria-label="Previous month">←</button>
+    <h3 id="m-label" aria-live="polite"></h3>
+    <button class="chip" id="m-next" aria-label="Next month">→</button>
+  </div>
+  <div class="month" id="month" role="grid"></div>
+  <div class="card" id="ev-card" hidden></div>
+
+  <h3 style="margin-top:28px">All socials</h3>
+  <ul class="agenda" id="agenda"></ul>
+  <p class="muted small" style="margin-top:12px">Status runs Idea → Planning → Confirmed → Completed. Pierce leads socials unless noted.</p>
+</section>
+
+<!-- MEETINGS -->
+<section id="tab-meetings" hidden>
+  <h2>Meeting Summaries &amp; Recordings</h2>
+  <div class="meeting">
+    <h3>Board meeting · Sep 27, 2026</h3>
+    <p>Updates, partnerships, logistics, socials.</p>
+    <p class="small">Recording: <a href="#" title="Link to add">Zoom recording</a> <span class="muted">(link to add)</span></p>
+  </div>
+  <div class="meeting">
+    <h3>Board meeting · Sep 21, 2026</h3>
+    <p>Everyone attended except Halima and Saad.</p>
+    <p class="small">Recording: <a href="#" title="Link to add">Zoom recording</a> <span class="muted">(link to add)</span></p>
+  </div>
+</section>
+
+</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- people ---------- */
+const P = (name, role, team, email, phone, extra = {}) => ({ name, role, team, email, phone, ...extra });
+const people = [
+  P("Rana Darwich","President · Research Lead","Executive","member1@example.com","(555) 555-0101",{ tier: 0, alsoTeam: "Research & Legal" }),
+  P("Halima Cherif Hminat","EVP","Executive","member2@example.com","(555) 555-0102",{ tier: 1 }),
+  P("Noirit Ghosh Choudhuri","IVP · Price Is Right Lead","Executive","member3@example.com","(555) 555-0103",{ tier: 1, alsoTeam: "Data" }),
+  P("Daryen Josue Romero","Communications Lead","Executive","member4@example.com","(555) 555-0104",{ tier: 1 }),
+  P("Jordan Maxwell Acle","Data Lead","Data","member5@example.com","(555) 555-0105",{ lead: true }),
+  P("Daniel Gonzalez","Data Engineer","Data","member6@example.com","(555) 555-0106"),
+  P("James Peng Cheng","Data Engineer","Data","member7@example.com","(555) 555-0107"),
+  P("Jinan He","Data Engineer","Data","member8@example.com","(555) 555-0108"),
+  P("Julia Yingtao Jiang","Data Engineer","Data","member9@example.com","(555) 555-0109"),
+  P("Matthew Thirawat Go Thepsoparn","Data Team","Data","member10@example.com","(555) 555-0110"),
+  P("Ian de la Houssaye","Data Team · Website","Data","member11@example.com","(555) 555-0111"),
+  P("Ryan Lim","Software Engineer","Software","member12@example.com","(555) 555-0112"),
+  P("Ethan Pan","Software Engineer","Software","member13@example.com","(555) 555-0113"),
+  P("Chino Sawatyanont","Research Analyst","Research & Legal","member14@example.com","(555) 555-0114"),
+  P("Hannah Ming-Yi Benharash","Research Analyst","Research & Legal","member15@example.com","(555) 555-0115"),
+  P("Mariano Tinoco","Research Analyst","Research & Legal","member16@example.com","(555) 555-0116"),
+  P("Yunchuan Wang","Research Analyst","Research & Legal","member17@example.com","(555) 555-0117"),
+  P("Maria Miranda Nadsady","Legal Research","Research & Legal","member18@example.com","(555) 555-0118"),
+  P("Chloe Yuching Lin","Outreach Lead · Social Media","Outreach","member19@example.com","(555) 555-0119",{ lead: true }),
+  P("Pierce Matthew Kosobayashi","Socials","Outreach","member20@example.com","(555) 555-0120"),
+  P("Rami K Dakak","Research Analyst","Research & Legal","member21@example.com","(555) 555-0121")
+];
+const openSeats = {};
+const teamOrder = ["Data","Software","Research & Legal","Outreach"];
+const allTeams = ["All","Executive",...teamOrder];
+let teamFilter = "All", query = "", openPerson = null;
+
+const inTeam = (p, t) => t === "All" || p.team === t || p.alsoTeam === t;
+const matches = p => !query || [p.name,p.role,p.team,p.email].join(" ").toLowerCase().includes(query);
+const visible = p => inTeam(p, teamFilter) && matches(p);
+
+function personBtn(p, cls = "") {
+  const i = people.indexOf(p);
+  return `<button class="person ${p.lead ? "lead" : ""} ${cls} ${visible(p) ? "" : "dim"}" data-p="${i}" aria-expanded="${openPerson === i}">
+    <span class="n">${esc(p.name)}</span><span class="r">${esc(p.role)}</span></button>`;
+}
+function renderChips() {
+  document.getElementById("team-chips").innerHTML = allTeams.map(t => {
+    const n = t === "All" ? people.length : people.filter(p => inTeam(p, t)).length;
+    return `<button class="chip" data-team="${esc(t)}" aria-pressed="${teamFilter === t}">${esc(t)}<span class="ct">${n}</span></button>`;
+  }).join("");
+}
+function renderChart() {
+  const t0 = people.filter(p => p.tier === 0), t1 = people.filter(p => p.tier === 1);
+  const teams = teamOrder.map(t => {
+    const mem = people.filter(p => p.team === t);
+    const led = people.filter(p => p.team !== t && p.alsoTeam === t && p.tier === 0);
+    const ledHtml = led.map(p => `<div class="person lead" style="cursor:default"><span class="n">${esc(p.name)}</span><span class="r">${esc(t === "Research & Legal" ? "Research Lead" : p.role)}</span></div>`).join("");
+    const open = openSeats[t] ? `<div class="person open"><span class="n">${esc(openSeats[t])}</span><span class="r">Open seat</span></div>` : "";
+    return `<div class="team"><h3>${esc(t)}</h3>${ledHtml}${open}${mem.map(p => personBtn(p)).join("")}</div>`;
+  }).join("");
+  document.getElementById("chart").innerHTML =
+    `<div class="tier">${t0.map(p => personBtn(p)).join("")}</div>
+     <div class="tier">${t1.map(p => personBtn(p)).join("")}</div>
+     <div class="teams">${teams}</div>`;
+  const rows = people.filter(visible);
+  document.getElementById("list-rows").innerHTML = rows.length ? rows.map(p => `<tr><td>${esc(p.name)}</td><td>${esc(p.role)}</td><td>${esc(p.team)}</td><td>${esc(p.email)}</td><td class="num" style="white-space:nowrap">${esc(p.phone)}</td></tr>`).join("")
+    : `<tr><td colspan="5" class="muted">No one matches that search.</td></tr>`;
+  renderCard();
+}
+function renderCard() {
+  const card = document.getElementById("person-card");
+  if (openPerson === null) { card.hidden = true; return; }
+  const p = people[openPerson];
+  const first = p.name.split(" ")[0];
+  const a = assignments.find(x => x.name === first);
+  card.hidden = false;
+  card.innerHTML = `<h3>${esc(p.name)}</h3>
+    <div class="row"><span>Role</span><span>${esc(p.role)} · ${esc(p.team)}</span></div>
+    <div class="row"><span>Email</span><span>${esc(p.email)}</span><button class="linkbtn small" data-copy="${esc(p.email)}">Copy</button></div>
+    <div class="row"><span>Phone</span><span class="num">${esc(p.phone)}</span>${p.phone.startsWith("(") ? `<button class="linkbtn small" data-copy="${esc(p.phone)}">Copy</button>` : ""}</div>
+    ${a ? `<div class="row"><span>Tasks</span><span>${a.items.length} due ${esc(a.due)} · <span class="st-${a.status === "Submitted" ? "done" : "prog"}">${esc(a.status)}</span> · <button class="linkbtn" data-go="assignments" data-open="${esc(a.name)}">View</button></span></div>` : ""}`;
+}
+document.getElementById("board-search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); renderChart(); });
+document.getElementById("view-toggle").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", on);
+  document.getElementById("chart-view").hidden = on;
+  document.getElementById("list-view").hidden = !on;
+});
+
+/* ---------- assignments ---------- */
+const T = (task, proof, by) => ({ task, proof, by });
+const assignments = [
+  { name:"Chloe", role:"Outreach Lead · Social Media", items:[
+    T("Post twice on @ucb_vindicated before Monday night","Link to each post"),
+    T("2-week content calendar: what gets posted, which days, who makes each one","Doc link"),
+    T("Follow up with the high schools and YMCA programs you emailed in round 1 that haven't replied","Screenshot of each follow-up, plus a list of who replied")] },
+  { name:"Noirit", role:"IVP · Price Is Right Lead", items:[
+    T("Price Is Right week 2 check: pipeline started, database set up, game screens running with placeholder data","GitHub commit links and a screenshot of the screens"),
+    T("Sunday night: message every board member who hasn't submitted yet","Screenshot of the messages")] },
+  { name:"Pierce", role:"Socials", items:[
+    T("VINdiBasketball: set the date and book an RSF court","Booking confirmation"),
+    T("RSVP form for basketball, sent to Chloe to post","Form link"),
+    T("Send invites for every social on the Socials calendar to the full member email list","Screenshot of the sent email showing the recipients"),
+    T("Keep the Socials calendar current: confirm each location and update it on the page","The updated calendar")] },
+  { name:"Ian", role:"Data Team · Website", items:[
+    T("Get access to the website repo from Rizwaan or Ray","Screenshot showing access"),
+    T("Start the /board page on getvindicated.org from this preview","Link to your branch or pull request")] },
+  { name:"Halima", role:"EVP · Partnerships", items:[
+    T("Follow up with Cal TV and set a collaboration date","The email or DM thread"),
+    T("Message 5 Berkeley clubs that overlap with us (pre-law, consumer or business clubs, cultural orgs, transfer/first-gen groups) about co-hosting a workshop","Screenshot of each sent message, plus any replies")] },
+  { name:"Daryen", role:"Communications Lead", items:[
+    T("Call 5 local mechanics about recording a short video with us (carried over from round 1)","Call log: shop name, number, time called, what they said")] },
+  { name:"Jordan", role:"Data Lead", items:[
+    T("Project spec, including how many people you need (carried over)","Doc link"),
+    T("Message James Cheng about the project (carried over)","Screenshot of the message"),
+    T("Answer Ray (carried over)","Screenshot of your reply")] }
+].map(a => ({ ...a, due: "Oct 12, 2026", status: "Not submitted" }));
+
+const round1 = [
+  ["Noirit","Spec, socials schedule, upload project doc","Submitted Oct 8 (4 docs)"],
+  ["Halima","Cal TV outreach, 4 social posts","Marked completed"],
+  ["Ian","Follow up with Rizwaan, project spec","Marked completed"],
+  ["Chloe","Event ideas, 5 mechanic calls, 10 high schools + YMCA","Marked completed"],
+  ["Daryen","Help Halima, 5 mechanic calls","Not done"],
+  ["Pierce","Event ideas doc, workshop timeline, connect with Halima","Not done"],
+  ["Jordan","Project spec, connect with James, answer Ray","Not done"]
+];
+document.getElementById("r1-count").textContent = `${round1.filter(r => r[2] !== "Not done").length} of ${round1.length} done`;
+document.getElementById("r1-rows").innerHTML = round1.map(r => `<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td class="${r[2] === "Not done" ? "st-prog" : "st-done"}">${esc(r[2])}</td></tr>`).join("");
+let statusFilter = "All";
+const ticks = {};
+try { Object.assign(ticks, JSON.parse(localStorage.getItem("vin-ticks") || "{}")); } catch (_) {}
+
+function renderAssign() {
+  const done = assignments.filter(a => a.status === "Submitted").length;
+  const left = Math.ceil((D("2026-10-12") - today) / 864e5);
+  document.getElementById("assign-summary").textContent = `${done} of ${assignments.length} people submitted · ${left > 0 ? left + " days left" : left === 0 ? "due tonight" : "deadline passed"}`;
+  document.getElementById("assign-bar").style.width = (done / assignments.length * 100) + "%";
+  document.getElementById("status-chips").innerHTML = ["All","Not submitted","Submitted"].map(s => {
+    const n = s === "All" ? assignments.length : assignments.filter(a => a.status === s).length;
+    return `<button class="chip" data-status="${s}" aria-pressed="${statusFilter === s}">${s}<span class="ct">${n}</span></button>`;
+  }).join("");
+  const list = assignments.filter(a => statusFilter === "All" || a.status === statusFilter);
+  document.getElementById("assign-list").innerHTML = list.map(a => `
+    <details class="assign" id="as-${esc(a.name)}">
+      <summary><span class="who">${esc(a.name)} <span class="muted small" style="font-weight:400">· ${esc(a.role)}</span></span><span class="due small muted num">${esc(a.due)}</span><span class="${a.status === "Submitted" ? "st-done" : "st-prog"}">${esc(a.status)}</span></summary>
+      <div class="body">
+        <ul class="tasks">${a.items.map((t, i) => { const k = "r2" + a.name + i; return `<li class="${ticks[k] ? "ticked" : ""}"><input type="checkbox" id="t-${esc(k)}" data-tick="${esc(k)}" ${ticks[k] ? "checked" : ""}><label for="t-${esc(k)}">${esc(t.task)}${t.by ? ` <strong class="num">· by ${esc(t.by)}</strong>` : ""}<br><span class="small muted"><strong>Proof:</strong> ${esc(t.proof)}</span></label></li>`; }).join("")}</ul>
+        ${(a.subs || []).map(s => `<div class="subs"><strong>Submitted ${esc(s.date)}:</strong> ${s.files.map(esc).join(", ")}</div>`).join("") || `<div class="subs muted">No submissions yet.</div>`}
+        <button class="linkbtn" data-submit="${esc(a.name)}">Submit work for ${esc(a.name)}</button>
+      </div>
+    </details>`).join("");
+}
+
+const nameSel = document.getElementById("f-name"), taskSel = document.getElementById("f-task");
+nameSel.innerHTML = `<option value="">Choose your name</option>` + assignments.map(a => `<option>${esc(a.name)}</option>`).join("");
+function fillTasks() {
+  const a = assignments.find(x => x.name === nameSel.value);
+  taskSel.innerHTML = a ? a.items.map(i => `<option>${esc(i.task.length > 90 ? i.task.slice(0, 88) + "…" : i.task)}</option>`).join("") + `<option>Other / general update</option>` : `<option>Choose your name first</option>`;
+}
+nameSel.addEventListener("change", fillTasks); fillTasks();
+document.getElementById("submit-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const out = document.getElementById("f-result"); out.hidden = false;
+  if (!nameSel.value) { out.textContent = "Choose your name before submitting."; return; }
+  const n = document.getElementById("f-files").files.length;
+  const txt = document.getElementById("f-text").value.trim();
+  if (!n && !/https?:\/\//.test(txt)) { out.textContent = "Add proof: attach a file or paste a link to your post, doc or PR."; return; }
+  out.textContent = `Preview: on the live site this would email ${nameSel.value}'s submission${n ? ` and ${n} file${n > 1 ? "s" : ""}` : ""} to Rana. Nothing was sent.`;
+});
+
+/* ---------- calendar ---------- */
+const weeks = [
+  { n:1, start:"2026-09-28", end:"2026-10-02", label:"Sep 28 – Oct 2", goal:"Set up repo, database and app skeleton", items:[["Data","Create a shared GitHub repo and add all tech members"],["Backend","Decide the database tech stack and tell all technical members"],["App","App scaffold and navigation plan"]] },
+  { n:2, start:"2026-10-05", end:"2026-10-09", label:"Oct 5 – 9", goal:"Choose data pipeline tools and sources, start building", items:[["Data","Mon: agree on pipeline stack, what data to scrape and from where"],["Data","Tue: start building the data pipeline"],["Backend","Tue: set up the database"],["App","Tue: start building game screens with placeholder data"]] },
+  { n:3, start:"2026-10-12", end:"2026-10-16", label:"Oct 12 – 16", goal:"Finish data pipeline and connect it to the app through the database", items:[["Data","Mon: finish pipeline implementation; from Tue, work with backend"],["App","Wed: connect game screens to real data"],["Backend","Fri: pipeline integrates with the app through the database"]] },
+  { n:4, start:"2026-10-19", end:"2026-10-23", label:"Oct 19 – 23", goal:"Fix bugs and keep backend in step with the app", items:[["Backend","Fix bugs and keep up with the app's requirements"],["App","Build remaining features: guessing, scoring, price reveal"]] },
+  { n:5, start:"2026-10-26", end:"2026-10-30", label:"Oct 26 – 30", goal:"Finish the car price component", items:[["App","Fri: car price component complete"]] },
+  { n:6, start:"2026-11-02", end:"2026-11-06", label:"Nov 2 – 6", goal:"Testing, bug fixes, final demo", items:[["App","Mon: test the full game end to end"],["Backend","Wed: fix bugs found in testing"],["App","Fri: final demo"]] }
+];
+let track = "All";
+const today = new Date(); today.setHours(0,0,0,0);
+const D = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+function renderCal() {
+  document.getElementById("track-chips").innerHTML = ["All","Data","Backend","App"].map(t => `<button class="chip" data-track="${t}" aria-pressed="${track === t}">${t}</button>`).join("");
+  document.getElementById("cal").innerHTML = weeks.map(w => {
+    const now = today >= D(w.start) && today <= new Date(D(w.end).getTime() + 2 * 864e5);
+    const past = today > new Date(D(w.end).getTime() + 2 * 864e5);
+    const its = w.items.filter(i => track === "All" || i[0] === track);
+    return `<details class="week ${now ? "now" : ""}" ${now ? "open" : ""}>
+      <summary><span class="wk">Week ${w.n}</span><span class="num small ${past ? "muted" : ""}">${w.label}</span><span class="goal">${esc(w.goal)}${now ? `<span class="tag">This week</span>` : ""}</span></summary>
+      <ul class="items">${its.length ? its.map(i => `<li><span class="track">${i[0]}</span><span>${esc(i[1])}</span></li>`).join("") : `<li><span></span><span class="muted">Nothing scheduled for ${track} this week.</span></li>`}</ul>
+    </details>`;
+  }).join("");
+}
+
+/* ---------- socials ---------- */
+// kind: b = Berkeley, x = UCSC x UCB, o = online, org = org date (not a social)
+const socials = [
+  { date:"2026-10-17", time:"2:00–4:00pm", title:"VINdiBasketball", where:"RSF", kind:"b", lead:"Pierce", status:"Planning", cost:"Free. Optional boba after, self-pay.", note:"First Berkeley social. Court booking and RSVP form due Mon, Oct 12." },
+  { date:"2026-10-21", time:"9:00–10:00pm", title:"Skribbl night", where:"Discord", kind:"o", lead:"Chloe", status:"Planning", cost:"Free", note:"Open to all three chapters. Chloe posts the link that afternoon." },
+  { date:"2026-10-24", time:"Afternoon", title:"UCSC × UCB social", where:"San Francisco · spot TBD", kind:"x", lead:"Rana + Ashwin", status:"Idea", cost:"Self-pay", note:"Combined social with UCSC. Location still being decided." },
+  { date:"2026-10-30", time:"5:00–8:00pm", title:"Glade Night + Chipotle", where:"Memorial Glade", kind:"b", lead:"Pierce", status:"Planning", cost:"Chipotle catering from the $240, if the Oct 13 budget allows", note:"Halloween eve, costumes optional. Last week of daylight before clocks change." },
+  { date:"2026-11-06", time:"", title:"Price Is Right demo", where:"", kind:"org", lead:"Noirit", status:"", cost:"", note:"Not a social. No socials Nov 5–15." },
+  { date:"2026-11-18", time:"8:00–10:30pm", title:"Movie Night + Menchie's", where:"TBD", kind:"b", lead:"Daryen (movie), Chloe (Menchie's)", status:"Idea", cost:"Self-pay froyo", note:"" },
+  { date:"2026-11-21", time:"1:00–4:00pm", title:"UCSC × UCB basketball", where:"Irvington Park, 41825 Blacow Rd, Fremont", kind:"x", lead:"Pierce + UCSC lead", status:"Idea", cost:"Free", note:"Meet-in-the-middle game, separate from VINdiBasketball. Outdoor court, first come. Backup: Karl Nordvik Park." },
+];
+const SOCIALS_KEY = "vin-socials-v1";
+try { const saved = JSON.parse(localStorage.getItem(SOCIALS_KEY) || "null"); if (Array.isArray(saved) && saved.length) socials.splice(0, socials.length, ...saved); } catch (_) {}
+const saveSocials = () => { try { localStorage.setItem(SOCIALS_KEY, JSON.stringify(socials)); } catch (_) {} };
+let editEv = null; // index being edited, or "new"
+const kinds = { All:null, Berkeley:"b", "UCSC × UCB":"x", Online:"o" };
+let socialFilter = "All", openEv = null;
+let viewMonth = (() => { const t = today.getFullYear() === 2026 && today.getMonth() >= 9 && today.getMonth() <= 11 ? today : D("2026-10-01"); return new Date(t.getFullYear(), t.getMonth(), 1); })();
+const showEv = s => s.kind === "org" || socialFilter === "All" || s.kind === kinds[socialFilter];
+const fmt = (d, o) => d.toLocaleDateString("en-US", o);
+
+function renderSocials() {
+  const real = socials.filter(s => s.kind !== "org");
+  document.getElementById("social-chips").innerHTML = Object.keys(kinds).map(k => {
+    const n = k === "All" ? real.length : real.filter(s => s.kind === kinds[k]).length;
+    return `<button class="chip" data-social="${esc(k)}" aria-pressed="${socialFilter === k}">${esc(k)}<span class="ct">${n}</span></button>`;
+  }).join("");
+
+  const y = viewMonth.getFullYear(), m = viewMonth.getMonth();
+  document.getElementById("m-label").textContent = fmt(viewMonth, { month: "long", year: "numeric" });
+  const start = new Date(y, m, 1 - new Date(y, m, 1).getDay());
+  let cells = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(d => `<div class="dow" role="columnheader">${d}</div>`).join("");
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+    if (i >= 35 && d.getMonth() !== m) break;
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const evs = socials.map((s, idx) => [s, idx]).filter(([s]) => s.date === key);
+    cells += `<div class="day ${d.getMonth() !== m ? "other" : ""} ${+d === +today ? "today" : ""}" role="gridcell">
+      <span class="dn">${d.getDate()}</span>
+      ${evs.map(([s, idx]) => `<button class="ev ${s.kind} ${showEv(s) ? "" : "hide"}" data-ev="${idx}" aria-pressed="${openEv === idx}" title="${esc(s.title)}">${esc(s.title)}</button>`).join("")}
+    </div>`;
+  }
+  document.getElementById("month").innerHTML = cells;
+  document.getElementById("m-prev").disabled = m <= 9;
+  document.getElementById("m-next").disabled = m >= 11;
+
+  const card = document.getElementById("ev-card");
+  if (editEv !== null) {
+    const s = editEv === "new" ? { date: "", time: "", title: "", where: "", kind: "b", lead: "Pierce", status: "Idea", cost: "", note: "" } : socials[editEv];
+    const opt = (v, cur, label) => `<option value="${v}" ${v === cur ? "selected" : ""}>${label}</option>`;
+    card.hidden = false;
+    card.innerHTML = `<h3>${editEv === "new" ? "Add a social" : "Edit " + esc(s.title)}</h3>
+      <form id="ev-form" class="submit-form" novalidate style="max-width:none">
+        <label for="e-title">Name<input type="text" id="e-title" value="${esc(s.title)}" required></label>
+        <div class="evgrid">
+          <label for="e-date">Date<input type="date" id="e-date" value="${esc(s.date)}" min="2026-10-01" max="2026-12-18" required></label>
+          <label for="e-time">Time<input type="text" id="e-time" value="${esc(s.time)}" placeholder="2:00–4:00pm"></label>
+        </div>
+        <label for="e-where">Location<input type="text" id="e-where" value="${esc(s.where)}" placeholder="Place name and address"></label>
+        <div class="evgrid">
+          <label for="e-kind">Type<select id="e-kind">${opt("b", s.kind, "Berkeley")}${opt("x", s.kind, "UCSC × UCB")}${opt("o", s.kind, "Online")}</select></label>
+          <label for="e-status">Status<select id="e-status">${["Idea","Planning","Confirmed","Completed"].map(x => opt(x, s.status, x)).join("")}</select></label>
+        </div>
+        <label for="e-lead">Lead<input type="text" id="e-lead" value="${esc(s.lead)}"></label>
+        <label for="e-cost">Cost<input type="text" id="e-cost" value="${esc(s.cost)}"></label>
+        <label for="e-note">Notes<textarea id="e-note" style="min-height:80px">${esc(s.note)}</textarea></label>
+        <div class="bar" style="margin:0">
+          <button class="btn" type="submit">Save</button>
+          <button class="chip" type="button" data-ecancel="1">Cancel</button>
+          ${editEv !== "new" ? `<button class="chip" type="button" data-edelete="1" style="margin-left:auto">${confirmDel ? "Click again to delete" : "Delete"}</button>` : ""}
+        </div>
+        <p id="e-err" hidden style="font-weight:400"></p>
+        <p class="small muted" style="margin:0">Preview: edits save in this browser only. On the live site, Pierce and Rana can edit and everyone sees the change.</p>
+      </form>`;
+  }
+  else if (openEv === null) card.hidden = true;
+  else {
+    const s = socials[openEv], d = D(s.date);
+    card.hidden = false;
+    card.innerHTML = `<h3>${esc(s.title)}</h3>
+      <div class="row"><span>When</span><span>${fmt(d, { weekday: "long", month: "long", day: "numeric" })}${s.time ? " · " + esc(s.time) : ""}</span></div>
+      ${s.where ? `<div class="row"><span>Where</span><span>${esc(s.where)}</span></div>` : ""}
+      ${s.lead ? `<div class="row"><span>Lead</span><span>${esc(s.lead)}</span></div>` : ""}
+      ${s.cost ? `<div class="row"><span>Cost</span><span>${esc(s.cost)}</span></div>` : ""}
+      ${s.status ? `<div class="row"><span>Status</span><span class="st-${esc(s.status)}">${esc(s.status)}</span></div>` : ""}
+      ${s.note ? `<p class="small" style="margin:4px 0 0">${esc(s.note)}</p>` : ""}
+      <div><button class="linkbtn" data-eedit="${openEv}">Edit details or location</button></div>`;
+  }
+
+  const tagName = { b: "Berkeley", x: "UCSC × UCB", o: "Online", org: "Org date" };
+  document.getElementById("agenda").innerHTML = socials.filter(showEv).map(s => {
+    const d = D(s.date), past = d < today;
+    return `<li class="${past ? "muted" : ""}"><span class="when">${fmt(d, { weekday: "short", month: "short", day: "numeric" })}</span>
+      <span><strong>${esc(s.title)}</strong>${s.where ? ` <span class="muted">· ${esc(s.where)}</span>` : ""}<br><span class="tag">${tagName[s.kind]}</span>${s.lead ? ` <span class="small muted">· ${esc(s.lead)}</span>` : ""}</span>
+      <span class="${s.status ? "st-" + esc(s.status) : ""}">${esc(s.status)}</span></li>`;
+  }).join("");
+}
+let confirmDel = false;
+document.addEventListener("submit", e => {
+  if (e.target.id !== "ev-form") return;
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const err = document.getElementById("e-err");
+  if (!v("e-title") || !v("e-date")) { err.hidden = false; err.textContent = "Add a name and a date before saving."; return; }
+  const s = { date: v("e-date"), time: v("e-time"), title: v("e-title"), where: v("e-where"), kind: v("e-kind"), lead: v("e-lead"), status: v("e-status"), cost: v("e-cost"), note: v("e-note") };
+  if (editEv === "new") socials.push(s); else socials[editEv] = s;
+  socials.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+  openEv = socials.indexOf(s); editEv = null; confirmDel = false;
+  const d = D(s.date); viewMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+  saveSocials(); renderSocials(); renderHome();
+});
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-eedit],[data-ecancel],[data-edelete],#ev-add");
+  if (!b) return;
+  if (b.id === "ev-add") { editEv = "new"; openEv = null; }
+  else if (b.dataset.eedit !== undefined) { editEv = +b.dataset.eedit; }
+  else if (b.dataset.ecancel) { editEv = null; }
+  else if (b.dataset.edelete) {
+    if (!confirmDel) { confirmDel = true; renderSocials(); return; }
+    socials.splice(editEv, 1); editEv = null; openEv = null; saveSocials(); renderHome();
+  }
+  confirmDel = false;
+  renderSocials();
+  document.getElementById("ev-card").scrollIntoView({ block: "nearest", behavior: "smooth" });
+});
+document.getElementById("m-prev").addEventListener("click", () => { viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1); openEv = null; renderSocials(); });
+document.getElementById("m-next").addEventListener("click", () => { viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1); openEv = null; renderSocials(); });
+
+/* ---------- home ---------- */
+function renderHome() {
+  const dates = [
+    ["2026-10-12","Round 2 deliverables due, 11:59pm. Missing any means off the board."],
+    ["2026-10-09","Price Is Right: week 2 wraps (pipeline started, database set up)"],
+    ["2026-10-16","Price Is Right: pipeline connected to the app"],
+    ["2026-10-30","Price Is Right: car price component complete"],
+    ["2026-11-06","Price Is Right: final demo"]
+  ];
+  dates.sort((a, b) => a[0] < b[0] ? -1 : 1);
+  document.getElementById("dates").innerHTML = dates.map(([d, t]) => {
+    const dt = D(d), diff = Math.round((dt - today) / 864e5);
+    const left = diff > 1 ? `in ${diff} days` : diff === 1 ? "tomorrow" : diff === 0 ? "today" : "";
+    return `<li class="${diff < 0 ? "past" : ""}"><span class="d">${dt.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><span>${esc(t)}${left ? ` <span class="left">${left}</span>` : ""}</span></li>`;
+  }).join("");
+  const done = assignments.filter(a => a.status === "Submitted").length;
+  const g = [
+    [String(people.length), "members on the Berkeley board", "board"],
+    [`${done}/${assignments.length}`, "round 2 submissions in", "assignments"],
+    [String(socials.filter(s => s.kind !== "org").length), "socials on the calendar", "socials"],
+    [String(people.filter(p => p.lead || p.tier !== undefined).length), "people in leadership", "board"]
+  ];
+  document.getElementById("glance").innerHTML = g.map(([n, t, go]) => `<li><span class="d">${n}</span><span><button class="linkbtn" data-go="${go}">${t}</button></span></li>`).join("");
+}
+
+/* ---------- tabs + events ---------- */
+const tabs = ["home","board","projects","assignments","socials","meetings"];
+function show(t) {
+  if (!tabs.includes(t)) t = "home";
+  tabs.forEach(x => {
+    document.getElementById("tab-" + x).hidden = x !== t;
+    const a = document.querySelector(`[data-tab="${x}"]`);
+    if (x === t) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  try { history.replaceState(null, "", "#" + t); } catch (_) {}
+  window.scrollTo(0, 0);
+}
+document.addEventListener("click", e => {
+  const el = e.target.closest("button, a");
+  if (!el) return;
+  const d = el.dataset;
+  if (d.tab) { e.preventDefault(); show(d.tab); }
+  else if (d.go) {
+    show(d.go);
+    if (d.open) { statusFilter = "All"; renderAssign(); const x = document.getElementById("as-" + d.open); if (x) { x.open = true; x.scrollIntoView({ block: "center" }); } }
+  }
+  else if (d.team) { teamFilter = d.team; renderChips(); renderChart(); }
+  else if (d.p !== undefined) { const i = +d.p; openPerson = openPerson === i ? null : i; renderChart(); if (openPerson !== null) document.getElementById("person-card").scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  else if (d.copy) {
+    const v = d.copy;
+    const ok = () => { el.textContent = "Copied"; setTimeout(() => el.textContent = "Copy", 1400); };
+    try { navigator.clipboard.writeText(v).then(ok, () => { el.textContent = v; }); } catch (_) { el.textContent = v; }
+  }
+  else if (d.status) { statusFilter = d.status; renderAssign(); }
+  else if (d.track) { track = d.track; renderCal(); }
+  else if (d.social) { socialFilter = d.social; openEv = null; renderSocials(); }
+  else if (d.ev !== undefined) { const i = +d.ev; if (socials[i].kind === "org") return; openEv = openEv === i ? null : i; renderSocials(); }
+  else if (d.submit) {
+    nameSel.value = d.submit; fillTasks();
+    document.getElementById("submit-heading").scrollIntoView({ behavior: "smooth" });
+    nameSel.focus({ preventScroll: true });
+  }
+});
+document.addEventListener("change", e => {
+  const k = e.target.dataset && e.target.dataset.tick;
+  if (!k) return;
+  ticks[k] = e.target.checked;
+  e.target.closest("li").classList.toggle("ticked", e.target.checked);
+  try { localStorage.setItem("vin-ticks", JSON.stringify(ticks)); } catch (_) {}
+});
+
+renderChips(); renderChart(); renderAssign(); renderCal(); renderSocials(); renderHome();
+show(location.hash.slice(1));
+</script>
+</body>
+</html>

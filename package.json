@@ -8,11 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "board:migrate": "node scripts/board-migrate.mjs",
+    "board:seed": "node scripts/board-seed.mjs"
   },
   "dependencies": {
     "@getbrevo/brevo": "^5.0.3",
+    "jose": "^6.2.12",
     "next": "16.2.2",
+    "postgres": "^3.4.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

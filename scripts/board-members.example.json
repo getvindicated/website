@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Rana Darwich",
+    "role": "President · Research Lead",
+    "team": "Executive",
+    "email": "member1@example.com",
+    "phone": "(555) 555-0100",
+    "tier": 0,
+    "alsoTeam": "Research & Legal"
+  },
+  {
+    "name": "Halima Cherif Hminat",
+    "role": "EVP",
+    "team": "Executive",
+    "email": "member2@example.com",
+    "phone": "(555) 555-0101",
+    "tier": 1
+  },
+  {
+    "name": "Noirit Ghosh Choudhuri",
+    "role": "IVP · Price Is Right Lead",
+    "team": "Executive",
+    "email": "member3@example.com",
+    "phone": "(555) 555-0102",
+    "tier": 1,
+    "alsoTeam": "Data"
+  },
+  {
+    "name": "Daryen Josue Romero",
+    "role": "Communications Lead",
+    "team": "Executive",
+    "email": "member4@example.com",
+    "phone": "(555) 555-0103",
+    "tier": 1
+  },
+  {
+    "name": "Jordan Maxwell Acle",
+    "role": "Data Lead",
+    "team": "Data",
+    "email": "member5@example.com",
+    "phone": "(555) 555-0104",
+    "lead": true
+  },
+  {
+    "name": "Daniel Gonzalez",
+    "role": "Data Engineer",
+    "team": "Data",
+    "email": "member6@example.com",
+    "phone": "(555) 555-0105"
+  },
+  {
+    "name": "James Peng Cheng",
+    "role": "Data Engineer",
+    "team": "Data",
+    "email": "member7@example.com",
+    "phone": "(555) 555-0106"
+  },
+  {
+    "name": "Jinan He",
+    "role": "Data Engineer",
+    "team": "Data",
+    "email": "member8@example.com",
+    "phone": "(555) 555-0107"
+  },
+  {
+    "name": "Julia Yingtao Jiang",
+    "role": "Data Engineer",
+    "team": "Data",
+    "email": "member9@example.com",
+    "phone": "(555) 555-0108"
+  },
+  {
+    "name": "Matthew Thirawat Go Thepsoparn",
+    "role": "Data Team",
+    "team": "Data",
+    "email": "member10@example.com",
+    "phone": "(555) 555-0109"
+  },
+  {
+    "name": "Ian de la Houssaye",
+    "role": "Software Lead",
+    "team": "Software",
+    "email": "member11@example.com",
+    "phone": "(555) 555-0110",
+    "lead": true
+  },
+  {
+    "name": "Ryan Lim",
+    "role": "Software Engineer",
+    "team": "Software",
+    "email": "member12@example.com",
+    "phone": "(555) 555-0111"
+  },
+  {
+    "name": "Ethan Pan",
+    "role": "Software Engineer",
+    "team": "Software",
+    "email": "member13@example.com",
+    "phone": "(555) 555-0112"
+  },
+  {
+    "name": "Chino Sawatyanont",
+    "role": "Research Analyst",
+    "team": "Research & Legal",
+    "email": "member14@example.com",
+    "phone": "(555) 555-0113"
+  },
+  {
+    "name": "Hannah Ming-Yi Benharash",
+    "role": "Research Analyst",
+    "team": "Research & Legal",
+    "email": "member15@example.com",
+    "phone": "(555) 555-0114"
+  },
+  {
+    "name": "Mariano Tinoco",
+    "role": "Research Analyst",
+    "team": "Research & Legal",
+    "email": "member16@example.com",
+    "phone": "(555) 555-0115"
+  },
+  {
+    "name": "Yunchuan Wang",
+    "role": "Research Analyst",
+    "team": "Research & Legal",
+    "email": "member17@example.com",
+    "phone": "(555) 555-0116"
+  },
+  {
+    "name": "Maria Miranda Nadsady",
+    "role": "Legal Research",
+    "team": "Research & Legal",
+    "email": "member18@example.com",
+    "phone": "(555) 555-0117"
+  },
+  {
+    "name": "Chloe Yuching Lin",
+    "role": "Outreach Lead · Social Media",
+    "team": "Outreach",
+    "email": "member19@example.com",
+    "phone": "(555) 555-0118",
+    "lead": true
+  },
+  {
+    "name": "Pierce Matthew Kosobayashi",
+    "role": "Socials",
+    "team": "Outreach",
+    "email": "member20@example.com",
+    "phone": "(555) 555-0119"
+  },
+  {
+    "name": "Rami K Dakak",
+    "role": "Research Analyst",
+    "team": "Research & Legal",
+    "email": "member21@example.com",
+    "phone": "(555) 555-0120"
+  }
+]
