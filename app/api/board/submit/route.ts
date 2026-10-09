@@ -1,7 +1,7 @@
 import { sendEmail } from "@/lib/brevo";
 import { bad, guard } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
-import { SUBMISSIONS_INBOX } from "@/lib/board/roles";
+import { ROLE_LABEL, SUBMISSIONS_INBOX } from "@/lib/board/roles";
 import { MAX_ATTACHMENT_BYTES, NEED_PROOF, OTHER_TASK, TOO_BIG, hasLink } from "@/lib/board/submit-rules";
 
 const esc = (s: string) =>
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   if (total > MAX_ATTACHMENT_BYTES) return bad(TOO_BIG, 413);
 
   const sql = db();
-  const [member] = await sql`SELECT first_name FROM board_members WHERE first_name = ${person} LIMIT 1`;
+  const [member] = await sql`SELECT first_name, name, email FROM board_members WHERE first_name = ${person} LIMIT 1`;
   if (!member) return bad("Choose your name from the list.");
 
   let assignmentId: number | null = null;
@@ -76,13 +76,15 @@ export async function POST(request: Request) {
     await deliver({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [SUBMISSIONS_INBOX],
-      replyTo: { email: user.email, name: person },
+      // Everyone shares a password, so reply-to is the email on file for
+      // the name they picked.
+      ...(/^[^\s@]+@[^\s@]+$/.test(member.email) ? { replyTo: { email: member.email, name: member.name } } : {}),
       subject: `[VINdicated Board] ${person}: ${shortTask}`,
       attachment,
       htmlContent: `
         <h2>Board submission</h2>
         <p><strong>Name:</strong> ${esc(person)}</p>
-        <p><strong>Signed in as:</strong> ${esc(user.email)}</p>
+        <p><strong>Signed in with:</strong> the ${esc(ROLE_LABEL[user.role])} password</p>
         <p><strong>Assignment:</strong> ${esc(taskLabel)}</p>
         ${proof ? `<p><strong>Proof needed:</strong> ${esc(proof)}</p>` : ""}
         <p><strong>Files:</strong> ${attachment.length ? attachment.map((a) => esc(a.name)).join(", ") : "none"}</p>
@@ -96,7 +98,7 @@ export async function POST(request: Request) {
 
   await sql.begin(async (tx) => {
     await tx`INSERT INTO board_submissions (person, assignment_id, task_label, submitter_email, body, filenames)
-      VALUES (${person}, ${assignmentId}, ${taskLabel}, ${user.email}, ${text}, ${attachment.map((a) => a.name)})`;
+      VALUES (${person}, ${assignmentId}, ${taskLabel}, ${member.email}, ${text}, ${attachment.map((a) => a.name)})`;
     if (assignmentId) {
       await tx`UPDATE board_assignments SET status = 'submitted' WHERE id = ${assignmentId} AND status = 'pending'`;
     }

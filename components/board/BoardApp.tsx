@@ -2,7 +2,8 @@
 
 import { createContext, useCallback, useContext, useEffect, useState, type MouseEvent } from "react";
 import { useRouter } from "next/navigation";
-import type { BoardUser } from "@/lib/board/access";
+import type { BoardUser } from "@/lib/board/session";
+import { ROLE_LABEL } from "@/lib/board/roles";
 import { TABS, type BoardData, type Tab } from "@/lib/board/types";
 import { TERM } from "@/lib/board/static";
 import { HomeTab } from "./HomeTab";
@@ -72,8 +73,11 @@ export function BoardApp({ data, user, today }: { data: BoardData; user: BoardUs
   };
 
   const ctx: Ctx = { data, user, today, go, refresh, focus, setFocus };
-  const roleLabel =
-    user.role === "admin" ? "admin" : user.role === "socials" ? "socials editor" : "board member";
+
+  async function signOut() {
+    await fetch("/api/board/logout", { method: "POST" });
+    router.refresh();
+  }
 
   return (
     <BoardContext.Provider value={ctx}>
@@ -88,7 +92,10 @@ export function BoardApp({ data, user, today }: { data: BoardData; user: BoardUs
         <h1>VINDICATED</h1>
         <p className="sub">{TERM}</p>
         <p className="who-am-i deep">
-          Signed in as {user.email} ({roleLabel})
+          Signed in as {ROLE_LABEL[user.role]} ·{" "}
+          <button type="button" className="linkbtn" onClick={signOut}>
+            Sign out
+          </button>
         </p>
         <main>
           {tab === "home" && <HomeTab />}
