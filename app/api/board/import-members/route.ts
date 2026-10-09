@@ -19,7 +19,16 @@ type Row = {
 // members already exist unless `replace` is true.
 export async function POST(request: Request) {
   const user = await guard(request, ["admin"]);
-  if (user instanceof Response) return user;
+  if (user instanceof Response) {
+    console.warn(`[board] Member import refused (${user.status}).`);
+    return user;
+  }
+  const res = await importMembers(request);
+  if (!res.ok) console.warn(`[board] Member import rejected (${res.status}).`);
+  return res;
+}
+
+async function importMembers(request: Request): Promise<Response> {
 
   const body = await readJson(request);
   const list = body?.members;
@@ -54,12 +63,18 @@ export async function POST(request: Request) {
     return bad("Members are already loaded. Replacing them would undo any edits made on the Board tab.", 409);
   }
 
-  await sql.begin(async (tx) => {
-    await tx`DELETE FROM board_members`;
-    for (const [i, r] of rows.entries()) {
-      await tx`INSERT INTO board_members (name, first_name, role, team, also_team, tier, is_lead, email, phone, sort)
-        VALUES (${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i})`;
-    }
-  });
+  try {
+    await sql.begin(async (tx) => {
+      await tx`DELETE FROM board_members`;
+      for (const [i, r] of rows.entries()) {
+        await tx`INSERT INTO board_members (name, first_name, role, team, also_team, tier, is_lead, email, phone, sort)
+          VALUES (${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i})`;
+      }
+    });
+  } catch (e) {
+    console.error("[board] Member import failed:", e);
+    return bad("The members couldn't be saved. Try again; if it keeps happening, tell Claude.", 500);
+  }
+  console.log(`[board] Imported ${rows.length} members.`);
   return Response.json({ ok: true, count: rows.length });
 }
