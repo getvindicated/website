@@ -1,8 +1,10 @@
 import "server-only";
 import { db } from "./db";
+import { ensureSetup } from "./setup";
 import type { BoardData } from "./types";
 
 export async function loadBoard(): Promise<BoardData> {
+  await ensureSetup();
   const sql = db();
   const [members, assignments, submissions, socials, announcements, meetings] = await Promise.all([
     sql`SELECT id, name, first_name AS "firstName", role, team, also_team AS "alsoTeam", tier,
