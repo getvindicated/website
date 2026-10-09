@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# /board member list with phone numbers. Never commit.
+scripts/board-members.local.json

@@ -25,6 +25,8 @@ export function proxy(request: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname === "/board" ||
+    pathname.startsWith("/board/") ||
     pathname.includes(".")
   ) {
     return NextResponse.next();
@@ -44,5 +46,6 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  // /board is the private board hub; it has no locale prefix.
+  matcher: ["/((?!_next|api|board(?:/|$)|.*\\..*).*)"],
 };
