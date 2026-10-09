@@ -15,6 +15,25 @@ function todayInBerkeley() {
 export default async function BoardPage() {
   const user = boardUser(await headers());
   if (!user) return <BoardLogin />;
-  const data = await loadBoard();
+  if (!process.env.DATABASE_URL) {
+    return <BoardNotice text="The board's database isn't connected yet. Rana: add DATABASE_URL in Railway (see BOARD_SETUP.md)." />;
+  }
+  let data;
+  try {
+    data = await loadBoard();
+  } catch (e) {
+    console.error("[board] Could not load the board:", e);
+    return <BoardNotice text="The board couldn't reach its database. Try again in a minute; if it keeps happening, tell Rana." />;
+  }
   return <BoardApp data={data} user={user} today={todayInBerkeley()} />;
+}
+
+function BoardNotice({ text }: { text: string }) {
+  return (
+    <main className="wrap">
+      <h1>VINDICATED</h1>
+      <p className="sub">UC Berkeley chapter board</p>
+      <p>{text}</p>
+    </main>
+  );
 }

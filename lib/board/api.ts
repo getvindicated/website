@@ -1,6 +1,7 @@
 import "server-only";
 import { boardUser, type BoardUser } from "./session";
 import type { BoardRole } from "./roles";
+import { ensureSetup } from "./setup";
 
 export const notFound = () => new Response("Not found", { status: 404 });
 export const bad = (message: string, status = 400) => Response.json({ error: message }, { status });
@@ -14,6 +15,8 @@ export async function guard(
   const user = boardUser(request.headers);
   if (!user) return notFound();
   if (allowed && !allowed.includes(user.role)) return notFound();
+  if (!process.env.DATABASE_URL) return bad("The board's database isn't connected yet.", 503);
+  await ensureSetup();
   return user;
 }
 

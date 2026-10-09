@@ -27,16 +27,13 @@ Ten wrong tries from the same connection lock the form for 15 minutes.
    - `BOARD_PASSWORD`, `BOARD_SOCIALS_PASSWORD`, `BOARD_ADMIN_PASSWORD`
    - `BOARD_SESSION_SECRET`: a random string of at least 32 characters.
      `openssl rand -base64 32` makes one.
-3. **Tables and starting data.** From a checkout of the repo with the real
-   member list saved as `scripts/board-members.local.json` (it has phone
-   numbers, so it is never committed):
-
-   ```
-   railway run pnpm board:migrate
-   railway run pnpm board:seed
-   ```
-
-4. Redeploy, open `https://www.getvindicated.org/board`, and sign in.
+3. Redeploy, open `https://www.getvindicated.org/board`, and sign in with
+   the admin password. The board makes its own tables and fills in the
+   starting assignments, socials, announcements and meetings the first time
+   it loads.
+4. **Members.** Open the **Board** tab and choose the
+   `board-members.local.json` file. It has phone numbers, so it is never
+   committed; Rana has the copy.
 
 Until the secret and at least one password are set, the page shows the
 password box and nothing gets through.
@@ -53,6 +50,6 @@ BOARD_ADMIN_PASSWORD=admin-test
 BOARD_SESSION_SECRET=any-random-string-at-least-32-characters-long
 ```
 
-Then `pnpm board:migrate && pnpm board:seed && pnpm dev`, and open
+Then `pnpm dev`, and open
 http://localhost:3000/board. Without `BREVO_API_KEY`, `pnpm dev` prints
 submission emails to the terminal instead of sending them.

@@ -5,6 +5,7 @@ import type { Member } from "@/lib/board/types";
 import { TEAM_ORDER } from "@/lib/board/static";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
+import { ImportMembers } from "./ImportMembers";
 import { currentRound } from "./derive";
 import { fmt } from "./util";
 
@@ -65,6 +66,15 @@ export function BoardTab() {
       el.textContent = v;
     }
   };
+
+  if (people.length === 0) {
+    return (
+      <section>
+        <h2>Board Chart</h2>
+        {admin ? <ImportMembers /> : <p>The member list hasn&apos;t been loaded yet. Ask Rana.</p>}
+      </section>
+    );
+  }
 
   return (
     <section>
