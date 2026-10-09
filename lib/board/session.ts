@@ -32,6 +32,15 @@ const sign = (payload: string, key: string) => createHmac("sha256", key).update(
 // of a password matched.
 const same = (a: string, b: string) => timingSafeEqual(sha(a), sha(b));
 
+// Why sign-in can't work yet, for the server log, or null when it can.
+export function setupProblem(): string | null {
+  if (!secret()) return "BOARD_SESSION_SECRET is missing or shorter than 32 characters.";
+  if (!ROLE_PASSWORD_ENV.some(([role]) => passwordFor(role))) {
+    return "No board password is set (BOARD_PASSWORD, BOARD_SOCIALS_PASSWORD or BOARD_ADMIN_PASSWORD).";
+  }
+  return null;
+}
+
 // Returns the role a password unlocks, or null.
 export function roleForPassword(attempt: string): BoardRole | null {
   let found: BoardRole | null = null;

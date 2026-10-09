@@ -1,4 +1,4 @@
-import { createSession, roleForPassword, sessionCookie, SESSION_DAYS } from "@/lib/board/session";
+import { createSession, roleForPassword, sessionCookie, setupProblem, SESSION_DAYS } from "@/lib/board/session";
 
 // Wrong-password limit per IP: 10 tries per 15 minutes. Kept in memory,
 // which is enough for one Railway instance.
@@ -15,6 +15,16 @@ function clientIp(request: Request) {
 }
 
 export async function POST(request: Request) {
+  // Missing Railway variables shouldn't look like a wrong password.
+  const problem = setupProblem();
+  if (problem) {
+    console.error(`[board] Sign-in is off: ${problem} See BOARD_SETUP.md.`);
+    return Response.json(
+      { error: "The board isn't set up yet. Rana: check the board variables in Railway (see BOARD_SETUP.md)." },
+      { status: 503 },
+    );
+  }
+
   const ip = clientIp(request);
   const now = Date.now();
   const rec = fails.get(ip);
