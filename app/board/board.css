@@ -714,3 +714,7 @@
   text-align: center;
   margin: -24px 0 28px;
 }
+.board form.login {
+  margin: 0 auto;
+  max-width: 360px;
+}

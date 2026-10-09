@@ -8,8 +8,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // The private board hub (behind Cloudflare Access).
-      disallow: ["/board", "/api/board/"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

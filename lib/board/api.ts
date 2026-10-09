@@ -1,17 +1,17 @@
 import "server-only";
-import { boardUser, type BoardUser } from "./access";
+import { boardUser, type BoardUser } from "./session";
 import type { BoardRole } from "./roles";
 
 export const notFound = () => new Response("Not found", { status: 404 });
 export const bad = (message: string, status = 400) => Response.json({ error: message }, { status });
 
-// Returns the verified user, or a 404 Response when Access didn't vouch
-// for the request or the user lacks one of the allowed roles.
+// Returns the signed-in user, or a 404 Response when there's no valid
+// session or the user lacks one of the allowed roles.
 export async function guard(
   request: Request,
   allowed?: BoardRole[],
 ): Promise<BoardUser | Response> {
-  const user = await boardUser(request.headers);
+  const user = boardUser(request.headers);
   if (!user) return notFound();
   if (allowed && !allowed.includes(user.role)) return notFound();
   return user;

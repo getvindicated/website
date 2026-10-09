@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { notFound } from "next/navigation";
-import { boardUser } from "@/lib/board/access";
+import { boardUser } from "@/lib/board/session";
 import { loadBoard } from "@/lib/board/data";
 import { BoardApp } from "@/components/board/BoardApp";
+import { BoardLogin } from "@/components/board/BoardLogin";
 
 export const metadata: Metadata = { title: "VINdicated at Berkeley" };
 
@@ -13,8 +13,8 @@ function todayInBerkeley() {
 }
 
 export default async function BoardPage() {
-  const user = await boardUser(await headers());
-  if (!user) notFound();
+  const user = boardUser(await headers());
+  if (!user) return <BoardLogin />;
   const data = await loadBoard();
   return <BoardApp data={data} user={user} today={todayInBerkeley()} />;
 }

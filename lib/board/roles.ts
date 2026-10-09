@@ -1,21 +1,26 @@
-// Who can do what on /board. Emails are compared lowercase.
-// Everyone who gets through Cloudflare Access can view and submit.
-
-export const BOARD_ADMINS = ["ranadarwich05@gmail.com"];
-
-export const SOCIALS_EDITORS = ["pierce.kosobayashi@berkeley.edu"];
+// Who can do what on /board. People sign in with one of three passwords,
+// all set as environment variables in Railway:
+//   BOARD_PASSWORD          everyone on the board: view and submit
+//   BOARD_SOCIALS_PASSWORD  socials editor (Pierce): also add/edit/delete socials
+//   BOARD_ADMIN_PASSWORD    admin (Rana): edit everything
 
 // Where assignment submissions are emailed.
 export const SUBMISSIONS_INBOX = { email: "ranadarwich05@gmail.com", name: "Rana Darwich" };
 
 export type BoardRole = "admin" | "socials" | "member";
 
-export function roleFor(email: string): BoardRole {
-  const e = email.trim().toLowerCase();
-  if (BOARD_ADMINS.includes(e)) return "admin";
-  if (SOCIALS_EDITORS.includes(e)) return "socials";
-  return "member";
-}
+export const ROLE_LABEL: Record<BoardRole, string> = {
+  admin: "admin",
+  socials: "socials editor",
+  member: "board member",
+};
+
+// Checked in this order, so a password shared by two roles gets the higher one.
+export const ROLE_PASSWORD_ENV: [BoardRole, string][] = [
+  ["admin", "BOARD_ADMIN_PASSWORD"],
+  ["socials", "BOARD_SOCIALS_PASSWORD"],
+  ["member", "BOARD_PASSWORD"],
+];
 
 export const canEditSocials = (role: BoardRole) => role === "admin" || role === "socials";
 export const isAdmin = (role: BoardRole) => role === "admin";
