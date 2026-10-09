@@ -43,6 +43,7 @@ async function setup() {
         VALUES (1, ${person}, ${task}, ${"2026-09-26"}, ${status}, ${note}, ${sort++})`;
     }
   }
+  await retaskRound2(sql);
   if (await empty("board_socials")) {
     for (const s of starter.socials) await sql`INSERT INTO board_socials ${sql(s)}`;
   }
@@ -54,4 +55,30 @@ async function setup() {
   if (await empty("board_meetings")) {
     for (const m of starter.meetings) await sql`INSERT INTO board_meetings ${sql(m)}`;
   }
+}
+
+const OLD_IAN = "Start the /board page on getvindicated.org from this preview";
+const OLD_HALIMA = ["Follow up with Cal TV and set a collaboration date", "Message 5 Berkeley clubs that overlap with us"];
+
+// Round 2 tasks for Ian and Halima changed after the board went live. If a
+// database still has the old ones, swap them for the new ones once.
+async function retaskRound2(sql: ReturnType<typeof db>) {
+  const [old] = await sql`SELECT id FROM board_assignments
+    WHERE round = 2 AND person = 'Ian' AND task = ${OLD_IAN}`;
+  if (!old) return;
+  const tasks = (name: string) =>
+    (starter.round2 as [string, string, [string, string][]][]).find(([p]) => p === name)![2];
+  await sql.begin(async (tx) => {
+    const ian = tasks("Ian");
+    await tx`UPDATE board_assignments SET task = ${ian[1][0]}, proof_required = ${ian[1][1]} WHERE id = ${old.id}`;
+    await tx`UPDATE board_assignments SET person_role = 'Software Lead' WHERE round = 2 AND person = 'Ian'`;
+
+    const halima = await tx`SELECT id, task FROM board_assignments WHERE round = 2 AND person = 'Halima' ORDER BY sort, id`;
+    const stale = halima.filter((r) => OLD_HALIMA.some((t) => r.task.startsWith(t)));
+    if (stale.length) {
+      const [task, proof] = tasks("Halima")[0];
+      await tx`UPDATE board_assignments SET task = ${task}, proof_required = ${proof} WHERE id = ${stale[0].id}`;
+      for (const r of stale.slice(1)) await tx`DELETE FROM board_assignments WHERE id = ${r.id}`;
+    }
+  });
 }
