@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Member } from "@/lib/board/types";
 import { TEAM_ORDER } from "@/lib/board/static";
 import { useBoard } from "./BoardApp";
@@ -26,13 +26,22 @@ const MEMBER_FIELDS: FieldDef[] = [
 const inTeam = (m: Member, t: string) => t === "All" || m.team === t || m.alsoTeam === t;
 
 export function BoardTab() {
-  const { data, user, go, setFocus } = useBoard();
+  const { data, user, go, setFocus, refresh } = useBoard();
   const admin = user.role === "admin";
   const people = data.members;
   const [team, setTeam] = useState("All");
   const [query, setQuery] = useState("");
   const [list, setList] = useState(false);
   const [open, setOpen] = useState<number | null>(null);
+  const [loaded, setLoaded] = useState<number | null>(null);
+
+  // After an import, the refreshed data should bring the members in. If it
+  // hasn't a few seconds later, reload the page.
+  useEffect(() => {
+    if (loaded === null || people.length > 0) return;
+    const t = setTimeout(() => window.location.reload(), 4000);
+    return () => clearTimeout(t);
+  }, [loaded, people.length]);
   const [editing, setEditing] = useState<number | "new" | null>(null);
 
   const q = query.trim().toLowerCase();
@@ -71,7 +80,16 @@ export function BoardTab() {
     return (
       <section>
         <h2>Board Chart</h2>
-        {admin ? <ImportMembers /> : <p>The member list hasn&apos;t been loaded yet. Ask Rana.</p>}
+        {admin ? (
+          <ImportMembers
+            onLoaded={(n) => {
+              setLoaded(n);
+              refresh();
+            }}
+          />
+        ) : (
+          <p>The member list hasn&apos;t been loaded yet. Ask Rana.</p>
+        )}
       </section>
     );
   }
@@ -79,6 +97,11 @@ export function BoardTab() {
   return (
     <section>
       <h2>Board Chart</h2>
+      {loaded !== null && (
+        <p className="msg ok" role="status">
+          Loaded {loaded} members.
+        </p>
+      )}
       <div className="bar" role="group" aria-label="Filter by team">
         {ALL_TEAMS.map((t) => (
           <button key={t} type="button" className="chip" aria-pressed={team === t} onClick={() => setTeam(t)}>
