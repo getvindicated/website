@@ -16,6 +16,18 @@
         [
           "Follow up with the high schools and YMCA programs you emailed in round 1 that haven't replied",
           "Screenshot of each follow-up, plus a list of who replied"
+        ],
+        [
+          "RSVP form for VINdiBasketball (Sat Oct 17), posted on @ucb_vindicated",
+          "Form link and post link"
+        ],
+        [
+          "Send invites for every social on the Socials calendar to the full member email list",
+          "Screenshot of the sent email showing the recipients"
+        ],
+        [
+          "Keep the Socials calendar current: confirm each location and update it on the page",
+          "The updated calendar"
         ]
       ]
     ],
@@ -30,28 +42,6 @@
         [
           "Sunday night: message every board member who hasn't submitted yet",
           "Screenshot of the messages"
-        ]
-      ]
-    ],
-    [
-      "Pierce",
-      "Socials",
-      [
-        [
-          "VINdiBasketball: set the date and book an RSF court",
-          "Booking confirmation"
-        ],
-        [
-          "RSVP form for basketball, sent to Chloe to post",
-          "Form link"
-        ],
-        [
-          "Send invites for every social on the Socials calendar to the full member email list",
-          "Screenshot of the sent email showing the recipients"
-        ],
-        [
-          "Keep the Socials calendar current: confirm each location and update it on the page",
-          "The updated calendar"
         ]
       ]
     ],
@@ -86,6 +76,10 @@
         [
           "Call 5 local mechanics about recording a short video with us (carried over from round 1)",
           "Call log: shop name, number, time called, what they said"
+        ],
+        [
+          "Book an RSF court for VINdiBasketball, Sat Oct 17, 2–4pm",
+          "Booking confirmation"
         ]
       ]
     ],
@@ -140,12 +134,6 @@
       "Not done"
     ],
     [
-      "Pierce",
-      "Event ideas doc, workshop timeline, connect with Halima",
-      "missing",
-      "Not done"
-    ],
-    [
       "Jordan",
       "Project spec, connect with James, answer Ray",
       "missing",
@@ -159,7 +147,7 @@
       "title": "VINdiBasketball",
       "location": "RSF",
       "kind": "b",
-      "lead": "Pierce",
+      "lead": "Chloe",
       "status": "Planning",
       "cost": "Free. Optional boba after, self-pay.",
       "note": "First Berkeley social. Court booking and RSVP form due Mon, Oct 12."
@@ -192,7 +180,7 @@
       "title": "Glade Night + Chipotle",
       "location": "Memorial Glade",
       "kind": "b",
-      "lead": "Pierce",
+      "lead": "Chloe",
       "status": "Planning",
       "cost": "Chipotle catering from the $240, if the Oct 13 budget allows",
       "note": "Halloween eve, costumes optional. Last week of daylight before clocks change."
@@ -225,7 +213,7 @@
       "title": "UCSC × UCB basketball",
       "location": "Irvington Park, 41825 Blacow Rd, Fremont",
       "kind": "x",
-      "lead": "Pierce + UCSC lead",
+      "lead": "Chloe + UCSC lead",
       "status": "Idea",
       "cost": "Free",
       "note": "Meet-in-the-middle game, separate from VINdiBasketball. Outdoor court, first come. Backup: Karl Nordvik Park."

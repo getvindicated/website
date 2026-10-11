@@ -9,7 +9,7 @@ need a password.
 | Railway variable         | Who gets it          | What it unlocks                         |
 | ------------------------ | -------------------- | --------------------------------------- |
 | `BOARD_PASSWORD`         | everyone on the board | view everything, submit assignments     |
-| `BOARD_SOCIALS_PASSWORD` | Pierce               | also add, edit and delete socials       |
+| `BOARD_SOCIALS_PASSWORD` | Chloe                | also add, edit and delete socials       |
 | `BOARD_ADMIN_PASSWORD`   | Rana                 | edit everything                         |
 
 Use three different passwords. People stay signed in on a device for 30

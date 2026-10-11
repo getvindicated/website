@@ -142,7 +142,7 @@ export function SocialsTab() {
           title="Add a social"
           table="socials"
           fields={SOCIAL_FIELDS}
-          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: "Pierce", cost: "", note: "" }}
+          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: "Chloe", cost: "", note: "" }}
           onClose={() => setEditing(null)}
           onSaved={(v) => jumpTo(v.date)}
         />
@@ -233,7 +233,7 @@ export function SocialsTab() {
           );
         })}
       </ul>
-      <p style={{ marginTop: 12 }}>Status runs Idea → Planning → Confirmed → Completed. Pierce leads socials unless noted.</p>
+      <p style={{ marginTop: 12 }}>Status runs Idea → Planning → Confirmed → Completed. Chloe leads socials unless noted.</p>
     </section>
   );
 }

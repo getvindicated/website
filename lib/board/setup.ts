@@ -55,6 +55,7 @@ async function setup() {
   if (await empty("board_meetings")) {
     for (const m of starter.meetings) await sql`INSERT INTO board_meetings ${sql(m)}`;
   }
+  await removePierce(sql);
 }
 
 const OLD_IAN = "Start the /board page on getvindicated.org from this preview";
@@ -79,6 +80,48 @@ async function retaskRound2(sql: ReturnType<typeof db>) {
       const [task, proof] = tasks("Halima")[0];
       await tx`UPDATE board_assignments SET task = ${task}, proof_required = ${proof} WHERE id = ${stale[0].id}`;
       for (const r of stale.slice(1)) await tx`DELETE FROM board_assignments WHERE id = ${r.id}`;
+    }
+  });
+}
+
+type Round2 = [string, string, [string, string][]][];
+
+// Pierce left the board on Oct 11. Removes him, his assignments and
+// submissions, gives his socials work to Chloe and the court booking to
+// Daryen, and makes Chloe the lead on his socials. Runs once per database.
+async function removePierce(sql: ReturnType<typeof db>) {
+  const round2 = starter.round2 as Round2;
+  const added: Record<string, string[]> = {
+    Chloe: [
+      "RSVP form for VINdiBasketball (Sat Oct 17), posted on @ucb_vindicated",
+      "Send invites for every social on the Socials calendar to the full member email list",
+      "Keep the Socials calendar current: confirm each location and update it on the page",
+    ],
+    Daryen: ["Book an RSF court for VINdiBasketball, Sat Oct 17, 2–4pm"],
+  };
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-11-remove-pierce')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+
+    await tx`DELETE FROM board_members
+      WHERE lower(email) = 'pierce.kosobayashi@berkeley.edu' OR name ILIKE '%Kosobayashi%'`;
+    await tx`DELETE FROM board_submissions WHERE person = 'Pierce'`;
+    await tx`DELETE FROM board_assignments WHERE person = 'Pierce'`;
+    await tx`UPDATE board_socials SET lead = replace(lead, 'Pierce', 'Chloe') WHERE lead LIKE '%Pierce%'`;
+
+    for (const [person, tasks] of Object.entries(added)) {
+      const [, role, items] = round2.find(([p]) => p === person)!;
+      const [last] = await tx`SELECT max(sort) AS sort, max(due_date) AS due FROM board_assignments
+        WHERE round = 2 AND person = ${person}`;
+      let sort = (last?.sort ?? 0) + 1;
+      for (const task of tasks) {
+        const [, proof] = items.find(([t]) => t === task)!;
+        const [exists] = await tx`SELECT 1 FROM board_assignments WHERE round = 2 AND person = ${person} AND task = ${task}`;
+        if (exists) continue;
+        await tx`INSERT INTO board_assignments (round, person, person_role, task, proof_required, due_date, sort)
+          VALUES (2, ${person}, ${role}, ${task}, ${proof}, ${last?.due ?? starter.dueRound2}, ${sort++})`;
+      }
     }
   });
 }

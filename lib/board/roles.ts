@@ -1,7 +1,7 @@
 // Who can do what on /board. People sign in with one of three passwords,
 // all set as environment variables in Railway:
 //   BOARD_PASSWORD          everyone on the board: view and submit
-//   BOARD_SOCIALS_PASSWORD  socials editor (Pierce): also add/edit/delete socials
+//   BOARD_SOCIALS_PASSWORD  socials editor (Chloe): also add/edit/delete socials
 //   BOARD_ADMIN_PASSWORD    admin (Rana): edit everything
 
 // Where assignment submissions are emailed.

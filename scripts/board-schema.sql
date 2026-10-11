@@ -69,3 +69,9 @@ CREATE TABLE IF NOT EXISTS board_meetings (
   summary        text NOT NULL DEFAULT '',
   recording_url  text NOT NULL DEFAULT ''
 );
+
+-- One-time data changes already applied to this database (see lib/board/setup.ts).
+CREATE TABLE IF NOT EXISTS board_changes (
+  name        text PRIMARY KEY,
+  applied_at  timestamptz NOT NULL DEFAULT now()
+);
