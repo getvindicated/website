@@ -1,5 +1,7 @@
 // Shapes shared by the /board server code and its client components.
 
+import type { ScheduledMeeting } from "./schedule";
+
 export type Member = {
   id: number;
   name: string;
@@ -81,6 +83,10 @@ export type Meeting = {
 
 export type BoardData = {
   rounds: Round[];
+  // Meetings scheduled with calendar invites.
+  scheduled: ScheduledMeeting[];
+  // Admins only: prefills "Send me a test invite".
+  organizerEmail: string | null;
   // First names of who a submission goes to: everyone, and the extra
   // people for submitters on `techTeams`.
   recipients: { base: string[]; tech: string[]; techTeams: string[] };

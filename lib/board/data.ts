@@ -1,7 +1,8 @@
 import "server-only";
 import { db } from "./db";
 import { ensureSetup } from "./setup";
-import { recipientNames } from "./chapter-server";
+import { CHAPTER_SERVER, recipientNames } from "./chapter-server";
+import { listScheduled } from "./schedule-server";
 import type { BoardUser } from "./session";
 import { UNASSIGNED } from "./static";
 import type { BoardData } from "./types";
@@ -13,7 +14,8 @@ export async function loadBoard(user: BoardUser): Promise<BoardData> {
   const sql = db();
   const c = user.chapter;
   const admin = user.role === "admin";
-  const [rounds, members, assignments, submissions, socials, announcements, meetings] = await Promise.all([
+  const [scheduled, rounds, members, assignments, submissions, socials, announcements, meetings] = await Promise.all([
+    listScheduled(c),
     sql`SELECT round, due_date AS "dueDate", is_current AS "isCurrent", show_status AS "showStatus", note
         FROM board_rounds WHERE chapter = ${c} ORDER BY round DESC`,
     sql`SELECT id, name, first_name AS "firstName", role, team, also_team AS "alsoTeam", tier,
@@ -38,6 +40,8 @@ export async function loadBoard(user: BoardUser): Promise<BoardData> {
   const plain = <T,>(rows: unknown) => JSON.parse(JSON.stringify(rows)) as T;
   return {
     rounds: plain(rounds),
+    scheduled,
+    organizerEmail: admin ? CHAPTER_SERVER[c].organizer.email : null,
     recipients: recipientNames(c),
     members: plain(members),
     assignments: plain(assignments),

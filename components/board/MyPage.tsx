@@ -5,6 +5,7 @@ import type { Member } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
 import { roundTasks } from "./derive";
 import { daysBetween, fmt } from "./util";
+import { timeRange, upcomingDates } from "@/lib/board/schedule";
 
 // Who "My page" is for. Everyone signs in with a shared password, so the
 // viewer picks themselves and the choice is remembered in this browser.
@@ -89,6 +90,26 @@ export function MyPage() {
   const dueText = left === null ? "" : left > 1 ? `Due ${dueDay} · ${left} days left` : left === 1 ? `Due tomorrow, ${dueDay}` : left === 0 ? "Due today" : "Past due";
   const teammates = data.members.filter((x) => x.id !== me.id && (x.team === me.team || x.alsoTeam === me.team));
   const upcoming = data.socials.filter((s) => s.date >= today).slice(0, 3);
+  // Scheduled meetings this person is invited to, by their next date.
+  const myEmail = me.email.trim().toLowerCase();
+  const meetings = data.scheduled
+    .filter((m) => myEmail && m.invitees.some((i) => i.email.toLowerCase() === myEmail))
+    .map((m) => ({ m, next: upcomingDates(m, today)[0] }))
+    .filter((x) => x.next)
+    .sort((a, b) => (a.next < b.next ? -1 : 1));
+  // Meetings and events together, by date.
+  const comingUp = [
+    ...meetings.map(({ m, next }) => ({
+      key: `m${m.id}`,
+      date: next,
+      text: `${m.title} · ${timeRange(m.startTime, m.endTime)}${m.weekly ? ", weekly" : ""}${m.location ? ` · ${m.location}` : ""}`,
+    })),
+    ...upcoming.map((e) => ({
+      key: `s${e.id}`,
+      date: e.date,
+      text: [e.title, e.location, e.time].filter(Boolean).join(" · "),
+    })),
+  ].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 
   const timeline = chapter.projects.timeline;
   const week = timeline.weeks.find((w) => daysBetween(w.start, today) >= 0 && daysBetween(today, w.end) >= -timeline.graceDays);
@@ -179,20 +200,16 @@ export function MyPage() {
 
       <h2>Coming up</h2>
       <ul className="dates">
-        {chapter.myPage.meetingLine && (
+        {meetings.length === 0 && chapter.myPage.meetingLine && (
           <li>
             <span className="d">Sun</span>
             <span>{chapter.myPage.meetingLine}</span>
           </li>
         )}
-        {upcoming.map((s) => (
-          <li key={s.id}>
-            <span className="d">{fmt(s.date, { month: "short", day: "numeric" })}</span>
-            <span>
-              {s.title}
-              {s.location && ` · ${s.location}`}
-              {s.time && ` · ${s.time}`}
-            </span>
+        {comingUp.map((c) => (
+          <li key={c.key}>
+            <span className="d">{fmt(c.date, { month: "short", day: "numeric" })}</span>
+            <span>{c.text}</span>
           </li>
         ))}
       </ul>
