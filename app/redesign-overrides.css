@@ -33,17 +33,8 @@
 .rd-hdr {
   z-index: 100;
 }
-/* The nav sits in a bordered box that floats below the top of the page.
-   8px + 60px + 8px keeps the header 76px tall, so sticky offsets elsewhere
-   still line up. */
 .rd-hdr .nav {
   gap: 16px;
-  height: 60px;
-  width: calc(100% - 32px);
-  background: #fff;
-  border: var(--divider);
-  border-radius: var(--radius-card);
-  padding: 0 24px;
 }
 .rd-hdr .right {
   display: flex;
@@ -119,14 +110,13 @@
     align-items: stretch;
     gap: 2px;
     position: absolute;
-    top: 72px;
-    left: 16px;
-    right: 16px;
+    top: 76px;
+    left: 0;
+    right: 0;
     background: #fff;
     padding: 14px 20px 24px;
-    border: var(--divider);
-    border-radius: var(--radius-card);
-    max-height: calc(100dvh - 88px);
+    border-bottom: 1px solid #e6e1e8;
+    max-height: calc(100dvh - 76px);
     overflow: auto;
   }
   .rd-hdr.open .drop {

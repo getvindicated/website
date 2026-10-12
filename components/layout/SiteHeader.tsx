@@ -48,6 +48,7 @@ const NAV: NavItem[] = [
       { key: "dealerMap", href: "/map" },
     ],
   },
+  { key: "getInvolved", href: "/join", match: ["/join"] },
 ];
 
 export function SiteHeader({
@@ -137,11 +138,6 @@ export function SiteHeader({
               )}
             </li>
           ))}
-          <li>
-            <Link className="btn btn-solid" href={href("/join")}>
-              {label("getInvolved")}
-            </Link>
-          </li>
         </ul>
         <div className="right">
           <div className="lang" ref={langRef}>
