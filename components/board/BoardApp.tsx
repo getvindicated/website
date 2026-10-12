@@ -7,6 +7,8 @@ import { chapterConfig, type ChapterConfig, type ChapterId } from "@/lib/board/c
 import { TABS, type BoardData, type Round, type Tab } from "@/lib/board/types";
 import { chapterUrl, setApiChapter } from "./util";
 import { MyPage } from "./MyPage";
+import { ChangesTab } from "./ChangesTab";
+import { EditLink, TextSetting } from "./Editors";
 import { HomeTab } from "./HomeTab";
 import { BoardTab } from "./BoardTab";
 import { ProjectsTab } from "./ProjectsTab";
@@ -22,6 +24,7 @@ const LABELS: Record<Tab, string> = {
   assignments: "Assignments",
   socials: "Socials",
   meetings: "Meetings",
+  changes: "Changes",
 };
 
 type Ctx = {
@@ -57,6 +60,10 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("home");
   const [focus, setFocus] = useState<Ctx["focus"]>(null);
+  const [editingTerm, setEditingTerm] = useState(false);
+  const admin = user.role === "admin";
+  // The Changes tab is for admins only.
+  const tabs = TABS.filter((t) => t !== "changes" || admin);
 
   // Each tab is linkable: /board#socials, /board/ucla#me.
   useEffect(() => {
@@ -91,14 +98,23 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
     <BoardContext.Provider value={ctx}>
       <div className="wrap">
         <nav aria-label="Sections">
-          {TABS.map((t) => (
+          {tabs.map((t) => (
             <a key={t} href={`#${t}`} aria-current={tab === t ? "page" : undefined} onClick={(e) => onNav(e, t)}>
               {LABELS[t]}
             </a>
           ))}
         </nav>
         <h1>VINDICATED</h1>
-        <p className="sub">{chapter.term}</p>
+        <p className="sub">
+          {data.settings.term}
+          {admin && !editingTerm && (
+            <>
+              {" "}
+              <EditLink onClick={() => setEditingTerm(true)} />
+            </>
+          )}
+        </p>
+        {editingTerm && <TextSetting k="term" label="Subtitle" value={data.settings.term} onDone={() => setEditingTerm(false)} />}
         <p className="who-am-i deep">
           Signed in as {chapter.roleLabels[user.role] ?? user.role} ·{" "}
           <button type="button" className="linkbtn" onClick={signOut}>
@@ -113,6 +129,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
           {tab === "assignments" && <AssignmentsTab />}
           {tab === "socials" && <SocialsTab />}
           {tab === "meetings" && <MeetingsTab />}
+          {tab === "changes" && <ChangesTab />}
         </main>
       </div>
     </BoardContext.Provider>

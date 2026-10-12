@@ -26,6 +26,7 @@ export function RowEditor({
   initial,
   onClose,
   onSaved,
+  noDelete,
 }: {
   title: string;
   table: string;
@@ -34,6 +35,7 @@ export function RowEditor({
   initial: Values;
   onClose: () => void;
   onSaved?: (values: Values) => void;
+  noDelete?: boolean;
 }) {
   const { refresh } = useBoard();
   const uid = useId();
@@ -137,7 +139,7 @@ export function RowEditor({
           <button className="chip" type="button" onClick={onClose}>
             Cancel
           </button>
-          {id && (
+          {id && !noDelete && (
             <button className="chip" type="button" onClick={remove} disabled={busy} style={{ marginLeft: "auto" }}>
               {confirmDelete ? "Click again to delete" : "Delete"}
             </button>

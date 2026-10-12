@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { ScheduleForm } from "./ScheduleForm";
+import { EditLink, TextSetting } from "./Editors";
 import { api, fmt } from "./util";
 import { pastDates, repeatText, shortDate, timeRange, upcomingDates, type ScheduledMeeting } from "@/lib/board/schedule";
 
@@ -17,7 +18,9 @@ const meetingFields = (attendance: boolean): FieldDef[] => [
 
 export function MeetingsTab() {
   const { chapter, data, user, today } = useBoard();
-  const { heading, note, attendance } = chapter.meetings;
+  const { heading, attendance } = chapter.meetings;
+  const meetingTime = data.settings.meetingTime;
+  const [editingTime, setEditingTime] = useState(false);
   const MEETING_FIELDS = meetingFields(attendance);
   const admin = user.role === "admin";
   const [editing, setEditing] = useState<number | "new" | null>(null);
@@ -39,7 +42,18 @@ export function MeetingsTab() {
   return (
     <section>
       <h2>{heading}</h2>
-      {note && <p>{note}</p>}
+      {(meetingTime || admin) && (
+        <p>
+          {meetingTime ? `${meetingTime}.` : "No regular meeting time set."}
+          {admin && !editingTime && (
+            <>
+              {" "}
+              <EditLink onClick={() => setEditingTime(true)}>Edit the meeting time</EditLink>
+            </>
+          )}
+        </p>
+      )}
+      {editingTime && <TextSetting k="meetingTime" label="Board meeting time" value={meetingTime} onDone={() => setEditingTime(false)} />}
 
       <h3>Upcoming</h3>
       {admin && scheduling === null && (

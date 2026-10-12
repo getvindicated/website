@@ -5,6 +5,7 @@ import type { Member } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { ImportMembers } from "./ImportMembers";
+import { TeamsEditor } from "./Editors";
 import { roundTasks } from "./derive";
 import { fmt } from "./util";
 
@@ -17,13 +18,15 @@ const memberFields = (teams: readonly string[]): FieldDef[] => [
   { key: "isLead", label: "Team lead", type: "checkbox" },
   { key: "email", label: "Email", type: "email", pair: "c" },
   { key: "phone", label: "Phone", type: "tel", pair: "c" },
+  { key: "hubAdmin", label: "Hub admin (gets admins-only announcement emails)", type: "checkbox" },
 ];
 
 const inTeam = (m: Member, t: string) => t === "All" || m.team === t || m.alsoTeam === t;
 
 export function BoardTab() {
   const { chapter, round, data, user, go, setFocus, refresh } = useBoard();
-  const TEAM_ORDER = chapter.teams;
+  const TEAM_ORDER = data.settings.teams;
+  const [editingTeams, setEditingTeams] = useState(false);
   const ALL_TEAMS = ["All", "Executive", ...TEAM_ORDER];
   const MEMBER_FIELDS = memberFields(TEAM_ORDER);
   const admin = user.role === "admin";
@@ -119,10 +122,16 @@ export function BoardTab() {
             Add a member
           </button>
         )}
+        {admin && (
+          <button type="button" className="chip" onClick={() => setEditingTeams(true)}>
+            Edit teams
+          </button>
+        )}
       </div>
+      {editingTeams && <TeamsEditor onDone={() => setEditingTeams(false)} />}
 
       {editing === "new" && (
-        <RowEditor title="Add a member" table="members" fields={MEMBER_FIELDS} initial={{ name: "", role: "", team: TEAM_ORDER[0], alsoTeam: "", tier: "", isLead: false, email: "", phone: "" }} onClose={() => setEditing(null)} />
+        <RowEditor title="Add a member" table="members" fields={MEMBER_FIELDS} initial={{ name: "", role: "", team: TEAM_ORDER[0], alsoTeam: "", tier: "", isLead: false, email: "", phone: "", hubAdmin: false }} onClose={() => setEditing(null)} />
       )}
 
       {!list ? (
@@ -211,6 +220,7 @@ export function BoardTab() {
             isLead: editingMember.isLead,
             email: editingMember.email,
             phone: editingMember.phone,
+            hubAdmin: editingMember.hubAdmin,
           }}
           onClose={() => setEditing(null)}
         />
@@ -262,6 +272,12 @@ function PersonCard({
           </button>
         )}
       </div>
+      {admin && m.hubAdmin && (
+        <div className="row">
+          <span>Admin</span>
+          <span>Hub admin</span>
+        </div>
+      )}
       {tasks && (
         <div className="row">
           <span>Tasks</span>

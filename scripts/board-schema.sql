@@ -120,3 +120,54 @@ CREATE TABLE IF NOT EXISTS board_scheduled (
   cancelled_dates  date[] NOT NULL DEFAULT '{}',
   created_at       timestamptz NOT NULL DEFAULT now()
 );
+
+-- Chapter content admins edit on the page (subtitle, meeting time, rule,
+-- teams, quick links, key dates, photos, Projects). Seeded from
+-- lib/board/chapters.ts.
+CREATE TABLE IF NOT EXISTS board_settings (
+  id       serial PRIMARY KEY,
+  chapter  text NOT NULL,
+  key      text NOT NULL,
+  value    jsonb NOT NULL,
+  UNIQUE (chapter, key)
+);
+
+-- Photos uploaded for the Home tab's photo row. Kept in the database
+-- because the app's disk is replaced on every deploy.
+CREATE TABLE IF NOT EXISTS board_photos (
+  id            serial PRIMARY KEY,
+  chapter       text NOT NULL,
+  content_type  text NOT NULL,
+  data          bytea NOT NULL,
+  created_at    timestamptz NOT NULL DEFAULT now()
+);
+
+-- Every admin change, with the rows before and after, so it can be undone.
+CREATE TABLE IF NOT EXISTS board_changelog (
+  id        serial PRIMARY KEY,
+  chapter   text NOT NULL,
+  at        timestamptz NOT NULL DEFAULT now(),
+  role      text NOT NULL,
+  actor     text NOT NULL DEFAULT '',   -- name the admin typed in (self-reported)
+  action    text NOT NULL,              -- create, update, delete, bulk, restore, note
+  summary   text NOT NULL,
+  changes   jsonb NOT NULL DEFAULT '[]' -- [{ table, id, before, after }]
+);
+
+-- Announcement emails: one row per person per send.
+CREATE TABLE IF NOT EXISTS board_announcement_sends (
+  id               serial PRIMARY KEY,
+  chapter          text NOT NULL,
+  announcement_id  integer NOT NULL,
+  batch            text NOT NULL,       -- one send (post, update or retry)
+  kind             text NOT NULL,       -- post, update, retry
+  email            text NOT NULL,
+  name             text NOT NULL DEFAULT '',
+  ok               boolean NOT NULL,
+  error            text NOT NULL DEFAULT '',
+  at               timestamptz NOT NULL DEFAULT now()
+);
+
+ALTER TABLE board_members ADD COLUMN IF NOT EXISTS is_hub_admin boolean NOT NULL DEFAULT false;
+-- Lets rounds be edited and restored like every other row.
+ALTER TABLE board_rounds ADD COLUMN IF NOT EXISTS id serial;

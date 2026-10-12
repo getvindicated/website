@@ -1,27 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { TABS, type Announcement, type Tab } from "@/lib/board/types";
+import type { Announcement, SendSummary, Tab } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
-import { RowEditor, type FieldDef } from "./RowEditor";
+import { AnnouncementForm } from "./AnnouncementForm";
+import { EditLink, KeyDatesEditor, PhotosEditor, QuickLinksEditor } from "./Editors";
 import { roundTasks, inLeadership } from "./derive";
-import { daysBetween, fmt } from "./util";
+import { apiCall, daysBetween, fmt, photoSrc } from "./util";
 
-const LINK_TABS = [{ value: "", label: "No link" }, ...TABS.map((t) => ({ value: t, label: t[0].toUpperCase() + t.slice(1) }))];
-
-const ANNOUNCEMENT_FIELDS: FieldDef[] = [
-  { key: "title", label: "Title" },
-  { key: "body", label: "Text", type: "textarea" },
-  { key: "postedOn", label: "Date", type: "date", pair: "a" },
-  { key: "linkTab", label: "Link to a tab", type: "select", options: LINK_TABS, pair: "a" },
-  { key: "linkLabel", label: "Link text", placeholder: "See your tasks" },
-  { key: "adminsOnly", label: "Board admins only", type: "checkbox" },
-];
+type Editing = "links" | "dates" | "photos" | "new" | number | null;
 
 export function HomeTab() {
   const { chapter, round, data, user, today, go } = useBoard();
   const admin = user.role === "admin";
-  const [editing, setEditing] = useState<number | "new" | null>(null);
+  const [editing, setEditing] = useState<Editing>(null);
+  const { settings } = data;
 
   const people = roundTasks(data, round?.round ?? null);
   const done = people.filter((p) => p.submitted).length;
@@ -31,95 +24,114 @@ export function HomeTab() {
     [String(data.socials.filter((s) => s.kind !== "org").length), chapter.glance.socials, "socials"],
     [String(data.members.filter(inLeadership).length), "people in leadership", "board"],
   ];
-  const dates = [...chapter.keyDates].sort((a, b) => (a[0] < b[0] ? -1 : 1));
-  const editingRow = typeof editing === "number" ? data.announcements.find((a) => a.id === editing) : null;
+  const dates = [...settings.keyDates].sort((a, b) => (a.date < b.date ? -1 : 1));
+  const close = () => setEditing(null);
 
   return (
     <section>
-      {chapter.photos.length > 0 && (
-        <div className="faces" aria-label={`${chapter.title} board photos`}>
-          {chapter.photos.map((src) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={src} src={src} alt="Board member" />
-          ))}
-        </div>
+      {editing === "photos" ? (
+        <PhotosEditor onDone={close} />
+      ) : (
+        (settings.photos.length > 0 || admin) && (
+          <div className="faces-wrap">
+            {settings.photos.length > 0 && (
+              <div className="faces" aria-label={`${chapter.title} board photos`}>
+                {settings.photos.map((p, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={p.src + i} src={photoSrc(p.src)} alt="Board member" />
+                ))}
+              </div>
+            )}
+            {admin && (
+              <p className="admin-row">
+                <EditLink onClick={() => setEditing("photos")}>{settings.photos.length ? "Edit photos" : "Add a photo row"}</EditLink>
+              </p>
+            )}
+          </div>
+        )
       )}
       <div className="cols">
         <div>
           <h2>Logistics &amp; Quick Links</h2>
-          <ul>
-            {chapter.quickLinks.map((l) => (
-              <li key={l.text}>
-                {l.label && `${l.label}: `}
-                {l.tab ? (
-                  <button className="linkbtn" onClick={() => go(l.tab!)}>
-                    {l.text}
-                  </button>
-                ) : l.href ? (
-                  <a href={l.href}>{l.text}</a>
-                ) : l.href === null ? (
-                  <>
-                    {l.text} <span className="deep">(link to add)</span>
-                  </>
-                ) : (
-                  l.text
-                )}
-              </li>
-            ))}
-          </ul>
+          {editing === "links" ? (
+            <QuickLinksEditor onDone={close} />
+          ) : (
+            <>
+              <ul>
+                {settings.quickLinks.map((l, i) => (
+                  <li key={i}>
+                    {l.label && `${l.label}: `}
+                    {l.tab ? (
+                      <button className="linkbtn" onClick={() => go(l.tab as Tab)}>
+                        {l.text}
+                      </button>
+                    ) : l.href ? (
+                      <a href={l.href}>{l.text}</a>
+                    ) : (
+                      <>
+                        {l.text} <span className="deep">(link to add)</span>
+                      </>
+                    )}
+                  </li>
+                ))}
+                {settings.meetingTime && <li>Board meetings: {settings.meetingTime}</li>}
+              </ul>
+              {admin && (
+                <p className="admin-row">
+                  <EditLink onClick={() => setEditing("links")}>Edit quick links</EditLink>
+                  <span>The board meeting time is edited on the Meetings tab.</span>
+                </p>
+              )}
+            </>
+          )}
 
           <h2>Announcements</h2>
-          {admin && editing === null && (
+          {admin && editing !== "new" && (
             <p>
               <button className="btn btn-line" type="button" onClick={() => setEditing("new")}>
-                Add an announcement
+                Post an announcement
               </button>
             </p>
           )}
-          {editing === "new" && (
-            <RowEditor
-              title="Add an announcement"
-              table="announcements"
-              fields={ANNOUNCEMENT_FIELDS}
-              initial={{ title: "", body: "", postedOn: today, linkTab: "", linkLabel: "", adminsOnly: false }}
-              onClose={() => setEditing(null)}
-            />
-          )}
+          {editing === "new" && <AnnouncementForm onClose={close} />}
           {data.announcements.map((a) =>
-            editingRow?.id === a.id ? (
-              <RowEditor
-                key={a.id}
-                title={`Edit ${a.title}`}
-                table="announcements"
-                id={a.id}
-                fields={ANNOUNCEMENT_FIELDS}
-                initial={{ title: a.title, body: a.body, postedOn: a.postedOn, linkTab: a.linkTab, linkLabel: a.linkLabel, adminsOnly: a.adminsOnly }}
-                onClose={() => setEditing(null)}
-              />
+            editing === a.id ? (
+              <AnnouncementForm key={a.id} existing={a} onClose={close} />
             ) : (
-              <AnnouncementItem key={a.id} a={a} admin={admin} onEdit={() => setEditing(a.id)} />
+              <AnnouncementItem key={a.id} a={a} admin={admin} sent={data.sends.find((s) => s.announcementId === a.id)} onEdit={() => setEditing(a.id)} />
             ),
           )}
           {data.announcements.length === 0 && <p>No announcements yet.</p>}
         </div>
         <div>
           <h2>Key Dates</h2>
-          <ul className="dates">
-            {dates.map(([d, t]) => {
-              const diff = daysBetween(today, d);
-              const left = diff > 1 ? `in ${diff} days` : diff === 1 ? "tomorrow" : diff === 0 ? "today" : "";
-              return (
-                <li key={d + t}>
-                  <span className="d">{fmt(d, { month: "short", day: "numeric" })}</span>
-                  <span>
-                    {t}
-                    {left && <span className="left"> {left}</span>}
-                    {diff < 0 && <span className="passed"> (passed)</span>}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+          {editing === "dates" ? (
+            <KeyDatesEditor onDone={close} />
+          ) : (
+            <>
+              <ul className="dates">
+                {dates.map(({ date: d, text: t }) => {
+                  const diff = daysBetween(today, d);
+                  const left = diff > 1 ? `in ${diff} days` : diff === 1 ? "tomorrow" : diff === 0 ? "today" : "";
+                  return (
+                    <li key={d + t}>
+                      <span className="d">{fmt(d, { month: "short", day: "numeric" })}</span>
+                      <span>
+                        {t}
+                        {left && <span className="left"> {left}</span>}
+                        {diff < 0 && <span className="passed"> (passed)</span>}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              {admin && (
+                <p className="admin-row">
+                  <EditLink onClick={() => setEditing("dates")}>Edit key dates</EditLink>
+                </p>
+              )}
+            </>
+          )}
 
           <h2>At a Glance</h2>
           <ul className="dates">
@@ -140,8 +152,20 @@ export function HomeTab() {
   );
 }
 
-function AnnouncementItem({ a, admin, onEdit }: { a: Announcement; admin: boolean; onEdit: () => void }) {
-  const { go } = useBoard();
+function AnnouncementItem({ a, admin, sent, onEdit }: { a: Announcement; admin: boolean; sent?: SendSummary; onEdit: () => void }) {
+  const { go, refresh } = useBoard();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  async function retry() {
+    setBusy(true);
+    setError("");
+    const r = await apiCall(`/api/board/announce-email/${a.id}`, "POST", { kind: "retry" });
+    setBusy(false);
+    if (r.error) setError(r.error);
+    refresh();
+  }
+
   return (
     <div className="item">
       <h3>{a.title}</h3>
@@ -157,6 +181,26 @@ function AnnouncementItem({ a, admin, onEdit }: { a: Announcement; admin: boolea
               </button>
             </>
           )}
+        </p>
+      )}
+      {admin && sent && (
+        <p className="deep">
+          {sent.kind === "update" ? "Update emailed" : "Emailed"} to {sent.sent} {sent.sent === 1 ? "person" : "people"} on{" "}
+          {new Date(sent.at).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Los_Angeles" })}.
+          {sent.failed.length > 0 && (
+            <>
+              {" "}
+              <span className="st-missing">Didn&apos;t reach {sent.failed.map((f) => f.name || f.email).join(", ")}.</span>{" "}
+              <button className="linkbtn" type="button" disabled={busy} onClick={retry}>
+                {busy ? "Retrying…" : "Retry"}
+              </button>
+            </>
+          )}
+        </p>
+      )}
+      {error && (
+        <p className="msg err" role="alert">
+          {error}
         </p>
       )}
       {admin && (

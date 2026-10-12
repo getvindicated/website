@@ -21,6 +21,25 @@ let chapter = "berkeley";
 export const setApiChapter = (c: string) => {
   chapter = c;
 };
+// The name an admin typed for the change log, kept in this browser.
+// Self-reported: the log marks it that way.
+const actorKey = () => `vin-board-actor-${chapter}`;
+export function getActor(): string {
+  try {
+    return localStorage.getItem(actorKey()) ?? "";
+  } catch {
+    return "";
+  }
+}
+export function setActor(name: string) {
+  try {
+    if (name.trim()) localStorage.setItem(actorKey(), name.trim().slice(0, 60));
+    else localStorage.removeItem(actorKey());
+  } catch {
+    /* private mode: not remembered */
+  }
+}
+
 // Board API routes read the chapter from ?chapter=.
 export const chapterUrl = (path: string) => `${path}${path.includes("?") ? "&" : "?"}chapter=${chapter}`;
 
@@ -28,9 +47,13 @@ export const chapterUrl = (path: string) => `${path}${path.includes("?") ? "&" :
 // message, or null on success; `data` is the parsed reply.
 export async function apiCall(path: string, method: string, body?: unknown): Promise<{ error: string | null; data: Record<string, unknown> | null }> {
   try {
+    const actor = getActor();
     const res = await fetch(chapterUrl(path), {
       method,
-      headers: body instanceof FormData ? undefined : { "content-type": "application/json" },
+      headers: {
+        ...(body instanceof FormData ? {} : { "content-type": "application/json" }),
+        ...(actor ? { "x-board-actor": encodeURIComponent(actor) } : {}),
+      },
       body: body instanceof FormData ? body : body === undefined ? undefined : JSON.stringify(body),
     });
     const j = await res.json().catch(() => null);
@@ -48,3 +71,9 @@ export async function api(path: string, method: string, body?: unknown): Promise
 // "Fiona", "Fiona and Will", "Fiona, Will and Rizwaan".
 export const listNames = (names: string[]) =>
   names.length <= 1 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+
+// Saves one piece of chapter content (admins). Returns an error or null.
+export const saveSetting = (key: string, value: unknown) => api("/api/board/settings", "PUT", { key, value });
+
+// Uploaded photos are served per chapter.
+export const photoSrc = (src: string) => (src.startsWith("/api/") ? chapterUrl(src) : src);

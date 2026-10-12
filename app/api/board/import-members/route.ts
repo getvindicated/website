@@ -1,6 +1,10 @@
 import { bad, guard, readJson } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
-import { chapterConfig, type ChapterId } from "@/lib/board/chapters";
+import type { ChapterId } from "@/lib/board/chapters";
+import { CHAPTER_SERVER } from "@/lib/board/chapter-server";
+import { getTeams } from "@/lib/board/settings-server";
+import { actorOf, logEntry, snapshotWhere, type Change } from "@/lib/board/changelog";
+import type { BoardUser } from "@/lib/board/session";
 
 type Row = {
   name: string;
@@ -22,13 +26,14 @@ export async function POST(request: Request) {
     console.warn(`[board] Member import refused (${user.status}).`);
     return user;
   }
-  const res = await importMembers(request, user.chapter);
+  const res = await importMembers(request, user);
   if (!res.ok) console.warn(`[board] Member import (${user.chapter}) rejected (${res.status}).`);
   return res;
 }
 
-async function importMembers(request: Request, chapter: ChapterId): Promise<Response> {
-  const TEAMS = ["Executive", ...chapterConfig(chapter).teams];
+async function importMembers(request: Request, user: BoardUser): Promise<Response> {
+  const chapter: ChapterId = user.chapter;
+  const TEAMS = ["Executive", ...(await getTeams(chapter))];
   const body = await readJson(request);
   const list = body?.members;
   if (!Array.isArray(list) || list.length === 0) return bad("That file doesn't have a member list in it.");
@@ -64,11 +69,24 @@ async function importMembers(request: Request, chapter: ChapterId): Promise<Resp
 
   try {
     await sql.begin(async (tx) => {
+      // Hub admins stay ticked across a re-import; the starting ones are ticked.
+      const old = await tx`SELECT id, name, is_hub_admin FROM board_members WHERE chapter = ${chapter}`;
+      const before = await snapshotWhere(tx, "board_members", chapter, old.map((r) => r.id));
+      const admins = new Set([...CHAPTER_SERVER[chapter].hubAdmins, ...old.filter((r) => r.is_hub_admin).map((r) => r.name)]);
       await tx`DELETE FROM board_members WHERE chapter = ${chapter}`;
+      const ids: number[] = [];
       for (const [i, r] of rows.entries()) {
-        await tx`INSERT INTO board_members (chapter, name, first_name, role, team, also_team, tier, is_lead, email, phone, sort)
-          VALUES (${chapter}, ${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i})`;
+        const [row] = await tx`INSERT INTO board_members (chapter, name, first_name, role, team, also_team, tier, is_lead, email, phone, sort, is_hub_admin)
+          VALUES (${chapter}, ${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i}, ${admins.has(r.name)})
+          RETURNING id`;
+        ids.push(row.id);
       }
+      const after = await snapshotWhere(tx, "board_members", chapter, ids);
+      const changes: Change[] = [
+        ...[...before.values()].map((b) => ({ table: "board_members", id: b.id as number, before: b, after: null })),
+        ...[...after.values()].map((a) => ({ table: "board_members", id: a.id as number, before: null, after: a })),
+      ];
+      await logEntry(tx, user, actorOf(request), "bulk", `Imported ${rows.length} members${old.length ? `, replacing ${old.length}` : ""}`, changes);
     });
   } catch (e) {
     console.error("[board] Member import failed:", e);

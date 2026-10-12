@@ -1,6 +1,7 @@
 import { bad, guard, readJson } from "@/lib/board/api";
 import { chapterConfig } from "@/lib/board/chapters";
 import { db } from "@/lib/board/db";
+import { actorOf, logRows, snapshotWhere } from "@/lib/board/changelog";
 
 const STATUSES = ["pending", "submitted", "missing", "excused"];
 
@@ -14,10 +15,16 @@ export async function POST(request: Request) {
   const person = typeof body?.person === "string" ? body.person.trim() : "";
   const status = typeof body?.status === "string" ? body.status : "";
   if (!person || !STATUSES.includes(status)) return bad("Choose a person and a status.");
-  const sql = db();
-  const rows = await sql`UPDATE board_assignments SET status = ${status}
-    WHERE chapter = ${user.chapter} AND person = ${person}
-      AND round = (SELECT round FROM board_rounds WHERE chapter = ${user.chapter} AND is_current)
-    RETURNING id`;
+  const rows = await db().begin(async (tx) => {
+    const ids = (await tx`SELECT id FROM board_assignments
+      WHERE chapter = ${user.chapter} AND person = ${person}
+        AND round = (SELECT round FROM board_rounds WHERE chapter = ${user.chapter} AND is_current)`).map((r) => r.id as number);
+    const before = await snapshotWhere(tx, "board_assignments", user.chapter, ids);
+    if (ids.length) await tx`UPDATE board_assignments SET status = ${status} WHERE id IN ${tx(ids)}`;
+    await logRows(tx, user, actorOf(request), `Set ${person}'s status to ${status === "pending" ? "not submitted" : status}`, [
+      { table: "board_assignments", rows: before, ids },
+    ]);
+    return ids;
+  });
   return rows.length ? Response.json({ ok: true, count: rows.length }) : bad("That person has no tasks this week.", 404);
 }

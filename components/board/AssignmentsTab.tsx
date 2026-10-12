@@ -8,6 +8,7 @@ import { RowEditor, type FieldDef } from "./RowEditor";
 import { SubmitForm } from "./SubmitForm";
 import { roundTasks, unassignedTasks, type PersonTasks } from "./derive";
 import { api, daysBetween, fmt } from "./util";
+import { EditLink, TextSetting } from "./Editors";
 
 const STATUS_WORD: Record<AssignmentStatus, string> = {
   pending: "Not submitted",
@@ -46,6 +47,9 @@ export function AssignmentsTab() {
   const [submitFor, setSubmitFor] = useState("");
   const [adminError, setAdminError] = useState("");
   const [confirmWeek, setConfirmWeek] = useState(false);
+  const [editingRule, setEditingRule] = useState(false);
+  const [editingRound, setEditingRound] = useState(false);
+  const rule = data.settings.rule;
   const formRef = useRef<HTMLHeadingElement>(null);
 
   // Personal checklist ticks stay in this browser only.
@@ -173,12 +177,20 @@ export function AssignmentsTab() {
   return (
     <section>
       <h2>{round ? chapter.roundLabel(round, true) : "Deliverables"}</h2>
-      {chapter.rule && (
+      {rule && (
         <p className="note">
-          <strong>The rule:</strong> {chapter.rule}
+          <strong>The rule:</strong> {rule}
         </p>
       )}
-      {!chapter.rule && round?.note && <p className="note">{round.note}</p>}
+      {!rule && round?.note && <p className="note">{round.note}</p>}
+      {admin && (
+        <p className="admin-row">
+          {chapter.rule !== null && !editingRule && <EditLink onClick={() => setEditingRule(true)}>Edit the rule</EditLink>}
+          {round && !editingRound && <EditLink onClick={() => setEditingRound(true)}>Edit this week</EditLink>}
+        </p>
+      )}
+      {editingRule && <TextSetting k="rule" label="Rule text" value={rule} multiline onDone={() => setEditingRule(false)} />}
+      {editingRound && round && <RoundEditor r={round} onDone={() => setEditingRound(false)} />}
       <p className="num">
         {done} of {people.length} people submitted
         {round && <> · {left > 1 ? `${left} days left` : left === 1 ? "1 day left" : left === 0 ? (weekly ? "due today" : "due tonight") : "deadline passed"}</>}
@@ -342,10 +354,34 @@ export function AssignmentsTab() {
   );
 }
 
+const ROUND_FIELDS: FieldDef[] = [
+  { key: "dueDate", label: "Due date", type: "date" },
+  { key: "note", label: "Note shown above the tasks", type: "textarea" },
+  { key: "showStatus", label: "Show statuses in the archive", type: "checkbox" },
+];
+
+// A round's or week's own fields: due date, note, and whether its statuses show.
+function RoundEditor({ r, onDone }: { r: Round; onDone: () => void }) {
+  return (
+    <RowEditor
+      title={`Edit week (round ${r.round})`}
+      table="rounds"
+      id={r.id}
+      fields={ROUND_FIELDS}
+      initial={{ dueDate: r.dueDate, note: r.note, showStatus: r.showStatus }}
+      onClose={onDone}
+      noDelete
+    />
+  );
+}
+
 // A past round or week: who had what, and (unless the week was never
-// marked) how it went.
+// marked) how it went. Admins can edit every task and the week itself.
 function Archive({ r, label }: { r: Round; label: string }) {
-  const { data } = useBoard();
+  const { chapter, data, user } = useBoard();
+  const admin = user.role === "admin";
+  const [editingWeek, setEditingWeek] = useState(false);
+  const [editingTask, setEditingTask] = useState<number | null>(null);
   const people = roundTasks(data, r.round);
   const done = people.filter((p) => p.submitted || p.status === "excused").length;
   return (
@@ -356,6 +392,12 @@ function Archive({ r, label }: { r: Round; label: string }) {
         <span className="deep">{r.showStatus ? `${done} of ${people.length} done` : `${people.length} people`}</span>
       </summary>
       <div className="body table">
+        {admin && !editingWeek && (
+          <p className="admin-row">
+            <EditLink onClick={() => setEditingWeek(true)}>Edit this week</EditLink>
+          </p>
+        )}
+        {editingWeek && <RoundEditor r={r} onDone={() => setEditingWeek(false)} />}
         <table>
           <tbody>
             {people.map((p) => {
@@ -366,7 +408,28 @@ function Archive({ r, label }: { r: Round; label: string }) {
                   <td>
                     <strong>{p.person}</strong>
                   </td>
-                  <td>{p.items.map((a) => a.task).join("; ")}</td>
+                  <td>
+                    {admin
+                      ? p.items.map((a) => (
+                          <div key={a.id}>
+                            {a.task}{" "}
+                            <button type="button" className="linkbtn" onClick={() => setEditingTask(editingTask === a.id ? null : a.id)}>
+                              Edit
+                            </button>
+                            {editingTask === a.id && (
+                              <RowEditor
+                                title="Edit archived task"
+                                table="assignments"
+                                id={a.id}
+                                fields={archiveFields(chapter.proofRequired)}
+                                initial={{ person: a.person, personRole: a.personRole, task: a.task, ...(chapter.proofRequired ? { proof: a.proof } : {}), dueDate: a.dueDate ?? "", status: a.status, statusNote: a.statusNote }}
+                                onClose={() => setEditingTask(null)}
+                              />
+                            )}
+                          </div>
+                        ))
+                      : p.items.map((a) => a.task).join("; ")}
+                  </td>
                   {r.showStatus && <td className={STATUS_CLASS[st]}>{note || STATUS_WORD[st]}</td>}
                 </tr>
               );
@@ -377,3 +440,19 @@ function Archive({ r, label }: { r: Round; label: string }) {
     </details>
   );
 }
+
+const archiveFields = (proof: boolean): FieldDef[] => [
+  { key: "person", label: "Person", pair: "p" },
+  { key: "personRole", label: "Role shown", pair: "p" },
+  { key: "task", label: "Task", type: "textarea" },
+  ...(proof ? [{ key: "proof", label: "Proof needed" } as FieldDef] : []),
+  { key: "dueDate", label: "Due", type: "date", pair: "d" },
+  {
+    key: "status",
+    label: "Status",
+    type: "select",
+    options: (Object.keys(STATUS_WORD) as AssignmentStatus[]).map((s) => ({ value: s, label: STATUS_WORD[s] })),
+    pair: "d",
+  },
+  { key: "statusNote", label: "Status note (shown instead of the status)" },
+];
