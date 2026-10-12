@@ -162,6 +162,8 @@
 .board input[type="url"],
 .board input[type="tel"],
 .board input[type="number"],
+.board input[type="time"],
+.board input:not([type]),
 .board select,
 .board textarea {
   font: inherit;
@@ -810,4 +812,32 @@
 .board .empty {
   border: 1px dashed var(--deep);
   padding: 14px 16px;
+}
+
+/* Schedule a meeting */
+.board fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.board legend {
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 6px;
+}
+.board .pick-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 4px 14px;
+}
+.board .test-invite {
+  align-items: end;
+}
+.board .admin-row.confirm {
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .board .test-invite {
+    grid-template-columns: 1fr;
+  }
 }

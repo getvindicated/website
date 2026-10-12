@@ -99,3 +99,24 @@ CREATE TABLE IF NOT EXISTS board_rounds (
   note         text NOT NULL DEFAULT '',
   PRIMARY KEY (chapter, round)
 );
+
+-- Meetings scheduled with calendar invites. The UID stays the same for the
+-- life of the meeting; SEQUENCE goes up with every change sent out.
+CREATE TABLE IF NOT EXISTS board_scheduled (
+  id               serial PRIMARY KEY,
+  chapter          text NOT NULL,
+  uid              text NOT NULL UNIQUE,
+  sequence         integer NOT NULL DEFAULT 0,
+  title            text NOT NULL,
+  date             date NOT NULL,
+  start_time       text NOT NULL,
+  end_time         text NOT NULL,
+  location         text NOT NULL DEFAULT '',
+  notes            text NOT NULL DEFAULT '',
+  weekly           boolean NOT NULL DEFAULT false,
+  until            date,
+  invitees         jsonb NOT NULL DEFAULT '[]',
+  audience         text NOT NULL DEFAULT '',
+  cancelled_dates  date[] NOT NULL DEFAULT '{}',
+  created_at       timestamptz NOT NULL DEFAULT now()
+);

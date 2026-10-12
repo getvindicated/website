@@ -49,6 +49,29 @@ for one).
 
 The recipient lists are in `lib/board/chapter-server.ts`.
 
+## Calendar invites
+
+Admins schedule meetings on the Meetings tab ("Schedule a meeting"). Each
+person invited gets an email with a calendar invite (invite.ics); Gmail,
+Apple Mail and Outlook show Yes / Maybe / No, and the reply goes to the
+chapter's organizer (Fiona for UCLA, Rana for Berkeley, set in
+`lib/board/chapter-server.ts`). Editing a meeting updates the event already
+on people's calendars; cancelling a date or the whole meeting removes it.
+
+These go through Brevo's SMTP relay rather than the Brevo API, because only
+SMTP can mark the invite as a calendar request. It needs three Railway
+variables:
+
+- `BREVO_SMTP_LOGIN` and `BREVO_SMTP_KEY`: in Brevo, **SMTP & API → SMTP**
+  (the login shown there, and an SMTP key you generate).
+- `BOARD_INVITE_FROM`: the address invites come from, e.g.
+  `board@getvindicated.org`. Its domain, **getvindicated.org**, must be
+  verified in Brevo (**Senders, Domains & Dedicated IPs → Domains**, then add
+  the DNS records Brevo shows).
+
+Use "Send me a test invite" in the form to check one before sending to the
+board.
+
 ## One-time setup in Railway
 
 1. **Database.** In the Railway project, add a **Postgres** service. In the
