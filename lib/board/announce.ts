@@ -2,15 +2,15 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { sendEmail } from "@/lib/brevo";
 import { chapterConfig, type ChapterId } from "./chapters";
-import { CHAPTER_SERVER } from "./chapter-server";
+import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
 import { db } from "./db";
 import { hubUrl } from "./invites";
 import { isEmail } from "./submit-rules";
 import type { SendSummary } from "./types";
 
 // Announcement emails: one email per person through the Brevo API, so no
-// one sees anyone else's address. From BOARD_INVITE_FROM (a verified
-// getvindicated.org address), reply-to the chapter's organizer.
+// one sees anyone else's address. From the chapter's sender (or
+// BOARD_INVITE_FROM), reply-to the chapter's organizer.
 
 export type AnnouncementMail = { title: string; body: string; adminsOnly: boolean };
 type Person = { name: string; email: string };
@@ -20,10 +20,14 @@ const esc = (s: string) =>
 
 export const chapterTag = (chapter: ChapterId) => (chapter === "ucla" ? "[VINdicated UCLA]" : "[VINdicated Berkeley]");
 
-export function announceSetupProblem(): string | null {
+// The Railway variables announcement emails still need, or null.
+export function announceSetupProblem(chapter: ChapterId): string | null {
   if (!process.env.BREVO_API_KEY && process.env.NODE_ENV === "development") return null;
-  const missing = ["BREVO_API_KEY", "BOARD_INVITE_FROM"].filter((v) => !process.env[v]?.trim());
-  return missing.length ? `Missing ${missing.join(", ")}.` : null;
+  const missing = [
+    ...(process.env.BREVO_API_KEY?.trim() ? [] : ["BREVO_API_KEY"]),
+    ...(chapterSender(chapter, "") ? [] : ["BOARD_INVITE_FROM"]),
+  ];
+  return missing.length ? `Announcement emails aren't set up yet. Rana: add ${missing.join(" and ")} in Railway (see BOARD_SETUP.md).` : null;
 }
 
 // Everyone an announcement emails: all members with an email on file, or
@@ -54,12 +58,13 @@ ${a.body ? `<p>${esc(a.body).replace(/\n/g, "<br>")}</p>` : ""}
 // Sends to each person separately. Returns who it reached and who it didn't.
 export async function sendAnnouncement(chapter: ChapterId, a: AnnouncementMail, people: Person[], update: boolean) {
   const org = CHAPTER_SERVER[chapter].organizer;
-  const from = process.env.BOARD_INVITE_FROM?.trim() || "board@getvindicated.org";
+  const title = chapterConfig(chapter).title;
+  const sender = chapterSender(chapter, title) ?? { name: title, email: "board@getvindicated.org" };
   const results: (Person & { ok: boolean; error: string })[] = [];
   for (const p of people) {
     const m = message(chapter, a, update, p.name.split(/\s+/)[0] || p.name);
     const mail = {
-      sender: { email: from, name: chapterConfig(chapter).title },
+      sender,
       to: [{ email: p.email, name: p.name }],
       replyTo: { email: org.email, name: org.name },
       subject: m.subject,

@@ -12,7 +12,7 @@ async function load(request: Request, ctx: Ctx) {
   const id = idFrom((await ctx.params).id);
   const meeting = id ? await getScheduled(user.chapter, id) : null;
   if (!meeting) return notFound();
-  const problem = inviteSetupProblem();
+  const problem = inviteSetupProblem(user.chapter);
   if (problem) return notReady(problem);
   return { user, meeting };
 }

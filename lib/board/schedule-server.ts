@@ -71,6 +71,6 @@ export async function getScheduled(chapter: ChapterId, id: number): Promise<Sche
 }
 
 export const notReady = (problem: string) => {
-  console.error(`[board] Invites are off: ${problem} See BOARD_SETUP.md.`);
-  return bad("Invites aren't set up yet. Rana: add BREVO_SMTP_LOGIN, BREVO_SMTP_KEY and BOARD_INVITE_FROM in Railway (see BOARD_SETUP.md).", 503);
+  console.error(`[board] ${problem}`);
+  return bad(problem, 503);
 };

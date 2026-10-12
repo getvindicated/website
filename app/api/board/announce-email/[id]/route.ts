@@ -11,10 +11,10 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
   if (user instanceof Response) return user;
   const id = idFrom((await ctx.params).id);
   if (!id) return notFound();
-  const problem = announceSetupProblem();
+  const problem = announceSetupProblem(user.chapter);
   if (problem) {
-    console.error(`[board] Announcement emails are off: ${problem}`);
-    return bad("Announcement emails aren't set up yet. Rana: add BREVO_API_KEY and BOARD_INVITE_FROM in Railway (see BOARD_SETUP.md).", 503);
+    console.error(`[board] ${problem}`);
+    return bad(problem, 503);
   }
   const body = await readJson(request);
   const kind = body?.kind;

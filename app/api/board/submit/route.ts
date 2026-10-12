@@ -2,7 +2,7 @@ import { sendEmail } from "@/lib/brevo";
 import { bad, guard } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
 import { chapterConfig } from "@/lib/board/chapters";
-import { CHAPTER_SERVER, submissionRecipients } from "@/lib/board/chapter-server";
+import { CHAPTER_SERVER, chapterSender, submissionRecipients } from "@/lib/board/chapter-server";
 import { MAX_ATTACHMENT_BYTES, OTHER_TASK, TOO_BIG, hasLink, isEmail } from "@/lib/board/submit-rules";
 
 const esc = (s: string) =>
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
   const strip = (p: { email: string; name: string }) => ({ email: p.email, name: p.name });
   try {
     await deliver({
-      sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
+      sender: chapterSender(chapter, "VINdicated") ?? { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: to.map(strip),
       ...(cc.length ? { cc: cc.map(strip) } : {}),
       replyTo: { email: replyEmail, name: member.name },

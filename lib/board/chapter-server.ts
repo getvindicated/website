@@ -4,12 +4,16 @@ import type { BoardRole } from "./roles";
 
 // `short` is how the submit form names them: "Sent to Fiona and Will".
 type Person = { email: string; name: string; short: string };
+export type Sender = { name: string; email: string };
 
 // Server-only chapter settings: which Railway variables hold each role's
 // password, and where deliverable submissions are emailed. Change the
 // recipients here; the submit route and form read them from this file.
 export type ChapterServer = {
   cookie: string;
+  // Who the chapter's emails come from (announcements, invites, submissions).
+  // Must be a verified sender in Brevo. Null falls back to BOARD_INVITE_FROM.
+  from: Sender | null;
   // Members ticked as Hub admin when first loaded (for admins-only emails).
   // Admins change this on the Board tab afterwards.
   hubAdmins: string[];
@@ -30,6 +34,7 @@ export type ChapterServer = {
 export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   berkeley: {
     cookie: "board_session",
+    from: { name: "Rana", email: "president@getvindicated.org" },
     hubAdmins: ["Rana Darwich"],
     organizer: { email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" },
     passwords: [
@@ -47,6 +52,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   },
   ucla: {
     cookie: "board_session_ucla",
+    from: { name: "President Fiona", email: "vindicatedbruins@getvindicated.org" },
     hubAdmins: ["Fiona Wangsawidjaja", "Will Prawira"],
     organizer: { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja", short: "Fiona" },
     passwords: [
@@ -65,6 +71,17 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
     },
   },
 };
+
+// The chapter's sender, else BOARD_INVITE_FROM ("Name <address>" or a bare
+// address, which gets the chapter's title as its name), else null.
+export function chapterSender(chapter: ChapterId, fallbackName: string): Sender | null {
+  const own = CHAPTER_SERVER[chapter].from;
+  if (own) return own;
+  const env = process.env.BOARD_INVITE_FROM?.trim();
+  if (!env) return null;
+  const m = env.match(/^\s*"?([^"<]*?)"?\s*<([^>]+)>\s*$/);
+  return m ? { name: m[1].trim() || fallbackName, email: m[2].trim() } : { name: fallbackName, email: env };
+}
 
 // Who a submission from someone on `team` goes to.
 export function submissionRecipients(chapter: ChapterId, team: string) {

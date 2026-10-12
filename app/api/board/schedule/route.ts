@@ -10,7 +10,7 @@ import { isEmail } from "@/lib/board/submit-rules";
 export async function POST(request: Request) {
   const user = await guard(request, ["admin"]);
   if (user instanceof Response) return user;
-  const problem = inviteSetupProblem();
+  const problem = inviteSetupProblem(user.chapter);
   if (problem) return notReady(problem);
   const body = await readJson(request);
   if (!body) return bad("Check the form.");
