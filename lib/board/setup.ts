@@ -68,6 +68,23 @@ async function setup() {
   await seedUcla(sql, empty);
   await seedSettings(sql);
   await markHubAdmins(sql);
+  await renameEvanceline(sql);
+}
+
+// UCLA's Design Lead is Evanceline Tang; the starting data called her
+// Celine. Renames her in UCLA's assignments, submissions and meeting notes,
+// once, so her tasks match her member entry.
+async function renameEvanceline(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-15-ucla-evanceline')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    await tx`UPDATE board_assignments SET person = 'Evanceline' WHERE chapter = 'ucla' AND person = 'Celine'`;
+    await tx`UPDATE board_submissions SET person = 'Evanceline' WHERE chapter = 'ucla' AND person = 'Celine'`;
+    const word = String.raw`\mCeline\M`;
+    await tx`UPDATE board_meetings SET absent = regexp_replace(absent, ${word}, 'Evanceline', 'g')
+      WHERE chapter = 'ucla' AND absent ~ ${word}`;
+  });
 }
 
 // Ticks "Hub admin" for each chapter's starting admins, once.

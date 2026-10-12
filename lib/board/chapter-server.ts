@@ -61,7 +61,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
       ],
       cc: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
       techTeams: ["App Dev", "Data"],
-      techTo: [{ email: "rizwaanbana@g.ucla.edu", name: "Rizwaan Bana", short: "Rizwaan" }],
+      techTo: [{ email: "rizwaanbana@ucla.edu", name: "Rizwaan Bana", short: "Rizwaan" }],
     },
   },
 };
