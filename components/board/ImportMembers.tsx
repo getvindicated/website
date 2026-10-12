@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type ChangeEvent } from "react";
+import { useBoard } from "./BoardApp";
+import { chapterUrl } from "./util";
 
 type Status = { kind: "ok" | "err" | "busy"; text: string };
 
@@ -20,7 +22,7 @@ function readText(file: File): Promise<string> {
 async function send(members: unknown[]): Promise<string | null> {
   let res: Response;
   try {
-    res = await fetch("/api/board/import-members", {
+    res = await fetch(chapterUrl("/api/board/import-members"), {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ members }),
@@ -44,6 +46,8 @@ export function ImportMembers({
 }: {
   onLoaded: (count: number) => void;
 }) {
+  const { chapter } = useBoard();
+  const fileName = chapter.id === "berkeley" ? "board-members.local.json" : `board-members-${chapter.id}.local.json`;
   const [status, setStatus] = useState<Status | null>(null);
 
   async function onFile(e: ChangeEvent<HTMLInputElement>) {
@@ -62,13 +66,13 @@ export function ImportMembers({
       } catch {
         return setStatus({
           kind: "err",
-          text: `${file.name} isn't the member list. Choose board-members.local.json.`,
+          text: `${file.name} isn't the member list. Choose ${fileName}.`,
         });
       }
       if (!Array.isArray(members) || members.length === 0) {
         return setStatus({
           kind: "err",
-          text: `${file.name} doesn't have a member list in it. Choose board-members.local.json.`,
+          text: `${file.name} doesn't have a member list in it. Choose ${fileName}.`,
         });
       }
       setStatus({ kind: "busy", text: `Loading ${members.length} members…` });
@@ -91,9 +95,9 @@ export function ImportMembers({
   return (
     <div className="note">
       <p>
-        <strong>The member list isn&apos;t loaded yet.</strong> Choose the file
-        that Claude sent you, <strong>board-members.local.json</strong>. It has
-        everyone&apos;s names, roles, emails and phone numbers.
+        <strong>The member list isn&apos;t loaded yet.</strong> Choose the member
+        list file, <strong>{fileName}</strong>. It has everyone&apos;s names,
+        roles, emails and phone numbers.
       </p>
       <label htmlFor="import-members" className="check">
         {/* No `accept` filter: phones often label .json files as plain data and grey them out. */}

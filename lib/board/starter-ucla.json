@@ -1,0 +1,267 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "due_date": "2026-10-11",
+      "is_current": false,
+      "show_status": false,
+      "note": ""
+    },
+    {
+      "round": 2,
+      "due_date": "2026-10-18",
+      "is_current": true,
+      "show_status": true,
+      "note": "Set at the Oct 11 board meeting. Update Fiona on your progress, and submit anything you made below."
+    }
+  ],
+  "current": [
+    [
+      "Fiona",
+      "President",
+      [
+        "Make sure everyone is doing their work and manage members",
+        "Sign up for the SOLE signatory workshop (sole.ucla.edu/dayosole)"
+      ]
+    ],
+    [
+      "Will",
+      "Internal Vice President",
+      [
+        "Send the when2meet for weekly in-person general meetings; everyone fills it out by Wednesday night, then tell Fiona when everyone is available",
+        "Add Nikhil to all board chats, weekly board meetings and the Drive",
+        "Sign up for the SOLE signatory workshop (sole.ucla.edu/dayosole)"
+      ]
+    ],
+    [
+      "Ayat",
+      "External Vice President",
+      [
+        "Update and manage Instagram, and mass follow to grow followers",
+        "Reach out to other clubs about collaborating or featuring us on their page",
+        "Ask consulting and data clubs (DataRes consulting, NSDC, Creative Labs UCLA) whether we can be one of their projects",
+        "Update Fiona on collab progress and cc her on every email",
+        "Sign up for the SOLE signatory workshop (sole.ucla.edu/dayosole)"
+      ]
+    ],
+    [
+      "Rizwaan",
+      "Software Lead",
+      [
+        "Urgent: set a meeting with Nikhil to onboard him, covering what he needs to do and the project specifics"
+      ]
+    ],
+    [
+      "Ray",
+      "Data Lead",
+      [
+        "Start week two of your plan",
+        "Update Fiona on week 1 progress",
+        "Keep building your team through people you know who'll want to work with you"
+      ]
+    ],
+    [
+      "Fernando",
+      "Research Lead",
+      [
+        "Start week two of your plan",
+        "Update Fiona on week 1 progress",
+        "Keep building your team through people you know who'll want to work with you"
+      ]
+    ],
+    [
+      "Celine",
+      "Design Lead",
+      [
+        "Start week one of your plan",
+        "Update Fiona on week 1 progress",
+        "Keep building your team through people you know who'll want to work with you"
+      ]
+    ],
+    [
+      "Brisa",
+      "Technical Writing Lead",
+      [
+        "Start week two of your plan",
+        "Update Fiona on week 1 progress",
+        "Keep building your team through people you know who'll want to work with you"
+      ]
+    ],
+    [
+      "Rouqaya",
+      "High School Program",
+      [
+        "Update Fiona on progress at the high school"
+      ]
+    ]
+  ],
+  "archive": [
+    [
+      "Fiona",
+      "President",
+      "Manage applications and the club application, signatory workshop"
+    ],
+    [
+      "Will",
+      "Internal Vice President",
+      "Manage applications and the club application, signatory workshop"
+    ],
+    [
+      "Ayat",
+      "External Vice President",
+      "Instagram, club collabs, signatory workshop"
+    ],
+    [
+      "Rizwaan",
+      "Software Lead",
+      "Onboard Nikhil"
+    ],
+    [
+      "Ray",
+      "Data Lead",
+      "Start week one, pick your team"
+    ],
+    [
+      "Fernando",
+      "Research Lead",
+      "Start week one, pick your team"
+    ],
+    [
+      "Celine",
+      "Design Lead",
+      "Start week one, pick your team"
+    ],
+    [
+      "Brisa",
+      "Technical Writing Lead",
+      "Start week one, pick your team"
+    ]
+  ],
+  "events": [
+    {
+      "date": "2026-10-12",
+      "time": "Day TBD (week 4)",
+      "title": "Bruinwalk tabling",
+      "location": "Bruin Walk",
+      "kind": "b",
+      "lead": "Ayat",
+      "status": "Planning",
+      "cost": "Sticky notes and a whiteboard",
+      "note": "Interactive whiteboard where students share car experiences, questions and concerns on sticky notes."
+    },
+    {
+      "date": "2026-10-21",
+      "time": "9:00–10:00pm",
+      "title": "Skribbl night with Berkeley",
+      "location": "Discord",
+      "kind": "o",
+      "lead": "TBD",
+      "status": "Planning",
+      "cost": "Free",
+      "note": "Joint online social with the Berkeley chapter."
+    },
+    {
+      "date": "2026-10-26",
+      "time": "All week (week 6)",
+      "title": "On-campus interviews for IG",
+      "location": "Around campus",
+      "kind": "b",
+      "lead": "TBD",
+      "status": "Idea",
+      "cost": "Free",
+      "note": "Quick interviews for Instagram content. Plan questions, locations and volunteers during midterm week."
+    },
+    {
+      "date": "2026-11-02",
+      "time": "Day TBD (week 7)",
+      "title": "Dorm event",
+      "location": "The Hill, TBD",
+      "kind": "b",
+      "lead": "TBD",
+      "status": "Idea",
+      "cost": "Supplies for air freshener sachets",
+      "note": "Car-buying basics plus DIY air freshener sachets. Work with RAs to reach residents."
+    },
+    {
+      "date": "2026-11-11",
+      "time": "",
+      "title": "Veterans Day",
+      "location": "",
+      "kind": "org",
+      "lead": "",
+      "status": "",
+      "cost": "",
+      "note": "Holiday."
+    },
+    {
+      "date": "2026-11-22",
+      "time": "",
+      "title": "Crosscheck demo and writeup (week 10)",
+      "location": "",
+      "kind": "org",
+      "lead": "Ray",
+      "status": "",
+      "cost": "",
+      "note": "Data team's end-of-quarter demo."
+    },
+    {
+      "date": "2026-11-26",
+      "time": "",
+      "title": "Thanksgiving",
+      "location": "",
+      "kind": "org",
+      "lead": "",
+      "status": "",
+      "cost": "",
+      "note": "Holiday through Nov 27."
+    }
+  ],
+  "announcements": [
+    {
+      "title": "Deliverables from the Oct 11 meeting",
+      "body": "Due Sunday, Oct 18. Update Fiona on your progress.",
+      "posted_on": "2026-10-11",
+      "link_tab": "assignments",
+      "link_label": "Open",
+      "admins_only": false
+    },
+    {
+      "title": "Signatory workshop",
+      "body": "Fiona, Will and Ayat: sign up for the SOLE signatory workshop at sole.ucla.edu/dayosole.",
+      "posted_on": "2026-10-11",
+      "link_tab": "",
+      "link_label": "",
+      "admins_only": false
+    },
+    {
+      "title": "This week: Bruinwalk tabling",
+      "body": "Interactive whiteboard where students share car experiences, questions and concerns on sticky notes.",
+      "posted_on": "2026-10-11",
+      "link_tab": "socials",
+      "link_label": "Open",
+      "admins_only": false
+    },
+    {
+      "title": "Finances",
+      "body": "Balance $82.55 after $140 in T-shirt sales. Fiona's $57.45 loan for shirts and stickers has been paid back.",
+      "posted_on": "2026-10-11",
+      "link_tab": "",
+      "link_label": "",
+      "admins_only": true
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-10-11",
+      "absent": "Celine, Rizwaan, Fernando, Ayat"
+    },
+    {
+      "date": "2026-10-04",
+      "absent": "Celine and Ray (both excused)"
+    },
+    {
+      "date": "2026-09-27",
+      "absent": "Rizwaan; Will and Brisa (excused)"
+    }
+  ]
+}

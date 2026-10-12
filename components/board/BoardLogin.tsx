@@ -2,9 +2,12 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { api } from "./util";
+import { chapterConfig, type ChapterId } from "@/lib/board/chapters";
+import { api, setApiChapter } from "./util";
 
-export function BoardLogin() {
+export function BoardLogin({ chapter }: { chapter: ChapterId }) {
+  const config = chapterConfig(chapter);
+  setApiChapter(chapter);
   const router = useRouter();
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,7 +27,7 @@ export function BoardLogin() {
   return (
     <main className="wrap">
       <h1>VINDICATED</h1>
-      <p className="sub">UC Berkeley chapter board</p>
+      <p className="sub">{config.loginSub}</p>
       <form className="stack login" onSubmit={submit} noValidate>
         <label htmlFor="board-password">
           Board password
@@ -45,7 +48,7 @@ export function BoardLogin() {
             {error}
           </p>
         )}
-        <p>Ask Rana if you need the password.</p>
+        <p>Ask {config.contact} if you need the password.</p>
       </form>
     </main>
   );

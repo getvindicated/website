@@ -714,3 +714,100 @@
   margin: 0 auto;
   max-width: 360px;
 }
+
+/* UCLA: one row of board cutouts at the top of Home. */
+.board .faces {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px 4px;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 18px 0 0;
+  border-bottom: 1px solid var(--rule);
+}
+/* Shrink together on narrow screens so the row never wraps or scrolls. */
+.board .faces img {
+  height: auto;
+  width: auto;
+  max-height: 130px;
+  min-width: 0;
+  flex: 0 1 auto;
+  object-fit: contain;
+}
+@media (max-width: 640px) {
+  .board .faces img {
+    max-height: 80px;
+  }
+}
+
+.board .st-excused {
+  color: var(--deep);
+  font-weight: 700;
+}
+
+/* Admin controls grouped in one box (UCLA's week tools). */
+.board .admin-tools {
+  border: 1px solid var(--accent);
+  padding: 14px 16px;
+  margin: 0 0 16px;
+  display: grid;
+  gap: 10px;
+}
+.board .admin-tools h3 {
+  margin: 0;
+}
+.board label.inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.board label.inline input,
+.board label.inline select {
+  width: auto;
+  max-width: 100%;
+}
+
+/* My page */
+.board .me-head {
+  display: grid;
+  gap: 2px;
+  margin: 18px 0 6px;
+}
+.board .me-head .nm {
+  font-size: clamp(26px, 5vw, 34px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+.board .me-head .rl {
+  font-size: 18px;
+  color: var(--accent);
+}
+.board .me-facts {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  gap: 4px;
+}
+.board .me-facts li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.board .me-facts li > span:first-child {
+  width: 110px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--deep);
+}
+.board .me-facts li > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.board .empty {
+  border: 1px dashed var(--deep);
+  padding: 14px 16px;
+}

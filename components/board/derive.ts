@@ -1,7 +1,7 @@
 "use client";
 
-import type { Assignment, BoardData, Member } from "@/lib/board/types";
-import { CURRENT_ROUND, UNASSIGNED } from "@/lib/board/static";
+import type { Assignment, AssignmentStatus, BoardData, Member } from "@/lib/board/types";
+import { UNASSIGNED } from "@/lib/board/static";
 
 export type PersonTasks = {
   person: string;
@@ -9,21 +9,26 @@ export type PersonTasks = {
   items: Assignment[];
   due: string | null;
   submitted: boolean;
+  // UCLA: one status per person. With mixed task statuses, the least done.
+  status: AssignmentStatus;
 };
 
-// Current-round tasks grouped by person, in the order they were added.
-// Tasks with no owner yet are left out (see unassignedTasks).
-export function currentRound(data: BoardData): PersonTasks[] {
+const ORDER: AssignmentStatus[] = ["pending", "missing", "excused", "submitted", "done"];
+
+// A round's tasks grouped by person, in the order they were added. Tasks
+// with no owner yet are left out (see unassignedTasks).
+export function roundTasks(data: BoardData, round: number | null): PersonTasks[] {
   const map = new Map<string, PersonTasks>();
   for (const a of data.assignments) {
-    if (a.round !== CURRENT_ROUND.round || a.person === UNASSIGNED) continue;
+    if (a.round !== round || a.person === UNASSIGNED) continue;
     let p = map.get(a.person);
     if (!p) {
-      p = { person: a.person, role: a.personRole, items: [], due: a.dueDate, submitted: false };
+      p = { person: a.person, role: a.personRole, items: [], due: a.dueDate, submitted: false, status: a.status };
       map.set(a.person, p);
     }
     p.items.push(a);
     if (a.status === "submitted" || a.status === "done") p.submitted = true;
+    if (ORDER.indexOf(a.status) < ORDER.indexOf(p.status)) p.status = a.status;
   }
   for (const s of data.submissions) {
     const p = map.get(s.person);
@@ -32,8 +37,8 @@ export function currentRound(data: BoardData): PersonTasks[] {
   return [...map.values()];
 }
 
-// Current-round tasks with no owner yet. Only admins receive these.
-export const unassignedTasks = (data: BoardData) =>
-  data.assignments.filter((a) => a.round === CURRENT_ROUND.round && a.person === UNASSIGNED);
+// Tasks with no owner yet in a round. Only admins receive these.
+export const unassignedTasks = (data: BoardData, round: number | null) =>
+  data.assignments.filter((a) => a.round === round && a.person === UNASSIGNED);
 
 export const inLeadership = (m: Member) => m.isLead || m.tier !== null;

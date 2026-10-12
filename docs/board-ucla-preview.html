@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Spec for /board/ucla. Member emails are placeholders here; the real list is imported from scripts/board-members-ucla.local.json, which is not committed. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VINdicated at UCLA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<style>
+/* Plain faculty-page layout: one white column, centered nav, light display name; interaction lives in quiet controls */
+:root {
+  --bg: #ffffff;
+  --fg: #1d1a1f;
+  --soft: #4a4550;
+  --rule: #dcd8df;
+  --tint: #f6eff8;
+  --accent: #9533A5;
+  --done: #2f6b3a;
+  --prog: #8a5a00;
+  --body: "Lato", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 300 17px/1.6 var(--body); }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 28px 80px; padding-inline: 20px; }
+nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; }
+nav a { color: var(--soft); font-weight: 700; text-decoration: none; letter-spacing: .03em; }
+nav a[aria-current="page"] { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1 { text-align: center; font-weight: 300; font-size: clamp(34px, 7vw, 58px); letter-spacing: .06em; margin: 30px 0 4px; }
+.sub { text-align: center; color: var(--soft); margin: 0 0 36px; }
+h2 { font-weight: 700; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+h3 { font-weight: 700; font-size: 17px; margin: 0 0 4px; }
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 22px; }
+a { color: var(--accent); }
+.muted { color: var(--soft); }
+.small { font-size: 15px; }
+.num { font-variant-numeric: tabular-nums; }
+.note { border: 1px solid var(--accent); padding: 10px 14px; font-size: 15px; font-weight: 400; margin-bottom: 14px; }
+.cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0 48px; }
+.cols > * { min-width: 0; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+
+/* controls */
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.chip { font: inherit; font-size: 15px; font-weight: 400; padding: 4px 12px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); cursor: pointer; border-radius: 0; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+.chip .ct { opacity: 1; margin-left: 4px; font-variant-numeric: tabular-nums; }
+input[type=search], input[type=text], select, textarea { font: inherit; font-weight: 300; padding: 7px 10px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); }
+input[type=search] { flex: 1 1 220px; min-width: 0; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-weight: 400; text-decoration: underline; cursor: pointer; }
+
+/* dates */
+.dates { list-style: none; padding: 0; }
+.dates li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.dates .d { font-weight: 700; font-variant-numeric: tabular-nums; }
+.dates li.past { color: var(--soft); }
+.dates .left { font-size: 15px; color: var(--accent); font-weight: 400; }
+
+/* board chart */
+.chart { display: grid; gap: 22px; }
+.tier { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; position: relative; }
+.tier + .tier::before { content: ""; position: absolute; top: -12px; left: 50%; height: 10px; border-left: 1px solid var(--soft); }
+.teams { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; border-top: 1px solid var(--soft); padding-top: 18px; }
+.team h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; color: var(--soft); }
+.team { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.person { text-align: left; font: inherit; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); padding: 8px 12px; cursor: pointer; border-radius: 0; width: 100%; }
+.tier .person { width: 200px; text-align: center; }
+.person .n { display: block; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.person .r { display: block; font-size: 15px; color: var(--soft); }
+.person.lead { border-color: var(--fg); }
+.person.open { border-style: dashed; cursor: default; }
+.person.open .n { font-weight: 400; color: var(--soft); }
+.person[aria-expanded="true"] { border-color: var(--accent); background: var(--tint); }
+.person.dim { opacity: .28; }
+.card { border: 1px solid var(--accent); padding: 16px 18px; margin-top: 18px; display: grid; gap: 6px; }
+.card .row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.card .row span:first-child { width: 64px; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
+.table { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th { text-align: left; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--fg); white-space: nowrap; }
+td { vertical-align: top; padding: 10px 10px 10px 0; border-bottom: 1px solid var(--rule); }
+.st-done, .st-Completed, .st-Confirmed { color: var(--done); font-weight: 700; }
+.st-prog, .st-Planning { color: var(--prog); font-weight: 700; }
+.st-Idea { color: var(--soft); font-weight: 700; }
+
+/* assignments */
+.progress { height: 6px; background: var(--rule); margin: 4px 0 18px; }
+.progress span { display: block; height: 100%; background: var(--accent); }
+.assign { border-bottom: 1px solid var(--rule); }
+.assign summary { list-style: none; display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: baseline; padding: 12px 0; cursor: pointer; }
+.assign summary::-webkit-details-marker { display: none; }
+.assign summary .who::before { content: "+ "; color: var(--accent); font-weight: 700; }
+.assign[open] summary .who::before { content: "− "; }
+.assign .who { font-weight: 700; }
+.assign .body { padding: 0 0 16px 18px; }
+.tasks { list-style: none; padding: 0; margin: 0 0 10px; }
+.tasks li { display: flex; gap: 10px; align-items: flex-start; padding: 3px 0; }
+.tasks input { margin-top: 6px; accent-color: var(--accent); }
+.tasks li.ticked label { text-decoration: line-through; color: var(--soft); }
+.subs { font-size: 15px; margin: 6px 0 10px; }
+.subs strong { font-weight: 700; }
+form.submit-form { display: grid; gap: 14px; max-width: 640px; }
+form label { display: grid; gap: 4px; font-weight: 400; }
+textarea { min-height: 130px; resize: vertical; width: 100%; }
+form select { width: 100%; }
+.btn { justify-self: start; background: var(--accent); color: #fff; border: 0; border-radius: 0; padding: 10px 22px; font: inherit; font-weight: 700; cursor: pointer; }
+
+/* projects */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 36px; }
+.proj-grid ul { padding-left: 18px; }
+.cal { display: grid; gap: 0; }
+.week { border-bottom: 1px solid var(--rule); }
+.week summary { list-style: none; display: grid; grid-template-columns: 70px 120px 1fr; gap: 12px; padding: 10px 0; cursor: pointer; align-items: baseline; }
+.week summary::-webkit-details-marker { display: none; }
+.week.now summary { background: var(--tint); padding-inline: 8px; }
+.week .wk { font-weight: 700; }
+.week .tag { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-left: 8px; }
+.week .items { list-style: none; padding: 0 0 12px 82px; margin: 0; }
+.week .items li { display: grid; grid-template-columns: 76px 1fr; gap: 10px; padding: 3px 0; }
+.week .items .track { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); padding-top: 3px; }
+@media (max-width: 560px) {
+  .week summary { grid-template-columns: 60px 1fr; }
+  .week summary .goal { grid-column: 1 / -1; }
+  .week .items { padding-left: 0; }
+  .tier .person { width: 100%; }
+  .assign summary { grid-template-columns: 1fr auto; }
+  .assign summary .due { display: none; }
+}
+.meeting { padding: 12px 0 14px; border-bottom: 1px solid var(--rule); }
+.me-head { display: grid; gap: 2px; margin: 18px 0 6px; }
+.me-head .nm { font-size: clamp(26px, 5vw, 34px); font-weight: 300; letter-spacing: .02em; }
+.me-head .rl { font-size: 18px; color: var(--accent); font-weight: 400; }
+.me-facts { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 4px; }
+.me-facts li { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.me-facts li > span:first-child { width: 110px; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; padding-top: 2px; }
+.empty { border: 1px dashed var(--soft); padding: 14px 16px; }
+
+/* socials calendar */
+.calhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 6px 0 10px; }
+.calhead h3 { margin: 0; font-weight: 300; font-size: 24px; letter-spacing: .04em; }
+.month { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-top: 1px solid var(--fg); border-left: 1px solid var(--rule); }
+.month .dow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 6px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.month .day { min-height: 92px; padding: 4px 6px 6px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.month .day.other { background: #faf9fa; color: #b3adb6; }
+.month .day.today .dn { background: var(--fg); color: var(--bg); padding: 0 5px; }
+.month .dn { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; align-self: flex-start; }
+.ev { font: inherit; font-size: 13px; line-height: 1.3; text-align: left; border: 0; border-left: 3px solid var(--accent); background: var(--tint); color: var(--fg); padding: 3px 5px; cursor: pointer; border-radius: 0; overflow-wrap: anywhere; }
+.ev.x { border-left-color: #1f5f8b; background: #eef4f9; }
+.ev.o { border-left-color: var(--soft); background: #f3f2f4; }
+.ev.org { border-left-color: var(--prog); background: #fbf5e9; cursor: default; }
+.ev[aria-pressed="true"] { outline: 2px solid var(--accent); }
+.ev.hide { display: none; }
+.evgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.evgrid > * { min-width: 0; }
+input[type=date] { font: inherit; font-weight: 300; padding: 7px 10px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); width: 100%; }
+form input[type=text] { width: 100%; }
+@media (max-width: 480px) { .evgrid { grid-template-columns: 1fr; } }
+.agenda { list-style: none; padding: 0; margin: 0; }
+.agenda li { display: grid; grid-template-columns: 110px 1fr auto; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.agenda .when { font-weight: 700; font-variant-numeric: tabular-nums; }
+.agenda .tag { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--soft); }
+@media (max-width: 640px) {
+  .month .day { min-height: 54px; padding: 3px; }
+  .ev { font-size: 0; height: 8px; padding: 0; }
+  .month .dow { font-size: 11px; padding: 4px 3px; }
+  .agenda li { grid-template-columns: 1fr; gap: 2px; }
+}
+
+.faces { display: flex; flex-wrap: wrap; gap: 6px 4px; align-items: flex-end; justify-content: center; padding: 18px 0 0; border-bottom: 1px solid var(--rule); }
+.faces img { height: 130px; width: auto; max-width: 100%; flex: none; object-fit: contain; }
+@media (max-width: 640px) { .faces img { height: 80px; } }
+
+[hidden] { display: none !important; }
+.gate { position: fixed; inset: 0; background: var(--bg); z-index: 50; display: grid; place-items: center; padding: 20px; padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
+.gate form { width: min(420px, 100%); display: grid; gap: 14px; }
+.gate h1 { margin: 0; font-size: 40px; }
+.gate input[type=password] { font: inherit; font-weight: 300; padding: 9px 10px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); width: 100%; }
+.who-bar { text-align: center; margin: -24px 0 28px; color: var(--accent); }
+.admin-tools { border: 1px solid var(--accent); padding: 14px 16px; margin: 0 0 16px; display: grid; gap: 10px; }
+.admin-tools h3 { margin: 0; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.edit-row { display: flex; gap: 8px; align-items: flex-start; }
+.edit-row textarea, .edit-row input { flex: 1; min-width: 0; min-height: 0; font: inherit; font-weight: 300; padding: 6px 8px; border: 1px solid var(--soft); border-radius: 0; background: var(--bg); color: var(--fg); }
+.edit-row textarea { min-height: 44px; resize: vertical; }
+.st-Missing { color: #a32a2a; font-weight: 700; }
+.st-Excused { color: var(--soft); font-weight: 700; }
+body:not(.is-admin) .admin-only { display: none !important; }
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <form id="gate-form" novalidate>
+    <h1>VINDICATED</h1>
+    <p class="sub" style="text-align:left;margin:0">UCLA chapter board hub</p>
+    <label for="gate-pw" style="display:grid;gap:4px;font-weight:400">Password<input id="gate-pw" type="password" autocomplete="current-password"></label>
+    <button class="btn" type="submit">Sign in</button>
+    <p id="gate-msg" hidden style="font-weight:400;margin:0"></p>
+    <p class="small" style="margin:0">Preview: the admin password opens the admin view for Fiona and Will. Any other password opens the member view.</p>
+  </form>
+</div>
+<div class="wrap">
+<nav aria-label="Sections">
+  <a href="#me" data-tab="me">My page</a>
+  <a href="#home" data-tab="home" aria-current="page">Home</a>
+  <a href="#board" data-tab="board">Board</a>
+  <a href="#projects" data-tab="projects">Projects</a>
+  <a href="#assignments" data-tab="assignments">Assignments</a>
+  <a href="#socials" data-tab="socials">Socials</a>
+  <a href="#meetings" data-tab="meetings">Meetings</a>
+</nav>
+
+<h1>VINDICATED</h1>
+<p class="sub">UCLA chapter · Board hub, Fall 2026</p>
+<p class="who-bar small" id="who-bar"></p>
+
+
+<!-- HOME -->
+<section id="tab-home">
+  <div class="faces" aria-label="UCLA board photos"><img src="../public/board/ucla/board-1.webp" alt="UCLA board member"><img src="../public/board/ucla/board-2.webp" alt="UCLA board member"><img src="../public/board/ucla/board-3.webp" alt="UCLA board member"><img src="../public/board/ucla/board-4.webp" alt="UCLA board member"><img src="../public/board/ucla/board-5.webp" alt="UCLA board member"><img src="../public/board/ucla/board-6.webp" alt="UCLA board member"></div>
+  <div class="cols">
+    <div>
+      <h2>Logistics &amp; Quick Links</h2>
+      <ul>
+        <li><a href="#" title="Link to add">Member Drive 2025–26</a></li>
+        <li><a href="#" title="Link to add">2025–2026 Curriculum</a></li>
+        <li><a href="#" title="Link to add">Google Drive for photos</a></li>
+        <li><a href="#" title="Link to add">Outreach spreadsheets</a></li>
+        <li>Slack: <a href="https://join.slack.com/t/vindicatedgroup/shared_invite/zt-4bavmrqhi-XJb9OIt4aRq6SpGaNyoKtg">vindicatedgroup</a></li>
+        <li>Board meetings: Sundays, 6–6:30pm</li>
+      </ul>
+
+      <h2>Announcements</h2>
+      <div class="admin-tools admin-only">
+        <h3>Post an announcement</h3>
+        <div class="edit-row"><input type="text" id="ann-title" placeholder="Title"></div>
+        <div class="edit-row"><textarea id="ann-text" placeholder="What everyone needs to know"></textarea></div>
+        <label class="small" style="display:flex;gap:8px;align-items:center;font-weight:400"><input type="checkbox" id="ann-private"> Board admins only</label>
+        <button class="btn" type="button" id="ann-add">Post</button>
+      </div>
+      <div id="ann-list"></div>
+    </div>
+    <div>
+      <h2>Key Dates</h2>
+      <ul class="dates" id="dates"></ul>
+
+      <h2>At a Glance</h2>
+      <ul class="dates" id="glance"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section id="tab-board" hidden>
+  <h2>Board Chart</h2>
+  <div class="bar" role="group" aria-label="Filter by team" id="team-chips"></div>
+  <div class="bar">
+    <input type="search" id="board-search" placeholder="Search by name, role, or email" aria-label="Search members">
+    <button class="chip" id="view-toggle" aria-pressed="false">List view</button>
+  </div>
+  <div id="chart-view">
+    <div class="chart" id="chart"></div>
+    <div class="card" id="person-card" hidden></div>
+  </div>
+  <div class="table" id="list-view" hidden>
+    <table>
+      <thead><tr><th>Name</th><th>Role</th><th>Team</th><th>Email</th><th>Phone</th></tr></thead>
+      <tbody id="list-rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="tab-projects" hidden>
+  <h2>All Projects</h2>
+  <div class="proj-grid">
+    <div><h3>Data</h3><ul><li>Project Crosscheck</li></ul></div>
+    <div><h3>Research</h3><ul><li>Language, Trust &amp; Access</li><li>The Hidden Price Gap</li><li>After the Accident: Know Your Rights</li></ul></div>
+    <div><h3>App Dev</h3><ul><li>DMV test practice</li><li>Interactive quizzes</li><li>Crash list and safety scores by model</li></ul></div>
+    <div><h3>Outreach</h3><ul><li>Bruinwalk tabling</li><li>Scam-awareness listings</li><li>Dorm event</li><li>IG Question of the Week</li></ul></div>
+    <div><h3>High School</h3><ul><li>First-Car Survival campaign, Fountain Valley HS</li></ul></div>
+  </div>
+
+  <h2>Project Crosscheck</h2>
+  <div class="cols">
+    <div>
+      <p>A public, side-by-side table of NHTSA and IIHS safety ratings for model years 2023–2026, built into the VINdicated site.</p>
+      <p><strong>Question for v1:</strong> how often do NHTSA and IIHS ratings disagree? Which one better predicts real-world outcomes is saved for v2.</p>
+    </div>
+    <div>
+      <p><strong>Data:</strong> NHTSA ratings are public. IIHS needs an approved API key; the application is in.</p>
+      <p><strong>Rules:</strong> no combined safety score, no scraping iihs.org, and the public table is generated by the pipeline, never edited by hand.</p>
+    </div>
+  </div>
+
+  <h2>Research projects</h2>
+  <div class="cols">
+    <div>
+      <p><strong>Language, Trust &amp; Access:</strong> how multilingual consumers experience communication, trust and access to information at dealerships.</p>
+      <p><strong>The Hidden Price Gap:</strong> what makes car pricing hard to understand: dealer add-ons, fees, "starting at" prices and monthly payment ads.</p>
+    </div>
+    <div>
+      <p><strong>After the Accident: Know Your Rights:</strong> a plain-language California guide for when something goes wrong: accidents, dealer disputes, fraud, repair and financing problems.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">Fall quarter timeline</h3>
+  <div class="bar" role="group" aria-label="Filter calendar by track" id="track-chips"></div>
+  <div class="cal" id="cal"></div>
+</section>
+
+<!-- ASSIGNMENTS -->
+<section id="tab-assignments" hidden>
+  <h2 id="assign-title">Deliverables · Due Sun, Oct 18</h2>
+  <p class="note">Set at the Oct 11 board meeting. Update Fiona on your progress, and submit anything you made below.</p>
+  <p class="small num" id="assign-summary"></p>
+  <div class="progress"><span id="assign-bar"></span></div>
+  <div class="bar" role="group" aria-label="Filter by status" id="status-chips"></div>
+  <div class="admin-tools admin-only">
+    <h3>Admin</h3>
+    <div class="edit-row" style="flex-wrap:wrap;align-items:center"><label for="due-input" style="font-weight:400">Due date</label><input type="date" id="due-input" style="flex:0 1 180px"><button class="chip" type="button" id="new-week">Start a new week</button></div>
+    <p class="small" style="margin:0">Open a person below to edit their tasks or set their status. Starting a new week moves this week into the archive and carries over anything not submitted.</p>
+  </div>
+  <div id="assign-list"></div>
+  <div id="archive-list"></div>
+
+  <details class="assign" style="margin-top:18px">
+    <summary><span class="who">Last week · due Oct 11</span><span></span><span class="muted small" id="r1-count"></span></summary>
+    <div class="body table"><table><tbody id="r1-rows"></tbody></table></div>
+  </details>
+
+  <h2 id="submit-heading">Submit your work</h2>
+  <p class="note">Preview only. Nothing is sent from this page yet. On the live site, this form emails your submission and any files to Fiona.</p>
+  <form class="submit-form" id="submit-form" novalidate>
+    <label for="f-name">Your name<select id="f-name"></select></label>
+    <label for="f-task">Which assignment<select id="f-task"></select></label>
+    <label for="f-text">Notes or written deliverable
+      <textarea id="f-text" placeholder="Paste your update, links, or anything Fiona should read."></textarea></label>
+    <label for="f-files">Files: docs, screenshots, designs<input id="f-files" type="file" multiple></label>
+    <button class="btn" type="submit">Submit</button>
+    <p id="f-result" hidden style="font-weight:400"></p>
+  </form>
+</section>
+
+<!-- SOCIALS -->
+<section id="tab-socials" hidden>
+  <h2>Fall 2026 Events</h2>
+  <div class="bar" role="group" aria-label="Filter socials" id="social-chips"></div>
+  <p class="admin-only"><button class="btn" id="ev-add" type="button">Add an event</button></p>
+  <div class="calhead">
+    <button class="chip" id="m-prev" aria-label="Previous month">←</button>
+    <h3 id="m-label" aria-live="polite"></h3>
+    <button class="chip" id="m-next" aria-label="Next month">→</button>
+  </div>
+  <div class="month" id="month" role="grid"></div>
+  <div class="card" id="ev-card" hidden></div>
+
+  <h3 style="margin-top:28px">All events</h3>
+  <ul class="agenda" id="agenda"></ul>
+  <p class="muted small" style="margin-top:12px">Status runs Idea → Planning → Confirmed → Completed. Days marked TBD come from the outreach timeline, which plans by week.</p>
+</section>
+
+<!-- MY PAGE -->
+<section id="tab-me" hidden>
+  <p class="note">Preview: pick a member to see their page. On the live site, each person signs in with their email and sees only their own page.</p>
+  <div class="bar">
+    <label for="me-pick" style="font-weight:400">Viewing as</label>
+    <select id="me-pick" style="flex:1 1 240px;min-width:0"></select>
+  </div>
+  <div id="me-body"></div>
+</section>
+
+<!-- MEETINGS -->
+<section id="tab-meetings" hidden>
+  <h2>Board Meetings</h2>
+  <p>Sundays, 6–6:30pm.</p>
+  <div class="admin-tools admin-only">
+    <h3>Add a meeting</h3>
+    <div class="edit-row"><input type="date" id="mt-date" aria-label="Meeting date"></div>
+    <div class="edit-row"><input type="text" id="mt-absent" placeholder="Absent (and who was excused)"></div>
+    <div class="edit-row"><textarea id="mt-notes" placeholder="Notes and decisions"></textarea></div>
+    <div class="edit-row"><input type="text" id="mt-link" placeholder="Recording link"></div>
+    <button class="btn" type="button" id="mt-add">Add meeting</button>
+  </div>
+  <div id="meet-list"></div>
+</section>
+
+</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- people ---------- */
+const P = (name, role, team, email, phone, extra = {}) => ({ name, role, team, email, phone, ...extra });
+const people = [
+  P("Fiona Wangsawidjaja","President","Executive","member1@example.com","Not on file",{ tier: 0 }),
+  P("Will Prawira","Internal Vice President","Executive","Not on file","Not on file",{ tier: 1 }),
+  P("Ayat","External Vice President","Executive","Not on file","Not on file",{ tier: 1 }),
+  P("Ray","Data Lead","Data","Not on file","Not on file",{ lead: true }),
+  P("Nhi Pham","Data","Data","member2@example.com","Not on file"),
+  P("Prosit Sanyal","Data","Data","member3@example.com","Not on file"),
+  P("Sahana Sethuraman","Data","Data","member4@example.com","Not on file"),
+  P("Allen Shan","Data","Data","member5@example.com","Not on file"),
+  P("Fernando","Research Lead","Research","Not on file","Not on file",{ lead: true }),
+  P("Jared Ruiz","Research","Research","member6@example.com","Not on file"),
+  P("Gabriel Aleks","Research","Research","member7@example.com","Not on file"),
+  P("Rizwaan Bana","Software Lead","App Dev","Not on file","Not on file",{ lead: true }),
+  P("Nikhil","App Dev (onboarding)","App Dev","Not on file","Not on file"),
+  P("Celine","Design Lead","Design","Not on file","Not on file",{ lead: true }),
+  P("Brisa","Technical Writing Lead","Technical Writing","Not on file","Not on file",{ lead: true }),
+  P("Rouqaya","High School Program","High School","Not on file","Not on file",{ lead: true })
+];
+const openSeats = {};
+const teamOrder = ["Data","Research","App Dev","Design","Technical Writing","High School"];
+const allTeams = ["All","Executive",...teamOrder];
+let teamFilter = "All", query = "", openPerson = null;
+
+const inTeam = (p, t) => t === "All" || p.team === t || p.alsoTeam === t;
+const matches = p => !query || [p.name,p.role,p.team,p.email].join(" ").toLowerCase().includes(query);
+const visible = p => inTeam(p, teamFilter) && matches(p);
+
+function personBtn(p, cls = "") {
+  const i = people.indexOf(p);
+  return `<button class="person ${p.lead ? "lead" : ""} ${cls} ${visible(p) ? "" : "dim"}" data-p="${i}" aria-expanded="${openPerson === i}">
+    <span class="n">${esc(p.name)}</span><span class="r">${esc(p.role)}</span></button>`;
+}
+function renderChips() {
+  document.getElementById("team-chips").innerHTML = allTeams.map(t => {
+    const n = t === "All" ? people.length : people.filter(p => inTeam(p, t)).length;
+    return `<button class="chip" data-team="${esc(t)}" aria-pressed="${teamFilter === t}">${esc(t)}<span class="ct">${n}</span></button>`;
+  }).join("");
+}
+function renderChart() {
+  const t0 = people.filter(p => p.tier === 0), t1 = people.filter(p => p.tier === 1);
+  const teams = teamOrder.map(t => {
+    const mem = people.filter(p => p.team === t);
+    const led = people.filter(p => p.team !== t && p.alsoTeam === t && p.tier === 0);
+    const ledHtml = led.map(p => `<div class="person lead" style="cursor:default"><span class="n">${esc(p.name)}</span><span class="r">${esc(t === "Research & Legal" ? "Research Lead" : p.role)}</span></div>`).join("");
+    const open = openSeats[t] ? `<div class="person open"><span class="n">${esc(openSeats[t])}</span><span class="r">Open seat</span></div>` : "";
+    return `<div class="team"><h3>${esc(t)}</h3>${ledHtml}${open}${mem.map(p => personBtn(p)).join("")}</div>`;
+  }).join("");
+  document.getElementById("chart").innerHTML =
+    `<div class="tier">${t0.map(p => personBtn(p)).join("")}</div>
+     <div class="tier">${t1.map(p => personBtn(p)).join("")}</div>
+     <div class="teams">${teams}</div>`;
+  const rows = people.filter(visible);
+  document.getElementById("list-rows").innerHTML = rows.length ? rows.map(p => `<tr><td>${esc(p.name)}</td><td>${esc(p.role)}</td><td>${esc(p.team)}</td><td>${esc(p.email)}</td><td class="num" style="white-space:nowrap">${esc(p.phone)}</td></tr>`).join("")
+    : `<tr><td colspan="5" class="muted">No one matches that search.</td></tr>`;
+  renderCard();
+}
+function renderCard() {
+  const card = document.getElementById("person-card");
+  if (openPerson === null) { card.hidden = true; return; }
+  const p = people[openPerson];
+  const first = p.name.split(" ")[0];
+  const a = assignments.find(x => x.name === first);
+  card.hidden = false;
+  card.innerHTML = `<h3>${esc(p.name)}</h3>
+    <div class="row"><span>Role</span><span>${esc(p.role)} · ${esc(p.team)}</span></div>
+    <div class="row"><span>Email</span><span>${esc(p.email)}</span><button class="linkbtn small" data-copy="${esc(p.email)}">Copy</button></div>
+    <div class="row"><span>Phone</span><span class="num">${esc(p.phone)}</span>${p.phone.startsWith("(") ? `<button class="linkbtn small" data-copy="${esc(p.phone)}">Copy</button>` : ""}</div>
+    ${a ? `<div class="row"><span>Tasks</span><span>${a.items.length} due ${esc(a.due)} · <span class="st-${a.status === "Submitted" ? "done" : "prog"}">${esc(a.status)}</span> · <button class="linkbtn" data-go="assignments" data-open="${esc(a.name)}">View</button></span></div>` : ""}`;
+}
+document.getElementById("board-search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); renderChart(); });
+document.getElementById("view-toggle").addEventListener("click", e => {
+  const on = e.currentTarget.getAttribute("aria-pressed") !== "true";
+  e.currentTarget.setAttribute("aria-pressed", on);
+  document.getElementById("chart-view").hidden = on;
+  document.getElementById("list-view").hidden = !on;
+});
+
+/* ---------- assignments ---------- */
+const T = (task, proof, by) => ({ task, proof, by });
+const fio = "Update Fiona on week 1 progress";
+const team = "Keep building your team through people you know who'll want to work with you";
+const sole = "Sign up for the SOLE signatory workshop (sole.ucla.edu/dayosole)";
+const assignments = [
+  { name:"Fiona", role:"President", items:[
+    T("Make sure everyone is doing their work and manage members",""), T(sole,"")] },
+  { name:"Will", role:"Internal Vice President", items:[
+    T("Send the when2meet for weekly in-person general meetings; everyone fills it out by Wednesday night, then tell Fiona when everyone is available",""),
+    T("Add Nikhil to all board chats, weekly board meetings and the Drive",""), T(sole,"")] },
+  { name:"Ayat", role:"External Vice President", items:[
+    T("Update and manage Instagram, and mass follow to grow followers",""),
+    T("Reach out to other clubs about collaborating or featuring us on their page",""),
+    T("Ask consulting and data clubs (DataRes consulting, NSDC, Creative Labs UCLA) whether we can be one of their projects",""),
+    T("Update Fiona on collab progress and cc her on every email",""), T(sole,"")] },
+  { name:"Rizwaan", role:"Software Lead", items:[
+    T("Urgent: set a meeting with Nikhil to onboard him, covering what he needs to do and the project specifics","")] },
+  { name:"Ray", role:"Data Lead", items:[T("Start week two of your plan",""), T(fio,""), T(team,"")] },
+  { name:"Fernando", role:"Research Lead", items:[T("Start week two of your plan",""), T(fio,""), T(team,"")] },
+  { name:"Celine", role:"Design Lead", items:[T("Start week one of your plan",""), T(fio,""), T(team,"")] },
+  { name:"Brisa", role:"Technical Writing Lead", items:[T("Start week two of your plan",""), T(fio,""), T(team,"")] },
+  { name:"Rouqaya", role:"High School Program", items:[T("Update Fiona on progress at the high school","")] }
+].map(a => ({ ...a, due: "Oct 18, 2026", status: "Not submitted" }));
+
+const round1 = [
+  ["Fiona","Manage applications and the club application, signatory workshop","Not marked"],
+  ["Will","Manage applications and the club application, signatory workshop","Not marked"],
+  ["Ayat","Instagram, club collabs, signatory workshop","Not marked"],
+  ["Rizwaan","Onboard Nikhil","Carried over"],
+  ["Ray","Start week one, pick your team","Not marked"],
+  ["Fernando","Start week one, pick your team","Not marked"],
+  ["Celine","Start week one, pick your team","Carried over"],
+  ["Brisa","Start week one, pick your team","Not marked"]
+];
+document.getElementById("r1-count").textContent = `${round1.length} people`;
+document.getElementById("r1-rows").innerHTML = round1.map(r => `<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td class="st-prog">${esc(r[2])}</td></tr>`).join("");
+let statusFilter = "All";
+const ticks = {};
+try { Object.assign(ticks, JSON.parse(localStorage.getItem("vin-ticks") || "{}")); } catch (_) {}
+
+function renderAssign() {
+  const done = assignments.filter(a => a.status === "Submitted").length;
+  const left = Math.ceil((D(dueDate) - today) / 864e5);
+  document.getElementById("archive-list").innerHTML = archive.map(w => `<details class="assign" style="margin-top:18px"><summary><span class="who">Week due ${esc(longDate(w.due))}</span><span></span><span class="muted small">${w.rows.filter(r => r[2] === "Submitted").length} of ${w.rows.length} submitted</span></summary><div class="body table"><table><tbody>${w.rows.map(r => `<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1] || "No tasks")}</td><td>${esc(r[2])}</td></tr>`).join("")}</tbody></table></div></details>`).join("");
+  document.getElementById("assign-title").textContent = `Deliverables · Due ${longDate(dueDate)}`;
+  const di = document.getElementById("due-input"); if (di) di.value = dueDate;
+  document.getElementById("assign-summary").textContent = `${done} of ${assignments.length} people submitted · ${left > 0 ? left + " days left" : left === 0 ? "due today" : "deadline passed"}`;
+  document.getElementById("assign-bar").style.width = (done / assignments.length * 100) + "%";
+  document.getElementById("status-chips").innerHTML = ["All","Not submitted","Submitted","Missing","Excused"].map(s => {
+    const n = s === "All" ? assignments.length : assignments.filter(a => a.status === s).length;
+    return `<button class="chip" data-status="${s}" aria-pressed="${statusFilter === s}">${s}<span class="ct">${n}</span></button>`;
+  }).join("");
+  const list = assignments.filter(a => statusFilter === "All" || a.status === statusFilter);
+  document.getElementById("assign-list").innerHTML = list.map(a => `
+    <details class="assign" id="as-${esc(a.name)}">
+      <summary><span class="who">${esc(a.name)} <span class="muted small" style="font-weight:400">· ${esc(a.role)}</span></span><span class="due small muted num">${esc(a.due)}</span><span class="${a.status === "Submitted" ? "st-done" : a.status === "Missing" ? "st-Missing" : a.status === "Excused" ? "st-Excused" : "st-prog"}">${esc(a.status)}</span></summary>
+      <div class="body">
+        <ul class="tasks">${a.items.map((t, i) => { const k = "ucla-oct18" + a.name + i; return `<li class="${ticks[k] ? "ticked" : ""}"><input type="checkbox" id="t-${esc(k)}" data-tick="${esc(k)}" ${ticks[k] ? "checked" : ""}><label for="t-${esc(k)}">${esc(t.task)}${t.by ? ` <strong class="num">· by ${esc(t.by)}</strong>` : ""}${t.proof ? `<br><span class="small muted"><strong>Proof:</strong> ${esc(t.proof)}</span>` : ""}</label></li>`; }).join("")}</ul>
+        ${(a.subs || []).map(s => `<div class="subs"><strong>Submitted ${esc(s.date)}:</strong> ${s.files.map(esc).join(", ")}</div>`).join("") || `<div class="subs muted">No submissions yet.</div>`}
+        ${editing === a.name && role === "admin" ? `<div class="admin-tools">
+          <h3>Edit ${esc(a.name)}'s tasks</h3>
+          ${a.items.map((t, i) => `<div class="edit-row"><textarea data-tedit="${esc(a.name)}|${i}" aria-label="Task ${i + 1}">${esc(t.task)}</textarea><button class="chip" type="button" data-task-del="${esc(a.name)}|${i}">Remove</button></div>`).join("")}
+          <div class="bar" style="margin:0"><button class="chip" type="button" data-task-add="${esc(a.name)}">Add a task</button><button class="btn" type="button" data-task-save="${esc(a.name)}">Save</button></div>
+        </div>` : ""}
+        <div class="bar" style="margin:8px 0 0">
+          <button class="linkbtn" data-submit="${esc(a.name)}">Submit work for ${esc(a.name)}</button>
+          <span class="admin-only" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button class="linkbtn" data-aedit="${esc(a.name)}">${editing === a.name ? "Close editor" : "Edit tasks"}</button>
+            <label class="small" style="display:flex;gap:6px;align-items:center;font-weight:400">Status <select data-astatus="${esc(a.name)}">${["Not submitted","Submitted","Missing","Excused"].map(o => `<option ${o === a.status ? "selected" : ""}>${o}</option>`).join("")}</select></label>
+          </span>
+        </div>
+      </div>
+    </details>`).join("");
+}
+
+const nameSel = document.getElementById("f-name"), taskSel = document.getElementById("f-task");
+nameSel.innerHTML = `<option value="">Choose your name</option>` + assignments.map(a => `<option>${esc(a.name)}</option>`).join("");
+function fillTasks() {
+  const a = assignments.find(x => x.name === nameSel.value);
+  taskSel.innerHTML = a ? a.items.map(i => `<option>${esc(i.task.length > 90 ? i.task.slice(0, 88) + "…" : i.task)}</option>`).join("") + `<option>Other / general update</option>` : `<option>Choose your name first</option>`;
+}
+nameSel.addEventListener("change", fillTasks); fillTasks();
+document.getElementById("submit-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const out = document.getElementById("f-result"); out.hidden = false;
+  if (!nameSel.value) { out.textContent = "Choose your name before submitting."; return; }
+  const n = document.getElementById("f-files").files.length;
+  const txt = document.getElementById("f-text").value.trim();
+  if (!n && !txt) { out.textContent = "Add an update or attach a file before submitting."; return; }
+  out.textContent = `Preview: on the live site this would email ${nameSel.value}'s submission${n ? ` and ${n} file${n > 1 ? "s" : ""}` : ""} to Fiona. Nothing was sent.`;
+});
+
+/* ---------- calendar ---------- */
+const W = (n, label, start, end, goal, items) => ({ n, label, start, end, goal, items });
+const weeks = [
+  W(1,"Sep 20 – 26","2026-09-20","2026-09-26","Projects locked, recruiting open",[["Data","Scope locked, IIHS API application submitted, recruiting open"],["Research","Finalize the three projects and start finding faculty mentors"],["Outreach","Bruinwalk tabling: Guess the OTD Price game"],["High school","Research how to start a chapter at FVHS and find an advisor"]]),
+  W(2,"Sep 27 – Oct 3","2026-09-27","2026-10-03","Teams in place",[["Data","Team of 4 in place; NHTSA data loaded and its gaps documented"],["Research","Recruit and onboard members; intro to qualitative research and ethics"],["Outreach","IG Question of the Week; design \"too good to be true\" listings"],["High school","Start the chapter process and recruit through connections"]]),
+  W(3,"Oct 4 – 10","2026-10-04","2026-10-10","First real work",[["Data","A canonical vehicle list and a pipeline every member can run"],["Research","Preliminary research: what's known, the debates, the gaps"],["Outreach","Board intro video; tape fake listings around campus"],["High school","Finalize materials and pick a first student activity"]]),
+  W(4,"Oct 11 – 17","2026-10-11","2026-10-17","Methods and first match",[["Data","First working match between NHTSA and IIHS; output shape locked"],["Research","Set the method, source criteria and research plan"],["Outreach","Bruinwalk tabling: sticky-note whiteboard"],["High school","Launch first resources and a short student survey"]]),
+  W(5,"Oct 18 – 24","2026-10-18","2026-10-24","Collect",[["Data","Go / no-go on IIHS access; one table with both programs' ratings"],["Research","Collect sources: literature, ads, complaints, legal documents"],["Outreach","Midterm break: event recap on IG, plan interviews"],["High school","First student-facing table or activity"]]),
+  W(6,"Oct 25 – 31","2026-10-25","2026-10-31","First findings",[["Data","First findings: how often the programs disagree, and where"],["Research","Analyze materials for themes and patterns"],["Outreach","Quick on-campus interviews for IG; plan the dorm event"],["High school","Review results; ask the board to fact-check materials"]]),
+  W(7,"Nov 1 – 7","2026-11-01","2026-11-07","Broader findings",[["Data","One finding no existing car site has"],["Research","Move from observations to broader findings"],["Outreach","Dorm event: car-buying basics and DIY air freshener sachets"],["High school","Reach out to local driving schools and partners"]]),
+  W(8,"Nov 8 – 14","2026-11-08","2026-11-14","MVP",[["Data","MVP running end to end, rough but nothing faked"],["Research","Turn findings into practical takeaways"],["Outreach","Edit interviews"],["High school","Develop one outside partnership"]]),
+  W(9,"Nov 15 – 21","2026-11-15","2026-11-21","Write it up",[["Data","MVP complete, frozen, documented and reproducible"],["Research","Write and revise the final product; peer review"],["Outreach","Edit interviews"],["High school","Plan a bigger second-semester event"]]),
+  W(10,"Nov 22 – 28","2026-11-22","2026-11-28","Demo and wrap-up",[["Data","Demo and writeup"],["Research","Limitations and future research"],["Outreach","Post interview reels"],["High school","Compile results from the first 10 weeks"]])
+];
+let track = "All";
+const today = new Date(); today.setHours(0,0,0,0);
+const D = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+function renderCal() {
+  document.getElementById("track-chips").innerHTML = ["All","Data","Research","Outreach","High school"].map(t => `<button class="chip" data-track="${t}" aria-pressed="${track === t}">${t}</button>`).join("");
+  document.getElementById("cal").innerHTML = weeks.map(w => {
+    const now = today >= D(w.start) && today <= D(w.end);
+    const past = today > D(w.end);
+    const its = w.items.filter(i => track === "All" || i[0] === track);
+    return `<details class="week ${now ? "now" : ""}" ${now ? "open" : ""}>
+      <summary><span class="wk">Week ${w.n}</span><span class="num small ${past ? "muted" : ""}">${w.label}</span><span class="goal">${esc(w.goal)}${now ? `<span class="tag">This week</span>` : ""}</span></summary>
+      <ul class="items">${its.length ? its.map(i => `<li><span class="track">${esc(i[0])}</span><span>${esc(i[1])}</span></li>`).join("") : `<li><span></span><span class="muted">Nothing scheduled for ${track} this week.</span></li>`}</ul>
+    </details>`;
+  }).join("");
+}
+
+/* ---------- socials ---------- */
+// kind: b = Berkeley, x = UCSC x UCB, o = online, org = org date (not a social)
+const socials = [
+  { date:"2026-10-12", time:"Day TBD (week 4)", title:"Bruinwalk tabling", where:"Bruin Walk", kind:"b", lead:"Ayat", status:"Planning", cost:"Sticky notes and a whiteboard", note:"Interactive whiteboard where students share car experiences, questions and concerns on sticky notes." },
+  { date:"2026-10-21", time:"9:00–10:00pm", title:"Skribbl night with Berkeley", where:"Discord", kind:"o", lead:"TBD", status:"Planning", cost:"Free", note:"Joint online social with the Berkeley chapter." },
+  { date:"2026-10-26", time:"All week (week 6)", title:"On-campus interviews for IG", where:"Around campus", kind:"b", lead:"TBD", status:"Idea", cost:"Free", note:"Quick interviews for Instagram content. Plan questions, locations and volunteers during midterm week." },
+  { date:"2026-11-02", time:"Day TBD (week 7)", title:"Dorm event", where:"The Hill, TBD", kind:"b", lead:"TBD", status:"Idea", cost:"Supplies for air freshener sachets", note:"Car-buying basics plus DIY air freshener sachets. Work with RAs to reach residents." },
+  { date:"2026-11-11", time:"", title:"Veterans Day", where:"", kind:"org", lead:"", status:"", cost:"", note:"Holiday." },
+  { date:"2026-11-22", time:"", title:"Crosscheck demo and writeup (week 10)", where:"", kind:"org", lead:"Ray", status:"", cost:"", note:"Data team's end-of-quarter demo." },
+  { date:"2026-11-26", time:"", title:"Thanksgiving", where:"", kind:"org", lead:"", status:"", cost:"", note:"Holiday through Nov 27." }
+];
+const SOCIALS_KEY = "vin-ucla-events-v1";
+try { const saved = JSON.parse(localStorage.getItem(SOCIALS_KEY) || "null"); if (Array.isArray(saved) && saved.length) socials.splice(0, socials.length, ...saved); } catch (_) {}
+const saveSocials = () => { try { localStorage.setItem(SOCIALS_KEY, JSON.stringify(socials)); } catch (_) {} };
+let editEv = null; // index being edited, or "new"
+const kinds = { All:null, "On campus":"b", Online:"o" };
+let socialFilter = "All", openEv = null;
+let viewMonth = (() => { const t = today.getFullYear() === 2026 && today.getMonth() >= 9 && today.getMonth() <= 11 ? today : D("2026-10-01"); return new Date(t.getFullYear(), t.getMonth(), 1); })();
+const showEv = s => s.kind === "org" || socialFilter === "All" || s.kind === kinds[socialFilter];
+const fmt = (d, o) => d.toLocaleDateString("en-US", o);
+
+function renderSocials() {
+  const real = socials.filter(s => s.kind !== "org");
+  document.getElementById("social-chips").innerHTML = Object.keys(kinds).map(k => {
+    const n = k === "All" ? real.length : real.filter(s => s.kind === kinds[k]).length;
+    return `<button class="chip" data-social="${esc(k)}" aria-pressed="${socialFilter === k}">${esc(k)}<span class="ct">${n}</span></button>`;
+  }).join("");
+
+  const y = viewMonth.getFullYear(), m = viewMonth.getMonth();
+  document.getElementById("m-label").textContent = fmt(viewMonth, { month: "long", year: "numeric" });
+  const start = new Date(y, m, 1 - new Date(y, m, 1).getDay());
+  let cells = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(d => `<div class="dow" role="columnheader">${d}</div>`).join("");
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+    if (i >= 35 && d.getMonth() !== m) break;
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const evs = socials.map((s, idx) => [s, idx]).filter(([s]) => s.date === key);
+    cells += `<div class="day ${d.getMonth() !== m ? "other" : ""} ${+d === +today ? "today" : ""}" role="gridcell">
+      <span class="dn">${d.getDate()}</span>
+      ${evs.map(([s, idx]) => `<button class="ev ${s.kind} ${showEv(s) ? "" : "hide"}" data-ev="${idx}" aria-pressed="${openEv === idx}" title="${esc(s.title)}">${esc(s.title)}</button>`).join("")}
+    </div>`;
+  }
+  document.getElementById("month").innerHTML = cells;
+  document.getElementById("m-prev").disabled = m <= 9;
+  document.getElementById("m-next").disabled = m >= 11;
+
+  const card = document.getElementById("ev-card");
+  if (editEv !== null) {
+    const s = editEv === "new" ? { date: "", time: "", title: "", where: "", kind: "b", lead: "", status: "Idea", cost: "", note: "" } : socials[editEv];
+    const opt = (v, cur, label) => `<option value="${v}" ${v === cur ? "selected" : ""}>${label}</option>`;
+    card.hidden = false;
+    card.innerHTML = `<h3>${editEv === "new" ? "Add a social" : "Edit " + esc(s.title)}</h3>
+      <form id="ev-form" class="submit-form" novalidate style="max-width:none">
+        <label for="e-title">Name<input type="text" id="e-title" value="${esc(s.title)}" required></label>
+        <div class="evgrid">
+          <label for="e-date">Date<input type="date" id="e-date" value="${esc(s.date)}" min="2026-10-01" max="2026-12-18" required></label>
+          <label for="e-time">Time<input type="text" id="e-time" value="${esc(s.time)}" placeholder="2:00–4:00pm"></label>
+        </div>
+        <label for="e-where">Location<input type="text" id="e-where" value="${esc(s.where)}" placeholder="Place name and address"></label>
+        <div class="evgrid">
+          <label for="e-kind">Type<select id="e-kind">${opt("b", s.kind, "On campus")}${opt("o", s.kind, "Online")}</select></label>
+          <label for="e-status">Status<select id="e-status">${["Idea","Planning","Confirmed","Completed"].map(x => opt(x, s.status, x)).join("")}</select></label>
+        </div>
+        <label for="e-lead">Lead<input type="text" id="e-lead" value="${esc(s.lead)}"></label>
+        <label for="e-cost">Cost<input type="text" id="e-cost" value="${esc(s.cost)}"></label>
+        <label for="e-note">Notes<textarea id="e-note" style="min-height:80px">${esc(s.note)}</textarea></label>
+        <div class="bar" style="margin:0">
+          <button class="btn" type="submit">Save</button>
+          <button class="chip" type="button" data-ecancel="1">Cancel</button>
+          ${editEv !== "new" ? `<button class="chip" type="button" data-edelete="1" style="margin-left:auto">${confirmDel ? "Click again to delete" : "Delete"}</button>` : ""}
+        </div>
+        <p id="e-err" hidden style="font-weight:400"></p>
+        <p class="small muted" style="margin:0">Preview: edits save in this browser only. On the live site, Fiona and Will can edit and everyone sees the change.</p>
+      </form>`;
+  }
+  else if (openEv === null) card.hidden = true;
+  else {
+    const s = socials[openEv], d = D(s.date);
+    card.hidden = false;
+    card.innerHTML = `<h3>${esc(s.title)}</h3>
+      <div class="row"><span>When</span><span>${fmt(d, { weekday: "long", month: "long", day: "numeric" })}${s.time ? " · " + esc(s.time) : ""}</span></div>
+      ${s.where ? `<div class="row"><span>Where</span><span>${esc(s.where)}</span></div>` : ""}
+      ${s.lead ? `<div class="row"><span>Lead</span><span>${esc(s.lead)}</span></div>` : ""}
+      ${s.cost ? `<div class="row"><span>Cost</span><span>${esc(s.cost)}</span></div>` : ""}
+      ${s.status ? `<div class="row"><span>Status</span><span class="st-${esc(s.status)}">${esc(s.status)}</span></div>` : ""}
+      ${s.note ? `<p class="small" style="margin:4px 0 0">${esc(s.note)}</p>` : ""}
+      <div class="admin-only"><button class="linkbtn" data-eedit="${openEv}">Edit details or location</button></div>`;
+  }
+
+  const tagName = { b: "On campus", x: "Joint", o: "Online", org: "Date" };
+  document.getElementById("agenda").innerHTML = socials.filter(showEv).map(s => {
+    const d = D(s.date), past = d < today;
+    return `<li class="${past ? "muted" : ""}"><span class="when">${fmt(d, { weekday: "short", month: "short", day: "numeric" })}</span>
+      <span><strong>${esc(s.title)}</strong>${s.where ? ` <span class="muted">· ${esc(s.where)}</span>` : ""}<br><span class="tag">${tagName[s.kind]}</span>${s.lead ? ` <span class="small muted">· ${esc(s.lead)}</span>` : ""}</span>
+      <span class="${s.status ? "st-" + esc(s.status) : ""}">${esc(s.status)}</span></li>`;
+  }).join("");
+}
+let confirmDel = false;
+document.addEventListener("submit", e => {
+  if (e.target.id !== "ev-form") return;
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const err = document.getElementById("e-err");
+  if (!v("e-title") || !v("e-date")) { err.hidden = false; err.textContent = "Add a name and a date before saving."; return; }
+  const s = { date: v("e-date"), time: v("e-time"), title: v("e-title"), where: v("e-where"), kind: v("e-kind"), lead: v("e-lead"), status: v("e-status"), cost: v("e-cost"), note: v("e-note") };
+  if (editEv === "new") socials.push(s); else socials[editEv] = s;
+  socials.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+  openEv = socials.indexOf(s); editEv = null; confirmDel = false;
+  const d = D(s.date); viewMonth = new Date(d.getFullYear(), d.getMonth(), 1);
+  saveSocials(); renderSocials(); renderHome();
+});
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-eedit],[data-ecancel],[data-edelete],#ev-add");
+  if (!b) return;
+  if (b.id === "ev-add") { editEv = "new"; openEv = null; }
+  else if (b.dataset.eedit !== undefined) { editEv = +b.dataset.eedit; }
+  else if (b.dataset.ecancel) { editEv = null; }
+  else if (b.dataset.edelete) {
+    if (!confirmDel) { confirmDel = true; renderSocials(); return; }
+    socials.splice(editEv, 1); editEv = null; openEv = null; saveSocials(); renderHome();
+  }
+  confirmDel = false;
+  renderSocials();
+  document.getElementById("ev-card").scrollIntoView({ block: "nearest", behavior: "smooth" });
+});
+document.getElementById("m-prev").addEventListener("click", () => { viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1); openEv = null; renderSocials(); });
+document.getElementById("m-next").addEventListener("click", () => { viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1); openEv = null; renderSocials(); });
+
+/* ---------- home ---------- */
+
+/* ---------- my page ---------- */
+const teamLead = { "Data": "Ray", "Research": "Fernando", "App Dev": "Rizwaan Bana", "Design": "Celine", "Technical Writing": "Brisa", "High School": "Fiona Wangsawidjaja", "Executive": "Fiona Wangsawidjaja" };
+const thisWeek = () => weeks.find(w => today >= D(w.start) && today <= D(w.end)) || weeks[0];
+const trackFor = { "Data":"Data", "Research":"Research", "High School":"High school" };
+const teamWork = new Proxy({}, { get: (_, team) => () => {
+  const w = thisWeek();
+  const tr = trackFor[team];
+  if (tr) { const it = w.items.find(i => i[0] === tr); return `<p><strong>Week ${w.n} (${w.label}):</strong> ${esc(it ? it[1] : w.goal)}.</p><p class="small"><button class="linkbtn" data-go="projects">Full timeline</button></p>`; }
+  if (team === "App Dev") return `<p>App ideas: DMV test practice, interactive quizzes, and a crash list with safety scores by model. Rizwaan is onboarding Nikhil this week.</p>`;
+  if (team === "Design" || team === "Technical Writing") return `<p>Week ${w.n}: start or continue your plan, and update Fiona on progress.</p>`;
+  return `<p>Board operations: Sunday board meetings, deliverables, collabs and the signatory workshop.</p>`;
+} });
+function renderMe() {
+  const sel = document.getElementById("me-pick");
+  if (!sel.options.length) {
+    sel.innerHTML = people.map((p, i) => `<option value="${i}">${esc(p.name)} · ${esc(p.role)}</option>`).join("");
+    const firstGeneral = people.findIndex(p => p.tier === undefined && !p.lead);
+    sel.value = String(firstGeneral >= 0 ? firstGeneral : 0);
+  }
+  const p = people[+sel.value];
+  const first = p.name.split(" ")[0];
+  const leadName = p.tier === 0 ? null : (p.tier === 1 || p.lead) ? "Fiona Wangsawidjaja" : teamLead[p.team];
+  const lead = people.find(x => x.name === leadName);
+  const a = assignments.find(x => x.name === first);
+  const teamMates = people.filter(x => x !== p && (x.team === p.team || x.alsoTeam === p.team));
+  const upcoming = socials.filter(s => D(s.date) >= today).slice(0, 3);
+  const left = Math.ceil((D("2026-10-18") - today) / 864e5);
+  const dueText = left > 1 ? `due Sun, Oct 18 · ${left} days left` : left === 1 ? "due tomorrow, Sun Oct 18" : left === 0 ? "due today" : "past due";
+
+  document.getElementById("me-body").innerHTML = `
+    <div class="me-head"><span class="nm">${esc(p.name)}</span><span class="rl">${esc(p.role)}</span></div>
+    <ul class="me-facts">
+      <li><span>Team</span><span>${esc(p.team)}${p.alsoTeam ? " · also " + esc(p.alsoTeam) : ""}</span></li>
+      ${lead && lead !== p ? `<li><span>Your lead</span><span>${esc(lead.name)} · ${esc(lead.email)}</span></li>` : ""}
+      <li><span>Your email</span><span>${esc(p.email)}</span></li>
+    </ul>
+
+    <h2>Your tasks · this week</h2>
+    ${a ? `<p class="small num"><strong>${dueText}.</strong></p>
+      <ul class="tasks">${a.items.map(t => `<li><span>${esc(t.task)}</span></li>`).join("")}</ul>
+      <button class="btn" type="button" data-go="assignments" data-open="${esc(a.name)}">Submit your work</button>`
+      : `<div class="empty">No tasks assigned to you this round.${lead && lead !== p ? ` ${esc(lead.name.split(" ")[0])} assigns tasks for ${esc(p.team)}, so check in with them if you want something to work on.` : ""}</div>`}
+
+    <h2>What your team is working on</h2>
+    ${(teamWork[p.team] || (() => ""))()}
+    <p class="small"><strong>Your team:</strong> ${teamMates.map(x => esc(x.name.split(" ")[0])).join(", ") || "Just you for now"}</p>
+
+    <h2>Coming up</h2>
+    <ul class="dates">
+      <li><span class="d">Sun</span><span>Board meeting, 6–6:30pm</span></li>
+      ${upcoming.map(s => `<li><span class="d">${D(s.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span><span>${esc(s.title)}${s.where ? ` · ${esc(s.where)}` : ""}${s.time ? ` · ${esc(s.time)}` : ""}</span></li>`).join("")}
+    </ul>
+    <p class="small"><button class="linkbtn" data-go="socials">All socials</button></p>`;
+}
+document.getElementById("me-pick").addEventListener("change", renderMe);
+
+function renderHome() {
+  const dates = [
+    ["2026-10-18","Oct 11 deliverables due"],
+    ["2026-10-21","Skribbl night with Berkeley, 9pm"],
+    ["2026-10-25","Data: first findings (week 6)"],
+    ["2026-11-08","Data: MVP running end to end (week 8)"],
+    ["2026-11-22","Crosscheck demo and research writeups (week 10)"]
+  ];
+  dates.sort((a, b) => a[0] < b[0] ? -1 : 1);
+  document.getElementById("dates").innerHTML = dates.map(([d, t]) => {
+    const dt = D(d), diff = Math.round((dt - today) / 864e5);
+    const left = diff > 1 ? `in ${diff} days` : diff === 1 ? "tomorrow" : diff === 0 ? "today" : "";
+    return `<li class="${diff < 0 ? "past" : ""}"><span class="d">${dt.toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span><span>${esc(t)}${left ? ` <span class="left">${left}</span>` : ""}</span></li>`;
+  }).join("");
+  const done = assignments.filter(a => a.status === "Submitted").length;
+  const g = [
+    [String(people.length), "people on the UCLA chart", "board"],
+    [`${done}/${assignments.length}`, "deliverable sets submitted", "assignments"],
+    [String(socials.filter(s => s.kind !== "org").length), "events on the calendar", "socials"],
+    [String(people.filter(p => p.lead || p.tier !== undefined).length), "people in leadership", "board"]
+  ];
+  document.getElementById("glance").innerHTML = g.map(([n, t, go]) => `<li><span class="d">${n}</span><span><button class="linkbtn" data-go="${go}">${t}</button></span></li>`).join("");
+}
+
+
+/* ---------- admin state (preview: saved in this browser) ---------- */
+const ADMIN_HASH = "d20dc4a32a8b08bbc2893fec85765089c18f13d3bbcec0ff8c40f95e0c63ff0d";
+let role = null;
+const STATE_KEY = "vin-ucla-admin-v1";
+let announcements = [
+  { title:"Deliverables from the Oct 11 meeting", text:"Due Sunday, Oct 18. Update Fiona on your progress.", go:"assignments" },
+  { title:"Signatory workshop", text:"Fiona, Will and Ayat: sign up for the SOLE signatory workshop at sole.ucla.edu/dayosole." },
+  { title:"This week: Bruinwalk tabling", text:"Interactive whiteboard where students share car experiences, questions and concerns on sticky notes.", go:"socials" },
+  { title:"Finances", text:"Balance $82.55 after $140 in T-shirt sales. Fiona's $57.45 loan for shirts and stickers has been paid back.", private:true }
+];
+let meetings = [
+  { date:"2026-10-11", absent:"Celine, Rizwaan, Fernando, Ayat", notes:"", link:"" },
+  { date:"2026-10-04", absent:"Celine and Ray (both excused)", notes:"", link:"" },
+  { date:"2026-09-27", absent:"Rizwaan; Will and Brisa (excused)", notes:"", link:"" }
+];
+let dueDate = "2026-10-18";
+let archive = [];
+let editing = null;
+function saveState() { try { localStorage.setItem(STATE_KEY, JSON.stringify({ assignments, announcements, meetings, dueDate, archive })); } catch (_) {} }
+try {
+  const st = JSON.parse(localStorage.getItem(STATE_KEY) || "null");
+  if (st) {
+    if (Array.isArray(st.assignments)) assignments.splice(0, assignments.length, ...st.assignments);
+    if (Array.isArray(st.announcements)) announcements = st.announcements;
+    if (Array.isArray(st.meetings)) meetings = st.meetings;
+    if (st.dueDate) dueDate = st.dueDate;
+    if (Array.isArray(st.archive)) archive = st.archive;
+  }
+} catch (_) {}
+const longDate = iso => D(iso).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+
+function renderAnnouncements() {
+  const list = announcements.filter(x => role === "admin" || !x.private);
+  document.getElementById("ann-list").innerHTML = list.map(x => {
+    const i = announcements.indexOf(x);
+    return `<div class="meeting"><h3>${esc(x.title)}${x.private ? ' <span class="small" style="color:var(--accent)">· admins only</span>' : ""}</h3>
+      <p>${esc(x.text)} ${x.go ? `<button class="linkbtn" data-go="${esc(x.go)}">Open</button>` : ""}</p>
+      <p class="admin-only small" style="margin:0"><button class="linkbtn" data-ann-del="${i}">Remove</button></p></div>`;
+  }).join("") || `<p class="muted">No announcements yet.</p>`;
+}
+function renderMeetings() {
+  meetings.sort((a, b) => a.date < b.date ? 1 : -1);
+  document.getElementById("meet-list").innerHTML = meetings.map((m, i) => `<div class="meeting">
+    <h3>${D(m.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</h3>
+    ${m.absent ? `<p>Absent: ${esc(m.absent)}</p>` : `<p>Full attendance.</p>`}
+    ${m.notes ? `<p>${esc(m.notes)}</p>` : ""}
+    <p class="small">Recording: ${m.link ? `<a href="${esc(m.link)}">open</a>` : `<span class="muted">link to add</span>`}</p>
+    <p class="admin-only small" style="margin:0"><button class="linkbtn" data-mt-del="${i}">Remove</button></p></div>`).join("");
+}
+function setRole(r) {
+  role = r;
+  document.body.classList.toggle("is-admin", r === "admin");
+  document.getElementById("gate").hidden = !!r;
+  document.getElementById("who-bar").innerHTML = r ? `Signed in as ${r === "admin" ? "admin" : "member"} · <button class="linkbtn" id="sign-out">Sign out</button>` : "";
+  try { sessionStorage.setItem("vin-ucla-role", r || ""); } catch (_) {}
+  editing = null;
+  renderAnnouncements(); renderMeetings(); renderAssign(); renderSocials(); renderHome();
+}
+async function sha256(t) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+document.getElementById("gate-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const pw = document.getElementById("gate-pw").value;
+  const msg = document.getElementById("gate-msg");
+  if (!pw) { msg.hidden = false; msg.textContent = "Enter the password."; return; }
+  let h = "";
+  try { h = await sha256(pw); } catch (_) { msg.hidden = false; msg.textContent = "This browser can't check passwords here. Open the page over https."; return; }
+  document.getElementById("gate-pw").value = "";
+  setRole(h === ADMIN_HASH ? "admin" : "member");
+});
+document.addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  const d = b.dataset;
+  if (b.id === "sign-out") { setRole(null); setTimeout(() => document.getElementById("gate-pw").focus(), 0); return; }
+  if (role !== "admin") return;
+  if (b.id === "ann-add") {
+    const t = document.getElementById("ann-title").value.trim(), x = document.getElementById("ann-text").value.trim();
+    if (!t && !x) return;
+    announcements.unshift({ title: t || "Announcement", text: x, private: document.getElementById("ann-private").checked });
+    document.getElementById("ann-title").value = ""; document.getElementById("ann-text").value = ""; document.getElementById("ann-private").checked = false;
+    saveState(); renderAnnouncements();
+  } else if (d.annDel !== undefined) { announcements.splice(+d.annDel, 1); saveState(); renderAnnouncements(); }
+  else if (b.id === "mt-add") {
+    const dt = document.getElementById("mt-date").value; if (!dt) return;
+    meetings.push({ date: dt, absent: document.getElementById("mt-absent").value.trim(), notes: document.getElementById("mt-notes").value.trim(), link: document.getElementById("mt-link").value.trim() });
+    ["mt-date","mt-absent","mt-notes","mt-link"].forEach(id => document.getElementById(id).value = "");
+    saveState(); renderMeetings();
+  } else if (d.mtDel !== undefined) { meetings.splice(+d.mtDel, 1); saveState(); renderMeetings(); }
+  else if (d.aedit !== undefined) { editing = editing === d.aedit ? null : d.aedit; renderAssign(); const el = document.getElementById("as-" + d.aedit); if (el) el.open = true; }
+  else if (d.taskAdd !== undefined) { const a = assignments.find(x => x.name === d.taskAdd); collectEdits(a); a.items.push({ task: "", proof: "" }); renderAssign(); document.getElementById("as-" + a.name).open = true; }
+  else if (d.taskDel !== undefined) { const [n, i] = d.taskDel.split("|"); const a = assignments.find(x => x.name === n); collectEdits(a); a.items.splice(+i, 1); renderAssign(); document.getElementById("as-" + n).open = true; }
+  else if (d.taskSave !== undefined) { const a = assignments.find(x => x.name === d.taskSave); collectEdits(a); a.items = a.items.filter(t => t.task.trim()); editing = null; saveState(); renderAssign(); renderHome(); document.getElementById("as-" + a.name).open = true; }
+  else if (b.id === "new-week") {
+    const next = new Date(D(dueDate).getTime() + 7 * 864e5);
+    const iso = `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, "0")}-${String(next.getDate()).padStart(2, "0")}`;
+    archive.unshift({ due: dueDate, rows: assignments.map(a => [a.name, a.items.map(t => t.task).join("; "), a.status]) });
+    assignments.forEach(a => { if (a.status === "Submitted" || a.status === "Excused") a.items = []; a.status = "Not submitted"; a.due = longDate(iso); });
+    dueDate = iso; saveState(); renderAssign(); renderHome();
+  }
+});
+document.addEventListener("change", e => {
+  if (role !== "admin") return;
+  const t = e.target;
+  if (t.dataset && t.dataset.astatus) { const a = assignments.find(x => x.name === t.dataset.astatus); a.status = t.value; saveState(); renderAssign(); renderHome(); const el = document.getElementById("as-" + a.name); if (el) el.open = true; }
+  if (t.id === "due-input" && t.value) { dueDate = t.value; assignments.forEach(a => a.due = longDate(dueDate)); saveState(); renderAssign(); renderHome(); }
+});
+function collectEdits(a) {
+  document.querySelectorAll(`[data-tedit^="${CSS.escape(a.name)}|"]`).forEach(el => { const i = +el.dataset.tedit.split("|")[1]; if (a.items[i]) a.items[i].task = el.value; });
+}
+
+/* ---------- tabs + events ---------- */
+const tabs = ["me","home","board","projects","assignments","socials","meetings"];
+function show(t) {
+  if (!tabs.includes(t)) t = "home";
+  tabs.forEach(x => {
+    document.getElementById("tab-" + x).hidden = x !== t;
+    const a = document.querySelector(`[data-tab="${x}"]`);
+    if (x === t) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  try { history.replaceState(null, "", "#" + t); } catch (_) {}
+  window.scrollTo(0, 0);
+}
+document.addEventListener("click", e => {
+  const el = e.target.closest("button, a");
+  if (!el) return;
+  const d = el.dataset;
+  if (d.tab) { e.preventDefault(); show(d.tab); }
+  else if (d.go) {
+    show(d.go);
+    if (d.open) { statusFilter = "All"; renderAssign(); const x = document.getElementById("as-" + d.open); if (x) { x.open = true; x.scrollIntoView({ block: "center" }); } }
+  }
+  else if (d.team) { teamFilter = d.team; renderChips(); renderChart(); }
+  else if (d.p !== undefined) { const i = +d.p; openPerson = openPerson === i ? null : i; renderChart(); if (openPerson !== null) document.getElementById("person-card").scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  else if (d.copy) {
+    const v = d.copy;
+    const ok = () => { el.textContent = "Copied"; setTimeout(() => el.textContent = "Copy", 1400); };
+    try { navigator.clipboard.writeText(v).then(ok, () => { el.textContent = v; }); } catch (_) { el.textContent = v; }
+  }
+  else if (d.status) { statusFilter = d.status; renderAssign(); }
+  else if (d.track) { track = d.track; renderCal(); }
+  else if (d.social) { socialFilter = d.social; openEv = null; renderSocials(); }
+  else if (d.ev !== undefined) { const i = +d.ev; if (socials[i].kind === "org") return; openEv = openEv === i ? null : i; renderSocials(); }
+  else if (d.submit) {
+    nameSel.value = d.submit; fillTasks();
+    document.getElementById("submit-heading").scrollIntoView({ behavior: "smooth" });
+    nameSel.focus({ preventScroll: true });
+  }
+});
+document.addEventListener("change", e => {
+  const k = e.target.dataset && e.target.dataset.tick;
+  if (!k) return;
+  ticks[k] = e.target.checked;
+  e.target.closest("li").classList.toggle("ticked", e.target.checked);
+  try { localStorage.setItem("vin-ticks", JSON.stringify(ticks)); } catch (_) {}
+});
+
+renderChips(); renderChart(); renderAssign(); renderCal(); renderSocials(); renderHome(); renderMe();
+let savedRole = null; try { savedRole = sessionStorage.getItem("vin-ucla-role") || null; } catch (_) {}
+setRole(savedRole);
+show(location.hash.slice(1));
+</script>
+</body>
+</html>

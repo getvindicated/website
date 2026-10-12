@@ -2,21 +2,19 @@
 
 import { useState } from "react";
 import type { Social } from "@/lib/board/types";
-import { SOCIAL_KINDS, SOCIAL_MONTHS, SOCIAL_STATUSES } from "@/lib/board/static";
+import { SOCIAL_MONTHS, SOCIAL_STATUSES } from "@/lib/board/static";
+import type { ChapterConfig } from "@/lib/board/chapters";
 import { canEditSocials } from "@/lib/board/roles";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { D, fmt, isoDate } from "./util";
 
-const FILTERS = [{ key: "All", label: "All" }, ...SOCIAL_KINDS.map((k) => ({ key: k.key as string, label: k.label }))];
-const TAG: Record<string, string> = { b: "Berkeley", o: "Online", org: "Org date" };
-
-const SOCIAL_FIELDS: FieldDef[] = [
+const socialFields = (kinds: ChapterConfig["socials"]["kinds"]): FieldDef[] => [
   { key: "title", label: "Name" },
   { key: "date", label: "Date", type: "date", pair: "d" },
   { key: "time", label: "Time", placeholder: "2:00–4:00pm", pair: "d" },
   { key: "location", label: "Location", placeholder: "Place name and address" },
-  { key: "kind", label: "Type", type: "select", options: SOCIAL_KINDS.map((k) => ({ value: k.key, label: k.label })), pair: "k" },
+  { key: "kind", label: "Type", type: "select", options: kinds.map((k) => ({ value: k.key, label: k.label })), pair: "k" },
   { key: "status", label: "Status", type: "select", options: SOCIAL_STATUSES.map((s) => ({ value: s, label: s })), pair: "k" },
   { key: "lead", label: "Lead" },
   { key: "cost", label: "Cost" },
@@ -24,7 +22,11 @@ const SOCIAL_FIELDS: FieldDef[] = [
 ];
 
 export function SocialsTab() {
-  const { data, user, today } = useBoard();
+  const { chapter, data, user, today } = useBoard();
+  const cfg = chapter.socials;
+  const FILTERS = [{ key: "All", label: "All" }, ...cfg.kinds.map((k) => ({ key: k.key as string, label: k.label }))];
+  const TAG = cfg.tags;
+  const SOCIAL_FIELDS = socialFields(cfg.kinds);
   const editor = canEditSocials(user.role);
   const socials = data.socials;
   const [filter, setFilter] = useState("All");
@@ -63,7 +65,7 @@ export function SocialsTab() {
 
   return (
     <section>
-      <h2>Fall 2026 Socials</h2>
+      <h2>{cfg.heading}</h2>
       <div className="bar" role="group" aria-label="Filter socials">
         {FILTERS.map((f) => (
           <button
@@ -91,7 +93,7 @@ export function SocialsTab() {
               setOpenId(null);
             }}
           >
-            Add a social
+            {cfg.add}
           </button>
         </p>
       )}
@@ -139,10 +141,10 @@ export function SocialsTab() {
 
       {editing === "new" && (
         <RowEditor
-          title="Add a social"
+          title={cfg.add}
           table="socials"
           fields={SOCIAL_FIELDS}
-          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: "TBD", cost: "", note: "" }}
+          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: cfg.defaultLead, cost: "", note: "" }}
           onClose={() => setEditing(null)}
           onSaved={(v) => jumpTo(v.date)}
         />
@@ -213,7 +215,7 @@ export function SocialsTab() {
         </div>
       )}
 
-      <h3 style={{ marginTop: 28 }}>All socials</h3>
+      <h3 style={{ marginTop: 28 }}>{cfg.list}</h3>
       <ul className="agenda">
         {socials.filter(show).map((s) => {
           const past = s.date < today;
@@ -233,7 +235,7 @@ export function SocialsTab() {
           );
         })}
       </ul>
-      <p style={{ marginTop: 12 }}>Status runs Idea → Planning → Confirmed → Completed.</p>
+      <p style={{ marginTop: 12 }}>{cfg.note}</p>
     </section>
   );
 }

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS board_assignments (
   proof_required  text NOT NULL DEFAULT '',
   due_date        date,
   status          text NOT NULL DEFAULT 'pending'
-                  CHECK (status IN ('pending', 'submitted', 'done', 'missing')),
+                  CHECK (status IN ('pending', 'submitted', 'done', 'missing', 'excused')),
   status_note     text NOT NULL DEFAULT '',
   sort            integer NOT NULL DEFAULT 0
 );
@@ -74,4 +74,28 @@ CREATE TABLE IF NOT EXISTS board_meetings (
 CREATE TABLE IF NOT EXISTS board_changes (
   name        text PRIMARY KEY,
   applied_at  timestamptz NOT NULL DEFAULT now()
+);
+
+-- Chapters: every row belongs to one. Rows from before UCLA joined are
+-- Berkeley's.
+ALTER TABLE board_members       ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+ALTER TABLE board_assignments   ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+ALTER TABLE board_submissions   ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+ALTER TABLE board_socials       ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+ALTER TABLE board_meetings      ADD COLUMN IF NOT EXISTS chapter text NOT NULL DEFAULT 'berkeley';
+
+ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS admins_only boolean NOT NULL DEFAULT false;
+ALTER TABLE board_meetings      ADD COLUMN IF NOT EXISTS absent text NOT NULL DEFAULT '';
+
+-- Rounds (Berkeley) or weeks (UCLA) of deliverables. One is current; the
+-- rest show in the archive.
+CREATE TABLE IF NOT EXISTS board_rounds (
+  chapter      text NOT NULL,
+  round        smallint NOT NULL,
+  due_date     date NOT NULL,
+  is_current   boolean NOT NULL DEFAULT false,
+  show_status  boolean NOT NULL DEFAULT true,
+  note         text NOT NULL DEFAULT '',
+  PRIMARY KEY (chapter, round)
 );
