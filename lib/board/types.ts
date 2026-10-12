@@ -1,6 +1,7 @@
 // Shapes shared by the /board server code and its client components.
 
 import type { ScheduledMeeting } from "./schedule";
+import type { Settings } from "./settings";
 
 export type Member = {
   id: number;
@@ -13,12 +14,14 @@ export type Member = {
   isLead: boolean;
   email: string;
   phone: string;
+  hubAdmin: boolean;
 };
 
 export type AssignmentStatus = "pending" | "submitted" | "done" | "missing" | "excused";
 
 // A round (Berkeley) or week (UCLA) of deliverables.
 export type Round = {
+  id: number;
   round: number;
   dueDate: string;
   isCurrent: boolean;
@@ -81,7 +84,28 @@ export type Meeting = {
   recordingUrl: string;
 };
 
+// One admin change (Changes tab).
+export type LogEntry = {
+  id: number;
+  at: string;
+  role: string;
+  actor: string;
+  action: string;
+  summary: string;
+  // "table:id" of each row it touched, for the "changed again later" warning.
+  touches: string[];
+  diffs: { table: string; id: number; kind: "added" | "removed" | "changed"; fields: { name: string; before: string; after: string }[] }[];
+  restorable: boolean;
+};
+
+// An announcement's latest email: how many it reached and who it didn't.
+export type SendSummary = { announcementId: number; at: string; kind: string; sent: number; failed: { name: string; email: string }[] };
+
 export type BoardData = {
+  settings: Settings;
+  // Admins only (empty for members).
+  changelog: LogEntry[];
+  sends: SendSummary[];
   rounds: Round[];
   // Meetings scheduled with calendar invites.
   scheduled: ScheduledMeeting[];
@@ -98,5 +122,5 @@ export type BoardData = {
   meetings: Meeting[];
 };
 
-export const TABS = ["me", "home", "board", "projects", "assignments", "socials", "meetings"] as const;
+export const TABS = ["me", "home", "board", "projects", "assignments", "socials", "meetings", "changes"] as const;
 export type Tab = (typeof TABS)[number];

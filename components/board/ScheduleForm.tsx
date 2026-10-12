@@ -14,7 +14,7 @@ export function ScheduleForm({ existing, onClose }: { existing?: ScheduledMeetin
   const { chapter, data, today, refresh } = useBoard();
   const uid = useId();
   const members = data.members;
-  const teams = ["Executive", ...chapter.teams];
+  const teams = ["Executive", ...data.settings.teams];
 
   // Prefill who's invited from what was saved.
   const initialKind: Kind = !existing ? "all" : existing.audience === "Whole board" ? "all" : existing.audience.endsWith(" team") ? "team" : "people";

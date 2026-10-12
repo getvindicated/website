@@ -1,4 +1,5 @@
 import "server-only";
+import type postgres from "postgres";
 import { db } from "./db";
 import { TABS } from "./types";
 
@@ -78,6 +79,14 @@ export const TABLES = {
       adminsOnly: { column: "admins_only", check: bool, onCreate: false },
     },
   },
+  rounds: {
+    table: "board_rounds",
+    fields: {
+      dueDate: { column: "due_date", check: date("a due date") },
+      note: { column: "note", check: text(1000), onCreate: "" },
+      showStatus: { column: "show_status", check: bool, onCreate: true },
+    },
+  },
   meetings: {
     table: "board_meetings",
     fields: {
@@ -100,6 +109,7 @@ export const TABLES = {
       isLead: { column: "is_lead", check: bool, onCreate: false },
       email: { column: "email", check: text(200), onCreate: "" },
       phone: { column: "phone", check: text(50), onCreate: "" },
+      hubAdmin: { column: "is_hub_admin", check: bool, onCreate: false },
     },
   },
 } satisfies Record<string, TableDef>;
@@ -130,10 +140,16 @@ function collect(
   return { row };
 }
 
-export async function createRow(def: TableDef, body: Record<string, unknown>, extra: Record<string, unknown> = {}): Promise<Result> {
+type Sql = ReturnType<typeof db> | postgres.TransactionSql;
+
+export async function createRow(
+  def: TableDef,
+  body: Record<string, unknown>,
+  extra: Record<string, unknown> = {},
+  sql: Sql = db(),
+): Promise<Result> {
   const c = collect(def, body, true);
   if ("error" in c) return { ok: false, error: c.error, status: 400 };
-  const sql = db();
   const [r] = await sql`INSERT INTO ${sql(def.table)} ${sql({ ...c.row, ...extra })} RETURNING id`;
   return { ok: true, id: r.id as number };
 }
@@ -146,18 +162,17 @@ export async function updateRow(
   id: number,
   body: Record<string, unknown>,
   extra: Record<string, unknown> = {},
+  sql: Sql = db(),
 ): Promise<Result> {
   const c = collect(def, body, false);
   if ("error" in c) return { ok: false, error: c.error, status: 400 };
   const row = { ...c.row, ...extra };
   if (Object.keys(row).length === 0) return { ok: false, error: "Nothing to change.", status: 400 };
-  const sql = db();
   const rows = await sql`UPDATE ${sql(def.table)} SET ${sql(row)} WHERE id = ${id} AND chapter = ${chapter} RETURNING id`;
   return rows.length ? { ok: true, id } : { ok: false, error: "Not found", status: 404 };
 }
 
-export async function deleteRow(def: TableDef, chapter: string, id: number): Promise<Result> {
-  const sql = db();
+export async function deleteRow(def: TableDef, chapter: string, id: number, sql: Sql = db()): Promise<Result> {
   const rows = await sql`DELETE FROM ${sql(def.table)} WHERE id = ${id} AND chapter = ${chapter} RETURNING id`;
   return rows.length ? { ok: true, id } : { ok: false, error: "Not found", status: 404 };
 }

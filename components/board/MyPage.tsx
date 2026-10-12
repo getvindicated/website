@@ -111,7 +111,7 @@ export function MyPage() {
     })),
   ].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 
-  const timeline = chapter.projects.timeline;
+  const timeline = data.settings.projects.timeline;
   const week = timeline.weeks.find((w) => daysBetween(w.start, today) >= 0 && daysBetween(today, w.end) >= -timeline.graceDays);
   const track = chapter.myPage.teamTrack[me.team];
   const trackItem = week && track ? week.items.find(([t]) => t === track) : undefined;
@@ -200,10 +200,10 @@ export function MyPage() {
 
       <h2>Coming up</h2>
       <ul className="dates">
-        {meetings.length === 0 && chapter.myPage.meetingLine && (
+        {meetings.length === 0 && data.settings.meetingTime && (
           <li>
-            <span className="d">Sun</span>
-            <span>{chapter.myPage.meetingLine}</span>
+            <span className="d">Weekly</span>
+            <span>Board meeting, {data.settings.meetingTime}</span>
           </li>
         )}
         {comingUp.map((c) => (

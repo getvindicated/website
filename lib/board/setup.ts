@@ -4,6 +4,8 @@ import { join } from "node:path";
 import { db } from "./db";
 import starter from "./starter-data.json";
 import ucla from "./starter-ucla.json";
+import { seedSettings } from "./settings-server";
+import { CHAPTER_SERVER } from "./chapter-server";
 
 // Makes the board database ready on first use, so nobody has to run
 // commands: creates the tables (scripts/board-schema.sql, safe to re-run)
@@ -64,6 +66,20 @@ async function setup() {
       ('berkeley', 1, '2026-09-26', false), ('berkeley', 2, ${starter.dueRound2}, true)`;
   }
   await seedUcla(sql, empty);
+  await seedSettings(sql);
+  await markHubAdmins(sql);
+}
+
+// Ticks "Hub admin" for each chapter's starting admins, once.
+async function markHubAdmins(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-14-hub-admins')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    for (const [chapter, s] of Object.entries(CHAPTER_SERVER)) {
+      await tx`UPDATE board_members SET is_hub_admin = true WHERE chapter = ${chapter} AND name IN ${tx(s.hubAdmins)}`;
+    }
+  });
 }
 
 const OLD_IAN = "Start the /board page on getvindicated.org from this preview";

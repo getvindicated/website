@@ -1,7 +1,6 @@
 import "server-only";
 import { TABLES, oneOf, type TableDef } from "./tables";
 import type { BoardRole } from "./roles";
-import { chapterConfig, type ChapterId } from "./chapters";
 
 // Which roles may change each table through /api/board/[table]. UCLA has no
 // socials role, so only its admins edit events.
@@ -11,15 +10,32 @@ const EDITORS: Record<keyof typeof TABLES, BoardRole[]> = {
   announcements: ["admin"],
   meetings: ["admin"],
   members: ["admin"],
+  rounds: ["admin"],
 };
 
-export function editable(name: string, chapter: ChapterId): { def: TableDef; roles: BoardRole[]; name: keyof typeof TABLES } | null {
+// What a row is called in the change log.
+export const LABELS: Record<keyof typeof TABLES, string> = {
+  socials: "event",
+  assignments: "task",
+  announcements: "announcement",
+  meetings: "meeting",
+  members: "member",
+  rounds: "week",
+};
+export function describe(name: keyof typeof TABLES, row: Record<string, unknown> | null): string {
+  if (!row) return LABELS[name];
+  const v = row.title ?? row.name ?? row.task ?? (row.round !== undefined ? `round ${row.round}` : row.date);
+  const s = typeof v === "string" || typeof v === "number" ? String(v) : "";
+  return `${LABELS[name]} "${s.length > 60 ? `${s.slice(0, 58)}…` : s}"`;
+}
+
+export function editable(name: string, teams: string[]): { def: TableDef; roles: BoardRole[]; name: keyof typeof TABLES } | null {
   if (!Object.hasOwn(TABLES, name)) return null;
   const key = name as keyof typeof TABLES;
   let def: TableDef = TABLES[key];
   if (key === "members") {
-    const teams = ["Executive", ...chapterConfig(chapter).teams];
-    def = { ...def, fields: { ...def.fields, team: { column: "team", check: oneOf(teams, "a team") } } };
+    const all = ["Executive", ...teams];
+    def = { ...def, fields: { ...def.fields, team: { column: "team", check: oneOf(all, "a team") } } };
   }
   return { def, roles: EDITORS[key], name: key };
 }

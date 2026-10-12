@@ -10,6 +10,9 @@ type Person = { email: string; name: string; short: string };
 // recipients here; the submit route and form read them from this file.
 export type ChapterServer = {
   cookie: string;
+  // Members ticked as Hub admin when first loaded (for admins-only emails).
+  // Admins change this on the Board tab afterwards.
+  hubAdmins: string[];
   // Organizer of the chapter's calendar invites: RSVPs go to this address.
   organizer: Person;
   // Checked in this order, so a password shared by two roles gets the higher one.
@@ -27,6 +30,7 @@ export type ChapterServer = {
 export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   berkeley: {
     cookie: "board_session",
+    hubAdmins: ["Rana Darwich"],
     organizer: { email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" },
     passwords: [
       ["admin", "BOARD_ADMIN_PASSWORD"],
@@ -43,6 +47,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   },
   ucla: {
     cookie: "board_session_ucla",
+    hubAdmins: ["Fiona Wangsawidjaja", "Will Prawira"],
     organizer: { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja", short: "Fiona" },
     passwords: [
       ["admin", "BOARD_UCLA_ADMIN_PASSWORD"],

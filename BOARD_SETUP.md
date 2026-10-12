@@ -49,6 +49,35 @@ for one).
 
 The recipient lists are in `lib/board/chapter-server.ts`.
 
+## What admins can edit
+
+Signed in with a chapter's admin password, everything on that chapter's hub
+has an Edit link: the subtitle, members and teams, the photo row, quick
+links, key dates, the Projects tab (projects, descriptions and every week of
+the timeline), assignments (including past weeks), announcements, events,
+meetings, the board meeting time, and Berkeley's rule. Changes save to the
+database; nothing needs a code change. The starting content comes from
+`lib/board/chapters.ts`.
+
+One exception: the UCLA submission routing matches the team names "App Dev"
+and "Data" in `lib/board/chapter-server.ts`. If either team is renamed on
+the hub, update that list too or Rizwaan stops getting those submissions.
+
+The **Changes** tab (admins only) lists every change, newest first, with
+what changed and a **Restore previous version** button. Everyone shares
+the admin password, so admins can type their name once per browser; the
+log shows it as self-reported.
+
+## Announcement emails
+
+Posting an announcement can email it to the chapter ("Email this to
+everyone", on by default): one email per person through the Brevo API, so
+no one sees anyone else's address. Admins-only announcements go to the
+members ticked **Hub admin** on the Board tab (at first: Fiona and Will for
+UCLA, Rana for Berkeley). Emails come from `BOARD_INVITE_FROM` with reply-to
+set to the chapter's organizer, so they need `BREVO_API_KEY` and
+`BOARD_INVITE_FROM` (its domain verified in Brevo, as for invites).
+
 ## Calendar invites
 
 Admins schedule meetings on the Meetings tab ("Schedule a meeting"). Each
