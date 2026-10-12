@@ -2,8 +2,8 @@ import "server-only";
 import { TABLES, oneOf, type TableDef } from "./tables";
 import type { BoardRole } from "./roles";
 
-// Which roles may change each table through /api/board/[table]. UCLA has no
-// socials role, so only its admins edit events.
+// Which roles may change each table through /api/board/[table]. The socials
+// role (Berkeley's socials editor, UCLA's events editor) edits events only.
 const EDITORS: Record<keyof typeof TABLES, BoardRole[]> = {
   socials: ["admin", "socials"],
   assignments: ["admin"],

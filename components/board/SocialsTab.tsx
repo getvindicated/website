@@ -5,6 +5,7 @@ import type { Social } from "@/lib/board/types";
 import { SOCIAL_MONTHS, SOCIAL_STATUSES } from "@/lib/board/static";
 import type { ChapterConfig } from "@/lib/board/chapters";
 import { canEditSocials } from "@/lib/board/roles";
+import { ActorName } from "./ChangesTab";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { D, fmt, isoDate } from "./util";
@@ -66,6 +67,7 @@ export function SocialsTab() {
   return (
     <section>
       <h2>{cfg.heading}</h2>
+      {editor && user.role !== "admin" && <ActorName />}
       <div className="bar" role="group" aria-label="Filter socials">
         {FILTERS.map((f) => (
           <button

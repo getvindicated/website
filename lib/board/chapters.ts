@@ -137,7 +137,7 @@ const UCLA: ChapterConfig = {
   term: "UCLA chapter · Board hub, Fall 2026",
   loginSub: "UCLA chapter board hub",
   contact: "Fiona",
-  roleLabels: { admin: "admin", member: "member" },
+  roleLabels: { admin: "admin", socials: "events editor", member: "member" },
   teams: ["Data", "Research", "App Dev", "Design", "Technical Writing", "High School"],
   rule: null,
   proofRequired: false,
