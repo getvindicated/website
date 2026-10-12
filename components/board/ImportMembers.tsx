@@ -19,13 +19,13 @@ function readText(file: File): Promise<string> {
 }
 
 // Posts the list. Returns an error message, or null when it saved.
-async function send(members: unknown[]): Promise<string | null> {
+async function send(members: unknown[], replace: boolean): Promise<string | null> {
   let res: Response;
   try {
     res = await fetch(chapterUrl("/api/board/import-members"), {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ members }),
+      body: JSON.stringify({ members, replace }),
     });
   } catch {
     return "Couldn't reach the server. Check your connection and try again.";
@@ -41,14 +41,26 @@ async function send(members: unknown[]): Promise<string | null> {
 // Admin-only: loads the member list from board-members.local.json. It isn't
 // in the code because it has phone numbers. `onLoaded` runs after a
 // successful import, so the Board tab can say so once this box is gone.
+// With `replacing`, it swaps out the members already loaded, after a confirm.
 export function ImportMembers({
   onLoaded,
+  replacing,
 }: {
   onLoaded: (count: number) => void;
+  replacing?: { count: number; onCancel: () => void };
 }) {
   const { chapter } = useBoard();
   const fileName = chapter.id === "berkeley" ? "board-members.local.json" : `board-members-${chapter.id}.local.json`;
   const [status, setStatus] = useState<Status | null>(null);
+  const [pending, setPending] = useState<unknown[] | null>(null);
+
+  async function load(members: unknown[]) {
+    setStatus({ kind: "busy", text: `Loading ${members.length} members…` });
+    const err = await send(members, !!replacing);
+    if (err) return setStatus({ kind: "err", text: err });
+    setStatus({ kind: "ok", text: `Loaded ${members.length} members.` });
+    onLoaded(members.length);
+  }
 
   async function onFile(e: ChangeEvent<HTMLInputElement>) {
     const input = e.currentTarget;
@@ -75,12 +87,11 @@ export function ImportMembers({
           text: `${file.name} doesn't have a member list in it. Choose ${fileName}.`,
         });
       }
-      setStatus({ kind: "busy", text: `Loading ${members.length} members…` });
-      const err = await send(members);
-      if (err) return setStatus({ kind: "err", text: err });
-      const count = members.length;
-      setStatus({ kind: "ok", text: `Loaded ${count} members.` });
-      onLoaded(count);
+      if (replacing) {
+        setStatus(null);
+        return setPending(members);
+      }
+      await load(members);
     } catch {
       setStatus({
         kind: "err",
@@ -94,11 +105,41 @@ export function ImportMembers({
   const busy = status?.kind === "busy";
   return (
     <div className="note">
-      <p>
-        <strong>The member list isn&apos;t loaded yet.</strong> Choose the member
-        list file, <strong>{fileName}</strong>. It has everyone&apos;s names,
-        roles, emails and phone numbers.
-      </p>
+      {replacing ? (
+        <p>
+          <strong>Replace the member list.</strong> Choose{" "}
+          <strong>{fileName}</strong>. It replaces all {replacing.count} members,
+          including edits made on this tab. The old list stays in the Changes
+          tab, where it can be restored.
+        </p>
+      ) : (
+        <p>
+          <strong>The member list isn&apos;t loaded yet.</strong> Choose the member
+          list file, <strong>{fileName}</strong>. It has everyone&apos;s names,
+          roles, emails and phone numbers.
+        </p>
+      )}
+      {pending ? (
+        <div className="admin-row confirm">
+          <strong>
+            Replace {replacing?.count} members with the {pending.length} in this file?
+          </strong>
+          <button
+            className="btn"
+            type="button"
+            disabled={busy}
+            onClick={async () => {
+              await load(pending);
+              setPending(null);
+            }}
+          >
+            {busy ? "Replacing…" : "Yes, replace"}
+          </button>
+          <button className="btn btn-line" type="button" disabled={busy} onClick={() => setPending(null)}>
+            Choose another file
+          </button>
+        </div>
+      ) : (
       <label htmlFor="import-members" className="check">
         {/* No `accept` filter: phones often label .json files as plain data and grey them out. */}
         <input
@@ -108,6 +149,14 @@ export function ImportMembers({
           onChange={onFile}
         />
       </label>
+      )}
+      {replacing && !pending && (
+        <p>
+          <button className="linkbtn" type="button" disabled={busy} onClick={replacing.onCancel}>
+            Cancel
+          </button>
+        </p>
+      )}
       {status && (
         <p
           className={`msg ${status.kind === "busy" ? "" : status.kind}`}

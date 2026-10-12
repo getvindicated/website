@@ -14,7 +14,7 @@ const memberFields = (teams: readonly string[]): FieldDef[] => [
   { key: "role", label: "Role", placeholder: "Data Engineer" },
   { key: "team", label: "Team", type: "select", options: ["Executive", ...teams].map((t) => ({ value: t, label: t })), pair: "t" },
   { key: "alsoTeam", label: "Also leads (optional)", type: "select", options: [{ value: "", label: "None" }, ...teams.map((t) => ({ value: t, label: t }))], pair: "t" },
-  { key: "tier", label: "Top of chart", type: "select", options: [{ value: "", label: "No" }, { value: "0", label: "President row" }, { value: "1", label: "Executive row" }] },
+  { key: "tier", label: "Top of chart", type: "select", options: [{ value: "", label: "No" }, { value: "0", label: "Top row" }, { value: "1", label: "Second row" }] },
   { key: "isLead", label: "Team lead", type: "checkbox" },
   { key: "email", label: "Email", type: "email", pair: "c" },
   { key: "phone", label: "Phone", type: "tel", pair: "c" },
@@ -27,6 +27,7 @@ export function BoardTab() {
   const { chapter, round, data, user, go, setFocus, refresh } = useBoard();
   const TEAM_ORDER = data.settings.teams;
   const [editingTeams, setEditingTeams] = useState(false);
+  const [replacing, setReplacing] = useState(false);
   const ALL_TEAMS = ["All", "Executive", ...TEAM_ORDER];
   const MEMBER_FIELDS = memberFields(TEAM_ORDER);
   const admin = user.role === "admin";
@@ -127,8 +128,23 @@ export function BoardTab() {
             Edit teams
           </button>
         )}
+        {admin && (
+          <button type="button" className="chip" onClick={() => setReplacing(true)}>
+            Replace the member list
+          </button>
+        )}
       </div>
       {editingTeams && <TeamsEditor onDone={() => setEditingTeams(false)} />}
+      {replacing && (
+        <ImportMembers
+          replacing={{ count: people.length, onCancel: () => setReplacing(false) }}
+          onLoaded={(n) => {
+            setReplacing(false);
+            setLoaded(n);
+            refresh();
+          }}
+        />
+      )}
 
       {editing === "new" && (
         <RowEditor title="Add a member" table="members" fields={MEMBER_FIELDS} initial={{ name: "", role: "", team: TEAM_ORDER[0], alsoTeam: "", tier: "", isLead: false, email: "", phone: "", hubAdmin: false }} onClose={() => setEditing(null)} />
