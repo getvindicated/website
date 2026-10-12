@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Assignment, AssignmentStatus } from "@/lib/board/types";
-import { ARCHIVE_ROUND, CURRENT_ROUND, RULE } from "@/lib/board/static";
+import { ARCHIVE_ROUND, CURRENT_ROUND, RULE, UNASSIGNED } from "@/lib/board/static";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { SubmitForm } from "./SubmitForm";
-import { currentRound } from "./derive";
+import { currentRound, unassignedTasks } from "./derive";
 import { api, daysBetween, fmt } from "./util";
 
 const STATUS_WORD: Record<AssignmentStatus, string> = {
@@ -24,6 +24,7 @@ export function AssignmentsTab() {
   const { data, user, today, focus, setFocus, refresh } = useBoard();
   const admin = user.role === "admin";
   const people = currentRound(data);
+  const unassigned = admin ? unassignedTasks(data) : [];
   const [filter, setFilter] = useState<"All" | "Not submitted" | "Submitted">("All");
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [ticks, setTicks] = useState<Record<string, boolean>>({});
@@ -66,7 +67,7 @@ export function AssignmentsTab() {
   const archiveDone = archive.filter((a) => a.status !== "missing" && a.status !== "pending").length;
 
   const memberOptions = useMemo(
-    () => data.members.map((m) => ({ value: m.firstName, label: m.name })),
+    () => [...data.members.map((m) => ({ value: m.firstName, label: m.name })), { value: UNASSIGNED, label: "Unassigned (admins only)" }],
     [data.members],
   );
   const taskFields: FieldDef[] = [
@@ -125,6 +126,48 @@ export function AssignmentsTab() {
           initial={{ round: CURRENT_ROUND.round, person: memberOptions[0]?.value ?? "", personRole: "", task: "", proof: "", dueDate: CURRENT_ROUND.due, status: "pending" }}
           onClose={() => setEditing(null)}
         />
+      )}
+
+      {unassigned.length > 0 && (
+        <details className="assign" id="as-unassigned" open>
+          <summary>
+            <span className="who">
+              Unassigned <span className="role">· only admins see this</span>
+            </span>
+            <span />
+            <span className="st-prog">{unassigned.length} to assign</span>
+          </summary>
+          <div className="body">
+            <p>Edit a task and choose a person to give it to them.</p>
+            <ul className="tasks">
+              {unassigned.map((a) => (
+                <li key={a.id}>
+                  <div>
+                    <span className="task-text">{a.task}</span>
+                    <div className="proof">
+                      <strong>Proof:</strong> {a.proof}
+                    </div>
+                    <div className="admin-row">
+                      <button type="button" className="linkbtn" onClick={() => setEditing(a.id)}>
+                        Edit task
+                      </button>
+                    </div>
+                    {editingTask?.id === a.id && (
+                      <RowEditor
+                        title="Edit task"
+                        table="assignments"
+                        id={a.id}
+                        fields={taskFields}
+                        initial={{ person: a.person, personRole: a.personRole, task: a.task, proof: a.proof, dueDate: a.dueDate ?? "", status: a.status }}
+                        onClose={() => setEditing(null)}
+                      />
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
       )}
 
       <div>

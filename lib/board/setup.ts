@@ -55,6 +55,7 @@ async function setup() {
   if (await empty("board_meetings")) {
     for (const m of starter.meetings) await sql`INSERT INTO board_meetings ${sql(m)}`;
   }
+  await octoberUpdates(sql);
 }
 
 const OLD_IAN = "Start the /board page on getvindicated.org from this preview";
@@ -80,5 +81,58 @@ async function retaskRound2(sql: ReturnType<typeof db>) {
       await tx`UPDATE board_assignments SET task = ${task}, proof_required = ${proof} WHERE id = ${stale[0].id}`;
       for (const r of stale.slice(1)) await tx`DELETE FROM board_assignments WHERE id = ${r.id}`;
     }
+  });
+}
+
+type Round2 = [string, string, [string, string][]][];
+
+// Board changes from Oct 12, applied once to a database that was set up
+// before them (a fresh one already has them from starter-data.json):
+// Pierce leaves the board; his court booking goes to Daryen and his other
+// tasks wait in the admin-only Unassigned group; four members' roles are
+// set; the socials calendar is replaced and the UCSC x UCB type is retired.
+async function octoberUpdates(sql: ReturnType<typeof db>) {
+  const round2 = starter.round2 as Round2;
+  const tasksOf = (person: string) => round2.find(([p]) => p === person)!;
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-12-board-updates')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+
+    // Pierce
+    await tx`DELETE FROM board_members
+      WHERE lower(email) = 'pierce.kosobayashi@berkeley.edu' OR name ILIKE '%Kosobayashi%'`;
+    await tx`DELETE FROM board_submissions WHERE person = 'Pierce'`;
+    await tx`DELETE FROM board_assignments WHERE person = 'Pierce'`;
+
+    // His round 2 tasks: Daryen's court booking, then the unowned three.
+    const add = async (person: string, task: string, proof: string, role: string, sort: number) => {
+      const [exists] = await tx`SELECT 1 FROM board_assignments WHERE round = 2 AND person = ${person} AND task = ${task}`;
+      if (exists) return;
+      await tx`INSERT INTO board_assignments (round, person, person_role, task, proof_required, due_date, sort)
+        VALUES (2, ${person}, ${role}, ${task}, ${proof}, ${starter.dueRound2}, ${sort})`;
+    };
+    const [{ max }] = await tx`SELECT coalesce(max(sort), 0) AS max FROM board_assignments WHERE round = 2 AND person = 'Daryen'`;
+    const [, daryenRole, daryen] = tasksOf("Daryen");
+    const court = daryen[daryen.length - 1];
+    await add("Daryen", court[0], court[1], daryenRole, max + 1);
+    const [unassigned, , unowned] = tasksOf("Unassigned");
+    for (const [i, [task, proof]] of unowned.entries()) await add(unassigned, task, proof, "", -unowned.length + i);
+
+    // Roles on the chart
+    await tx`UPDATE board_members SET role = 'Outreach Lead · Social Media', team = 'Outreach', is_lead = true, tier = NULL
+      WHERE name ILIKE 'Chloe%Lin'`;
+    await tx`UPDATE board_members SET role = 'Research Analyst', team = 'Research & Legal', is_lead = false, tier = NULL
+      WHERE name ILIKE 'Rami%Dakak'`;
+    await tx`UPDATE board_members SET role = 'President · Research Lead', team = 'Executive', tier = 0, also_team = 'Research & Legal'
+      WHERE name ILIKE 'Rana%Darwich'`;
+    await tx`UPDATE board_members SET role = 'Software Lead', team = 'Software', is_lead = true, tier = NULL
+      WHERE name ILIKE 'Ian%Houssaye'`;
+
+    // Socials: exactly the starter list, and no more UCSC x UCB type.
+    await tx`DELETE FROM board_socials`;
+    for (const s of starter.socials) await tx`INSERT INTO board_socials ${tx(s)}`;
+    await tx`ALTER TABLE board_socials DROP CONSTRAINT IF EXISTS board_socials_kind_check`;
+    await tx`ALTER TABLE board_socials ADD CONSTRAINT board_socials_kind_check CHECK (kind IN ('b', 'o', 'org'))`;
   });
 }

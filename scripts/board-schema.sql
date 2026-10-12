@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS board_socials (
   time      text NOT NULL DEFAULT '',
   title     text NOT NULL,
   location  text NOT NULL DEFAULT '',
-  kind      text NOT NULL DEFAULT 'b' CHECK (kind IN ('b', 'x', 'o', 'org')),
+  kind      text NOT NULL DEFAULT 'b' CHECK (kind IN ('b', 'o', 'org')),
   lead      text NOT NULL DEFAULT '',
   status    text NOT NULL DEFAULT '',
   cost      text NOT NULL DEFAULT '',
@@ -68,4 +68,10 @@ CREATE TABLE IF NOT EXISTS board_meetings (
   title          text NOT NULL DEFAULT 'Board meeting',
   summary        text NOT NULL DEFAULT '',
   recording_url  text NOT NULL DEFAULT ''
+);
+
+-- One-time data changes already applied to this database (see lib/board/setup.ts).
+CREATE TABLE IF NOT EXISTS board_changes (
+  name        text PRIMARY KEY,
+  applied_at  timestamptz NOT NULL DEFAULT now()
 );

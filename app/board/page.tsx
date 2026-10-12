@@ -20,7 +20,7 @@ export default async function BoardPage() {
   }
   let data;
   try {
-    data = await loadBoard();
+    data = await loadBoard(user.role);
   } catch (e) {
     console.error("[board] Could not load the board:", e);
     return <BoardNotice text="The board couldn't reach its database. Try again in a minute; if it keeps happening, tell Rana." />;

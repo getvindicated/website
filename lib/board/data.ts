@@ -1,9 +1,12 @@
 import "server-only";
 import { db } from "./db";
 import { ensureSetup } from "./setup";
+import type { BoardRole } from "./roles";
+import { UNASSIGNED } from "./static";
 import type { BoardData } from "./types";
 
-export async function loadBoard(): Promise<BoardData> {
+// Tasks with no owner yet go to admins only; everyone else never gets them.
+export async function loadBoard(role: BoardRole): Promise<BoardData> {
   await ensureSetup();
   const sql = db();
   const [members, assignments, submissions, socials, announcements, meetings] = await Promise.all([
@@ -12,7 +15,8 @@ export async function loadBoard(): Promise<BoardData> {
         FROM board_members ORDER BY sort, id`,
     sql`SELECT id, round, person, person_role AS "personRole", task, proof_required AS proof,
           due_date AS "dueDate", status, status_note AS "statusNote"
-        FROM board_assignments ORDER BY round DESC, sort, id`,
+        FROM board_assignments ${role === "admin" ? sql`` : sql`WHERE person <> ${UNASSIGNED}`}
+        ORDER BY round DESC, sort, id`,
     sql`SELECT id, person, assignment_id AS "assignmentId", task_label AS "taskLabel", filenames,
           created_at AS "createdAt"
         FROM board_submissions ORDER BY created_at`,

@@ -9,7 +9,7 @@ import { RowEditor, type FieldDef } from "./RowEditor";
 import { D, fmt, isoDate } from "./util";
 
 const FILTERS = [{ key: "All", label: "All" }, ...SOCIAL_KINDS.map((k) => ({ key: k.key as string, label: k.label }))];
-const TAG: Record<string, string> = { b: "Berkeley", x: "UCSC × UCB", o: "Online", org: "Org date" };
+const TAG: Record<string, string> = { b: "Berkeley", o: "Online", org: "Org date" };
 
 const SOCIAL_FIELDS: FieldDef[] = [
   { key: "title", label: "Name" },
@@ -142,7 +142,7 @@ export function SocialsTab() {
           title="Add a social"
           table="socials"
           fields={SOCIAL_FIELDS}
-          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: "Pierce", cost: "", note: "" }}
+          initial={{ title: "", date: "", time: "", location: "", kind: "b", status: "Idea", lead: "TBD", cost: "", note: "" }}
           onClose={() => setEditing(null)}
           onSaved={(v) => jumpTo(v.date)}
         />
@@ -233,7 +233,7 @@ export function SocialsTab() {
           );
         })}
       </ul>
-      <p style={{ marginTop: 12 }}>Status runs Idea → Planning → Confirmed → Completed. Pierce leads socials unless noted.</p>
+      <p style={{ marginTop: 12 }}>Status runs Idea → Planning → Confirmed → Completed.</p>
     </section>
   );
 }

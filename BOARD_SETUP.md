@@ -9,10 +9,12 @@ need a password.
 | Railway variable         | Who gets it          | What it unlocks                         |
 | ------------------------ | -------------------- | --------------------------------------- |
 | `BOARD_PASSWORD`         | everyone on the board | view everything, submit assignments     |
-| `BOARD_SOCIALS_PASSWORD` | Pierce               | also add, edit and delete socials       |
+| `BOARD_SOCIALS_PASSWORD` | no one yet           | also add, edit and delete socials       |
 | `BOARD_ADMIN_PASSWORD`   | Rana                 | edit everything                         |
 
-Use three different passwords. People stay signed in on a device for 30
+No one edits socials right now, so leave `BOARD_SOCIALS_PASSWORD` unset
+until Rana names someone; until then only the admin can change socials.
+Use different passwords for each role. People stay signed in on a device for 30
 days. To remove someone's access, change the password they used; that
 signs out everyone who used it, and you share the new one with the rest.
 

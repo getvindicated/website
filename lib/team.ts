@@ -176,12 +176,6 @@ export const team: TeamMember[] = [
 		chapter: "ucla",
 	},
 	{
-		name: "Pierce Kosobayashi",
-		major: "Media Studies & Education",
-		photo: "/team/pierce.jpg",
-		chapter: "ucb",
-	},
-	{
 		name: "Chino Sawatyanont",
 		major: "Electrical & Computer Engineering",
 		photo: "/team/chino.png",
