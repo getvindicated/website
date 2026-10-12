@@ -33,7 +33,7 @@
 .rd-hdr {
   z-index: 100;
 }
-/* The nav sits in a bordered box that floats below the top of the page.
+/* The nav sits in a white box that floats below the top of the page.
    8px + 60px + 8px keeps the header 76px tall, so sticky offsets elsewhere
    still line up. */
 .rd-hdr .nav {
@@ -41,7 +41,6 @@
   height: 60px;
   width: calc(100% - 32px);
   background: #fff;
-  border: var(--divider);
   border-radius: var(--radius-card);
   padding: 0 24px;
 }
