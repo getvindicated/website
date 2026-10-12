@@ -46,7 +46,7 @@ export const TABLES = {
       date: { column: "date", check: date("a date") },
       time: { column: "time", check: text(100), onCreate: "" },
       location: { column: "location", check: text(300), onCreate: "" },
-      kind: { column: "kind", check: oneOf(["b", "x", "o", "org"], "a type"), onCreate: "b" },
+      kind: { column: "kind", check: oneOf(["b", "o", "org"], "a type"), onCreate: "b" },
       lead: { column: "lead", check: text(200), onCreate: "" },
       status: { column: "status", check: oneOf(["", "Idea", "Planning", "Confirmed", "Completed"], "a status"), onCreate: "Idea" },
       cost: { column: "cost", check: text(300), onCreate: "" },

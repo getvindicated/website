@@ -60,8 +60,10 @@ export const WEEKS: { n: number; start: string; end: string; label: string; goal
 // Socials calendar: months people can page through (0-based month index).
 export const SOCIAL_MONTHS = { year: 2026, first: 9, last: 11 };
 export const SOCIAL_STATUSES = ["Idea", "Planning", "Confirmed", "Completed"] as const;
-export const SOCIAL_KINDS: { key: "b" | "x" | "o"; label: string }[] = [
+export const SOCIAL_KINDS: { key: "b" | "o"; label: string }[] = [
   { key: "b", label: "Berkeley" },
-  { key: "x", label: "UCSC × UCB" },
   { key: "o", label: "Online" },
 ];
+
+// Round tasks with no owner yet. Only admins see them.
+export const UNASSIGNED = "Unassigned";

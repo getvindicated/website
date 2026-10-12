@@ -36,7 +36,7 @@ export type Submission = {
   createdAt: string;
 };
 
-export type SocialKind = "b" | "x" | "o" | "org";
+export type SocialKind = "b" | "o" | "org";
 
 export type Social = {
   id: number;

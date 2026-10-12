@@ -651,10 +651,6 @@
   cursor: pointer;
   overflow-wrap: anywhere;
 }
-.board .ev.x {
-  border-left-color: #1f5f8b;
-  background: #eef4f9;
-}
 .board .ev.o {
   border-left-color: var(--deep);
   background: #f3f2f4;
