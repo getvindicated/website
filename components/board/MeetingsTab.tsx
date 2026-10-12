@@ -5,21 +5,25 @@ import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { fmt } from "./util";
 
-const MEETING_FIELDS: FieldDef[] = [
+const meetingFields = (attendance: boolean): FieldDef[] => [
   { key: "date", label: "Date", type: "date", pair: "d" },
   { key: "title", label: "Title", pair: "d" },
-  { key: "summary", label: "Summary", type: "textarea" },
-  { key: "recordingUrl", label: "Zoom recording link", type: "url", placeholder: "https://…" },
+  ...(attendance ? [{ key: "absent", label: "Absent (and who was excused)" } as FieldDef] : []),
+  { key: "summary", label: attendance ? "Notes and decisions" : "Summary", type: "textarea" },
+  { key: "recordingUrl", label: attendance ? "Recording link" : "Zoom recording link", type: "url", placeholder: "https://…" },
 ];
 
 export function MeetingsTab() {
-  const { data, user, today } = useBoard();
+  const { chapter, data, user, today } = useBoard();
+  const { heading, note, attendance } = chapter.meetings;
+  const MEETING_FIELDS = meetingFields(attendance);
   const admin = user.role === "admin";
   const [editing, setEditing] = useState<number | "new" | null>(null);
 
   return (
     <section>
-      <h2>Meeting Summaries &amp; Recordings</h2>
+      <h2>{heading}</h2>
+      {note && <p>{note}</p>}
       {admin && editing === null && (
         <p>
           <button className="btn btn-line" type="button" onClick={() => setEditing("new")}>
@@ -32,7 +36,7 @@ export function MeetingsTab() {
           title="Add a meeting"
           table="meetings"
           fields={MEETING_FIELDS}
-          initial={{ date: today, title: "Board meeting", summary: "", recordingUrl: "" }}
+          initial={{ date: today, title: "Board meeting", ...(attendance ? { absent: "" } : {}), summary: "", recordingUrl: "" }}
           onClose={() => setEditing(null)}
         />
       )}
@@ -44,7 +48,7 @@ export function MeetingsTab() {
             table="meetings"
             id={m.id}
             fields={MEETING_FIELDS}
-            initial={{ date: m.date, title: m.title, summary: m.summary, recordingUrl: m.recordingUrl }}
+            initial={{ date: m.date, title: m.title, ...(attendance ? { absent: m.absent } : {}), summary: m.summary, recordingUrl: m.recordingUrl }}
             onClose={() => setEditing(null)}
           />
         ) : (
@@ -52,12 +56,13 @@ export function MeetingsTab() {
             <h3>
               {m.title} · {fmt(m.date, { month: "short", day: "numeric", year: "numeric" })}
             </h3>
+            {attendance && <p>{m.absent ? `Absent: ${m.absent}` : "Full attendance."}</p>}
             {m.summary && <p>{m.summary}</p>}
             <p>
               Recording:{" "}
               {m.recordingUrl ? (
                 <a href={m.recordingUrl} target="_blank" rel="noopener noreferrer">
-                  Zoom recording
+                  {attendance ? "Open the recording" : "Zoom recording"}
                 </a>
               ) : (
                 <span className="deep">link to add</span>
@@ -66,7 +71,7 @@ export function MeetingsTab() {
             {admin && (
               <div className="admin-row">
                 <button type="button" className="linkbtn" onClick={() => setEditing(m.id)}>
-                  Edit
+                  Edit or remove
                 </button>
               </div>
             )}

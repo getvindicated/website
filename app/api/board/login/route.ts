@@ -1,4 +1,5 @@
 import { createSession, roleForPassword, sessionCookie, setupProblem, SESSION_DAYS } from "@/lib/board/session";
+import { chapterOf } from "@/lib/board/api";
 
 // Wrong-password limit per IP: 10 tries per 15 minutes. Kept in memory,
 // which is enough for one Railway instance.
@@ -14,9 +15,14 @@ function clientIp(request: Request) {
   );
 }
 
+// Signs in to one chapter's hub (?chapter=ucla; Berkeley by default). Only
+// that chapter's passwords are checked.
 export async function POST(request: Request) {
+  const chapter = chapterOf(request);
+  if (!chapter) return Response.json({ error: "Not found" }, { status: 404 });
+
   // Missing Railway variables shouldn't look like a wrong password.
-  const problem = setupProblem();
+  const problem = setupProblem(chapter);
   if (problem) {
     console.error(`[board] Sign-in is off: ${problem} See BOARD_SETUP.md.`);
     return Response.json(
@@ -25,7 +31,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const ip = clientIp(request);
+  const ip = `${chapter}:${clientIp(request)}`;
   const now = Date.now();
   const rec = fails.get(ip);
   if (rec && now - rec.since > WINDOW_MS) fails.delete(ip);
@@ -41,8 +47,8 @@ export async function POST(request: Request) {
     /* treated as a wrong password */
   }
 
-  const role = password ? roleForPassword(password) : null;
-  const token = role ? createSession(role) : null;
+  const role = password ? roleForPassword(chapter, password) : null;
+  const token = role ? createSession(chapter, role) : null;
   if (!role || !token) {
     const r = fails.get(ip) ?? { n: 0, since: now };
     fails.set(ip, { n: r.n + 1, since: r.since });
@@ -52,6 +58,6 @@ export async function POST(request: Request) {
   fails.delete(ip);
   return Response.json(
     { ok: true },
-    { headers: { "set-cookie": sessionCookie(token, SESSION_DAYS * 86400) } },
+    { headers: { "set-cookie": sessionCookie(chapter, token, SESSION_DAYS * 86400) } },
   );
 }

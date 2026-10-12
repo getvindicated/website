@@ -2,21 +2,17 @@
 
 import { useEffect, useState } from "react";
 import type { Member } from "@/lib/board/types";
-import { TEAM_ORDER } from "@/lib/board/static";
 import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { ImportMembers } from "./ImportMembers";
-import { currentRound } from "./derive";
+import { roundTasks } from "./derive";
 import { fmt } from "./util";
 
-const ALL_TEAMS = ["All", "Executive", ...TEAM_ORDER];
-const TEAM_OPTIONS = ["Executive", ...TEAM_ORDER].map((t) => ({ value: t, label: t }));
-
-const MEMBER_FIELDS: FieldDef[] = [
+const memberFields = (teams: readonly string[]): FieldDef[] => [
   { key: "name", label: "Full name" },
   { key: "role", label: "Role", placeholder: "Data Engineer" },
-  { key: "team", label: "Team", type: "select", options: TEAM_OPTIONS, pair: "t" },
-  { key: "alsoTeam", label: "Also leads (optional)", type: "select", options: [{ value: "", label: "None" }, ...TEAM_ORDER.map((t) => ({ value: t, label: t }))], pair: "t" },
+  { key: "team", label: "Team", type: "select", options: ["Executive", ...teams].map((t) => ({ value: t, label: t })), pair: "t" },
+  { key: "alsoTeam", label: "Also leads (optional)", type: "select", options: [{ value: "", label: "None" }, ...teams.map((t) => ({ value: t, label: t }))], pair: "t" },
   { key: "tier", label: "Top of chart", type: "select", options: [{ value: "", label: "No" }, { value: "0", label: "President row" }, { value: "1", label: "Executive row" }] },
   { key: "isLead", label: "Team lead", type: "checkbox" },
   { key: "email", label: "Email", type: "email", pair: "c" },
@@ -26,7 +22,10 @@ const MEMBER_FIELDS: FieldDef[] = [
 const inTeam = (m: Member, t: string) => t === "All" || m.team === t || m.alsoTeam === t;
 
 export function BoardTab() {
-  const { data, user, go, setFocus, refresh } = useBoard();
+  const { chapter, round, data, user, go, setFocus, refresh } = useBoard();
+  const TEAM_ORDER = chapter.teams;
+  const ALL_TEAMS = ["All", "Executive", ...TEAM_ORDER];
+  const MEMBER_FIELDS = memberFields(TEAM_ORDER);
   const admin = user.role === "admin";
   const people = data.members;
   const [team, setTeam] = useState("All");
@@ -49,7 +48,7 @@ export function BoardTab() {
   const visible = (m: Member) => inTeam(m, team) && matches(m);
   const filtering = team !== "All" || !!q;
 
-  const tasks = currentRound(data);
+  const tasks = roundTasks(data, round?.round ?? null);
   const person = open !== null ? people.find((m) => m.id === open) ?? null : null;
   const editingMember = typeof editing === "number" ? people.find((m) => m.id === editing) : null;
 
@@ -88,7 +87,7 @@ export function BoardTab() {
             }}
           />
         ) : (
-          <p>The member list hasn&apos;t been loaded yet. Ask Rana.</p>
+          <p>The member list hasn&apos;t been loaded yet. Ask {chapter.contact}.</p>
         )}
       </section>
     );
@@ -123,7 +122,7 @@ export function BoardTab() {
       </div>
 
       {editing === "new" && (
-        <RowEditor title="Add a member" table="members" fields={MEMBER_FIELDS} initial={{ name: "", role: "", team: "Data", alsoTeam: "", tier: "", isLead: false, email: "", phone: "" }} onClose={() => setEditing(null)} />
+        <RowEditor title="Add a member" table="members" fields={MEMBER_FIELDS} initial={{ name: "", role: "", team: TEAM_ORDER[0], alsoTeam: "", tier: "", isLead: false, email: "", phone: "" }} onClose={() => setEditing(null)} />
       )}
 
       {!list ? (
@@ -229,7 +228,7 @@ function PersonCard({
   onTasks,
 }: {
   m: Member;
-  tasks?: ReturnType<typeof currentRound>[number];
+  tasks?: ReturnType<typeof roundTasks>[number];
   admin: boolean;
   copy: (el: HTMLButtonElement, v: string) => void;
   onEdit: () => void;

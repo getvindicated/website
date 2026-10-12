@@ -1,5 +1,6 @@
-// /board content that changes rarely and lives in code rather than the
-// database. Copied from docs/board-preview.html.
+// Berkeley /board content that changes rarely and lives in code rather
+// than the database (copied from docs/board-preview.html). chapters.ts
+// assembles it with UCLA's.
 
 import type { Tab } from "./types";
 
@@ -20,10 +21,6 @@ export const KEY_DATES: [date: string, text: string][] = [
   ["2026-10-30", "Price Is Right: car price component complete"],
   ["2026-11-06", "Price Is Right: final demo"],
 ];
-
-// The round shown on the Assignments tab, and its deadline.
-export const CURRENT_ROUND = { round: 2, label: "Round 2 · Due Mon, Oct 12, 11:59pm", due: "2026-10-12" };
-export const ARCHIVE_ROUND = { round: 1, label: "Round 1 archive · due Sep 26" };
 
 export const RULE =
   "every task lists the proof it needs. \"I reached out\" is not proof. If any of your deliverables is missing after the deadline, you are removed from the board. No extensions unless you ask Rana before the deadline.";
@@ -60,10 +57,6 @@ export const WEEKS: { n: number; start: string; end: string; label: string; goal
 // Socials calendar: months people can page through (0-based month index).
 export const SOCIAL_MONTHS = { year: 2026, first: 9, last: 11 };
 export const SOCIAL_STATUSES = ["Idea", "Planning", "Confirmed", "Completed"] as const;
-export const SOCIAL_KINDS: { key: "b" | "o"; label: string }[] = [
-  { key: "b", label: "Berkeley" },
-  { key: "o", label: "Online" },
-];
 
 // Round tasks with no owner yet. Only admins see them.
 export const UNASSIGNED = "Unassigned";

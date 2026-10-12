@@ -1,7 +1,6 @@
 import { bad, guard, readJson } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
-
-const TEAMS = ["Executive", "Data", "Software", "Research & Legal", "Outreach"];
+import { chapterConfig, type ChapterId } from "@/lib/board/chapters";
 
 type Row = {
   name: string;
@@ -23,13 +22,13 @@ export async function POST(request: Request) {
     console.warn(`[board] Member import refused (${user.status}).`);
     return user;
   }
-  const res = await importMembers(request);
-  if (!res.ok) console.warn(`[board] Member import rejected (${res.status}).`);
+  const res = await importMembers(request, user.chapter);
+  if (!res.ok) console.warn(`[board] Member import (${user.chapter}) rejected (${res.status}).`);
   return res;
 }
 
-async function importMembers(request: Request): Promise<Response> {
-
+async function importMembers(request: Request, chapter: ChapterId): Promise<Response> {
+  const TEAMS = ["Executive", ...chapterConfig(chapter).teams];
   const body = await readJson(request);
   const list = body?.members;
   if (!Array.isArray(list) || list.length === 0) return bad("That file doesn't have a member list in it.");
@@ -58,23 +57,23 @@ async function importMembers(request: Request): Promise<Response> {
   }
 
   const sql = db();
-  const [{ n }] = await sql`SELECT count(*)::int AS n FROM board_members`;
+  const [{ n }] = await sql`SELECT count(*)::int AS n FROM board_members WHERE chapter = ${chapter}`;
   if (n > 0 && body?.replace !== true) {
     return bad("Members are already loaded. Replacing them would undo any edits made on the Board tab.", 409);
   }
 
   try {
     await sql.begin(async (tx) => {
-      await tx`DELETE FROM board_members`;
+      await tx`DELETE FROM board_members WHERE chapter = ${chapter}`;
       for (const [i, r] of rows.entries()) {
-        await tx`INSERT INTO board_members (name, first_name, role, team, also_team, tier, is_lead, email, phone, sort)
-          VALUES (${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i})`;
+        await tx`INSERT INTO board_members (chapter, name, first_name, role, team, also_team, tier, is_lead, email, phone, sort)
+          VALUES (${chapter}, ${r.name}, ${r.name.split(/\s+/)[0]}, ${r.role}, ${r.team}, ${r.alsoTeam}, ${r.tier}, ${r.lead}, ${r.email}, ${r.phone}, ${i})`;
       }
     });
   } catch (e) {
     console.error("[board] Member import failed:", e);
     return bad("The members couldn't be saved. Try again; if it keeps happening, tell Claude.", 500);
   }
-  console.log(`[board] Imported ${rows.length} members.`);
+  console.log(`[board] Imported ${rows.length} ${chapter} members.`);
   return Response.json({ ok: true, count: rows.length });
 }

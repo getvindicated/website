@@ -13,7 +13,16 @@ export type Member = {
   phone: string;
 };
 
-export type AssignmentStatus = "pending" | "submitted" | "done" | "missing";
+export type AssignmentStatus = "pending" | "submitted" | "done" | "missing" | "excused";
+
+// A round (Berkeley) or week (UCLA) of deliverables.
+export type Round = {
+  round: number;
+  dueDate: string;
+  isCurrent: boolean;
+  showStatus: boolean;
+  note: string;
+};
 
 export type Assignment = {
   id: number;
@@ -58,6 +67,7 @@ export type Announcement = {
   postedOn: string;
   linkTab: string;
   linkLabel: string;
+  adminsOnly: boolean;
 };
 
 export type Meeting = {
@@ -65,10 +75,15 @@ export type Meeting = {
   date: string;
   title: string;
   summary: string;
+  absent: string;
   recordingUrl: string;
 };
 
 export type BoardData = {
+  rounds: Round[];
+  // First names of who a submission goes to: everyone, and the extra
+  // people for submitters on `techTeams`.
+  recipients: { base: string[]; tech: string[]; techTeams: string[] };
   members: Member[];
   assignments: Assignment[];
   submissions: Submission[];
@@ -77,5 +92,5 @@ export type BoardData = {
   meetings: Meeting[];
 };
 
-export const TABS = ["home", "board", "projects", "assignments", "socials", "meetings"] as const;
+export const TABS = ["me", "home", "board", "projects", "assignments", "socials", "meetings"] as const;
 export type Tab = (typeof TABS)[number];

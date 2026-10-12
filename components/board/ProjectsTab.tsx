@@ -1,28 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { PIR, PROJECTS, WEEKS, type Track } from "@/lib/board/static";
+import type { Para } from "@/lib/board/chapters";
 import { useBoard } from "./BoardApp";
 import { daysBetween } from "./util";
 
-const TRACKS: ("All" | Track)[] = ["All", "Data", "Backend", "App"];
+const P = ({ p }: { p: Para }) => (
+  <p>
+    {p.b && <strong>{p.b} </strong>}
+    {p.t}
+  </p>
+);
 
 export function ProjectsTab() {
-  const { today } = useBoard();
-  const [track, setTrack] = useState<"All" | Track>("All");
+  const { chapter, today } = useBoard();
+  const { groups, sections, timeline } = chapter.projects;
+  const [track, setTrack] = useState("All");
 
   return (
     <section>
       <h2>All Projects</h2>
       <div className="proj-grid">
-        {PROJECTS.map((g) => (
+        {groups.map((g) => (
           <div key={g.group}>
             <h3>{g.group}</h3>
             <ul>
-              {g.items.map(([name, chapter]) => (
+              {g.items.map(([name, where]) => (
                 <li key={name}>
                   {name}
-                  {chapter && <span className="deep"> · {chapter}</span>}
+                  {where && <span className="deep"> · {where}</span>}
                 </li>
               ))}
             </ul>
@@ -30,37 +36,34 @@ export function ProjectsTab() {
         ))}
       </div>
 
-      <h2>Project Price Is Right</h2>
-      <div className="cols">
-        <div>
-          <p>{PIR.intro}</p>
-          <p>
-            <strong>Modes:</strong> {PIR.modes}
-          </p>
-          <p>
-            <strong>Screens:</strong> {PIR.screens}
-          </p>
+      {sections.map((s) => (
+        <div key={s.title}>
+          <h2>{s.title}</h2>
+          <div className="cols">
+            {s.cols.map((col, i) => (
+              <div key={i}>
+                {col.map((p, j) => (
+                  <P key={j} p={p} />
+                ))}
+                {i === s.cols.length - 1 && s.credit && <p className="deep">{s.credit}</p>}
+              </div>
+            ))}
+          </div>
         </div>
-        <div>
-          <p>
-            <strong>How it fits together:</strong> {PIR.howItFits}
-          </p>
-          <p className="deep">{PIR.credit}</p>
-        </div>
-      </div>
+      ))}
 
-      <h3 style={{ marginTop: 18 }}>6-week calendar</h3>
+      <h3 style={{ marginTop: 18 }}>{timeline.title}</h3>
       <div className="bar" role="group" aria-label="Filter calendar by track">
-        {TRACKS.map((t) => (
+        {["All", ...timeline.tracks].map((t) => (
           <button key={t} type="button" className="chip" aria-pressed={track === t} onClick={() => setTrack(t)}>
             {t}
           </button>
         ))}
       </div>
       <div>
-        {WEEKS.map((w) => {
-          // A week stays "this week" through its weekend.
-          const now = daysBetween(w.start, today) >= 0 && daysBetween(today, w.end) >= -2;
+        {timeline.weeks.map((w) => {
+          // A week can stay "this week" through its weekend (Berkeley's end on Fridays).
+          const now = daysBetween(w.start, today) >= 0 && daysBetween(today, w.end) >= -timeline.graceDays;
           const items = w.items.filter((i) => track === "All" || i[0] === track);
           return (
             <details key={w.n} className={`week${now ? " now" : ""}`} open={now || undefined}>

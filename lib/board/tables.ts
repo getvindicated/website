@@ -37,6 +37,7 @@ const bool: Check = (v) => (typeof v === "boolean" ? { ok: true, value: v } : { 
 
 type Field = { column: string; check: Check; onCreate?: unknown };
 export type TableDef = { table: string; fields: Record<string, Field> };
+export { oneOf };
 
 export const TABLES = {
   socials: {
@@ -62,7 +63,7 @@ export const TABLES = {
       task: { column: "task", check: required("the task") },
       proof: { column: "proof_required", check: text(500), onCreate: "" },
       dueDate: { column: "due_date", check: optionalDate, onCreate: null },
-      status: { column: "status", check: oneOf(["pending", "submitted", "done", "missing"], "a status"), onCreate: "pending" },
+      status: { column: "status", check: oneOf(["pending", "submitted", "done", "missing", "excused"], "a status"), onCreate: "pending" },
       statusNote: { column: "status_note", check: text(300), onCreate: "" },
     },
   },
@@ -74,6 +75,7 @@ export const TABLES = {
       postedOn: { column: "posted_on", check: date("a date") },
       linkTab: { column: "link_tab", check: oneOf(["", ...TABS], "a tab"), onCreate: "" },
       linkLabel: { column: "link_label", check: text(100), onCreate: "" },
+      adminsOnly: { column: "admins_only", check: bool, onCreate: false },
     },
   },
   meetings: {
@@ -82,6 +84,7 @@ export const TABLES = {
       date: { column: "date", check: date("the meeting date") },
       title: { column: "title", check: required("a title", 200), onCreate: "Board meeting" },
       summary: { column: "summary", check: text(4000), onCreate: "" },
+      absent: { column: "absent", check: text(1000), onCreate: "" },
       recordingUrl: { column: "recording_url", check: url, onCreate: "" },
     },
   },
@@ -90,7 +93,8 @@ export const TABLES = {
     fields: {
       name: { column: "name", check: required("a name", 200) },
       role: { column: "role", check: text(200), onCreate: "" },
-      team: { column: "team", check: oneOf(["Executive", "Data", "Software", "Research & Legal", "Outreach"], "a team") },
+      // Checked against the chapter's teams in editable.ts.
+      team: { column: "team", check: oneOf(["Executive"], "a team") },
       alsoTeam: { column: "also_team", check: (v) => (v === "" || v === null ? { ok: true, value: null } : text(100)(v)), onCreate: null },
       tier: { column: "tier", check: optionalTier, onCreate: null },
       isLead: { column: "is_lead", check: bool, onCreate: false },
@@ -134,18 +138,26 @@ export async function createRow(def: TableDef, body: Record<string, unknown>, ex
   return { ok: true, id: r.id as number };
 }
 
-export async function updateRow(def: TableDef, id: number, body: Record<string, unknown>, extra: Record<string, unknown> = {}): Promise<Result> {
+// Every row belongs to a chapter; updates and deletes only touch rows of
+// the signed-in user's chapter.
+export async function updateRow(
+  def: TableDef,
+  chapter: string,
+  id: number,
+  body: Record<string, unknown>,
+  extra: Record<string, unknown> = {},
+): Promise<Result> {
   const c = collect(def, body, false);
   if ("error" in c) return { ok: false, error: c.error, status: 400 };
   const row = { ...c.row, ...extra };
   if (Object.keys(row).length === 0) return { ok: false, error: "Nothing to change.", status: 400 };
   const sql = db();
-  const rows = await sql`UPDATE ${sql(def.table)} SET ${sql(row)} WHERE id = ${id} RETURNING id`;
+  const rows = await sql`UPDATE ${sql(def.table)} SET ${sql(row)} WHERE id = ${id} AND chapter = ${chapter} RETURNING id`;
   return rows.length ? { ok: true, id } : { ok: false, error: "Not found", status: 404 };
 }
 
-export async function deleteRow(def: TableDef, id: number): Promise<Result> {
+export async function deleteRow(def: TableDef, chapter: string, id: number): Promise<Result> {
   const sql = db();
-  const rows = await sql`DELETE FROM ${sql(def.table)} WHERE id = ${id} RETURNING id`;
+  const rows = await sql`DELETE FROM ${sql(def.table)} WHERE id = ${id} AND chapter = ${chapter} RETURNING id`;
   return rows.length ? { ok: true, id } : { ok: false, error: "Not found", status: 404 };
 }

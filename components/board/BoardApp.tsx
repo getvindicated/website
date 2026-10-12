@@ -3,9 +3,10 @@
 import { createContext, useCallback, useContext, useEffect, useState, type MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { BoardUser } from "@/lib/board/session";
-import { ROLE_LABEL } from "@/lib/board/roles";
-import { TABS, type BoardData, type Tab } from "@/lib/board/types";
-import { TERM } from "@/lib/board/static";
+import { chapterConfig, type ChapterConfig, type ChapterId } from "@/lib/board/chapters";
+import { TABS, type BoardData, type Round, type Tab } from "@/lib/board/types";
+import { chapterUrl, setApiChapter } from "./util";
+import { MyPage } from "./MyPage";
 import { HomeTab } from "./HomeTab";
 import { BoardTab } from "./BoardTab";
 import { ProjectsTab } from "./ProjectsTab";
@@ -14,6 +15,7 @@ import { SocialsTab } from "./SocialsTab";
 import { MeetingsTab } from "./MeetingsTab";
 
 const LABELS: Record<Tab, string> = {
+  me: "My page",
   home: "Home",
   board: "Board",
   projects: "Projects",
@@ -23,6 +25,9 @@ const LABELS: Record<Tab, string> = {
 };
 
 type Ctx = {
+  chapter: ChapterConfig;
+  // The round or week on the Assignments tab now.
+  round: Round | null;
   data: BoardData;
   user: BoardUser;
   today: string;
@@ -45,12 +50,15 @@ const fromHash = (): Tab => {
   return (TABS as readonly string[]).includes(h) ? (h as Tab) : "home";
 };
 
-export function BoardApp({ data, user, today }: { data: BoardData; user: BoardUser; today: string }) {
+export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterId; data: BoardData; user: BoardUser; today: string }) {
+  setApiChapter(id);
+  const chapter = chapterConfig(id);
+  const round = data.rounds.find((r) => r.isCurrent) ?? null;
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("home");
   const [focus, setFocus] = useState<Ctx["focus"]>(null);
 
-  // Each tab is linkable: /board#socials.
+  // Each tab is linkable: /board#socials, /board/ucla#me.
   useEffect(() => {
     const sync = () => setTab(fromHash());
     sync();
@@ -72,10 +80,10 @@ export function BoardApp({ data, user, today }: { data: BoardData; user: BoardUs
     go(t);
   };
 
-  const ctx: Ctx = { data, user, today, go, refresh, focus, setFocus };
+  const ctx: Ctx = { chapter, round, data, user, today, go, refresh, focus, setFocus };
 
   async function signOut() {
-    await fetch("/api/board/logout", { method: "POST" });
+    await fetch(chapterUrl("/api/board/logout"), { method: "POST" });
     router.refresh();
   }
 
@@ -90,14 +98,15 @@ export function BoardApp({ data, user, today }: { data: BoardData; user: BoardUs
           ))}
         </nav>
         <h1>VINDICATED</h1>
-        <p className="sub">{TERM}</p>
+        <p className="sub">{chapter.term}</p>
         <p className="who-am-i deep">
-          Signed in as {ROLE_LABEL[user.role]} ·{" "}
+          Signed in as {chapter.roleLabels[user.role] ?? user.role} ·{" "}
           <button type="button" className="linkbtn" onClick={signOut}>
             Sign out
           </button>
         </p>
         <main>
+          {tab === "me" && <MyPage />}
           {tab === "home" && <HomeTab />}
           {tab === "board" && <BoardTab />}
           {tab === "projects" && <ProjectsTab />}

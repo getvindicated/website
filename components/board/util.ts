@@ -15,18 +15,36 @@ export const daysBetween = (from: string, to: string) => Math.round((D(to).getTi
 export const isoDate = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
-// Calls a /board API route. Returns an error message, or null on success.
-export async function api(path: string, method: string, body?: unknown): Promise<string | null> {
+// The chapter this page belongs to. One board hub renders per page, and it
+// sets this before anything can call the API.
+let chapter = "berkeley";
+export const setApiChapter = (c: string) => {
+  chapter = c;
+};
+// Board API routes read the chapter from ?chapter=.
+export const chapterUrl = (path: string) => `${path}${path.includes("?") ? "&" : "?"}chapter=${chapter}`;
+
+// Calls a board API route for this page's chapter. Returns an error
+// message, or null on success; `data` is the parsed reply.
+export async function apiCall(path: string, method: string, body?: unknown): Promise<{ error: string | null; data: Record<string, unknown> | null }> {
   try {
-    const res = await fetch(path, {
+    const res = await fetch(chapterUrl(path), {
       method,
       headers: body instanceof FormData ? undefined : { "content-type": "application/json" },
       body: body instanceof FormData ? body : body === undefined ? undefined : JSON.stringify(body),
     });
-    if (res.ok) return null;
     const j = await res.json().catch(() => null);
-    return (j && typeof j.error === "string" && j.error) || "Something went wrong. Try again.";
+    if (res.ok) return { error: null, data: j };
+    return { error: (j && typeof j.error === "string" && j.error) || "Something went wrong. Try again.", data: null };
   } catch {
-    return "Couldn't reach the server. Check your connection and try again.";
+    return { error: "Couldn't reach the server. Check your connection and try again.", data: null };
   }
 }
+
+export async function api(path: string, method: string, body?: unknown): Promise<string | null> {
+  return (await apiCall(path, method, body)).error;
+}
+
+// "Fiona", "Fiona and Will", "Fiona, Will and Rizwaan".
+export const listNames = (names: string[]) =>
+  names.length <= 1 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
