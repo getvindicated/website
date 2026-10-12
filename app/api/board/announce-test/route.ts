@@ -7,7 +7,8 @@ import { isEmail } from "@/lib/board/submit-rules";
 export async function POST(request: Request) {
   const user = await guard(request, ["admin"]);
   if (user instanceof Response) return user;
-  if (announceSetupProblem()) return bad("Announcement emails aren't set up yet. Rana: add BREVO_API_KEY and BOARD_INVITE_FROM in Railway (see BOARD_SETUP.md).", 503);
+  const problem = announceSetupProblem(user.chapter);
+  if (problem) return bad(problem, 503);
   const body = await readJson(request);
   const to = typeof body?.to === "string" ? body.to.trim() : "";
   const title = typeof body?.title === "string" ? body.title.trim().slice(0, 300) : "";

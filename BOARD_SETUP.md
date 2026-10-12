@@ -49,6 +49,18 @@ for one).
 
 The recipient lists are in `lib/board/chapter-server.ts`.
 
+## Who board emails come from
+
+Announcements, calendar invites and submission emails come from the
+chapter's sender, set as `from` in `lib/board/chapter-server.ts`:
+
+- Berkeley: Rana <president@getvindicated.org>
+- UCLA: President Fiona <vindicatedbruins@getvindicated.org>
+
+Each must be a verified sender in Brevo. A chapter without one (`from: null`)
+uses `BOARD_INVITE_FROM` instead. Replies still go to the organizer (or, for
+submissions, to the person who submitted).
+
 ## What admins can edit
 
 Signed in with a chapter's admin password, everything on that chapter's hub
@@ -74,9 +86,8 @@ Posting an announcement can email it to the chapter ("Email this to
 everyone", on by default): one email per person through the Brevo API, so
 no one sees anyone else's address. Admins-only announcements go to the
 members ticked **Hub admin** on the Board tab (at first: Fiona and Will for
-UCLA, Rana for Berkeley). Emails come from `BOARD_INVITE_FROM` with reply-to
-set to the chapter's organizer, so they need `BREVO_API_KEY` and
-`BOARD_INVITE_FROM` (its domain verified in Brevo, as for invites).
+UCLA, Rana for Berkeley). Emails come from the chapter's sender (above)
+with reply-to set to the chapter's organizer. They need `BREVO_API_KEY`.
 
 ## Calendar invites
 
@@ -88,15 +99,15 @@ chapter's organizer (Fiona for UCLA, Rana for Berkeley, set in
 on people's calendars; cancelling a date or the whole meeting removes it.
 
 These go through Brevo's SMTP relay rather than the Brevo API, because only
-SMTP can mark the invite as a calendar request. It needs three Railway
-variables:
+SMTP can mark the invite as a calendar request. They come from the
+chapter's sender (above) and need two Railway variables:
 
 - `BREVO_SMTP_LOGIN` and `BREVO_SMTP_KEY`: in Brevo, **SMTP & API → SMTP**
   (the login shown there, and an SMTP key you generate).
-- `BOARD_INVITE_FROM`: the address invites come from, e.g.
-  `board@getvindicated.org`. Its domain, **getvindicated.org**, must be
-  verified in Brevo (**Senders, Domains & Dedicated IPs → Domains**, then add
-  the DNS records Brevo shows).
+
+`BOARD_INVITE_FROM` is only needed for a chapter with no sender of its own;
+its domain, **getvindicated.org**, must be verified in Brevo (**Senders,
+Domains & Dedicated IPs → Domains**).
 
 Use "Send me a test invite" in the form to check one before sending to the
 board.

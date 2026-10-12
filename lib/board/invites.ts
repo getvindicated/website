@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import nodemailer, { type Transporter } from "nodemailer";
 import { chapterConfig, type ChapterId } from "./chapters";
-import { CHAPTER_SERVER } from "./chapter-server";
+import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
 import { buildIcs } from "./ics";
 import { longDate, monthDay, repeatText, shortDate, timeRange, whenShort, type Invitee, type ScheduledMeeting } from "./schedule";
 
@@ -13,8 +13,8 @@ import { longDate, monthDay, repeatText, shortDate, timeRange, whenShort, type I
 // remove the event in place. Other board email still uses the Brevo API.
 //
 // Railway variables: BREVO_SMTP_LOGIN and BREVO_SMTP_KEY (Brevo → SMTP &
-// API → SMTP), and BOARD_INVITE_FROM, an address on a domain verified in
-// Brevo (e.g. board@getvindicated.org).
+// API → SMTP). Invites come from the chapter's sender in chapter-server.ts,
+// or BOARD_INVITE_FROM for a chapter without one.
 //
 // For local testing, BOARD_INVITE_OUTBOX=<folder> writes each email there as
 // an .eml file instead of sending it.
@@ -24,10 +24,12 @@ export type InviteKind = "new" | "update" | "cancel" | "cancel-one";
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-export function inviteSetupProblem(): string | null {
+// The Railway variables invites still need, or null.
+export function inviteSetupProblem(chapter: ChapterId): string | null {
   if (process.env.BOARD_INVITE_OUTBOX) return null;
-  const missing = ["BREVO_SMTP_LOGIN", "BREVO_SMTP_KEY", "BOARD_INVITE_FROM"].filter((v) => !process.env[v]?.trim());
-  return missing.length ? `Missing ${missing.join(", ")}.` : null;
+  const missing = ["BREVO_SMTP_LOGIN", "BREVO_SMTP_KEY"].filter((v) => !process.env[v]?.trim());
+  if (!chapterSender(chapter, "")) missing.push("BOARD_INVITE_FROM");
+  return missing.length ? `Invites aren't set up yet. Rana: add ${missing.join(", ").replace(/, ([^,]*)$/, " and $1")} in Railway (see BOARD_SETUP.md).` : null;
 }
 
 let transport: Transporter | null = null;
@@ -117,8 +119,8 @@ export async function sendInvites(opts: {
     hubUrl: hub,
     onlyDate,
   });
-  const fromAddress = process.env.BOARD_INVITE_FROM?.trim() || "board@getvindicated.org";
-  const from = fromAddress.includes("<") ? fromAddress : { name: config.title, address: fromAddress };
+  const sender = chapterSender(chapter, config.title) ?? { name: config.title, email: "board@getvindicated.org" };
+  const from = { name: sender.name, address: sender.email };
   const outbox = process.env.BOARD_INVITE_OUTBOX;
 
   const sent: string[] = [];
