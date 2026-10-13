@@ -22,6 +22,8 @@ export type ChapterConfig = {
   loginSub: string;
   // Who members are told to ask when something isn't set up.
   contact: string;
+  // For people who landed on the wrong hub: shown on sign-in and Home.
+  otherHub: { prompt: string; label: string; path: string };
   roleLabels: Record<string, string>;
   teams: readonly string[];
   rule: string | null;
@@ -64,6 +66,7 @@ const BERKELEY: ChapterConfig = {
   term: TERM,
   loginSub: "UC Berkeley chapter board",
   contact: "Rana",
+  otherHub: { prompt: "Why am I on this chuz school's page?", label: "Take me to UCLA's hub", path: "/board/ucla" },
   roleLabels: { admin: "admin", socials: "socials editor", member: "board member" },
   teams: TEAM_ORDER,
   rule: RULE,
@@ -137,6 +140,7 @@ const UCLA: ChapterConfig = {
   term: "UCLA chapter · Board hub, Fall 2026",
   loginSub: "UCLA chapter board hub",
   contact: "Fiona",
+  otherHub: { prompt: "Why am I on this chuz school's page?", label: "Take me to Berkeley's hub", path: "/board" },
   roleLabels: { admin: "admin", member: "member" },
   teams: ["Data", "Research", "App Dev", "Design", "Technical Writing", "High School"],
   rule: null,

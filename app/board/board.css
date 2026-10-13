@@ -209,6 +209,15 @@
   background: var(--bg);
   color: var(--accent);
 }
+.board .btn-small {
+  display: inline-block;
+  padding: 4px 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.board .other-hub {
+  margin: 0 0 18px;
+}
 .board form.stack {
   display: grid;
   gap: 14px;

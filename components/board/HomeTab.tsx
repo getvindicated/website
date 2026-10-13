@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Announcement, SendSummary, Tab } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
 import { AnnouncementForm } from "./AnnouncementForm";
+import { OtherHub } from "./OtherHub";
 import { EditLink, KeyDatesEditor, PhotosEditor, QuickLinksEditor } from "./Editors";
 import { roundTasks, inLeadership } from "./derive";
 import { apiCall, daysBetween, fmt, photoSrc } from "./util";
@@ -29,6 +30,7 @@ export function HomeTab() {
 
   return (
     <section>
+      <OtherHub chapter={chapter} />
       {editing === "photos" ? (
         <PhotosEditor onDone={close} />
       ) : (
