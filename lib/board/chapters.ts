@@ -141,7 +141,7 @@ const UCLA: ChapterConfig = {
   loginSub: "UCLA chapter board hub",
   contact: "Fiona",
   otherHub: { prompt: "Why am I on this chuz school's page?", label: "Take me to Berkeley's hub", path: "/board" },
-  roleLabels: { admin: "admin", member: "member" },
+  roleLabels: { admin: "admin", socials: "events editor", member: "member" },
   teams: ["Data", "Research", "App Dev", "Design", "Technical Writing", "High School"],
   rule: null,
   proofRequired: false,

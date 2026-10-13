@@ -31,7 +31,12 @@ signs out everyone who used it, and you share the new one with the rest.
 | Railway variable            | Who gets it             | What it unlocks                       |
 | --------------------------- | ----------------------- | ------------------------------------- |
 | `BOARD_UCLA_PASSWORD`       | everyone on the UCLA board | view everything, submit deliverables |
+| `BOARD_UCLA_EVENTS_PASSWORD` | the events editor      | also add, edit and delete events      |
 | `BOARD_UCLA_ADMIN_PASSWORD` | Fiona and Will          | edit everything on the UCLA hub       |
+
+The events password sees what members see and can change events (dates,
+times, locations, leads, status), nothing else. Its edits go in the change
+log as "UCLA events editor".
 
 Use passwords that differ from Berkeley's.
 
@@ -119,7 +124,7 @@ board.
    Postgres service's `DATABASE_URL` (Railway offers it as a reference).
 2. **Passwords and secret.** In the same Variables screen, add:
    - `BOARD_PASSWORD`, `BOARD_SOCIALS_PASSWORD`, `BOARD_ADMIN_PASSWORD`
-   - `BOARD_UCLA_PASSWORD`, `BOARD_UCLA_ADMIN_PASSWORD`
+   - `BOARD_UCLA_PASSWORD`, `BOARD_UCLA_EVENTS_PASSWORD`, `BOARD_UCLA_ADMIN_PASSWORD`
    - `BOARD_SESSION_SECRET`: a random string of at least 32 characters.
      `openssl rand -base64 32` makes one.
 3. Redeploy, open `https://www.getvindicated.org/board`, and sign in with

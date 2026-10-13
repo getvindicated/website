@@ -57,6 +57,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
     organizer: { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja", short: "Fiona" },
     passwords: [
       ["admin", "BOARD_UCLA_ADMIN_PASSWORD"],
+      ["socials", "BOARD_UCLA_EVENTS_PASSWORD"],
       ["member", "BOARD_UCLA_PASSWORD"],
     ],
     submissions: {

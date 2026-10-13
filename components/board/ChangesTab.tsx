@@ -30,24 +30,41 @@ const when = (iso: string) =>
 // "Restore previous version".
 export function ChangesTab() {
   const { chapter, data, user } = useBoard();
-  const [name, setName] = useState("");
-  const [saved, setSaved] = useState(false);
-  useEffect(() => setName(getActor()), []);
 
   if (user.role !== "admin") return null;
-  const who = chapter.id === "ucla" ? "UCLA admin" : "Berkeley admin";
+  const place = chapter.id === "ucla" ? "UCLA" : "Berkeley";
+  const who = (role: string) => `${place} ${chapter.roleLabels[role] ?? role}`;
 
   return (
     <section>
       <h2>Changes</h2>
-      <p>Every change made with the {chapter.id === "ucla" ? "UCLA" : "Berkeley"} admin password, newest first. Only admins see this tab.</p>
+      <p>Every change made on the {place} hub, newest first. Only admins see this tab.</p>
+      <ActorName />
+
+      {data.changelog.length === 0 && <p>No changes yet.</p>}
+      <ul className="log">
+        {data.changelog.map((e, i) => (
+          <Entry key={e.id} e={e} who={who(e.role)} later={data.changelog.slice(0, i)} />
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+// "Your name for the log": optional, saved in this browser, sent with each
+// change. Everyone with a password shares it, so the log calls it self-reported.
+export function ActorName() {
+  const [name, setName] = useState("");
+  const [saved, setSaved] = useState(false);
+  useEffect(() => setName(getActor()), []);
+  return (
       <div className="note">
         <label htmlFor="actor" className="inline">
           Your name for the log
           <input
             id="actor"
             value={name}
-            placeholder="Fiona"
+            placeholder="First name"
             onChange={(e) => {
               setName(e.target.value);
               setSaved(false);
@@ -66,16 +83,8 @@ export function ChangesTab() {
           Save
         </button>
         {saved && <span className="msg ok"> Saved in this browser.</span>}
-        <p style={{ margin: "8px 0 0" }}>Optional. Everyone shares the admin password, so this name is self-reported; the log marks it that way.</p>
+        <p style={{ margin: "8px 0 0" }}>Optional. Everyone shares the password, so this name is self-reported; the change log marks it that way.</p>
       </div>
-
-      {data.changelog.length === 0 && <p>No changes yet.</p>}
-      <ul className="log">
-        {data.changelog.map((e, i) => (
-          <Entry key={e.id} e={e} who={who} later={data.changelog.slice(0, i)} />
-        ))}
-      </ul>
-    </section>
   );
 }
 
