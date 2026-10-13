@@ -3,12 +3,21 @@
 import { useId, useState } from "react";
 import { isEmail } from "@/lib/board/submit-rules";
 import { TABS, type Announcement, type Tab } from "@/lib/board/types";
+import { EVERYONE, inAudience, type Audience } from "@/lib/board/audience";
 import { useBoard } from "./BoardApp";
 import { api, apiCall, listNames } from "./util";
 
-// Post or edit an announcement (admins only), optionally emailing it to the
-// chapter: everyone with an email on file, or only the Hub admins for an
-// admins-only one. One email per person.
+type Kind = Audience["kind"];
+const KINDS: [Kind, string][] = [
+  ["everyone", "Everyone"],
+  ["leads", "Leads only"],
+  ["hubAdmins", "Hub admins"],
+  ["teams", "A team"],
+  ["people", "Pick people"],
+];
+
+// Post or edit an announcement (admins only). "Send to" picks who sees it
+// on the hub and, if emailed, who gets it: one email per person.
 export function AnnouncementForm({ existing, onClose }: { existing?: Announcement; onClose: () => void }) {
   const { data, today, refresh } = useBoard();
   const uid = useId();
@@ -18,8 +27,12 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
     postedOn: existing?.postedOn ?? today,
     linkTab: existing?.linkTab ?? "",
     linkLabel: existing?.linkLabel ?? "",
-    adminsOnly: existing?.adminsOnly ?? false,
   });
+  const start = existing?.audience ?? EVERYONE;
+  const [kind, setKind] = useState<Kind>(start.kind);
+  const [teams, setTeams] = useState<string[]>(start.kind === "teams" ? start.teams : []);
+  const [ids, setIds] = useState<number[]>(start.kind === "people" ? start.ids : []);
+  const [search, setSearch] = useState("");
   // On by default for a new announcement, off for an edit.
   const [email, setEmail] = useState(!existing);
   const [testTo, setTestTo] = useState(data.organizerEmail ?? "");
@@ -32,17 +45,25 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
     setF((x) => ({ ...x, [k]: v }));
     setConfirming(false);
   };
-  const audience = data.members.filter((m) => !f.adminsOnly || m.hubAdmin);
+  const touch = () => setConfirming(false);
+  const target: Audience | null =
+    kind === "teams" ? (teams.length ? { kind, teams } : null) : kind === "people" ? (ids.length ? { kind, ids } : null) : { kind };
+  const audience = target ? data.members.filter((m) => inAudience(m, target)) : [];
   const reach = audience.filter((m) => isEmail(m.email.trim()));
   const missing = audience.filter((m) => !isEmail(m.email.trim()));
+  const allTeams = ["Executive", ...data.settings.teams];
+  const q = search.trim().toLowerCase();
+  const found = data.members.filter((m) => !q || `${m.name} ${m.role} ${m.team}`.toLowerCase().includes(q));
+  const toggle = <T,>(list: T[], v: T, on: boolean) => (on ? [...list, v] : list.filter((x) => x !== v));
   const id = (k: string) => `${uid}-${k}`;
 
   async function save() {
     setBusy(true);
     setMsg(null);
+    const payload = { ...f, audience: target };
     const { error, data: r } = existing
-      ? await apiCall(`/api/board/announcements/${existing.id}`, "PATCH", f)
-      : await apiCall("/api/board/announcements", "POST", f);
+      ? await apiCall(`/api/board/announcements/${existing.id}`, "PATCH", payload)
+      : await apiCall("/api/board/announcements", "POST", payload);
     if (error) {
       setBusy(false);
       setConfirming(false);
@@ -96,6 +117,7 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
         onSubmit={(e) => {
           e.preventDefault();
           if (!f.title.trim()) return setMsg({ kind: "err", text: "Add a title." });
+          if (!target) return setMsg({ kind: "err", text: kind === "teams" ? "Choose at least one team." : "Choose at least one person." });
           if (email && reach.length === 0) return setMsg({ kind: "err", text: "No one it would go to has an email on file." });
           if (email && !confirming) return setConfirming(true);
           save();
@@ -132,10 +154,70 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
             <input id={id("label")} value={f.linkLabel} placeholder="Open" onChange={(e) => set("linkLabel", e.target.value)} />
           </label>
         )}
-        <label className="check" htmlFor={id("admins")}>
-          <input id={id("admins")} type="checkbox" checked={f.adminsOnly} onChange={(e) => set("adminsOnly", e.target.checked)} />
-          Board admins only
-        </label>
+        <fieldset className="send-to">
+          <legend>Send to</legend>
+          <div className="admin-row">
+            {KINDS.map(([k, label]) => (
+              <label key={k} className="check" htmlFor={id(`to-${k}`)}>
+                <input
+                  id={id(`to-${k}`)}
+                  type="radio"
+                  name={id("to")}
+                  checked={kind === k}
+                  onChange={() => {
+                    setKind(k);
+                    touch();
+                  }}
+                />
+                {label}
+              </label>
+            ))}
+          </div>
+          {kind === "leads" && <p>Everyone marked Lead on the Board tab, plus the top two rows of the chart.</p>}
+          {kind === "hubAdmins" && <p>Members ticked Hub admin. On the hub, only admin sign-ins see it.</p>}
+          {kind === "teams" && (
+            <div className="admin-row">
+              {allTeams.map((t) => (
+                <label key={t} className="check" htmlFor={id(`team-${t}`)}>
+                  <input
+                    id={id(`team-${t}`)}
+                    type="checkbox"
+                    checked={teams.includes(t)}
+                    onChange={(e) => {
+                      setTeams(toggle(teams, t, e.target.checked));
+                      touch();
+                    }}
+                  />
+                  {t}
+                </label>
+              ))}
+            </div>
+          )}
+          {kind === "people" && (
+            <div className="pick-people">
+              <input type="search" aria-label="Search members" placeholder="Search by name, role or team" value={search} onChange={(e) => setSearch(e.target.value)} />
+              <ul>
+                {found.map((m) => (
+                  <li key={m.id}>
+                    <label className="check" htmlFor={id(`p-${m.id}`)}>
+                      <input
+                        id={id(`p-${m.id}`)}
+                        type="checkbox"
+                        checked={ids.includes(m.id)}
+                        onChange={(e) => {
+                          setIds(toggle(ids, m.id, e.target.checked));
+                          touch();
+                        }}
+                      />
+                      {m.name} · {m.role}
+                    </label>
+                  </li>
+                ))}
+                {found.length === 0 && <li>No one matches.</li>}
+              </ul>
+            </div>
+          )}
+        </fieldset>
         <label className="check" htmlFor={id("email")}>
           <input
             id={id("email")}
@@ -146,13 +228,14 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
               setConfirming(false);
             }}
           />
-          {existing ? "Email the update" : "Email this to everyone"}
-          {f.adminsOnly ? " (Hub admins only)" : ""}
+          {existing ? "Email the update" : "Email it"}
         </label>
-        {email && (
-          <p>
-            {reach.length} {reach.length === 1 ? "person" : "people"} will get it, each in their own email.
-            {missing.length > 0 && ` No email on file for ${listNames(missing.map((m) => m.name))}, so they won't get it.`}
+        {target && (
+          <p className="reach" role="status">
+            {email
+              ? `Sending to ${reach.length} ${reach.length === 1 ? "person" : "people"}${reach.length ? `: ${listNames(reach.map((m) => m.name))}` : ""}. Each gets their own email.`
+              : `For ${audience.length} ${audience.length === 1 ? "person" : "people"}${audience.length ? `: ${listNames(audience.map((m) => m.name))}` : ""}.`}
+            {email && missing.length > 0 && ` No email on file for ${listNames(missing.map((m) => m.name))}, so they won't get it.`}
           </p>
         )}
 

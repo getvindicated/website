@@ -87,12 +87,22 @@ log shows it as self-reported.
 
 ## Announcement emails
 
-Posting an announcement can email it to the chapter ("Email this to
-everyone", on by default): one email per person through the Brevo API, so
-no one sees anyone else's address. Admins-only announcements go to the
-members ticked **Hub admin** on the Board tab (at first: Fiona and Will for
-UCLA, Rana for Berkeley). Emails come from the chapter's sender (above)
-with reply-to set to the chapter's organizer. They need `BREVO_API_KEY`.
+Each announcement has a **Send to**: Everyone (the default), Leads only
+(everyone marked Lead plus the top two rows of the chart), Hub admins
+(members ticked **Hub admin** on the Board tab), one or more teams, or
+picked people. The form lists who that is before anything is sent.
+
+"Email it" (on by default) sends one email per person through the Brevo
+API, so no one sees anyone else's address. Emails come from the chapter's
+sender (above) with reply-to set to the chapter's organizer. They need
+`BREVO_API_KEY`.
+
+On the hub, admins see every announcement. Members see posts for Everyone,
+plus posts for a group they're in once they choose their name on My page
+(it's remembered in that browser). Hub admins posts only show to admin
+sign-ins. Since everyone shares the member password, the name is
+self-reported, so don't put anything in a Leads, team or people post that
+a member shouldn't see; use Hub admins for that.
 
 ## Calendar invites
 

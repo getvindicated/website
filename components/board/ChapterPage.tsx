@@ -20,12 +20,18 @@ export async function ChapterPage({ chapter }: { chapter: ChapterId }) {
   }
   let data;
   try {
-    data = await loadBoard(user);
+    data = await loadBoard(user, viewerFrom(await headers(), chapter));
   } catch (e) {
     console.error("[board] Could not load the board:", e);
     return <BoardNotice chapter={chapter} text="The board couldn't reach its database. Try again in a minute; if it keeps happening, tell Rana." />;
   }
   return <BoardApp chapter={chapter} data={data} user={user} today={todayInCalifornia()} />;
+}
+
+// The member this browser picked on My page (see VIEWER_COOKIE in util.ts).
+function viewerFrom(h: Headers, chapter: ChapterId): number | null {
+  const m = (h.get("cookie") ?? "").match(new RegExp(`(?:^|;\\s*)board_viewer_${chapter}=(\\d{1,9})`));
+  return m ? Number(m[1]) : null;
 }
 
 function BoardNotice({ chapter, text }: { chapter: ChapterId; text: string }) {

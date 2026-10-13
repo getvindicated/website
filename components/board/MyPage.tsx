@@ -4,33 +4,38 @@ import { useEffect, useState } from "react";
 import type { Member } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
 import { roundTasks } from "./derive";
-import { daysBetween, fmt } from "./util";
+import { daysBetween, fmt, setViewer } from "./util";
 import { timeRange, upcomingDates } from "@/lib/board/schedule";
 
 // Who "My page" is for. Everyone signs in with a shared password, so the
-// viewer picks themselves and the choice is remembered in this browser.
-// When per-person sign-in exists, return the signed-in member here and
-// drop the picker; nothing else on the page needs to change.
+// viewer picks themselves and the choice is remembered in this browser (a
+// cookie, so Home also gets announcements addressed to them). When
+// per-person sign-in exists, return the signed-in member here and drop the
+// picker; nothing else on the page needs to change.
 function useViewer(members: Member[]) {
-  const { chapter } = useBoard();
-  const key = `vin-board-viewer-${chapter.id}`;
-  const [id, setId] = useState<number | null>(null);
+  const { chapter, data, refresh } = useBoard();
+  const [id, setId] = useState<number | null>(data.viewerId);
+  // A choice saved before the cookie existed: move it over once.
   useEffect(() => {
+    if (data.viewerId) return;
     try {
+      const key = `vin-board-viewer-${chapter.id}`;
       const saved = Number(localStorage.getItem(key));
-      if (saved) setId(saved);
+      localStorage.removeItem(key);
+      if (saved && members.some((m) => m.id === saved)) {
+        setId(saved);
+        setViewer(saved);
+        refresh();
+      }
     } catch {
       /* private mode: start unpicked */
     }
-  }, [key]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const pick = (next: number | null) => {
     setId(next);
-    try {
-      if (next) localStorage.setItem(key, String(next));
-      else localStorage.removeItem(key);
-    } catch {
-      /* ignore */
-    }
+    setViewer(next);
+    refresh();
   };
   return { viewer: members.find((m) => m.id === id) ?? null, pick, canPick: true };
 }
