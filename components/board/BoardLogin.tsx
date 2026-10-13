@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { chapterConfig, type ChapterId } from "@/lib/board/chapters";
+import { OtherHub } from "./OtherHub";
 import { api, setApiChapter } from "./util";
 
 export function BoardLogin({ chapter }: { chapter: ChapterId }) {
@@ -28,6 +29,7 @@ export function BoardLogin({ chapter }: { chapter: ChapterId }) {
     <main className="wrap">
       <h1>VINDICATED</h1>
       <p className="sub">{config.loginSub}</p>
+      <OtherHub chapter={config} />
       <form className="stack login" onSubmit={submit} noValidate>
         <label htmlFor="board-password">
           Board password
