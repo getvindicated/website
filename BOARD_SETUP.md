@@ -107,25 +107,33 @@ a member shouldn't see; use Hub admins for that.
 ## Calendar invites
 
 Admins schedule meetings on the Meetings tab ("Schedule a meeting"). Each
-person invited gets an email with the event attached as `invite.ics`.
-Replies go to the chapter's organizer (Fiona for UCLA, Rana for Berkeley,
+person invited gets a calendar invite: in Gmail, Apple Mail and Outlook it
+shows Yes / Maybe / No and adds the event. Replies go to the chapter's organizer (Fiona for UCLA, Rana for Berkeley,
 set in `lib/board/chapter-server.ts`). Editing a meeting sends the same
 event with a higher sequence number, so calendars update the copy they
 have; cancelling a date or the whole meeting sends a cancellation for it.
 
-Invites go through the Brevo API like the other board email (Railway blocks
-outbound SMTP), from the chapter's sender (above). They need
-`BREVO_API_KEY`; `BOARD_INVITE_FROM` only for a chapter with no sender of
-its own. The API can't mark the attachment as a calendar request the way
-SMTP could, so some mail apps show `invite.ics` as an attachment to open
-instead of Yes / Maybe / No buttons. Opening it adds the event.
+Invites come from the chapter's sender (above) and go out over Brevo's SMTP
+relay on port 2525 (Railway blocks 587 and 465). Only SMTP can mark the
+invite as a calendar request, which is what shows the RSVP buttons. Full
+calendar invites need two Railway variables:
+
+- `BREVO_SMTP_LOGIN` and `BREVO_SMTP_KEY`: in Brevo, **SMTP & API → SMTP**
+  (the login shown there, and an SMTP key you generate).
+
+Without them, or if SMTP fails or times out, invites go through the Brevo
+API (`BREVO_API_KEY`) instead. Those still carry the event, but only as an
+`invite.ics` attachment to open: no Yes / Maybe / No. The server log says
+which way each batch went. `BOARD_INVITE_FROM` is only needed for a
+chapter with no sender of its own.
 
 Every email call gives up after 15 seconds. If no invite goes through, the
 meeting stays on the Meetings tab marked **Invites not sent**, with
 **Resend invites** and **Delete** (deleting it sends nothing).
 
 Use "Send me a test invite" in the form to check one before sending to the
-board.
+board. Send it to an address other than the organizer's: Gmail doesn't
+show RSVP buttons on an invite sent to its own organizer.
 
 ## One-time setup in Railway
 

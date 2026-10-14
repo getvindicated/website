@@ -1,36 +1,85 @@
 import "server-only";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { EmailTimeoutError, sendEmail } from "@/lib/brevo";
+import nodemailer, { type SendMailOptions, type Transporter } from "nodemailer";
+import { EMAIL_TIMEOUT_MS, EmailTimeoutError, sendEmail } from "@/lib/brevo";
 import { chapterConfig, type ChapterId } from "./chapters";
 import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
 import { buildIcs } from "./ics";
 import { longDate, monthDay, repeatText, shortDate, timeRange, whenShort, type Invitee, type ScheduledMeeting } from "./schedule";
 
-// Sends board meeting invites through Brevo's HTTP API, like the other board
-// email (Railway blocks outbound SMTP). Each email carries the event as an
-// "invite.ics" attachment with METHOD:REQUEST or METHOD:CANCEL, the meeting's
-// UID and SEQUENCE, so calendars add, update or remove the same event. The
-// API has no field for an attachment's content type; Brevo sets it from the
-// .ics extension.
+// Sends board meeting invites. Each one carries the event (METHOD:REQUEST or
+// METHOD:CANCEL, the meeting's UID and SEQUENCE) so calendars add, update or
+// remove the same event.
 //
-// Railway variables: BREVO_API_KEY, and a sender: the chapter's "from" in
-// chapter-server.ts, or BOARD_INVITE_FROM for a chapter without one.
+// 1. Brevo SMTP on port 2525 (Railway blocks 587 and 465), with nodemailer's
+//    icalEvent: a "text/calendar; method=REQUEST" (or CANCEL) part, which is
+//    what makes Gmail show Yes / Maybe / No. The same .ics is also attached.
+// 2. If SMTP isn't set up, fails or times out, the Brevo HTTP API, which can
+//    only attach invite.ics as a file (no calendar part, so no RSVP buttons).
+// Each attempt gives up after EMAIL_TIMEOUT_MS. The log says which path
+// each invite took.
 //
-// For local testing, BOARD_INVITE_OUTBOX=<folder> writes each API request
-// there as a .json file (and the .ics next to it) instead of sending it.
+// Railway variables: BREVO_SMTP_LOGIN and BREVO_SMTP_KEY (Brevo → SMTP & API
+// → SMTP) for full calendar invites; BREVO_API_KEY for the fallback; and a
+// sender: the chapter's "from" in chapter-server.ts, or BOARD_INVITE_FROM.
+//
+// For local testing, BOARD_INVITE_OUTBOX=<folder> writes each email there as
+// an .eml file (the SMTP version, with the .ics next to it) instead of
+// sending it.
 
 export type InviteKind = "new" | "update" | "cancel" | "cancel-one";
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-// The Railway variables invites still need, or null.
+const SMTP_HOST = "smtp-relay.brevo.com";
+const SMTP_PORT = 2525;
+const smtpReady = () => !!(process.env.BREVO_SMTP_LOGIN?.trim() && process.env.BREVO_SMTP_KEY?.trim());
+
+// The Railway variables invites can't go out without, or null. SMTP alone,
+// or the API key alone, is enough to send; full calendar invites need SMTP.
 export function inviteSetupProblem(chapter: ChapterId): string | null {
   if (process.env.BOARD_INVITE_OUTBOX) return null;
-  const missing = process.env.BREVO_API_KEY?.trim() ? [] : ["BREVO_API_KEY"];
+  const missing: string[] = [];
+  if (!smtpReady() && !process.env.BREVO_API_KEY?.trim()) missing.push("BREVO_SMTP_LOGIN and BREVO_SMTP_KEY (or BREVO_API_KEY)");
   if (!chapterSender(chapter, "")) missing.push("BOARD_INVITE_FROM");
-  return missing.length ? `Invites aren't set up yet. Rana: add ${missing.join(", ").replace(/, ([^,]*)$/, " and $1")} in Railway (see BOARD_SETUP.md).` : null;
+  return missing.length ? `Invites aren't set up yet. Rana: add ${missing.join(" and ")} in Railway (see BOARD_SETUP.md).` : null;
+}
+
+let transport: Transporter | null = null;
+function smtp(): Transporter {
+  transport ??= nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: false,
+    requireTLS: true, // STARTTLS
+    auth: { user: process.env.BREVO_SMTP_LOGIN!.trim(), pass: process.env.BREVO_SMTP_KEY!.trim() },
+    connectionTimeout: EMAIL_TIMEOUT_MS,
+    greetingTimeout: EMAIL_TIMEOUT_MS,
+    socketTimeout: EMAIL_TIMEOUT_MS,
+  });
+  return transport;
+}
+
+// Sends over SMTP, giving up after EMAIL_TIMEOUT_MS overall. A stuck
+// connection is closed so the next batch starts fresh.
+async function sendSmtp(msg: SendMailOptions) {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    await Promise.race([
+      smtp().sendMail(msg),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new EmailTimeoutError()), EMAIL_TIMEOUT_MS);
+      }),
+    ]);
+  } catch (e) {
+    transport?.close();
+    transport = null;
+    throw e;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 const siteUrl = () => (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.getvindicated.org").replace(/\/$/, "");
@@ -84,8 +133,9 @@ ${paras.map((p) => `<p>${esc(p).replace(/\n/g, "<br>")}</p>`).join("\n")}
 }
 
 // Sends one email per recipient, each with the same .ics (all attendees
-// listed). Returns who it reached and who it didn't. If Brevo times out, the
-// rest aren't tried (they'd most likely hang too) and count as not reached.
+// listed). Returns who it reached and who it didn't. After SMTP fails once,
+// the rest of the batch goes straight to the API. If the API times out too,
+// the rest aren't tried (they'd most likely hang too) and count as not reached.
 export async function sendInvites(opts: {
   chapter: ChapterId;
   meeting: ScheduledMeeting;
@@ -110,31 +160,56 @@ export async function sendInvites(opts: {
   });
   const sender = chapterSender(chapter, config.title) ?? { name: config.title, email: "board@getvindicated.org" };
   const outbox = process.env.BOARD_INVITE_OUTBOX;
-  const attachment = [{ name: "invite.ics", content: Buffer.from(ics, "utf8").toString("base64") }];
+  let useSmtp = smtpReady();
+  const via = { smtp: 0, api: 0 };
 
   const sent: string[] = [];
   const failed: string[] = [];
   for (const [i, r] of recipients.entries()) {
     const first = r.name.split(/\s+/)[0] || r.name;
     const c = content(kind, meeting, first, org.short, hub, onlyDate);
-    const mail = {
-      sender,
-      to: [{ name: r.name, email: r.email }],
-      replyTo: { name: org.name, email: org.email },
+    // SMTP: icalEvent adds the "text/calendar; method=…" part Gmail turns
+    // into an invite, and attaches the same .ics as invite.ics.
+    const msg: SendMailOptions = {
+      from: { name: sender.name, address: sender.email },
+      to: { name: r.name, address: r.email },
+      replyTo: { name: org.name, address: org.email },
       subject: c.subject,
-      htmlContent: c.html,
-      textContent: c.text,
-      attachment,
+      text: c.text,
+      html: c.html,
+      icalEvent: { method, filename: "invite.ics", content: ics },
     };
     try {
       if (outbox) {
+        const info = await nodemailer.createTransport({ streamTransport: true, buffer: true, newline: "windows" }).sendMail(msg);
         mkdirSync(outbox, { recursive: true });
         const base = join(outbox, `${Date.now()}-${i}-${kind}-${r.email}`);
-        writeFileSync(`${base}.json`, JSON.stringify(mail, null, 2));
+        writeFileSync(`${base}.eml`, info.message as Buffer);
         writeFileSync(`${base}.ics`, ics);
-      } else {
-        await sendEmail(mail);
+        sent.push(r.email);
+        continue;
       }
+      if (useSmtp) {
+        try {
+          await sendSmtp(msg);
+          via.smtp++;
+          sent.push(r.email);
+          continue;
+        } catch (e) {
+          useSmtp = false;
+          console.warn(`[board] Invite to ${r.email} over SMTP failed (${e instanceof Error ? e.message : e}); sending through the Brevo API instead.`);
+        }
+      }
+      await sendEmail({
+        sender,
+        to: [{ name: r.name, email: r.email }],
+        replyTo: { name: org.name, email: org.email },
+        subject: c.subject,
+        htmlContent: c.html,
+        textContent: c.text,
+        attachment: [{ name: "invite.ics", content: Buffer.from(ics, "utf8").toString("base64") }],
+      });
+      via.api++;
       sent.push(r.email);
     } catch (e) {
       console.error(`[board] Invite to ${r.email} failed:`, e instanceof Error ? e.message : e);
@@ -145,6 +220,10 @@ export async function sendInvites(opts: {
       }
     }
   }
-  console.log(`[board] ${kind} invite "${meeting.title}" (${chapter}): ${sent.length} sent, ${failed.length} failed.`);
+  console.log(
+    `[board] ${kind} invite "${meeting.title}" (${chapter}): ${sent.length} sent` +
+      (outbox ? " to the outbox" : ` (${via.smtp} over SMTP, ${via.api} through the Brevo API)`) +
+      `, ${failed.length} failed.`,
+  );
   return { sent, failed };
 }
