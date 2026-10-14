@@ -216,6 +216,9 @@ export function ScheduleForm({ existing, onClose }: { existing?: ScheduledMeetin
           Send me a test invite
         </button>
       </div>
+      {data.organizerEmail && testTo.trim().toLowerCase() === data.organizerEmail.toLowerCase() && (
+        <p className="msg err">Gmail won&apos;t show RSVP buttons on an invite sent to its own organizer. Use a different address to test.</p>
+      )}
 
       {msg && (
         <p className={`msg ${msg.kind}`} role={msg.kind === "err" ? "alert" : "status"}>
