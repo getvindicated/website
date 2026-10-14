@@ -171,3 +171,14 @@ CREATE TABLE IF NOT EXISTS board_announcement_sends (
 ALTER TABLE board_members ADD COLUMN IF NOT EXISTS is_hub_admin boolean NOT NULL DEFAULT false;
 -- Lets rounds be edited and restored like every other row.
 ALTER TABLE board_rounds ADD COLUMN IF NOT EXISTS id serial;
+
+-- Who an announcement is for ("Send to"): JSON, see lib/board/audience.ts.
+-- Replaces admins_only, which setup turns into {"kind":"hubAdmins"}.
+ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS audience text NOT NULL DEFAULT '{"kind":"everyone"}';
+-- What a send was addressed to, as shown on the hub ("Leads only").
+ALTER TABLE board_announcement_sends ADD COLUMN IF NOT EXISTS audience text NOT NULL DEFAULT '';
+
+-- How many invites to a scheduled meeting have gone through. 0 means none
+-- ever did (e.g. saved while sending was broken): the Meetings tab offers
+-- "Resend invites".
+ALTER TABLE board_scheduled ADD COLUMN IF NOT EXISTS invites_sent integer NOT NULL DEFAULT 0;

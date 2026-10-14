@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import type { Announcement, SendSummary, Tab } from "@/lib/board/types";
+import type { Announcement, Member, SendSummary, Tab } from "@/lib/board/types";
+import { audienceLabel } from "@/lib/board/audience";
 import { useBoard } from "./BoardApp";
 import { AnnouncementForm } from "./AnnouncementForm";
+import { OtherHub } from "./OtherHub";
 import { EditLink, KeyDatesEditor, PhotosEditor, QuickLinksEditor } from "./Editors";
 import { roundTasks, inLeadership } from "./derive";
-import { apiCall, daysBetween, fmt, photoSrc } from "./util";
+import { apiCall, daysBetween, fmt, listNames, photoSrc } from "./util";
 
 type Editing = "links" | "dates" | "photos" | "new" | number | null;
 
@@ -29,6 +31,7 @@ export function HomeTab() {
 
   return (
     <section>
+      <OtherHub chapter={chapter} />
       {editing === "photos" ? (
         <PhotosEditor onDone={close} />
       ) : (
@@ -93,6 +96,11 @@ export function HomeTab() {
               </button>
             </p>
           )}
+          {!admin && data.viewerId === null && (
+            <p>
+              Choose your name on <button className="linkbtn" onClick={() => go("me")}>My page</button> to also see posts sent to your team or to you.
+            </p>
+          )}
           {editing === "new" && <AnnouncementForm onClose={close} />}
           {data.announcements.map((a) =>
             editing === a.id ? (
@@ -152,8 +160,16 @@ export function HomeTab() {
   );
 }
 
+// "Leads only", "Data team", or the names for picked people.
+function forLabel(a: Announcement, members: Member[]) {
+  if (a.audience.kind !== "people") return audienceLabel(a.audience);
+  const ids = a.audience.ids;
+  const names = members.filter((m) => ids.includes(m.id)).map((m) => m.name);
+  return names.length ? listNames(names) : audienceLabel(a.audience);
+}
+
 function AnnouncementItem({ a, admin, sent, onEdit }: { a: Announcement; admin: boolean; sent?: SendSummary; onEdit: () => void }) {
-  const { go, refresh } = useBoard();
+  const { data, go, refresh } = useBoard();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
@@ -169,7 +185,7 @@ function AnnouncementItem({ a, admin, sent, onEdit }: { a: Announcement; admin: 
   return (
     <div className="item">
       <h3>{a.title}</h3>
-      {a.adminsOnly && <p className="deep">Board admins only</p>}
+      {a.audience.kind !== "everyone" && <p className="deep">For: {forLabel(a, data.members)}</p>}
       {(a.body || a.linkLabel) && (
         <p>
           {a.body}
@@ -185,7 +201,8 @@ function AnnouncementItem({ a, admin, sent, onEdit }: { a: Announcement; admin: 
       )}
       {admin && sent && (
         <p className="deep">
-          {sent.kind === "update" ? "Update emailed" : "Emailed"} to {sent.sent} {sent.sent === 1 ? "person" : "people"} on{" "}
+          {sent.kind === "update" ? "Update sent to" : "Sent to"}: {sent.audience ? `${sent.audience}, ` : ""}
+          {sent.sent} {sent.sent === 1 ? "person" : "people"}, on{" "}
           {new Date(sent.at).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Los_Angeles" })}.
           {sent.failed.length > 0 && (
             <>

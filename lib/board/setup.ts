@@ -69,6 +69,13 @@ async function setup() {
   await seedSettings(sql);
   await markHubAdmins(sql);
   await renameEvanceline(sql);
+  await adminsOnlyToHubAdmins(sql);
+}
+
+// Announcements marked "admins only" before "Send to" existed are for Hub
+// admins. Safe to re-run: a restored old version gets converted too.
+async function adminsOnlyToHubAdmins(sql: ReturnType<typeof db>) {
+  await sql`UPDATE board_announcements SET audience = '{"kind":"hubAdmins"}', admins_only = false WHERE admins_only`;
 }
 
 // UCLA's Design Lead is Evanceline Tang; the starting data called her

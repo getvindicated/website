@@ -31,7 +31,12 @@ signs out everyone who used it, and you share the new one with the rest.
 | Railway variable            | Who gets it             | What it unlocks                       |
 | --------------------------- | ----------------------- | ------------------------------------- |
 | `BOARD_UCLA_PASSWORD`       | everyone on the UCLA board | view everything, submit deliverables |
+| `BOARD_UCLA_EVENTS_PASSWORD` | the events editor      | also add, edit and delete events      |
 | `BOARD_UCLA_ADMIN_PASSWORD` | Fiona and Will          | edit everything on the UCLA hub       |
+
+The events password sees what members see and can change events (dates,
+times, locations, leads, status), nothing else. Its edits go in the change
+log as "UCLA events editor".
 
 Use passwords that differ from Berkeley's.
 
@@ -82,32 +87,42 @@ log shows it as self-reported.
 
 ## Announcement emails
 
-Posting an announcement can email it to the chapter ("Email this to
-everyone", on by default): one email per person through the Brevo API, so
-no one sees anyone else's address. Admins-only announcements go to the
-members ticked **Hub admin** on the Board tab (at first: Fiona and Will for
-UCLA, Rana for Berkeley). Emails come from the chapter's sender (above)
-with reply-to set to the chapter's organizer. They need `BREVO_API_KEY`.
+Each announcement has a **Send to**: Everyone (the default), Leads only
+(everyone marked Lead plus the top two rows of the chart), Hub admins
+(members ticked **Hub admin** on the Board tab), one or more teams, or
+picked people. The form lists who that is before anything is sent.
+
+"Email it" (on by default) sends one email per person through the Brevo
+API, so no one sees anyone else's address. Emails come from the chapter's
+sender (above) with reply-to set to the chapter's organizer. They need
+`BREVO_API_KEY`.
+
+On the hub, admins see every announcement. Members see posts for Everyone,
+plus posts for a group they're in once they choose their name on My page
+(it's remembered in that browser). Hub admins posts only show to admin
+sign-ins. Since everyone shares the member password, the name is
+self-reported, so don't put anything in a Leads, team or people post that
+a member shouldn't see; use Hub admins for that.
 
 ## Calendar invites
 
 Admins schedule meetings on the Meetings tab ("Schedule a meeting"). Each
-person invited gets an email with a calendar invite (invite.ics); Gmail,
-Apple Mail and Outlook show Yes / Maybe / No, and the reply goes to the
-chapter's organizer (Fiona for UCLA, Rana for Berkeley, set in
-`lib/board/chapter-server.ts`). Editing a meeting updates the event already
-on people's calendars; cancelling a date or the whole meeting removes it.
+person invited gets an email with the event attached as `invite.ics`.
+Replies go to the chapter's organizer (Fiona for UCLA, Rana for Berkeley,
+set in `lib/board/chapter-server.ts`). Editing a meeting sends the same
+event with a higher sequence number, so calendars update the copy they
+have; cancelling a date or the whole meeting sends a cancellation for it.
 
-These go through Brevo's SMTP relay rather than the Brevo API, because only
-SMTP can mark the invite as a calendar request. They come from the
-chapter's sender (above) and need two Railway variables:
+Invites go through the Brevo API like the other board email (Railway blocks
+outbound SMTP), from the chapter's sender (above). They need
+`BREVO_API_KEY`; `BOARD_INVITE_FROM` only for a chapter with no sender of
+its own. The API can't mark the attachment as a calendar request the way
+SMTP could, so some mail apps show `invite.ics` as an attachment to open
+instead of Yes / Maybe / No buttons. Opening it adds the event.
 
-- `BREVO_SMTP_LOGIN` and `BREVO_SMTP_KEY`: in Brevo, **SMTP & API → SMTP**
-  (the login shown there, and an SMTP key you generate).
-
-`BOARD_INVITE_FROM` is only needed for a chapter with no sender of its own;
-its domain, **getvindicated.org**, must be verified in Brevo (**Senders,
-Domains & Dedicated IPs → Domains**).
+Every email call gives up after 15 seconds. If no invite goes through, the
+meeting stays on the Meetings tab marked **Invites not sent**, with
+**Resend invites** and **Delete** (deleting it sends nothing).
 
 Use "Send me a test invite" in the form to check one before sending to the
 board.
@@ -119,7 +134,7 @@ board.
    Postgres service's `DATABASE_URL` (Railway offers it as a reference).
 2. **Passwords and secret.** In the same Variables screen, add:
    - `BOARD_PASSWORD`, `BOARD_SOCIALS_PASSWORD`, `BOARD_ADMIN_PASSWORD`
-   - `BOARD_UCLA_PASSWORD`, `BOARD_UCLA_ADMIN_PASSWORD`
+   - `BOARD_UCLA_PASSWORD`, `BOARD_UCLA_EVENTS_PASSWORD`, `BOARD_UCLA_ADMIN_PASSWORD`
    - `BOARD_SESSION_SECRET`: a random string of at least 32 characters.
      `openssl rand -base64 32` makes one.
 3. Redeploy, open `https://www.getvindicated.org/board`, and sign in with

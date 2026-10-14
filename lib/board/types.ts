@@ -1,5 +1,6 @@
 // Shapes shared by the /board server code and its client components.
 
+import type { Audience } from "./audience";
 import type { ScheduledMeeting } from "./schedule";
 import type { Settings } from "./settings";
 
@@ -72,7 +73,7 @@ export type Announcement = {
   postedOn: string;
   linkTab: string;
   linkLabel: string;
-  adminsOnly: boolean;
+  audience: Audience;
 };
 
 export type Meeting = {
@@ -99,7 +100,8 @@ export type LogEntry = {
 };
 
 // An announcement's latest email: how many it reached and who it didn't.
-export type SendSummary = { announcementId: number; at: string; kind: string; sent: number; failed: { name: string; email: string }[] };
+// `audience` is what the send was addressed to ("Leads only").
+export type SendSummary = { announcementId: number; at: string; kind: string; audience: string; sent: number; failed: { name: string; email: string }[] };
 
 export type BoardData = {
   settings: Settings;
@@ -111,6 +113,9 @@ export type BoardData = {
   scheduled: ScheduledMeeting[];
   // Admins only: prefills "Send me a test invite".
   organizerEmail: string | null;
+  // Who this browser picked on My page ("Viewing as"), or null. Members see
+  // announcements addressed to that person.
+  viewerId: number | null;
   // First names of who a submission goes to: everyone, and the extra
   // people for submitters on `techTeams`.
   recipients: { base: string[]; tech: string[]; techTeams: string[] };

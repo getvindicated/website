@@ -30,11 +30,19 @@
 }
 
 /* ---------- Header ---------- */
+/* A plain full-width bar with one thin line along the bottom. The nav is
+   75px + the 1px line = 76px, the height the sticky bars and panels
+   elsewhere (track nav, scroll tours, slideshow) and the mobile menu's
+   `top` assume. */
 .rd-hdr {
   z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 0;
 }
 .rd-hdr .nav {
   gap: 16px;
+  height: 75px;
 }
 .rd-hdr .right {
   display: flex;
@@ -118,7 +126,7 @@
     right: 0;
     background: #fff;
     padding: 14px 20px 24px;
-    border-bottom: 1px solid #e6e1e8;
+    border-bottom: 1px solid var(--line);
     max-height: calc(100dvh - 76px);
     overflow: auto;
   }
@@ -1222,10 +1230,6 @@
   }
 }
 @media (max-width: 640px) {
-  .rd-hdr .nav {
-    width: calc(100% - 20px);
-    padding: 0 12px;
-  }
   .rd-hdr .right {
     gap: 6px;
   }

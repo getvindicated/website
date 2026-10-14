@@ -8,11 +8,15 @@ import { listLog } from "./changelog";
 import { sendSummaries } from "./announce";
 import type { BoardUser } from "./session";
 import { UNASSIGNED } from "./static";
-import type { BoardData } from "./types";
+import type { BoardData, Member } from "./types";
+import { inAudience, parseAudience } from "./audience";
 
 // Everything one chapter's hub shows, for the signed-in user. Members never
-// receive tasks with no owner yet or admins-only announcements.
-export async function loadBoard(user: BoardUser): Promise<BoardData> {
+// receive tasks with no owner yet. Admins get every announcement; everyone
+// else gets those for Everyone, plus ones addressed to the person this
+// browser picked on My page (`viewerId`). Hub admins posts are only sent to
+// admin sign-ins, since anyone with the member password can pick any name.
+export async function loadBoard(user: BoardUser, viewerId: number | null = null): Promise<BoardData> {
   await ensureSetup();
   const sql = db();
   const c = user.chapter;
@@ -37,13 +41,18 @@ export async function loadBoard(user: BoardUser): Promise<BoardData> {
     sql`SELECT id, date, time, title, location, kind, lead, status, cost, note
         FROM board_socials WHERE chapter = ${c} ORDER BY date, id`,
     sql`SELECT id, title, body, posted_on AS "postedOn", link_tab AS "linkTab", link_label AS "linkLabel",
-          admins_only AS "adminsOnly"
-        FROM board_announcements WHERE chapter = ${c} ${admin ? sql`` : sql`AND NOT admins_only`}
+          audience, admins_only
+        FROM board_announcements WHERE chapter = ${c}
         ORDER BY sort, posted_on DESC, id DESC`,
     sql`SELECT id, date, title, summary, absent, recording_url AS "recordingUrl"
         FROM board_meetings WHERE chapter = ${c} ORDER BY date DESC, id DESC`,
   ]);
   const plain = <T,>(rows: unknown) => JSON.parse(JSON.stringify(rows)) as T;
+  const people = plain<Member[]>(members);
+  const viewer = people.find((m) => m.id === viewerId) ?? null;
+  const posts = announcements
+    .map(({ audience, admins_only, ...a }) => ({ ...a, audience: parseAudience(audience, admins_only) }))
+    .filter((a) => admin || a.audience.kind === "everyone" || (a.audience.kind !== "hubAdmins" && !!viewer && inAudience(viewer, a.audience)));
   return {
     settings,
     changelog,
@@ -51,12 +60,13 @@ export async function loadBoard(user: BoardUser): Promise<BoardData> {
     rounds: plain(rounds),
     scheduled,
     organizerEmail: admin ? CHAPTER_SERVER[c].organizer.email : null,
+    viewerId: viewer?.id ?? null,
     recipients: recipientNames(c),
-    members: plain(members),
+    members: people,
     assignments: plain(assignments),
     submissions: plain(submissions),
     socials: plain(socials),
-    announcements: plain(announcements),
+    announcements: plain(posts),
     meetings: plain(meetings),
   };
 }

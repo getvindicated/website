@@ -1,18 +1,19 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
-import { sendEmail } from "@/lib/brevo";
+import { EmailTimeoutError, sendEmail } from "@/lib/brevo";
 import { chapterConfig, type ChapterId } from "./chapters";
 import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
 import { db } from "./db";
 import { hubUrl } from "./invites";
 import { isEmail } from "./submit-rules";
 import type { SendSummary } from "./types";
+import { inAudience, type Audience } from "./audience";
 
 // Announcement emails: one email per person through the Brevo API, so no
 // one sees anyone else's address. From the chapter's sender (or
 // BOARD_INVITE_FROM), reply-to the chapter's organizer.
 
-export type AnnouncementMail = { title: string; body: string; adminsOnly: boolean };
+export type AnnouncementMail = { title: string; body: string };
 type Person = { name: string; email: string };
 
 const esc = (s: string) =>
@@ -30,11 +31,14 @@ export function announceSetupProblem(chapter: ChapterId): string | null {
   return missing.length ? `Announcement emails aren't set up yet. Rana: add ${missing.join(" and ")} in Railway (see BOARD_SETUP.md).` : null;
 }
 
-// Everyone an announcement emails: all members with an email on file, or
-// only the Hub admins for an admins-only one. Plus who has no email.
-export async function announcementRecipients(chapter: ChapterId, adminsOnly: boolean) {
-  const rows = await db()`SELECT name, email FROM board_members
-    WHERE chapter = ${chapter} ${adminsOnly ? db()`AND is_hub_admin` : db()``} ORDER BY sort, id`;
+// Everyone an announcement emails: the members it's addressed to who have
+// an email on file. Plus who in that group has no email.
+export async function announcementRecipients(chapter: ChapterId, audience: Audience) {
+  const all = await db()`SELECT id, name, email, team, also_team, tier, is_lead, is_hub_admin FROM board_members
+    WHERE chapter = ${chapter} ORDER BY sort, id`;
+  const rows = all.filter((r) =>
+    inAudience({ id: r.id, team: r.team, alsoTeam: r.also_team, tier: r.tier, isLead: r.is_lead, hubAdmin: r.is_hub_admin }, audience),
+  );
   return {
     to: rows.filter((r) => isEmail(r.email.trim())).map((r) => ({ name: r.name as string, email: r.email.trim() as string })),
     missing: rows.filter((r) => !isEmail(r.email.trim())).map((r) => r.name as string),
@@ -61,7 +65,7 @@ export async function sendAnnouncement(chapter: ChapterId, a: AnnouncementMail, 
   const title = chapterConfig(chapter).title;
   const sender = chapterSender(chapter, title) ?? { name: title, email: "board@getvindicated.org" };
   const results: (Person & { ok: boolean; error: string })[] = [];
-  for (const p of people) {
+  for (const [i, p] of people.entries()) {
     const m = message(chapter, a, update, p.name.split(/\s+/)[0] || p.name);
     const mail = {
       sender,
@@ -81,30 +85,42 @@ export async function sendAnnouncement(chapter: ChapterId, a: AnnouncementMail, 
       const error = e instanceof Error ? e.message.slice(0, 300) : "Send failed";
       console.error(`[board] Announcement to ${p.email} failed:`, error);
       results.push({ ...p, ok: false, error });
+      // Brevo isn't answering: don't wait 15 seconds for each of the rest.
+      if (e instanceof EmailTimeoutError) {
+        results.push(...people.slice(i + 1).map((x) => ({ ...x, ok: false, error })));
+        break;
+      }
     }
   }
   return results;
 }
 
 // Records one send (post, update or retry) for the admin view.
-export async function recordSends(chapter: ChapterId, announcementId: number, kind: string, results: { name: string; email: string; ok: boolean; error: string }[]) {
+// `audience` is the label of who it was addressed to ("Leads only").
+export async function recordSends(
+  chapter: ChapterId,
+  announcementId: number,
+  kind: string,
+  audience: string,
+  results: { name: string; email: string; ok: boolean; error: string }[],
+) {
   const sql = db();
   const batch = randomUUID();
   for (const r of results) {
-    await sql`INSERT INTO board_announcement_sends (chapter, announcement_id, batch, kind, email, name, ok, error)
-      VALUES (${chapter}, ${announcementId}, ${batch}, ${kind}, ${r.email}, ${r.name}, ${r.ok}, ${r.error})`;
+    await sql`INSERT INTO board_announcement_sends (chapter, announcement_id, batch, kind, audience, email, name, ok, error)
+      VALUES (${chapter}, ${announcementId}, ${batch}, ${kind}, ${audience}, ${r.email}, ${r.name}, ${r.ok}, ${r.error})`;
   }
 }
 
 
 // For each announcement, its latest send and who still hasn't got it.
 export async function sendSummaries(chapter: ChapterId): Promise<SendSummary[]> {
-  const rows = await db()`SELECT announcement_id, batch, kind, email, name, ok, at FROM board_announcement_sends
+  const rows = await db()`SELECT announcement_id, batch, kind, audience, email, name, ok, at FROM board_announcement_sends
     WHERE chapter = ${chapter} ORDER BY at`;
-  const by = new Map<number, SendSummary & { batches: Map<string, { ok: string[]; failed: Person[]; at: string; kind: string }> }>();
+  const by = new Map<number, SendSummary & { batches: Map<string, { ok: string[]; failed: Person[]; at: string; kind: string; audience: string }> }>();
   for (const r of rows) {
-    const s = by.get(r.announcement_id) ?? { announcementId: r.announcement_id, at: "", kind: "", sent: 0, failed: [], batches: new Map() };
-    const b = s.batches.get(r.batch) ?? { ok: [], failed: [], at: new Date(r.at).toISOString(), kind: r.kind };
+    const s = by.get(r.announcement_id) ?? { announcementId: r.announcement_id, at: "", kind: "", audience: "", sent: 0, failed: [], batches: new Map() };
+    const b = s.batches.get(r.batch) ?? { ok: [], failed: [], at: new Date(r.at).toISOString(), kind: r.kind, audience: r.audience };
     if (r.ok) b.ok.push(r.email);
     else b.failed.push({ name: r.name, email: r.email });
     s.batches.set(r.batch, b);
@@ -118,6 +134,6 @@ export async function sendSummaries(chapter: ChapterId): Promise<SendSummary[]> 
     const reached = new Set(recent.flatMap((b) => b.ok));
     const failed = new Map<string, Person>();
     for (const b of recent) for (const f of b.failed) if (!reached.has(f.email)) failed.set(f.email, f);
-    return { announcementId: s.announcementId, at: recent[0].at, kind: recent[0].kind, sent: reached.size, failed: [...failed.values()] };
+    return { announcementId: s.announcementId, at: recent[0].at, kind: recent[0].kind, audience: recent[0].audience, sent: reached.size, failed: [...failed.values()] };
   });
 }

@@ -5,7 +5,7 @@ import { useBoard } from "./BoardApp";
 import { RowEditor, type FieldDef } from "./RowEditor";
 import { ScheduleForm } from "./ScheduleForm";
 import { EditLink, TextSetting } from "./Editors";
-import { api, fmt } from "./util";
+import { INVITE_TIMEOUT, api, apiCall, fmt } from "./util";
 import { pastDates, repeatText, shortDate, timeRange, upcomingDates, type ScheduledMeeting } from "@/lib/board/schedule";
 
 const meetingFields = (attendance: boolean): FieldDef[] => [
@@ -28,7 +28,9 @@ export function MeetingsTab() {
   // A past date of a scheduled meeting being logged: "<id>|<date>".
   const [logging, setLogging] = useState<string | null>(null);
 
-  const upcoming = data.scheduled.filter((m) => upcomingDates(m, today).length > 0);
+  // Admins also see meetings whose invites never went out, even past ones,
+  // so they can resend or delete them.
+  const upcoming = data.scheduled.filter((m) => upcomingDates(m, today).length > 0 || (admin && m.invitesSent === 0));
   // Past dates of scheduled meetings with nothing logged yet (most recent first).
   const logged = new Set(data.meetings.map((m) => m.date));
   const toLog = admin
@@ -166,6 +168,7 @@ export function MeetingsTab() {
 function Upcoming({ m, admin, onEdit }: { m: ScheduledMeeting; admin: boolean; onEdit: () => void }) {
   const { today, refresh } = useBoard();
   const dates = upcomingDates(m, today);
+  const notSent = m.invitesSent === 0;
   const [date, setDate] = useState(dates[0]);
   const [confirm, setConfirm] = useState<"one" | "all" | null>(null);
   const [busy, setBusy] = useState(false);
@@ -182,11 +185,29 @@ function Upcoming({ m, admin, onEdit }: { m: ScheduledMeeting; admin: boolean; o
     else refresh();
   }
 
+  async function resend() {
+    setBusy(true);
+    setError("");
+    const { error: err } = await apiCall(`/api/board/schedule/${m.id}`, "POST", undefined, INVITE_TIMEOUT);
+    setBusy(false);
+    if (err) setError(err);
+    else refresh();
+  }
+
   return (
     <div className="item">
       <h3>{m.title}</h3>
       <p>
-        <strong>Next:</strong> {shortDate(dates[0])} · {timeRange(m.startTime, m.endTime)}
+        {dates.length ? (
+          <>
+            <strong>Next:</strong> {shortDate(dates[0])}
+          </>
+        ) : (
+          <>
+            <strong>Was:</strong> {shortDate(m.date)}
+          </>
+        )}{" "}
+        · {timeRange(m.startTime, m.endTime)}
       </p>
       {m.weekly && <p>{repeatText(m)}</p>}
       {m.location && (
@@ -201,16 +222,32 @@ function Upcoming({ m, admin, onEdit }: { m: ScheduledMeeting; admin: boolean; o
           )}
         </p>
       )}
-      <p>
-        <strong>Invited:</strong> {m.audience} ({m.invitees.length} {m.invitees.length === 1 ? "invite" : "invites"} sent)
-      </p>
+      {notSent && admin ? (
+        <>
+          <p className="msg err">
+            <strong>Invites not sent.</strong> No one has received an invite for this meeting yet.
+          </p>
+          <p>
+            <strong>To invite:</strong> {m.audience}
+          </p>
+        </>
+      ) : (
+        <p>
+          <strong>Invited:</strong> {m.audience} ({m.invitees.length} {m.invitees.length === 1 ? "invite" : "invites"} sent)
+        </p>
+      )}
       {m.notes && <p>{m.notes}</p>}
       {admin && (
         <div className="admin-row">
+          {notSent && dates.length > 0 && (
+            <button type="button" className="btn" disabled={busy} onClick={resend}>
+              {busy ? "Sending…" : "Resend invites"}
+            </button>
+          )}
           <button type="button" className="linkbtn" onClick={onEdit}>
-            Edit and resend
+            {notSent ? "Edit and send" : "Edit and resend"}
           </button>
-          {m.weekly && dates.length > 1 && (
+          {!notSent && m.weekly && dates.length > 1 && (
             <label className="inline">
               Cancel one date
               <select value={date} onChange={(e) => (setDate(e.target.value), setConfirm(null))}>
@@ -226,7 +263,15 @@ function Upcoming({ m, admin, onEdit }: { m: ScheduledMeeting; admin: boolean; o
             </label>
           )}
           <button type="button" className="linkbtn" disabled={busy} onClick={() => cancel("all")}>
-            {confirm === "all" ? "Click again to cancel the whole meeting" : m.weekly ? "Cancel the whole series" : "Cancel the meeting"}
+            {notSent
+              ? confirm === "all"
+                ? "Click again to delete (no email is sent)"
+                : "Delete"
+              : confirm === "all"
+                ? "Click again to cancel the whole meeting"
+                : m.weekly
+                  ? "Cancel the whole series"
+                  : "Cancel the meeting"}
           </button>
         </div>
       )}

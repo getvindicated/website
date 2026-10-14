@@ -15,6 +15,6 @@ export async function POST(request: Request) {
   const text = typeof body?.body === "string" ? body.body.trim().slice(0, 4000) : "";
   if (!isEmail(to)) return bad("Add the email to send the test to.");
   if (!title) return bad("Add a title first.");
-  const [r] = await sendAnnouncement(user.chapter, { title, body: text, adminsOnly: false }, [{ name: to, email: to }], body?.update === true);
+  const [r] = await sendAnnouncement(user.chapter, { title, body: text }, [{ name: to, email: to }], body?.update === true);
   return r.ok ? Response.json({ ok: true }) : bad("The test didn't go through. Check the address and try again.", 502);
 }

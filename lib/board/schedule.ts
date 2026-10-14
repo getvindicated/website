@@ -18,6 +18,8 @@ export type ScheduledMeeting = {
   invitees: Invitee[];
   audience: string; // "Whole board", "Data team", "5 people"
   cancelledDates: string[];
+  // Invites that have gone through; 0 means none ever did.
+  invitesSent: number;
 };
 
 const toDate = (iso: string) => {

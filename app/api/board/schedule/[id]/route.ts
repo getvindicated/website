@@ -1,10 +1,12 @@
 import { bad, guard, idFrom, isDate, notFound, readJson } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
 import { inviteSetupProblem, sendInvites } from "@/lib/board/invites";
-import { getScheduled, notReady, parseMeeting, resolveInvitees } from "@/lib/board/schedule-server";
+import { NOT_SENT, countSent, getScheduled, notReady, parseMeeting, resolveInvitees } from "@/lib/board/schedule-server";
 import { occurrences } from "@/lib/board/schedule";
 
 type Ctx = { params: Promise<{ id: string }> };
+
+const NOT_CANCELLED = "The cancellations didn't go through. Try again.";
 
 async function load(request: Request, ctx: Ctx) {
   const user = await guard(request, ["admin"]);
@@ -57,9 +59,13 @@ export async function PATCH(request: Request, ctx: Ctx) {
   const added = invitees.filter((i) => !had.has(i.email.toLowerCase()));
   const removed = old.invitees.filter((i) => !has.has(i.email.toLowerCase()));
 
-  const a = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "update", recipients: kept, attendees: invitees });
-  const b = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "new", recipients: added, attendees: invitees });
-  const c = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "cancel", recipients: removed });
+  // If no invite ever went through, everyone gets a first invite instead.
+  const neverSent = old.invitesSent === 0;
+  const a = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "update", recipients: neverSent ? [] : kept, attendees: invitees });
+  const b = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "new", recipients: neverSent ? invitees : added, attendees: invitees });
+  const c = await sendInvites({ chapter: user.chapter, meeting: updated, kind: "cancel", recipients: neverSent ? [] : removed });
+  await countSent(user.chapter, old.id, a.sent.length + b.sent.length);
+  if (a.sent.length + b.sent.length === 0) return bad(NOT_SENT, 502);
   return Response.json({
     ok: true,
     sent: a.sent.length + b.sent.length,
@@ -69,9 +75,23 @@ export async function PATCH(request: Request, ctx: Ctx) {
   });
 }
 
+// Resends the invite to everyone on it, unchanged (same UID and SEQUENCE).
+// For a meeting whose invites never went through.
+export async function POST(request: Request, ctx: Ctx) {
+  const x = await load(request, ctx);
+  if (x instanceof Response) return x;
+  const { user, meeting: m } = x;
+  const r = await sendInvites({ chapter: user.chapter, meeting: m, kind: "new", recipients: m.invitees });
+  await countSent(user.chapter, m.id, r.sent.length);
+  if (r.sent.length === 0) return bad(NOT_SENT, 502);
+  return Response.json({ ok: true, sent: r.sent.length, failed: r.failed });
+}
+
 // Cancels a meeting. With ?date=YYYY-MM-DD, cancels just that date of a
 // weekly series (METHOD:CANCEL with RECURRENCE-ID); otherwise the whole
-// meeting, which is then deleted.
+// meeting, which is then deleted. Cancellations go out first, and nothing
+// changes unless at least one gets through, so a failed cancel can be tried
+// again. A meeting whose invites never went out is changed without email.
 export async function DELETE(request: Request, ctx: Ctx) {
   const x = await load(request, ctx);
   if (x instanceof Response) return x;
@@ -87,21 +107,23 @@ export async function DELETE(request: Request, ctx: Ctx) {
       // Nothing would be left: cancel the whole meeting instead.
       return cancelAll();
     }
-    await sql`UPDATE board_scheduled SET sequence = ${sequence}, cancelled_dates = ${cancelledDates}
-      WHERE chapter = ${user.chapter} AND id = ${m.id}`;
     const r = await sendInvites({
       chapter: user.chapter,
       meeting: { ...m, sequence, cancelledDates },
       kind: "cancel-one",
-      recipients: m.invitees,
+      recipients: m.invitesSent ? m.invitees : [],
       onlyDate: date,
     });
+    if (m.invitesSent && m.invitees.length && r.sent.length === 0) return bad(NOT_CANCELLED, 502);
+    await sql`UPDATE board_scheduled SET sequence = ${sequence}, cancelled_dates = ${cancelledDates}
+      WHERE chapter = ${user.chapter} AND id = ${m.id}`;
     return Response.json({ ok: true, cancelled: r.sent.length, failed: r.failed });
   }
   return cancelAll();
 
   async function cancelAll() {
-    const r = await sendInvites({ chapter: user.chapter, meeting: { ...m, sequence }, kind: "cancel", recipients: m.invitees });
+    const r = await sendInvites({ chapter: user.chapter, meeting: { ...m, sequence }, kind: "cancel", recipients: m.invitesSent ? m.invitees : [] });
+    if (m.invitesSent && m.invitees.length && r.sent.length === 0) return bad(NOT_CANCELLED, 502);
     await sql`DELETE FROM board_scheduled WHERE chapter = ${user.chapter} AND id = ${m.id}`;
     return Response.json({ ok: true, cancelled: r.sent.length, failed: r.failed });
   }

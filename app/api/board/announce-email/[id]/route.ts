@@ -1,6 +1,7 @@
 import { bad, guard, idFrom, notFound, readJson } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
 import { actorOf, logEntry } from "@/lib/board/changelog";
+import { audienceLabel, parseAudience } from "@/lib/board/audience";
 import { announceSetupProblem, announcementRecipients, recordSends, sendAnnouncement, sendSummaries } from "@/lib/board/announce";
 
 // Emails an announcement to the chapter (admins only). kind: "post" (new),
@@ -20,9 +21,11 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
   const kind = body?.kind;
   if (kind !== "post" && kind !== "update" && kind !== "retry") return bad("Check the form.");
 
-  const [a] = await db()`SELECT id, title, body, admins_only FROM board_announcements WHERE id = ${id} AND chapter = ${user.chapter}`;
+  const [a] = await db()`SELECT id, title, body, audience, admins_only FROM board_announcements WHERE id = ${id} AND chapter = ${user.chapter}`;
   if (!a) return notFound();
-  const mail = { title: a.title, body: a.body, adminsOnly: a.admins_only };
+  const mail = { title: a.title, body: a.body };
+  const audience = parseAudience(a.audience, a.admins_only);
+  let label = audienceLabel(audience);
 
   let people: { name: string; email: string }[];
   let update = kind === "update";
@@ -31,12 +34,13 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     if (!last || !last.failed.length) return bad("Everyone already got this one.");
     people = last.failed;
     update = last.kind === "update";
+    label = last.audience || label;
   } else {
-    people = (await announcementRecipients(user.chapter, mail.adminsOnly)).to;
-    if (!people.length) return bad(mail.adminsOnly ? "No Hub admin has an email on file." : "No one has an email on file.");
+    people = (await announcementRecipients(user.chapter, audience)).to;
+    if (!people.length) return bad("No one it's addressed to has an email on file.");
   }
   const results = await sendAnnouncement(user.chapter, mail, people, update);
-  await recordSends(user.chapter, id, kind, results);
+  await recordSends(user.chapter, id, kind, label, results);
   const sent = results.filter((r) => r.ok).length;
   const failed = results.filter((r) => !r.ok).map((r) => r.email);
   await logEntry(db(), user, actorOf(request), "note", `Emailed "${a.title}" to ${sent} ${sent === 1 ? "person" : "people"}${failed.length ? ` (${failed.length} failed)` : ""}`, []);

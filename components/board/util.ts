@@ -40,12 +40,29 @@ export function setActor(name: string) {
   }
 }
 
+// Who this browser picked on My page ("Viewing as"). A cookie, so the server
+// can send the announcements addressed to that person. Self-reported, like
+// the shared password it sits behind.
+export function setViewer(id: number | null) {
+  const name = `board_viewer_${chapter}`;
+  document.cookie = id
+    ? `${name}=${id}; path=/board; max-age=31536000; samesite=lax`
+    : `${name}=; path=/board; max-age=0; samesite=lax`;
+}
+
 // Board API routes read the chapter from ?chapter=.
 export const chapterUrl = (path: string) => `${path}${path.includes("?") ? "&" : "?"}chapter=${chapter}`;
 
 // Calls a board API route for this page's chapter. Returns an error
 // message, or null on success; `data` is the parsed reply.
-export async function apiCall(path: string, method: string, body?: unknown): Promise<{ error: string | null; data: Record<string, unknown> | null }> {
+// `timeout` stops waiting after that many ms and returns its message, so a
+// stuck request never leaves a button spinning.
+export async function apiCall(
+  path: string,
+  method: string,
+  body?: unknown,
+  timeout?: { ms: number; error: string },
+): Promise<{ error: string | null; data: Record<string, unknown> | null }> {
   try {
     const actor = getActor();
     const res = await fetch(chapterUrl(path), {
@@ -55,14 +72,20 @@ export async function apiCall(path: string, method: string, body?: unknown): Pro
         ...(actor ? { "x-board-actor": encodeURIComponent(actor) } : {}),
       },
       body: body instanceof FormData ? body : body === undefined ? undefined : JSON.stringify(body),
+      signal: timeout ? AbortSignal.timeout(timeout.ms) : undefined,
     });
     const j = await res.json().catch(() => null);
     if (res.ok) return { error: null, data: j };
-    return { error: (j && typeof j.error === "string" && j.error) || "Something went wrong. Try again.", data: null };
-  } catch {
+    return { error: (j && typeof j.error === "string" && j.error) || timeout?.error || "Something went wrong. Try again.", data: null };
+  } catch (e) {
+    if (timeout && e instanceof DOMException && e.name === "TimeoutError") return { error: timeout.error, data: null };
     return { error: "Couldn't reach the server. Check your connection and try again.", data: null };
   }
 }
+
+// Sending invites: the server gives up on a stuck email after 15 seconds,
+// so this only fires if something else goes wrong.
+export const INVITE_TIMEOUT = { ms: 90_000, error: "The invites didn't go through. Try again." };
 
 export async function api(path: string, method: string, body?: unknown): Promise<string | null> {
   return (await apiCall(path, method, body)).error;
