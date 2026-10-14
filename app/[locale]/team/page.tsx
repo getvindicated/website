@@ -1,5 +1,5 @@
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { CtaBand } from "@/components/sections/shared/CtaBand";
+import { CtaBand, PeopleArt } from "@/components/sections/shared/CtaBand";
 import {
 	TeamRoster,
 	type RosterMember,
@@ -72,6 +72,7 @@ export default async function TeamPage({
 					title={d.cta.title}
 					body={d.cta.body}
 					primary={{ label: d.cta.button, href: localizeHref(locale as Locale, "/join") }}
+					art={<PeopleArt />}
 				/>
 			</div>
 		</div>

@@ -9,6 +9,7 @@ import { YoyoScene } from "@/components/sections/fraud/YoyoScene";
 import { FourSquare } from "@/components/sections/fraud/FourSquare";
 import { FeeReceipt } from "@/components/sections/fraud/FeeReceipt";
 import { AprCalculator } from "@/components/sections/fraud/AprCalculator";
+import { FlipCards } from "@/components/sections/fraud/FlipCards";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { caveat } from "@/lib/fonts";
@@ -28,7 +29,7 @@ type LawCard = { tag: string; title: string; body: string; say: string };
 function Law({ card, className }: { card: LawCard; className?: string }) {
   return (
     <div className={`card${className ? ` ${className}` : ""}`}>
-      <p className="label">{card.tag}</p>
+      <span className="tag">{card.tag}</span>
       <h3>{card.title}</h3>
       <p>{card.body}</p>
       <div className="say">{card.say}</div>
@@ -60,7 +61,7 @@ export default async function FraudPage({
 
       <section className="pt0" id="pinkslip">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.pinkSlip.title}</h2>
             <p className="lede">{d.pinkSlip.body}</p>
           </div>
@@ -86,7 +87,7 @@ export default async function FraudPage({
 
       <section className="band" id="flags">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.flags.title}</h2>
             <p className="lede">{d.flags.body}</p>
           </div>
@@ -96,9 +97,9 @@ export default async function FraudPage({
 
       <YoyoScene dict={d.yoyo} />
 
-      <section id="foursquare">
+      <section className="band" id="foursquare">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.fourSquare.title}</h2>
             <p className="lede">{d.fourSquare.body}</p>
           </div>
@@ -108,7 +109,7 @@ export default async function FraudPage({
 
       <section id="receipt">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.receipt.title}</h2>
             <p className="lede">{d.receipt.body}</p>
           </div>
@@ -118,7 +119,7 @@ export default async function FraudPage({
 
       <section className="band" id="apr">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.apr.title}</h2>
             <p className="lede">{d.apr.body}</p>
           </div>
@@ -128,7 +129,7 @@ export default async function FraudPage({
 
       <section id="law">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.law.title}</h2>
             <p className="lede">{d.law.body}</p>
           </div>
@@ -162,21 +163,17 @@ export default async function FraudPage({
         </div>
       </section>
 
-      <section className="band" id="after">
-        <div className="wrap prose">
-          <h2 className="h2">{d.after.title}</h2>
-          <ol className="num-list">
-            {d.after.items.map((it) => (
-              <li key={it.front}>
-                <h3>{it.front}</h3>
-                <p>{it.back}</p>
-              </li>
-            ))}
-          </ol>
+      <section className="band">
+        <div className="wrap">
+          <div className="center">
+            <h2 className="h2">{d.after.title}</h2>
+            <p className="lede">{d.after.body}</p>
+          </div>
+          <FlipCards items={d.after.items} />
         </div>
       </section>
 
-      <section id="brochure">
+      <section className="pt0 brochure-section" id="brochure">
         <div className="wrap">
           <div className="bro">
             <div className="bro-cover">
@@ -189,9 +186,13 @@ export default async function FraudPage({
               />
             </div>
             <div>
+              <span className="tag">{d.brochure.tag}</span>
               <h2 className="h2">{d.brochure.title}</h2>
               <p className="lede">{d.brochure.body}</p>
-              <p className="bro-soon">{d.brochure.soon}</p>
+              <div className="bro-soon">
+                <span className="dot-live" aria-hidden="true" />
+                {d.brochure.soon}
+              </div>
             </div>
           </div>
         </div>
@@ -202,6 +203,13 @@ export default async function FraudPage({
         body={d.cta.body}
         primary={{ label: d.cta.primary, href: href("/documents") }}
         secondary={{ label: d.cta.secondary, href: href("/inspection") }}
+        art={
+          <svg viewBox="0 0 260 260" aria-hidden="true">
+            <circle cx="130" cy="130" r="120" fill="rgba(255,255,255,.12)" />
+            <path d="M130 50l70 30v50c0 45-30 75-70 90-40-15-70-45-70-90V80z" fill="#fff" />
+            <path d="M100 135l22 22 40-44" fill="none" stroke="#9533A5" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        }
       />
     </div>
   );

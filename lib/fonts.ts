@@ -1,7 +1,7 @@
-import { Caveat } from "next/font/google";
+import { Bitter, Caveat } from "next/font/google";
 
-// Accent font used by a single section. Apply `.variable` on the page
-// wrapper that needs it so other pages don't load it.
+// Accent fonts used by a single section each. Apply `.variable` on the
+// page wrapper that needs them so other pages don't load them.
 
 // Handwriting on the four-square worksheet (Fraud page).
 export const caveat = Caveat({
@@ -11,3 +11,10 @@ export const caveat = Caveat({
   display: "swap",
 });
 
+// Newspaper-style headlines on the Dealer Map news cards.
+export const bitter = Bitter({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-bitter",
+  display: "swap",
+});

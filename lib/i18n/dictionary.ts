@@ -60,13 +60,19 @@ export type HomePageDict = {
 		ctaPrimary: string;
 		ctaSecondary: string;
 		photoAlt: string;
+		cards: TitleBody[];
 	};
 	sources: { heading: string; items: string[] };
 	publicKnowledge: {
 		title: string;
 		// Rich text: plain strings plus { b } for the bold phrase.
 		body: RichText;
-		cta: string;
+		ctaPrimary: string;
+		ctaSecondary: string;
+		phoneLabel: string;
+		clock: string;
+		appName: string;
+		notifs: { time: string; body: string }[];
 	};
 	footing: {
 		title: string;
@@ -74,7 +80,26 @@ export type HomePageDict = {
 		quote: string;
 		quoteCite: string;
 		body: string;
+		quoteA: string;
+		quoteB: string;
 		rows: { stat: string; title: string; body: string; cite: string }[];
+	};
+	preview: {
+		tag: string;
+		title: string;
+		body: string;
+		cta: string;
+		carAlt: string;
+		carName: string;
+		carTags: string[];
+		question: string;
+		optionsLabel: string;
+		right: string;
+		// "{amount}" is replaced with the formatted dollar difference.
+		over: string;
+		low: string;
+		breakdown: string;
+		playAll: string;
 	};
 	chapters: {
 		title: string;
@@ -85,6 +110,30 @@ export type HomePageDict = {
 		title: string;
 		body: string;
 		links: { platform: string; handle: string }[];
+	};
+	ai: {
+		title: string;
+		body: string;
+		steps: TitleBody[];
+		art: {
+			boosted: string;
+			license: string;
+			dealerName: string;
+			dealerDropped: string;
+			loanFunded: string;
+			loanAmount: string;
+			now: string;
+			delivered: string;
+		};
+		source: string;
+		saveStat: string;
+		saveTitle: string;
+		saveBody: string;
+		saveCta: string;
+		tipsTitle: string;
+		tips: string[];
+		ftcCta: string;
+		reportCta: string;
 	};
 	pillars: { title: string; body: string; items: TitleBody[] };
 	strikes: {
@@ -104,15 +153,7 @@ export type HomePageDict = {
 		checks: string[];
 		offers: TitleBody[];
 	};
-	// Pre-purchase inspection explainer near the top of the home page.
-	ppi: {
-		title: string;
-		// Rich text: plain strings plus { b } for the bold phrase.
-		body: RichText;
-		items: TitleBody[];
-		primary: string;
-		secondary: string;
-	};
+	cta: { title: string; body: string; primary: string; secondary: string };
 };
 
 export type AboutTextSegment = { text: string; bold?: boolean };

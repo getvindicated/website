@@ -85,7 +85,7 @@ export default async function DocumentsPage({
 
       <section className="pt0" id="report">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.page1.title}</h2>
             <p className="lede">{d.page1.body}</p>
           </div>
@@ -95,7 +95,7 @@ export default async function DocumentsPage({
 
       <section className="band" id="report2">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.page2.title}</h2>
             <p className="lede">{d.page2.body}</p>
           </div>
@@ -105,7 +105,7 @@ export default async function DocumentsPage({
 
       <section id="buyers-guide">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.guide.title}</h2>
             <p className="lede">{d.guide.body}</p>
           </div>
@@ -135,7 +135,7 @@ export default async function DocumentsPage({
               ))}
             </div>
           </div>
-          <div className="grid3 key3 mt48">
+          <div className="grid3 key3 mt56">
             {d.guide.keys.map((k) => (
               <div className="card" key={k.title}>
                 <h4>{k.kicker}</h4>
