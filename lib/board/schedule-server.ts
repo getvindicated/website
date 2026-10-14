@@ -9,7 +9,7 @@ import type { Invitee, ScheduledMeeting } from "./schedule";
 
 const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
 
-export type MeetingInput = Omit<ScheduledMeeting, "id" | "uid" | "sequence" | "invitees" | "audience" | "cancelledDates">;
+export type MeetingInput = Omit<ScheduledMeeting, "id" | "uid" | "sequence" | "invitees" | "audience" | "cancelledDates" | "invitesSent">;
 export type InviteSpec = { kind: "all" } | { kind: "team"; team: string } | { kind: "people"; ids: number[] };
 
 export function parseMeeting(body: Record<string, unknown>): { error: string } | { meeting: MeetingInput; invite: InviteSpec } {
@@ -56,7 +56,8 @@ export async function resolveInvitees(chapter: ChapterId, invite: InviteSpec) {
 
 const COLUMNS = (sql: ReturnType<typeof db>) => sql`id, uid, sequence, title, to_char(date, 'YYYY-MM-DD') AS date,
   start_time AS "startTime", end_time AS "endTime", location, notes, weekly, to_char(until, 'YYYY-MM-DD') AS until,
-  invitees, audience, ARRAY(SELECT to_char(d, 'YYYY-MM-DD') FROM unnest(cancelled_dates) d) AS "cancelledDates"`;
+  invitees, audience, ARRAY(SELECT to_char(d, 'YYYY-MM-DD') FROM unnest(cancelled_dates) d) AS "cancelledDates",
+  invites_sent AS "invitesSent"`;
 
 export async function listScheduled(chapter: ChapterId): Promise<ScheduledMeeting[]> {
   const sql = db();
@@ -68,6 +69,14 @@ export async function getScheduled(chapter: ChapterId, id: number): Promise<Sche
   const sql = db();
   const [row] = await sql`SELECT ${COLUMNS(sql)} FROM board_scheduled WHERE chapter = ${chapter} AND id = ${id}`;
   return row ? JSON.parse(JSON.stringify(row)) : null;
+}
+
+// What the Meetings tab shows when no invite went through.
+export const NOT_SENT = "The invites didn't go through. Try again.";
+
+// Adds to a meeting's count of invites that went through.
+export async function countSent(chapter: ChapterId, id: number, n: number) {
+  if (n > 0) await db()`UPDATE board_scheduled SET invites_sent = invites_sent + ${n} WHERE chapter = ${chapter} AND id = ${id}`;
 }
 
 export const notReady = (problem: string) => {

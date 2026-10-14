@@ -1,6 +1,6 @@
 import "server-only";
 import { randomUUID } from "node:crypto";
-import { sendEmail } from "@/lib/brevo";
+import { EmailTimeoutError, sendEmail } from "@/lib/brevo";
 import { chapterConfig, type ChapterId } from "./chapters";
 import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
 import { db } from "./db";
@@ -61,7 +61,7 @@ export async function sendAnnouncement(chapter: ChapterId, a: AnnouncementMail, 
   const title = chapterConfig(chapter).title;
   const sender = chapterSender(chapter, title) ?? { name: title, email: "board@getvindicated.org" };
   const results: (Person & { ok: boolean; error: string })[] = [];
-  for (const p of people) {
+  for (const [i, p] of people.entries()) {
     const m = message(chapter, a, update, p.name.split(/\s+/)[0] || p.name);
     const mail = {
       sender,
@@ -81,6 +81,11 @@ export async function sendAnnouncement(chapter: ChapterId, a: AnnouncementMail, 
       const error = e instanceof Error ? e.message.slice(0, 300) : "Send failed";
       console.error(`[board] Announcement to ${p.email} failed:`, error);
       results.push({ ...p, ok: false, error });
+      // Brevo isn't answering: don't wait 15 seconds for each of the rest.
+      if (e instanceof EmailTimeoutError) {
+        results.push(...people.slice(i + 1).map((x) => ({ ...x, ok: false, error })));
+        break;
+      }
     }
   }
   return results;

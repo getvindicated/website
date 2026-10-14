@@ -2,11 +2,13 @@ import { randomUUID } from "node:crypto";
 import { bad, guard, readJson } from "@/lib/board/api";
 import { db } from "@/lib/board/db";
 import { inviteSetupProblem, sendInvites } from "@/lib/board/invites";
-import { getScheduled, notReady, parseMeeting, resolveInvitees } from "@/lib/board/schedule-server";
+import { NOT_SENT, countSent, getScheduled, notReady, parseMeeting, resolveInvitees } from "@/lib/board/schedule-server";
 import { isEmail } from "@/lib/board/submit-rules";
 
 // Schedules a meeting and emails the invites (admins only). With `test`
-// set to an address, sends one invite there and saves nothing.
+// set to an address, sends one invite there and saves nothing. If no invite
+// goes through, the meeting stays saved and the Meetings tab offers
+// "Resend invites".
 export async function POST(request: Request) {
   const user = await guard(request, ["admin"]);
   if (user instanceof Response) return user;
@@ -21,9 +23,9 @@ export async function POST(request: Request) {
   if (body.test !== undefined) {
     const to = typeof body.test === "string" ? body.test.trim() : "";
     if (!isEmail(to)) return bad("Add the email to send the test to.");
-    const test = { ...meeting, id: 0, uid: `test-${randomUUID()}@getvindicated.org`, sequence: 0, invitees: [], audience: "", cancelledDates: [] };
+    const test = { ...meeting, id: 0, uid: `test-${randomUUID()}@getvindicated.org`, sequence: 0, invitees: [], audience: "", cancelledDates: [], invitesSent: 0 };
     const r = await sendInvites({ chapter: user.chapter, meeting: test, kind: "new", recipients: [{ name: to, email: to }] });
-    return r.sent.length ? Response.json({ ok: true, test: to }) : bad("The test invite didn't go through. Check the address and try again.", 502);
+    return r.sent.length ? Response.json({ ok: true, test: to }) : bad("The test invite didn't go through. Try again.", 502);
   }
 
   const { invitees, skipped, audience } = await resolveInvitees(user.chapter, invite);
@@ -46,5 +48,7 @@ export async function POST(request: Request) {
   })} RETURNING id`;
   const saved = (await getScheduled(user.chapter, row.id))!;
   const r = await sendInvites({ chapter: user.chapter, meeting: saved, kind: "new", recipients: invitees });
+  await countSent(user.chapter, row.id, r.sent.length);
+  if (r.sent.length === 0) return bad(NOT_SENT, 502);
   return Response.json({ ok: true, id: row.id, sent: r.sent.length, failed: r.failed, skipped }, { status: 201 });
 }
