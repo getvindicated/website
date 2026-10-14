@@ -177,3 +177,8 @@ ALTER TABLE board_rounds ADD COLUMN IF NOT EXISTS id serial;
 ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS audience text NOT NULL DEFAULT '{"kind":"everyone"}';
 -- What a send was addressed to, as shown on the hub ("Leads only").
 ALTER TABLE board_announcement_sends ADD COLUMN IF NOT EXISTS audience text NOT NULL DEFAULT '';
+
+-- How many invites to a scheduled meeting have gone through. 0 means none
+-- ever did (e.g. saved while sending was broken): the Meetings tab offers
+-- "Resend invites".
+ALTER TABLE board_scheduled ADD COLUMN IF NOT EXISTS invites_sent integer NOT NULL DEFAULT 0;

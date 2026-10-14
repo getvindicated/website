@@ -107,22 +107,22 @@ a member shouldn't see; use Hub admins for that.
 ## Calendar invites
 
 Admins schedule meetings on the Meetings tab ("Schedule a meeting"). Each
-person invited gets an email with a calendar invite (invite.ics); Gmail,
-Apple Mail and Outlook show Yes / Maybe / No, and the reply goes to the
-chapter's organizer (Fiona for UCLA, Rana for Berkeley, set in
-`lib/board/chapter-server.ts`). Editing a meeting updates the event already
-on people's calendars; cancelling a date or the whole meeting removes it.
+person invited gets an email with the event attached as `invite.ics`.
+Replies go to the chapter's organizer (Fiona for UCLA, Rana for Berkeley,
+set in `lib/board/chapter-server.ts`). Editing a meeting sends the same
+event with a higher sequence number, so calendars update the copy they
+have; cancelling a date or the whole meeting sends a cancellation for it.
 
-These go through Brevo's SMTP relay rather than the Brevo API, because only
-SMTP can mark the invite as a calendar request. They come from the
-chapter's sender (above) and need two Railway variables:
+Invites go through the Brevo API like the other board email (Railway blocks
+outbound SMTP), from the chapter's sender (above). They need
+`BREVO_API_KEY`; `BOARD_INVITE_FROM` only for a chapter with no sender of
+its own. The API can't mark the attachment as a calendar request the way
+SMTP could, so some mail apps show `invite.ics` as an attachment to open
+instead of Yes / Maybe / No buttons. Opening it adds the event.
 
-- `BREVO_SMTP_LOGIN` and `BREVO_SMTP_KEY`: in Brevo, **SMTP & API → SMTP**
-  (the login shown there, and an SMTP key you generate).
-
-`BOARD_INVITE_FROM` is only needed for a chapter with no sender of its own;
-its domain, **getvindicated.org**, must be verified in Brevo (**Senders,
-Domains & Dedicated IPs → Domains**).
+Every email call gives up after 15 seconds. If no invite goes through, the
+meeting stays on the Meetings tab marked **Invites not sent**, with
+**Resend invites** and **Delete** (deleting it sends nothing).
 
 Use "Send me a test invite" in the form to check one before sending to the
 board.

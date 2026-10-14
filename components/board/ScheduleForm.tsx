@@ -4,7 +4,7 @@ import { useId, useState, type FormEvent } from "react";
 import type { ScheduledMeeting } from "@/lib/board/schedule";
 import { isEmail } from "@/lib/board/submit-rules";
 import { useBoard } from "./BoardApp";
-import { apiCall, listNames } from "./util";
+import { INVITE_TIMEOUT, apiCall, listNames } from "./util";
 
 type Kind = "all" | "team" | "people";
 
@@ -56,10 +56,20 @@ export function ScheduleForm({ existing, onClose }: { existing?: ScheduledMeetin
     setBusy(true);
     setMsg(null);
     const path = existing ? `/api/board/schedule/${existing.id}` : "/api/board/schedule";
-    const { error, data: r } = await apiCall(test ? "/api/board/schedule" : path, test || !existing ? "POST" : "PATCH", test ? { ...body, test: testTo } : body);
+    const { error, data: r } = await apiCall(
+      test ? "/api/board/schedule" : path,
+      test || !existing ? "POST" : "PATCH",
+      test ? { ...body, test: testTo } : body,
+      INVITE_TIMEOUT,
+    );
     setBusy(false);
     setConfirming(false);
-    if (error) return setMsg({ kind: "err", text: error });
+    if (error) {
+      // A meeting can be saved even when its invites failed; show it so it
+      // can be resent.
+      if (!test) refresh();
+      return setMsg({ kind: "err", text: error });
+    }
     if (test) return setMsg({ kind: "ok", text: `Test invite sent to ${testTo}.` });
     const failed = (r?.failed as string[] | undefined) ?? [];
     const sent = Number(r?.sent ?? 0);
