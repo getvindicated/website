@@ -40,6 +40,16 @@ export function setActor(name: string) {
   }
 }
 
+// Who this browser picked on My page ("Viewing as"). A cookie, so the server
+// can send the announcements addressed to that person. Self-reported, like
+// the shared password it sits behind.
+export function setViewer(id: number | null) {
+  const name = `board_viewer_${chapter}`;
+  document.cookie = id
+    ? `${name}=${id}; path=/board; max-age=31536000; samesite=lax`
+    : `${name}=; path=/board; max-age=0; samesite=lax`;
+}
+
 // Board API routes read the chapter from ?chapter=.
 export const chapterUrl = (path: string) => `${path}${path.includes("?") ? "&" : "?"}chapter=${chapter}`;
 

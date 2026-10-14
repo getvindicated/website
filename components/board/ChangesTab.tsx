@@ -20,6 +20,7 @@ const FIELD: Record<string, string> = {
   link_tab: "link tab",
   link_label: "link text",
   admins_only: "admins only",
+  audience: "send to",
   is_current: "current week",
   show_status: "show status",
 };

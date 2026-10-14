@@ -215,6 +215,32 @@
   font-weight: 600;
   text-decoration: none;
 }
+.board fieldset.send-to {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.board fieldset.send-to legend {
+  padding: 0;
+  margin-bottom: 4px;
+}
+.board fieldset.send-to p {
+  margin: 0;
+}
+.board .pick-people ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 4px 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid var(--rule);
+}
+.board .pick-people li {
+  padding: 4px 0;
+}
 .board .other-hub {
   margin: 0 0 18px;
 }

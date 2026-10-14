@@ -2,6 +2,7 @@ import "server-only";
 import type postgres from "postgres";
 import { db } from "./db";
 import { TABS } from "./types";
+import { EVERYONE, checkAudience } from "./audience";
 
 // Editable /board tables: which JSON fields map to which columns, and how
 // each value is checked. Used by the create/update/delete API routes.
@@ -34,6 +35,11 @@ const int = (min: number, max: number): Check => (v) =>
     : { ok: false, error: "Check the numbers." };
 const optionalTier: Check = (v) =>
   v === null || v === "" ? { ok: true, value: null } : int(0, 1)(typeof v === "string" ? Number(v) : v);
+// Stored as JSON text; see lib/board/audience.ts.
+const audience: Check = (v) => {
+  const a = checkAudience(v);
+  return a ? { ok: true, value: JSON.stringify(a) } : { ok: false, error: "Choose who it's for." };
+};
 const bool: Check = (v) => (typeof v === "boolean" ? { ok: true, value: v } : { ok: false, error: "Check the form." });
 
 type Field = { column: string; check: Check; onCreate?: unknown };
@@ -76,7 +82,7 @@ export const TABLES = {
       postedOn: { column: "posted_on", check: date("a date") },
       linkTab: { column: "link_tab", check: oneOf(["", ...TABS], "a tab"), onCreate: "" },
       linkLabel: { column: "link_label", check: text(100), onCreate: "" },
-      adminsOnly: { column: "admins_only", check: bool, onCreate: false },
+      audience: { column: "audience", check: audience, onCreate: JSON.stringify(EVERYONE) },
     },
   },
   rounds: {
