@@ -1,7 +1,9 @@
 import { PageHero } from "@/components/sections/shared/PageHero";
-import { CtaBand, PeopleArt } from "@/components/sections/shared/CtaBand";
+import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { ZoomSlideshow } from "@/components/sections/about/ZoomSlideshow";
+import { PhotoGrid } from "@/components/sections/about/PhotoGrid";
 import { MissionPillars } from "@/components/sections/about/MissionPillars";
+import { AiScams } from "@/components/sections/about/AiScams";
 import { QuoteBand } from "@/components/sections/about/QuoteBand";
 import { WhatWeProvide } from "@/components/sections/about/WhatWeProvide";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -39,7 +41,9 @@ export default async function AboutPage({
         </div>
       </PageHero>
       <ZoomSlideshow dict={dict.zoom} />
+      <PhotoGrid dict={dict.photos} />
       <MissionPillars dict={dict.mission} />
+      <AiScams dict={dict.ai} rightsHref={href("/fraud#law")} />
       <QuoteBand text={dict.quote.text} cite={dict.quote.cite} />
       <WhatWeProvide dict={dict.provide} projectsHref={href("/research")} />
       <CtaBand
@@ -47,7 +51,6 @@ export default async function AboutPage({
         body={dict.cta.body}
         primary={{ label: dict.cta.primary, href: href("/join") }}
         secondary={{ label: dict.cta.secondary, href: href("/team") }}
-        art={<PeopleArt />}
       />
     </div>
   );

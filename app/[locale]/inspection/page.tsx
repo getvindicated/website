@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { Rich } from "@/components/sections/shared/Rich";
 import { EngineInspector } from "@/components/sections/inspection/EngineInspector";
-import { PpiDrive } from "@/components/sections/inspection/PpiDrive";
+import { PpiSteps } from "@/components/sections/inspection/PpiSteps";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -125,7 +125,7 @@ export default async function InspectionPage({
         </div>
       </section>
 
-      <PpiDrive dict={d.schedule} />
+      <PpiSteps dict={d.schedule} />
     </div>
   );
 }

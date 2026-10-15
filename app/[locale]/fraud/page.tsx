@@ -9,7 +9,6 @@ import { YoyoScene } from "@/components/sections/fraud/YoyoScene";
 import { FourSquare } from "@/components/sections/fraud/FourSquare";
 import { FeeReceipt } from "@/components/sections/fraud/FeeReceipt";
 import { AprCalculator } from "@/components/sections/fraud/AprCalculator";
-import { FlipCards } from "@/components/sections/fraud/FlipCards";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { localizeHref, type Locale } from "@/lib/i18n/config";
 import { caveat } from "@/lib/fonts";
@@ -48,7 +47,15 @@ export default async function FraudPage({
 
   return (
     <div className={`rd rd-page ${caveat.variable}`}>
-      <PageHero title={d.hero.title} body={d.hero.body}>
+      <PageHero
+        title={d.hero.title}
+        body={d.hero.body}
+        art={
+          <div className="phero-art">
+            <Image src="/images/graphics/key-handoff.webp" alt="" width={722} height={295} sizes="(max-width: 900px) 92vw, 520px" priority />
+          </div>
+        }
+      >
         <div className="ctas">
           <Link className="btn btn-solid" href="#flags">
             {d.hero.ctaPrimary}
@@ -169,7 +176,14 @@ export default async function FraudPage({
             <h2 className="h2">{d.after.title}</h2>
             <p className="lede">{d.after.body}</p>
           </div>
-          <FlipCards items={d.after.items} />
+          <ol className="num-list after-list">
+            {d.after.items.map((it) => (
+              <li key={it.front}>
+                <h3>{it.front}</h3>
+                <p>{it.back}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -203,13 +217,6 @@ export default async function FraudPage({
         body={d.cta.body}
         primary={{ label: d.cta.primary, href: href("/documents") }}
         secondary={{ label: d.cta.secondary, href: href("/inspection") }}
-        art={
-          <svg viewBox="0 0 260 260" aria-hidden="true">
-            <circle cx="130" cy="130" r="120" fill="rgba(255,255,255,.12)" />
-            <path d="M130 50l70 30v50c0 45-30 75-70 90-40-15-70-45-70-90V80z" fill="#fff" />
-            <path d="M100 135l22 22 40-44" fill="none" stroke="#9533A5" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        }
       />
     </div>
   );
