@@ -200,9 +200,6 @@
   border-color: var(--purple);
   box-shadow: 0 24px 48px -28px rgba(94, 26, 107, 0.45);
 }
-.rd .story-body .btn {
-  margin-top: 6px;
-}
 
 /* ---------- Right-to-left locales ---------- */
 [dir="rtl"] .rd .campus-go svg,
@@ -230,12 +227,6 @@
 .rd .a-hero p {
   margin-left: auto;
   margin-right: auto;
-}
-.rd .fv-section {
-  padding-top: 88px;
-}
-.rd .pull {
-  margin-inline: 0;
 }
 .rd figure.quote-band {
   margin: 0;

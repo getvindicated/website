@@ -4,7 +4,6 @@
     "about": "Về Chúng Tôi",
     "aboutWhoWeAre": "Chúng Tôi Là Ai",
     "aboutMission": "Sứ Mệnh",
-    "aboutFounder": "Từ Người Sáng Lập",
     "aboutProvides": "Chúng Tôi Cung Cấp Gì",
     "team": "Đội Ngũ",
     "inspection": "Hướng Dẫn Kiểm Tra",
@@ -34,7 +33,7 @@
   "footer": {
     "tagline": "Giáo Dục. Trao Quyền. Minh Oan.",
     "subtagline": "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.",
-    "copyright": "© 2026 VINdicated. Bảo lưu mọi quyền. Sáng lập bởi Rana Darwich.",
+    "copyright": "© 2026 VINdicated. Bảo lưu mọi quyền.",
     "mission": "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô.",
     "columns": {
       "navigate": "Điều Hướng",
@@ -58,7 +57,7 @@
       },
       "about": {
         "title": "Về Chúng Tôi",
-        "description": "VINdicated được Rana Darwich sáng lập sau khi trực tiếp trải qua phân biệt đối xử tại đại lý xe. Tìm hiểu sứ mệnh giáo dục, trao quyền và bảo vệ người mua xe của chúng tôi.",
+        "description": "Tìm hiểu sứ mệnh giáo dục, trao quyền và bảo vệ người mua xe của chúng tôi.",
         "imageAlt": "VINdicated: Về Chúng Tôi"
       },
       "team": {
@@ -153,14 +152,6 @@
       "cite": "Mary Wollstonecraft",
       "source": "A Vindication of the Rights of Woman (1792)"
     },
-    "founder": {
-      "titleLine1": "Sáng lập ở tuổi 19.",
-      "titleEm": "Vì cần thiết.",
-      "body1": "Ba lần vấp phải ở ba đại lý khác nhau cho tôi thấy cùng một điều: hệ thống được thiết kế để làm bạn rối, thúc ép bạn và kiếm lợi từ những gì bạn không biết.",
-      "body2Prefix": "VINdicated tồn tại vì ",
-      "body2Bold": "tôi ước nó đã tồn tại cho tôi.",
-      "cta": "Đọc Toàn Bộ Câu Chuyện Của Rana"
-    },
     "meta": {
       "title": "Giáo Dục. Trao Quyền. Minh Oan.",
       "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn."
@@ -237,49 +228,6 @@
         }
       ]
     },
-    "story": {
-      "titleEm": "Minh oan từ điều gì?",
-      "subtitle": "Ba lần vấp ngã. Ba tình huống hoàn toàn khác nhau. Cùng một hệ thống mỗi lần.",
-      "strikes": [
-        {
-          "num": "1",
-          "label": "Vụ Lừa Đảo Giấy Chủ Quyền",
-          "body": [
-            "Năm 18 tuổi, tôi cố mua một chiếc xe từ bố của bạn tôi. Ông ấy bắt tôi chờ ba tháng, suốt thời gian đó luôn hứa sẽ bán xe cho tôi.",
-            "Khi thời điểm cuối cùng đến, ông ấy cố nói với tôi rằng tôi không cần giấy chủ quyền (pink slip). Ông ấy đang cố lừa tôi. Nếu tên bạn không có trên giấy chủ quyền, về mặt pháp lý chiếc xe không phải của bạn, dù bạn đã trả bao nhiêu tiền."
-          ]
-        },
-        {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Tôi từng thử mua xe trên Facebook Marketplace. Cuộc trò chuyện bắt đầu bình thường với số km đã đi, giá cả, khi nào tôi có thể đến xem.",
-            "Ngay khi anh ta biết tôi là phụ nữ, giọng điệu thay đổi hoàn toàn. Anh ta nói với tôi, \"Câm cái miệng lại, con khốn,\" rồi chặn tôi."
-          ]
-        },
-        {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Tôi đã đến lái thử xe một mình. Khi tôi quay lại cùng em gái để mua xe, thông tin đột nhiên đổi thành: \"Mua hôm nay hoặc mất xe.\"",
-            "Sau đó tôi đã trả tiền để kiểm tra độc lập. Họ phát hiện ra vấn đề. Họ đưa cho tôi một hợp đồng tài chính với lãi suất 30% mỗi năm. Tôi biết thế nào là một thỏa thuận tồi. Tôi đã không ký."
-          ]
-        }
-      ],
-      "pullquote": {
-        "quote": "Tôi đã báo cáo Eddy. Khi tổng giám đốc gọi điện xin lỗi, tôi nói: tôi không chấp nhận lời xin lỗi của ông. Tôi hy vọng dù là một cô gái 19 tuổi hay một người đàn ông 50 tuổi bước vào, các ông sẽ đối xử với mọi người bằng sự tôn trọng.",
-        "attribution": "Rana Darwich, Người sáng lập VINdicated"
-      },
-      "bio": {
-        "label": "Về Người Sáng Lập",
-        "body": "Rana Darwich thành lập VINdicated ở tuổi 19, sau khi suýt ký một điều khoản trọng tài mang tính bóc lột tại một đại lý xe.",
-        "closingLine": "Giờ đây, đến lượt bạn."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Hãy làm mạnh mẽ tâm trí phụ nữ bằng cách mở rộng nó, và sự vâng lời mù quáng sẽ chấm dứt."
-      }
-    },
     "provide": {
       "titlePlain": "Miễn Phí. Dễ Tiếp Cận.",
       "titleEm": "Không ràng buộc.",
@@ -315,10 +263,6 @@
     },
     "sectionTitle": "Gặp Gỡ Đội Ngũ",
     "members": {
-      "Rana Darwich": {
-        "position": "Người Sáng Lập",
-        "bio": "Rana thành lập VINdicated ở tuổi 19, sau khi một thuật ngữ luật kinh doanh đã cứu cô khỏi việc ký một hợp đồng bán hàng mang tính bóc lột tại một đại lý xe. Điều bắt đầu như một điểm vỡ cá nhân đã trở thành một sứ mệnh: xóa bỏ những hệ thống bóc lột người tiêu dùng bước vào bãi xe một mình, không có ai hỗ trợ. Cô dẫn dắt các sáng kiến nghiên cứu và định hướng chiến lược của VINdicated, với niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng."
-      },
       "Rizwaan Bana": {
         "position": "Chiến Lược Gia",
         "bio": "Rizwaan Bana học chuyên ngành Khoa học Máy tính tại UCLA. Anh là Trưởng nhóm Phần mềm tại VINdicated, nơi anh xây dựng các công cụ giúp người tiêu dùng vượt qua quy trình mua xe một cách suôn sẻ. Rizwaan đam mê sử dụng công nghệ để tạo ra thay đổi tích cực và làm cho thông tin dễ tiếp cận hơn với mọi người."

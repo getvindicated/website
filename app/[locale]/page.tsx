@@ -8,7 +8,6 @@ import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
 import { AiScams } from "@/components/sections/home/AiScams";
 import { Pillars } from "@/components/sections/home/Pillars";
-import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
 import { FreeResources } from "@/components/sections/home/FreeResources";
 import { HomeCta } from "@/components/sections/home/HomeCta";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -64,7 +63,7 @@ export default async function HomePage({
 
   const ppi = href("/inspection");
   const fraud = href("/fraud");
-  const story = href("/about#story");
+  const story = href("/about");
 
   return (
     <div className="rd rd-page">
@@ -81,7 +80,6 @@ export default async function HomePage({
       <FollowLinks dict={home.follow} />
       <AiScams dict={home.ai} rightsHref={href("/fraud#law")} />
       <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />
-      <FounderStrikes dict={home.strikes} storyHref={story} />
       <FreeResources dict={home.free} />
       <HomeCta
         dict={home.cta}

@@ -20,14 +20,6 @@ export type HomeDict = {
 		cite: string;
 		source: string;
 	};
-	founder: {
-		titleLine1: string;
-		titleEm: string;
-		body1: string;
-		body2Prefix: string;
-		body2Bold: string;
-		cta: string;
-	};
 	meta: {
 		title: string;
 		description: string;
@@ -136,15 +128,6 @@ export type HomePageDict = {
 		reportCta: string;
 	};
 	pillars: { title: string; body: string; items: TitleBody[] };
-	strikes: {
-		title: string;
-		body: string;
-		tabsLabel: string;
-		// "{n}" is replaced with the strike number.
-		tab: string;
-		items: { n: string; title: string; meta: string; paras: string[] }[];
-		readMore: string;
-	};
 	free: {
 		title: string;
 		body: string;
@@ -178,14 +161,6 @@ export type AboutDict = {
 		headingEm: string;
 		subheading: string;
 		pillars: { word: string; body: string }[];
-	};
-	story: {
-		titleEm: string;
-		subtitle: string;
-		strikes: { num: string; label: string; body: string[] }[];
-		pullquote: { quote: string; attribution: string };
-		bio: { label: string; body: string; closingLine: string };
-		wollstonecraft: { label: string; quote: string };
 	};
 	provide: {
 		titlePlain: string;
@@ -250,7 +225,6 @@ export type SiteDictionary = {
 		mission: string;
 		about: string;
 		rights: string;
-		founded: string;
 		columns: {
 			organization: string;
 			navigate: string;

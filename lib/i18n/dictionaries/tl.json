@@ -4,7 +4,6 @@
     "about": "Tungkol Sa Amin",
     "aboutWhoWeAre": "Sino Kami",
     "aboutMission": "Aming Misyon",
-    "aboutFounder": "Mula sa Founder",
     "aboutProvides": "Ano ang Ibinibigay Namin",
     "team": "Team",
     "inspection": "Gabay sa Inspeksyon",
@@ -34,7 +33,7 @@
   "footer": {
     "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
     "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
-    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
+    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan.",
     "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto.",
     "columns": {
       "navigate": "Mag-navigate",
@@ -58,7 +57,7 @@
       },
       "about": {
         "title": "Tungkol Sa Amin",
-        "description": "Itinatag ni Rana Darwich ang VINdicated matapos niyang maranasan mismo ang diskriminasyon sa dealership. Alamin ang aming misyong turuan, bigyang-kapangyarihan, at ipagtanggol ang mga bumibili ng kotse.",
+        "description": "Alamin ang aming misyong turuan, bigyang-kapangyarihan, at ipagtanggol ang mga bumibili ng kotse.",
         "imageAlt": "VINdicated: Tungkol Sa Amin"
       },
       "team": {
@@ -153,14 +152,6 @@
       "cite": "Mary Wollstonecraft",
       "source": "A Vindication of the Rights of Woman (1792)"
     },
-    "founder": {
-      "titleLine1": "Itinatag sa edad 19.",
-      "titleEm": "Dahil kailangan.",
-      "body1": "Tatlong strike sa tatlong magkakaibang dealership ang nagpakita sa akin ng parehong bagay: dinisenyo ang sistema para lituhin ka, madaliin ka, at pagkakitaan ang hindi mo alam.",
-      "body2Prefix": "Umiiral ang VINdicated dahil ",
-      "body2Bold": "sana mayroon na nito para sa akin noon.",
-      "cta": "Basahin ang Buong Kuwento ni Rana"
-    },
     "meta": {
       "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
       "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
@@ -237,49 +228,6 @@
         }
       ]
     },
-    "story": {
-      "titleEm": "Ipinagtanggol laban saan?",
-      "subtitle": "Tatlong beses. Tatlong magkakaibang sitwasyon. Parehong sistema sa bawat pagkakataon.",
-      "strikes": [
-        {
-          "num": "1",
-          "label": "Ang Pink Slip Scam",
-          "body": [
-            "Noong 18 anyos ako, sinusubukan kong bumili ng kotse mula sa tatay ng kaibigan ko. Pinaghintay niya ako ng tatlong buwan, patuloy na nangangako na ibebenta niya sa akin.",
-            "Nang dumating na ang oras, sinubukan niyang sabihin sa akin na hindi ko na kailangan ang pink slip. Sinusubukan niya akong lokohin. Kung wala sa pangalan mo ang title, legal na hindi mo pag-aari ang kotse, kahit magkano man ang binayad mo."
-          ]
-        },
-        {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Sinubukan kong bumili ng kotse sa Facebook Marketplace. Normal ang simula ng usapan: mileage, presyo, kung kailan ako makakapunta para tingnan.",
-            "Nang malaman niyang babae ako, biglang nagbago ang tono niya. Sinabi niya sa akin, \"Shut your mouth, bitch,\" at pagkatapos ay in-block niya ako."
-          ]
-        },
-        {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Nag-isa akong pumunta para mag-test drive ng kotse. Nang bumalik ako kasama ang kapatid kong babae para bilhin ito, biglang nagbago ang nakasulat: \"Buy today or lose it.\"",
-            "Nagbayad ako para sa independent inspection. Nakahanap sila ng problema. Binigyan nila ako ng financing contract na may 30% APR. Alam ko kung ano ang masamang deal. Hindi ako pumirma."
-          ]
-        }
-      ],
-      "pullquote": {
-        "quote": "Ini-report ko si Eddy. Nang tumawag ang GM para humingi ng paumanhin, sinabi ko: hindi ko tinatanggap ang paumanhin mo. Sana kung sino man ang papasok, 19 anyos na babae man o 50 anyos na lalaki, tratuhin ninyo silang lahat nang may respeto.",
-        "attribution": "Rana Darwich, Founder ng VINdicated"
-      },
-      "bio": {
-        "label": "Tungkol sa Founder",
-        "body": "Itinatag ni Rana Darwich ang VINdicated sa edad na 19, matapos halos pumirma sa isang predatory arbitration clause sa isang dealership.",
-        "closingLine": "Ngayon, turn mo na."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Palakasin ang isip ng babae sa pamamagitan ng pagpapalawak nito, at magwawakas ang bulag na pagsunod."
-      }
-    },
     "provide": {
       "titlePlain": "Libre. Accessible.",
       "titleEm": "Walang kundisyon.",
@@ -315,10 +263,6 @@
     },
     "sectionTitle": "Kilalanin ang Team",
     "members": {
-      "Rana Darwich": {
-        "position": "Founder",
-        "bio": "Itinatag ni Rana ang VINdicated sa edad na 19 matapos siyang mailigtas ng isang business law term sa pagpirma ng predatory sales contract sa isang dealership. Ang nagsimula bilang personal breaking point ay naging misyon para wasakin ang mga sistemang nang-eexploit sa mga konsumer na pumapasok sa car lot nang mag-isa, walang backup. Pinamumunuan niya ang research initiatives at strategic direction ng VINdicated, dahil naniniwala siyang ang kaalaman tungkol sa sasakyan ay dapat pampublikong kaalaman."
-      },
       "Rizwaan Bana": {
         "position": "Strategist",
         "bio": "Si Rizwaan Bana ay Computer Science major sa UCLA. Siya ang Software Lead sa VINdicated, kung saan gumagawa siya ng mga tool para tulungan ang mga konsumer na madaling makapag-navigate sa proseso ng pagbili ng kotse. Masigasig si Rizwaan sa paggamit ng teknolohiya para sa positive change at paggawang mas accessible ang impormasyon para sa lahat."

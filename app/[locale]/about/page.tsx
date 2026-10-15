@@ -2,8 +2,6 @@ import { PageHero } from "@/components/sections/shared/PageHero";
 import { CtaBand, PeopleArt } from "@/components/sections/shared/CtaBand";
 import { ZoomSlideshow } from "@/components/sections/about/ZoomSlideshow";
 import { MissionPillars } from "@/components/sections/about/MissionPillars";
-import { FounderStory } from "@/components/sections/about/FounderStory";
-import { FounderVideo } from "@/components/sections/about/FounderVideo";
 import { QuoteBand } from "@/components/sections/about/QuoteBand";
 import { WhatWeProvide } from "@/components/sections/about/WhatWeProvide";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
@@ -42,8 +40,6 @@ export default async function AboutPage({
       </PageHero>
       <ZoomSlideshow dict={dict.zoom} />
       <MissionPillars dict={dict.mission} />
-      <FounderStory dict={dict.story} />
-      <FounderVideo dict={dict.video} />
       <QuoteBand text={dict.quote.text} cite={dict.quote.cite} />
       <WhatWeProvide dict={dict.provide} projectsHref={href("/research")} />
       <CtaBand
