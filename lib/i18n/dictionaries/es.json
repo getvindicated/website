@@ -4,7 +4,6 @@
     "about": "Sobre Nosotros",
     "aboutWhoWeAre": "Quiénes Somos",
     "aboutMission": "Nuestra Misión",
-    "aboutFounder": "De la Fundadora",
     "aboutProvides": "Lo Que Ofrecemos",
     "team": "Equipo",
     "inspection": "Guía de Inspección",
@@ -34,7 +33,7 @@
   "footer": {
     "tagline": "Educar. Empoderar. Reivindicar.",
     "subtagline": "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.",
-    "copyright": "© 2026 VINdicated. Todos los derechos reservados. Fundado por Rana Darwich.",
+    "copyright": "© 2026 VINdicated. Todos los derechos reservados.",
     "mission": "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz.",
     "columns": {
       "navigate": "Navegar",
@@ -58,7 +57,7 @@
       },
       "about": {
         "title": "Sobre Nosotros",
-        "description": "VINdicated fue fundada por Rana Darwich después de vivir discriminación en concesionarios en carne propia. Conoce nuestra misión de educar, empoderar y reivindicar a quienes compran autos.",
+        "description": "Conoce nuestra misión de educar, empoderar y reivindicar a quienes compran autos.",
         "imageAlt": "VINdicated: Sobre Nosotros"
       },
       "team": {
@@ -153,14 +152,6 @@
       "cite": "Mary Wollstonecraft",
       "source": "Vindicación de los Derechos de la Mujer (1792)"
     },
-    "founder": {
-      "titleLine1": "Fundada a los 19.",
-      "titleEm": "Por necesidad.",
-      "body1": "Tres intentos fallidos en tres concesionarios distintos me mostraron lo mismo: el sistema está diseñado para confundirte, apresurarte y sacar provecho de lo que no sabes.",
-      "body2Prefix": "VINdicated existe porque ",
-      "body2Bold": "desearía que hubiera existido para mí.",
-      "cta": "Lee la Historia Completa de Rana"
-    },
     "meta": {
       "title": "Educar. Empoderar. Reivindicar.",
       "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos."
@@ -237,49 +228,6 @@
         }
       ]
     },
-    "story": {
-      "titleEm": "¿Vindicada de qué?",
-      "subtitle": "Tres golpes. Tres situaciones completamente distintas. El mismo sistema cada vez.",
-      "strikes": [
-        {
-          "num": "1",
-          "label": "La estafa del título rosa",
-          "body": [
-            "A los 18 años, intentaba comprarle un auto al papá de mi amigo. Me hizo esperar tres meses, prometiendo todo el tiempo que me lo vendería.",
-            "Cuando por fin llegó el momento, trató de decirme que no necesitaba el título de propiedad. Estaba intentando estafarme. Sin el título a tu nombre, el auto no es legalmente tuyo, sin importar lo que hayas pagado."
-          ]
-        },
-        {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Intenté comprar un auto en Facebook Marketplace. La conversación empezó de forma normal, hablando de kilometraje, precio, cuándo podía ir a verlo.",
-            "En cuanto se dio cuenta de que yo era mujer, el tono cambió por completo. Me dijo: \"Cállate la boca, perra\", y me bloqueó."
-          ]
-        },
-        {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Fui sola a probar un auto. Cuando regresé con mi hermana para comprarlo, de repente el anuncio decía: \"Cómpralo hoy o piérdelo\".",
-            "Después pagué por una inspección independiente. Encontraron problemas. Me entregaron un contrato de financiamiento al 30% de interés anual. Sé reconocer un mal trato. No firmé."
-          ]
-        }
-      ],
-      "pullquote": {
-        "quote": "Denuncié a Eddy. Cuando el gerente general llamó a disculparse, le dije: no acepto tu disculpa. Espero que, ya sea que entre una chica de 19 años o un hombre de 50, traten a todos con respeto.",
-        "attribution": "Rana Darwich, fundadora de VINdicated"
-      },
-      "bio": {
-        "label": "Sobre la fundadora",
-        "body": "Rana Darwich fundó VINdicated a los 19 años, después de casi firmar una cláusula de arbitraje abusiva en un concesionario.",
-        "closingLine": "Ahora te toca a ti."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Fortalezcan la mente femenina ampliándola, y llegará el fin de la obediencia ciega."
-      }
-    },
     "provide": {
       "titlePlain": "Gratis. Accesible.",
       "titleEm": "Sin condiciones ocultas.",
@@ -315,10 +263,6 @@
     },
     "sectionTitle": "Conoce al Equipo",
     "members": {
-      "Rana Darwich": {
-        "position": "Fundadora",
-        "bio": "Rana fundó VINdicated a los 19 años, después de que un término del derecho mercantil la salvara de firmar un contrato de venta abusivo en un concesionario. Lo que comenzó como un punto de quiebre personal se convirtió en una misión para desmantelar los sistemas que explotan a los consumidores que entran solos a un lote de autos. Ella lidera las iniciativas de investigación y la dirección estratégica de VINdicated, impulsada por la creencia de que el conocimiento sobre autos debería ser conocimiento público."
-      },
       "Rizwaan Bana": {
         "position": "Estratega",
         "bio": "Rizwaan Bana estudia Ciencias de la Computación en UCLA. Es el Líder de Software en VINdicated, donde construye herramientas que ayudan a los consumidores a navegar el proceso de compra de autos sin fricción. A Rizwaan le apasiona usar la tecnología para crear un cambio positivo y hacer que la información sea más accesible para todos."

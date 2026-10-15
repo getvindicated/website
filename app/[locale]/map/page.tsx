@@ -12,11 +12,11 @@ const MAP_SRC = "/vindimap/index.html";
 
 // Same order as mapPage.news.items.
 const NEWS = [
-  { url: "https://www.thedrive.com/features/ai-car-dealer-scams-are-infesting-facebook-marketplace-and-theyre-working", img: "ai-dealer-scams" },
-  { url: "https://consumer.ftc.gov/consumer-alerts/2026/09/scammers-are-spoofing-car-dealership-websites-what-you-need-know", img: "spoofed-dealer-sites" },
-  { url: "https://www.hinshawlaw.com/en/insights/blogs/consumer-crossroads-where-financial-services-and-litigation-intersect/federal-and-state-regulators-continue-crackdown-on-junk-fees-with-dollar4-million-auto-dealer-settlement", img: "junk-fee-settlement" },
-  { url: "https://pirg.org/articles/car-dealerships-nationwide-warned-to-stop-junk-fees-other-deceptive-tactics/", img: "dealer-warning-letters" },
-  { url: "https://calmatters.org/politics/2025/12/california-new-law-buying-cars/", img: "california-sb-766" },
+  { url: "https://www.thedrive.com/features/ai-car-dealer-scams-are-infesting-facebook-marketplace-and-theyre-working" },
+  { url: "https://consumer.ftc.gov/consumer-alerts/2026/09/scammers-are-spoofing-car-dealership-websites-what-you-need-know" },
+  { url: "https://www.hinshawlaw.com/en/insights/blogs/consumer-crossroads-where-financial-services-and-litigation-intersect/federal-and-state-regulators-continue-crackdown-on-junk-fees-with-dollar4-million-auto-dealer-settlement" },
+  { url: "https://pirg.org/articles/car-dealerships-nationwide-warned-to-stop-junk-fees-other-deceptive-tactics/" },
+  { url: "https://calmatters.org/politics/2025/12/california-new-law-buying-cars/" },
 ];
 
 export async function generateMetadata({
@@ -57,12 +57,6 @@ export default async function MapPage({
           <div className="nw-grid">
             {d.news.items.map((n, i) => (
               <a key={n.title} className="nw" href={NEWS[i].url} target="_blank" rel="noopener noreferrer">
-                <div className="nw-img">
-                  {/* Decorative illustration; plain <img> keeps the SVG crisp. */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/news/${NEWS[i].img}.svg`} alt="" loading="lazy" />
-                  <span className="nw-credit">{d.news.credit}</span>
-                </div>
                 <div className="nw-body">
                   <span className="nw-kicker">{n.kicker}</span>
                   <h3>{n.title}</h3>

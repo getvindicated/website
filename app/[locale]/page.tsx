@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/sections/home/HomeHero";
-import { ResearchSources } from "@/components/sections/home/ResearchSources";
-import { PublicKnowledge } from "@/components/sections/home/PublicKnowledge";
+import { PpiExplainer } from "@/components/sections/home/PpiExplainer";
 import { EqualFooting } from "@/components/sections/home/EqualFooting";
-import { PriceIsRightPreview } from "@/components/sections/home/PriceIsRightPreview";
 import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
-import { AiScams } from "@/components/sections/home/AiScams";
 import { Pillars } from "@/components/sections/home/Pillars";
-import { FounderStrikes } from "@/components/sections/home/FounderStrikes";
 import { FreeResources } from "@/components/sections/home/FreeResources";
-import { HomeCta } from "@/components/sections/home/HomeCta";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SHARE_IMAGE } from "@/lib/i18n/metadata";
 import {
@@ -64,30 +59,23 @@ export default async function HomePage({
 
   const ppi = href("/inspection");
   const fraud = href("/fraud");
-  const story = href("/about#story");
+  const story = href("/about");
 
   return (
     <div className="rd rd-page">
       <HomeHero dict={home.hero} ppiHref={ppi} storyHref={story} />
-      <ResearchSources dict={home.sources} />
-      <PublicKnowledge dict={home.publicKnowledge} ppiHref={ppi} fraudHref={fraud} />
-      <EqualFooting dict={home.footing} />
-      <PriceIsRightPreview
-        dict={home.preview}
-        locale={locale}
-        gameHref={href("/research#pir")}
+      <PpiExplainer
+        dict={home.ppi}
+        knowledge={home.publicKnowledge}
+        ppiHref={ppi}
+        whereHref={href("/inspection#where")}
+        fraudHref={fraud}
       />
+      <EqualFooting dict={home.footing} />
       <CampusChapters dict={home.chapters} joinHref={href("/join")} />
       <FollowLinks dict={home.follow} />
-      <AiScams dict={home.ai} rightsHref={href("/fraud#law")} />
       <Pillars dict={home.pillars} ppiHref={ppi} fraudHref={fraud} />
-      <FounderStrikes dict={home.strikes} storyHref={story} />
       <FreeResources dict={home.free} />
-      <HomeCta
-        dict={home.cta}
-        ppiHref={ppi}
-        documentsHref={href("/documents")}
-      />
     </div>
   );
 }

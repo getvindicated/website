@@ -31,7 +31,6 @@ const NAV: NavItem[] = [
     children: [
       { key: "aboutWhoWeAre", href: "/about" },
       { key: "aboutMission", href: "/about#mission" },
-      { key: "aboutFounder", href: "/about#story" },
       { key: "aboutProvides", href: "/about#provide" },
       { key: "projects", href: "/research" },
     ],

@@ -20,14 +20,6 @@ export type HomeDict = {
 		cite: string;
 		source: string;
 	};
-	founder: {
-		titleLine1: string;
-		titleEm: string;
-		body1: string;
-		body2Prefix: string;
-		body2Bold: string;
-		cta: string;
-	};
 	meta: {
 		title: string;
 		description: string;
@@ -60,19 +52,12 @@ export type HomePageDict = {
 		ctaPrimary: string;
 		ctaSecondary: string;
 		photoAlt: string;
-		cards: TitleBody[];
 	};
-	sources: { heading: string; items: string[] };
 	publicKnowledge: {
 		title: string;
 		// Rich text: plain strings plus { b } for the bold phrase.
 		body: RichText;
-		ctaPrimary: string;
-		ctaSecondary: string;
-		phoneLabel: string;
-		clock: string;
-		appName: string;
-		notifs: { time: string; body: string }[];
+		cta: string;
 	};
 	footing: {
 		title: string;
@@ -80,26 +65,7 @@ export type HomePageDict = {
 		quote: string;
 		quoteCite: string;
 		body: string;
-		quoteA: string;
-		quoteB: string;
 		rows: { stat: string; title: string; body: string; cite: string }[];
-	};
-	preview: {
-		tag: string;
-		title: string;
-		body: string;
-		cta: string;
-		carAlt: string;
-		carName: string;
-		carTags: string[];
-		question: string;
-		optionsLabel: string;
-		right: string;
-		// "{amount}" is replaced with the formatted dollar difference.
-		over: string;
-		low: string;
-		breakdown: string;
-		playAll: string;
 	};
 	chapters: {
 		title: string;
@@ -111,40 +77,7 @@ export type HomePageDict = {
 		body: string;
 		links: { platform: string; handle: string }[];
 	};
-	ai: {
-		title: string;
-		body: string;
-		steps: TitleBody[];
-		art: {
-			boosted: string;
-			license: string;
-			dealerName: string;
-			dealerDropped: string;
-			loanFunded: string;
-			loanAmount: string;
-			now: string;
-			delivered: string;
-		};
-		source: string;
-		saveStat: string;
-		saveTitle: string;
-		saveBody: string;
-		saveCta: string;
-		tipsTitle: string;
-		tips: string[];
-		ftcCta: string;
-		reportCta: string;
-	};
 	pillars: { title: string; body: string; items: TitleBody[] };
-	strikes: {
-		title: string;
-		body: string;
-		tabsLabel: string;
-		// "{n}" is replaced with the strike number.
-		tab: string;
-		items: { n: string; title: string; meta: string; paras: string[] }[];
-		readMore: string;
-	};
 	free: {
 		title: string;
 		body: string;
@@ -153,7 +86,14 @@ export type HomePageDict = {
 		checks: string[];
 		offers: TitleBody[];
 	};
-	cta: { title: string; body: string; primary: string; secondary: string };
+	ppi: {
+		title: string;
+		// Rich text: plain strings plus { b } for the bold phrase.
+		body: RichText;
+		items: TitleBody[];
+		primary: string;
+		secondary: string;
+	};
 };
 
 export type AboutTextSegment = { text: string; bold?: boolean };
@@ -178,14 +118,6 @@ export type AboutDict = {
 		headingEm: string;
 		subheading: string;
 		pillars: { word: string; body: string }[];
-	};
-	story: {
-		titleEm: string;
-		subtitle: string;
-		strikes: { num: string; label: string; body: string[] }[];
-		pullquote: { quote: string; attribution: string };
-		bio: { label: string; body: string; closingLine: string };
-		wollstonecraft: { label: string; quote: string };
 	};
 	provide: {
 		titlePlain: string;
@@ -250,7 +182,6 @@ export type SiteDictionary = {
 		mission: string;
 		about: string;
 		rights: string;
-		founded: string;
 		columns: {
 			organization: string;
 			navigate: string;

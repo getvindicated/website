@@ -31,12 +31,19 @@
 }
 
 /* ---------- Header ---------- */
+/* A plain full-width bar with one thin line along the bottom. The nav is
+   75px + the 1px line = 76px, the height the sticky bars and panels
+   elsewhere (track nav, scroll tours, slideshow) and the mobile menu's
+   `top` assume. */
 .rd-hdr {
   z-index: 100;
-  -webkit-backdrop-filter: blur(12px);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 0;
 }
 .rd-hdr .nav {
   gap: 16px;
+  height: 75px;
 }
 .rd-hdr .right {
   display: flex;
@@ -61,7 +68,7 @@
   cursor: pointer;
 }
 .rd-hdr .lang > button:hover {
-  background: var(--tint);
+  border-color: var(--purple);
 }
 .rd-hdr .lang ul {
   position: absolute;
@@ -95,8 +102,9 @@
 }
 .rd-hdr .lang li button:hover,
 .rd-hdr .lang li button[aria-selected="true"] {
-  background: var(--tint);
   color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .rd-hdr .lang li button[aria-selected="true"] {
   font-weight: 700;
@@ -128,7 +136,6 @@
     display: flex;
     position: static;
     border: 0;
-    box-shadow: none;
     padding: 0 0 6px 14px;
     min-width: 0;
   }
@@ -149,31 +156,6 @@
 .rd .sources {
   list-style: none;
   padding: 0;
-}
-.rd .pir-tags {
-  list-style: none;
-  padding: 0;
-}
-.rd .pir-tags li {
-  background: var(--tint);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-weight: 700;
-  font-size: 0.92rem;
-  line-height: 1.3;
-}
-.rd .pv .h2 {
-  margin-top: 14px;
-}
-.rd .pv .lede {
-  margin-top: 16px;
-}
-.rd .pv .btn {
-  margin-top: 26px;
-}
-.rd .pv-photo img {
-  width: auto;
-  height: auto;
 }
 .rd .aisteps {
   list-style: none;
@@ -199,9 +181,6 @@
 .rd .pcard-line:hover {
   border-color: var(--purple);
   box-shadow: 0 24px 48px -28px rgba(94, 26, 107, 0.45);
-}
-.rd .story-body .btn {
-  margin-top: 6px;
 }
 
 /* ---------- Right-to-left locales ---------- */
@@ -230,12 +209,6 @@
 .rd .a-hero p {
   margin-left: auto;
   margin-right: auto;
-}
-.rd .fv-section {
-  padding-top: 88px;
-}
-.rd .pull {
-  margin-inline: 0;
 }
 .rd figure.quote-band {
   margin: 0;
@@ -273,29 +246,6 @@
   padding: 4px 12px;
   font-size: 0.9rem;
   font-weight: 600;
-}
-.rd .pir-tags li.bad {
-  background: #fbe1df;
-  color: #7a1a14;
-}
-.rd .pir-tags li.loc {
-  background: var(--purple);
-  color: #fff;
-}
-.rd .pir-note {
-  text-align: start;
-}
-.rd .pir-photo img {
-  width: auto;
-  height: auto;
-}
-.rd .pir h4:focus,
-.rd .pir-verdict:focus {
-  outline: none;
-}
-/* Clear both the site header and the sticky track nav when jumping here. */
-.rd #pir {
-  scroll-margin-top: 170px;
 }
 .rd .track-nav .wrap {
   position: relative;
@@ -373,11 +323,6 @@
 .rd .nw-dek {
   font-family: var(--font-bitter), "Bitter", Georgia, serif;
 }
-.rd .flip {
-  display: block;
-  width: 100%;
-  text-align: start;
-}
 .rd .bro .h2,
 .rd .bro .lede {
   margin-top: 14px;
@@ -413,6 +358,16 @@
   /* The hidden-term strip wraps to two lines here; give it room. */
   .rd .fs-paper-wrap {
     padding-bottom: 96px;
+  }
+  /* Longer currency formats ("25.000 US$") must fit two columns at 390px. */
+  .rd .fs-paper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .rd .fs-cell {
+    padding: 24px 14px 30px;
+  }
+  .rd .fs-cell b {
+    font-size: 2.1rem;
   }
   .rd .fs-hidden {
     flex-direction: column;
@@ -481,12 +436,6 @@
 }
 
 /* ---------- Dealer Map ---------- */
-.rd .nw-img img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .rd .news-note {
   margin-top: 22px;
 }
@@ -675,4 +624,132 @@
 }
 .rd .methods-back-end {
   margin-top: 48px;
+}
+
+/* ---------- Sections kept from the Oct 8 layout ---------- */
+/* Home: pre-purchase inspection explainer, then "public knowledge". */
+.rd .ppi .offer {
+  margin-bottom: 32px;
+}
+.rd .ppi .offer h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+.rd .ppi-rule {
+  grid-column: 1 / -1;
+  border: 0;
+  margin: 8px 0 0;
+}
+.rd .ppi-sub {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.2;
+}
+
+/* About: chapter photos. */
+.rd .photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.rd .photo-grid figure {
+  margin: 0;
+}
+.rd .photo-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 22px;
+}
+@media (max-width: 640px) {
+  .rd .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Numbered steps (Inspection "How to schedule a PPI", Fraud "after"). */
+.rd .prose > * {
+  max-width: 840px;
+}
+.rd .num-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+  counter-reset: n;
+}
+.rd .num-list li {
+  counter-increment: n;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  column-gap: 14px;
+  padding: 14px 0;
+}
+.rd .num-list li::before {
+  content: counter(n);
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--tint-2);
+  color: var(--purple-deep);
+  font-weight: 800;
+}
+.rd .num-list h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+.rd .num-list p {
+  margin-top: 6px;
+  line-height: 1.7;
+}
+.rd .prose .alert {
+  margin-top: 28px;
+}
+.rd .after-list {
+  max-width: 840px;
+  margin: 40px auto 0;
+}
+
+/* Equal-footing stats sit in three cards now that their charts are gone. */
+.rd .row .big {
+  font-size: clamp(2.6rem, 4.2vw, 3.6rem);
+}
+
+.rd .row h3 {
+  font-size: 1.3rem;
+}
+
+/* Page hero with a picture beside the text (fraud page). */
+.rd .phero-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.rd .phero-art {
+  background: #fff;
+  border-radius: 28px;
+  padding: 20px;
+  justify-self: end;
+  width: 100%;
+  max-width: 562px;
+}
+.rd .phero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+@media (max-width: 900px) {
+  .rd .phero-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .rd .phero-art {
+    justify-self: start;
+  }
 }

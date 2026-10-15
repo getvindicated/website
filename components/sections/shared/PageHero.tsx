@@ -7,20 +7,33 @@ export function PageHero({
   className,
   centered,
   children,
+  art,
 }: {
   title: string;
   body?: ReactNode;
   className?: string;
   centered?: boolean;
   children?: ReactNode;
+  // Optional picture beside the text; stacks under it on phones.
+  art?: ReactNode;
 }) {
+  const text = (
+    <>
+      <h1>{title}</h1>
+      {body && <p>{body}</p>}
+      {children}
+    </>
+  );
   return (
     <div className={`phero${className ? ` ${className}` : ""}`}>
-      <div className={`wrap${centered ? " center" : ""}`}>
-        <h1>{title}</h1>
-        {body && <p>{body}</p>}
-        {children}
-      </div>
+      {art ? (
+        <div className="wrap phero-split">
+          <div>{text}</div>
+          {art}
+        </div>
+      ) : (
+        <div className={`wrap${centered ? " center" : ""}`}>{text}</div>
+      )}
     </div>
   );
 }
