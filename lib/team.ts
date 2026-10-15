@@ -52,6 +52,11 @@ export type TeamMember = {
 // in the locale files.
 export const team: TeamMember[] = [
 	{
+		name: "Rana Darwich",
+		photo: "/team/rana.png",
+		chapter: "leadership",
+	},
+	{
 		name: "Fiona Wangsawidjaja",
 		video: video("fiona-wangsawidjaja", "0:06", "portrait"),
 		major: "Statistics & Data Science",

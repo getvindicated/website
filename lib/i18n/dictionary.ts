@@ -20,6 +20,14 @@ export type HomeDict = {
 		cite: string;
 		source: string;
 	};
+	founder: {
+		titleLine1: string;
+		titleEm: string;
+		body1: string;
+		body2Prefix: string;
+		body2Bold: string;
+		cta: string;
+	};
 	meta: {
 		title: string;
 		description: string;
@@ -119,6 +127,14 @@ export type AboutDict = {
 		subheading: string;
 		pillars: { word: string; body: string }[];
 	};
+	story: {
+		titleEm: string;
+		subtitle: string;
+		strikes: { num: string; label: string; body: string[] }[];
+		pullquote: { quote: string; attribution: string };
+		bio: { label: string; body: string; closingLine: string };
+		wollstonecraft: { label: string; quote: string };
+	};
 	provide: {
 		titlePlain: string;
 		titleEm: string;
@@ -182,6 +198,7 @@ export type SiteDictionary = {
 		mission: string;
 		about: string;
 		rights: string;
+		founded: string;
 		columns: {
 			organization: string;
 			navigate: string;

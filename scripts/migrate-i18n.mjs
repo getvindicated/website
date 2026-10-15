@@ -201,27 +201,27 @@ if (!existsSync(getDictPath)) {
 const DICTIONARIES = {
   "en.json": {
     nav: { home: "Home", about: "About Us", inspection: "Inspection Guide", fraud: "Fraud Prevention", documents: "Documents Decoded", research: "Research", contact: "Contact" },
-    footer: { tagline: "Educate. Empower. Vindicate.", subtagline: "Free automotive education for women, immigrants, and first-time buyers.", copyright: "© 2026 VINdicated. All rights reserved.", mission: "A nonprofit committed to gender equity in automotive commerce." },
+    footer: { tagline: "Educate. Empower. Vindicate.", subtagline: "Free automotive education for women, immigrants, and first-time buyers.", copyright: "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.", mission: "A nonprofit committed to gender equity in automotive commerce." },
   },
   "es.json": {
     nav: { home: "Inicio", about: "Sobre Nosotros", inspection: "Guía de Inspección", fraud: "Prevención de Fraude", documents: "Documentos Descifrados", research: "Investigación", contact: "Contacto" },
-    footer: { tagline: "Educar. Empoderar. Reivindicar.", subtagline: "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.", copyright: "© 2026 VINdicated. Todos los derechos reservados.", mission: "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz." },
+    footer: { tagline: "Educar. Empoderar. Reivindicar.", subtagline: "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.", copyright: "© 2026 VINdicated. Todos los derechos reservados. Fundado por Rana Darwich.", mission: "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz." },
   },
   "zh-Hans.json": {
     nav: { home: "首页", about: "关于我们", inspection: "检验指南", fraud: "防范欺诈", documents: "文件解读", research: "研究", contact: "联系我们" },
-    footer: { tagline: "教育。赋能。维权。", subtagline: "为女性、移民和首次购车者提供免费的汽车知识教育。", copyright: "© 2026 VINdicated。保留所有权利。", mission: "一家致力于促进汽车商务性别平等的非营利组织。" },
+    footer: { tagline: "教育。赋能。维权。", subtagline: "为女性、移民和首次购车者提供免费的汽车知识教育。", copyright: "© 2026 VINdicated。保留所有权利。由 Rana Darwich 创立。", mission: "一家致力于促进汽车商务性别平等的非营利组织。" },
   },
   "tl.json": {
     nav: { home: "Home", about: "Tungkol Sa Amin", inspection: "Gabay sa Inspeksyon", fraud: "Pag-iwas sa Panloloko", documents: "Mga Dokumentong Ipinaliwanag", research: "Pananaliksik", contact: "Makipag-ugnayan" },
-    footer: { tagline: "Turuan. Bigyang-kapangyarihan. Ipagtanggol.", subtagline: "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.", copyright: "© 2026 VINdicated. Nakalaan ang lahat ng karapatan.", mission: "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto." },
+    footer: { tagline: "Turuan. Bigyang-kapangyarihan. Ipagtanggol.", subtagline: "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.", copyright: "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.", mission: "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto." },
   },
   "vi.json": {
     nav: { home: "Trang Chủ", about: "Về Chúng Tôi", inspection: "Hướng Dẫn Kiểm Tra", fraud: "Phòng Chống Gian Lận", documents: "Giải Mã Tài Liệu", research: "Nghiên Cứu", contact: "Liên Hệ" },
-    footer: { tagline: "Giáo Dục. Trao Quyền. Minh Oan.", subtagline: "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.", copyright: "© 2026 VINdicated. Bảo lưu mọi quyền.", mission: "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô." },
+    footer: { tagline: "Giáo Dục. Trao Quyền. Minh Oan.", subtagline: "Giáo dục miễn phí về ô tô dành cho phụ nữ, người nhập cư và người mua xe lần đầu.", copyright: "© 2026 VINdicated. Bảo lưu mọi quyền. Sáng lập bởi Rana Darwich.", mission: "Một tổ chức phi lợi nhuận cam kết vì bình đẳng giới trong thương mại ô tô." },
   },
   "ko.json": {
     nav: { home: "홈", about: "소개", inspection: "검사 가이드", fraud: "사기 예방", documents: "문서 해설", research: "연구", contact: "문의하기" },
-    footer: { tagline: "교육. 역량 강화. 정당한 권리 수호.", subtagline: "여성, 이민자, 그리고 첫 자동차 구매자를 위한 무료 자동차 교육입니다.", copyright: "© 2026 VINdicated. 모든 권리 보유.", mission: "자동차 상거래의 성평등을 위해 힘쓰는 비영리 단체입니다." },
+    footer: { tagline: "교육. 역량 강화. 정당한 권리 수호.", subtagline: "여성, 이민자, 그리고 첫 자동차 구매자를 위한 무료 자동차 교육입니다.", copyright: "© 2026 VINdicated. 모든 권리 보유. Rana Darwich 설립.", mission: "자동차 상거래의 성평등을 위해 힘쓰는 비영리 단체입니다." },
   },
   "fa.json": {
     dir: "rtl",

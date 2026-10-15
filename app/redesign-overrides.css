@@ -210,6 +210,12 @@
   margin-left: auto;
   margin-right: auto;
 }
+.rd .fv-section {
+  padding-top: 88px;
+}
+.rd .pull {
+  margin-inline: 0;
+}
 .rd figure.quote-band {
   margin: 0;
 }
