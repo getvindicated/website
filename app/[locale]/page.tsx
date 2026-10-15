@@ -59,7 +59,7 @@ export default async function HomePage({
 
   const ppi = href("/inspection");
   const fraud = href("/fraud");
-  const story = href("/about");
+  const story = href("/about#story");
 
   return (
     <div className="rd rd-page">

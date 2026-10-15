@@ -3,6 +3,8 @@ import { CtaBand } from "@/components/sections/shared/CtaBand";
 import { ZoomSlideshow } from "@/components/sections/about/ZoomSlideshow";
 import { PhotoGrid } from "@/components/sections/about/PhotoGrid";
 import { MissionPillars } from "@/components/sections/about/MissionPillars";
+import { FounderStory } from "@/components/sections/about/FounderStory";
+import { FounderVideo } from "@/components/sections/about/FounderVideo";
 import { AiScams } from "@/components/sections/about/AiScams";
 import { QuoteBand } from "@/components/sections/about/QuoteBand";
 import { WhatWeProvide } from "@/components/sections/about/WhatWeProvide";
@@ -43,6 +45,8 @@ export default async function AboutPage({
       <ZoomSlideshow dict={dict.zoom} />
       <PhotoGrid dict={dict.photos} />
       <MissionPillars dict={dict.mission} />
+      <FounderStory dict={dict.story} />
+      <FounderVideo dict={dict.video} />
       <AiScams dict={dict.ai} rightsHref={href("/fraud#law")} />
       <QuoteBand text={dict.quote.text} cite={dict.quote.cite} />
       <WhatWeProvide dict={dict.provide} projectsHref={href("/research")} />

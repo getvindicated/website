@@ -82,6 +82,7 @@ export function SiteFooter({
         </div>
         <div className="fbot">
           <span>{footer.rights}</span>
+          <span>{footer.founded}</span>
         </div>
       </div>
     </footer>

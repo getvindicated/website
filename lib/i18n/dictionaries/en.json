@@ -4,6 +4,7 @@
     "about": "About",
     "aboutWhoWeAre": "Who We Are",
     "aboutMission": "Our Mission",
+    "aboutFounder": "From the Founder",
     "aboutProvides": "What We Provide",
     "team": "Team",
     "inspection": "Inspection Guide",
@@ -36,7 +37,7 @@
   "footer": {
     "tagline": "Educate. Empower. Vindicate.",
     "subtagline": "Free automotive education for women, immigrants, and first-time buyers.",
-    "copyright": "© 2026 VINdicated. All rights reserved.",
+    "copyright": "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.",
     "mission": "A nonprofit committed to gender equity in automotive commerce.",
     "columns": {
       "navigate": "Navigate",
@@ -54,7 +55,8 @@
       "instagramUcsc": "Instagram · UC Santa Cruz"
     },
     "about": "VINdicated is a student-led consumer advocacy nonprofit. We make car knowledge public knowledge through free guides, community workshops, and student research, so no one gets taken advantage of buying, financing, or fixing a car.",
-    "rights": "© 2026 VINdicated. All rights reserved."
+    "rights": "© 2026 VINdicated. All rights reserved.",
+    "founded": "Founded by Rana Darwich."
   },
   "meta": {
     "defaultTitle": "VINdicated | Educate. Empower. Vindicate.",
@@ -67,7 +69,7 @@
       },
       "about": {
         "title": "About Us",
-        "description": "What VINdicated is, what we do, and how to get involved.",
+        "description": "VINdicated was founded by Rana Darwich after she was discriminated against while buying a car. Read how it started and what we do.",
         "imageAlt": "VINdicated: About Us"
       },
       "team": {
@@ -171,6 +173,14 @@
       "text": "Why should woman be kept in ignorance under the specious name of innocence?",
       "cite": "Mary Wollstonecraft",
       "source": "A Vindication of the Rights of Woman (1792)"
+    },
+    "founder": {
+      "titleLine1": "Founded at 19.",
+      "titleEm": "Out of necessity.",
+      "body1": "Three strikes at three different dealerships showed me the same thing: the system is designed to confuse you, rush you, and profit off what you don't know.",
+      "body2Prefix": "VINdicated exists because ",
+      "body2Bold": "I wish it had existed for me.",
+      "cta": "Read Rana's Full Story"
     },
     "meta": {
       "title": "Educate. Empower. Vindicate.",
@@ -426,6 +436,51 @@
         }
       ]
     },
+    "story": {
+      "titleEm": "Vindicated from what?",
+      "subtitle": "Three strikes. Three completely different situations. The same system every time.",
+      "strikes": [
+        {
+          "num": "1",
+          "label": "The Pink Slip Scam",
+          "body": [
+            "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
+            "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid."
+          ]
+        },
+        {
+          "num": "2",
+          "label": "Facebook Marketplace",
+          "body": [
+            "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
+            "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
+            "After that, I made a fake Facebook account under the name Randall, and had my brother call sellers on my behalf. I got better deals when they thought they were dealing with a man."
+          ]
+        },
+        {
+          "num": "3",
+          "label": "South Coast Mitsubishi",
+          "body": [
+            "April 2025. I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" I asked for service records. I was told they were in a locked drawer, and the guy with the key wasn't there. They promised a 300-point inspection. Then 150. Then it was back in the locked drawer.",
+            "I paid for an independent inspection at a Toyota dealership. They found issues. When I drove back, there was a rattling noise. Eddy told me I broke the car during the test drive.",
+            "They handed me a financing contract with 30% APR. I was paying cash. \"Sign this until you bring a cashier's check.\" I asked where it said the contract would be voided. He pointed to an arbitration agreement. I took business law. I know what arbitration means. He got angry. I said, \"I know you're frustrated.\" He said, \"You would be correct,\" and left."
+          ]
+        }
+      ],
+      "pullquote": {
+        "quote": "I reported Eddy. When the GM called to apologize, I said, \"I don't accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\"",
+        "attribution": "Rana Darwich, Founder of VINdicated"
+      },
+      "bio": {
+        "label": "About the Founder",
+        "body": "Rana Darwich founded VINdicated at 19 after almost signing a predatory arbitration clause at a dealership.",
+        "closingLine": "Now, it's your turn."
+      },
+      "wollstonecraft": {
+        "label": "Mary Wollstonecraft, 1792",
+        "quote": "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."
+      }
+    },
     "provide": {
       "titlePlain": "Free. Accessible.",
       "titleEm": "No strings attached.",
@@ -461,6 +516,10 @@
     },
     "sectionTitle": "Meet the Team",
     "members": {
+      "Rana Darwich": {
+        "position": "Founder & President",
+        "bio": "Rana Darwich is a student researcher at UC Berkeley and the Founder & President of VINdicated, which now runs chapters at UCLA, Berkeley, and UC Santa Cruz. She is a Research Assistant at UC Berkeley's School of Education studying gender equity in university athletics funding, a Research Apprentice at Berkeley Law's Center for Comparative Inequality and Anti-Discrimination Law, and a former Student Researcher at the Political Violence Lab. She previously interned at Amazon and is currently an Opinion writer at The Daily Californian."
+      },
       "Fiona Wangsawidjaja": {
         "position": "President",
         "bio": "Fiona Wangsawidjaja is a Statistics and Data Science major at UCLA and the current President of the UCLA VINdicated chapter. Fiona loves to educate and help her community when she can, whether through her past experience as a coding tutor, helping others learn about the digital world through conferences, or here at VINdicated, where she hopes people can benefit from accessible automotive literacy. She has experience specializing in data through organizations such as DataRes and NSDC, teaching high school students about data, building data analysis projects, and consulting companies."
@@ -629,6 +688,41 @@
           "body": "Research that documents what buyers go through, so it can be used to change policy."
         }
       ]
+    },
+    "story": {
+      "title": "Why Rana started VINdicated",
+      "body": "Rana Darwich started VINdicated after three very different car purchases went wrong in exactly the same way: a seller counting on her not knowing the rules.",
+      "quote": "\"I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\"",
+      "quoteCite": "Rana Darwich, Founder",
+      "strikes": [
+        {
+          "n": "01",
+          "tag": "Age 18 · private sale",
+          "title": "The pink slip scam",
+          "body": "A family friend made her wait three months to buy his car, then told her she didn't need the pink slip. Without the title in your name, the car isn't legally yours, no matter what you paid."
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "The tone shift",
+          "body": "The conversation was normal until the seller realized she was a woman. He insulted her and blocked her. Later, when she messaged sellers as \"Randall\" and had her brother call, she got better deals."
+        },
+        {
+          "n": "03",
+          "tag": "April 2025 · dealership",
+          "title": "The locked drawer",
+          "body": "The dealer said the service records were \"in a locked drawer,\" and the promised 300-point inspection shrank to 150. Then they handed her a financing contract at 30% APR on a cash deal, with an arbitration clause instead of a way to cancel. She recognized it, said no, and reported the salesperson."
+        }
+      ]
+    },
+    "video": {
+      "label": "Rana Darwich, VINdicated's founder, talking about why she started VINdicated, filmed at UC Berkeley",
+      "play": "Play the founder video, 34 seconds",
+      "length": "0:34",
+      "title": "Hear it from Rana.",
+      "body": "Rana on why she started VINdicated and who it's for, filmed at UC Berkeley.",
+      "name": "Rana Darwich",
+      "role": "Founder & President, VINdicated"
     },
     "ai": {
       "title": "Scammers are using AI now, too.",
@@ -1252,6 +1346,10 @@
         }
       ]
     },
+    "quote": {
+      "text": "“Your salesperson is not your friend, your partner, or someone looking out for your best interests. They're paid on commission. The more you pay, the more they make. This doesn't mean they're evil. It just means you need to protect yourself.”",
+      "cite": "Rana Darwich, VINdicated Founder"
+    },
     "schedule": {
       "title": "How to schedule a PPI.",
       "stops": [
@@ -1865,7 +1963,7 @@
           "name": "UC Berkeley Chapter",
           "school": "University of California, Berkeley",
           "focus": "Currently building out its membership. Focused on consumer education and outreach.",
-          "leads": "Noirit Ghosh Choudhuri, Internal Vice President · Halima Cherif Hminat, External Vice President"
+          "leads": "Rana Darwich, President · Noirit Ghosh Choudhuri, Internal Vice President · Halima Cherif Hminat, External Vice President"
         },
         {
           "tag": "UC Santa Cruz",
