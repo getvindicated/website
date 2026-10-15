@@ -6,6 +6,7 @@ import starter from "./starter-data.json";
 import ucla from "./starter-ucla.json";
 import { seedSettings } from "./settings-server";
 import { CHAPTER_SERVER } from "./chapter-server";
+import { UCLA_ROW2 } from "./chapters";
 
 // Makes the board database ready on first use, so nobody has to run
 // commands: creates the tables (scripts/board-schema.sql, safe to re-run)
@@ -70,6 +71,23 @@ async function setup() {
   await markHubAdmins(sql);
   await renameEvanceline(sql);
   await adminsOnlyToHubAdmins(sql);
+  await uclaPhotoRow2(sql);
+}
+
+// Adds UCLA's second photo row under the existing photos, once. The first
+// row is left exactly as it is.
+async function uclaPhotoRow2(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-15-ucla-photo-row-2')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    const [row] = await tx`SELECT value FROM board_settings WHERE chapter = 'ucla' AND key = 'photos'`;
+    const photos = (row?.value ?? []) as { src: string; row?: 2 }[];
+    const have = new Set(photos.map((p) => p.src));
+    const added = UCLA_ROW2.filter((src) => !have.has(src)).map((src) => ({ src, row: 2 as const }));
+    if (!row || added.length === 0) return;
+    await tx`UPDATE board_settings SET value = ${tx.json([...photos, ...added] as never)} WHERE chapter = 'ucla' AND key = 'photos'`;
+  });
 }
 
 // Announcements marked "admins only" before "Send to" existed are for Hub

@@ -7,7 +7,9 @@ import { TABS, type Tab } from "./types";
 
 export type QuickLink = { label: string; text: string; href: string | null; tab: Tab | "" };
 export type KeyDate = { date: string; text: string };
-export type Photo = { src: string };
+// `row: 2` puts a photo in a second row under the first, so adding people
+// never shrinks the photos already in the first row.
+export type Photo = { src: string; row?: 2 };
 export type Projects = ChapterConfig["projects"];
 
 export type Settings = {
@@ -48,7 +50,7 @@ export function defaultSettings(chapter: ChapterId): Settings {
       .filter((l) => l !== meeting)
       .map((l) => ({ label: l.label ?? "", text: l.text, href: l.href ?? null, tab: l.tab ?? "" })),
     keyDates: c.keyDates.map(([date, text]) => ({ date, text })),
-    photos: c.photos.map((src) => ({ src })),
+    photos: [...c.photos.map((src) => ({ src })), ...(c.photosRow2 ?? []).map((src) => ({ src, row: 2 as const }))],
     projects: c.projects,
   };
 }
@@ -151,8 +153,9 @@ export function checkSetting(key: SettingKey, v: unknown): Ok<unknown> {
       return { ok: true, value: out };
     }
     case "photos": {
-      if (!Array.isArray(v) || v.length > 12 || !v.every((p) => p && typeof p.src === "string" && isPhotoSrc(p.src))) return fail("Check the photos.");
-      return { ok: true, value: v.map((p) => ({ src: p.src })) };
+      if (!Array.isArray(v) || v.length > 24 || !v.every((p) => p && typeof p.src === "string" && isPhotoSrc(p.src) && (p.row === undefined || p.row === 1 || p.row === 2)))
+        return fail("Check the photos.");
+      return { ok: true, value: v.map((p) => (p.row === 2 ? { src: p.src, row: 2 as const } : { src: p.src })) };
     }
     case "projects":
       return projects(v);
