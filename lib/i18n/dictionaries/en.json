@@ -198,9 +198,23 @@
         "walk away."
       ],
       "body": "Most people buy a car without basic car knowledge. Putting that much money into something without knowing what it's worth can be financially devastating. So we explain it all in plain language, for free.",
-      "ctaPrimary": "Get the Inspection Guide",
+      "ctaPrimary": "Get the PPI Guide",
       "ctaSecondary": "Our story",
-      "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them"
+      "photoAlt": "VINdicated's UC Berkeley chapter together on the lawn in front of Doe Library, with the Campanile behind them",
+      "cards": [
+        {
+          "title": "Inspection passed",
+          "body": "Independent mechanic"
+        },
+        {
+          "title": "Red flag spotted",
+          "body": "Seller wants a wire transfer"
+        },
+        {
+          "title": "APR 6.9%",
+          "body": "Within CA limit"
+        }
+      ]
     },
     "sources": {
       "heading": "Our numbers come from",
@@ -219,13 +233,33 @@
         },
         "."
       ],
-      "cta": "See common scams"
+      "ctaPrimary": "Start the inspection guide",
+      "ctaSecondary": "See common scams",
+      "phoneLabel": "Example of VINdicated flagging dealer red flags on a phone",
+      "clock": "2:14",
+      "appName": "VINdicated",
+      "notifs": [
+        {
+          "time": "now",
+          "body": "Red flag: this dealer's site only takes wire transfers up front. Ask to see the car in person first."
+        },
+        {
+          "time": "2 min ago",
+          "body": "Red flag: a financing contract on a cash deal. Don't sign until you know how it's voided."
+        },
+        {
+          "time": "5 min ago",
+          "body": "Checklist done. Ask for the service records before you negotiate."
+        }
+      ]
     },
     "footing": {
       "title": "You shouldn't pay more because of who you are. In California, it's illegal.",
       "quote": "“All persons within the jurisdiction of this state are free and equal, and no matter what their sex, race, color, religion, ancestry, national origin… are entitled to the full and equal accommodations, advantages, facilities, privileges, or services in all business establishments of every kind whatsoever.”",
       "quoteCite": "Unruh Civil Rights Act, Cal. Civ. Code § 51",
       "body": "Studies show dealers quote different prices to different people. Scammers also have better tools now.",
+      "quoteA": "Quote A",
+      "quoteB": "Quote B",
       "rows": [
         {
           "stat": "$1,100",
@@ -246,6 +280,26 @@
           "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
         }
       ]
+    },
+    "preview": {
+      "tag": "Preview",
+      "title": "Guess what a used car is worth.",
+      "body": "Our UC Berkeley team is building Price Is Right, a game that trains your eye for a good deal. Here's a taste.",
+      "cta": "Play the full preview",
+      "carAlt": "Gray 2018 Honda Civic sedan",
+      "carName": "2018 Honda Civic LX",
+      "carTags": [
+        "72,000 miles",
+        "Clean title",
+        "1 owner"
+      ],
+      "question": "What's a fair price?",
+      "optionsLabel": "Price options",
+      "right": "Nailed it.",
+      "over": "You'd overpay by {amount}.",
+      "low": "Too low.",
+      "breakdown": "Base value $15,200, plus $400 for low miles and $300 for one owner.",
+      "playAll": "Play all three cars →"
     },
     "chapters": {
       "title": "Find us on campus.",
@@ -295,6 +349,53 @@
           "handle": "@ucsc_vindicated"
         }
       ]
+    },
+    "ai": {
+      "title": "Scammers are using AI now, too.",
+      "body": "Fake dealer websites, listing photos, and paperwork are getting easier to make. This is what happened to one buyer in September.",
+      "steps": [
+        {
+          "title": "The listing looked normal",
+          "body": "A fairly priced SUV shows up on Facebook Marketplace, boosted to reach more buyers."
+        },
+        {
+          "title": "The dealer was a copy",
+          "body": "Scammers clone a real dealership down to the paperwork, dropping a single word from its name."
+        },
+        {
+          "title": "The bank paid the fake dealer",
+          "body": "A major lender approves the loan and wires $36,240 to the fake dealer."
+        },
+        {
+          "title": "The truck never came",
+          "body": "A spoofed tracker shows the car crossing the country. It \"arrives\" at an empty street."
+        }
+      ],
+      "art": {
+        "boosted": "Boosted",
+        "license": "DEALER LICENSE",
+        "dealerName": "Route Motor",
+        "dealerDropped": "Co.",
+        "loanFunded": "Loan funded",
+        "loanAmount": "$36,240",
+        "now": "now",
+        "delivered": "Delivered?"
+      },
+      "source": "Based on reporting by Caleb Jacobs in The Drive, September 2026.",
+      "saveStat": "$0",
+      "saveTitle": "He didn't have to repay the loan.",
+      "saveBody": "Because he'd saved every message and document, the buyer used the FTC Holder Rule to get out of the loan. Most people don't know that rule exists.",
+      "saveCta": "Learn your rights",
+      "tipsTitle": "Before you pay anyone",
+      "tips": [
+        "Search the dealer's name with \"scam,\" \"review,\" or \"complaint.\"",
+        "Don't trust a dealer just because its reviews are good. A fake site can borrow a real dealer's reviews.",
+        "Ask to see the car and the lot in person. If they refuse, walk away.",
+        "Too far to visit? Send a mobile inspector. A real seller won't mind.",
+        "Never pay up front by wire transfer only."
+      ],
+      "ftcCta": "Read the FTC alert",
+      "reportCta": "Report a scam"
     },
     "pillars": {
       "title": "Start with these two guides.",
@@ -379,35 +480,11 @@
         }
       ]
     },
-    "ppi": {
-      "title": "Buying a used car? Get a PPI first.",
-      "body": [
-        "A ",
-        {
-          "b": "pre-purchase inspection (PPI)"
-        },
-        " is when you pay an independent mechanic, not the seller or the dealership, to check a car before you buy it. They find the problems a test drive won't show you."
-      ],
-      "items": [
-        {
-          "title": "What they check",
-          "body": "The engine, transmission, brakes, suspension, and frame, plus leaks, rust, and signs of past accidents."
-        },
-        {
-          "title": "What it costs",
-          "body": "Usually $100–$200, and some AAA locations do it free or discounted for members. One hidden problem can cost you thousands."
-        },
-        {
-          "title": "Where to go",
-          "body": "A mechanic you trust, a mobile inspection service, or a dealership for that car's brand that isn't the one selling it."
-        },
-        {
-          "title": "What you get",
-          "body": "A written report you can use to negotiate the price down, or a good reason to walk away."
-        }
-      ],
-      "primary": "Read the PPI Guide",
-      "secondary": "Where to get one"
+    "cta": {
+      "title": "Buying a car soon?",
+      "body": "Start with the inspection guide, then read up on common dealer tricks.",
+      "primary": "Get the PPI Guide",
+      "secondary": "Decode your documents"
     }
   },
   "about": {
@@ -698,24 +775,6 @@
         "A VINdicated volunteer pointing to the UCLA display board"
       ]
     },
-    "photos": {
-      "title": "Our chapters",
-      "body": "Students at UCLA, UC Berkeley, and UC Santa Cruz who table, teach, and run research on car buying.",
-      "items": [
-        {
-          "alt": "VINdicated volunteers tabling on the UC Berkeley campus beside a VINdicated banner"
-        },
-        {
-          "alt": "Two VINdicated volunteers holding a VINdicated sign at UC Berkeley"
-        },
-        {
-          "alt": "VINdicated volunteers at their UCLA tabling booth on a sunny activities day"
-        },
-        {
-          "alt": "A VINdicated volunteer sharing free car-buying resources with a student at UCLA"
-        }
-      ]
-    },
     "mission": {
       "title": "Educate. Empower. Vindicate.",
       "body": "Our motto, and the order we work in.",
@@ -768,43 +827,6 @@
       "body": "Rana on why she started VINdicated and who it's for, filmed at UC Berkeley.",
       "name": "Rana Darwich",
       "role": "Founder & President, VINdicated"
-    },
-    "ai": {
-      "title": "Scammers are using AI now, too.",
-      "body": "Fake dealer websites, listing photos, and paperwork are getting easier to make. This is what happened to one buyer in September.",
-      "steps": [
-        {
-          "title": "The listing looked normal",
-          "body": "A fairly priced SUV shows up on Facebook Marketplace, boosted to reach more buyers."
-        },
-        {
-          "title": "The dealer was a copy",
-          "body": "Scammers clone a real dealership down to the paperwork, dropping a single word from its name."
-        },
-        {
-          "title": "The bank paid the fake dealer",
-          "body": "A major lender approves the loan and wires $36,240 to the fake dealer."
-        },
-        {
-          "title": "The truck never came",
-          "body": "A spoofed tracker shows the car crossing the country. It \"arrives\" at an empty street."
-        }
-      ],
-      "source": "Based on reporting by Caleb Jacobs in The Drive, September 2026.",
-      "saveStat": "$0",
-      "saveTitle": "He didn't have to repay the loan.",
-      "saveBody": "Because he'd saved every message and document, the buyer used the FTC Holder Rule to get out of the loan. Most people don't know that rule exists.",
-      "saveCta": "Learn your rights",
-      "tipsTitle": "Before you pay anyone",
-      "tips": [
-        "Search the dealer's name with \"scam,\" \"review,\" or \"complaint.\"",
-        "Don't trust a dealer just because its reviews are good. A fake site can borrow a real dealer's reviews.",
-        "Ask to see the car and the lot in person. If they refuse, walk away.",
-        "Too far to visit? Send a mobile inspector. A real seller won't mind.",
-        "Never pay up front by wire transfer only."
-      ],
-      "ftcCta": "Read the FTC alert",
-      "reportCta": "Report a scam"
     },
     "quote": {
       "text": "Everyone gets taken advantage of at some point. We want you to notice when it's happening.",
@@ -877,6 +899,7 @@
       "body": "Students across our chapters are building apps, crunching data, doing research, and making content that helps people buy, finance, and fix cars without getting taken advantage of."
     },
     "navLabel": "Project teams",
+    "status": "Now forming",
     "skillsLabel": "Skills",
     "membersLabel": "Team size",
     "chapters": {
@@ -1025,6 +1048,179 @@
         ]
       }
     },
+    "game": {
+      "tag": "Preview · UC Berkeley",
+      "title": "Try Price Is Right.",
+      "body": "Guess what this car should cost. Then see what pushed the price up or down.",
+      "score": "Score",
+      "stateLabel": "First, where are you buying?",
+      "stateBody": "Used-car prices shift from state to state. Pick yours and we'll adjust every fair price to match.",
+      "statePlaceholder": "Choose a state",
+      "start": "Start game",
+      "round": "Round {n} of {total}",
+      "changeState": "Change state",
+      "guessLabel": "Your guess",
+      "lockIn": "Lock in my guess",
+      "compareGuess": "Your guess",
+      "compareFair": "Fair price in {state}",
+      "comparePoints": "Points",
+      "nailed": "Nailed it.",
+      "over": "You'd have overpaid by {amount}.",
+      "under": "You guessed {amount} under.",
+      "why": "Why this price",
+      "tip": "Tip: {tip}",
+      "next": "Next car →",
+      "seeScore": "See my score",
+      "done": "Session complete · {state}",
+      "points": "{points} points",
+      "doneBody": "Mileage, title status, accidents, owners, and even your state all move the price. Now you know what to look for before you make an offer.",
+      "again": "Play again",
+      "otherState": "Try another state",
+      "stateAdjust": "{state} market, {note}",
+      "disclaimer": "Preview: sample rounds with illustrative prices and state adjustments. The full game launches after the November 6 demo and pulls fair prices from live listing data.",
+      "regions": {
+        "west": "where commuter sedans are in demand",
+        "mountain": "where trucks hold value for snow and towing",
+        "southwest": "where trucks sell high",
+        "midwest": "where road salt means more rust risk",
+        "south": "with steady truck demand",
+        "northeast": "where city buyers favor sedans"
+      },
+      "rounds": [
+        {
+          "name": "2018 Honda Civic LX",
+          "alt": "Gray 2018 Honda Civic sedan",
+          "tags": [
+            "72,000 miles",
+            "Clean title",
+            "1 owner"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "Low miles for its age",
+            "One owner"
+          ],
+          "tip": "One owner and a full service history are worth paying a little more for."
+        },
+        {
+          "name": "2015 Ford F-150 XL",
+          "alt": "White 2015 Ford F-150 pickup truck",
+          "tags": [
+            "138,000 miles",
+            "Accident reported",
+            "3 owners"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "High mileage",
+            "Accident on the history report",
+            "Three owners"
+          ],
+          "tip": "An accident on the report should always lower the price, even if the truck looks perfect."
+        },
+        {
+          "name": "2020 Toyota Camry LE",
+          "alt": "Black 2020 Toyota Camry sedan",
+          "tags": [
+            "41,000 miles",
+            "Rebuilt title",
+            "2 owners"
+          ],
+          "parts": [
+            "Base value for this model and year",
+            "Low miles",
+            "Rebuilt title",
+            "Two owners"
+          ],
+          "tip": "Rebuilt titles usually sell for 20 to 40% less. If the asking price doesn't reflect that, walk away."
+        }
+      ],
+      "states": {
+        "AL": "Alabama",
+        "AK": "Alaska",
+        "AZ": "Arizona",
+        "AR": "Arkansas",
+        "CA": "California",
+        "CO": "Colorado",
+        "CT": "Connecticut",
+        "DE": "Delaware",
+        "DC": "District of Columbia",
+        "FL": "Florida",
+        "GA": "Georgia",
+        "HI": "Hawaii",
+        "ID": "Idaho",
+        "IL": "Illinois",
+        "IN": "Indiana",
+        "IA": "Iowa",
+        "KS": "Kansas",
+        "KY": "Kentucky",
+        "LA": "Louisiana",
+        "ME": "Maine",
+        "MD": "Maryland",
+        "MA": "Massachusetts",
+        "MI": "Michigan",
+        "MN": "Minnesota",
+        "MS": "Mississippi",
+        "MO": "Missouri",
+        "MT": "Montana",
+        "NE": "Nebraska",
+        "NV": "Nevada",
+        "NH": "New Hampshire",
+        "NJ": "New Jersey",
+        "NM": "New Mexico",
+        "NY": "New York",
+        "NC": "North Carolina",
+        "ND": "North Dakota",
+        "OH": "Ohio",
+        "OK": "Oklahoma",
+        "OR": "Oregon",
+        "PA": "Pennsylvania",
+        "RI": "Rhode Island",
+        "SC": "South Carolina",
+        "SD": "South Dakota",
+        "TN": "Tennessee",
+        "TX": "Texas",
+        "UT": "Utah",
+        "VT": "Vermont",
+        "VA": "Virginia",
+        "WA": "Washington",
+        "WV": "West Virginia",
+        "WI": "Wisconsin",
+        "WY": "Wyoming"
+      }
+    },
+    "timeline": {
+      "title": "The six-week build",
+      "body": "Price Is Right goes from empty repo to final demo by November 6.",
+      "week": "Week {n}",
+      "now": "We're here",
+      "weeks": [
+        [
+          "Sep 28",
+          "Set up the repo, database, and app skeleton."
+        ],
+        [
+          "Oct 5",
+          "Choose data sources and pipeline tools; start building screens."
+        ],
+        [
+          "Oct 12",
+          "Finish the data pipeline and connect it to the app."
+        ],
+        [
+          "Oct 19",
+          "Build guessing, scoring, and the price reveal; fix bugs."
+        ],
+        [
+          "Oct 26",
+          "Finish the car-price part of the app."
+        ],
+        [
+          "Nov 2",
+          "Test end to end, fix bugs, final demo Nov 6."
+        ]
+      ]
+    },
     "cta": {
       "title": "No experience? That's fine.",
       "body": "You'll learn the tools on the team. What matters is curiosity and a few hours a week.",
@@ -1069,7 +1265,7 @@
     },
     "engine": {
       "title": "Inspect it yourself.",
-      "body": "Tap any marked part, or start a guided inspection. We'll zoom in, walk you through the check, and keep score as you go.",
+      "body": "Tap any glowing part, or start a guided inspection. We'll zoom in, walk you through the check, and keep score as you go.",
       "progress": "{n} of {total} checked",
       "start": "Start guided inspection",
       "imageAlt": "Illustrated engine bay with labeled parts including the fuse box, intake air tube, brake fluid reservoir, spark plugs, battery, coolant reservoir, radiator, and fan",
@@ -1395,7 +1591,13 @@
       "cite": "Rana Darwich, VINdicated Founder"
     },
     "schedule": {
+      "label": "How to schedule a PPI",
       "title": "How to schedule a PPI.",
+      "body": "Keep scrolling. The car stops at each step.",
+      "introTag": "6 stops",
+      "introTitle": "Start your engine.",
+      "introBody": "Scroll to drive.",
+      "stop": "Stop {n} of {total}",
       "stops": [
         {
           "title": "Find your inspector first.",
@@ -1438,13 +1640,9 @@
       "ctaPrimary": "See the red flags",
       "ctaSecondary": "Know your rights"
     },
-    "tour": {
-      "countIntro": "{total} stops",
-      "countStep": "{n} / {total}"
-    },
     "pinkSlip": {
       "title": "This document is your only proof you own the car.",
-      "body": "A California Certificate of Title, the \"pink slip,\" is the legal document that proves ownership.",
+      "body": "A California Certificate of Title, the \"pink slip,\" is the legal document that proves ownership. Scroll to walk through it one section at a time.",
       "imageAlt": "Sample California Certificate of Title",
       "intro": "Six boxes decide whether the car is really yours. Scroll to spotlight each one.",
       "items": [
@@ -1485,6 +1683,10 @@
           "say": "If you suspect fraud: document the discrepancy with photos, do not complete the purchase, and report to NHTSA at nhtsa.gov."
         }
       ]
+    },
+    "tour": {
+      "countIntro": "{total} stops",
+      "countStep": "{n} / {total}"
     },
     "flags": {
       "title": "Car purchasing red flags.",
@@ -1805,6 +2007,7 @@
     },
     "after": {
       "title": "What to do after a scam.",
+      "body": "Select a card to flip it.",
       "items": [
         {
           "front": "Document everything immediately.",
@@ -1822,6 +2025,7 @@
     },
     "brochure": {
       "coverAlt": "Cover of the VINdicated brochure",
+      "tag": "Take it with you",
       "title": "The VINdicated brochure.",
       "body": "The VIN, the yo-yo scam, the four-square trap, dealer add-ons, and your legal rights, folded into one handout. We bring it to tabling and school visits.",
       "soon": "New edition coming soon as a free download."
@@ -1840,19 +2044,19 @@
       "ctaPrimary": "Read a history report",
       "ctaSecondary": "Read the Buyers Guide"
     },
-    "tour": {
-      "countIntro": "{total} stops",
-      "countStep": "{n} / {total}"
-    },
     "severity": {
       "easy": "Easy to check",
       "watch": "Watch carefully",
       "red": "Serious red flag",
       "know": "Need to know"
     },
+    "tour": {
+      "countIntro": "{total} stops",
+      "countStep": "{n} / {total}"
+    },
     "page1": {
       "title": "How to read a Carfax, page one.",
-      "body": "Mileage and VIN, accident history, reliability, and recent service.",
+      "body": "Mileage and VIN, accident history, reliability, and recent service. Scroll to walk through each section and what it means for the price.",
       "imageAlt": "Page one of a sample Carfax vehicle history report for a 2013 Honda Accord",
       "intro": "Scroll and each section of the report lights up.",
       "items": [
@@ -1890,7 +2094,7 @@
     },
     "page2": {
       "title": "How to read a Carfax, page two.",
-      "body": "Title brands, the history grid, and the ownership table. This is where the biggest problems show up.",
+      "body": "Title brands, the history grid, and the ownership table. This is where the biggest problems show up. Scroll to walk through them.",
       "imageAlt": "Page two of a sample Carfax vehicle history report showing the history grid, title history, and ownership table",
       "intro": "Now the serious history. Keep scrolling.",
       "items": [
@@ -1994,18 +2198,21 @@
       "leadsLabel": "Leads:",
       "items": [
         {
+          "tag": "UCLA",
           "name": "UCLA Chapter",
           "school": "University of California, Los Angeles",
           "focus": "Built the interactive dealership risk map and leads VINdicated's core consumer research and data infrastructure.",
           "leads": "Fiona Wangsawidjaja, President · William Prawira, Internal Vice President"
         },
         {
+          "tag": "UC Berkeley",
           "name": "UC Berkeley Chapter",
           "school": "University of California, Berkeley",
           "focus": "Currently building out its membership. Focused on consumer education and outreach.",
           "leads": "Rana Darwich, President · Noirit Ghosh Choudhuri, Internal Vice President · Halima Cherif Hminat, External Vice President"
         },
         {
+          "tag": "UC Santa Cruz",
           "name": "UC Santa Cruz Chapter",
           "school": "University of California, Santa Cruz",
           "focus": "Focused on algorithmic discrimination and AI bias in car sales.",
@@ -2093,44 +2300,55 @@
     "news": {
       "title": "Learn from others.",
       "body": "Real stories of buyers who got taken advantage of, and what regulators are doing about it. Each one links to the original reporting.",
+      "credit": "Illustration: VINdicated",
       "items": [
         {
+          "kicker": "AI scams",
           "title": "AI Car Dealer Scams Are Infesting Facebook Marketplace",
           "byline": "By Caleb Jacobs / The Drive / Sept. 18, 2026",
           "dek": "A California photographer financed a 4Runner from a Marketplace listing posted by a near-perfect clone of a real Texas dealer, with fake paperwork, a fake GPS tracker, and a synthetic driver's voice. The truck never arrived.",
           "takeLabel": "The lesson",
-          "take": "A valid VIN and a lender's approval don't prove a car exists. See it in person or send an inspector."
+          "take": "A valid VIN and a lender's approval don't prove a car exists. See it in person or send an inspector.",
+          "cta": "Read the full story at The Drive →"
         },
         {
+          "kicker": "Consumer alert",
           "title": "Scammers are spoofing car dealership websites",
           "byline": "By BCP Staff / Federal Trade Commission / Sept. 1, 2026",
           "dek": "The FTC warns that scammers are copying real dealers' websites, often with AI, down to the logos, listings, and fake testimonials, then taking payment for cars buyers never receive.",
           "takeLabel": "The lesson",
-          "take": "Search the dealer's name with “scam” or “complaint,” and walk away from wire-transfer-only deals."
+          "take": "Search the dealer's name with “scam” or “complaint,” and walk away from wire-transfer-only deals.",
+          "cta": "Read the full story at Federal Trade Commission →"
         },
         {
+          "kicker": "Enforcement",
           "title": "Regulators crack down on junk fees with a $4 million dealer settlement",
           "byline": "Hinshaw & Culbertson / Aug. 2026",
           "dek": "The FTC and Connecticut's attorney general settled with a Nissan dealership accused of misleading buyers about prices and charging for add-ons and fees they never agreed to. The money goes back to consumers.",
           "takeLabel": "The lesson",
-          "take": "Read every line of the contract. Charges you didn't agree to can be challenged, and regulators do act."
+          "take": "Read every line of the contract. Charges you didn't agree to can be challenged, and regulators do act.",
+          "cta": "Read the full story at Hinshaw & Culbertson →"
         },
         {
+          "kicker": "Enforcement",
           "title": "Car dealerships nationwide warned to stop junk fees",
           "byline": "PIRG",
           "dek": "Regulators sent letters to 97 auto groups, which own hundreds of dealerships, saying advertised prices must include mandatory fees and dealers can't require their own financing to get the advertised price.",
           "takeLabel": "The lesson",
-          "take": "The advertised price should be a price you can pay. Ask for the out-the-door number in writing."
+          "take": "The advertised price should be a price you can pay. Ask for the out-the-door number in writing.",
+          "cta": "Read the full story at PIRG →"
         },
         {
+          "kicker": "New law",
           "title": "California's new law for car buyers",
           "byline": "CalMatters / Dec. 2025",
           "dek": "SB 766, written by Santa Monica's state senator, gives many used-car buyers a three-day right to return the car, requires dealers to show a full price up front, and bans charging for add-ons that don't benefit you.",
           "takeLabel": "The lesson",
-          "take": "If you buy a used car in California after October 1, 2026, you may have three days to change your mind."
+          "take": "If you buy a used car in California after October 1, 2026, you may have three days to change your mind.",
+          "cta": "Read the full story at CalMatters →"
         }
       ],
-      "footnote": "Headlines belong to their publications. Summaries by VINdicated. Stories link to outside publications, which we don't control."
+      "footnote": "Headlines belong to their publications. Summaries and illustrations by VINdicated. Stories link to outside publications, which we don't control."
     }
   },
   "mapMethods": {

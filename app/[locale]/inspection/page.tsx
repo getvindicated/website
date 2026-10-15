@@ -3,7 +3,7 @@ import { PageHero } from "@/components/sections/shared/PageHero";
 import { Rich } from "@/components/sections/shared/Rich";
 import { QuoteBand } from "@/components/sections/about/QuoteBand";
 import { EngineInspector } from "@/components/sections/inspection/EngineInspector";
-import { PpiSteps } from "@/components/sections/inspection/PpiSteps";
+import { PpiDrive } from "@/components/sections/inspection/PpiDrive";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -59,7 +59,7 @@ export default async function InspectionPage({
 
       <section className="band" id="engine">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.engine.title}</h2>
             <p className="lede">{d.engine.body}</p>
           </div>
@@ -69,13 +69,13 @@ export default async function InspectionPage({
 
       <section id="where">
         <div className="wrap">
-          <div className="intro">
+          <div className="center">
             <h2 className="h2">{d.where.title}</h2>
           </div>
-          <div className="grid2 where mt48">
+          <div className="grid2 where mt56">
             {d.where.cards.map((c, i) => (
-              <div className="card" key={c.title}>
-                {i === 1 && <p className="label">{d.where.recommended}</p>}
+              <div className={`card${i === 1 ? " where-rec" : ""}`} key={c.title}>
+                {i === 1 && <span className="tag">{d.where.recommended}</span>}
                 <h3>{c.title}</h3>
                 {c.paras.map((p, k) => (
                   <p key={k}>
@@ -126,9 +126,11 @@ export default async function InspectionPage({
         </div>
       </section>
 
-      <QuoteBand text={d.quote.text} cite={d.quote.cite} />
+      <div className="quote-pad">
+        <QuoteBand text={d.quote.text} cite={d.quote.cite} />
+      </div>
 
-      <PpiSteps dict={d.schedule} />
+      <PpiDrive dict={d.schedule} />
     </div>
   );
 }

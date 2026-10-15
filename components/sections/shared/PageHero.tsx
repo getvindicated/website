@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-// The title block at the top of every inner page.
+// The tinted hero at the top of every inner page.
 export function PageHero({
   title,
   body,

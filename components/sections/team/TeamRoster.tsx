@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Chapter, Social, TeamVideo } from "@/lib/team";
 import type { TeamPageDict } from "@/lib/i18n/dictionary";
+import { usePrefersReducedMotion } from "../shared/usePrefersReducedMotion";
 
 export type RosterMember = {
   name: string;
@@ -54,7 +55,7 @@ export function TeamRoster({
 
   return (
     <>
-      <div className="intro">
+      <div className="center">
         <div className="tabs filters" role="group" aria-label={dict.filterLabel}>
           {FILTERS.map((f) => (
             <button
@@ -195,27 +196,37 @@ function VideoDialog({
   dict: TeamPageDict;
   onClose: () => void;
 }) {
+  const reduce = usePrefersReducedMotion();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const d = dialogRef.current;
     if (!d || !member) return;
     d.showModal();
+    const raf = requestAnimationFrame(() => setOpen(true));
     videoRef.current?.play().catch(() => {});
+    return () => cancelAnimationFrame(raf);
   }, [member]);
 
   function close() {
     videoRef.current?.pause();
-    dialogRef.current?.close();
-    onClose();
+    setOpen(false);
+    setTimeout(
+      () => {
+        dialogRef.current?.close();
+        onClose();
+      },
+      reduce ? 0 : 220,
+    );
   }
 
   const v = member?.video;
   return (
     <dialog
       ref={dialogRef}
-      className={`vbox${v?.portrait ? " portrait" : ""}`}
+      className={`vbox${v?.portrait ? " portrait" : ""}${open ? " in" : ""}`}
       aria-label={dict.dialogLabel}
       onCancel={(e) => {
         e.preventDefault();
