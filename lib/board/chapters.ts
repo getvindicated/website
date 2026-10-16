@@ -35,6 +35,8 @@ export type ChapterConfig = {
   quickLinks: { label?: string; text: string; href?: string | null; tab?: Tab }[];
   keyDates: [date: string, text: string][];
   photos: string[];
+  // A second row of photos under the first (optional).
+  photosRow2?: string[];
   socials: {
     heading: string;
     kinds: { key: "b" | "o"; label: string }[];
@@ -53,6 +55,9 @@ export type ChapterConfig = {
   submit: { note: string; placeholder: string; filesLabel: string; needProof: string };
   myPage: { meetingLine: string | null; teamTrack: Record<string, string>; teamNote: Record<string, string> };
 };
+
+// UCLA's second photo row (added Oct 15).
+export const UCLA_ROW2 = [7, 8, 9, 10, 11, 12, 13, 14].map((n) => `/board/ucla/board-${n}.webp`);
 
 const shortDay = (iso: string, o: Intl.DateTimeFormatOptions) => {
   const [y, m, d] = iso.split("-").map(Number);
@@ -167,6 +172,7 @@ const UCLA: ChapterConfig = {
     ["2026-11-22", "Crosscheck demo and research writeups (week 10)"],
   ],
   photos: [1, 2, 3, 4, 5, 6].map((n) => `/board/ucla/board-${n}.webp`),
+  photosRow2: UCLA_ROW2,
   socials: {
     heading: "Fall 2026 Events",
     kinds: [

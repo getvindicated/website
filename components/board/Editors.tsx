@@ -210,6 +210,14 @@ export function PhotosEditor({ onDone }: { onDone: () => void }) {
             Replace
             <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => upload(e.target.files?.[0], i)} />
           </label>
+          <label className="inline">
+            <input
+              type="checkbox"
+              checked={p.row === 2}
+              onChange={(e) => setList(list.map((x, j) => (j === i ? (e.target.checked ? { src: x.src, row: 2 as const } : { src: x.src }) : x)))}
+            />{" "}
+            Second row
+          </label>
           <RowTools i={i} n={list.length} onMove={(d) => setList(move(list, i, d))} onRemove={() => setList(list.filter((_, j) => j !== i))} />
         </div>
       ))}

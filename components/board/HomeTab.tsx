@@ -37,13 +37,16 @@ export function HomeTab() {
       ) : (
         (settings.photos.length > 0 || admin) && (
           <div className="faces-wrap">
-            {settings.photos.length > 0 && (
-              <div className="faces" aria-label={`${chapter.title} board photos`}>
-                {settings.photos.map((p, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img key={p.src + i} src={photoSrc(p.src)} alt="Board member" />
-                ))}
-              </div>
+            {[settings.photos.filter((p) => p.row !== 2), settings.photos.filter((p) => p.row === 2)].map(
+              (row, r) =>
+                row.length > 0 && (
+                  <div className={r ? "faces faces-row2" : "faces"} key={r} aria-label={`${chapter.title} board photos${r ? ", second row" : ""}`}>
+                    {row.map((p, i) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={p.src + i} src={photoSrc(p.src)} alt="Board member" />
+                    ))}
+                  </div>
+                ),
             )}
             {admin && (
               <p className="admin-row">

@@ -776,6 +776,21 @@
     max-height: 80px;
   }
 }
+/* The second photo row (headshots) sits under the first, a little smaller
+   so the faces match the full-body cutouts above, and wraps on phones. */
+.board .faces.faces-row2 {
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  padding-top: 10px;
+}
+.board .faces.faces-row2 img {
+  max-height: 96px;
+}
+@media (max-width: 640px) {
+  .board .faces.faces-row2 img {
+    max-height: 60px;
+  }
+}
 
 .board .st-excused {
   color: var(--deep);
