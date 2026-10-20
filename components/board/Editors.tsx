@@ -3,7 +3,7 @@
 import { useId, useState, type ReactNode } from "react";
 import type { KeyDate, Photo, Projects, QuickLink } from "@/lib/board/settings";
 import type { Para, TimelineWeek } from "@/lib/board/chapters";
-import { TABS } from "@/lib/board/types";
+import { ADMIN_TABS, TABS } from "@/lib/board/types";
 import { useBoard } from "./BoardApp";
 import { api, apiCall, photoSrc, saveSetting } from "./util";
 
@@ -128,7 +128,7 @@ export function QuickLinksEditor({ onDone }: { onDone: () => void }) {
               Or a tab
               <select value={l.tab} onChange={(e) => set(i, { tab: e.target.value as QuickLink["tab"] })}>
                 <option value="">None</option>
-                {TABS.filter((t) => t !== "changes").map((t) => (
+                {TABS.filter((t) => !ADMIN_TABS.includes(t)).map((t) => (
                   <option key={t} value={t}>
                     {t}
                   </option>

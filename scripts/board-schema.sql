@@ -182,3 +182,42 @@ ALTER TABLE board_announcement_sends ADD COLUMN IF NOT EXISTS audience text NOT 
 -- ever did (e.g. saved while sending was broken): the Meetings tab offers
 -- "Resend invites".
 ALTER TABLE board_scheduled ADD COLUMN IF NOT EXISTS invites_sent integer NOT NULL DEFAULT 0;
+
+-- Public events (the /events page, see lib/events). Times are Pacific
+-- wall-clock. meeting_link is private: it only goes out in RSVP
+-- confirmation and reminder emails, never on the page or in a public API.
+-- flyer_id points at board_photos.
+CREATE TABLE IF NOT EXISTS board_events (
+  id            serial PRIMARY KEY,
+  chapter       text NOT NULL,
+  uid           text NOT NULL UNIQUE,
+  title         text NOT NULL,
+  tag           text NOT NULL DEFAULT '',
+  date          date NOT NULL,
+  start_time    text NOT NULL,
+  end_time      text NOT NULL,
+  online        boolean NOT NULL DEFAULT true,
+  meeting_link  text NOT NULL DEFAULT '',
+  address       text NOT NULL DEFAULT '',
+  host_name     text NOT NULL DEFAULT '',
+  host_title    text NOT NULL DEFAULT '',
+  description   text NOT NULL DEFAULT '',
+  flyer_id      integer,
+  show_count    boolean NOT NULL DEFAULT false,
+  created_at    timestamptz NOT NULL DEFAULT now()
+);
+
+-- RSVPs from the public page: one per email per event. No foreign key, so
+-- restoring a deleted event from the change log brings its RSVPs back too.
+CREATE TABLE IF NOT EXISTS board_event_rsvps (
+  id          serial PRIMARY KEY,
+  chapter     text NOT NULL,
+  event_id    integer NOT NULL,
+  name        text NOT NULL,
+  email       text NOT NULL,
+  school      text NOT NULL DEFAULT '',
+  question    text NOT NULL DEFAULT '',
+  opt_in      boolean NOT NULL DEFAULT true,
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS board_event_rsvps_once ON board_event_rsvps (event_id, lower(email));

@@ -6,9 +6,9 @@ import type { Invitee, ScheduledMeeting } from "./schedule";
 // and SEQUENCE goes up with each change, so calendar apps update or remove
 // the event they already have instead of adding another.
 
-const TZID = "America/Los_Angeles";
+export const TZID = "America/Los_Angeles";
 
-const VTIMEZONE = [
+export const VTIMEZONE = [
   "BEGIN:VTIMEZONE",
   `TZID:${TZID}`,
   "BEGIN:DAYLIGHT",
@@ -30,8 +30,9 @@ const VTIMEZONE = [
 
 const DAYS = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
+// Shared with the public event calendar files (lib/events/ics.ts).
 // Text values escape backslashes, semicolons, commas and newlines.
-const text = (s: string) => s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+export const text = (s: string) => s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
 // Parameter values (CN=) can't hold quotes; quote them when they have : ; or ,
 const param = (s: string) => {
   const clean = s.replace(/"/g, "'");
@@ -39,7 +40,7 @@ const param = (s: string) => {
 };
 
 // Lines longer than 75 octets continue on the next line after a space.
-function fold(line: string) {
+export function fold(line: string) {
   const bytes = Buffer.from(line, "utf8");
   if (bytes.length <= 75) return line;
   const parts: string[] = [];
@@ -56,10 +57,10 @@ function fold(line: string) {
   return parts.join("\r\n ");
 }
 
-const local = (date: string, time: string) => `${date.replace(/-/g, "")}T${time.replace(":", "")}00`;
+export const local = (date: string, time: string) => `${date.replace(/-/g, "")}T${time.replace(":", "")}00`;
 
 // The UTC instant of a Pacific wall-clock time.
-function pacificToUtc(date: string, time: string): Date {
+export function pacificToUtc(date: string, time: string): Date {
   const [y, m, d] = date.split("-").map(Number);
   const [hh, mm, ss = 0] = time.split(":").map(Number);
   const guess = Date.UTC(y, m - 1, d, hh, mm, ss);
@@ -78,7 +79,7 @@ function pacificToUtc(date: string, time: string): Date {
   return new Date(guess + (guess - asPacific));
 }
 
-const utcStamp = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+export const utcStamp = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 
 export type Organizer = { name: string; email: string };
 

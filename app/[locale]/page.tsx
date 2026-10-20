@@ -6,6 +6,8 @@ import { CampusChapters } from "@/components/sections/home/CampusChapters";
 import { FollowLinks } from "@/components/sections/home/FollowLinks";
 import { Pillars } from "@/components/sections/home/Pillars";
 import { FreeResources } from "@/components/sections/home/FreeResources";
+import { NextEventStrip } from "@/components/sections/home/NextEventStrip";
+import { eventsPublic } from "@/lib/events/flag";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SHARE_IMAGE } from "@/lib/i18n/metadata";
 import {
@@ -64,6 +66,7 @@ export default async function HomePage({
   return (
     <div className="rd rd-page">
       <HomeHero dict={home.hero} ppiHref={ppi} storyHref={story} />
+      {eventsPublic() && <NextEventStrip dict={dict.eventsPage.strip} locale={locale} eventsHref={href("/events")} />}
       <PpiExplainer
         dict={home.ppi}
         knowledge={home.publicKnowledge}

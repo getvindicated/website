@@ -7,6 +7,7 @@
     "aboutFounder": "From the Founder",
     "aboutProvides": "What We Provide",
     "team": "Team",
+    "events": "Events",
     "inspection": "Inspection Guide",
     "inspectionPpi": "What Is a PPI?",
     "inspectionEngine": "Engine Diagram",
@@ -121,6 +122,11 @@
         "title": "How We Made the Dealer Risk Map",
         "description": "Where the Dealer Risk Map's information comes from, how an AI model sorted the reviews, how tiers work, and what the map can't tell you.",
         "imageAlt": "VINdicated: How we made the Dealer Risk Map"
+      },
+      "events": {
+        "title": "Events",
+        "description": "Free workshops and meetups from VINdicated on buying, fixing and paying for a car.",
+        "imageAlt": "VINdicated: Events"
       }
     }
   },
@@ -2225,6 +2231,68 @@
         "email": "getvindicated@outlook.com",
         "after": " with the dealership's name and what you think is wrong. We'll review it and fix or remove anything inaccurate."
       }
+    }
+  },
+  "eventsPage": {
+    "preview": "Private preview: only admins can see this page.",
+    "hero": {
+      "title": "Events",
+      "body": "Workshops and meetups on buying, fixing and paying for a car without getting taken advantage of. Free and open to everyone."
+    },
+    "toggleLabel": "Show events",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "noneUpcoming": "No upcoming events right now. Check back soon.",
+    "nonePast": "No past events yet.",
+    "flyerAlt": "Flyer for {title}",
+    "enlarge": "Enlarge the flyer",
+    "close": "Close",
+    "time": "{time} Pacific",
+    "online": "Online, on Zoom",
+    "onlineNote": "The link is emailed to you when you RSVP",
+    "going": "{n} people are going",
+    "goingOne": "1 person is going",
+    "rsvp": "RSVP, it's free",
+    "ended": "This event has ended.",
+    "form": {
+      "title": "RSVP",
+      "name": "Name",
+      "email": "Email",
+      "school": "School or affiliation",
+      "schoolPick": "Choose one",
+      "schools": {
+        "berkeley": "UC Berkeley",
+        "ucla": "UCLA",
+        "ucsc": "UC Santa Cruz",
+        "other": "Another school",
+        "none": "Not a student"
+      },
+      "question": "A question for the host (optional)",
+      "optIn": "Email me about future VINdicated events",
+      "submit": "RSVP",
+      "sending": "Sending…",
+      "cancel": "Cancel",
+      "nameError": "Add your name.",
+      "emailError": "Add a valid email address.",
+      "schoolError": "Choose your school or affiliation.",
+      "error": "That didn't go through. Try again in a minute.",
+      "closed": "RSVPs for this event are closed."
+    },
+    "done": {
+      "title": "You're in!",
+      "online": "Thanks, {first}. We sent the Zoom link to {email}.",
+      "inPerson": "Thanks, {first}. We sent the details to {email}.",
+      "emailFailed": "Thanks, {first}. You're on the list, but the confirmation email didn't go through. We'll email {email} before the event.",
+      "google": "Add to Google Calendar",
+      "ics": "Download for Apple / Outlook",
+      "calendarNote": "The Zoom link is in your confirmation email."
+    },
+    "strip": {
+      "label": "Next event",
+      "free": "Free",
+      "online": "Online",
+      "inPerson": "In person",
+      "rsvp": "RSVP"
     }
   }
 }

@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRootMetadata } from "@/lib/i18n/metadata";
+import { eventsPublic } from "@/lib/events/flag";
 // import { CarCursor } from "@/components/ui/CarCursor";
 
 const lora = Lora({
@@ -80,7 +81,7 @@ export default async function RootLayout({
         />
   {/* <Starfield /> */}
   {/* <CarCursor /> */}
-  <SiteHeader locale={locale as Locale} dict={dict} />
+  <SiteHeader locale={locale as Locale} dict={{ nav: dict.nav, ui: dict.ui }} showEvents={eventsPublic()} />
   <main>{children}</main>
   <SiteFooter locale={locale as Locale} dict={dict} />
 </body>
