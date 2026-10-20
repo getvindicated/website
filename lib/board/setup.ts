@@ -1,4 +1,5 @@
 import "server-only";
+import { randomUUID } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { db } from "./db";
@@ -72,6 +73,33 @@ async function setup() {
   await renameEvanceline(sql);
   await adminsOnlyToHubAdmins(sql);
   await uclaPhotoRow2(sql);
+  await seedFirstEvent(sql);
+}
+
+// The first public event, once. Admins edit it on the Events tab (the
+// meeting link and flyer are left for them to add).
+async function seedFirstEvent(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-19-first-event')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    await tx`INSERT INTO board_events ${tx({
+      chapter: "berkeley",
+      uid: `berkeley-${randomUUID()}@getvindicated.org`,
+      title: "Negotiation Workshop with Emily Epstein",
+      tag: "Workshop · UC Berkeley",
+      date: "2026-11-19",
+      start_time: "18:00",
+      end_time: "19:00",
+      online: true,
+      meeting_link: "",
+      host_name: "Emily Epstein",
+      host_title: "Negotiation Professor, UC Berkeley Law · CEO, Oakbay Consulting",
+      description:
+        "Learn how to negotiate the price of a car, and anything else, from someone who teaches it at Berkeley Law. Bring your questions.",
+      show_count: false,
+    })}`;
+  });
 }
 
 // Adds UCLA's second photo row under the existing photos, once. The first

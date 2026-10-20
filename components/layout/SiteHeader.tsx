@@ -37,6 +37,8 @@ const NAV: NavItem[] = [
     ],
   },
   { key: "team", href: "/team", match: ["/team"] },
+  // Shown only once events are public (EVENTS_PUBLIC).
+  { key: "events", href: "/events", match: ["/events"] },
   {
     key: "learningResources",
     href: "/inspection",
@@ -53,9 +55,11 @@ const NAV: NavItem[] = [
 export function SiteHeader({
   locale,
   dict,
+  showEvents = false,
 }: {
   locale: Locale;
   dict: HeaderDict;
+  showEvents?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -85,6 +89,7 @@ export function SiteHeader({
     };
   }, [langOpen]);
 
+  const nav = showEvents ? NAV : NAV.filter((item) => item.key !== "events");
   const path = pathname.replace(`/${locale}`, "") || "/";
   const isActive = (item: NavItem) =>
     item.match.some((m) =>
@@ -115,7 +120,7 @@ export function SiteHeader({
           VINdicated
         </Link>
         <ul className="links" id="site-links">
-          {NAV.map((item) => (
+          {nav.map((item) => (
             <li key={item.key}>
               <Link
                 href={href(item.href)}

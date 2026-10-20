@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState, type Mouse
 import { useRouter } from "next/navigation";
 import type { BoardUser } from "@/lib/board/session";
 import { chapterConfig, type ChapterConfig, type ChapterId } from "@/lib/board/chapters";
-import { TABS, type BoardData, type Round, type Tab } from "@/lib/board/types";
+import { ADMIN_TABS, TABS, type BoardData, type Round, type Tab } from "@/lib/board/types";
 import { chapterUrl, setApiChapter } from "./util";
 import { MyPage } from "./MyPage";
 import { ChangesTab } from "./ChangesTab";
@@ -15,6 +15,7 @@ import { ProjectsTab } from "./ProjectsTab";
 import { AssignmentsTab } from "./AssignmentsTab";
 import { SocialsTab } from "./SocialsTab";
 import { MeetingsTab } from "./MeetingsTab";
+import { EventsTab } from "./EventsTab";
 
 const LABELS: Record<Tab, string> = {
   me: "My page",
@@ -24,6 +25,7 @@ const LABELS: Record<Tab, string> = {
   assignments: "Assignments",
   socials: "Socials",
   meetings: "Meetings",
+  events: "Events",
   changes: "Changes",
 };
 
@@ -62,8 +64,8 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
   const [focus, setFocus] = useState<Ctx["focus"]>(null);
   const [editingTerm, setEditingTerm] = useState(false);
   const admin = user.role === "admin";
-  // The Changes tab is for admins only.
-  const tabs = TABS.filter((t) => t !== "changes" || admin);
+  // The Events and Changes tabs are for admins only.
+  const tabs = TABS.filter((t) => !ADMIN_TABS.includes(t) || admin);
 
   // Each tab is linkable: /board#socials, /board/ucla#me.
   useEffect(() => {
@@ -129,6 +131,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
           {tab === "assignments" && <AssignmentsTab />}
           {tab === "socials" && <SocialsTab />}
           {tab === "meetings" && <MeetingsTab />}
+          {tab === "events" && admin && <EventsTab />}
           {tab === "changes" && <ChangesTab />}
         </main>
       </div>

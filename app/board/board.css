@@ -891,3 +891,21 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Events tab (admins) */
+.board .event-form label {
+  align-content: start;
+}
+.board .event-item .rsvps {
+  margin-top: 10px;
+}
+.board .flyer-edit {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.board .flyer-edit img {
+  width: 160px;
+  height: auto;
+  border: 1px solid var(--rule);
+}

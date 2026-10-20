@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { isEmail } from "@/lib/board/submit-rules";
-import { TABS, type Announcement, type Tab } from "@/lib/board/types";
+import { ADMIN_TABS, TABS, type Announcement, type Tab } from "@/lib/board/types";
 import { EVERYONE, inAudience, type Audience } from "@/lib/board/audience";
 import { useBoard } from "./BoardApp";
 import { api, apiCall, listNames } from "./util";
@@ -140,7 +140,7 @@ export function AnnouncementForm({ existing, onClose }: { existing?: Announcemen
             Link to a tab
             <select id={id("tab")} value={f.linkTab} onChange={(e) => set("linkTab", e.target.value)}>
               <option value="">No link</option>
-              {TABS.filter((t) => t !== "changes").map((t: Tab) => (
+              {TABS.filter((t) => !ADMIN_TABS.includes(t)).map((t: Tab) => (
                 <option key={t} value={t}>
                   {t}
                 </option>

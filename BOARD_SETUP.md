@@ -135,6 +135,52 @@ Use "Send me a test invite" in the form to check one before sending to the
 board. Send it to an address other than the organizer's: Gmail doesn't
 show RSVP buttons on an invite sent to its own organizer.
 
+## Public events (/events)
+
+Admins add workshops and meetups on each hub's **Events** tab (admins only).
+They show on the public Events page, where anyone can RSVP. Each event has:
+- a title, tag, date and time (Pacific)
+- online or in person, with a meeting link or an address
+- a host and a description
+- a flyer, uploaded like the hub photos
+- an optional "Show RSVP count"
+
+An event belongs to the hub it's made on. Its emails come from that
+chapter's sender (above), with reply-to set to the chapter's organizer.
+
+- **RSVPs:** each RSVP gets a confirmation email with the details, the
+  meeting link and a calendar file. RSVPing again with the same email
+  doesn't add a second RSVP; it just resends the confirmation.
+- **The meeting link is private.** It's never on the page or in anything
+  the page loads. It only goes out in confirmations and reminders, so add it
+  before people RSVP, or send a reminder once it's in.
+- **RSVP list:** each event's RSVPs (name, email, school, question, whether
+  they want future emails, time) are on the Events tab, with **Copy
+  emails**, **Download CSV** and **Send reminder to everyone**. The
+  reminder asks first, showing how many people it goes to. Nothing is sent
+  on a schedule; reminders only go out when an admin presses the button.
+- **Change log:** adding, editing and deleting events goes in the Changes
+  tab, like everything else. Sending a reminder is noted there too.
+
+### Launching the page
+
+Until launch the page is private:
+- `/events` shows the normal "page not found" to the public, and the RSVP
+  form refuses.
+- An admin signed in to either hub can open the page to test it (RSVPs
+  included), with a "Private preview" banner.
+- There's no "Events" link in the header, no next-event strip on the home
+  page, no sitemap entry, and the page tells search engines not to index it.
+
+To **launch**, add the Railway variable `EVENTS_PUBLIC` set to exactly
+`true` (website service → **Variables**) and deploy. Railway offers to
+redeploy when you save a variable; the header and home page only pick up
+the change on that new deploy. This adds "Events" to the header (between
+Team and Learning Resources) and the next-event strip to the home page.
+
+To **hide it again**, delete `EVENTS_PUBLIC` (or set it to anything but
+`true`) and redeploy. Events and RSVPs stay saved on the hub.
+
 ## One-time setup in Railway
 
 1. **Database.** In the Railway project, add a **Postgres** service. In the

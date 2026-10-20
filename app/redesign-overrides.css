@@ -759,3 +759,315 @@
     justify-self: start;
   }
 }
+
+/* ---------- Events ---------- */
+.rd .ev-preview {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  padding: 12px 20px;
+}
+.rd .ev-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--tint);
+  margin-bottom: 32px;
+}
+.rd .ev-toggle button {
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--purple-deep);
+  cursor: pointer;
+}
+.rd .ev-toggle button[aria-pressed="true"] {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .ev-empty {
+  background: var(--tint);
+  border-radius: 22px;
+  padding: 32px;
+  font-weight: 600;
+}
+.rd .ev-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.rd .ev-card {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 28px;
+  padding: 28px;
+  scroll-margin-top: 100px;
+}
+.rd .ev-card:target {
+  border-color: var(--purple);
+}
+.rd .ev-flyer-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 18px;
+}
+.rd .ev-flyer-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.rd .ev-datebox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  background: var(--purple);
+  color: #fff;
+  line-height: 1;
+}
+.rd .ev-datebox span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rd .ev-datebox b {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 4px;
+}
+.rd .ev-datebox-lg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  background: var(--tint);
+  color: var(--purple-deep);
+}
+.rd .ev-datebox-lg span {
+  font-size: 1.3rem;
+}
+.rd .ev-datebox-lg b {
+  font-size: 5.5rem;
+  color: var(--purple);
+}
+.rd .ev-body h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 14px 0 18px;
+}
+.rd .ev-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rd .ev-facts li {
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 14px;
+  border-inline-start: 3px solid var(--tint-2);
+  line-height: 1.45;
+}
+.rd .ev-facts span {
+  color: var(--purple-deep);
+  font-size: 0.95rem;
+}
+.rd .ev-desc {
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+}
+.rd .ev-count {
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 18px;
+}
+.rd .ev-ended {
+  font-weight: 700;
+  color: var(--purple-deep);
+}
+.rd .ev-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--tint);
+  border-radius: 22px;
+  padding: 22px;
+}
+.rd .ev-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.rd .ev-form .ev-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rd .ev-form .ev-wide,
+.rd .ev-form .ctas,
+.rd .ev-form > .ev-err {
+  grid-column: 1 / -1;
+}
+.rd .ev-form input:not([type="checkbox"]),
+.rd .ev-form select,
+.rd .ev-form textarea {
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  width: 100%;
+}
+.rd .ev-form [aria-invalid="true"] {
+  border-color: var(--red);
+}
+.rd .ev-form textarea {
+  resize: vertical;
+}
+.rd .ev-form .ev-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.rd .ev-form .ev-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--purple);
+}
+.rd .ev-err {
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.rd .ev-done {
+  background: var(--tint);
+  border-radius: 22px;
+  padding: 24px;
+}
+.rd .ev-done:focus {
+  outline: none;
+}
+.rd .ev-done h3 {
+  font-size: 1.6rem;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+.rd .ev-done .ctas {
+  margin-top: 18px;
+}
+.rd .ev-dialog {
+  /* The site's reset zeroes margins; auto centers the open dialog. */
+  margin: auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 760px);
+  max-height: 92vh;
+}
+.rd .ev-dialog::backdrop {
+  background: rgba(42, 15, 49, 0.8);
+}
+.rd .ev-dialog img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(92vh - 72px);
+  margin: 0 auto;
+  border-radius: 18px;
+}
+.rd .ev-dialog-close {
+  display: flex;
+  margin: 14px auto 0;
+}
+.rd .ev-strip-section {
+  padding: 0 0 24px;
+}
+.rd .ev-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--tint);
+  border-radius: 28px;
+  padding: 18px 22px;
+}
+.rd .ev-strip-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.4;
+}
+.rd .ev-strip-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.rd .ev-strip-title {
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+.rd .ev-strip-title:hover {
+  text-decoration: underline;
+}
+.rd .ev-strip-meta {
+  color: var(--purple-deep);
+  font-weight: 600;
+}
+@media (max-width: 760px) {
+  .rd .ev-card {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 20px;
+    border-radius: 24px;
+  }
+  .rd .ev-flyer {
+    max-width: 320px;
+  }
+  .rd .ev-datebox-lg {
+    aspect-ratio: auto;
+    flex-direction: row;
+    gap: 14px;
+    padding: 18px 22px;
+    justify-content: flex-start;
+  }
+  .rd .ev-datebox-lg b {
+    font-size: 2.6rem;
+    margin: 0;
+  }
+  .rd .ev-form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+  .rd .ev-strip {
+    flex-wrap: wrap;
+  }
+  .rd .ev-strip-btn {
+    width: 100%;
+  }
+}

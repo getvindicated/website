@@ -4,7 +4,7 @@ import { join } from "node:path";
 import nodemailer, { type SendMailOptions, type Transporter } from "nodemailer";
 import { EMAIL_TIMEOUT_MS, EmailTimeoutError, sendEmail } from "@/lib/brevo";
 import { chapterConfig, type ChapterId } from "./chapters";
-import { CHAPTER_SERVER, chapterSender } from "./chapter-server";
+import { CHAPTER_SERVER, chapterSender, type Sender } from "./chapter-server";
 import { buildIcs } from "./ics";
 import { longDate, monthDay, repeatText, shortDate, timeRange, whenShort, type Invitee, type ScheduledMeeting } from "./schedule";
 
@@ -132,6 +132,64 @@ ${paras.map((p) => `<p>${esc(p).replace(/\n/g, "<br>")}</p>`).join("\n")}
   return { subject, html, text: textBody };
 }
 
+export type Mail = {
+  sender: Sender;
+  to: { name: string; email: string };
+  replyTo: { name: string; email: string };
+  subject: string;
+  text: string;
+  html: string;
+  // REQUEST/CANCEL for meeting invites, PUBLISH for event confirmations.
+  ics: { method: "REQUEST" | "CANCEL" | "PUBLISH"; filename: string; content: string };
+};
+
+// Sends one email with a calendar file: to the outbox folder when testing,
+// else over SMTP while `state.useSmtp` holds, else through the Brevo API
+// (the .ics only as an attachment there). An SMTP failure turns
+// `state.useSmtp` off, so the rest of a batch goes straight to the API.
+// Returns the path it took; throws if it didn't go through.
+export async function deliver(mail: Mail, state: { useSmtp: boolean }, tag: string): Promise<"outbox" | "smtp" | "api"> {
+  // SMTP: icalEvent adds the "text/calendar; method=…" part Gmail turns
+  // into an invite, and attaches the same .ics under its filename.
+  const msg: SendMailOptions = {
+    from: { name: mail.sender.name, address: mail.sender.email },
+    to: { name: mail.to.name, address: mail.to.email },
+    replyTo: { name: mail.replyTo.name, address: mail.replyTo.email },
+    subject: mail.subject,
+    text: mail.text,
+    html: mail.html,
+    icalEvent: mail.ics,
+  };
+  const outbox = process.env.BOARD_INVITE_OUTBOX;
+  if (outbox) {
+    const info = await nodemailer.createTransport({ streamTransport: true, buffer: true, newline: "windows" }).sendMail(msg);
+    mkdirSync(outbox, { recursive: true });
+    const base = join(outbox, `${Date.now()}-${tag}`);
+    writeFileSync(`${base}.eml`, info.message as Buffer);
+    writeFileSync(`${base}.ics`, mail.ics.content);
+    return "outbox";
+  }
+  if (state.useSmtp) {
+    try {
+      await sendSmtp(msg);
+      return "smtp";
+    } catch (e) {
+      state.useSmtp = false;
+      console.warn(`[board] Email to ${mail.to.email} over SMTP failed (${e instanceof Error ? e.message : e}); sending through the Brevo API instead.`);
+    }
+  }
+  await sendEmail({
+    sender: mail.sender,
+    to: [mail.to],
+    replyTo: mail.replyTo,
+    subject: mail.subject,
+    htmlContent: mail.html,
+    textContent: mail.text,
+    attachment: [{ name: mail.ics.filename, content: Buffer.from(mail.ics.content, "utf8").toString("base64") }],
+  });
+  return "api";
+}
+
 // Sends one email per recipient, each with the same .ics (all attendees
 // listed). Returns who it reached and who it didn't. After SMTP fails once,
 // the rest of the batch goes straight to the API. If the API times out too,
@@ -160,7 +218,7 @@ export async function sendInvites(opts: {
   });
   const sender = chapterSender(chapter, config.title) ?? { name: config.title, email: "board@getvindicated.org" };
   const outbox = process.env.BOARD_INVITE_OUTBOX;
-  let useSmtp = smtpReady();
+  const state = { useSmtp: smtpReady() };
   const via = { smtp: 0, api: 0 };
 
   const sent: string[] = [];
@@ -168,48 +226,21 @@ export async function sendInvites(opts: {
   for (const [i, r] of recipients.entries()) {
     const first = r.name.split(/\s+/)[0] || r.name;
     const c = content(kind, meeting, first, org.short, hub, onlyDate);
-    // SMTP: icalEvent adds the "text/calendar; method=…" part Gmail turns
-    // into an invite, and attaches the same .ics as invite.ics.
-    const msg: SendMailOptions = {
-      from: { name: sender.name, address: sender.email },
-      to: { name: r.name, address: r.email },
-      replyTo: { name: org.name, address: org.email },
-      subject: c.subject,
-      text: c.text,
-      html: c.html,
-      icalEvent: { method, filename: "invite.ics", content: ics },
-    };
     try {
-      if (outbox) {
-        const info = await nodemailer.createTransport({ streamTransport: true, buffer: true, newline: "windows" }).sendMail(msg);
-        mkdirSync(outbox, { recursive: true });
-        const base = join(outbox, `${Date.now()}-${i}-${kind}-${r.email}`);
-        writeFileSync(`${base}.eml`, info.message as Buffer);
-        writeFileSync(`${base}.ics`, ics);
-        sent.push(r.email);
-        continue;
-      }
-      if (useSmtp) {
-        try {
-          await sendSmtp(msg);
-          via.smtp++;
-          sent.push(r.email);
-          continue;
-        } catch (e) {
-          useSmtp = false;
-          console.warn(`[board] Invite to ${r.email} over SMTP failed (${e instanceof Error ? e.message : e}); sending through the Brevo API instead.`);
-        }
-      }
-      await sendEmail({
-        sender,
-        to: [{ name: r.name, email: r.email }],
-        replyTo: { name: org.name, email: org.email },
-        subject: c.subject,
-        htmlContent: c.html,
-        textContent: c.text,
-        attachment: [{ name: "invite.ics", content: Buffer.from(ics, "utf8").toString("base64") }],
-      });
-      via.api++;
+      const path = await deliver(
+        {
+          sender,
+          to: { name: r.name, email: r.email },
+          replyTo: { name: org.name, email: org.email },
+          subject: c.subject,
+          text: c.text,
+          html: c.html,
+          ics: { method, filename: "invite.ics", content: ics },
+        },
+        state,
+        `${i}-${kind}-${r.email}`,
+      );
+      if (path !== "outbox") via[path]++;
       sent.push(r.email);
     } catch (e) {
       console.error(`[board] Invite to ${r.email} failed:`, e instanceof Error ? e.message : e);
