@@ -75,6 +75,39 @@ async function setup() {
   await uclaPhotoRow2(sql);
   await seedFirstEvent(sql);
   await fillNegotiationLink(sql);
+  await negotiationFlyer(sql);
+}
+
+const SEEDED_HOST_TITLE = "Negotiation Professor, UC Berkeley Law · CEO, Oakbay Consulting";
+
+// Gives the Negotiation Workshop its flyer (public/images/events), once, if
+// no admin has uploaded one, and matches the host's title to the flyer if
+// it's still the seeded one. Stored like a hub upload, so admins can
+// replace or remove it on the Events tab.
+async function negotiationFlyer(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-10-27-negotiation-flyer')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    const [event] = await tx`SELECT id, title, flyer_id, host_title FROM board_events
+      WHERE chapter = 'berkeley' AND date = '2026-11-19' AND title = 'Negotiation Workshop with Emily Epstein'
+      ORDER BY id LIMIT 1 FOR UPDATE`;
+    if (!event) return;
+    const done: string[] = [];
+    if (!event.flyer_id) {
+      const data = readFileSync(join(process.cwd(), "public", "images", "events", "negotiation-workshop-2026.webp"));
+      const [photo] = await tx`INSERT INTO board_photos (chapter, content_type, data) VALUES ('berkeley', 'image/webp', ${data}) RETURNING id`;
+      await tx`UPDATE board_events SET flyer_id = ${photo.id} WHERE id = ${event.id}`;
+      done.push("added the flyer");
+    }
+    if (event.host_title === SEEDED_HOST_TITLE) {
+      await tx`UPDATE board_events SET host_title = 'Negotiation Lecturer, UC Berkeley Law · CEO, Oakbay Consulting' WHERE id = ${event.id}`;
+      done.push("changed the host's title to match it");
+    }
+    if (!done.length) return;
+    await tx`INSERT INTO board_changelog (chapter, role, actor, action, summary, changes)
+      VALUES ('berkeley', 'system', '', 'note', ${`"${event.title}": ${done.join(" and ")}`}, '[]')`;
+  });
 }
 
 // Fills in the Negotiation Workshop's meeting link from the Railway variable
@@ -131,7 +164,7 @@ async function seedFirstEvent(sql: ReturnType<typeof db>) {
       online: true,
       meeting_link: "",
       host_name: "Emily Epstein",
-      host_title: "Negotiation Professor, UC Berkeley Law · CEO, Oakbay Consulting",
+      host_title: SEEDED_HOST_TITLE,
       description:
         "Learn how to negotiate the price of a car, and anything else, from someone who teaches it at Berkeley Law. Bring your questions.",
       show_count: false,
