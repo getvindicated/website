@@ -134,13 +134,6 @@ export function PageHero({
   return (
     <div className="relative overflow-hidden px-20 pt-40 pb-20 max-md:px-6 max-md:pt-28 max-md:pb-12">
 
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(180,130,210,0.12) 0%, transparent 60%)",
-        }}
-      />
       <div className={contained ? "relative max-w-[1400px] mx-auto" : ""}>
       {kicker && (
         <p
