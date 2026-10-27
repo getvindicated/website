@@ -34,7 +34,8 @@ export function ChangesTab() {
 
   if (user.role !== "admin") return null;
   const place = chapter.id === "ucla" ? "UCLA" : "Berkeley";
-  const who = (role: string) => `${place} ${chapter.roleLabels[role] ?? role}`;
+  // "system" entries are made by the site itself (see lib/board/setup.ts).
+  const who = (role: string) => (role === "system" ? "System" : `${place} ${chapter.roleLabels[role] ?? role}`);
 
   return (
     <section>
