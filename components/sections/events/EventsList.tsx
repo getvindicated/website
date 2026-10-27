@@ -58,6 +58,7 @@ function EventCard({ dict, event: e, onFlyer }: { dict: EventsPageDict; event: S
   const [open, setOpen] = useState(false);
   const [done, setDone] = useState<{ first: string; email: string; emailed: boolean } | null>(null);
   const [count, setCount] = useState(e.count);
+  const prevCountRef = useRef(e.count);
   const titleId = useId();
 
   return (
@@ -101,22 +102,37 @@ function EventCard({ dict, event: e, onFlyer }: { dict: EventsPageDict; event: S
         )}
         {e.past ? (
           <p className="ev-ended">{dict.ended}</p>
-        ) : done ? (
-          <Done dict={dict} event={e} done={done} />
-        ) : open ? (
-          <RsvpForm
-            dict={dict}
-            event={e}
-            onCancel={() => setOpen(false)}
-            onDone={(r) => {
-              setDone(r);
-              if (r.count !== null) setCount(r.count);
-            }}
-          />
         ) : (
-          <button type="button" className="btn btn-solid ev-rsvp" onClick={() => setOpen(true)}>
-            {dict.rsvp}
-          </button>
+          <>
+            {done && <Done dict={dict} event={e} done={done} />}
+            {open && (
+              <div hidden={!!done}>
+                <RsvpForm
+                  dict={dict}
+                  event={e}
+                  onCancel={() => setOpen(false)}
+                  onOptimistic={(first, email) => {
+                    prevCountRef.current = count;
+                    setDone({ first, email, emailed: true });
+                    setCount((c) => (c === null ? c : c + 1));
+                  }}
+                  onSettled={(r) => {
+                    setDone({ first: r.first, email: r.email, emailed: r.emailed });
+                    if (r.count !== null) setCount(r.count);
+                  }}
+                  onRollback={() => {
+                    setDone(null);
+                    setCount(prevCountRef.current);
+                  }}
+                />
+              </div>
+            )}
+            {!open && !done && (
+              <button type="button" className="btn btn-solid ev-rsvp" onClick={() => setOpen(true)}>
+                {dict.rsvp}
+              </button>
+            )}
+          </>
         )}
       </div>
     </article>
@@ -125,7 +141,21 @@ function EventCard({ dict, event: e, onFlyer }: { dict: EventsPageDict; event: S
 
 type Result = { first: string; email: string; emailed: boolean; count: number | null };
 
-function RsvpForm({ dict, event, onCancel, onDone }: { dict: EventsPageDict; event: ShownEvent; onCancel: () => void; onDone: (r: Result) => void }) {
+function RsvpForm({
+  dict,
+  event,
+  onCancel,
+  onOptimistic,
+  onSettled,
+  onRollback,
+}: {
+  dict: EventsPageDict;
+  event: ShownEvent;
+  onCancel: () => void;
+  onOptimistic: (first: string, email: string) => void;
+  onSettled: (r: Result) => void;
+  onRollback: () => void;
+}) {
   const f = dict.form;
   const id = useId();
   const [name, setName] = useState("");
@@ -148,6 +178,10 @@ function RsvpForm({ dict, event, onCancel, onDone }: { dict: EventsPageDict; eve
     setErrors(next);
     if (Object.keys(next).length) return;
     setBusy(true);
+    // Show the confirmation right away, assuming the RSVP goes through, and
+    // roll it back if the server disagrees.
+    const trimmedEmail = email.trim().toLowerCase();
+    onOptimistic(name.trim().split(/\s+/)[0], trimmedEmail);
     try {
       const res = await fetch("/api/events/rsvp", {
         method: "POST",
@@ -155,7 +189,8 @@ function RsvpForm({ dict, event, onCancel, onDone }: { dict: EventsPageDict; eve
         body: JSON.stringify({ eventId: event.id, name, email, school, question, optIn }),
       });
       const j = await res.json().catch(() => null);
-      if (res.ok && j?.ok) return onDone({ first: j.first, email: j.email, emailed: j.emailed, count: j.count ?? null });
+      if (res.ok && j?.ok) return onSettled({ first: j.first, email: j.email, emailed: j.emailed, count: j.count ?? null });
+      onRollback();
       const code = j?.error;
       if (code === "name") setErrors({ name: f.nameError });
       else if (code === "email") setErrors({ email: f.emailError });
@@ -163,6 +198,7 @@ function RsvpForm({ dict, event, onCancel, onDone }: { dict: EventsPageDict; eve
       else if (code === "closed") setErrors({ form: f.closed });
       else setErrors({ form: f.error });
     } catch {
+      onRollback();
       setErrors({ form: f.error });
     } finally {
       setBusy(false);
