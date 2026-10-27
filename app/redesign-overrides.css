@@ -295,9 +295,6 @@
 .rd .notlist b {
   display: block;
 }
-.rd .where-rec {
-  border: 2px solid var(--purple);
-}
 .rd .where-rec .tag {
   margin-bottom: 12px;
 }
