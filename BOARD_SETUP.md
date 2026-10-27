@@ -162,6 +162,21 @@ chapter's sender (above), with reply-to set to the chapter's organizer.
 - **Change log:** adding, editing and deleting events goes in the Changes
   tab, like everything else. Sending a reminder is noted there too.
 
+### The Negotiation Workshop's meeting link
+
+The repo is public and the workshop's Zoom link has the passcode in it, so
+the link lives in a Railway variable instead: `EVENT_LINK_NEGOTIATION_2026`.
+When the site starts with it set (an `https://` link), it fills in the
+link for "Negotiation Workshop with Emily Epstein" (Nov 19) if that event
+has none yet, and notes "Set the meeting link…" in the Changes tab as
+System, without the link itself.
+
+It only does this once, and never over a link that's already there, so an
+admin's edit on the Events tab always wins. A value that isn't an
+`https://` link is skipped, with an error in the server log. After it's
+filled in, the variable can stay or be deleted; deleting it changes
+nothing.
+
 ### Launching the page
 
 Until launch the page is private:

@@ -74,6 +74,43 @@ async function setup() {
   await adminsOnlyToHubAdmins(sql);
   await uclaPhotoRow2(sql);
   await seedFirstEvent(sql);
+  await fillNegotiationLink(sql);
+}
+
+// Fills in the Negotiation Workshop's meeting link from the Railway variable
+// EVENT_LINK_NEGOTIATION_2026, so the link (it has the Zoom passcode) never
+// goes in this public repo. Only when the variable is set and the event's
+// link is empty, and only once: after that, an admin's edit always wins,
+// even clearing the link. The change log says the link was set, never what
+// it is.
+const NEGOTIATION_LINK_VAR = "EVENT_LINK_NEGOTIATION_2026";
+
+async function fillNegotiationLink(sql: ReturnType<typeof db>) {
+  const link = process.env[NEGOTIATION_LINK_VAR]?.trim();
+  if (!link) return;
+  let ok = false;
+  try {
+    ok = new URL(link).protocol === "https:";
+  } catch {
+    ok = false;
+  }
+  if (!ok) {
+    console.error(`[events] ${NEGOTIATION_LINK_VAR} isn't an https:// link, so the Negotiation Workshop's meeting link wasn't set.`);
+    return;
+  }
+  await sql.begin(async (tx) => {
+    const [done] = await tx`SELECT 1 FROM board_changes WHERE name = '2026-10-27-negotiation-link'`;
+    if (done) return;
+    const [event] = await tx`SELECT id, title, meeting_link FROM board_events
+      WHERE chapter = 'berkeley' AND date = '2026-11-19' AND title = 'Negotiation Workshop with Emily Epstein'
+      ORDER BY id LIMIT 1 FOR UPDATE`;
+    if (!event || event.meeting_link) return;
+    await tx`UPDATE board_events SET meeting_link = ${link} WHERE id = ${event.id}`;
+    await tx`INSERT INTO board_changes (name) VALUES ('2026-10-27-negotiation-link')`;
+    await tx`INSERT INTO board_changelog (chapter, role, actor, action, summary, changes)
+      VALUES ('berkeley', 'system', '', 'note', ${`Set the meeting link for "${event.title}" from ${NEGOTIATION_LINK_VAR}`}, '[]')`;
+    console.log(`[events] Set the Negotiation Workshop's meeting link from ${NEGOTIATION_LINK_VAR}.`);
+  });
 }
 
 // The first public event, once. Admins edit it on the Events tab (the
