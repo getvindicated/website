@@ -31,4 +31,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "Học cách trả giá khi mua xe, và cả những chuyện khác, từ người đang dạy môn này ở Berkeley Law. Mang theo câu hỏi của bạn nhé.",
   },
+  ko: {
+    title: "Emily Epstein과 함께하는 협상 워크숍",
+    tag: "워크숍 · UC Berkeley",
+    hostTitle: "UC Berkeley Law 협상 강사 · Oakbay Consulting CEO",
+    description:
+      "Berkeley Law에서 협상을 가르치는 분에게 차 값, 그리고 그 밖의 무엇이든 흥정하는 법을 배워 보세요. 궁금한 건 들고 오세요.",
+  },
 };
