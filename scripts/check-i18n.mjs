@@ -54,12 +54,24 @@ const ALLOWED = [
   "Caleb Jacobs", "Rana", "Darwich", "Esri", "Maxar", "Supabase", "OpenStreetMap", "CARTO", "AI", "PDF", "MB", "PT", "AM", "PM",
   "CA", "TX", "NY", "NJ", "CT", "MA", "AK", "WI", "ME", "DOJ", "DOT", "AG", "BMV", "SOS", "Cal", "Civ", "Code", "Veh",
   "Price Is Right", "Crosscheck", "Morning Consult", "Caribou", "Mary Wollstonecraft", "Wollstonecraft", "South Coast Mitsubishi", "Carcam", "Duolingo", "U.S.C.", "CFR", "Mass", "Tex", "Occ", "ch", "Trans", "Admin",
-  "Federal Trade Commission", "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
+  "Federal Trade Commission", "Truth in Lending Act", "FTC Used Car Rule", "Motor Vehicle Information Act",
+  "Fair Credit Reporting Act", "University of California", "Los Angeles", "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
 ];
 
 // One-word strings that are spelled the same as English in a language.
 const SAME_WORDS = {
   es: ["Dealer", "Total", "No"],
+  // Taglish: everyday and car words Filipino Americans say in English.
+  tl: [
+    "Home", "Team", "Research", "Data", "Dealer", "DEALERSHIP", "Red flag", "Red flag {n}", "Trade-in", "Down payment",
+    "Monthly payment", "Email", "Online", "Host", "Satellite", "Fuse Box", "Battery", "Serpentine Belt", "Machine learning",
+    "Timing belt/chain:", "Compression test:", "Brake fluid:", "Buyer's Order",
+  ],
+};
+
+// Keys a language may leave in English, like job titles in Taglish.
+const SAME_KEYS = {
+  tl: [/^team\.members\..*\.(position|major)$/, /^joinPage\.roles\.items/, /^fraudPage\.pinkSlip\.items\[\d+\]\.label$/],
 };
 
 // Common English words: a sentence with several of these is still English.
@@ -107,7 +119,7 @@ for (const file of files) {
       }
       if (placeholders(t) !== placeholders(v)) problems.placeholders.push(`${k}: ${placeholders(v)} -> ${placeholders(t)}`);
       if (markup(t) !== markup(v)) problems.markup.push(k);
-      const keepOk = t === v && SAME_OK.some((re) => re.test(k));
+      const keepOk = t === v && [...SAME_OK, ...(SAME_KEYS[lang] ?? [])].some((re) => re.test(k));
       const same = t === v && !keepOk && !(SAME_WORDS[lang] ?? []).includes(t);
       const words = englishLeft(t);
       // Same as English and has real words left: untranslated. Otherwise,
