@@ -54,7 +54,13 @@ const ALLOWED = [
   "Caleb Jacobs", "Rana", "Darwich", "Esri", "Maxar", "Supabase", "OpenStreetMap", "CARTO", "AI", "PDF", "MB", "PT", "AM", "PM",
   "CA", "TX", "NY", "NJ", "CT", "MA", "AK", "WI", "ME", "DOJ", "DOT", "AG", "BMV", "SOS", "Cal", "Civ", "Code", "Veh",
   "Price Is Right", "Crosscheck", "Morning Consult", "Caribou", "Mary Wollstonecraft", "Wollstonecraft", "South Coast Mitsubishi", "Carcam", "Duolingo", "U.S.C.", "CFR", "Mass", "Tex", "Occ", "ch", "Trans", "Admin",
+  "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
 ];
+
+// One-word strings that are spelled the same as English in a language.
+const SAME_WORDS = {
+  es: ["Dealer", "Total", "No"],
+};
 
 // Common English words: a sentence with several of these is still English.
 const EN_WORDS = new Set(
@@ -98,17 +104,19 @@ for (const file of files) {
       }
       if (placeholders(t) !== placeholders(v)) problems.placeholders.push(`${k}: ${placeholders(v)} -> ${placeholders(t)}`);
       if (markup(t) !== markup(v)) problems.markup.push(k);
-      const same = t === v && SAME_OK.every((re) => !re.test(k));
+      const same = t === v && SAME_OK.every((re) => !re.test(k)) && !(SAME_WORDS[lang] ?? []).includes(t);
       const words = englishLeft(t);
       // Same as English and has real words left: untranslated. Otherwise,
-      // in non-Latin scripts any run of English words is suspect; in Latin
-      // scripts, look for several common English words.
+      // in Latin scripts look for several common English words; in other
+      // scripts, for English glue words or a string that's mostly English
+      // letters (tech and company names on their own are fine).
       const enCommon = words.filter((w) => EN_WORDS.has(w.toLowerCase())).length;
+      const latinShare = words.join("").length / Math.max(t.replace(/[\s\d\p{P}\p{S}]/gu, "").length, 1);
       const leak = same
         ? words.length > 0
         : latin
           ? enCommon >= 3 && enCommon / Math.max(words.length, 1) > 0.2
-          : words.length >= 3 && words.join(" ").length > 14;
+          : enCommon >= 2 || (words.length >= 3 && latinShare > 0.5);
       if (leak) problems.english.push(`${k}: ${t.slice(0, 90)}`);
     }
   }

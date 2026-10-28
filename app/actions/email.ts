@@ -48,13 +48,16 @@ export async function submitContactForm(
 
     // 2. Send auto-response to the user, in the language they used
     const e = (await getDictionary((isValidLocale(locale) ? locale : "en") as Locale)).joinPage.emails;
+    const first = data.firstName || e.friend;
+    // Some languages leave `friend` empty and just drop the name.
+    const hi = first ? e.hi.replace("{name}", first) : e.hi.replace(/[\s,،]*\{name\}/, "");
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [{ email: data.email, name: `${data.firstName} ${data.lastName}`.trim() }],
       subject: e.contact.subject,
       htmlContent: `
         <div dir="${locale === "fa" || locale === "ar-EG" ? "rtl" : "ltr"}">
-        <p>${esc(e.hi.replace("{name}", data.firstName || e.friend))}</p>
+        <p>${esc(hi)}</p>
         <p>${esc(e.contact.body).replace("{topic}", `<strong>${esc(data.topicLabel || topicLabel)}</strong>`)}</p>
         <p>${esc(e.contact.copy)}</p>
         <blockquote style="border-left: 4px solid #eee; padding-left: 10px; margin-left: 0; color: #555;">

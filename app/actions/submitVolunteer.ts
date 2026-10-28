@@ -96,13 +96,15 @@ export async function submitVolunteerApplication(
 
     const e = (await getDictionary((isValidLocale(locale) ? locale : "en") as Locale)).joinPage.emails;
     const first = data.name.split(" ")[0] || e.friend;
+    // Some languages leave `friend` empty and just drop the name.
+    const hi = first ? e.hi.replace("{name}", first) : e.hi.replace(/[\s,،]*\{name\}/, "");
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [{ email: data.email, name: data.name }],
       subject: e.apply.subject,
       htmlContent: `
         <div dir="${locale === "fa" || locale === "ar-EG" ? "rtl" : "ltr"}">
-        <p>${esc(e.hi.replace("{name}", first))}</p>
+        <p>${esc(hi)}</p>
         <p>${esc(e.apply.body).replace("{role}", `<strong>${esc(data.roleLabel || data.role)}</strong>`)}</p>
         <p>${esc(e.apply.next)}</p>
         <br>
