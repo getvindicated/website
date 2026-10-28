@@ -1,6 +1,7 @@
 "use server";
 
 import { sendEmail } from "@/lib/brevo";
+import { isBot, rateLimiter } from "@/lib/spam-guard";
 
 export interface ContactFormData {
   firstName: string;
@@ -8,12 +9,28 @@ export interface ContactFormData {
   email: string;
   topic: string;
   message: string;
+  // Hidden honeypot field; real visitors leave it blank. Named to look
+  // like an ordinary form field so it isn't obviously a trap.
+  company?: string;
 }
+
+// 5 messages per IP per 10 minutes.
+const limited = rateLimiter(10 * 60 * 1000, 5);
 
 export async function submitContactForm(data: ContactFormData) {
   try {
     if (!data.email || !data.message) {
       return { success: false, error: "Email and message are required." };
+    }
+
+    // Bots fill in the honeypot. Report success without sending anything,
+    // so the bot has no signal that it was caught.
+    if (isBot(data.company ?? "")) {
+      return { success: true };
+    }
+
+    if (await limited("contact")) {
+      return { success: false, error: "Too many messages from here. Please wait a few minutes and try again." };
     }
 
     const topicLabel = data.topic || "General Inquiry";

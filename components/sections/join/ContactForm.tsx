@@ -42,6 +42,7 @@ export function ContactForm({ dict }: { dict: JoinPageDict["contact"] }) {
         email: get("email"),
         topic: get("topic"),
         message: get("message"),
+        company: get("company"),
       });
       if (res.success) {
         setStatus("success");
@@ -59,6 +60,14 @@ export function ContactForm({ dict }: { dict: JoinPageDict["contact"] }) {
 
   return (
     <form className="apply" noValidate onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div className="fld">
         <label htmlFor="c-first">{dict.firstName}</label>
         <input id="c-first" name="firstName" autoComplete="given-name" />
