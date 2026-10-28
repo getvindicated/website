@@ -59,4 +59,10 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "Berkeley Law में मोलभाव पढ़ाने वाली से सीखिए कि कार की कीमत पर, और किसी भी चीज़ पर, मोलभाव कैसे करें। अपने सवाल लेकर आइए।",
   },
+  "ar-EG": {
+    title: "ورشة الفصال مع Emily Epstein",
+    tag: "ورشة · UC Berkeley",
+    hostTitle: "محاضِرة التفاوض، UC Berkeley Law · CEO، Oakbay Consulting",
+    description: "اتعلم تفاصل في سعر العربية، وفي أي حاجة تانية، من حد بيدرّس التفاوض في Berkeley Law. هات أسئلتك.",
+  },
 };
