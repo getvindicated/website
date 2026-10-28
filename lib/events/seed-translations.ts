@@ -45,4 +45,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "از کسی که توی Berkeley Law مذاکره درس می‌ده یاد بگیرید چطور سر قیمت ماشین، و هر چیز دیگه‌ای، چونه بزنید. سؤال‌هاتون رو بیارید.",
   },
+  hy: {
+    title: "Բանակցությունների դասընթաց Emily Epstein-ի հետ",
+    tag: "Դասընթաց · UC Berkeley",
+    hostTitle: "Բանակցությունների դասախոս, UC Berkeley Law · Oakbay Consulting-ի գործադիր տնօրեն",
+    description:
+      "Սովորեք սակարկել մեքենայի գինը, և ցանկացած այլ բան, մի մարդուց, ով դա դասավանդում է Berkeley Law-ում։ Բերեք ձեր հարցերը։",
+  },
 };
