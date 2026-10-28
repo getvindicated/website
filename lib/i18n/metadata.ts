@@ -51,7 +51,7 @@ export async function getRootMetadata(localeParam: string): Promise<Metadata> {
       description: dict.meta.defaultDescription,
       url: localizeHref(locale, "/"),
       locale,
-      images: [SHARE_IMAGE],
+      images: [{ ...SHARE_IMAGE, alt: dict.meta.routes.home.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
@@ -89,7 +89,7 @@ export async function getRouteMetadata(
       url: localizeHref(locale, href),
       type: "website",
       locale,
-      images: [SHARE_IMAGE],
+      images: [{ ...SHARE_IMAGE, alt: routeMeta.imageAlt }],
     },
     twitter: {
       title,

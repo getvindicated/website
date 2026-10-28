@@ -15,12 +15,13 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
   if (!event || event.chapter !== user.chapter) return notFound();
   const problem = inviteSetupProblem(user.chapter);
   if (problem) return bad(problem, 503);
-  const rsvps = await db()`SELECT name, email FROM board_event_rsvps WHERE event_id = ${event.id} ORDER BY created_at, id`;
+  const rsvps = await db()`SELECT name, email, locale FROM board_event_rsvps WHERE event_id = ${event.id} ORDER BY created_at, id`;
   if (rsvps.length === 0) return bad("No one has RSVPed yet, so there's no one to remind.");
+  // Each person gets it in the language they RSVPed in.
   const r = await sendEventEmails(
-    event,
+    event.id,
     "reminder",
-    rsvps.map((x) => ({ name: x.name as string, email: x.email as string })),
+    rsvps.map((x) => ({ name: x.name as string, email: x.email as string, locale: x.locale as string })),
   );
   await logEntry(
     db(),

@@ -14,6 +14,11 @@ export const SCHOOL_LABELS: Record<School, string> = {
   none: "Not a student",
 };
 
+// An event's wording in another language. Fields left out show the English.
+export const EVENT_TEXT = ["title", "tag", "hostTitle", "description"] as const;
+export type EventText = Partial<Record<(typeof EVENT_TEXT)[number], string>>;
+export type EventTranslations = Partial<Record<string, EventText>>;
+
 // What the public page and API may show about an event.
 export type PublicEvent = {
   id: number;
@@ -40,6 +45,7 @@ export type AdminEvent = Omit<PublicEvent, "flyer" | "count"> & {
   chapter: string;
   meetingLink: string;
   flyerId: number | null;
+  translations: EventTranslations;
   showCount: boolean;
   rsvps: Rsvp[];
 };

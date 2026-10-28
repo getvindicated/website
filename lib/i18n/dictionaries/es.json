@@ -1,366 +1,2562 @@
 {
   "nav": {
     "home": "Inicio",
-    "about": "Sobre Nosotros",
-    "aboutWhoWeAre": "Quiénes Somos",
-    "aboutMission": "Nuestra Misión",
-    "aboutFounder": "De la Fundadora",
-    "aboutProvides": "Lo Que Ofrecemos",
+    "about": "Nosotros",
+    "aboutWhoWeAre": "Quiénes somos",
+    "aboutMission": "Nuestra misión",
+    "aboutFounder": "De nuestra fundadora",
+    "aboutProvides": "Lo que ofrecemos",
     "team": "Equipo",
-    "inspection": "Guía de Inspección",
-    "inspectionPpi": "¿Qué Es una PPI?",
-    "inspectionEngine": "Diagrama del Motor",
-    "inspectionChecks": "Qué Revisan los Inspectores",
-    "inspectionWhere": "Dónde Obtener Una",
-    "inspectionDealership": "Encuentra un Concesionario",
-    "fraud": "Prevención de Fraude",
-    "fraudOverview": "Resumen",
-    "fraudRedFlags": "Señales de Alerta",
-    "fraudRights": "Conoce Tus Derechos",
-    "fraudAfter": "Qué Hacer Después",
-    "documents": "Documentos Descifrados",
+    "events": "Eventos",
+    "inspection": "Guía de inspección",
+    "fraud": "Cómo evitar fraudes",
+    "documents": "Tus documentos, explicados",
     "volunteer": "Voluntariado",
     "research": "Investigación",
     "contact": "Contacto",
-    "learningResources": "Recursos Educativos",
-    "getInvolved": "Involúcrate"
+    "learningResources": "Aprende aquí",
+    "getInvolved": "Únete",
+    "projects": "Proyectos",
+    "dealerMap": "Mapa de dealers"
   },
   "ui": {
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "expandSection": "Expandir {label}",
-    "languageSwitcher": "Cambiar idioma"
+    "languageSwitcher": "Cambiar idioma",
+    "homeLabel": "Inicio de VINdicated"
+  },
+  "notFound": {
+    "title": "No encontramos esta página",
+    "body": "Perdón, no encontramos esa página. Puede que la hayamos movido o que el enlace esté mal.",
+    "home": "Ir al inicio"
   },
   "footer": {
-    "tagline": "Educar. Empoderar. Reivindicar.",
-    "subtagline": "Educación automotriz gratuita para mujeres, inmigrantes y compradores primerizos.",
-    "copyright": "© 2026 VINdicated. Todos los derechos reservados. Fundado por Rana Darwich.",
-    "mission": "Una organización sin fines de lucro comprometida con la equidad de género en el comercio automotriz.",
     "columns": {
-      "navigate": "Navegar",
       "resources": "Recursos",
-      "connect": "Conectar"
+      "connect": "Síguenos",
+      "organization": "Organización"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "instagram": "Instagram",
-      "getInTouch": "Ponte en Contacto"
-    }
+      "getInTouch": "Escríbenos",
+      "aboutUs": "Nosotros",
+      "instagramUcla": "Instagram · UCLA",
+      "instagramBerkeley": "Instagram · UC Berkeley",
+      "instagramUcsc": "Instagram · UC Santa Cruz"
+    },
+    "about": "VINdicated es una organización sin fines de lucro dirigida por estudiantes que defiende a los consumidores. Compartimos lo que hay que saber de carros con guías gratis, talleres en la comunidad e investigación de estudiantes, para que nadie se aproveche de ti al comprar, financiar o arreglar un carro.",
+    "rights": "© 2026 VINdicated. Todos los derechos reservados.",
+    "founded": "Fundada por Rana Darwich."
   },
   "meta": {
     "defaultTitle": "VINdicated | Educar. Empoderar. Reivindicar.",
-    "defaultDescription": "VINdicated es una organización sin fines de lucro basada en la creencia de que el conocimiento sobre autos debe ser conocimiento público. Explicamos los sistemas que permiten que prospere la discriminación al consumidor.",
+    "defaultDescription": "VINdicated es una organización sin fines de lucro que cree que saber de carros debería ser algo que todos sepan. Te explicamos cómo funcionan los sistemas que permiten la discriminación contra los compradores.",
     "routes": {
       "home": {
         "title": "Educar. Empoderar. Reivindicar.",
-        "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos.",
+        "description": "VINdicated es una organización gratuita sin fines de lucro que te ayuda a comprar carro sin que se aprovechen de ti. Guías gratis, investigación y todo sobre tus derechos.",
         "imageAlt": "VINdicated"
       },
       "about": {
-        "title": "Sobre Nosotros",
-        "description": "VINdicated fue fundada por Rana Darwich después de vivir discriminación en concesionarios en carne propia. Conoce nuestra misión de educar, empoderar y reivindicar a quienes compran autos.",
-        "imageAlt": "VINdicated: Sobre Nosotros"
+        "title": "Nosotros",
+        "description": "Rana Darwich fundó VINdicated después de que la discriminaron al comprar un carro. Lee cómo empezó todo y lo que hacemos.",
+        "imageAlt": "VINdicated: Nosotros"
       },
       "team": {
-        "title": "Nuestro Equipo",
-        "description": "Conoce a las personas detrás de VINdicated: defensoras, investigadoras y estudiantes que luchan contra la discriminación en concesionarios.",
-        "imageAlt": "VINdicated: Nuestro Equipo"
+        "title": "Nuestro equipo",
+        "description": "Conoce a las personas detrás de VINdicated: estudiantes, investigadores y defensores que luchan contra la discriminación en los dealers.",
+        "imageAlt": "VINdicated: Nuestro equipo"
       },
       "inspection": {
-        "title": "Guía de Inspección",
-        "description": "Una guía paso a paso para inspeccionar un auto usado antes de comprarlo. Aprende qué revisar bajo el capó, en el lote y en los documentos.",
-        "imageAlt": "VINdicated: Guía de Inspección"
+        "title": "Guía de inspección",
+        "description": "Una guía paso a paso para revisar un carro usado antes de comprarlo. Qué mirar debajo del cofre, en el lote y en los papeles.",
+        "imageAlt": "VINdicated: Guía de inspección"
       },
       "fraud": {
-        "title": "Prevención de Fraude",
-        "description": "Aprende a reconocer y enfrentar estafas comunes de concesionarios. Conoce las señales de alerta, tus derechos legales y qué hacer si te estafaron.",
-        "imageAlt": "VINdicated: Prevención de Fraude"
+        "title": "Cómo evitar fraudes",
+        "description": "Aprende a reconocer los trucos más comunes de los dealers y cómo responder. Las señales de alerta, tus derechos según las leyes de California y federales, y qué hacer si ya te estafaron.",
+        "imageAlt": "VINdicated: Cómo evitar fraudes"
       },
       "documents": {
-        "title": "Documentos Descifrados",
-        "description": "Guías interactivas para entender los documentos de compra de autos: título, reportes Carfax, contratos de financiamiento y más. Entiende lo que firmas antes de firmar.",
-        "imageAlt": "VINdicated: Documentos Descifrados"
+        "title": "Tus documentos, explicados",
+        "description": "Guías interactivas para entender los papeles de la compra de un carro: el pink slip (el título), los reportes de Carfax, los contratos de financiamiento y más. Entiende lo que firmas antes de firmar.",
+        "imageAlt": "VINdicated: Tus documentos, explicados"
       },
       "research": {
-        "title": "Investigación",
-        "description": "VINdicated realiza estudios de auditoría por correspondencia que documentan disparidades de precios por género y raza en concesionarios. Lee nuestros hallazgos y metodología.",
-        "imageAlt": "VINdicated: Investigación"
+        "title": "Proyectos",
+        "description": "Once proyectos de estudiantes en cuatro equipos: apps, herramientas de datos, investigación y contenido para que la gente compre, financie y arregle su carro sin que se aprovechen.",
+        "imageAlt": "VINdicated: Proyectos"
+      },
+      "join": {
+        "title": "Únete",
+        "description": "Únete a VINdicated: hazte voluntario, cuéntanos tu historia, participa en una investigación o colabora con nosotros.",
+        "imageAlt": "VINdicated: Únete"
       },
       "rights": {
-        "title": "Conoce Tus Derechos",
-        "description": "Conoce tus derechos legales como comprador de autos. Las leyes federales y de California te protegen contra la discriminación y las prácticas engañosas en concesionarios.",
-        "imageAlt": "VINdicated: Conoce Tus Derechos"
+        "title": "Conoce tus derechos",
+        "description": "Conoce tus derechos al comprar un carro. Las leyes federales y de California te protegen de la discriminación y los engaños en los dealers.",
+        "imageAlt": "VINdicated: Conoce tus derechos"
       },
       "contact": {
         "title": "Contacto",
-        "description": "Ponte en contacto con VINdicated: únete como voluntario, comparte tu historia, participa en investigaciones o colabora con nosotros.",
+        "description": "Escríbele a VINdicated: hazte voluntario, cuéntanos tu historia, participa en una investigación o colabora con nosotros.",
         "imageAlt": "VINdicated: Contacto"
       },
       "volunteer": {
         "title": "Voluntariado",
-        "description": "Postúlate para unirte a VINdicated como estudiante voluntario, investigador, ingeniero, diseñador o colaborador de alcance comunitario.",
+        "description": "Aplica para unirte a VINdicated como estudiante voluntario: investigación, programación, diseño o trabajo con la comunidad.",
         "imageAlt": "VINdicated: Voluntariado"
+      },
+      "map": {
+        "title": "Mapa de dealers",
+        "description": "Un mapa satelital de 100 dealers en el Westside de Los Ángeles y lo que dicen sus reseñas públicas, como presión para comprar y cargos sorpresa.",
+        "imageAlt": "VINdicated: Mapa de dealers"
+      },
+      "mapMethods": {
+        "title": "Cómo hicimos el mapa de dealers",
+        "description": "De dónde sale la información del mapa, cómo un modelo de inteligencia artificial clasificó las reseñas, cómo funcionan los niveles y lo que el mapa no te puede decir.",
+        "imageAlt": "VINdicated: Cómo hicimos el mapa de dealers"
+      },
+      "events": {
+        "title": "Eventos",
+        "description": "Talleres y reuniones gratis de VINdicated sobre cómo comprar, arreglar y pagar un carro.",
+        "imageAlt": "VINdicated: Eventos"
       }
     }
   },
   "home": {
-    "hero": {
-      "titleLine1": "Mereces Comprar",
-      "titleLine2": "un Auto",
-      "titleEm": "Sin Miedo.",
-      "subtitle": "VINdicated se basa en la creencia de que el conocimiento sobre autos debería ser un conocimiento público. Desglosamos los sistemas que permiten que prospere la discriminación al consumidor mediante la educación, la investigación y la comunidad.",
-      "ctaPrimary": "Ver la Guía de Inspección",
-      "ctaSecondary": "Nuestra Historia",
-      "stats": [
-        {
-          "label": "más se les cobra a los compradores varones negros en comparación con los compradores varones blancos, incluso con el mismo auto y el mismo guion",
-          "cite": "Ayres & Siegelman, 1995"
-        },
-        {
-          "label": "de las mujeres de la Generación Z se sienten desalentadas a visitar un concesionario debido a la discriminación de género",
-          "cite": "Morning Consult / Caribou, 2022"
-        },
-        {
-          "label": "de los evaluadores no blancos recibieron peores precios en los concesionarios en comparación con los evaluadores blancos",
-          "cite": "National Fair Housing Alliance, 2018"
-        },
-        {
-          "label": "de negociaciones más largas que enfrentan los compradores de minorías, incluso con el mismo auto y el mismo precio",
-          "cite": "Ayres & Siegelman, 1995"
-        }
-      ]
-    },
-    "cards": {
-      "titlePrefix": "Dos pilares de la",
-      "titleEm": "justicia automotriz.",
-      "pillars": [
-        {
-          "kicker": "Educación",
-          "title": "Guía de Inspección Previa a la Compra",
-          "body": "Una guía paso a paso de todo lo que debes revisar, preguntar y verificar antes de entregar un solo dólar. Escrita para compradores primerizos.",
-          "label": "Leer la Guía"
-        },
-        {
-          "kicker": "Protección",
-          "title": "Prevención de Fraude",
-          "body": "Tácticas reales utilizadas contra los compradores, nombradas, explicadas y contrarrestadas. Sabe exactamente qué decir cuando un vendedor intente presionarte.",
-          "label": "Ver las Señales de Alerta"
-        }
-      ]
-    },
-    "quote": {
-      "text": "¿Por qué debería mantenerse a la mujer en la ignorancia bajo el nombre engañoso de la inocencia?",
-      "cite": "Mary Wollstonecraft",
-      "source": "Vindicación de los Derechos de la Mujer (1792)"
-    },
-    "founder": {
-      "titleLine1": "Fundada a los 19.",
-      "titleEm": "Por necesidad.",
-      "body1": "Tres intentos fallidos en tres concesionarios distintos me mostraron lo mismo: el sistema está diseñado para confundirte, apresurarte y sacar provecho de lo que no sabes.",
-      "body2Prefix": "VINdicated existe porque ",
-      "body2Bold": "desearía que hubiera existido para mí.",
-      "cta": "Lee la Historia Completa de Rana"
-    },
     "meta": {
       "title": "Educar. Empoderar. Reivindicar.",
-      "description": "VINdicated es una organización sin fines de lucro que ayuda a los compradores de autos a navegar los concesionarios sin ser aprovechados. Guías gratuitas, investigación y recursos sobre tus derechos."
+      "description": "VINdicated es una organización gratuita sin fines de lucro que te ayuda a comprar carro sin que se aprovechen de ti. Guías gratis, investigación y todo sobre tus derechos."
     }
   },
-  "about": {
+  "homePage": {
     "hero": {
-      "titlePlain": "Basado en la creencia de que el conocimiento sobre autos",
-      "titleEm": "debería ser de dominio público.",
-      "subtitle": "VINdicated existe porque no creemos que las mujeres deban llevar protección masculina solo para comprar un auto de forma segura."
+      "titleLead": "Con VINdicated es fácil",
+      "phrases": [
+        "ir al dealer por tu cuenta.",
+        "detectar un anuncio falso.",
+        "entender el contrato.",
+        "hacer las preguntas correctas.",
+        "irte si no te conviene."
+      ],
+      "body": "La mayoría de la gente compra carro sin saber lo básico. Meter tanto dinero en algo sin saber lo que vale te puede dejar en un hoyo financiero. Por eso te lo explicamos todo en palabras sencillas, y gratis.",
+      "ctaPrimary": "Ver la guía de PPI",
+      "ctaSecondary": "Nuestra historia",
+      "photoAlt": "El grupo de VINdicated de UC Berkeley en el pasto frente a la biblioteca Doe, con el Campanile atrás"
     },
-    "whyWeExist": {
-      "titleLine1": "La discriminación",
-      "titleEm": "es medible.",
-      "titleLine2": "El daño es real.",
-      "para1": [
+    "publicKnowledge": {
+      "title": "Saber de carros no debería ser un secreto.",
+      "body": [
+        "Le pasa a quien compra su primer carro y a quien ya ha comprado diez. Si estás informado, te sientes seguro, y si te sientes seguro, es más difícil que se aprovechen de ti. Hicimos listas para revisar el carro, explicaciones de financiamiento y frases para cuando un vendedor te presiona, para que sepas a qué le estás diciendo que sí. Queremos que vayas ",
         {
-          "text": "Una investigación de Ian Ayres y Peter Siegelman encontró que a los "
+          "b": "seguro e informado"
+        },
+        "."
+      ],
+      "cta": "Ver las estafas más comunes"
+    },
+    "footing": {
+      "title": "No deberías pagar más por ser quien eres. En California, eso es ilegal.",
+      "quote": "“Todas las personas dentro de la jurisdicción de este estado son libres e iguales y, sin importar su sexo, raza, color, religión, ascendencia u origen nacional… tienen derecho al acceso pleno e igual a los servicios, ventajas, instalaciones y privilegios de todo tipo de negocio.”",
+      "quoteCite": "Ley de Derechos Civiles Unruh, Código Civil de California § 51",
+      "body": "Los estudios muestran que los dealers le dan precios distintos a distintas personas. Y ahora los estafadores tienen mejores herramientas.",
+      "rows": [
+        {
+          "stat": "$1,100",
+          "title": "A hombres afroamericanos les pidieron $1,100 más por el mismo carro.",
+          "body": "A los compradores afroamericanos les ofrecieron precios en promedio $1,100 más altos que a los compradores blancos por carros idénticos, aunque usaron exactamente las mismas palabras al negociar. A las mujeres afroamericanas les pidieron $410 más que a los hombres blancos, y a las mujeres blancas, $92 más.",
+          "cite": "Ayres y Siegelman, The American Economic Review, 1995"
         },
         {
-          "text": "compradores de autos hombres negros se les cotizaban precios en promedio $1,100 más altos",
-          "bold": true
+          "stat": "$36,240",
+          "title": "Un comprador financió una troca que no existía.",
+          "body": "Un comprador cuidadoso encontró una troca a buen precio en Facebook Marketplace, publicada por lo que parecía un dealer real de Texas. Los papeles y la aprobación del banco parecían en orden, y un rastreador mostraba la troca en camino. Pero el dealer era una copia falsa de uno real, hecha con herramientas de inteligencia artificial, y la troca no existía.",
+          "cite": "The Drive, septiembre de 2026"
         },
         {
-          "text": " que a los compradores hombres blancos por autos idénticos, incluso usando guiones de negociación idénticos. A las mujeres negras se les cotizó $410 más que a los hombres blancos. A las mujeres blancas se les cotizó $92 más que a los hombres blancos."
+          "stat": "13%",
+          "title": "A compradores de minorías los hicieron negociar más y aun así les dieron peores precios.",
+          "body": "Los dealers pasaron 13% más tiempo negociando con compradores de prueba de minorías e hicieron comentarios racistas o sexistas en el 4% de las visitas. En otro estudio, al 63% de los compradores de prueba que no eran blancos les dieron peores precios que a los blancos.",
+          "cite": "Ayres y Siegelman, 1995 · National Fair Housing Alliance, 2018"
+        }
+      ]
+    },
+    "chapters": {
+      "title": "Búscanos en tu universidad.",
+      "body": "Tenemos grupos en UCLA, UC Berkeley y UC Santa Cruz. Encuentra el tuyo y ven a una reunión.",
+      "items": [
+        {
+          "tag": "UCLA",
+          "title": "Sube los Janss Steps",
+          "body": "Nuestro primer grupo. Hace el mapa de riesgo de dealers y dirige la investigación y el trabajo con datos de VINdicated.",
+          "cta": "Únete en UCLA",
+          "alt": "Royce Hall en UCLA"
+        },
+        {
+          "tag": "UC Berkeley",
+          "title": "Ve a Sproul",
+          "body": "Está creciendo ahora, y se enfoca en enseñar a los consumidores y en llegar a más estudiantes en el campus.",
+          "cta": "Únete en Berkeley",
+          "alt": "La torre Sather, el Campanile, en UC Berkeley"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "title": "Ve al Quarry Amphitheater",
+          "body": "Trabaja en el lado técnico de la protección al consumidor: estudia la discriminación de los algoritmos y los sesgos de la inteligencia artificial en la venta de carros.",
+          "cta": "Únete en UCSC",
+          "alt": "El Quarry Amphitheater de UC Santa Cruz, rodeado de secuoyas"
+        }
+      ]
+    },
+    "follow": {
+      "title": "Sigue a VINdicated.",
+      "body": "Publicamos cuándo vamos a estar en el campus, guías nuevas y las estafas que la gente nos cuenta.",
+      "links": [
+        {
+          "platform": "LinkedIn · Todos los grupos",
+          "handle": "VINdicated"
+        },
+        {
+          "platform": "Instagram · UCLA",
+          "handle": "@vindicatedbruins"
+        },
+        {
+          "platform": "Instagram · UC Berkeley",
+          "handle": "@ucb_vindicated"
+        },
+        {
+          "platform": "Instagram · UC Santa Cruz",
+          "handle": "@ucsc_vindicated"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "Empieza con estas dos guías.",
+      "body": "Guías gratis que puedes abrir en tu teléfono en el dealer.",
+      "items": [
+        {
+          "title": "Guía de inspección antes de comprar",
+          "body": "Qué revisar y qué preguntar antes de pagar cualquier cosa. Hecha para quien compra su primer carro."
+        },
+        {
+          "title": "Cómo evitar fraudes",
+          "body": "Los trucos más comunes de los dealers y qué contestarles."
+        }
+      ]
+    },
+    "free": {
+      "title": "Todo lo que hacemos es gratis.",
+      "body": "No necesitas crear una cuenta, y no vendemos nada.",
+      "planTitle": "Para todos",
+      "price": "$0",
+      "checks": [
+        "Guía de inspección antes de comprar",
+        "Listas de señales de alerta",
+        "Frases para cuando te presionan",
+        "Explicaciones de financiamiento",
+        "Tus documentos, explicados",
+        "Todo sobre tus derechos"
+      ],
+      "offers": [
+        {
+          "title": "Talleres de carros gratis",
+          "body": "Sesiones en la comunidad sobre financiamiento, reparaciones y tus derechos en el lote."
+        },
+        {
+          "title": "Mecánicos de confianza",
+          "body": "Mecánicos que nuestros miembros ya han usado y en los que confían."
+        },
+        {
+          "title": "Guías y recursos en línea",
+          "body": "Guías paso a paso hechas para quien compra su primer carro."
+        },
+        {
+          "title": "Proyectos de investigación de estudiantes",
+          "body": "Equipos que estudian el acceso en otros idiomas, cómo venden los dealers y las leyes de California que protegen al consumidor."
+        }
+      ]
+    },
+    "ppi": {
+      "title": "¿Vas a comprar un carro usado? Primero hazle una PPI.",
+      "body": [
+        "Una ",
+        {
+          "b": "inspección antes de comprar (PPI, por sus siglas en inglés)"
+        },
+        " es cuando le pagas a un mecánico independiente, que no sea el vendedor ni el dealer, para que revise el carro antes de comprarlo. Encuentra los problemas que no vas a notar en una prueba de manejo."
+      ],
+      "items": [
+        {
+          "title": "Qué revisan",
+          "body": "El motor, la transmisión, los frenos, la suspensión y el chasis, además de fugas, óxido y señales de choques anteriores."
+        },
+        {
+          "title": "Cuánto cuesta",
+          "body": "Normalmente entre $100 y $200, y algunas oficinas de AAA la hacen gratis o con descuento para sus miembros. Un solo problema escondido te puede costar miles de dólares."
+        },
+        {
+          "title": "Dónde hacerla",
+          "body": "Con un mecánico de tu confianza, con un servicio de inspección que va a donde está el carro, o en un dealer de esa marca que no sea el que te lo está vendiendo."
+        },
+        {
+          "title": "Qué te dan",
+          "body": "Un reporte por escrito que puedes usar para negociar un mejor precio, o una buena razón para irte."
         }
       ],
-      "para2": [
+      "primary": "Leer la guía de PPI",
+      "secondary": "Dónde hacerla"
+    }
+  },
+  "team": {
+    "members": {
+      "Rana Darwich": {
+        "position": "Fundadora y presidenta",
+        "bio": "Rana Darwich es estudiante e investigadora en UC Berkeley, y fundadora y presidenta de VINdicated, que ya tiene grupos en UCLA, Berkeley y UC Santa Cruz. Es asistente de investigación en la Escuela de Educación de UC Berkeley, donde estudia la equidad de género en el financiamiento del deporte universitario, y aprendiz de investigación en el Center for Comparative Inequality and Anti-Discrimination Law de Berkeley Law. Antes fue estudiante investigadora en el Political Violence Lab. Hizo prácticas en Amazon y ahora escribe artículos de opinión para The Daily Californian."
+      },
+      "Fiona Wangsawidjaja": {
+        "position": "Presidenta",
+        "bio": "Fiona Wangsawidjaja estudia Estadística y Ciencia de Datos en UCLA y es la presidenta del grupo de VINdicated en UCLA. Le encanta enseñar y ayudar a su comunidad cuando puede: antes fue tutora de programación, ha ayudado a otros a conocer el mundo digital en conferencias y ahora está en VINdicated, donde quiere que todos puedan aprender sobre carros de forma fácil. Tiene experiencia en datos con organizaciones como DataRes y NSDC: les ha enseñado sobre datos a estudiantes de preparatoria, ha hecho proyectos de análisis de datos y ha dado asesoría a empresas.",
+        "major": "Estadística y Ciencia de Datos"
+      },
+      "Ashwin Vinod": {
+        "position": "Presidente",
+        "bio": "Ashwin Vinod estudia Ciencias de la Computación en UCSC y es el presidente del grupo de VINdicated en UCSC. Después de trabajar en varios laboratorios de investigación y en proyectos de ingeniería de software, tiene una base técnica sólida que quiere usar para impulsar investigación que ayude a la comunidad y para darle a su comunidad más oportunidades de aprender. Hizo prácticas en IBM como desarrollador de software y sigue investigando en el AIEA Lab de UCSC, que se enfoca en inteligencia artificial que se pueda explicar.",
+        "major": "Ciencias de la Computación"
+      },
+      "Rizwaan Bana": {
+        "position": "Estratega",
+        "bio": "Rizwaan Bana estudia Ciencias de la Computación en UCLA. Es estratega en VINdicated @ UCLA, donde ayuda a organizar los planes de alcance y los proyectos de los grupos. También es vicepresidente interno de Bruin Software Engineers, gerente de proyectos del equipo de desarrollo de ACM @ UCLA y encargado del sitio web de UPE @ UCLA."
+      },
+      "William Prawira": {
+        "position": "Vicepresidente interno",
+        "bio": "Will Prawira estudia Matemáticas y Ciencia de Datos en UCLA y es el vicepresidente interno del grupo de VINdicated allí. Con su experiencia en ciencia de datos y en la industria, Will quiere crear una cultura de trabajo rápido y bien hecho, que convierta ideas grandes en recursos útiles para la comunidad. Durante este año escolar hace prácticas de confiabilidad en Navitas Semiconductor, donde crea herramientas y aplicaciones para automatizar procesos y predecir cuánto dura un producto.",
+        "major": "Ciencia de Datos y Matemáticas Aplicadas"
+      },
+      "Ayat Ashraf": {
+        "position": "Vicepresidenta externa",
+        "bio": "Ayat Ashraf estudia Matemáticas y Economía en UCLA y le interesa crear políticas económicas. Investiga en VINdicated para que algún día pueda comprar un carro sin llamar a su papá 8,000 veces.",
+        "major": "Matemáticas y Economía"
+      },
+      "Noirit Ghosh Choudhuri": {
+        "position": "Vicepresidente interno",
+        "bio": "Noirit Ghosh Choudhuri estudia Ciencias de la Computación en UC Berkeley y es el vicepresidente interno del grupo de VINdicated en UC Berkeley. Después de crear varios proyectos para el mundo real, tiene muy buenas habilidades técnicas y de trabajo en equipo que quiere usar para crear más soluciones a problemas sociales urgentes, como el que VINdicated combate.",
+        "major": "Ciencias de la Computación"
+      },
+      "Halima Cherif Hminat": {
+        "position": "Vicepresidenta externa",
+        "bio": "Halima Cherif Hminat estudia Biología Integrativa en UC Berkeley, con una especialización menor en Negocios y Políticas Sostenibles, y se está preparando para estudiar odontología. También es la vicepresidenta externa de VINdicated @ UC Berkeley y ayuda a crear recursos para que la gente tome decisiones informadas y con seguridad. Dice que la misión de VINdicated es importante porque quiere apoyar a las mujeres para que no las traten injustamente al comprar o arreglar un carro.",
+        "major": "Biología Integrativa"
+      },
+      "Gundeep Sambee": {
+        "position": "Vicepresidenta interna",
+        "bio": "Gundeep estudia Ciencias Cognitivas en UC Santa Cruz, con una especialización menor en Tecnología y Gestión de la Información. Le interesa dónde se juntan las personas y la tecnología, sobre todo cómo la inteligencia artificial, el diseño y la psicología influyen en cómo tomamos decisiones. Fuera de clases participa en investigación, le gusta aprender más sobre el comportamiento humano y la mente, y disfruta tomar roles de liderazgo que unan a la comunidad y creen experiencias que valgan la pena para otros.",
+        "major": "Ciencias Cognitivas"
+      },
+      "Adhya Maddukuri": {
+        "position": "Vicepresidenta externa",
+        "bio": "Adhya estudia Tecnología y Gestión de la Información en UC Santa Cruz y le apasiona crear tecnología que tenga un impacto real: desarrollo de software, inteligencia artificial, análisis de datos y estrategia de producto. Ha investigado sobre inteligencia artificial generativa, ha asesorado a organizaciones sin fines de lucro con 180 Degrees Consulting y ha ayudado a organizar hackatones con NVIDIA y ASUS. Ahora hace prácticas de ingeniería de software en Heron Power, donde crea sistemas de software y mejora sus habilidades técnicas y para resolver problemas.",
+        "major": "Tecnología y Gestión de la Información"
+      },
+      "Fernando Cedillo-Hernandez": {
+        "position": "Líder de investigación",
+        "bio": "Fernando Cedillo-Hernandez estudia dos carreras en UCLA, Biología y Ciencias Políticas, con especializaciones menores en Investigación Biomédica y en Participación Comunitaria y Cambio Social. Trae experiencia en investigación y en defensa cívica a su rol como líder de investigación en VINdicated, con el compromiso de que las comunidades que menos apoyo reciben tengan acceso justo y protección. Fuera de VINdicated, Fernando participa en trabajo de liderazgo y comunitario en UCLA, como defender a estudiantes inmigrantes y de familias trabajadoras.",
+        "major": "Biología y Ciencias Políticas"
+      },
+      "Yinrui (Ray) Gan": {
+        "position": "Líder de datos",
+        "bio": "Ray Gan dirige el proceso de datos e inteligencia artificial del mapa interactivo de riesgo de dealers de VINdicated. Diseñó el sistema que usa un modelo de lenguaje (LLM) para convertir reseñas de clientes, escritas de forma libre, en señales de riesgo claras y respaldadas con pruebas para quienes compran carro. Ray estudia Ciencias de la Computación y Lingüística en UCLA.",
+        "major": "Ciencias de la Computación y Lingüística"
+      },
+      "Evanceline Tang": {
+        "position": "Líder de diseño y de alcance comunitario",
+        "bio": "Evanceline está en su segundo año de Biología en UCLA. Le apasiona usar el arte y el diseño para transmitir mensajes. Con su arte, quiere ayudar a que la gente entienda más sobre VINdicated y sobre las desigualdades y los peligros que existen en la industria de los carros.",
+        "major": "Biología"
+      },
+      "Rouqaya Elbanna": {
+        "position": "Líder de preparatoria",
+        "bio": "Rouqaya Elbanna es estudiante de preparatoria y líder de preparatoria en VINdicated, donde trabaja para llevar la misión de proteger al consumidor a más estudiantes. Antes fue vicepresidenta de TEDxAIS Jeddah Youth y la seleccionaron para la beca Learn with Leaders Future Doctors, donde su campaña final de educación sobre cómo cuidar a personas con Alzheimer ganó la mejor presentación de su grupo. Quiere ser médica, juega en el equipo principal de voleibol de su escuela y recibió el premio de su escuela a la mejor estudiante deportista."
+      },
+      "Daryen Romero": {
+        "position": "Líder de redacción técnica",
+        "bio": "Daryen Romero estudia Ciencias de la Computación en UC Berkeley. Para él es importante estar en VINdicated porque quiere ayudar a que otros entiendan lo importante que es estar informado al comprar un carro y no tener miedo. También quiere alzar la voz y ayudar a que otros entiendan cómo se pueden aprovechar de alguien por ser mujer o por su raza.",
+        "major": "Ciencias de la Computación"
+      },
+      "Vanessa Phan": {
+        "position": "Líder de análisis de datos",
+        "bio": "Vanessa estudia Ingeniería en Computación con enfoque en sistemas de computación, y le interesa la mezcla de software e ingeniería eléctrica, sobre todo la robótica y las tecnologías inteligentes. Es tesorera de la Society of Women Engineers en UC Santa Cruz, donde este año consiguió más de $5,000 en fondos, y ha trabajado como desarrolladora en SlothLab. Quiere participar más en investigación, estudiar los temas a fondo y usar lo que aprende para crear soluciones.",
+        "major": "Ingeniería en Computación"
+      },
+      "Brisa Gómez": {
+        "position": "Líder de redacción técnica",
+        "bio": "Brisa Gómez está en su cuarto año de Psicología en UCLA y es líder de redacción técnica en UCLA. Con sus proyectos de escritura y traducción, Brisa quiere crear recursos fáciles de usar que incluyan a las comunidades más vulnerables.",
+        "major": "Psicología"
+      },
+      "Chino Sawatyanont": {
+        "position": "Ingeniero de software",
+        "bio": "Chino estudia Ingeniería Eléctrica y en Computación en UC Berkeley y es ingeniero de software del grupo de VINdicated allí. Tiene mucha experiencia uniendo lo técnico con el impacto social; antes se enfocó en apoyar a comunidades de bajos recursos en Tailandia. Chino quiere traer esas mismas ganas de ayudar a la misión de VINdicated.",
+        "major": "Ingeniería Eléctrica y en Computación"
+      },
+      "William Guo": {
+        "position": "Ingeniero de software",
+        "bio": "William Guo está en su tercer año de Ciencias de la Computación en UC Santa Cruz y es ingeniero de software en VINdicated. Le gusta experimentar con aparatos electrónicos y arreglarlos, jugar videojuegos y meterse de lleno en sus propios proyectos. Él mismo pasó por lo estresante que es encontrar el carro correcto, y cree que lo básico que hay que revisar en una compra tan grande como un carro debería ser más fácil de encontrar para todos.",
+        "major": "Ciencias de la Computación"
+      },
+      "Daniel": {
+        "position": "Ingeniero de datos",
+        "bio": "Daniel es un estudiante transferido de Matemáticas Aplicadas, de Los Ángeles, e ingeniero de datos en VINdicated. Le interesan mucho las finanzas personales y enseñarle a otros a manejar su dinero. Fuera de VINdicated, le gusta desarmar y arreglar computadoras, hacer senderismo, andar en bici y correr por la ciudad. También empezó a escalar, a cocinar y a ir a festivales de música.",
+        "major": "Matemáticas Aplicadas"
+      },
+      "Chloe Lin": {
+        "position": "Líder de alcance comunitario",
+        "bio": "Chloe Lin estudia Biología Integrativa en UC Berkeley y es líder de alcance comunitario en VINdicated. Ha defendido a las mujeres y a comunidades con poca representación, y quiere que cualquier comprador entienda lo suficiente sobre la compra y el mantenimiento de un carro para tomar sus propias decisiones.",
+        "major": "Biología Integrativa"
+      },
+      "Ian de la Houssaye": {
+        "position": "Líder de software",
+        "bio": "Ian de la Houssaye estudia Ingeniería Mecánica y es el líder de software del grupo de VINdicated en UC Berkeley. Le apasiona crear tecnología que resuelva problemas reales. Ian fundó y dirigió el equipo de robótica de competencia de su preparatoria, que llegó a ser uno de los mejores de San Diego mientras él dirigía su software y sus sistemas autónomos. Con estas experiencias ha desarrollado habilidades técnicas, de liderazgo y de trabajo en equipo que quiere usar para avanzar la misión de VINdicated.",
+        "major": "Ingeniería Mecánica"
+      },
+      "James Cheng": {
+        "position": "Ingeniero de datos",
+        "bio": "James estudia Ciencia de Datos y Ciencias Cognitivas en UC Berkeley y es ingeniero de datos en VINdicated. Tiene mucha experiencia enseñando ciencias y matemáticas e idiomas, además de una base técnica variada y proyectos que ha creado por su cuenta. Quiere usar esas experiencias para traer una perspectiva única y mucha iniciativa para resolver problemas de la industria de los carros.",
+        "major": "Ciencia de Datos y Ciencias Cognitivas"
+      },
+      "Bryan Zhang": {
+        "position": "Ingeniero de software",
+        "bio": "Bryan Zhang estudia Ciencias de la Computación en UCLA. En su tiempo libre le gusta jugar básquetbol y voleibol, y hornear. Es desarrollador en VINdicated.",
+        "major": "Ciencias de la Computación"
+      },
+      "Rahul Puritipati": {
+        "position": "Ingeniero de software",
+        "bio": "Rahul Puritipati está en su primer año de Ciencias de la Computación en UCLA. Creció en Folsom, California, y le gusta ver videos de gimnasio en TikTok y opinar desde el sillón sobre cómo manejar a los 49ers y a los Kings. Ha hecho mucho trabajo sin fines de lucro, sobre todo ayudando a negocios locales a mejorar su presencia en internet y juntando dinero para jóvenes de bajos recursos en la India.",
+        "major": "Ciencias de la Computación"
+      },
+      "Jordan Acle": {
+        "position": "Líder de datos",
+        "bio": "Jordan Acle estudia Ciencia de Datos en UC Berkeley y es líder de datos del grupo de VINdicated allí, con experiencia práctica en aprendizaje automático, análisis de datos e ingeniería de datos. Ahora hace prácticas de estrategia de producto en Innov8AI, donde ayuda con una plataforma de salud con inteligencia artificial centrada en la confianza. También apoya a la comunidad de UC Berkeley como consejero de Ciencia de Datos entre estudiantes y mentor de Hello World, ayudando a los nuevos estudiantes a sentirse seguros y a encontrar su lugar en el campus.",
+        "major": "Ciencia de Datos"
+      }
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Saber de carros no debería ser un secreto.",
+      "body": "VINdicated existe porque nadie debería necesitar llevar a alguien de refuerzo solo para comprar un carro sin que lo estafen."
+    },
+    "zoom": {
+      "label": "Fotos de los grupos de VINdicated",
+      "titleLine1": "UCLA, UC Berkeley",
+      "titleLine2": "y UC Santa Cruz.",
+      "body": "Estudiantes que se aseguran de que nadie llegue al lote sin estar preparado.",
+      "pause": "Pausar las fotos",
+      "play": "Ver las fotos",
+      "alts": [
+        "El grupo de VINdicated de UC Berkeley en el pasto frente a la biblioteca Doe, con el Campanile atrás",
+        "Voluntarios de VINdicated con una mesa informativa en UC Berkeley, junto a una manta de VINdicated",
+        "Dos voluntarios de VINdicated con un letrero de VINdicated en UC Berkeley",
+        "Voluntarios de VINdicated en su mesa informativa de UCLA en un día soleado de actividades",
+        "El grupo de VINdicated de UC Berkeley posando junto a la biblioteca Doe",
+        "Dos voluntarios de VINdicated junto al cartel de VINdicated de UCLA",
+        "Una voluntaria de VINdicated compartiendo recursos gratis para comprar carro con un estudiante en UCLA",
+        "El grupo de VINdicated de UC Berkeley debajo del Campanile, visto de más lejos",
+        "Una voluntaria de VINdicated platicando con un estudiante de UCLA en la mesa",
+        "Una voluntaria de VINdicated señalando el cartel de UCLA"
+      ]
+    },
+    "photos": {
+      "title": "Nuestros grupos",
+      "body": "Estudiantes de UCLA, UC Berkeley y UC Santa Cruz que ponen mesas informativas, enseñan e investigan sobre la compra de carros.",
+      "items": [
         {
-          "text": "El 48% de las mujeres de la Generación Z se sienten desanimadas a visitar un concesionario",
-          "bold": true
+          "alt": "Voluntarios de VINdicated con una mesa informativa en UC Berkeley, junto a una manta de VINdicated"
         },
         {
-          "text": " por preocupación de discriminación de género (Morning Consult para Caribou, 2022). Esto no es paranoia. Es reconocimiento de patrones."
+          "alt": "Dos voluntarios de VINdicated con un letrero de VINdicated en UC Berkeley"
+        },
+        {
+          "alt": "Voluntarios de VINdicated en su mesa informativa de UCLA en un día soleado de actividades"
+        },
+        {
+          "alt": "Una voluntaria de VINdicated compartiendo recursos gratis para comprar carro con un estudiante en UCLA"
         }
-      ],
-      "para3": [
-        {
-          "text": "Los concesionarios hicieron comentarios racistas o sexistas en el "
-        },
-        {
-          "text": "4% de las visitas de prueba",
-          "bold": true
-        },
-        {
-          "text": ". Se tomaron "
-        },
-        {
-          "text": "13% más tiempo negociando con compradores de prueba de \"minorías\"",
-          "bold": true
-        },
-        {
-          "text": "."
-        }
-      ],
-      "para4": "Y ya no vamos a fingir que son incidentes aislados."
+      ]
     },
     "mission": {
-      "heading": "Educar. Empoderar.",
-      "headingEm": "Vindicar.",
-      "subheading": "Desmantelar la cultura de escolta a nivel del consumidor, un comprador informado a la vez.",
-      "pillars": [
+      "title": "Educar. Empoderar. Reivindicar.",
+      "body": "Nuestro lema, y el orden en el que trabajamos.",
+      "items": [
         {
-          "word": "Educar",
-          "body": "Hacer que comprar un auto sea comprensible. Navegable. Traducimos el manual del concesionario a un lenguaje sencillo porque el conocimiento es poder de negociación."
+          "title": "Educar",
+          "body": "Explicamos en palabras sencillas los trucos de los dealers, porque casi todos solo funcionan con quien nunca ha oído de ellos."
         },
         {
-          "word": "Empoderar",
-          "body": "Construir la confianza para entrar sola, hacer las preguntas correctas y retirarse cuando sea necesario, sin vergüenza y sin necesitar refuerzo."
+          "title": "Empoderar",
+          "body": "Que sepas lo suficiente para ir por tu cuenta, y para irte si el trato no se siente bien."
         },
         {
-          "word": "Vindicar",
-          "body": "Producir la investigación que documenta lo que los consumidores ya saben. Convertir la experiencia vivida en datos. Convertir los datos en cambio de políticas."
+          "title": "Reivindicar",
+          "body": "Investigación que documenta lo que viven los compradores, para usarla y cambiar las leyes y las reglas."
         }
       ]
     },
     "story": {
-      "titleEm": "¿Vindicada de qué?",
-      "subtitle": "Tres golpes. Tres situaciones completamente distintas. El mismo sistema cada vez.",
+      "title": "Por qué Rana empezó VINdicated",
+      "body": "Rana Darwich empezó VINdicated después de que tres compras de carro muy distintas salieron mal exactamente de la misma forma: el vendedor contaba con que ella no conociera las reglas.",
+      "quote": "\"Ojalá que, ya sea que entre una muchacha de 19 años o un señor de 50, traten a todos con respeto.\"",
+      "quoteCite": "Rana Darwich, fundadora",
       "strikes": [
         {
-          "num": "1",
-          "label": "La estafa del título rosa",
-          "body": [
-            "A los 18 años, intentaba comprarle un auto al papá de mi amigo. Me hizo esperar tres meses, prometiendo todo el tiempo que me lo vendería.",
-            "Cuando por fin llegó el momento, trató de decirme que no necesitaba el título de propiedad. Estaba intentando estafarme. Sin el título a tu nombre, el auto no es legalmente tuyo, sin importar lo que hayas pagado."
+          "n": "01",
+          "tag": "A los 18 años · venta entre particulares",
+          "title": "La estafa del pink slip",
+          "body": "Un amigo de la familia la hizo esperar tres meses para venderle su carro, y luego le dijo que no necesitaba el pink slip (el título del carro). Si el título no está a tu nombre, el carro no es legalmente tuyo, sin importar cuánto pagaste."
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "El cambio de tono",
+          "body": "La conversación iba normal hasta que el vendedor se dio cuenta de que ella era mujer. La insultó y la bloqueó. Después, cuando les escribía a los vendedores como \"Randall\" y le pedía a su hermano que llamara, le daban mejores precios."
+        },
+        {
+          "n": "03",
+          "tag": "Abril de 2025 · dealer",
+          "title": "El cajón con llave",
+          "body": "El dealer dijo que el historial de servicio estaba \"en un cajón con llave\", y la inspección de 300 puntos que le prometieron se volvió de 150. Luego le dieron un contrato de financiamiento con 30% de APR (el interés anual del préstamo) aunque ella iba a pagar de contado, con una cláusula de arbitraje en lugar de una forma de cancelar. Ella se dio cuenta, dijo que no y reportó al vendedor."
+        }
+      ]
+    },
+    "video": {
+      "label": "Rana Darwich, fundadora de VINdicated, cuenta por qué empezó VINdicated, grabado en UC Berkeley",
+      "play": "Ver el video de la fundadora, 34 segundos",
+      "length": "0:34",
+      "title": "Escúchalo de Rana.",
+      "body": "Rana cuenta por qué empezó VINdicated y para quién es, grabado en UC Berkeley.",
+      "name": "Rana Darwich",
+      "role": "Fundadora y presidenta de VINdicated"
+    },
+    "ai": {
+      "title": "Ahora los estafadores también usan inteligencia artificial.",
+      "body": "Cada vez es más fácil hacer sitios web de dealers falsos, fotos de anuncios y papeles. Esto le pasó a un comprador en septiembre.",
+      "steps": [
+        {
+          "title": "El anuncio se veía normal",
+          "body": "Una SUV a buen precio aparece en Facebook Marketplace, promocionada para que la vea más gente."
+        },
+        {
+          "title": "El dealer era una copia",
+          "body": "Los estafadores copian un dealer real hasta en los papeles, y solo le quitan una palabra al nombre."
+        },
+        {
+          "title": "El banco le pagó al dealer falso",
+          "body": "Un banco grande aprueba el préstamo y le manda $36,240 al dealer falso."
+        },
+        {
+          "title": "La troca nunca llegó",
+          "body": "Un rastreador falso muestra el carro cruzando el país. \"Llega\" a una calle vacía."
+        }
+      ],
+      "source": "Basado en el reportaje de Caleb Jacobs en The Drive, septiembre de 2026.",
+      "saveStat": "$0",
+      "saveTitle": "No tuvo que pagar el préstamo.",
+      "saveBody": "Como guardó todos los mensajes y documentos, el comprador usó la Holder Rule de la FTC (la Comisión Federal de Comercio) para librarse del préstamo. Casi nadie sabe que esa regla existe.",
+      "saveCta": "Conoce tus derechos",
+      "tipsTitle": "Antes de pagarle a alguien",
+      "tips": [
+        "Busca el nombre del dealer junto con \"scam\", \"review\" o \"complaint\" (estafa, reseña o queja).",
+        "No confíes en un dealer solo porque tiene buenas reseñas. Un sitio falso puede copiar las reseñas de un dealer real.",
+        "Pide ver el carro y el lote en persona. Si no quieren, vete.",
+        "¿Está muy lejos para ir? Manda a un inspector que va a domicilio. A un vendedor de verdad no le va a molestar.",
+        "Nunca pagues por adelantado solo con transferencia bancaria (wire transfer)."
+      ],
+      "ftcCta": "Leer la alerta de la FTC",
+      "reportCta": "Reportar una estafa"
+    },
+    "quote": {
+      "text": "A todos se nos aprovechan alguna vez. Queremos que te des cuenta cuando está pasando.",
+      "cite": "La idea detrás de VINdicated"
+    },
+    "provide": {
+      "title": "Lo que ofrecemos",
+      "body": "No tienes que registrarte, y no vendemos nada.",
+      "items": [
+        {
+          "title": "Talleres",
+          "body": "Sesiones en la comunidad sobre financiamiento, reparaciones y tus derechos en el lote."
+        },
+        {
+          "title": "Guías",
+          "body": "Cómo hacer una inspección paso a paso, listas de señales de alerta, frases para responder y explicaciones de financiamiento."
+        },
+        {
+          "title": "Mecánicos de confianza",
+          "body": "Una lista de mecánicos revisada por la comunidad, que no te hablan como si no supieras nada ni te venden cosas que no necesitas."
+        },
+        {
+          "title": "Proyectos de investigación",
+          "body": "Once equipos de estudiantes que crean apps, herramientas de datos, investigación y contenido."
+        }
+      ],
+      "projectsLink": "Ver los proyectos"
+    },
+    "cta": {
+      "title": "Ayúdanos a que comprar carro sea justo.",
+      "body": "Únete a un grupo, trabaja en un proyecto de investigación o lleva un taller a tu campus.",
+      "primary": "Únete",
+      "secondary": "Conoce al equipo"
+    }
+  },
+  "teamPage": {
+    "hero": {
+      "title": "Nos une la misma frustración.",
+      "body": "Conoce a los estudiantes, investigadores y creadores detrás de VINdicated en tres campus de la UC."
+    },
+    "filterLabel": "Filtrar el equipo por campus",
+    "filters": {
+      "all": "Todos",
+      "leadership": "Liderazgo",
+      "ucla": "UCLA",
+      "ucb": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "readMore": "Leer más",
+    "showLess": "Ver menos",
+    "watchLabel": "Ver el video de presentación de {name}",
+    "watch": "Conoce a {name}",
+    "dialogLabel": "Video de un miembro del equipo",
+    "close": "Cerrar video",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "website": "Sitio web"
+    },
+    "cta": {
+      "title": "¿Quieres ser parte de esto?",
+      "body": "Buscamos personas que investiguen, programen, diseñen o a quienes les guste enseñar. Si quieres que comprar carro sea justo, escríbenos.",
+      "button": "Escríbenos"
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "title": "Once proyectos en cuatro equipos.",
+      "body": "Estudiantes de nuestros grupos crean apps, analizan datos, investigan y hacen contenido para que la gente compre, financie y arregle su carro sin que se aprovechen de ella."
+    },
+    "navLabel": "Equipos de proyectos",
+    "status": "Formando equipo",
+    "skillsLabel": "Habilidades",
+    "membersLabel": "Tamaño del equipo",
+    "chapters": {
+      "ucla": "UCLA",
+      "berkeley": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "tracks": {
+      "app": {
+        "title": "Desarrollo de apps",
+        "body": "Creamos las apps que la gente va a usar para aprender sobre carros y comprar sin riesgos.",
+        "projects": [
+          {
+            "name": "Proyecto Duolingo",
+            "desc": "Una app como Duolingo, pero en lugar de aprender idiomas, aprendes sobre carros y cómo funcionan.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 a 4 personas",
+            "join": "Únete a Duolingo"
+          },
+          {
+            "name": "Proyecto Marketplace",
+            "desc": "Un lugar para comprar y vender como Facebook Marketplace, pero solo para carros y refacciones, con verificación incluida para que haya menos estafas.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 a 4 personas",
+            "join": "Únete a Marketplace"
+          }
+        ]
+      },
+      "data": {
+        "title": "Datos",
+        "body": "Convertimos datos públicos desordenados en herramientas que los compradores puedan usar.",
+        "projects": [
+          {
+            "name": "Proyecto Crosscheck",
+            "desc": "Junta las calificaciones de seguridad de varios programas de pruebas para que puedas comparar modelos lado a lado.",
+            "skills": [
+              "APIs",
+              "Extracción de datos de sitios web",
+              "Estadística"
+            ],
+            "members": "5 personas",
+            "join": "Únete a Crosscheck"
+          },
+          {
+            "name": "Proyecto Carcam",
+            "desc": "Le tomas una foto al daño del carro y calcula cuánto costaría arreglarlo, y si de verdad hace falta arreglarlo.",
+            "skills": [
+              "APIs de modelos multimodales",
+              "Evaluación de datos"
+            ],
+            "members": "5 personas",
+            "join": "Únete a Carcam"
+          },
+          {
+            "name": "Proyecto Price Is Right",
+            "desc": "Te muestra el modelo, el millaje y el historial de un carro, y tienes que adivinar el precio. Los precios correctos salen de anuncios reales.",
+            "skills": [
+              "Estadística básica",
+              "Aprendizaje automático"
+            ],
+            "members": "5 personas",
+            "join": "Únete a Price Is Right"
+          }
+        ]
+      },
+      "research": {
+        "title": "Investigación",
+        "body": "Investigación de campo y legal sobre por qué salen mal las compras de carros y cómo arreglarlo.",
+        "projects": [
+          {
+            "name": "Proyecto Spanish Lang",
+            "desc": "Estudia cómo el idioma y la comunicación afectan si los compradores entienden el proceso de comprar un carro.",
+            "skills": [
+              "Investigación cualitativa",
+              "Análisis de textos y documentos"
+            ],
+            "members": "4 a 6 personas",
+            "join": "Únete a Spanish Lang"
+          },
+          {
+            "name": "Proyecto Price Gaps",
+            "desc": "Estudia cómo los compradores describen y entienden las formas de vender: cómo les hablan, cómo los convencen, la presión, qué tan claros son y la confianza.",
+            "skills": [
+              "Investigación cualitativa",
+              "Análisis por temas"
+            ],
+            "members": "4 a 6 personas",
+            "join": "Únete a Price Gaps"
+          },
+          {
+            "name": "Proyecto Legal",
+            "desc": "Investiga las leyes de California que protegen a quien compra o tiene un carro, y crea una guía fácil para quien tiene un choque, un problema con un dealer, un fraude, una reparación u otro problema con su carro.",
+            "skills": [
+              "Investigación legal y de documentos",
+              "Redacción"
+            ],
+            "members": "6 a 10 personas",
+            "join": "Únete a Legal"
+          }
+        ]
+      },
+      "outreach": {
+        "title": "Alcance y contenido",
+        "body": "Llevamos lo que sabemos a la gente que lo necesita.",
+        "projects": [
+          {
+            "name": "Proyecto Comics",
+            "desc": "Hace cómics que muestran estafas comunes con carros.",
+            "skills": [
+              "Ilustración",
+              "Dibujo"
+            ],
+            "members": "2 a 3 personas",
+            "join": "Únete a Comics"
+          },
+          {
+            "name": "Proyecto Spanish",
+            "desc": "Crea publicaciones chistosas para redes sociales para quienes hablan español (piensa en juegos de palabras y spanglish) y revisa la traducción del sitio.",
+            "skills": [
+              "Español"
+            ],
+            "members": "2 a 3 personas",
+            "join": "Únete a Spanish"
+          },
+          {
+            "name": "Proyecto Booklet",
+            "desc": "Crea una guía corta con lo básico sobre carros.",
+            "skills": [
+              "Investigación en línea",
+              "Redacción",
+              "Diseño"
+            ],
+            "members": "3 a 5 personas",
+            "join": "Únete a Booklet"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "¿No tienes experiencia? No pasa nada.",
+      "body": "Aprendes las herramientas con el equipo. Lo que importa es que tengas curiosidad y unas horas a la semana.",
+      "button": "Aplica a un proyecto"
+    }
+  },
+  "inspectionPage": {
+    "hero": {
+      "title": "No compres un carro sin esto.",
+      "body": "Una inspección antes de comprar (PPI, por sus siglas en inglés) es lo más útil que puedes hacer antes de comprar un carro usado. Cuesta entre $100 y $200 y te puede ahorrar miles.",
+      "ctaPrimary": "Cómo hacer una cita para la PPI",
+      "ctaSecondary": "Dónde hacerla"
+    },
+    "what": {
+      "title": "¿Qué es una inspección antes de comprar?",
+      "body": [
+        "Una PPI es cuando le pagas a un ",
+        {
+          "b": "mecánico independiente"
+        },
+        ", que no sea el vendedor ni el dealer, para que revise el carro antes de comprarlo. Una buena PPI cuesta entre ",
+        {
+          "b": "$100 y $200"
+        },
+        " y es tu mejor oportunidad de encontrar problemas antes de firmar cualquier cosa."
+      ],
+      "notTitle": "Una PPI no es lo mismo que",
+      "nots": [
+        {
+          "title": "La inspección del vendedor",
+          "body": "Lo que quiere es venderte el carro."
+        },
+        {
+          "title": "Que tú lo revises a simple vista",
+          "body": "No eres mecánico."
+        },
+        {
+          "title": "Una prueba de manejo",
+          "body": "No puedes ver lo que pasa debajo del cofre."
+        }
+      ]
+    },
+    "engine": {
+      "title": "Revísalo tú mismo.",
+      "body": "Toca cualquier parte que brille, o empieza la inspección guiada. Te acercamos la imagen, te explicamos qué revisar y llevamos la cuenta mientras avanzas.",
+      "progress": "{n} de {total} revisadas",
+      "start": "Empezar la inspección guiada",
+      "imageAlt": "Ilustración del motor con sus partes señaladas: la caja de fusibles, el tubo de entrada de aire, el depósito del líquido de frenos, las bujías, la batería, el depósito del anticongelante, el radiador y el ventilador",
+      "inspect": "Revisar: {part}",
+      "close": "Cerrar",
+      "of": "{n} de {total}",
+      "how": "Cómo revisarlo",
+      "back": "Atrás",
+      "markChecked": "Marcar como revisada →",
+      "nextPart": "Siguiente parte →",
+      "severity": {
+        "easy": "Fácil de revisar",
+        "watch": "Fíjate bien",
+        "red": "Señal de alerta seria",
+        "know": "Lo que tienes que saber"
+      },
+      "doneTitle": "Inspección terminada.",
+      "doneBody": "Ya revisaste las 9. Lo que marcaste es algo que puedes preguntarle a tu mecánico, o una razón para negociar.",
+      "reset": "Empezar otra vez",
+      "parts": [
+        {
+          "t": "Caja de fusibles",
+          "sub": "La caja que protege la electricidad del carro",
+          "what": "La caja de fusibles tiene unas piezas pequeñas de seguridad, llamadas fusibles, que protegen cada circuito eléctrico. Si algo falla, el fusible se quema para evitar daños, como un interruptor de seguridad.",
+          "steps": [
+            "Pide que abran la tapa. Busca fusibles quemados: la tirita de metal de adentro estará rota.",
+            "Busca fusibles que no correspondan. Un fusible de 30 amperes en un lugar de 10 amperes quiere decir que alguien le dio la vuelta a un problema eléctrico, y eso es peligroso.",
+            "Fíjate si hay marcas de quemado, partes derretidas u olor a quemado.",
+            "Busca tierra, manchas de agua u óxido. Por dentro debe estar limpia y seca.",
+            "Fíjate si hay cables desordenados, con cinta o empalmados. Los cables de fábrica, limpios, son lo normal."
+          ],
+          "flag": "Señal de alerta: fusibles quemados o que no corresponden, marcas de quemado o cables desordenados quieren decir que ya hay problemas eléctricos, de los más difíciles y caros de encontrar en un carro usado."
+        },
+        {
+          "t": "Tubo de entrada de aire y filtro",
+          "sub": "Por donde respira el motor",
+          "what": "El tubo grande con pliegues lleva el aire de la caja del filtro al motor. Dentro de esa caja, un filtro de papel o de espuma no deja pasar el polvo ni la basura.",
+          "steps": [
+            "Revisa todo el tubo por si tiene grietas, rajaduras o abrazaderas flojas.",
+            "Busca la caja del filtro a la que se conecta el tubo y ábrela si puedes (normalmente tiene de 2 a 4 broches).",
+            "Pon el filtro contra la luz. Si está limpio, se ve gris claro o blanco; si está sucio, se ve gris oscuro o negro."
+          ],
+          "flag": "Un filtro muy tapado en un carro con \"todo su historial de servicio\" es una señal de alerta: los registros no están completos o el vendedor está exagerando. Los filtros cuestan de $15 a $30 y se deben cambiar cada 15,000 a 30,000 millas."
+        },
+        {
+          "t": "Depósito del líquido de frenos",
+          "sub": "El tanque del líquido de frenos",
+          "what": "Este tanque transparente le da líquido a los frenos. Con el tiempo, el líquido de frenos absorbe humedad, y eso poco a poco hace que los frenos funcionen peor.",
+          "steps": [
+            "Mira el nivel por un lado del tanque. Debe estar entre MIN y MAX.",
+            "Fíjate en el color. Si es transparente o color ámbar claro, está bien; si es café oscuro, ya le tocaba cambio desde hace rato.",
+            "Si el nivel está bajo, puede ser que las balatas estén gastadas o que haya una fuga. Pregunta cuándo fue la última vez que les dieron servicio a los frenos.",
+            "En la prueba de manejo, el pedal se debe sentir firme, no suave ni esponjoso."
+          ],
+          "flag": "Señal de alerta: si el pedal se siente esponjoso, o si el líquido está oscuro y bajo, hay que arreglar los frenos antes de que compres."
+        },
+        {
+          "t": "Bujías y bobinas",
+          "sub": "Lo que hace que cada cilindro encienda",
+          "what": "Las bujías encienden la gasolina en cada cilindro. En la mayoría de los motores modernos están debajo de las bobinas de encendido, que en este motor son los capuchones rojos de arriba.",
+          "steps": [
+            "Revisa si los capuchones de las bobinas tienen grietas o daños.",
+            "Pídele a tu mecánico que revise si hay aceite acumulado donde van las bujías; es señal de que un empaque está goteando.",
+            "En la prueba de manejo, fíjate si el motor tiembla o se siente disparejo cuando está prendido sin moverse, o si se tarda en responder cuando aceleras.",
+            "Pregunta cuándo cambiaron las bujías por última vez. Muchas se cambian más o menos entre las 60,000 y las 100,000 millas."
+          ],
+          "flag": "Si un cilindro falla o hay aceite donde van las bujías, es una reparación que puedes usar para negociar. Si la luz de check engine (la de revisar el motor) parpadea, un cilindro está fallando en ese momento: para la prueba de manejo."
+        },
+        {
+          "t": "Tapón del aceite",
+          "sub": "Vale la pena abrirlo",
+          "what": "El tapón del aceite es por donde se le echa el aceite nuevo. Abrirlo toma dos segundos, y lo que ves adentro te dice cosas que la varilla del aceite sola no te dice.",
+          "steps": [
+            "Gíralo al revés de las manecillas del reloj y levántalo. Mira la parte de abajo del tapón y adentro del hoyo.",
+            "Busca cualquier residuo blanco o color crema, espuma o algo pegado.",
+            "Huele adentro un momento. Debe oler a aceite, no a químico ni a algo dulce."
+          ],
+          "flag": "Señal de alerta seria: un residuo blanco o cremoso que parece mayonesa es aceite revuelto con anticongelante, muchas veces porque se quemó el empaque de la cabeza. Esa reparación puede pasar de $3,000. Vete o negocia con firmeza.",
+          "flag2": "Fíjate también en: una pasta espesa como chapopote. Quiere decir que el motor pasó mucho tiempo sin cambios de aceite, y eso le acorta la vida."
+        },
+        {
+          "t": "Batería",
+          "sub": "Revisa las terminales y la fecha",
+          "what": "La batería de 12 voltios hace que arranque el carro y le da energía a todo lo electrónico. Casi todas duran de 3 a 5 años, y cambiarla cuesta entre $100 y $250.",
+          "steps": [
+            "Busca una etiqueta con la fecha arriba o a un lado.",
+            "Revisa si las terminales tienen sarro blanco, azul o verde, como pelusa.",
+            "Fíjate si la caja está inflada, rajada o goteando."
+          ],
+          "flag": "Señales de alerta: mucho sarro, una batería de 4 años o más, o una caja inflada. Si la batería se ve vieja, es justo pedir que le bajen de $150 a $250 al precio."
+        },
+        {
+          "t": "Depósito del anticongelante",
+          "sub": "Revísalo con el motor frío",
+          "what": "El depósito del anticongelante (coolant) es un tanque de plástico transparente que guarda el líquido que enfría el motor. Lo puedes revisar sin abrir nada.",
+          "steps": [
+            "Mira el nivel por un lado del tanque.",
+            "Fíjate que esté entre las marcas MIN y MAX.",
+            "Fíjate en el color. El anticongelante debe ser verde, anaranjado, rosa o azul brillante.",
+            "Solo abre el tapón si el motor está completamente frío. El anticongelante caliente sale con presión y te puede quemar feo."
+          ],
+          "flag": "Señales de alerta: si el anticongelante está café u oxidado, no le dieron mantenimiento. Si está lechoso o con espuma, se le mezcló aceite: es una falla del empaque de la cabeza que cuesta de $1,500 a más de $3,000."
+        },
+        {
+          "t": "Banda del motor",
+          "sub": "Mueve casi todos los accesorios del motor",
+          "what": "La banda del motor (serpentine belt) mueve el alternador, la dirección hidráulica, el aire acondicionado y la bomba de agua. Si se rompe mientras manejas, pierdes todo eso al mismo tiempo.",
+          "steps": [
+            "Con el motor apagado, busca la banda ancha y plana con rayitas que da vuelta en varias poleas al frente del motor.",
+            "Mira el lado con rayitas. Si tiene grietitas entre las rayas, es la primera señal de que ya está vieja.",
+            "Revisa el lado liso de atrás. Si se ve brillosa como vidrio, se está patinando.",
+            "Pídele a tu mecánico que calcule cuánta vida le queda."
+          ],
+          "flag": "Cuánto afecta el precio: una banda nueva cuesta de $75 a $200 ya puesta. Si se ve gastada, úsalo para negociar; no es razón para cancelar la compra."
+        },
+        {
+          "t": "Radiador y ventilador",
+          "sub": "Lo que evita que el motor se caliente de más",
+          "what": "El radiador está hasta el frente. El anticongelante caliente pasa por adentro, y el aire que pasa por sus aletas lo enfría antes de que regrese al motor. El ventilador jala más aire cuando el carro está parado.",
+          "steps": [
+            "Con el motor frío, busca aletas dobladas, grietas o residuos secos de color verde, anaranjado o rosa.",
+            "Revisa alrededor de la base y de las mangueras por si hay partes mojadas o manchas de anticongelante.",
+            "Prende el motor y déjalo encendido unos minutos sin moverte. El ventilador debe prenderse solo.",
+            "En la prueba de manejo, fíjate en el indicador de temperatura. Debe quedarse en lo normal."
+          ],
+          "flag": "Señal de alerta: cualquier fuga de anticongelante se tiene que arreglar antes de comprar. Un radiador rajado cuesta de $300 a $900, y si el carro se calienta de más en la prueba de manejo, es una advertencia seria."
+        }
+      ]
+    },
+    "where": {
+      "title": "Dónde hacer una PPI.",
+      "recommended": "Recomendado",
+      "cards": [
+        {
+          "title": "Servicios de inspección independientes",
+          "paras": [
+            [
+              {
+                "b": "Lemon Squad"
+              },
+              " (lemonsquad.com): van a donde está el carro, inspección de 110 puntos. Costo: $150 a $250."
+            ],
+            [
+              {
+                "b": "CARCHEX"
+              },
+              " (carchex.com): van a donde está el carro o lo llevas a un taller, con reporte detallado. Costo: $100 a $200."
+            ]
           ]
         },
         {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Intenté comprar un auto en Facebook Marketplace. La conversación empezó de forma normal, hablando de kilometraje, precio, cuándo podía ir a verlo.",
-            "En cuanto se dio cuenta de que yo era mujer, el tono cambió por completo. Me dijo: \"Cállate la boca, perra\", y me bloqueó."
+          "title": "Dealers de la marca",
+          "paras": [
+            [
+              "Si vas a comprar un Honda usado en un dealer de Mitsubishi, ",
+              {
+                "b": "llévalo a un dealer de Honda para la PPI."
+              }
+            ],
+            [
+              "Conocen la marca, tienen las herramientas correctas para revisarlo y no ganan nada con la venta. Costo: normalmente $100 a $150."
+            ]
           ]
         },
         {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Fui sola a probar un auto. Cuando regresé con mi hermana para comprarlo, de repente el anuncio decía: \"Cómpralo hoy o piérdelo\".",
-            "Después pagué por una inspección independiente. Encontraron problemas. Me entregaron un contrato de financiamiento al 30% de interés anual. Sé reconocer un mal trato. No firmé."
+          "title": "Membresía de AAA",
+          "paras": [
+            [
+              "Muchas oficinas de AAA hacen PPIs gratis o con descuento para sus miembros. Pregunta en el centro de servicio automotriz de AAA más cercano."
+            ]
+          ]
+        },
+        {
+          "title": "Mecánicos de confianza cerca de ti",
+          "paras": [
+            [
+              "Si tienes un mecánico de confianza, pregúntale si hace PPIs. Señales de alerta: no quiere darte los resultados por escrito, lo hace a las carreras o te dice que \"todo se ve bien\" sin revisar nada."
+            ]
           ]
         }
       ],
-      "pullquote": {
-        "quote": "Denuncié a Eddy. Cuando el gerente general llamó a disculparse, le dije: no acepto tu disculpa. Espero que, ya sea que entre una chica de 19 años o un hombre de 50, traten a todos con respeto.",
-        "attribution": "Rana Darwich, fundadora de VINdicated"
-      },
-      "bio": {
-        "label": "Sobre la fundadora",
-        "body": "Rana Darwich fundó VINdicated a los 19 años, después de casi firmar una cláusula de arbitraje abusiva en un concesionario.",
-        "closingLine": "Ahora te toca a ti."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Fortalezcan la mente femenina ampliándola, y llegará el fin de la obediencia ciega."
-      }
+      "dealersTitle": "Busca un dealer de la marca",
+      "dealersBody": "¿Vas a comprar un Honda usado en un dealer de Mitsubishi? Llévalo a un dealer de Honda para tu PPI."
     },
-    "provide": {
-      "titlePlain": "Gratis. Accesible.",
-      "titleEm": "Sin condiciones ocultas.",
-      "subtitle": "Todo lo que ofrece VINdicated es gratuito. Sin necesidad de registrarte, sin ventas adicionales, sin trampas.",
+    "checks": {
+      "title": "Por qué vale la pena pagar por tu seguridad.",
+      "body": "Un buen inspector revisa el carro parte por parte. Esto es lo que revisa, y por qué importa cada parte.",
       "items": [
         {
-          "cat": "Educación",
-          "title": "Talleres automotrices gratuitos",
-          "body": "Sesiones lideradas por la comunidad que explican lo que los concesionarios no quieren que sepas, incluyendo financiamiento, reparaciones y tus derechos legales en el lote."
+          "title": "Motor",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Fugas de aceite:"
+              },
+              " ¿Le gotea aceite al motor? Una fuga chica se vuelve una reparación grande."
+            ],
+            [
+              {
+                "b": "Fugas de anticongelante:"
+              },
+              " Si el motor se calienta de más, se puede descomponer rápido y salir muy caro."
+            ],
+            [
+              {
+                "b": "Banda o cadena de tiempo:"
+              },
+              " Si se rompe mientras manejas, el motor se puede echar a perder por completo."
+            ],
+            [
+              {
+                "b": "Códigos de la luz de check engine:"
+              },
+              " Aunque la luz no esté prendida, un mecánico puede leer los códigos guardados."
+            ],
+            [
+              {
+                "b": "Prueba de compresión:"
+              },
+              " Muestra el desgaste por dentro del motor que no se ve a simple vista."
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Herramientas",
-          "title": "Recursos y guías en línea",
-          "body": "Guías de inspección paso a paso, listas de señales de alerta, plantillas de guiones y explicaciones de financiamiento. Diseñado para compradores primerizos."
+          "title": "Transmisión: muchas veces la reparación más cara",
+          "intro": "Arreglar la transmisión puede costar de $3,000 a $8,000. Un inspector revisa:",
+          "points": [
+            [
+              "Que los cambios entren suavecito (automáticas y estándar)"
+            ],
+            [
+              "Cómo está el líquido y de qué color es (debe ser rosa o rojo claro, no café ni quemado)"
+            ],
+            [
+              "Si se patina entre cambios cuando aceleras"
+            ],
+            [
+              "Ruidos raros al cambiar de velocidad"
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Comunidad",
-          "title": "Red de mecánicos verificados",
-          "body": "Estamos construyendo un directorio de mecánicos verificados por nuestra comunidad: mecánicos honestos que no te subestiman ni te presionan a comprar más."
+          "title": "Frenos",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Grosor de las balatas:"
+              },
+              " Si tienen menos de 3 mm, hay que cambiarlas ya."
+            ],
+            [
+              {
+                "b": "Cómo están los discos:"
+              },
+              " Si están rayados, rajados o torcidos, el carro tarda más en frenar."
+            ],
+            [
+              {
+                "b": "Líquido de frenos:"
+              },
+              " El líquido viejo absorbe humedad y hace que los frenos funcionen peor."
+            ],
+            [
+              {
+                "b": "Frenos ABS:"
+              },
+              " Para revisar los frenos antibloqueo se necesitan herramientas especiales."
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Investigación",
-          "title": "Estudios de auditoría por correspondencia",
-          "body": "Documentamos la discriminación con datos. Nuestros estudios en curso cuantifican las disparidades de precios basadas en género."
+          "title": "Suspensión y dirección",
+          "intro": "Los problemas de suspensión afectan directamente cómo se maneja el carro y qué tan seguro es en la autopista, y son de los problemas que más se les pasan a las inspecciones que hace el vendedor.",
+          "points": [
+            [
+              "Rótulas, terminales de dirección y horquillas"
+            ],
+            [
+              "Los cubrepolvos de las flechas (fíjate si tienen grietas o si salpicaron grasa alrededor)"
+            ],
+            [
+              "Amortiguadores"
+            ],
+            [
+              "Cómo está la cremallera de la dirección"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Carrocería y chasis: historial de choques",
+          "intro": "Un reporte de Carfax ayuda, pero no lo dice todo. Una inspección en persona puede encontrar:",
+          "points": [
+            [
+              "Separaciones disparejas entre las partes de la carrocería (señal de que la arreglaron después de un choque)"
+            ],
+            [
+              "Pintura que no combina (si el brillo es distinto, esa parte se volvió a pintar)"
+            ],
+            [
+              "Daño en el chasis o que ya lo enderezaron antes"
+            ],
+            [
+              "Óxido por debajo, sobre todo en carros que antes estuvieron en el noreste del país"
+            ]
+          ],
+          "outro": [
+            {
+              "b": "Consejo:"
+            },
+            " Pide un reporte de Carfax Y una inspección en persona. Cada uno encuentra cosas distintas."
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "“Tu vendedor no es tu amigo, ni tu socio, ni alguien que esté cuidando lo que más te conviene. Gana por comisión. Mientras más pagas tú, más gana él. Eso no quiere decir que sea mala persona. Solo quiere decir que tienes que cuidarte.”",
+      "cite": "Rana Darwich, fundadora de VINdicated"
+    },
+    "schedule": {
+      "title": "Cómo hacer una cita para la PPI.",
+      "stops": [
+        {
+          "title": "Primero busca a tu inspector.",
+          "body": "Antes de enamorarte de un carro. Si ya tienes un mecánico de confianza, no vas a andar con prisas cuando encuentres un carro que te guste."
+        },
+        {
+          "title": "Avísale al vendedor desde el principio.",
+          "body": "\"Me gustaría que un mecánico independiente lo revise antes de comprarlo\". Si el vendedor dice que no, es una señal de alerta: vete."
+        },
+        {
+          "title": "Tú llevas el carro al mecánico.",
+          "body": "Si se lo compras a una persona, tú lo manejas hasta allá. Si es un dealer, negocia: \"Me gustaría hacer una prueba de manejo más larga para llevarlo con un mecánico con el que ya hice cita\". Pide que te lo pongan por escrito."
+        },
+        {
+          "title": "Pide el reporte por escrito.",
+          "body": "Pide que te den todo lo que encontraron por escrito, no solo que te lo digan. Vas a querer tener los papeles para negociar y para tus propios registros."
+        },
+        {
+          "title": "Usa lo que encontraron para negociar.",
+          "body": "¿Encontraron un cubrepolvo de la flecha que gotea? Son de $300 a $600 en reparaciones. Pídele al vendedor que baje el precio en esa cantidad o que lo arregle antes de venderlo."
+        },
+        {
+          "title": "Aunque ya hiciste la PPI, todavía te puedes ir.",
+          "body": "Si encontraron algo serio y el vendedor no quiere negociar, la inspección de todos modos valió la pena. Te salvó de perder mucho más dinero."
+        }
+      ],
+      "alertTitle": "Importante",
+      "alert": [
+        "Si el vendedor se tarda en darte el historial de servicio o te promete que te lo \"da después\", haz la cita para la inspección antes de encariñarte con el carro. ",
+        {
+          "b": "Haz la cita para la inspección antes de encariñarte, no después."
         }
       ]
     }
   },
-  "team": {
+  "fraudPage": {
     "hero": {
-      "titleLine1": "Impulsados por la",
-      "titleEm": "misma frustración."
+      "title": "Entiende lo que están haciendo.",
+      "body": "Los trucos que de verdad usan los dealers y los estafadores con los compradores, y qué decir cuando te pase a ti.",
+      "ctaPrimary": "Ver las señales de alerta",
+      "ctaSecondary": "Conoce tus derechos"
     },
-    "sectionTitle": "Conoce al Equipo",
-    "members": {
-      "Rana Darwich": {
-        "position": "Fundadora",
-        "bio": "Rana fundó VINdicated a los 19 años, después de que un término del derecho mercantil la salvara de firmar un contrato de venta abusivo en un concesionario. Lo que comenzó como un punto de quiebre personal se convirtió en una misión para desmantelar los sistemas que explotan a los consumidores que entran solos a un lote de autos. Ella lidera las iniciativas de investigación y la dirección estratégica de VINdicated, impulsada por la creencia de que el conocimiento sobre autos debería ser conocimiento público."
+    "pinkSlip": {
+      "title": "Este documento es tu única prueba de que el carro es tuyo.",
+      "body": "El título de propiedad de California, el famoso \"pink slip\", es el documento legal que prueba quién es el dueño. Baja en la página para verlo parte por parte.",
+      "imageAlt": "Ejemplo de un título de propiedad de California",
+      "intro": "Seis partes deciden si el carro de verdad es tuyo. Baja en la página para ver cada una.",
+      "items": [
+        {
+          "label": "Título de propiedad",
+          "title": "El título de propiedad de California",
+          "body": "Este es el \"pink slip\". Lo da el DMV de California (el Departamento de Vehículos) y es la única prueba legal de que alguien es dueño de un carro. Cuando compras un carro, el vendedor firma la parte de atrás y te lo da. Tú lo llevas al DMV para ponerlo a tu nombre. Si no haces esto, el carro no es legalmente tuyo, sin importar cuánto pagaste.",
+          "say": "Si el vendedor te dice que no necesitas el pink slip, que te lo \"manda después\" o que \"se le perdió\": no termines la compra."
+        },
+        {
+          "label": "Dueño registrado",
+          "title": "Quién es el dueño legal del carro",
+          "body": "El nombre que aparece aquí tiene que ser el de la persona que te vende el carro. Señales de alerta: el nombre no coincide con la identificación del vendedor, el dueño registrado es un negocio que no conoces, o el vendedor dice que lo vende \"de parte de\" alguien sin tener papeles que lo prueben.",
+          "say": "Siempre pide la identificación oficial del vendedor. El nombre tiene que ser exactamente igual al del título."
+        },
+        {
+          "label": "Historial del carro",
+          "title": "Historial del carro: revisa esto primero.",
+          "body": "Esta parte muestra las marcas del DMV: si es \"salvage\" (pérdida total), si el fabricante lo recompró por la ley de limones (lemon law, para carros con defectos que no se arreglan), si tuvo daño por inundación o si lo recuperaron después de un robo. Un título \"salvage\" quiere decir que una aseguradora lo declaró pérdida total. Los títulos salvage y rebuilt (reconstruido) bajan muchísimo el valor del carro.",
+          "say": "Si ves algo escrito en esta parte del historial, investiga exactamente qué quiere decir antes de seguir."
+        },
+        {
+          "label": "Número VIN",
+          "title": "El VIN tiene que ser exactamente igual.",
+          "body": "El VIN (número de identificación del vehículo) es un código único de 17 letras y números que le ponen al carro cuando lo fabrican. Búscalo en el carro mismo (en el tablero y en el marco de la puerta) y verifica que sea igual a este documento, letra por letra. Si no coincide, puede ser un VIN clonado: un carro robado que usa la identidad de uno legal.",
+          "say": "Antes que nada, mete el VIN en vehiclehistory.gov (gratis) o en Carfax para ver si tuvo choques y cómo está su título."
+        },
+        {
+          "label": "Firmas",
+          "title": "El vendedor tiene que firmar enfrente de ti.",
+          "body": "Aquí es donde el dueño registrado legalmente deja de ser dueño del carro. Tiene que firmarlo enfrente de ti en el momento de la venta. Si el título ya viene firmado, alguien ya dejó de ser dueño, y no sabes a favor de quién ni cuándo.",
+          "say": "Nunca aceptes: un título que ya venga firmado, la parte de las firmas en blanco, o la firma de alguien que no sea el dueño registrado."
+        },
+        {
+          "label": "Millaje",
+          "title": "Mentir sobre el millaje es un delito federal.",
+          "body": "La ley federal obliga al vendedor a decirte el millaje real en el momento de la venta. Regresarle las millas al odómetro es un delito federal según la Motor Vehicle Information and Cost Savings Act. Verifica que el número de aquí sea igual al del odómetro del carro, y luego compáralo con el reporte del historial del carro.",
+          "say": "Si sospechas fraude: toma fotos de lo que no coincide, no termines la compra y repórtalo a la NHTSA (la agencia federal de seguridad en las carreteras) en nhtsa.gov."
+        }
+      ]
+    },
+    "tour": {
+      "countIntro": "{total} partes",
+      "countStep": "{n} / {total}"
+    },
+    "flags": {
+      "title": "Señales de alerta al comprar carro.",
+      "body": "Seis cosas que dicen los dealers, y exactamente cómo contestar. Baja en la página para ver cada conversación.",
+      "intro": "Lo que vas a escuchar en el lote.",
+      "dealer": "Dealer",
+      "floor": "Sala de ventas",
+      "start": "Baja en la página para empezar la primera conversación.",
+      "counter": "Señal de alerta {n} de {total}",
+      "tag": "Señal de alerta {n}",
+      "chip": "Señal de alerta",
+      "whatToDo": "Qué hacer: {text}",
+      "items": [
+        {
+          "title": "Precios demasiado buenos para ser verdad",
+          "body": "Los dealers anuncian un precio que ya incluye un montón de reembolsos y descuentos: para militares, para maestros, por ser cliente fiel, por graduarte hace poco y más. Casi nadie califica para la mayoría. El precio de internet está hecho para que entres, no para que sea lo que pagas.",
+          "todo": "Antes de ir, pide por escrito el precio final con todo incluido (el \"out-the-door price\"), y pregunta exactamente para qué descuentos calificas.",
+          "dealer": "Ese precio de internet ya incluye todos los descuentos que tenemos. Calificas para todos, ¿verdad?",
+          "you": "¿Me puede dar por escrito el precio final con todo incluido, y exactamente para qué descuentos califico?"
+        },
+        {
+          "title": "Los descuentos que desaparecen",
+          "body": "En el escritorio, el vendedor te hace varias preguntas: si te graduaste de la universidad, si eres militar, si vives aquí, si vas a dar un carro a cuenta. Cada \"no\" tacha un descuento. Al final, tu precio subió miles de dólares, aunque te dijeron que calificabas para el reembolso del fabricante.",
+          "todo": "Pide ver el precio que anunciaron junto al precio final, con cada línea que cambió y por qué.",
+          "dealer": "Unas preguntitas: ¿militar? ¿Recién graduado? ¿Va a dar un carro a cuenta? ...¿No? Bueno, déjeme nomás actualizar su precio.",
+          "you": "Enséñeme el precio que anunciaron junto a este, con cada línea que cambió y por qué."
+        },
+        {
+          "title": "Accesorios que nadie pidió",
+          "body": "Birlos de seguridad, loderas, protector de pintura y cosas así se suman al precio aunque nunca las hayas pedido. Si el dealer dice que ya están puestos en el carro, eso es algo para negociar, no una razón para pagarlos.",
+          "todo": "Pídele al dealer que quite lo que no pediste, o que lo descuente del precio.",
+          "dealer": "Los birlos de seguridad y el protector de pintura ya vienen en el carro, así que son parte del precio.",
+          "you": "Yo no pedí eso. Quítelos, o quítelos del precio."
+        },
+        {
+          "title": "Cargos inventados",
+          "body": "El tanque lleno de gasolina, un cargo por \"reacondicionamiento\", un cargo por \"CPO\" (certificado), un cargo de entrega o de limpieza: normalmente el fabricante ya los incluyó en el precio. Cobrarlos otra vez es solo una ganancia extra con un nombre que suena oficial.",
+          "todo": "Pregunta cuáles cargos exige la ley y cuáles son inventados, y pide que quiten esos.",
+          "dealer": "Hay un cargo chiquito de reacondicionamiento y uno de entrega. Es lo normal.",
+          "you": "¿Cuáles de estos cargos exige la ley? Por favor quite los demás."
+        },
+        {
+          "title": "Te cobran dos veces el cargo de envío",
+          "body": "El cargo de envío (destination o freight) ya aparece en la etiqueta de la ventana, arriba del precio del fabricante (MSRP). Un dealer deshonesto te da un precio que ya lo incluye y luego te lo vuelve a sumar como un cargo aparte. Si ves el envío en su propia línea, te lo están cobrando dos veces.",
+          "todo": "Pregunta si el envío ya está incluido en el precio que te dieron, y pide que lo quiten si vuelve a aparecer.",
+          "dealer": "El envío es aparte. Lo sumamos al final.",
+          "you": "¿El envío ya estaba en el precio que me dio? Entonces quite el segundo."
+        },
+        {
+          "title": "Dealers clonados con inteligencia artificial",
+          "body": "Los estafadores copian el nombre, el sitio web y los papeles de un dealer real, muchas veces con fotos hechas con inteligencia artificial, y luego te cobran por un carro que no existe. Ten cuidado con vendedores que no te dejan ver el carro en persona, o que solo aceptan una transferencia bancaria por adelantado.",
+          "todo": "Pide ver el carro en el lote del dealer, o manda a un inspector a domicilio, antes de pagar cualquier cosa.",
+          "dealer": "Solo aceptamos transferencia bancaria. Sale mañana, ¡y aquí está su número de rastreo!",
+          "you": "Primero voy a ver el carro en persona o voy a mandar a un inspector. Nada de transferencias."
+        }
+      ]
+    },
+    "yoyo": {
+      "label": "La estafa del yo-yo, en animación",
+      "title": "La estafa del yo-yo.",
+      "body": "También le dicen \"spot delivery\" (entrega inmediata). Sigue bajando para ver cómo pasa.",
+      "svgLabel": "Un carro va del dealer a una casa, y luego lo jalan de regreso al dealer con una cuerda",
+      "dealership": "DEALER",
+      "home": "CASA",
+      "day": "Día {n}",
+      "back": "De regreso en el dealer",
+      "okContract": {
+        "label": "Firmado (condicional)",
+        "rate": "6.9% APR",
+        "pay": "$412/mes"
       },
-      "Rizwaan Bana": {
-        "position": "Estratega",
-        "bio": "Rizwaan Bana estudia Ciencias de la Computación en UCLA. Es el Líder de Software en VINdicated, donde construye herramientas que ayudan a los consumidores a navegar el proceso de compra de autos sin fricción. A Rizwaan le apasiona usar la tecnología para crear un cambio positivo y hacer que la información sea más accesible para todos."
+      "badContract": {
+        "label": "Contrato nuevo",
+        "rate": "13.9% APR",
+        "pay": "$498/mes"
       },
-      "William Prawira": {
-        "position": "Ingeniero de Datos",
-        "bio": "Will Prawira tiene doble especialización en Ciencia de Datos y Matemáticas Aplicadas en UCLA. En UCLA, participa actualmente en Bruin Sports Analytics como parte del equipo de consultoría de tenis, además de ser líder de proyecto en NSDC. Trabaja activamente en VINdicated como ingeniero de productos de datos."
+      "captions": [
+        {
+          "tag": "Día 1",
+          "text": "\"¡Felicidades! Lléveselo hoy. Después terminamos lo de su financiamiento\"."
+        },
+        {
+          "tag": "Una semana después",
+          "text": "Una semana después, cuando ya entregaste tu carro viejo a cuenta, el dealer te llama."
+        },
+        {
+          "tag": "El jalón",
+          "text": "\"No pudimos conseguir su financiamiento. Tiene que regresar\"."
+        },
+        {
+          "tag": "El trato nuevo",
+          "text": "Quieren que firmes un contrato nuevo con un interés más alto, y tu carro viejo \"ya se vendió\"."
+        },
+        {
+          "tag": "Cómo evitarlo",
+          "text": "Nunca te lleves el carro hasta que el financiamiento esté aprobado por completo, no \"condicional\". Nunca firmes un segundo contrato peor."
+        }
+      ]
+    },
+    "fourSquare": {
+      "title": "La trampa de los cuatro cuadros.",
+      "body": "Una forma muy común de esconder lo que de verdad cuesta un carro. Mira lo que pasa cuando pides un pago mensual más bajo.",
+      "sheetLabel": "La hoja de cuatro cuadros del dealer",
+      "tradeIn": "Carro a cuenta",
+      "price": "Precio de compra",
+      "down": "Enganche",
+      "monthly": "Pago mensual",
+      "hidden": "Lo que no te escriben en ningún cuadro",
+      "months": "{n} meses",
+      "total": "Lo que de verdad vas a pagar",
+      "financed": "Cantidad financiada",
+      "interest": "Intereses",
+      "ask": "\"¿Me puede bajar el pago?\"",
+      "replay": "Ver otra vez",
+      "say": "Qué decir: \"¿Cuál es el precio final con todo incluido? Quiero empezar por ahí antes de hablar de pagos\".",
+      "note": "Números de ejemplo: $19,000 financiados con 8% de APR.",
+      "lines": [
+        "Aquí está su trato. $385 al mes.",
+        "¿Me puede bajar el pago?",
+        "Claro, déjeme ver qué puedo hacer... ¡$333!",
+        "Todavía está un poco alto. ¿Más bajo?",
+        "¡Buenas noticias: $296 al mes! Firme aquí.",
+        "Tu pago bajó. Pero tu préstamo pasó de 60 a 84 meses, y vas a pagar $1,761 más."
+      ]
+    },
+    "receipt": {
+      "title": "Lee el recibo línea por línea.",
+      "body": "Toca cualquier cargo de este recibo de ejemplo de un carro nuevo para ver si lo exige la ley, si lo puedes negociar o si es una señal de alerta.",
+      "categories": {
+        "req": "Lo exige la ley",
+        "neg": "Se puede negociar",
+        "opt": "Opcional",
+        "red": "Señal de alerta"
       },
-      "Halima Cherif Hminat": {
-        "position": "Líder de Investigación y Difusión",
-        "bio": "Halima Cherif Hminat estudia Biología Integrativa en UC Berkeley, con una especialización secundaria en Negocios Sostenibles y Políticas Públicas, y está en la vía pre-dental. También es Líder de Investigación y Difusión en VINdicated y contribuye a crear recursos que ayudan a las personas a tomar decisiones informadas con confianza. Dice que la misión de VINdicated es importante para ella porque quiere apoyar a las mujeres ayudándolas a prevenir el trato injusto al comprar y reparar autos."
+      "label": "Recibo de ejemplo de un dealer",
+      "heading": "Orden de compra",
+      "sub": "Ejemplo · SUV compacta 2026",
+      "total": "Total",
+      "strip": "Quitar todo lo que puedes rechazar",
+      "saved": "Acabas de ahorrar {amount} sin siquiera negociar el precio.",
+      "whatToSay": "Qué decir: {text}",
+      "note": "Números de ejemplo. Los impuestos y los cargos del estado cambian según la ciudad y el condado.",
+      "lines": [
+        {
+          "name": "Precio del carro",
+          "short": "El precio del carro en sí.",
+          "long": "Todo empieza aquí. Compara precios de varios dealers y negocia el precio final con todo incluido, no el pago mensual.",
+          "say": "\"¿Cuál es su mejor precio final con todo incluido, por escrito?\""
+        },
+        {
+          "name": "Cargo de envío",
+          "short": "Lo que cuesta llevar el carro de la fábrica al dealer.",
+          "long": "Es un cargo real del fabricante en los carros nuevos, y ya viene impreso en la etiqueta de la ventana. Debe aparecer una sola vez. Si lo ves dos veces, o una segunda línea de \"freight\", es una señal de alerta.",
+          "say": "\"El cargo de envío está en la etiqueta. Enséñeme que solo aparece una vez\"."
+        },
+        {
+          "name": "Ajuste de mercado",
+          "short": "Un aumento extra sobre el precio de la etiqueta.",
+          "long": "Es pura ganancia para el dealer, sin nada a cambio. Puedes negarte a pagarlo, o comprarle a un dealer que no lo cobre.",
+          "say": "\"No voy a pagar un ajuste de mercado. Quítelo o me voy a otro lado\"."
+        },
+        {
+          "name": "Preparación del dealer",
+          "short": "Un cargo por dejar listo el carro.",
+          "long": "Normalmente el fabricante ya le paga al dealer por preparar los carros nuevos para entregarlos, así que cobrártelo a ti es cobrar dos veces.",
+          "say": "\"¿No paga el fabricante la preparación? Por favor quítela\"."
+        },
+        {
+          "name": "Grabado del VIN",
+          "short": "El VIN grabado en los vidrios.",
+          "long": "Muchas veces ya viene puesto y te lo presentan como obligatorio. No lo es. Los kits para hacerlo en casa cuestan muchísimo menos, y muchas aseguradoras no te dan descuento por tenerlo.",
+          "say": "\"Yo no pedí el grabado del VIN. Quítelo del precio\"."
+        },
+        {
+          "name": "Llantas con nitrógeno",
+          "short": "Nitrógeno en lugar de aire en las llantas.",
+          "long": "El aire ya tiene como 78% de nitrógeno. Casi nunca sirve de mucho y es un cargo muy común para inflar el precio.",
+          "say": "\"Quite el cargo del nitrógeno\"."
+        },
+        {
+          "name": "Protección de pintura y tela",
+          "short": "Un paquete de recubrimiento o sellador.",
+          "long": "Es un producto extra, no algo obligatorio. En California, cada producto extra tiene que aparecer aparte con su propio precio, y puedes rechazar cualquiera.",
+          "say": "\"No, gracias, no quiero el paquete de protección\"."
+        },
+        {
+          "name": "Contrato de servicio extendido",
+          "short": "Cobertura de reparaciones después de que se acaba la garantía de fábrica.",
+          "long": "Es opcional, y normalmente puedes negociar el precio. No te lo pueden exigir para darte financiamiento. Muchas veces lo puedes comprar después, y en otros lugares.",
+          "say": "\"Por ahora no quiero el contrato de servicio\"."
+        },
+        {
+          "name": "Seguro GAP",
+          "short": "Cubre la diferencia si el carro queda en pérdida total y debes más de lo que vale.",
+          "long": "Puede valer la pena en un préstamo grande, pero es opcional y no pueden ponerlo como condición para tu financiamiento. Tu aseguradora o tu cooperativa de crédito (credit union) te lo pueden vender más barato.",
+          "say": "\"Voy a sacar el GAP con mi aseguradora. Por favor quítelo\"."
+        },
+        {
+          "name": "Cargo por documentos",
+          "short": "Lo que cobra el dealer por hacer el papeleo.",
+          "long": "En California la ley pone un límite a este cargo. Normalmente no lo puedes quitar negociando, pero no deberías pagar más del límite del estado.",
+          "say": "\"¿Este cargo por documentos está dentro del límite de California?\""
+        },
+        {
+          "name": "Cargo de llantas de California",
+          "short": "Cargo del estado por llantas nuevas.",
+          "long": "Un cargo del estado que se cobra por cada llanta nueva que se vende. Es poquito, y es obligatorio.",
+          "say": ""
+        },
+        {
+          "name": "Impuesto de venta",
+          "short": "Impuesto de venta estatal y local.",
+          "long": "Es obligatorio, y depende de dónde registras el carro. Se calcula sobre el precio que paga impuestos, así que cada dólar que le bajas al precio también baja tu impuesto.",
+          "say": ""
+        },
+        {
+          "name": "Registro, título y placas",
+          "short": "Cargos del gobierno que se le pagan al DMV.",
+          "long": "Este dinero va para el estado y es obligatorio. Pide el desglose de los cargos del DMV y verifica que coincidan.",
+          "say": "\"¿Me puede enseñar el desglose de los cargos del DMV?\""
+        }
+      ]
+    },
+    "apr": {
+      "title": "Lo que de verdad te cuestan unos puntos de APR.",
+      "body": "La Truth in Lending Act (la ley federal de transparencia en los préstamos) dice que tienes derecho a ver el APR (el interés anual de tu préstamo) antes de firmar. Mueve la tasa para ver por qué importa.",
+      "rateLabel": "La tasa que te ofrece el dealer",
+      "rateValue": "{rate} por ciento de APR",
+      "approval": "Tu aprobación",
+      "capMark": "Límite de CA: {rate}%",
+      "termLabel": "Plazo del préstamo",
+      "termOption": "{n} meses",
+      "approvedLabel": "La tasa que te aprobó el banco",
+      "lower": "Bajar la tasa aprobada",
+      "raise": "Subir la tasa aprobada",
+      "hint": "Cantidad del préstamo: $15,000.",
+      "monthly": "Pago mensual",
+      "perMonth": "{amount}/mes",
+      "interest": "Intereses que vas a pagar",
+      "totalCost": "Costo total del préstamo",
+      "car": "El carro",
+      "interestKey": "Intereses",
+      "overTitle": "Más de lo que el dealer puede sumar.",
+      "over": "Si el banco te aprobó {buy}%, California no deja que el dealer le suba más de {points} puntos en un préstamo de {term} meses, o sea {cap}%. Pide ver la tasa que te aprobó el banco.",
+      "markupTitle": "El dealer le subió a tu tasa.",
+      "markup": "Eso te cuesta {amount} más en intereses que el {buy}% que te aprobaron. Es legal hasta el límite, y se puede negociar.",
+      "okTitle": "Igual o menos que tu tasa aprobada.",
+      "ok": "Esto es posible porque llegaste con un préstamo ya aprobado."
+    },
+    "law": {
+      "title": "La ley ya está de tu lado.",
+      "body": "Casi ningún comprador sabe lo que los dealers están obligados a hacer por ley. Aquí te decimos lo que dice la ley, en palabras sencillas, y exactamente qué decir cuando intenten ignorarla.",
+      "federalTitle": "Protecciones federales",
+      "californiaTitle": "Protecciones de California",
+      "federal": [
+        {
+          "tag": "Ley de Veracidad en los Préstamos (TILA)",
+          "title": "Te tienen que decir tu APR antes de firmar. Sin excepciones.",
+          "body": "La ley federal obliga al dealer a enseñarte tu tasa de interés anual (APR), el costo total del financiamiento y el costo total del préstamo antes de que firmes cualquier cosa. En un préstamo de $15,000, la diferencia entre 7% y 30% de APR es de más de $8,000.",
+          "say": "\"Enséñeme ahorita el APR, el costo del financiamiento y el total de los pagos, antes de firmar\"."
+        },
+        {
+          "tag": "Regla de Carros Usados de la FTC",
+          "title": "Todo carro usado debe tener una Buyers Guide en la ventana.",
+          "body": "Por ley, todo carro usado en el lote de un dealer debe tener pegada una Buyers Guide (guía para el comprador) que diga si tiene garantía, qué cubre la garantía, o que se vende \"as is\" (tal como está, sin garantía). La FTC (la Comisión Federal de Comercio) puede multar a los dealers con hasta $51,744 por cada etiqueta que falte.",
+          "say": "Si no se ve la etiqueta, o si el dealer la quita antes de que la puedas leer, es una violación de la ley federal. Tómale fotos."
+        },
+        {
+          "tag": "Ley de Información sobre Vehículos de Motor",
+          "title": "Regresarle las millas al odómetro es un delito federal grave.",
+          "body": "El dealer te tiene que dar por escrito el millaje en el momento de la venta. Compara el número del contrato con el del odómetro del carro, con el reporte de Carfax y con los registros de servicio. Todos tienen que coincidir.",
+          "say": "Si no coinciden: detén la compra. Tómale fotos a todo. Repórtalo a la FTC en reportfraud.ftc.gov."
+        },
+        {
+          "tag": "Ley de Informes de Crédito Justos (FCRA)",
+          "title": "Si revisan tu crédito, tienes derecho a ver exactamente lo que encontraron.",
+          "body": "Los dealers te tienen que dar por escrito tu puntaje de crédito exacto, de qué agencia de crédito salió y cómo afectó las condiciones de tu préstamo. Conoce tu puntaje antes de llegar.",
+          "say": "Antes de ir: saca tu reporte gratis en annualcreditreport.com. Llega sabiendo tu puntaje."
+        }
+      ],
+      "holder": {
+        "tag": "Holder Rule de la FTC",
+        "title": "Si financiaste con el vendedor, el banco también puede ser responsable.",
+        "body": "Los contratos de crédito que se hacen por medio del vendedor deben incluir un aviso que te deja hacerle al banco los mismos reclamos que le harías al vendedor, hasta lo que ya hayas pagado. Si la venta resulta ser una estafa, esto puede ser lo que te saque del préstamo.",
+        "say": "Guarda cada recibo, mensaje y contrato, y escríbele a tu banco de inmediato."
       },
-      "Yinrui (Ray) Gan": {
-        "position": "Líder Técnico",
-        "bio": "Ray Gan lidera el pipeline de datos e inteligencia artificial del mapa interactivo de riesgo de concesionarios de VINdicated. Diseñó el sistema de clasificación basado en LLM que convierte reseñas de consumidores no estructuradas en señales de riesgo transparentes y respaldadas por evidencia para los compradores de autos. Ray estudia Ciencias de la Computación y Lingüística en UCLA."
-      },
-      "Fiona Wangsawidjaja": {
-        "position": "Analista de Investigación",
-        "bio": "Fiona Wangsawidjaja es estudiante de licenciatura en UCLA. ¡Ayuda con la sección de datos de VINdicated!"
-      },
-      "Ameerah Zafar": {
-        "position": "Ingeniera de Datos",
-        "bio": "Ameerah Zafar es estudiante de último año de Ingeniería Química en UC Berkeley, y también participa en la Asociación de Estudiantes Musulmanes de Berkeley y en investigación de pregrado sobre mecánica de recubrimientos. Ameerah contribuye a la investigación de datos y al diseño gráfico en VINdicated."
-      },
-      "Evanceline Tang": {
-        "position": "Líder de Diseño Visual",
-        "bio": "Evanceline es estudiante de segundo año de Biología en UCLA. Le apasiona usar el arte y el diseño como medio para transmitir mensajes. A través de su arte, espera ayudar a las personas a entender más sobre VINdicated y las desigualdades y peligros existentes en la industria automotriz."
-      },
-      "Ayat Ashraf": {
-        "position": "Analista de Investigación",
-        "bio": "Ayat Ashraf estudia Matemáticas y Economía en UCLA y le interesa la formulación de políticas económicas. Investiga en VINdicated, con la esperanza de algún día poder comprar un auto sin tener que llamar a su papá 8,000 veces."
-      },
-      "Brisa Gómez": {
-        "position": "Analista de Datos",
-        "bio": "Brisa Gómez es estudiante de transferencia de primer año en Psicología. Criada en Tijuana, México, le apasiona la investigación relacionada con comunidades subrepresentadas como mujeres, personas con discapacidad e identidades queer. Espera convertirse en terapeuta conductual en el futuro. En su tiempo libre, le gusta leer novelas románticas ligeras y escribir de forma creativa."
+      "california": [
+        {
+          "tag": "AB68: Cancelación",
+          "title": "Puedes deshacer la compra en 2 días, pero tienes que comprar esta opción al firmar.",
+          "body": "Todo dealer con licencia te tiene que ofrecer la opción de cancelar el contrato en 2 días en carros usados de $40,000 o menos. Cuesta desde $75 hasta el 1% del precio, más un cargo de reabastecimiento si lo usas, pero te da una salida legal.",
+          "say": "\"Quiero comprar la opción de cancelar el contrato en 2 días\"."
+        },
+        {
+          "tag": "AB68: Tasas de interés",
+          "title": "Hay un límite para lo que le pueden subir a tu interés. El dealer no puede cobrar lo que quiera.",
+          "body": "La ley de California pone un límite a lo que el dealer le puede subir a tu tasa de interés: máximo 2% en préstamos de más de 60 meses, y máximo 2.5% en préstamos más cortos. Si llegas con un préstamo ya aprobado por un banco o una cooperativa de crédito, les quitas por completo esa ventaja.",
+          "say": "Antes de ir: consigue un préstamo preaprobado. Llega con una tasa. Ellos tienen que mejorarla."
+        },
+        {
+          "tag": "AB68: Productos extra",
+          "title": "Cada producto extra tiene que aparecer aparte con su propio precio. No en paquete.",
+          "body": "Todo lo que se financia tiene que aparecer en su propia línea. El dealer te tiene que enseñar tu pago mensual con y sin cada producto opcional. Presentar un solo número grande con todo junto como \"el pago\" va contra la ley de California.",
+          "say": "\"Es todo un solo paquete\" no es legal. Pide por escrito cada cosa en su propia línea."
+        },
+        {
+          "tag": "Práctica prohibida",
+          "title": "No te pueden obligar a comprar un producto extra para darte el financiamiento.",
+          "body": "Ningún dealer te puede obligar a comprar seguro GAP, una garantía extendida, protección de pintura ni ningún otro producto extra para aprobar tu préstamo. Si alguien de financiamiento te da a entender que \"tienes que\" aceptar un producto extra para calificar, es mentira, y es ilegal.",
+          "say": "\"Enséñeme por escrito dónde dice que esto es obligatorio para el financiamiento\". Y fíjate en lo que pasa."
+        }
+      ],
+      "californiaNotice": {
+        "title": "Estamos actualizando esta parte.",
+        "body": "Una nueva ley de California, la SB 766, entra en vigor el 1 de octubre de 2026. Les da a muchos compradores de carros usados nuevos derechos para devolver el carro y cambia algunas de las reglas de abajo. Hasta que actualicemos estas tarjetas, revisa los detalles antes de confiar en ellas.",
+        "link": "Lee el resumen de la nueva ley de CalMatters"
       }
     },
+    "after": {
+      "title": "Qué hacer si te estafaron.",
+      "body": "Toca una tarjeta para voltearla.",
+      "items": [
+        {
+          "front": "Anota todo de inmediato.",
+          "back": "Fechas, horas, nombres. Guarda todos los mensajes, correos y contratos."
+        },
+        {
+          "front": "Pon una queja con el DMV de tu estado.",
+          "back": "Casi todos los estados tienen una oficina de protección al consumidor para fraudes con carros."
+        },
+        {
+          "front": "Repórtalo a la FTC.",
+          "back": "Haz un reporte en reportfraud.ftc.gov, sobre todo si te regresaron las millas o si faltaba la Buyers Guide."
+        }
+      ]
+    },
+    "brochure": {
+      "coverAlt": "Portada del folleto de VINdicated",
+      "tag": "Llévatelo",
+      "title": "El folleto de VINdicated.",
+      "body": "El VIN, la estafa del yo-yo, la trampa de los cuatro cuadros, los productos extra de los dealers y tus derechos, todo en una hoja doblada. Lo llevamos a nuestras mesas informativas y a las visitas a escuelas.",
+      "soon": "Muy pronto vas a poder descargar gratis la nueva edición."
+    },
     "cta": {
-      "headingPlain": "¿Quieres ser parte de",
-      "headingEm": "esto?",
-      "body": "VINdicated siempre está buscando personas apasionadas: investigadores, desarrolladores, diseñadores, educadores y defensores. Si crees que comprar un auto debería ser justo para todos, queremos saber de ti.",
-      "button": "Ponte en Contacto"
+      "title": "Ahora, aprende a leer los papeles.",
+      "body": "Sigue aprendiendo: entiende los documentos que te dan los dealers, y haz que revisen el carro antes de firmar.",
+      "primary": "Ver documentos reales, explicados",
+      "secondary": "Guía de inspección"
+    }
+  },
+  "documentsPage": {
+    "hero": {
+      "title": "Documentos reales. Explicados.",
+      "body": "Un reporte del historial de un carro explicado punto por punto, y la Buyers Guide de la FTC explicada en palabras sencillas: los dos documentos que todo comprador de carro usado tiene que entender.",
+      "ctaPrimary": "Leer un reporte de historial",
+      "ctaSecondary": "Leer la Buyers Guide"
+    },
+    "severity": {
+      "easy": "Fácil de revisar",
+      "watch": "Fíjate bien",
+      "red": "Señal de alerta seria",
+      "know": "Lo que tienes que saber"
+    },
+    "tour": {
+      "countIntro": "{total} partes",
+      "countStep": "{n} / {total}"
+    },
+    "page1": {
+      "title": "Cómo leer un Carfax, página uno.",
+      "body": "El millaje y el VIN, el historial de choques, qué tan confiable es y el servicio reciente. Baja en la página para ver cada parte y lo que significa para el precio.",
+      "imageAlt": "Página uno de un reporte de historial de Carfax de ejemplo para un Honda Accord 2013",
+      "intro": "Mientras bajas, se ilumina cada parte del reporte.",
+      "items": [
+        {
+          "title": "195,555 millas: qué quiere decir tanto millaje",
+          "body": "Menos de 100 mil: pocas millas, casi todo todavía dentro de su vida útil. De 100 mil a 150 mil: lo ideal; el carro ya perdió valor y todo sigue bien. De 150 mil a 200 mil: son muchas, pero un Honda bien cuidado puede llegar a 250 mil o 300 mil y más. Con el tercer dueño, este carro hizo un promedio de 10,257 millas al año, muy por debajo del promedio de 15,000 al año, y el Accord 2013 usa cadena de tiempo, no banda, así que te ahorras un gasto grande de los carros con muchas millas.",
+          "say": "Rango de precio: con 195 mil millas, un Accord EX-L 2013 en buen estado debería costar más o menos entre $7,000 y $10,000, según cómo esté."
+        },
+        {
+          "title": "Sin choques reportados: una buena señal de verdad, con un pero",
+          "body": "No hay reclamos al seguro, reportes de policía ni reportes de daños de renta con ninguno de los tres dueños. Para un carro de 13 años con 195 mil millas, es buena señal. Un historial sin choques justifica pagar entre $1,000 y $2,000 más que por carros parecidos con choques reportados.",
+          "say": "El pero: \"sin choques reportados\" no quiere decir que nunca haya chocado. Muchos choques no se reportan, y una inspección en persona encuentra los daños que no se reportaron."
+        },
+        {
+          "title": "Buen pronóstico de confiabilidad: qué quiere decir \"bueno\" con 195 mil millas",
+          "body": "Está en el 50% mejor comparado con carros parecidos con millaje parecido, y las reparaciones cuestan en promedio $350 al año. Aparta dinero para reparaciones: bujías ($150 a $200), banda de accesorios ($150 a $300), flechas ($300 a $500) y, tarde o temprano, la cadena de tiempo ($800 a $1,200).",
+          "say": "Con este millaje, aparta entre $500 y $1,000 al año para mantenimiento, y tómalo en cuenta en lo que ofreces."
+        },
+        {
+          "title": "17 registros, 3 dueños, uso personal, California",
+          "body": "17 registros de servicio quieren decir que le dieron mantenimiento en talleres que le reportan a Carfax. Que los tres dueños lo hayan usado como carro personal es mejor que si fuera de trabajo o de una flotilla. Que siempre haya estado en California quiere decir que no tiene óxido por la sal que echan en las carreteras de los estados del noreste.",
+          "say": "Que siempre haya estado en California es un punto a favor. El carro no pasó inviernos con sal en las calles, así que el motor y lo demás deberían durar más."
+        },
+        {
+          "title": "La advertencia del propio reporte: esto solo no es suficiente",
+          "body": "La letra chiquita dice que puede haber otros problemas que no se reportaron, y que uses el reporte junto con una inspección y una prueba de manejo. El mismo reporte te lo está diciendo: no te confíes solo de él.",
+          "say": "Un reporte limpio no es suficiente por sí solo. Siempre haz también una inspección independiente."
+        },
+        {
+          "title": "Cambio de aceite en agosto de 2025: lo que dice el servicio reciente",
+          "body": "El dueño actual le siguió dando mantenimiento hasta casi las 200,000 millas. Si un carro tuvo servicio regular hasta el momento de venderlo, es probable que el dueño no estuviera escondiendo un problema que estaba empezando.",
+          "say": "Qué pedir: los recibos en papel, no solo el resumen del reporte. El vendedor te debería explicar si falta algo en el historial."
+        }
+      ]
+    },
+    "page2": {
+      "title": "Cómo leer un Carfax, página dos.",
+      "body": "Las marcas en el título, la tabla del historial y la tabla de dueños. Aquí es donde aparecen los problemas más grandes. Baja en la página para verlos.",
+      "imageAlt": "Página dos de un reporte de historial de Carfax de ejemplo, con la tabla del historial, el historial del título y la tabla de dueños",
+      "intro": "Ahora viene la historia seria. Sigue bajando.",
+      "items": [
+        {
+          "title": "Lo que más importa revisar",
+          "body": "Pérdida total (Total Loss): declararon que arreglarlo costaba más de lo que valía; estos carros valen de 30% a 50% menos. Daño en la estructura o el chasis (Structural/Frame Damage): afecta para siempre cómo se maneja y qué tan seguro es en un choque. Se abrieron las bolsas de aire (Airbag Deployment): quiere decir que tuvo un choque fuerte. Le regresaron las millas (Odometer Rollback): es un delito federal; vete de inmediato.",
+          "say": "Cualquier marca en esta tabla es algo serio para negociar o una razón para cancelar. Si dice \"Total Loss\" o \"Structural Damage\", el precio debería bajar 30% o más, o mejor vete."
+        },
+        {
+          "title": "Las marcas en el título y lo que significan",
+          "body": "Salvage: pérdida total; legalmente no se puede volver a vender sin reconstruirlo e inspeccionarlo. Rebuilt/Reconstructed: fue salvage y lo arreglaron; normalmente vale de 20% a 40% menos que uno con título limpio. Flood/Fire/Hail (inundación, fuego, granizo): los carros que se inundaron son muy problemáticos, porque el óxido en la parte eléctrica puede aparecer años después. Lemon Law Buyback: el fabricante lo recompró por defectos; se tiene que avisar, es legal volver a venderlo, pero quiere decir que ya tuvo defectos conocidos.",
+          "say": "La garantía de recompra cubre las marcas que reporta el DMV. No cubre daños que no se reportaron, y por eso todavía necesitas la inspección en persona."
+        },
+        {
+          "title": "Cómo leer la tabla de dueños: importa más cuánto tiempo lo tuvieron que cuántos fueron",
+          "body": "Mucho tiempo (3 años o más cada uno): los dueños que tuvieron el carro por años normalmente lo cuidaron. Poco tiempo (menos de 12 meses): siempre pregúntale al vendedor si sabe por qué. Muchos dueños uno tras otro: ese carro tiene una historia.",
+          "say": "Lo ideal: uno o dos dueños que lo tuvieron mucho tiempo y lo manejaron igual o menos que el promedio al año."
+        },
+        {
+          "title": "Cuando alguien solo lo tuvo unos meses",
+          "body": "Que alguien lo haya tenido poco tiempo no siempre quiere decir que hay un problema, pero se tiene que explicar. Revisa: ¿le hicieron varias reparaciones en ese tiempo? ¿Dónde lo compraron? ¿Las millas cuadran con un uso normal?",
+          "say": "Qué decir: \"Vi que el dueño anterior solo tuvo este carro [X] meses. ¿Sabe por qué lo vendió?\". Fíjate en cómo te contesta."
+        },
+        {
+          "title": "Cómo calcular el millaje tú mismo",
+          "body": "Réstale al odómetro final el odómetro inicial para saber cuántas millas manejó cada dueño. Divídelo entre los meses que lo tuvo y multiplícalo por 12 para saber cuánto manejó al año. Compáralo con el promedio de 12,000 a 15,000 millas al año.",
+          "say": "Lo que maneja al año te dice más sobre cómo se usó el carro que el total."
+        }
+      ]
+    },
+    "guide": {
+      "title": "La etiqueta en la ventana de todo carro usado. Qué significa.",
+      "body": "La ley federal exige que esta hoja esté pegada en la ventana de todo carro usado que se vende en un dealer. Casi todos los compradores le echan un ojo y siguen de largo. Esto es lo que significa cada parte.",
+      "imageAlt": "La Buyers Guide de la FTC que se pega en las ventanas de los carros usados",
+      "items": [
+        {
+          "tag": "Lo más importante",
+          "title": "\"As is, no dealer warranty\" (tal como está, sin garantía del dealer)",
+          "body": "Esta es la casilla más importante de la hoja. Si la casilla de \"As Is\" está marcada, el dealer te está diciendo que si algo se descompone cuando ya saliste del lote, es tu problema. No te debe ni un reembolso ni una reparación.",
+          "say": "Qué hacer: si un carro se vende \"As Is\", toma en cuenta ese riesgo en lo que ofreces. Aparta dinero para posibles reparaciones, y haz una inspección independiente antes de comprar. Es la única protección que tienes."
+        },
+        {
+          "tag": "Lo que tienes que saber",
+          "title": "\"Dealer warranty\" (garantía del dealer): completa o limitada",
+          "body": "Si la casilla de Dealer Warranty está marcada, el dealer promete pagar ciertas reparaciones por un tiempo limitado. Full Warranty (garantía completa) quiere decir el 100%. Limited Warranty (garantía limitada) quiere decir un porcentaje, así que lee esos números con cuidado.",
+          "say": "Siempre pide la garantía por escrito. La hoja dice qué partes cubre y por cuánto tiempo. Una garantía que solo te dicen de palabra es casi imposible de hacer cumplir."
+        },
+        {
+          "tag": "Lo que tienes que saber",
+          "title": "\"Manufacturer's warranty still applies\" (todavía tiene la garantía del fabricante)",
+          "body": "La garantía original de fábrica todavía no se acaba. Algunas partes del carro todavía las cubre el fabricante, no el dealer, y eso vale algo.",
+          "say": "Busca las condiciones de la garantía de esa marca y ese modelo. Un carro que todavía tiene la garantía del fabricante vale más."
+        },
+        {
+          "tag": "Fíjate bien",
+          "title": "\"Service contract\" (contrato de servicio) disponible por un cargo extra",
+          "body": "Un contrato de servicio (garantía extendida) es opcional y no es gratis. Que diga \"disponible\" quiere decir que te lo quieren vender, no que lo necesites.",
+          "say": "Si quieres una cobertura extendida, compara el precio del dealer con el de otras compañías. La del dealer casi siempre es más cara por la misma cobertura."
+        },
+        {
+          "tag": "Te protege",
+          "title": "\"Spoken promises are difficult to enforce\" (las promesas de palabra son difíciles de hacer cumplir)",
+          "body": "Esta línea es la ley federal diciéndote directamente: no confíes en las promesas de palabra. Cualquier promesa del dealer que no esté escrita en el contrato legalmente no existe.",
+          "say": "Si no te lo quieren poner por escrito, cuenta con que no lo van a hacer."
+        },
+        {
+          "tag": "Lo que tienes que saber",
+          "title": "\"Ask the dealer if your mechanic can inspect\" (pregúntale al dealer si tu mecánico lo puede revisar)",
+          "body": "Esta línea también es ley federal. No necesitas pedir permiso; tienes el derecho. En California, además, los dealers tienen que poner un letrero adentro que lo diga.",
+          "say": "Siempre haz la inspección. Entre $100 y $200 es poquito comparado con las reparaciones que te puede ahorrar."
+        }
+      ],
+      "keys": [
+        {
+          "kicker": "La línea más importante",
+          "title": "\"Keep this form\" (guarda esta hoja).",
+          "body": "La Buyers Guide es parte del contrato. Guarda tu copia. Si lo que promete la garantía del dealer no es lo que te dijeron, esta es tu prueba."
+        },
+        {
+          "kicker": "Violación de la ley federal",
+          "title": "Quitar la etiqueta antes de la venta es ilegal.",
+          "body": "La ley 16 C.F.R. 455 prohíbe quitar la Buyers Guide antes de que el cliente compre el carro. Si no está en la ventana, es una violación de la ley federal que puedes reportar a la FTC."
+        },
+        {
+          "kicker": "Revisa estas dos cosas",
+          "title": "El VIN + el estado de la garantía",
+          "body": "Compara el VIN de la Buyers Guide con el VIN del tablero y el del título. Fíjate exactamente qué casilla de garantía está marcada antes de hablar de precios."
+        }
+      ]
+    }
+  },
+  "joinPage": {
+    "hero": {
+      "title": "Únete.",
+      "body": "Hazte voluntario en uno de nuestros grupos, cuéntanos tu historia, participa en nuestra investigación o nada más salúdanos. Escoge lo que te quede mejor.",
+      "ctaPrimary": "Quiero ser voluntario",
+      "ctaSecondary": "Nuestros grupos"
+    },
+    "chapters": {
+      "title": "Nuestros grupos.",
+      "leadsLabel": "Líderes:",
+      "items": [
+        {
+          "tag": "UCLA",
+          "name": "Grupo de UCLA",
+          "school": "Universidad de California, Los Ángeles",
+          "focus": "Creó el mapa interactivo de riesgo de dealers y dirige la investigación principal de VINdicated sobre consumidores y el manejo de datos.",
+          "leads": "Fiona Wangsawidjaja, presidenta · William Prawira, vicepresidente interno"
+        },
+        {
+          "tag": "UC Berkeley",
+          "name": "Grupo de UC Berkeley",
+          "school": "Universidad de California, Berkeley",
+          "focus": "Todavía está sumando miembros. Se enfoca en enseñarle a la gente sobre sus derechos y en llegar a la comunidad.",
+          "leads": "Rana Darwich, presidenta · Noirit Ghosh Choudhuri, vicepresidente interno · Halima Cherif Hminat, vicepresidenta externa"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "name": "Grupo de UC Santa Cruz",
+          "school": "Universidad de California, Santa Cruz",
+          "focus": "Estudia cómo los algoritmos y la inteligencia artificial pueden discriminar a la gente cuando compra un carro.",
+          "leads": "Ashwin Vinod, presidente · Gundeep Sambee, vicepresidente interno"
+        }
+      ]
+    },
+    "roles": {
+      "title": "A quién buscamos.",
+      "body": "Todos los puestos son a distancia y sin pago. VINdicated es una organización sin fines de lucro que funciona con voluntarios.",
+      "hours": "{n}+ horas a la semana",
+      "items": [
+        "Investigación y análisis",
+        "Ingeniería o análisis de datos",
+        "Programación",
+        "Alcance y comunicación",
+        "Investigación legal",
+        "Diseño gráfico e ilustración"
+      ]
+    },
+    "form": {
+      "title": "Aplica para ser voluntario.",
+      "chapter": "¿A qué grupo quieres unirte?",
+      "chapterPlaceholder": "Escoge un grupo",
+      "role": "¿Qué puesto te interesa?",
+      "rolePlaceholder": "Escoge un puesto",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "hours": "¿Cuántas horas a la semana puedes dar?",
+      "student": "¿Estás estudiando ahorita o te graduaste hace menos de 2 años?",
+      "yes": "Sí",
+      "no": "No",
+      "location": "¿Dónde vives? (ciudad, estado o país)",
+      "background": "¿Qué experiencia tienes para este puesto?",
+      "resume": "Currículum (opcional, de preferencia en PDF, máximo 5 MB)",
+      "why": "¿Por qué VINdicated?",
+      "submit": "Mandar solicitud",
+      "submitting": "Enviando…",
+      "missing": "Por favor llena el grupo, el puesto, tu nombre completo y tu correo.",
+      "badEmail": "Escribe un correo válido, como nombre@escuela.edu.",
+      "tooLarge": "Tu currículum pesa demasiado. Sube un archivo de menos de 5 MB.",
+      "failed": "Algo salió mal. Inténtalo otra vez o escríbenos directo a getvindicated@outlook.com.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar.",
+      "sent": "¡Gracias! Ya nos llegó tu solicitud. Revisa tu correo, te mandamos una confirmación."
+    },
+    "contact": {
+      "title": "O nada más salúdanos.",
+      "body": "Prensa, alianzas, participar en una investigación o tu propia historia: mándanos un mensaje y te contestamos.",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "topic": "Te escribo sobre…",
+      "topicPlaceholder": "Escoge un tema",
+      "topics": [
+        "Ser voluntario en VINdicated",
+        "Participar en una investigación",
+        "Contar mi historia",
+        "Prensa y medios",
+        "Alianzas o colaboraciones",
+        "Donaciones y fondos",
+        "Otra pregunta"
+      ],
+      "message": "Mensaje",
+      "submit": "Mandar mensaje",
+      "submitting": "Enviando…",
+      "missing": "Por favor pon tu correo y un mensaje.",
+      "sent": "¡Gracias! Tu mensaje ya va en camino y te mandamos una copia a tu correo.",
+      "failed": "Algo salió mal. Inténtalo otra vez o escríbenos directo a getvindicated@outlook.com.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar."
+    },
+    "emails": {
+      "hi": "Hola, {name}:",
+      "friend": "",
+      "signoff": "Saludos,",
+      "team": "El equipo de VINdicated",
+      "apply": {
+        "subject": "Recibimos tu solicitud de voluntario - VINdicated",
+        "body": "¡Gracias por querer ser voluntario con VINdicated! Recibimos tu solicitud para el puesto de {role} y la vamos a revisar pronto.",
+        "next": "Te contestamos en unos días."
+      },
+      "contact": {
+        "subject": "Recibimos tu mensaje - VINdicated",
+        "body": "¡Gracias por escribirle a VINdicated! Recibimos tu mensaje sobre \"{topic}\" y te contestamos lo más pronto posible.",
+        "copy": "Aquí tienes una copia de tu mensaje:"
+      }
+    }
+  },
+  "mapPage": {
+    "hero": {
+      "title": "Conoce el lote antes de pisarlo.",
+      "body": "Un mapa satelital de 100 dealers en el Westside de Los Ángeles y lo que dicen sus reseñas públicas, como presión para comprar y cargos sorpresa."
+    },
+    "gate": {
+      "title": "Antes de verlo",
+      "body": "Este mapa muestra lo que la gente dijo en reseñas públicas de Google sobre 100 dealers del Westside de Los Ángeles. Un modelo de inteligencia artificial (IA) clasificó las reseñas, y lo comparamos con reseñas que nuestro equipo clasificó a mano. No es una calificación de ningún negocio, no es un hecho comprobado y no es consejo legal. Lee las reseñas tú mismo antes de decidir algo.",
+      "check": "Entiendo que este mapa resume las opiniones de quienes escribieron las reseñas.",
+      "open": "Abrir el mapa",
+      "methodsLink": "Cómo hicimos este mapa →",
+      "frameTitle": "Mapa de riesgo de dealers: mapa satelital de 100 dealers en el Westside de Los Ángeles",
+      "fullScreen": "Abrir el mapa en pantalla completa",
+      "loading": "Cargando el mapa…"
+    },
+    "news": {
+      "title": "Aprende de lo que les pasó a otros.",
+      "body": "Historias reales de compradores a los que se aprovecharon, y lo que están haciendo las autoridades. Cada una tiene el enlace a la nota original.",
+      "items": [
+        {
+          "kicker": "Estafas con IA",
+          "title": "Las estafas de dealers falsos hechas con IA están invadiendo Facebook Marketplace",
+          "byline": "Por Caleb Jacobs / The Drive / 18 de septiembre de 2026",
+          "dek": "Un fotógrafo de California financió una 4Runner que vio en Marketplace. El anuncio lo puso una copia casi perfecta de un dealer real de Texas, con papeles falsos, un GPS falso y la voz de un chofer hecha con computadora. La troca nunca llegó.",
+          "takeLabel": "La lección",
+          "take": "Que el VIN (el número de serie del carro) sea válido y que un banco te apruebe el préstamo no prueba que el carro exista. Ve a verlo en persona o manda a alguien a revisarlo.",
+          "cta": "Lee la nota completa en The Drive →"
+        },
+        {
+          "kicker": "Alerta para consumidores",
+          "title": "Estafadores están copiando las páginas web de dealers",
+          "byline": "Por el equipo de BCP / Federal Trade Commission / 1 de septiembre de 2026",
+          "dek": "La FTC (la agencia federal que protege a los consumidores) avisa que hay estafadores copiando las páginas web de dealers reales, muchas veces con IA. Copian hasta los logos, los anuncios y los testimonios falsos, y luego cobran por carros que nunca llegan.",
+          "takeLabel": "La lección",
+          "take": "Busca el nombre del dealer junto con “estafa” o “queja”, y no hagas tratos donde solo aceptan transferencia bancaria.",
+          "cta": "Lee la nota completa en la Federal Trade Commission →"
+        },
+        {
+          "kicker": "Sanciones",
+          "title": "Las autoridades le caen a los cargos basura con un acuerdo de $4 millones con un dealer",
+          "byline": "Hinshaw & Culbertson / agosto de 2026",
+          "dek": "La FTC y el fiscal general de Connecticut llegaron a un acuerdo con un dealer de Nissan acusado de engañar a los compradores con los precios y de cobrarles extras y cargos que nunca aceptaron. El dinero regresa a los consumidores.",
+          "takeLabel": "La lección",
+          "take": "Lee cada línea del contrato. Puedes reclamar los cargos que no aceptaste, y las autoridades sí hacen algo.",
+          "cta": "Lee la nota completa en Hinshaw & Culbertson →"
+        },
+        {
+          "kicker": "Sanciones",
+          "title": "Advierten a dealers de todo el país que dejen de cobrar cargos basura",
+          "byline": "PIRG",
+          "dek": "Las autoridades les mandaron cartas a 97 grupos automotrices, dueños de cientos de dealers. Les dijeron que el precio anunciado tiene que incluir los cargos obligatorios y que no pueden obligarte a financiar con ellos para darte ese precio.",
+          "takeLabel": "La lección",
+          "take": "El precio anunciado debe ser un precio que de verdad puedes pagar. Pide por escrito el precio final, con todo incluido.",
+          "cta": "Lee la nota completa en PIRG →"
+        },
+        {
+          "kicker": "Ley nueva",
+          "title": "La nueva ley de California para quienes compran carro",
+          "byline": "CalMatters / diciembre de 2025",
+          "dek": "La SB 766 (una ley estatal de California), escrita por el senador estatal de Santa Mónica, les da a muchos compradores de carros usados tres días para regresar el carro, obliga a los dealers a mostrar el precio completo desde el principio y prohíbe cobrar extras que no te sirven.",
+          "takeLabel": "La lección",
+          "take": "Si compras un carro usado en California después del 1 de octubre de 2026, puede que tengas tres días para cambiar de opinión.",
+          "cta": "Lee la nota completa en CalMatters →"
+        }
+      ],
+      "footnote": "Los títulos originales son de cada medio; aquí los traducimos. Los resúmenes son de VINdicated. Las notas llevan a sitios de otros medios, que no controlamos."
+    },
+    "app": {
+      "pageTitle": "Mapa de riesgo de dealers | VINdicated",
+      "gateTitle": "Antes de verlo",
+      "gateBody": "Este mapa muestra lo que la gente dijo en reseñas públicas de Google sobre 100 dealers del Westside de Los Ángeles. Un modelo de inteligencia artificial (IA) clasificó las reseñas, y lo comparamos con reseñas que nuestro equipo clasificó a mano. No es una calificación de ningún negocio, no es un hecho comprobado y no es consejo legal. Lee las reseñas tú mismo antes de decidir algo.",
+      "gateCheck": "Entiendo que este mapa resume las opiniones de quienes escribieron las reseñas.",
+      "gateOpen": "Abrir el mapa",
+      "methods": "Cómo hicimos este mapa",
+      "title": "Mapa de riesgo de dealers",
+      "sub": "Dealers del Westside de Los Ángeles y lo que dicen sus reseñas públicas en Google.",
+      "loading": "Cargando datos…",
+      "live": "Datos en vivo",
+      "snapshot": "Datos de septiembre de 2026",
+      "filterLabel": "Filtrar por nivel de riesgo",
+      "search": "Buscar dealers",
+      "legend": {
+        "flaggedLabel": "Alerta:",
+        "flagged": "una reseña cuenta varios problemas a la vez.",
+        "cautionLabel": "Cuidado:",
+        "caution": "una reseña cuenta un problema.",
+        "clearLabel": "Sin quejas:",
+        "clear": "no encontramos nada.",
+        "basis": "Basado en hasta cinco reseñas públicas de Google por dealer. Resume las opiniones de quienes escribieron.",
+        "by": "Por"
+      },
+      "layersLabel": "Tipo de mapa",
+      "satellite": "Satélite",
+      "map": "Mapa",
+      "showAll": "Ver todos",
+      "about": "Sobre este mapa",
+      "tiers": {
+        "all": "Todos",
+        "flagged": "Alerta",
+        "caution": "Cuidado",
+        "clear": "Sin quejas"
+      },
+      "categories": {
+        "1": "Sorpresas en el precio y cargos",
+        "2": "Mintieron sobre el carro",
+        "3": "Problemas con el contrato o los papeles",
+        "4": "Presión y manipulación",
+        "5": "Te olvidan después de la venta",
+        "6": "Trato discriminatorio",
+        "7": "Mal servicio",
+        "8": "Otra queja"
+      },
+      "concern": "Queja {n}",
+      "flaggedOf": "{f} de {r}",
+      "flaggedOfRest": "reseñas que leímos salieron con alerta",
+      "listMeta": "{f} de {r} con alerta",
+      "described": "Lo que contaron en las reseñas",
+      "excerpts": "Fragmentos de reseñas públicas de Google.",
+      "nothing": "No vimos nada preocupante en las reseñas que leímos.",
+      "readOnGoogle": "Lee las reseñas en Google Maps",
+      "noMatch": "Ningún dealer coincide."
+    }
+  },
+  "mapMethods": {
+    "title": "Cómo hicimos el mapa de riesgo de dealers",
+    "intro": "Aquí te explicamos de dónde sale la información del mapa, cómo la clasificamos y lo que el mapa no te puede decir.",
+    "back": "← Regresar al mapa",
+    "sections": {
+      "onMap": {
+        "title": "Qué hay en el mapa",
+        "paras": [
+          "El mapa muestra 100 dealers y talleres de servicio en Santa Mónica, Beverly Hills, West LA, Culver City y West Hollywood. Juntamos los datos en septiembre de 2026."
+        ]
+      },
+      "sources": {
+        "title": "De dónde salen las reseñas",
+        "paras": [
+          "De cada dealer leímos hasta cinco reseñas públicas de Google. Son las que Google mostraba cuando juntamos los datos. No son las más nuevas ni todas las reseñas del dealer, y un dealer puede tener cientos de reseñas que no leímos."
+        ]
+      },
+      "sorting": {
+        "title": "Cómo clasificamos las reseñas",
+        "paras": [
+          "Un modelo de lenguaje (un tipo de inteligencia artificial) leyó cada reseña y acomodó las quejas en ocho categorías. Usamos la versión 1.5.0 del clasificador y lo corrimos el 24 de septiembre de 2026. Antes de usarlo, lo probamos con reseñas que nuestro equipo clasificó a mano, para ver que acomodara las quejas como lo haría una persona con cuidado."
+        ],
+        "rulesIntro": "Una queja solo cuenta si cumple estas tres reglas:",
+        "rules": [
+          "Está en las propias palabras de quien escribió la reseña. El modelo tiene que citarlas.",
+          "Es sobre este dealer.",
+          "No se había resuelto ya."
+        ],
+        "rulesOutro": "Las quejitas sin importancia, las suposiciones y la mala onda en general no cuentan.",
+        "catsIntro": "Las ocho categorías de quejas son:",
+        "cats": [
+          {
+            "title": "Sorpresas en el precio y cargos",
+            "body": "Les cobraron más de lo anunciado o de lo acordado: cargos escondidos, aumentos de último minuto, extras o reparaciones que no autorizaron."
+          },
+          {
+            "title": "Mintieron sobre el carro",
+            "body": "El estado del carro, su historial o si estaba disponible no era lo que dijeron, o una reparación no quedó bien de verdad."
+          },
+          {
+            "title": "Problemas con el contrato o los papeles",
+            "body": "Papeles confusos, cambiados o que no les dieron, como condiciones del préstamo poco claras o un título que tardó en llegar."
+          },
+          {
+            "title": "Presión y manipulación",
+            "body": "Trucos agresivos o deshonestos para apurarlos u obligarlos a decidir."
+          },
+          {
+            "title": "Te olvidan después de la venta",
+            "body": "Después de la venta o el servicio, el dealer ya no contestó o no cumplió lo que prometió."
+          },
+          {
+            "title": "Trato discriminatorio",
+            "body": "La persona dice que la trataron peor por quién es."
+          },
+          {
+            "title": "Mal servicio",
+            "body": "Empleados groseros, que no hacen caso o poco profesionales, o retrasos largos sin explicación."
+          },
+          {
+            "title": "Otra queja",
+            "body": "Una queja concreta y real que no cabe en las categorías de arriba."
+          }
+        ]
+      },
+      "tiers": {
+        "title": "Cómo funcionan los niveles",
+        "items": [
+          {
+            "name": "Sin quejas",
+            "body": "Ninguna reseña que leímos tenía una queja que cuente."
+          },
+          {
+            "name": "Cuidado",
+            "body": "Por lo menos una reseña tenía una queja."
+          },
+          {
+            "name": "Alerta",
+            "body": "Por lo menos una reseña contaba varios tipos de problemas a la vez."
+          }
+        ]
+      },
+      "shown": {
+        "title": "Qué mostramos",
+        "intro": "De cada dealer, el mapa muestra:",
+        "items": [
+          "Su nivel.",
+          "Cuántas de las reseñas que leímos salieron con alerta.",
+          "Una cita corta por cada queja, sin nombres de empleados.",
+          "Un enlace para leer todas sus reseñas en Google."
+        ]
+      },
+      "limits": {
+        "title": "Límites",
+        "items": [
+          "La muestra es chica. Cinco reseñas no te dicen cómo trata un negocio a la mayoría de sus clientes.",
+          "El modelo se puede equivocar. Puede no entender el sarcasmo o el contexto, o poner una queja en la categoría equivocada, y no revisamos a mano cada resultado del mapa.",
+          "No podemos comprobar lo que dicen las reseñas. Pueden estar equivocadas, exageradas, viejas, hablar de un problema que el dealer ya arregló, o ser falsas. No hemos hablado con los dealers ni con quienes escribieron.",
+          "Es una foto de un momento. El personal, los dueños y la forma de trabajar cambian, y las reseñas también. El nivel de un dealer puede no reflejar cómo trabaja hoy.",
+          "\"Sin quejas\" no quiere decir que lo recomendemos, y \"Alerta\" no quiere decir que te alejes. Un dealer sin quejas te puede tratar mal, y uno con alerta te puede tratar bien. Usa el mapa como una razón más para hacer preguntas."
+        ]
+      },
+      "independence": {
+        "title": "Independencia",
+        "paras": [
+          "VINdicated es una organización estudiantil independiente sin fines de lucro. No tenemos relación con ningún dealer, fabricante ni con Google, no nos pagan y no nos respaldan. Los nombres de negocios y las marcas son de sus dueños."
+        ]
+      },
+      "advice": {
+        "title": "No es consejo; se ofrece tal como está",
+        "paras": [
+          "Nada en el mapa ni en esta página es consejo legal o financiero sobre ninguna compra, contrato o disputa. Lee tus papeles, pide una inspección independiente antes de comprar y habla con un profesional sobre tu caso.",
+          "Trabajamos para que el mapa sea correcto, pero se ofrece tal como está. No garantizamos que esté completo o sin errores, y no somos responsables de las decisiones que se tomen con base en él."
+        ]
+      },
+      "corrections": {
+        "title": "Correcciones",
+        "before": "Si representas a un dealer o crees que leímos mal una reseña, escribe a ",
+        "email": "getvindicated@outlook.com",
+        "after": " con el nombre del dealer y lo que crees que está mal. Lo revisamos y corregimos o quitamos lo que no sea correcto."
+      }
+    }
+  },
+  "rightsPage": {
+    "hero": {
+      "title": "Conoce tus derechos",
+      "titleEm": "antes de firmar.",
+      "body": "Las leyes federales y de California te protegen de la discriminación y los engaños en los dealers. Esto es lo que todo comprador debe saber."
+    },
+    "tryIt": {
+      "title": "Pruébalo",
+      "titleEm": "tú mismo.",
+      "body": "Un adelanto de la versión de esta página para la app del celular: dile en qué estado estás y luego ve bajando para ver las leyes que de verdad te aplican."
+    },
+    "remember": {
+      "label": "Recuerda",
+      "lead": "No necesitas ser abogado para usar estas leyes.",
+      "body": "Con solo saber que existen, ya cambia quién tiene el poder. Si un dealer no te quiere dar la información por escrito, eso ya es una señal de alerta.",
+      "complaint": "Si crees que no respetaron tus derechos, puedes poner una queja con la {cfpb}, la {ftc} o el {dmv}.",
+      "cfpb": "Oficina para la Protección Financiera del Consumidor (CFPB)",
+      "ftc": "Comisión Federal de Comercio (FTC)",
+      "dmv": "Departamento de Vehículos Motorizados de California (DMV)"
+    },
+    "buttons": {
+      "flags": "Aprende las señales de alerta",
+      "inspection": "Guía de inspección antes de comprar"
+    },
+    "demo": {
+      "logoAlt": "Logo de VINdicated",
+      "entryTitle": "¿Dónde vas a comprar?",
+      "entryBody": "Tus derechos cambian según dónde estés. Dinos tu estado para mostrarte las protecciones que de verdad te aplican.",
+      "placeholder": "p. ej., California",
+      "continue": "Seguir",
+      "skip": "Saltar por ahora",
+      "homeTitle": "Conoce tus",
+      "homeTitleEm": "derechos.",
+      "pickOne": "Escoge una para empezar a leer.",
+      "showing": "Mostrando lo que aplica en {state}.",
+      "federal": "Protecciones federales",
+      "federalMeta": "5 leyes · aplican en todo el país",
+      "stateLink": "Protecciones de {state}",
+      "stateLinkNone": "Protecciones de tu estado",
+      "stateMetaNone": "Pon tu estado para verlas",
+      "stateMetaCount": "{n} leyes · te aplican a ti",
+      "stateMetaPartial": "Lo que tenemos hasta ahora de {state}",
+      "back": "Inicio",
+      "scroll": "baja para ver el resumen"
+    },
+    "stateNames": {
+      "alabama": "Alabama",
+      "alaska": "Alaska",
+      "arizona": "Arizona",
+      "arkansas": "Arkansas",
+      "california": "California",
+      "colorado": "Colorado",
+      "connecticut": "Connecticut",
+      "delaware": "Delaware",
+      "florida": "Florida",
+      "georgia": "Georgia",
+      "hawaii": "Hawái",
+      "idaho": "Idaho",
+      "illinois": "Illinois",
+      "indiana": "Indiana",
+      "iowa": "Iowa",
+      "kansas": "Kansas",
+      "kentucky": "Kentucky",
+      "louisiana": "Luisiana",
+      "maine": "Maine",
+      "maryland": "Maryland",
+      "massachusetts": "Massachusetts",
+      "michigan": "Míchigan",
+      "minnesota": "Minnesota",
+      "mississippi": "Misisipi",
+      "missouri": "Misuri",
+      "montana": "Montana",
+      "nebraska": "Nebraska",
+      "nevada": "Nevada",
+      "new hampshire": "Nuevo Hampshire",
+      "new jersey": "Nueva Jersey",
+      "new mexico": "Nuevo México",
+      "new york": "Nueva York",
+      "north carolina": "Carolina del Norte",
+      "north dakota": "Dakota del Norte",
+      "ohio": "Ohio",
+      "oklahoma": "Oklahoma",
+      "oregon": "Oregón",
+      "pennsylvania": "Pensilvania",
+      "rhode island": "Rhode Island",
+      "south carolina": "Carolina del Sur",
+      "south dakota": "Dakota del Sur",
+      "tennessee": "Tennessee",
+      "texas": "Texas",
+      "utah": "Utah",
+      "vermont": "Vermont",
+      "virginia": "Virginia",
+      "washington": "Washington",
+      "west virginia": "Virginia Occidental",
+      "wisconsin": "Wisconsin",
+      "wyoming": "Wyoming"
+    },
+    "laws": {
+      "federal": {
+        "TILA": {
+          "title": "Ley de Veracidad en los Préstamos (Truth in Lending Act)",
+          "citation": "15 U.S.C. § 1601",
+          "plain": "El dealer te tiene que enseñar lo que de verdad te va a costar el préstamo antes de que firmes cualquier cosa: el APR (el interés al año de tu préstamo), el cargo por financiamiento y el total de todos los pagos.",
+          "script": "Enséñeme el APR, el cargo por financiamiento y el total de todos los pagos, ahorita, antes de firmar cualquier cosa.",
+          "escalation": "Si no te dan estos números por escrito antes de firmar, para todo. Es algo que exige la ley federal, no un favor. Puedes poner una queja con la CFPB."
+        },
+        "FTC": {
+          "title": "Regla de la FTC sobre carros usados",
+          "citation": "16 CFR § 455",
+          "plain": "Todo carro usado en el lote tiene que tener pegada una Guía del Comprador (Buyers Guide) que diga si se vende “tal como está” (as is) o con garantía, y qué cubre esa garantía.",
+          "script": "Necesito ver la Guía del Comprador antes de hablar del precio.",
+          "escalation": "Si no hay guía, o la quitaron antes de que pudieras leerla, es una violación de la ley federal. La FTC le puede poner una multa al dealer de hasta $51,744 por carro. Toma fotos y repórtalo a la FTC."
+        },
+        "ODO": {
+          "title": "Ley sobre el millaje del odómetro",
+          "citation": "49 U.S.C. § 32705",
+          "plain": "El dealer te tiene que dar por escrito y firmado el millaje real del carro al momento de la venta.",
+          "script": "Quiero el papel firmado con el millaje del odómetro. Lo voy a comparar con el tablero y con el historial del carro.",
+          "escalation": "Bajarle las millas al odómetro es un delito federal. Si los números no cuadran, detén la compra, toma fotos de todo y repórtalo a la FTC."
+        },
+        "FCRA": {
+          "title": "Ley de Informe Justo de Crédito (Fair Credit Reporting Act)",
+          "citation": "15 U.S.C. § 1681",
+          "plain": "Si el dealer revisó tu crédito para darte tu tasa de interés, te tiene que decir qué agencia de crédito usó y explicarte por escrito cómo afectó las condiciones de tu préstamo.",
+          "script": "¿Usaron mi reporte de crédito para darme esta tasa? Quiero el aviso por escrito (adverse action notice) y saber de qué agencia salió.",
+          "escalation": "Si no te dan el aviso, o la tasa no cuadra con tu puntaje real, lo puedes reportar a la CFPB."
+        },
+        "ECOA": {
+          "title": "Ley de Igualdad de Oportunidades de Crédito (Equal Credit Opportunity Act)",
+          "citation": "15 U.S.C. § 1691",
+          "plain": "Un dealer no te puede cobrar distinto por el préstamo por tu raza, género, edad o país de origen. A todos los que piden un préstamo los tienen que evaluar igual.",
+          "script": "¿Me puede explicar paso a paso cómo calcularon esta tasa para mí?",
+          "escalation": "Si la explicación no tiene sentido, puedes demandar por daños, y las autoridades pueden ponerle multas al dealer."
+        }
+      },
+      "california": {
+        "AB68-C": {
+          "title": "Opción de cancelar en 2 días",
+          "citation": "Cal. Veh. Code § 11713.21",
+          "plain": "En un carro usado de menos de $40,000 puedes comprar el derecho a cancelar en 2 días, pero lo tienes que pedir cuando firmas. No te lo dan solo.",
+          "script": "Quiero comprar la opción de cancelar el contrato en 2 días.",
+          "escalation": "Si no te la ofrecen desde el principio, pídela directo. Cuesta como el 1% del precio, más un cargo por regresar el carro si de verdad la usas."
+        },
+        "AB68-R": {
+          "title": "Límites a lo que le suben a tu interés",
+          "citation": "Cal. Veh. Code § 11711",
+          "plain": "Los dealers solo le pueden subir a tu tasa de interés hasta un límite: 2% en préstamos de más de 60 meses y 2.5% en los más cortos.",
+          "script": "Ya me preaprobaron con esta tasa. Me la tiene que mejorar, no nada más igualar.",
+          "escalation": "Si llegas ya preaprobado por tu banco o tu credit union (una cooperativa de crédito), el dealer casi no tiene cómo moverte este número."
+        },
+        "AB68-A": {
+          "title": "Extras con precio por separado",
+          "citation": "Cal. Civ. Code § 2982",
+          "plain": "Cada extra opcional tiene que tener su propio precio y aparecer en su propia línea. Los dealers no pueden juntar todo en un solo número y decirte que “ese es el pago”.",
+          "script": "Enséñeme por escrito mi pago mensual con y sin cada extra, uno por uno.",
+          "escalation": "“Es todo un paquete” no es legal en California. Pide el desglose línea por línea antes de aceptar nada."
+        },
+        "VC-11713": {
+          "title": "Lo que los dealers tienen prohibido",
+          "citation": "Cal. Veh. Code § 11713",
+          "plain": "Los dealers no pueden anunciar carros que no tienen, cambiar lo que ya acordaron después, ni esconderte el historial que conocen de un carro.",
+          "script": "¿Este precio y estas condiciones siguen siendo exactamente así ahorita, hoy?",
+          "escalation": "Anunciar una cosa y luego darte otra (bait and switch) es una violación de esta ley. Guarda una copia del anuncio original como prueba."
+        },
+        "CCLRA": {
+          "title": "Ley de Remedios Legales del Consumidor (Consumers Legal Remedies Act)",
+          "citation": "Cal. Civ. Code § 1750",
+          "plain": "Un dealer no te puede engañar sobre el precio, el estado o las características de un carro. Y punto. No hay excepción por ser “plática de vendedor”.",
+          "script": "¿Me puede enseñar exactamente dónde dice eso por escrito?",
+          "escalation": "Puedes demandar por daños, o para obligar a cambiar el contrato, si te mintieron sobre algo importante de la venta."
+        },
+        "CC-2981.9": {
+          "title": "Todo en un solo contrato por escrito",
+          "citation": "Cal. Civ. Code § 2981.9",
+          "plain": "Todo lo que el dealer te promete tiene que estar escrito en el contrato que firmas. Los tratos de palabra no cuentan ante la ley.",
+          "script": "Si está de acuerdo con eso, por favor póngalo en el contrato antes de que firme, no después.",
+          "escalation": "Una promesa de palabra que no está por escrito ya no vale nada ante la ley desde el momento en que firmas."
+        }
+      },
+      "texas": {
+        "DTPA": {
+          "title": "Ley de Prácticas Comerciales Engañosas (Deceptive Trade Practices Act)",
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq.",
+          "plain": "Un dealer no puede anunciar un carro para atraerte y luego empujarte a comprar otro (“bait and switch”), y no puede mentirte sobre el estado, el historial o las características de un carro para que lo compres.",
+          "script": "¿Este es exactamente el carro del anuncio: mismo precio, mismo estado, ahorita?",
+          "escalation": "El bait and switch y otros engaños son violaciones de la DTPA. Puedes demandar por daños, gastos de abogado y, en algunos casos, multas extra."
+        },
+        "OCC-2301": {
+          "title": "Código de licencias e información de los dealers",
+          "citation": "Tex. Occ. Code ch. 2301",
+          "plain": "En Texas no tienes derecho automático a cancelar después de firmar. Lo confirma la propia guía de compra del fiscal general de Texas. Aun así, los dealers te tienen que dar por escrito el millaje del odómetro y la Guía del Comprador que exige la ley federal.",
+          "script": "¿Me puede dar el papel del millaje del odómetro y la Guía del Comprador antes de firmar cualquier cosa?",
+          "escalation": "Si no te dan el papel del odómetro o la Guía del Comprador, el dealer ya está violando la ley. Pon una queja con el DMV de Texas o con la oficina de protección al consumidor del fiscal general."
+        }
+      },
+      "massachusetts": {
+        "MA-LEMON": {
+          "title": "Protección contra carros usados defectuosos (lemon)",
+          "citation": "Mass. Gen. Laws ch. 90, §7N½",
+          "plain": "La lemon law de Massachusetts (la ley para carros que salen defectuosos) cubre muchos carros nuevos y también carros usados que se venden o rentan mientras siguen bajo la garantía original del fabricante, no solo carros nuevos.",
+          "script": "¿Exactamente cuándo se acaba la garantía del fabricante de este carro?",
+          "escalation": "Si sigues dentro de ese tiempo de garantía y el dealer te niega la cobertura, pon una queja de inmediato con la oficina del consumidor del fiscal general de Massachusetts. El tiempo es clave."
+        },
+        "MA-AG": {
+          "title": "Dónde poner la queja: fiscal general / Asuntos del Consumidor",
+          "citation": "Mass. Office of Consumer Affairs & Business Regulation",
+          "plain": "En Massachusetts, los problemas con carros usados defectuosos y garantías se manejan con la oficina del fiscal general y la Oficina de Asuntos del Consumidor, aparte del sistema de quejas federal de la FTC.",
+          "script": "Si esto termina en un problema, ¿van a participar de buena fe en el proceso del fiscal general para consumidores?",
+          "escalation": "Pon tu queja pronto con el fiscal general de Massachusetts o la Oficina de Asuntos del Consumidor, y guarda todos los anuncios del dealer y las órdenes de reparación como prueba de las fechas."
+        }
+      },
+      "alaska": {
+        "AK-LEMON": {
+          "title": "Lemon law solo para carros nuevos",
+          "citation": "Alaska Stat. §§45.45.300–45.45.360",
+          "plain": "La lemon law de Alaska (la ley para carros que salen defectuosos) solo protege la compra de carros nuevos. Si compras usado en Alaska, esta ley no te aplica, por muy grave que sea el defecto.",
+          "script": "Si lo compro usado, ¿todavía tiene activa alguna garantía del fabricante?",
+          "escalation": "Para carros usados en Alaska, lo que te protege son las leyes del título, la regla federal del odómetro y la Guía del Comprador de la FTC, no la lemon law del estado. De todas formas, guarda prueba de todo."
+        },
+        "AK-DISPUTE": {
+          "title": "Los programas de disputas del fabricante pueden ser obligatorios",
+          "citation": "Alaska Dept. of Law",
+          "plain": "En Alaska, el proceso de la lemon law te puede obligar a pasar primero por un programa aprobado del fabricante para resolver disputas antes de poder ir a la corte.",
+          "script": "¿Tienen un programa aprobado para resolver disputas sin ir a la corte? ¿Me lo pueden dar por escrito?",
+          "escalation": "Manda un aviso por escrito al fabricante por correo certificado y guarda el comprobante. En Alaska solo tienes 60 días después de la fecha límite del defecto para hacerlo."
+        }
+      },
+      "new jersey": {
+        "NJ-USEDCAR": {
+          "title": "Garantía mínima en carros usados",
+          "citation": "NJ Used Car Lemon Law, Div. of Consumer Affairs",
+          "plain": "Nueva Jersey obliga a los dealers a dar garantía en carros usados que se venden por más de $3,000, que tienen siete años de modelo o menos, que no fueron declarados pérdida total y que tienen 100,000 millas o menos.",
+          "script": "¿Este carro califica para la garantía de carros usados de Nueva Jersey: menos de 7 años de modelo, menos de 100,000 millas y sin título de pérdida total?",
+          "escalation": "Si califica y el dealer te niega la garantía, pon una queja de inmediato con la Unidad de Lemon Law de la División de Asuntos del Consumidor de Nueva Jersey."
+        },
+        "NJ-ASIS": {
+          "title": "“Tal como está” (as is) tiene límites",
+          "citation": "NJ Div. of Consumer Affairs",
+          "plain": "La oficina del consumidor de Nueva Jersey dice exactamente cuándo se permite vender un carro “tal como está” bajo la lemon law de carros usados. No es un escudo automático para cualquier venta de carro usado.",
+          "script": "Si me lo venden tal como está, ¿me puede enseñar por escrito por qué este carro no califica para la garantía de carros usados?",
+          "escalation": "La Unidad de Lemon Law de Nueva Jersey ve casos de carros nuevos y usados sin ir a juicio. No necesariamente tienes que ir directo a la corte."
+        }
+      },
+      "new york": {
+        "NY-USEDCAR": {
+          "title": "Lemon law para carros usados",
+          "citation": "NY AG used-car lemon law fact sheet",
+          "plain": "Nueva York obliga al dealer a dar una garantía por escrito en ventas de carros usados que califican. Si después de varios intentos no logran arreglarlo, puedes pedir un arbitraje del estado o que te regresen tu dinero.",
+          "script": "¿Me enseña la garantía por escrito que exige la lemon law de carros usados de Nueva York antes de comprar?",
+          "escalation": "Si las reparaciones siguen fallando, Nueva York tiene un programa de arbitraje del estado cuya decisión es obligatoria. Úsalo en lugar de dejar que el dealer te traiga a vueltas."
+        },
+        "NY-TIMING": {
+          "title": "Límites estrictos de millas y tiempo",
+          "citation": "NY AG new-car lemon law fact sheet",
+          "plain": "Los límites de la lemon law de Nueva York son muy específicos. Muchas protecciones dependen de 18,000 millas o dos años desde que empezó la garantía, y se presume que el carro es defectuoso después de cuatro intentos de reparación o treinta días fuera de servicio.",
+          "script": "¿Exactamente cuántas millas tenía este carro y cuándo empezó la garantía?",
+          "escalation": "Nueva York te da hasta cuatro años desde que te entregaron el carro para poner la queja, pero los límites de tiempo y millas cuentan desde el primer día. Anota la fecha de cada intento de reparación."
+        }
+      },
+      "connecticut": {
+        "CT-WARRANTY": {
+          "title": "Garantía en carros usados según el precio",
+          "citation": "Connecticut DMV used-car warranty bulletin",
+          "plain": "Connecticut obliga a los dealers a dar garantía en carros usados que califican y cuestan $3,000 o más: 30 días o 1,500 millas en carros de $3,000 a $5,000, y 60 días o 3,000 millas en carros de más de $5,000, con límites según la edad del carro.",
+          "script": "Según el precio, ¿qué garantía de Connecticut le toca a este carro? ¿Me la puede dar por escrito?",
+          "escalation": "Pon tu queja rápido con el Centro de Quejas del DMV de Connecticut. Estas garantías tienen límite de tiempo y de millas."
+        },
+        "CT-INSPECT": {
+          "title": "Inspección de seguridad obligatoria antes de vender",
+          "citation": "Connecticut DMV",
+          "plain": "En Connecticut, los dealers tienen que hacerle una inspección de seguridad a un carro usado antes de ponerlo a la venta.",
+          "script": "¿Me enseña el formulario de la inspección de seguridad de este carro en específico?",
+          "escalation": "Si no hay formulario de inspección, es una señal de alerta y puede ser motivo de queja ante el DMV, aparte de cualquier problema con la garantía."
+        }
+      },
+      "maine": {
+        "ME-INFOACT": {
+          "title": "Ley de Información de Carros Usados (Used Car Information Act)",
+          "citation": "Maine Used Car Information Act",
+          "plain": "Maine tiene su propia ley de información de carros usados, que obliga a los dealers a dar cierta información y cumplir reglas de inspección. Por eso Maine no usa la regla federal de la Guía del Comprador de la FTC.",
+          "script": "¿Me enseña la Guía del Comprador de Maine para este carro, aparte de los papeles federales?",
+          "escalation": "Tómale foto a la Guía del Comprador de Maine antes de firmar. En Maine, ese papel es la base de tu protección."
+        },
+        "ME-INSPECTION": {
+          "title": "Calcomanía de inspección obligatoria",
+          "citation": "Maine SOS/BMV used-car guide",
+          "plain": "La mayoría de los carros usados que venden los dealers en Maine tienen que traer una calcomanía de inspección válida de los últimos 60 días, o cumplir de otra forma con una garantía de que pasarían la inspección.",
+          "script": "¿Cuándo le pusieron a este carro la calcomanía de inspección que trae?",
+          "escalation": "Si la calcomanía tiene más de 60 días, o no trae ninguna, díselo al dealer de inmediato, antes de firmar cualquier cosa."
+        }
+      },
+      "wisconsin": {
+        "WI-BUYERSGUIDE": {
+          "title": "Sistema de Guía del Comprador de Wisconsin",
+          "citation": "Wisconsin Admin. Code Trans 139",
+          "plain": "La lemon law de Wisconsin no cubre para nada los carros usados, pero Wisconsin tiene su propio sistema obligatorio y detallado de Guía del Comprador para carros usados, más estricto que la versión federal que reemplaza.",
+          "script": "¿Me enseña la Guía del Comprador de Wisconsin de este carro? ¿Dice si fue reconstruido o tuvo título de salvamento (salvage)?",
+          "escalation": "Tómale foto a la Guía del Comprador de Wisconsin antes de firmar. Como aquí la lemon law no cubre carros usados, este papel es prácticamente tu protección principal."
+        },
+        "WI-ASIS": {
+          "title": "Reglas estrictas para decir “tal como está”",
+          "citation": "Wisconsin DOT consumer guidance",
+          "plain": "Wisconsin tiene reglas estrictas de cómo debe aparecer cualquier aviso de “AS IS, NO WARRANTY” (tal como está, sin garantía), y si la venta incluye garantía, te la tienen que dar por escrito.",
+          "script": "Si me lo venden tal como está, ¿me puede enseñar que el aviso cumple con el formato que exige Wisconsin?",
+          "escalation": "Si el aviso de “tal como está” no tiene el formato correcto, eso solo ya puede ser motivo de queja ante el DOT o el DOJ de Wisconsin."
+        }
+      }
+    },
+    "direction": {
+      "alabama": "La lemon law de Alabama solo cubre carros nuevos.",
+      "arizona": "Parece que la lemon law de Arizona cubre en parte a los carros usados.",
+      "arkansas": "La lemon law de Arkansas se enfoca en carros nuevos, con reglas muy fuertes para avisar si un carro tiene título de salvamento (salvage).",
+      "colorado": "Parece que la lemon law de Colorado cubre algunos carros usados, pero no los rentados (leasing).",
+      "delaware": "Parece que la lemon law de Delaware también cubre carros usados.",
+      "florida": "La lemon law de Florida cubre carros y trocas nuevos y rentados (leasing), con un proceso estatal bien organizado.",
+      "georgia": "La lemon law de Georgia solo cubre carros nuevos.",
+      "hawaii": "Parece que la lemon law de Hawái también cubre carros usados.",
+      "idaho": "Parece que la lemon law de Idaho también cubre carros usados.",
+      "illinois": "La lemon law de Illinois solo cubre carros nuevos.",
+      "indiana": "La lemon law de Indiana cubre carros comprados, rentados (leasing) o traspasados en el estado.",
+      "iowa": "La lemon law de Iowa cubre carros nuevos o que nunca han tenido título, incluidos algunos rentados (leasing).",
+      "kansas": "Según el estado, la lemon law de Kansas solo cubre carros nuevos.",
+      "kentucky": "La lemon law de Kentucky solo cubre carros nuevos.",
+      "louisiana": "Parece que la lemon law de Luisiana también cubre carros usados.",
+      "maryland": "La lemon law de Maryland cubre ciertos tipos de carros registrados, más que nada los más nuevos.",
+      "michigan": "La lemon law de Míchigan cubre carros nuevos y carros usados que se traspasan cuando todavía tienen la garantía del fabricante.",
+      "minnesota": "La lemon law de Minnesota también cubre carros usados.",
+      "mississippi": "Parece que la lemon law de Misisipi también cubre carros usados y carros rentados con opción a compra.",
+      "missouri": "La lemon law de Misuri solo cubre carros nuevos.",
+      "nebraska": "La lemon law de Nebraska cubre carros nuevos, y según el estado, algunos carros de menos de dos años también podrían calificar.",
+      "nevada": "Parece que la lemon law de Nevada también cubre carros usados.",
+      "new hampshire": "La lemon law de Nuevo Hampshire cubre carros usados solo si todavía tienen la garantía original del fabricante.",
+      "new mexico": "La lemon law de Nuevo México cubre carros de pasajeros vendidos y registrados en el estado.",
+      "north carolina": "La lemon law de Carolina del Norte solo cubre carros nuevos.",
+      "north dakota": "Parece que la lemon law de Dakota del Norte también cubre carros usados.",
+      "ohio": "La lemon law de Ohio cubre carros nuevos y rentados (leasing).",
+      "oklahoma": "La lemon law de Oklahoma cubre la mayoría de los carros registrados en el estado, con límites de peso.",
+      "oregon": "Parece que la lemon law de Oregón también cubre carros usados.",
+      "pennsylvania": "La lemon law de Pensilvania solo cubre carros nuevos.",
+      "rhode island": "La lemon law de Rhode Island también cubre carros usados.",
+      "south carolina": "La lemon law de Carolina del Sur solo cubre carros nuevos.",
+      "south dakota": "Parece que la lemon law de Dakota del Sur también cubre carros usados.",
+      "tennessee": "La lemon law de Tennessee cubre carros de pasajeros vendidos en el estado.",
+      "utah": "La lemon law de Utah cubre vehículos de carretera vendidos en el estado, incluidas las motos.",
+      "vermont": "La lemon law de Vermont cubre carros de pasajeros comprados, rentados (leasing) o registrados en el estado.",
+      "virginia": "La lemon law de Virginia cubre vehículos de motor según sus reglas de lemon law.",
+      "washington": "La lemon law de Washington cubre carros nuevos, con un proceso de arbitraje del estado muy conocido.",
+      "west virginia": "La lemon law de Virginia Occidental cubre carros de pasajeros y algunas trocas y vans.",
+      "wyoming": "La lemon law de Wyoming cubre vehículos de menos de 10,000 libras vendidos o registrados en el estado."
+    },
+    "fallback": {
+      "summary": "Según un resumen legal de los 50 estados: {direction}",
+      "unknown": "Todavía no hemos investigado {state} en específico.",
+      "cooling": {
+        "title": "No tienes derecho automático a cancelar",
+        "citation": "16 CFR Part 429, FTC Cooling-Off Rule",
+        "plain": "La regla de la FTC llamada Cooling-Off Rule (periodo para pensarlo) da tres días para cancelar ciertas compras, pero deja fuera, a propósito, los carros vendidos en el local fijo de un dealer. Una vez que firmas, la venta es final, a menos que el dealer acepte por escrito algo más.",
+        "script": "¿Me pone en el contrato, por escrito, un plazo para cancelar antes de que firme?",
+        "escalation": "No des por hecho que hay un “periodo para pensarlo”. La ley federal deja fuera a los carros a propósito. Si quieres una salida, negóciala en el contrato antes de firmar, no después."
+      },
+      "comingSoon": {
+        "title": "Pronto: leyes de tu estado",
+        "plain": "{direction} Todavía no hemos comprobado por nuestra cuenta los números exactos de las leyes de {state}, así que toma esto como punto de partida, no como consejo legal. Las cinco protecciones federales ya te aplican sin importar el estado.",
+        "script": "¿{state} tiene su propio periodo para cancelar, un límite a la tasa de interés o una regla para mostrar los extras?",
+        "escalation": "Antes de firmar cualquier cosa, busca \"{state} lemon law\" y \"{state} used car dealer warranty\" en la página del fiscal general de tu estado."
+      }
+    }
+  },
+  "eventsPage": {
+    "preview": "Vista privada: solo los administradores pueden ver esta página.",
+    "hero": {
+      "title": "Eventos",
+      "body": "Talleres y reuniones sobre cómo comprar, arreglar y pagar un carro sin que se aprovechen de ti. Gratis y abiertos a todos."
+    },
+    "toggleLabel": "Ver eventos",
+    "upcoming": "Próximos",
+    "past": "Pasados",
+    "noneUpcoming": "Por ahora no hay eventos próximos. Vuelve pronto.",
+    "nonePast": "Todavía no hay eventos pasados.",
+    "flyerAlt": "Volante de {title}",
+    "enlarge": "Ver el volante en grande",
+    "close": "Cerrar",
+    "time": "{time} hora del Pacífico",
+    "online": "En línea, por Zoom",
+    "onlineNote": "Te mandamos el enlace por correo cuando confirmas que vas",
+    "going": "{n} personas van a ir",
+    "goingOne": "1 persona va a ir",
+    "rsvp": "Aparta tu lugar, es gratis",
+    "ended": "Este evento ya terminó.",
+    "form": {
+      "title": "Aparta tu lugar",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "school": "Escuela u organización",
+      "schoolPick": "Escoge una",
+      "schools": {
+        "berkeley": "UC Berkeley",
+        "ucla": "UCLA",
+        "ucsc": "UC Santa Cruz",
+        "other": "Otra escuela",
+        "none": "No soy estudiante"
+      },
+      "question": "Una pregunta para quien da el taller (opcional)",
+      "optIn": "Mándenme correos sobre futuros eventos de VINdicated",
+      "submit": "Apartar mi lugar",
+      "sending": "Enviando…",
+      "cancel": "Cancelar",
+      "nameError": "Pon tu nombre.",
+      "emailError": "Pon un correo válido.",
+      "schoolError": "Escoge tu escuela u organización.",
+      "error": "No se pudo mandar. Inténtalo otra vez en un minuto.",
+      "closed": "Ya no se puede apartar lugar para este evento.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar."
+    },
+    "done": {
+      "title": "¡Ya estás dentro!",
+      "online": "Gracias, {first}. Te mandamos el enlace de Zoom a {email}.",
+      "inPerson": "Gracias, {first}. Te mandamos los detalles a {email}.",
+      "emailFailed": "Gracias, {first}. Ya estás en la lista, pero no se pudo mandar el correo de confirmación. Te escribimos a {email} antes del evento.",
+      "google": "Agregar a Google Calendar",
+      "ics": "Descargar para Apple / Outlook",
+      "calendarNote": "El enlace de Zoom está en tu correo de confirmación."
+    },
+    "strip": {
+      "label": "Próximo evento",
+      "free": "Gratis",
+      "online": "En línea",
+      "inPerson": "En persona",
+      "rsvp": "Aparta tu lugar"
+    },
+    "email": {
+      "confirmSubject": "Ya estás dentro: {title} · {when}",
+      "reminderSubject": "Recordatorio: {title} · {when}",
+      "hi": "Hola, {name}:",
+      "confirmBody": "¡Gracias por apartar tu lugar! Ya estás inscrito en {title}. Es gratis, y también va en el archivo de calendario que viene en este correo.",
+      "reminderBody": "Nada más para recordarte: {title} es el {when}.",
+      "join": "Entra por Zoom: {link}",
+      "linkLater": "Te mandamos el enlace de Zoom por correo antes del evento.",
+      "inPerson": "Es en persona en {address}.",
+      "when": "Cuándo",
+      "where": "Dónde",
+      "host": "Quién lo da",
+      "zoomLink": "Enlace de Zoom",
+      "details": "Detalles del evento: {link}",
+      "signoff": "VINdicated"
     }
   }
 }

@@ -27,10 +27,6 @@ function video(slug: string, length: string, shape?: "portrait"): TeamVideo {
 
 export type TeamMember = {
 	name: string;
-	// Major/degree program, shown under the member's position. Omitted for
-	// members whose only "school" info was their campus (already conveyed
-	// by `chapter`).
-	major?: string;
 	// Real uploaded photo path, or null if we don't have one yet
 	// (renders an initials placeholder instead of a broken image).
 	photo: string | null;
@@ -59,13 +55,11 @@ export const team: TeamMember[] = [
 	{
 		name: "Fiona Wangsawidjaja",
 		video: video("fiona-wangsawidjaja", "0:06", "portrait"),
-		major: "Statistics & Data Science",
 		photo: "/team/fiona.jpg",
 		chapter: "ucla",
 	},
 	{
 		name: "Ashwin Vinod",
-		major: "Computer Science",
 		photo: "/team/ashwin.jpg",
 		chapter: "ucsc",
 		socials: [{ platform: "website", href: "https://aiea-lab.github.io" }],
@@ -79,41 +73,35 @@ export const team: TeamMember[] = [
 	},
 	{
 		name: "William Prawira",
-		major: "Data Science & Applied Mathematics",
 		photo: "/team/william.jpg",
 		chapter: "ucla",
 	},
 	{
 		name: "Ayat Ashraf",
 		video: video("ayat-ashraf", "0:06", "portrait"),
-		major: "Math/Econ",
 		photo: "/team/ayat.png",
 		chapter: "ucla",
 	},
 	{
 		name: "Noirit Ghosh Choudhuri",
 		video: video("noirit-ghosh-choudhuri", "0:14"),
-		major: "Computer Science",
 		photo: "/team/noirit.jpg",
 		chapter: "ucb",
 	},
 	{
 		name: "Halima Cherif Hminat",
 		video: video("halima-cherif-hminat", "0:19"),
-		major: "Integrative Biology",
 		photo: "/team/halima.jpg",
 		chapter: "ucb",
 	},
 	{
 		name: "Gundeep Sambee",
-		major: "Cognitive Science",
 		photo: "/team/gundeep.jpg",
 		chapter: "ucsc",
 		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/gundeep-k-sambee/" }],
 	},
 	{
 		name: "Adhya Maddukuri",
-		major: "Technology & Information Management",
 		photo: "/team/adhya.jpg",
 		chapter: "ucsc",
 		socials: [{ platform: "linkedin", href: "https://www.linkedin.com/in/adhya-maddukuri-82a88a339" }],
@@ -121,28 +109,24 @@ export const team: TeamMember[] = [
 	{
 		name: "Fernando Cedillo-Hernandez",
 		video: video("fernando-cedillo-hernandez", "0:04", "portrait"),
-		major: "Biology & Political Science",
 		photo: "/team/fernando.png",
 		chapter: "ucla",
 	},
 	{
 		name: "Jordan Acle",
 		video: video("jordan-acle", "0:15"),
-		major: "Data Science",
 		photo: "/team/jordan.jpg",
 		chapter: "ucb",
 	},
 	{
 		name: "Yinrui (Ray) Gan",
 		video: video("ray-gan", "0:07", "portrait"),
-		major: "Computer Science & Linguistics",
 		photo: "/team/ray.jpg",
 		chapter: "ucla",
 	},
 	{
 		name: "Evanceline Tang",
 		video: video("evanceline-tang", "0:05", "portrait"),
-		major: "Biology",
 		photo: "/team/evanceline.jpg",
 		chapter: "ucla",
 	},
@@ -154,13 +138,11 @@ export const team: TeamMember[] = [
 	{
 		name: "Daryen Romero",
 		video: video("daryen-romero", "0:14"),
-		major: "Computer Science",
 		photo: "/team/daryen.jpg",
 		chapter: "ucb",
 	},
 	{
 		name: "Vanessa Phan",
-		major: "Computer Engineering",
 		photo: "/team/vanessa.jpg",
 		chapter: "ucsc",
 		socials: [
@@ -171,56 +153,47 @@ export const team: TeamMember[] = [
 	{
 		name: "Brisa Gómez",
 		video: video("brisa-gomez", "0:05", "portrait"),
-		major: "Psychology",
 		photo: "/team/brisa.png",
 		chapter: "ucla",
 	},
 	{
 		name: "Chino Sawatyanont",
-		major: "Electrical & Computer Engineering",
 		photo: "/team/chino.png",
 		chapter: "ucb",
 	},
 	{
 		name: "William Guo",
-		major: "Computer Science",
 		photo: "/team/williamguo.png",
 		chapter: "ucsc",
 	},
 	{
 		name: "Daniel",
 		video: video("daniel", "0:26", "portrait"),
-		major: "Applied Mathematics",
 		photo: "/team/daniel.png",
 		chapter: "ucb",
 	},
 	{
 		name: "Chloe Lin",
-		major: "Integrative Biology",
 		photo: "/team/chloe.png",
 		chapter: "ucb",
 	},
 	{
 		name: "Ian de la Houssaye",
-		major: "Mechanical Engineering",
 		photo: "/team/ian.jpg",
 		chapter: "ucb",
 	},
 	{
 		name: "James Cheng",
-		major: "Data Science & Cognitive Science",
 		photo: "/team/james.png",
 		chapter: "ucb",
 	},
 	{
 		name: "Bryan Zhang",
-		major: "Computer Science",
 		photo: "/team/bryan.png",
 		chapter: "ucla",
 	},
 	{
 		name: "Rahul Puritipati",
-		major: "Computer Science",
 		photo: "/team/rahul.jpg",
 		chapter: "ucla",
 	},

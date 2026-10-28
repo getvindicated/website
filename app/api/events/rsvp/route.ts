@@ -5,6 +5,7 @@ import { inviteSetupProblem } from "@/lib/board/invites";
 import { canSeeEvents, getFullEvent } from "@/lib/events/server";
 import { sendEventEmails } from "@/lib/events/email";
 import { SCHOOL_LABELS, SCHOOLS, type School } from "@/lib/events/types";
+import { isValidLocale } from "@/lib/i18n/config";
 
 // RSVPs from the public Events page. Before launch (EVENTS_PUBLIC isn't
 // "true") only a board admin session gets through; everyone else gets the
@@ -34,7 +35,7 @@ const bad = (error: string, status = 400) => Response.json({ error }, { status }
 
 export async function POST(request: Request) {
   if (!canSeeEvents(request.headers)) return new Response("Not found", { status: 404 });
-  if (limited(request)) return bad("Too many RSVPs from here. Try again in a few minutes.", 429);
+  if (limited(request)) return bad("tooMany", 429);
   const body = await readJson(request);
   if (!body) return bad("Check the form.");
   const str = (k: string, max: number) => (typeof body[k] === "string" ? (body[k] as string).trim().slice(0, max) : "");
@@ -44,6 +45,8 @@ export async function POST(request: Request) {
   const school = str("school", 20) as School;
   const question = str("question", 1000);
   const optIn = body.optIn !== false;
+  // The page's language; their emails go out in it.
+  const locale = isValidLocale(str("locale", 10)) ? str("locale", 10) : "en";
   if (!id) return bad("That event isn't here anymore.", 404);
   if (!name) return bad("name", 422);
   if (!isEmail(email)) return bad("email", 422);
@@ -62,16 +65,19 @@ export async function POST(request: Request) {
     school: SCHOOL_LABELS[school],
     question,
     opt_in: optIn,
+    locale,
   })} ON CONFLICT (event_id, lower(email)) DO NOTHING RETURNING id`;
-  // A repeat RSVP keeps the first one and gets the confirmation again.
+  // A repeat RSVP keeps the first one and gets the confirmation again, in
+  // the language of this visit.
   const [rsvp] = created
     ? [{ name }]
     : await sql`SELECT name FROM board_event_rsvps WHERE event_id = ${id} AND lower(email) = ${email}`;
+  if (!created) await sql`UPDATE board_event_rsvps SET locale = ${locale} WHERE event_id = ${id} AND lower(email) = ${email}`;
 
   let emailed = false;
   const problem = inviteSetupProblem(event.chapter);
   if (problem) console.error(`[events] RSVP confirmation not sent: ${problem}`);
-  else emailed = (await sendEventEmails(event, "confirm", [{ name: rsvp.name as string, email }])).sent.length > 0;
+  else emailed = (await sendEventEmails(event.id, "confirm", [{ name: rsvp.name as string, email, locale }])).sent.length > 0;
 
   const first = (rsvp.name as string).split(/\s+/)[0];
   const count = event.count === null ? null : event.count + (created ? 1 : 0);

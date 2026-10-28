@@ -18,7 +18,7 @@ const TOPIC_VALUES = [
   "General Inquiry",
 ];
 
-export function ContactForm({ dict }: { dict: JoinPageDict["contact"] }) {
+export function ContactForm({ dict, locale }: { dict: JoinPageDict["contact"]; locale: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
@@ -36,21 +36,26 @@ export function ContactForm({ dict }: { dict: JoinPageDict["contact"] }) {
     setStatus("submitting");
     setMessage("");
     try {
-      const res = await submitContactForm({
-        firstName: get("firstName"),
-        lastName: get("lastName"),
-        email: get("email"),
-        topic: get("topic"),
-        message: get("message"),
-        company: get("company"),
-      });
+      const topic = get("topic");
+      const res = await submitContactForm(
+        {
+          firstName: get("firstName"),
+          lastName: get("lastName"),
+          email: get("email"),
+          topic,
+          topicLabel: dict.topics[TOPIC_VALUES.indexOf(topic)],
+          message: get("message"),
+          company: get("company"),
+        },
+        locale,
+      );
       if (res.success) {
         setStatus("success");
         setMessage(dict.sent);
         form.reset();
       } else {
         setStatus("error");
-        setMessage(res.error ?? dict.failed);
+        setMessage(res.code === "missing" ? dict.missing : res.code === "tooMany" ? dict.tooMany : dict.failed);
       }
     } catch {
       setStatus("error");

@@ -9,16 +9,7 @@
     "team": "Team",
     "events": "Events",
     "inspection": "Inspection Guide",
-    "inspectionPpi": "What Is a PPI?",
-    "inspectionEngine": "Engine Diagram",
-    "inspectionChecks": "What Inspectors Check",
-    "inspectionWhere": "Where to Get One",
-    "inspectionDealership": "Find a Dealership",
     "fraud": "Fraud Prevention",
-    "fraudOverview": "Overview",
-    "fraudRedFlags": "Red Flags",
-    "fraudRights": "Know Your Rights",
-    "fraudAfter": "What to Do After",
     "documents": "Documents Decoded",
     "volunteer": "Volunteer",
     "research": "Research",
@@ -31,24 +22,22 @@
   "ui": {
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "expandSection": "Expand {label}",
     "languageSwitcher": "Change language",
     "homeLabel": "VINdicated home"
   },
+  "notFound": {
+    "title": "Page not found",
+    "body": "Sorry, we couldn't find that page. It may have moved, or the link may be wrong.",
+    "home": "Go to the home page"
+  },
   "footer": {
-    "tagline": "Educate. Empower. Vindicate.",
-    "subtagline": "Free automotive education for women, immigrants, and first-time buyers.",
-    "copyright": "© 2026 VINdicated. All rights reserved. Founded by Rana Darwich.",
-    "mission": "A nonprofit committed to gender equity in automotive commerce.",
     "columns": {
-      "navigate": "Navigate",
       "resources": "Resources",
       "connect": "Connect",
       "organization": "Organization"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "instagram": "Instagram",
       "getInTouch": "Get in Touch",
       "aboutUs": "About Us",
       "instagramUcla": "Instagram · UCLA",
@@ -98,6 +87,11 @@
         "description": "Eleven student projects across four teams: apps, data tools, research, and content that help people buy, finance, and fix cars without getting taken advantage of.",
         "imageAlt": "VINdicated: Projects"
       },
+      "join": {
+        "title": "Get Involved",
+        "description": "Get involved with VINdicated: volunteer with our team, share your story, take part in research, or partner with us.",
+        "imageAlt": "VINdicated: Get Involved"
+      },
       "rights": {
         "title": "Know Your Rights",
         "description": "Know your legal rights as a car buyer. Federal and California laws protect you from discrimination and deceptive practices at dealerships.",
@@ -131,63 +125,6 @@
     }
   },
   "home": {
-    "hero": {
-      "titleLine1": "You Deserve",
-      "titleLine2": "to Buy a Car",
-      "titleEm": "Without Fear.",
-      "subtitle": "VINdicated is built on the belief that car knowledge should be public knowledge. We break down the systems that allow consumer discrimination to thrive through education, research, and community.",
-      "ctaPrimary": "Get the PPI Guide",
-      "ctaSecondary": "Our Story",
-      "stats": [
-        {
-          "label": "more Black male buyers are charged vs. white male buyers, even with the same car and same script",
-          "cite": "Ayres & Siegelman, 1995"
-        },
-        {
-          "label": "of Gen Z women feel discouraged from visiting a dealership due to gender discrimination",
-          "cite": "Morning Consult / Caribou, 2022"
-        },
-        {
-          "label": "of non-white testers were given worse pricing at dealerships compared to white testers",
-          "cite": "National Fair Housing Alliance, 2018"
-        },
-        {
-          "label": "longer negotiations faced by minority buyers, even with the same car and same price",
-          "cite": "Ayres & Siegelman, 1995"
-        }
-      ]
-    },
-    "cards": {
-      "titlePrefix": "Two pillars of",
-      "titleEm": "automotive justice.",
-      "pillars": [
-        {
-          "kicker": "Education",
-          "title": "Pre-Purchase Inspection Guide",
-          "body": "A step-by-step walkthrough of everything you should check, ask, and verify before handing over a dollar. Written for first-time buyers.",
-          "label": "Read the Guide"
-        },
-        {
-          "kicker": "Protection",
-          "title": "Fraud Prevention",
-          "body": "Real tactics used against buyers, named, explained, and countered. Know exactly what to say when a dealer tries to pressure you.",
-          "label": "Spot the Red Flags"
-        }
-      ]
-    },
-    "quote": {
-      "text": "Why should woman be kept in ignorance under the specious name of innocence?",
-      "cite": "Mary Wollstonecraft",
-      "source": "A Vindication of the Rights of Woman (1792)"
-    },
-    "founder": {
-      "titleLine1": "Founded at 19.",
-      "titleEm": "Out of necessity.",
-      "body1": "Three strikes at three different dealerships showed me the same thing: the system is designed to confuse you, rush you, and profit off what you don't know.",
-      "body2Prefix": "VINdicated exists because ",
-      "body2Bold": "I wish it had existed for me.",
-      "cta": "Read Rana's Full Story"
-    },
     "meta": {
       "title": "Educate. Empower. Vindicate.",
       "description": "VINdicated is a free nonprofit that helps people buy cars without getting taken advantage of. Free guides, research, and know-your-rights resources."
@@ -371,156 +308,7 @@
       "secondary": "Where to get one"
     }
   },
-  "about": {
-    "hero": {
-      "titlePlain": "Built on the belief that car knowledge",
-      "titleEm": "should be public knowledge.",
-      "subtitle": "VINdicated exists because we do not believe women should have to bring male protection just to buy a car safely."
-    },
-    "whyWeExist": {
-      "titleLine1": "The discrimination",
-      "titleEm": "is measurable.",
-      "titleLine2": "The harm is real.",
-      "para1": [
-        {
-          "text": "Research by Ian Ayres and Peter Siegelman found that "
-        },
-        {
-          "text": "Black male car buyers were quoted prices averaging $1,100 higher",
-          "bold": true
-        },
-        {
-          "text": " than white male buyers for identical cars, even when using identical bargaining scripts. Black women were quoted $410 more and white women $92 more than white men."
-        }
-      ],
-      "para2": [
-        {
-          "text": "48% of Gen Z women feel discouraged from visiting a dealership",
-          "bold": true
-        },
-        {
-          "text": " due to concern about gender-based discrimination (Morning Consult for Caribou, 2022). This isn't paranoia. This is pattern recognition."
-        }
-      ],
-      "para3": [
-        {
-          "text": "Dealers made racist or sexist comments in "
-        },
-        {
-          "text": "4% of test visits",
-          "bold": true
-        },
-        {
-          "text": ". They spent "
-        },
-        {
-          "text": "13% longer negotiating with \"minority\" testers",
-          "bold": true
-        },
-        {
-          "text": "."
-        }
-      ],
-      "para4": "And we're done pretending it's isolated incidents."
-    },
-    "mission": {
-      "heading": "Educate. Empower.",
-      "headingEm": "Vindicate.",
-      "subheading": "To dismantle consumer-level escort culture, one informed buyer at a time.",
-      "pillars": [
-        {
-          "word": "Educate",
-          "body": "Make car buying understandable. Navigable. We translate the dealer playbook into plain language because knowledge is leverage."
-        },
-        {
-          "word": "Empower",
-          "body": "Build the confidence to walk in alone, ask the right questions, and walk away when necessary without shame, without needing backup."
-        },
-        {
-          "word": "Vindicate",
-          "body": "Produce the research that documents what consumers already know. Turn lived experience into data. Turn data into policy change."
-        }
-      ]
-    },
-    "story": {
-      "titleEm": "Vindicated from what?",
-      "subtitle": "Three strikes. Three completely different situations. The same system every time.",
-      "strikes": [
-        {
-          "num": "1",
-          "label": "The Pink Slip Scam",
-          "body": [
-            "At 18, I was trying to buy a car from my friend's dad. He made me wait three months, promising the whole time to sell it to me.",
-            "When the time finally came, he tried to tell me I didn't need the pink slip. He was trying to scam me. Without the title in your name, the car is not legally yours, no matter what you paid."
-          ]
-        },
-        {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "I tried buying a car on Facebook Marketplace. The conversation started normally with mileage, price, when I could come look.",
-            "As soon as he found out I was female, the tone shifted completely. He told me, \"Shut your mouth, bitch,\" and blocked me.",
-            "After that, I made a fake Facebook account under the name Randall, and had my brother call sellers on my behalf. I got better deals when they thought they were dealing with a man."
-          ]
-        },
-        {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "April 2025. I test drove a car alone. When I came back with my sister to buy it, it suddenly read: \"Buy today or lose it.\" I asked for service records. I was told they were in a locked drawer, and the guy with the key wasn't there. They promised a 300-point inspection. Then 150. Then it was back in the locked drawer.",
-            "I paid for an independent inspection at a Toyota dealership. They found issues. When I drove back, there was a rattling noise. Eddy told me I broke the car during the test drive.",
-            "They handed me a financing contract with 30% APR. I was paying cash. \"Sign this until you bring a cashier's check.\" I asked where it said the contract would be voided. He pointed to an arbitration agreement. I took business law. I know what arbitration means. He got angry. I said, \"I know you're frustrated.\" He said, \"You would be correct,\" and left."
-          ]
-        }
-      ],
-      "pullquote": {
-        "quote": "I reported Eddy. When the GM called to apologize, I said, \"I don't accept your apology. I hope whether a 19-year-old girl or a 50-year-old man walks in, you'll treat everyone with respect.\"",
-        "attribution": "Rana Darwich, Founder of VINdicated"
-      },
-      "bio": {
-        "label": "About the Founder",
-        "body": "Rana Darwich founded VINdicated at 19 after almost signing a predatory arbitration clause at a dealership.",
-        "closingLine": "Now, it's your turn."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Strengthen the female mind by enlarging it, and there will be an end to blind obedience."
-      }
-    },
-    "provide": {
-      "titlePlain": "Free. Accessible.",
-      "titleEm": "No strings attached.",
-      "subtitle": "Everything VINdicated offers is free. No signup required, no upsell, no catch.",
-      "items": [
-        {
-          "cat": "Education",
-          "title": "Free Automotive Workshops",
-          "body": "Community-led sessions breaking down what dealers do not want you to know including financing, repairs, and your legal rights on the lot."
-        },
-        {
-          "cat": "Tools",
-          "title": "Online Resources & Guides",
-          "body": "Step-by-step inspection guides, red flag checklists, script templates, and financing explainers. Designed for first-time buyers."
-        },
-        {
-          "cat": "Community",
-          "title": "Vetted Mechanic Network",
-          "body": "We're building a directory of mechanics vetted by our community: honest mechanics who do not talk down to you, do not upsell you."
-        },
-        {
-          "cat": "Research",
-          "title": "Correspondence Audit Studies",
-          "body": "We document discrimination with data. Our ongoing studies quantify gender-based pricing disparities."
-        }
-      ]
-    }
-  },
   "team": {
-    "hero": {
-      "titleLine1": "Driven by the",
-      "titleEm": "same frustration."
-    },
-    "sectionTitle": "Meet the Team",
     "members": {
       "Rana Darwich": {
         "position": "Founder & President",
@@ -528,11 +316,13 @@
       },
       "Fiona Wangsawidjaja": {
         "position": "President",
-        "bio": "Fiona Wangsawidjaja is a Statistics and Data Science major at UCLA and the current President of the UCLA VINdicated chapter. Fiona loves to educate and help her community when she can, whether through her past experience as a coding tutor, helping others learn about the digital world through conferences, or here at VINdicated, where she hopes people can benefit from accessible automotive literacy. She has experience specializing in data through organizations such as DataRes and NSDC, teaching high school students about data, building data analysis projects, and consulting companies."
+        "bio": "Fiona Wangsawidjaja is a Statistics and Data Science major at UCLA and the current President of the UCLA VINdicated chapter. Fiona loves to educate and help her community when she can, whether through her past experience as a coding tutor, helping others learn about the digital world through conferences, or here at VINdicated, where she hopes people can benefit from accessible automotive literacy. She has experience specializing in data through organizations such as DataRes and NSDC, teaching high school students about data, building data analysis projects, and consulting companies.",
+        "major": "Statistics & Data Science"
       },
       "Ashwin Vinod": {
         "position": "President",
-        "bio": "Ashwin Vinod is a Computer Science major at UCSC. He is the President of the VINdicated chapter at UCSC. Through involvement in various research labs and software engineering experiences, Ashwin has built a technical foundation that he wants to use to push computational research that benefits the community, and provide educational opportunities for his community. Ashwin previously interned at IBM as a Software Developer Intern, and is continuing his interest in research as part of the AIEA Lab @ UCSC, focused on explainable artificial intelligence."
+        "bio": "Ashwin Vinod is a Computer Science major at UCSC. He is the President of the VINdicated chapter at UCSC. Through involvement in various research labs and software engineering experiences, Ashwin has built a technical foundation that he wants to use to push computational research that benefits the community, and provide educational opportunities for his community. Ashwin previously interned at IBM as a Software Developer Intern, and is continuing his interest in research as part of the AIEA Lab @ UCSC, focused on explainable artificial intelligence.",
+        "major": "Computer Science"
       },
       "Rizwaan Bana": {
         "position": "Strategist",
@@ -540,39 +330,48 @@
       },
       "William Prawira": {
         "position": "Internal Vice President",
-        "bio": "Will Prawira is a Math & Data Science major at UCLA and the Internal VP of the VINdicated chapter there. With his background in data science and industry experience, Will hopes to push a culture of rapid, high-quality execution, turning ambitious ideas into valuable resources for the community. He is currently interning at Navitas Semiconductor through the academic year as a Reliability Intern, where he develops tools and applications focused on automation and product lifetime prediction modeling."
+        "bio": "Will Prawira is a Math & Data Science major at UCLA and the Internal VP of the VINdicated chapter there. With his background in data science and industry experience, Will hopes to push a culture of rapid, high-quality execution, turning ambitious ideas into valuable resources for the community. He is currently interning at Navitas Semiconductor through the academic year as a Reliability Intern, where he develops tools and applications focused on automation and product lifetime prediction modeling.",
+        "major": "Data Science & Applied Mathematics"
       },
       "Ayat Ashraf": {
         "position": "External Vice President",
-        "bio": "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future."
+        "bio": "Ayat Ashraf is a Math/Econ major at UCLA interested in economic policymaking. She does research at VINdicated, so she can hopefully buy a car without calling her dad 8,000 times in the future.",
+        "major": "Math/Econ"
       },
       "Noirit Ghosh Choudhuri": {
         "position": "Internal Vice President",
-        "bio": "Noirit Ghosh Choudhuri is a Computer Science major at UC Berkeley. He is the Internal Vice President of the VINdicated chapter at UC Berkeley. Through his experience developing multiple real world projects, Noirit has built strong technical and collaborative skills that he wants to use to build more solutions to pressing societal issues, such as the one VINdicated stands to fight."
+        "bio": "Noirit Ghosh Choudhuri is a Computer Science major at UC Berkeley. He is the Internal Vice President of the VINdicated chapter at UC Berkeley. Through his experience developing multiple real world projects, Noirit has built strong technical and collaborative skills that he wants to use to build more solutions to pressing societal issues, such as the one VINdicated stands to fight.",
+        "major": "Computer Science"
       },
       "Halima Cherif Hminat": {
         "position": "External Vice President",
-        "bio": "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also the EVP at VINdicated @ UC Berkeley and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs."
+        "bio": "Halima Cherif Hminat is an Integrative Biology student at UC Berkeley, minoring in Sustainable Business and Policy, and is on the pre-dental track. She is also the EVP at VINdicated @ UC Berkeley and contributes to creating resources that help people make informed decisions with confidence. She says VINdicated's mission is important because she wants to support women by helping them prevent unfair treatment in car buying and repairs.",
+        "major": "Integrative Biology"
       },
       "Gundeep Sambee": {
         "position": "Internal Vice President",
-        "bio": "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others."
+        "bio": "Gundeep is a Cognitive Science student at UC Santa Cruz, minoring in Technology and Information Management. She's interested in the intersection of people and technology, especially how AI, design, and psychology shape the way we make decisions. Outside class, she's involved in research and enjoys opportunities to learn more about human behavior and cognition, and likes taking on leadership roles that build community and create meaningful experiences for others.",
+        "major": "Cognitive Science"
       },
       "Adhya Maddukuri": {
         "position": "External Vice President",
-        "bio": "Adhya is a Technology and Information Management student at UC Santa Cruz with a passion for building technology that creates real-world impact, spanning software development, AI, data analytics, and product strategy. She's conducted undergraduate research in generative AI, consulted with nonprofits through 180 Degrees Consulting, and helped organize hackathons with NVIDIA and ASUS. She's currently a Software Development Engineering Intern at Heron Power, building software systems and strengthening her technical and problem-solving skills."
+        "bio": "Adhya is a Technology and Information Management student at UC Santa Cruz with a passion for building technology that creates real-world impact, spanning software development, AI, data analytics, and product strategy. She's conducted undergraduate research in generative AI, consulted with nonprofits through 180 Degrees Consulting, and helped organize hackathons with NVIDIA and ASUS. She's currently a Software Development Engineering Intern at Heron Power, building software systems and strengthening her technical and problem-solving skills.",
+        "major": "Technology & Information Management"
       },
       "Fernando Cedillo-Hernandez": {
         "position": "Research Lead",
-        "bio": "Fernando Cedillo-Hernandez is a Biology and Political Science double major at UCLA, with minors in Biomedical Research and Community Engagement and Social Change. He brings a background in research and civic advocacy to his role as Research Lead at VINdicated, driven by a commitment to expanding equitable access and protection for underserved communities. Outside VINdicated, Fernando is involved in leadership and community engagement work across UCLA, including advocacy for immigrant and working-class students."
+        "bio": "Fernando Cedillo-Hernandez is a Biology and Political Science double major at UCLA, with minors in Biomedical Research and Community Engagement and Social Change. He brings a background in research and civic advocacy to his role as Research Lead at VINdicated, driven by a commitment to expanding equitable access and protection for underserved communities. Outside VINdicated, Fernando is involved in leadership and community engagement work across UCLA, including advocacy for immigrant and working-class students.",
+        "major": "Biology & Political Science"
       },
       "Yinrui (Ray) Gan": {
         "position": "Data Lead",
-        "bio": "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA."
+        "bio": "Ray Gan leads the data and AI pipeline for VINdicated's interactive dealership risk map. He designed the LLM-based classification system that turns unstructured consumer reviews into transparent, evidence-backed risk signals for car buyers. Ray studies Computer Science and Linguistics at UCLA.",
+        "major": "Computer Science & Linguistics"
       },
       "Evanceline Tang": {
         "position": "Design Lead & Outreach Lead",
-        "bio": "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry."
+        "bio": "Evanceline is a second year biology major at UCLA. She is passionate about using art and design as a mean of conveying messages. Through her art, she hopes to help people understand more about VINdicated and the existing inequalities and dangers in the automotive industry.",
+        "major": "Biology"
       },
       "Rouqaya Elbanna": {
         "position": "HS Lead",
@@ -580,58 +379,64 @@
       },
       "Daryen Romero": {
         "position": "Technical Writing Lead",
-        "bio": "Daryen Romero is a Computer Science student at UC Berkeley. Joining VINdicated is important to him because he wants to help others be informed about the importance of buying a car and not be afraid. He also wants to speak out and help others understand how people can be taken advantage of if they are a woman or a different race."
+        "bio": "Daryen Romero is a Computer Science student at UC Berkeley. Joining VINdicated is important to him because he wants to help others be informed about the importance of buying a car and not be afraid. He also wants to speak out and help others understand how people can be taken advantage of if they are a woman or a different race.",
+        "major": "Computer Science"
       },
       "Vanessa Phan": {
         "position": "Data Analytics Lead",
-        "bio": "Vanessa is pursuing a degree in Computer Engineering with a concentration in Computer Systems, interested in the combination of software and electrical engineering, especially robotics and intelligent technologies. She's the Treasurer for the Society of Women Engineers at UC Santa Cruz, where she's secured more than $5,000 in funding this year, and has been involved in SlothLab as a developer. She wants to get more involved in research, digging into topics in detail and applying what she learns to build solutions."
+        "bio": "Vanessa is pursuing a degree in Computer Engineering with a concentration in Computer Systems, interested in the combination of software and electrical engineering, especially robotics and intelligent technologies. She's the Treasurer for the Society of Women Engineers at UC Santa Cruz, where she's secured more than $5,000 in funding this year, and has been involved in SlothLab as a developer. She wants to get more involved in research, digging into topics in detail and applying what she learns to build solutions.",
+        "major": "Computer Engineering"
       },
       "Brisa Gómez": {
         "position": "Technical Writing Lead",
-        "bio": "Brisa Gómez is a fourth-year Psychology major at UCLA and the Technical Writing Lead at UCLA. Through their writing and translation projects, Brisa wants to make resources that are easy to use and inclusive of vulnerable populations."
+        "bio": "Brisa Gómez is a fourth-year Psychology major at UCLA and the Technical Writing Lead at UCLA. Through their writing and translation projects, Brisa wants to make resources that are easy to use and inclusive of vulnerable populations.",
+        "major": "Psychology"
       },
       "Chino Sawatyanont": {
         "position": "Software Engineer",
-        "bio": "Chino is an Electrical and Computer Engineering major at UC Berkeley and a Software Engineer for the VINdicated chapter there. He brings extensive experience combining technical knowledge with societal impact, having previously focused on supporting underprivileged communities in Thailand. Chino hopes to bring that same drive for impact to VINdicated's mission."
+        "bio": "Chino is an Electrical and Computer Engineering major at UC Berkeley and a Software Engineer for the VINdicated chapter there. He brings extensive experience combining technical knowledge with societal impact, having previously focused on supporting underprivileged communities in Thailand. Chino hopes to bring that same drive for impact to VINdicated's mission.",
+        "major": "Electrical & Computer Engineering"
       },
       "William Guo": {
         "position": "Software Engineer",
-        "bio": "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. He went through the stressful process of finding the right car himself, and he thinks the basics of what to look for in a big purchase like a car should be easier for everyone to find."
+        "bio": "William Guo is a junior studying Computer Science at UC Santa Cruz and a Software Engineer at VINdicated. He enjoys tinkering with and fixing electronics, playing video games, and getting hands-on with his own projects. He went through the stressful process of finding the right car himself, and he thinks the basics of what to look for in a big purchase like a car should be easier for everyone to find.",
+        "major": "Computer Science"
       },
       "Daniel": {
         "position": "Data Engineer",
-        "bio": "Daniel is a transfer Applied Math student from Los Angeles and Data Engineer at VINdicated, with a strong interest in personal finance and teaching financial literacy to others. Outside of VINdicated, he enjoys tearing down and repairing computers, hiking, cycling, and running around the city. He's also gotten into climbing, cooking, and going to music festivals."
+        "bio": "Daniel is a transfer Applied Math student from Los Angeles and Data Engineer at VINdicated, with a strong interest in personal finance and teaching financial literacy to others. Outside of VINdicated, he enjoys tearing down and repairing computers, hiking, cycling, and running around the city. He's also gotten into climbing, cooking, and going to music festivals.",
+        "major": "Applied Mathematics"
       },
       "Chloe Lin": {
         "position": "Outreach Lead",
-        "bio": "Chloe Lin is an Integrative Biology student at UC Berkeley and the Outreach Lead at VINdicated. She has advocated for women and underrepresented communities, and she wants everyday buyers to understand car purchases and maintenance well enough to make their own calls."
+        "bio": "Chloe Lin is an Integrative Biology student at UC Berkeley and the Outreach Lead at VINdicated. She has advocated for women and underrepresented communities, and she wants everyday buyers to understand car purchases and maintenance well enough to make their own calls.",
+        "major": "Integrative Biology"
       },
       "Ian de la Houssaye": {
         "position": "Software Lead",
-        "bio": "Ian de la Houssaye is a Mechanical Engineering student and the Software Lead for the VINdicated chapter at UC Berkeley. He has a passion for building technology that solves real-world problems. Ian founded and led his high school's competitive robotics team, helping it become one of San Diego's top-performing teams while directing the development of its software and autonomous systems. Through these experiences, he has developed strong technical, leadership, and collaborative skills that he hopes to use to advance VINdicated's mission."
+        "bio": "Ian de la Houssaye is a Mechanical Engineering student and the Software Lead for the VINdicated chapter at UC Berkeley. He has a passion for building technology that solves real-world problems. Ian founded and led his high school's competitive robotics team, helping it become one of San Diego's top-performing teams while directing the development of its software and autonomous systems. Through these experiences, he has developed strong technical, leadership, and collaborative skills that he hopes to use to advance VINdicated's mission.",
+        "major": "Mechanical Engineering"
       },
       "James Cheng": {
         "position": "Data Engineer",
-        "bio": "James is a Data Science and Cognitive Science student at UC Berkeley and a Data Engineer at VINdicated. He brings extensive experience in both STEM and language education, along with a diverse technical background and experience building independent projects. He hopes to draw on these experiences to bring a unique perspective and strong initiative to solving problems in the automotive industry."
+        "bio": "James is a Data Science and Cognitive Science student at UC Berkeley and a Data Engineer at VINdicated. He brings extensive experience in both STEM and language education, along with a diverse technical background and experience building independent projects. He hopes to draw on these experiences to bring a unique perspective and strong initiative to solving problems in the automotive industry.",
+        "major": "Data Science & Cognitive Science"
       },
       "Bryan Zhang": {
         "position": "Software Engineer",
-        "bio": "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated."
+        "bio": "Bryan Zhang is a CS major at UCLA. In his free time he enjoys playing basketball, volleyball, and baking. He is a developer for VINdicated.",
+        "major": "Computer Science"
       },
       "Rahul Puritipati": {
         "position": "Software Engineer",
-        "bio": "Rahul Puritipati is a first-year CS student at UCLA. Raised in Folsom, CA, he likes to watch gym TikToks and be a couch GM for the 49ers and Kings. He has done a significant amount of nonprofit work, mainly rebuilding local businesses' online presence and raising money for underprivileged youth in India."
+        "bio": "Rahul Puritipati is a first-year CS student at UCLA. Raised in Folsom, CA, he likes to watch gym TikToks and be a couch GM for the 49ers and Kings. He has done a significant amount of nonprofit work, mainly rebuilding local businesses' online presence and raising money for underprivileged youth in India.",
+        "major": "Computer Science"
       },
       "Jordan Acle": {
         "position": "Data Lead",
-        "bio": "Jordan Acle is a Data Science student at UC Berkeley and the Data Lead for the VINdicated chapter there, bringing hands-on experience in machine learning, data analysis, and data engineering to the role. He currently works as a Product Strategy Intern at Innov8AI, contributing to a trust-centered health AI platform, and serves UC Berkeley's community as a Data Science Peer Advisor and Hello World Mentor, helping new students build confidence and find their footing on campus."
+        "bio": "Jordan Acle is a Data Science student at UC Berkeley and the Data Lead for the VINdicated chapter there, bringing hands-on experience in machine learning, data analysis, and data engineering to the role. He currently works as a Product Strategy Intern at Innov8AI, contributing to a trust-centered health AI platform, and serves UC Berkeley's community as a Data Science Peer Advisor and Hello World Mentor, helping new students build confidence and find their footing on campus.",
+        "major": "Data Science"
       }
-    },
-    "cta": {
-      "headingPlain": "Want to be part of",
-      "headingEm": "this?",
-      "body": "VINdicated is always looking for passionate people: researchers, developers, designers, educators, and advocates. If you believe car buying should be fair for everyone, we want to hear from you.",
-      "button": "Get in Touch"
     }
   },
   "aboutPage": {
@@ -2015,7 +1820,9 @@
       "missing": "Please fill in chapter, role, full name, and email.",
       "badEmail": "Enter a valid email address, like name@school.edu.",
       "tooLarge": "Your resume file is too large. Please upload a file under 5MB.",
-      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
+      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again.",
+      "sent": "Thanks! We got your application. Check your inbox for a confirmation email."
     },
     "contact": {
       "title": "Or just say hello.",
@@ -2039,7 +1846,24 @@
       "submitting": "Sending…",
       "missing": "Please add your email and a message.",
       "sent": "Thanks! Your message is on its way, and we sent a copy to your inbox.",
-      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
+      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again."
+    },
+    "emails": {
+      "hi": "Hi {name},",
+      "friend": "there",
+      "signoff": "Best,",
+      "team": "The VINdicated team",
+      "apply": {
+        "subject": "We got your volunteer application - VINdicated",
+        "body": "Thanks for wanting to volunteer with VINdicated! We got your application for the {role} role, and we'll look at it soon.",
+        "next": "We'll get back to you within a few days."
+      },
+      "contact": {
+        "subject": "We got your message - VINdicated",
+        "body": "Thanks for reaching out to VINdicated! We got your message about \"{topic}\" and we'll get back to you as soon as we can.",
+        "copy": "Here's a copy of your message:"
+      }
     }
   },
   "mapPage": {
@@ -2108,6 +1932,61 @@
         }
       ],
       "footnote": "Headlines belong to their publications. Summaries by VINdicated. Stories link to outside publications, which we don't control."
+    },
+    "app": {
+      "pageTitle": "Dealer Risk Map | VINdicated",
+      "gateTitle": "Before you look",
+      "gateBody": "This map shows what people said in public Google reviews of 100 dealerships on LA's Westside. An AI model sorted the reviews, and we checked it against reviews our team labeled by hand. It isn't a rating of any business, a statement of fact, or legal advice. Read the reviews yourself before you decide anything.",
+      "gateCheck": "I understand this map summarizes reviewers' opinions.",
+      "gateOpen": "Open the map",
+      "methods": "How we made this map",
+      "title": "Dealer Risk Map",
+      "sub": "Dealerships on LA's Westside and what their public Google reviews describe.",
+      "loading": "Loading data…",
+      "live": "Live data",
+      "snapshot": "Snapshot from September 2026",
+      "filterLabel": "Filter by risk level",
+      "search": "Search dealerships",
+      "legend": {
+        "flaggedLabel": "Flagged:",
+        "flagged": "a review describes several problems at once.",
+        "cautionLabel": "Caution:",
+        "caution": "a review describes a problem.",
+        "clearLabel": "Clear:",
+        "clear": "nothing found.",
+        "basis": "Based on up to five public Google reviews per dealership. Summarizes reviewer opinions.",
+        "by": "By"
+      },
+      "layersLabel": "Map style",
+      "satellite": "Satellite",
+      "map": "Map",
+      "showAll": "Show all",
+      "about": "About this map",
+      "tiers": {
+        "all": "All",
+        "flagged": "Flagged",
+        "caution": "Caution",
+        "clear": "Clear"
+      },
+      "categories": {
+        "1": "Price & fee surprises",
+        "2": "Vehicle misrepresented",
+        "3": "Contract & document issues",
+        "4": "Pressure & manipulation",
+        "5": "Post-sale neglect",
+        "6": "Discriminatory treatment",
+        "7": "Poor service",
+        "8": "Other complaint"
+      },
+      "concern": "Concern {n}",
+      "flaggedOf": "{f} of {r}",
+      "flaggedOfRest": "reviews we read were flagged",
+      "listMeta": "{f} of {r} flagged",
+      "described": "What reviewers described",
+      "excerpts": "Excerpts from public Google reviews.",
+      "nothing": "Nothing concerning in the reviews we read.",
+      "readOnGoogle": "Read the reviews on Google Maps",
+      "noMatch": "No dealerships match."
     }
   },
   "mapMethods": {
@@ -2233,6 +2112,374 @@
       }
     }
   },
+  "rightsPage": {
+    "hero": {
+      "title": "Know your rights",
+      "titleEm": "before you sign.",
+      "body": "Federal and California laws protect you from discrimination and deceptive practices at dealerships. Here is what every buyer should know."
+    },
+    "tryIt": {
+      "title": "Try it",
+      "titleEm": "yourself.",
+      "body": "A preview of the mobile app version of this page: tell it your state, then scroll through the laws that actually apply to you."
+    },
+    "remember": {
+      "label": "Remember",
+      "lead": "You do not need to be a lawyer to use these laws.",
+      "body": "Simply knowing they exist changes the power dynamic. If a dealer refuses to provide written disclosures, that itself is a red flag.",
+      "complaint": "If you believe your rights have been violated, you can file a complaint with the {cfpb}, the {ftc}, or the {dmv}.",
+      "cfpb": "Consumer Financial Protection Bureau (CFPB)",
+      "ftc": "Federal Trade Commission (FTC)",
+      "dmv": "California Department of Motor Vehicles (DMV)"
+    },
+    "buttons": {
+      "flags": "Spot the Red Flags",
+      "inspection": "Pre-Purchase Inspection Guide"
+    },
+    "demo": {
+      "logoAlt": "VINdicated logo",
+      "entryTitle": "Where are you buying?",
+      "entryBody": "Your rights change depending on where you are. Tell us your state so we show you the protections that actually apply.",
+      "placeholder": "e.g. California",
+      "continue": "Continue",
+      "skip": "Skip for now",
+      "homeTitle": "Know Your",
+      "homeTitleEm": "Rights.",
+      "pickOne": "Pick one to start reading.",
+      "showing": "Showing what applies in {state}.",
+      "federal": "Federal Protections",
+      "federalMeta": "5 laws · apply nationwide",
+      "stateLink": "{state} Protections",
+      "stateLinkNone": "State Protections",
+      "stateMetaNone": "Enter your state to see these",
+      "stateMetaCount": "{n} laws · applies to you",
+      "stateMetaPartial": "What we have so far for {state}",
+      "back": "Home",
+      "scroll": "scroll for the rundown"
+    },
+    "stateNames": {
+      "alabama": "Alabama",
+      "alaska": "Alaska",
+      "arizona": "Arizona",
+      "arkansas": "Arkansas",
+      "california": "California",
+      "colorado": "Colorado",
+      "connecticut": "Connecticut",
+      "delaware": "Delaware",
+      "florida": "Florida",
+      "georgia": "Georgia",
+      "hawaii": "Hawaii",
+      "idaho": "Idaho",
+      "illinois": "Illinois",
+      "indiana": "Indiana",
+      "iowa": "Iowa",
+      "kansas": "Kansas",
+      "kentucky": "Kentucky",
+      "louisiana": "Louisiana",
+      "maine": "Maine",
+      "maryland": "Maryland",
+      "massachusetts": "Massachusetts",
+      "michigan": "Michigan",
+      "minnesota": "Minnesota",
+      "mississippi": "Mississippi",
+      "missouri": "Missouri",
+      "montana": "Montana",
+      "nebraska": "Nebraska",
+      "nevada": "Nevada",
+      "new hampshire": "New Hampshire",
+      "new jersey": "New Jersey",
+      "new mexico": "New Mexico",
+      "new york": "New York",
+      "north carolina": "North Carolina",
+      "north dakota": "North Dakota",
+      "ohio": "Ohio",
+      "oklahoma": "Oklahoma",
+      "oregon": "Oregon",
+      "pennsylvania": "Pennsylvania",
+      "rhode island": "Rhode Island",
+      "south carolina": "South Carolina",
+      "south dakota": "South Dakota",
+      "tennessee": "Tennessee",
+      "texas": "Texas",
+      "utah": "Utah",
+      "vermont": "Vermont",
+      "virginia": "Virginia",
+      "washington": "Washington",
+      "west virginia": "West Virginia",
+      "wisconsin": "Wisconsin",
+      "wyoming": "Wyoming"
+    },
+    "laws": {
+      "federal": {
+        "TILA": {
+          "title": "Truth in Lending Act",
+          "citation": "15 U.S.C. § 1601",
+          "plain": "The dealer must show you the full true cost of the loan before you sign anything: the APR, the finance charge, and the total of all payments.",
+          "script": "Show me the APR, the finance charge, and the total of all payments, right now, before I sign anything.",
+          "escalation": "If they won't give you these figures in writing before you sign, stop. This is a federal disclosure requirement, not a courtesy. You can file a complaint with the CFPB."
+        },
+        "FTC": {
+          "title": "FTC Used Car Rule",
+          "citation": "16 CFR § 455",
+          "plain": "Every used car on a lot must display a Buyers Guide sticker stating whether it's sold “as is” or with a warranty, and what that warranty covers.",
+          "script": "I need to see the Buyers Guide sticker before we talk about price.",
+          "escalation": "No sticker, or one removed before you could read it, is a federal violation. The FTC can fine a dealer up to $51,744 per car. Document it and report to the FTC."
+        },
+        "ODO": {
+          "title": "Odometer Disclosure Law",
+          "citation": "49 U.S.C. § 32705",
+          "plain": "The dealer must give you a signed, written statement of the car's true mileage at the time of sale.",
+          "script": "I'd like the signed odometer disclosure statement, and I'll be checking it against the dash and the vehicle history report.",
+          "escalation": "Odometer rollback is a federal crime. If the numbers don't match, stop the deal, photograph everything, and report it to the FTC."
+        },
+        "FCRA": {
+          "title": "Fair Credit Reporting Act",
+          "citation": "15 U.S.C. § 1681",
+          "plain": "If the dealer pulled your credit to set your rate, they must tell you which bureau they used and give you a written explanation of how it affected your terms.",
+          "script": "Was my credit report used to set this rate? I'd like the adverse action notice and the bureau it came from.",
+          "escalation": "No notice, or a rate that doesn't match your actual score, is reportable to the CFPB."
+        },
+        "ECOA": {
+          "title": "Equal Credit Opportunity Act",
+          "citation": "15 U.S.C. § 1691",
+          "plain": "A dealer can't price your loan differently because of your race, gender, age, or national origin. Every applicant is supposed to be evaluated the same way.",
+          "script": "Can you walk me through exactly how this rate was calculated for me?",
+          "escalation": "If the explanation doesn't add up, you can sue for damages, and regulators can pursue civil penalties against the dealer."
+        }
+      },
+      "california": {
+        "AB68-C": {
+          "title": "2-Day Cancellation Option",
+          "citation": "Cal. Veh. Code § 11713.21",
+          "plain": "You can buy a 2-day right to cancel on a used car under $40,000, but you have to ask for it at the time of signing. It is not automatic.",
+          "script": "I'd like to purchase the 2-day contract cancellation option.",
+          "escalation": "If it's not offered to you upfront, ask directly. Cost is roughly 1% of the price, plus a restocking fee if you actually use it."
+        },
+        "AB68-R": {
+          "title": "Interest Rate Markup Caps",
+          "citation": "Cal. Veh. Code § 11711",
+          "plain": "Dealers can only mark up your interest rate by a capped amount: 2% on loans over 60 months, 2.5% on shorter ones.",
+          "script": "I'm already pre-approved at this rate, you need to beat it, not just match it.",
+          "escalation": "Walking in pre-approved from your own bank or credit union removes almost all of the dealer's leverage on this number."
+        },
+        "AB68-A": {
+          "title": "Itemized Add-Ons",
+          "citation": "Cal. Civ. Code § 2982",
+          "plain": "Every optional add-on has to be priced and listed as its own line item. Dealers can't bundle everything into one number and call it “the payment.”",
+          "script": "Show me my monthly payment with and without each add-on, itemized, in writing.",
+          "escalation": "“It's all one package” is not legal in California. Ask for the line-by-line breakdown before you agree to anything."
+        },
+        "VC-11713": {
+          "title": "Prohibited Dealer Practices",
+          "citation": "Cal. Veh. Code § 11713",
+          "plain": "Dealers can't advertise cars they don't actually have, change agreed-upon terms after the fact, or hide a car's known history from you.",
+          "script": "Is this exact price and condition still accurate right now, today?",
+          "escalation": "Bait-and-switch tactics under this code are a documented violation. Keep a copy of the original ad or listing as evidence."
+        },
+        "CCLRA": {
+          "title": "Consumers Legal Remedies Act",
+          "citation": "Cal. Civ. Code § 1750",
+          "plain": "A dealer cannot deceive you about a car's price, condition, or features. Full stop. No exceptions for “sales talk.”",
+          "script": "Can you point to exactly where that's stated in writing?",
+          "escalation": "You can sue for damages, or to force changes to the contract, if they misrepresented something material to the sale."
+        },
+        "CC-2981.9": {
+          "title": "Single Written Contract Rule",
+          "citation": "Cal. Civ. Code § 2981.9",
+          "plain": "Every promise the dealer makes to you has to be written into the one contract you sign. Verbal side-deals legally do not count.",
+          "script": "If you're agreeing to that, please add it into the contract before I sign, not after.",
+          "escalation": "A verbal promise with nothing in writing becomes legally meaningless the moment you've signed."
+        }
+      },
+      "texas": {
+        "DTPA": {
+          "title": "Deceptive Trade Practices Act",
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq.",
+          "plain": "A dealer can't advertise one car to lure you in and then push you toward a different one (“bait and switch”), and can't misrepresent a car's condition, history, or features to get you to buy.",
+          "script": "Is this the exact car in the ad: same price, same condition, right now?",
+          "escalation": "Bait-and-switch and other deceptive conduct is a documented DTPA violation. You can sue for damages, legal fees, and in some cases additional penalties."
+        },
+        "OCC-2301": {
+          "title": "Dealer Disclosure & Licensing Code",
+          "citation": "Tex. Occ. Code ch. 2301",
+          "plain": "Texas does not give you an automatic right to cancel once you sign. This is confirmed directly by the Texas Attorney General's own buying guide. Dealers must still give you a written odometer disclosure and the federally required Buyer's Guide.",
+          "script": "Can I get the odometer disclosure and the Buyer's Guide before I sign anything?",
+          "escalation": "No odometer disclosure or no Buyer's Guide means the dealer is already out of compliance. File with the Texas DMV or Attorney General's consumer protection office."
+        }
+      },
+      "massachusetts": {
+        "MA-LEMON": {
+          "title": "Used Car Lemon Protection",
+          "citation": "Mass. Gen. Laws ch. 90, §7N½",
+          "plain": "Massachusetts' lemon law covers many new vehicles and also reaches used vehicles sold or leased while still within the original manufacturer warranty protection term, not just brand-new cars.",
+          "script": "Exactly when does the manufacturer's warranty protection period end on this car?",
+          "escalation": "If you're still within that protection window and the dealer denies coverage, file with the Massachusetts Attorney General's consumer office right away. Timing is everything."
+        },
+        "MA-AG": {
+          "title": "Where to File: AG / Consumer Affairs",
+          "citation": "Mass. Office of Consumer Affairs & Business Regulation",
+          "plain": "Massachusetts routes used car lemon and warranty disputes through the Attorney General's office and the Office of Consumer Affairs, separate from the federal FTC complaint system.",
+          "script": "If this turns into a dispute, will you participate in good faith with the Attorney General's consumer process?",
+          "escalation": "File with the Massachusetts AG or Office of Consumer Affairs promptly, and keep every dealer ad and repair order as evidence of timing."
+        }
+      },
+      "alaska": {
+        "AK-LEMON": {
+          "title": "New-Car-Only Lemon Law",
+          "citation": "Alaska Stat. §§45.45.300–45.45.360",
+          "plain": "Alaska's lemon law only protects new vehicle purchases. If you're buying used in Alaska, this specific law will not apply to you, no matter how serious the defect.",
+          "script": "If I'm buying used, is any manufacturer warranty still active on this car?",
+          "escalation": "For used cars in Alaska, you're relying on title law, the federal odometer rule, and the FTC Buyers Guide, not the state lemon law. Document everything anyway."
+        },
+        "AK-DISPUTE": {
+          "title": "Manufacturer Dispute Programs Can Be Mandatory",
+          "citation": "Alaska Dept. of Law",
+          "plain": "Alaska's lemon law process can require you to participate in an approved manufacturer dispute program before you're allowed to take the case to court.",
+          "script": "Do you have an approved informal dispute resolution program, and can I get that in writing?",
+          "escalation": "Send certified written notice to the manufacturer and keep proof. Alaska gives you only 60 days after the defect cutoff to do this."
+        }
+      },
+      "new jersey": {
+        "NJ-USEDCAR": {
+          "title": "Used Car Dealer Warranty Floor",
+          "citation": "NJ Used Car Lemon Law, Div. of Consumer Affairs",
+          "plain": "New Jersey requires dealers to provide a warranty on qualifying used cars sold for more than $3,000, that are seven model years old or newer, not declared a total loss, and have 100,000 miles or less.",
+          "script": "Does this car qualify for the New Jersey used car warranty: under 7 model years, under 100,000 miles, and not a total-loss title?",
+          "escalation": "If it qualifies and the dealer denies a warranty, file with the NJ Division of Consumer Affairs Lemon Law Unit right away."
+        },
+        "NJ-ASIS": {
+          "title": "“As Is” Has Real Limits",
+          "citation": "NJ Div. of Consumer Affairs",
+          "plain": "New Jersey's consumer affairs office specifically defines when an “as is” sale is allowed under the Used Car Lemon Law framework. It isn't an automatic shield for every used car sale.",
+          "script": "If this is being sold as is, can you show me in writing why this car doesn't qualify for the used car warranty?",
+          "escalation": "The NJ Lemon Law Unit handles both new and used car cases administratively. You don't necessarily need to go straight to court."
+        }
+      },
+      "new york": {
+        "NY-USEDCAR": {
+          "title": "Used Car Lemon Law",
+          "citation": "NY AG used-car lemon law fact sheet",
+          "plain": "New York requires a dealer written warranty on qualifying used car sales, and after a reasonable number of failed repair attempts, you can pursue state arbitration or a refund.",
+          "script": "Can I see the written warranty required under New York's used car lemon law before I buy?",
+          "escalation": "If repairs keep failing, New York has a binding state arbitration program. Use it instead of accepting an informal runaround from the dealer."
+        },
+        "NY-TIMING": {
+          "title": "Strict Mileage and Age Thresholds",
+          "citation": "NY AG new-car lemon law fact sheet",
+          "plain": "New York's lemon law thresholds are specific. Many protections key off of 18,000 miles or two years from the warranty start, with a four-repair or thirty-day-out-of-service presumption.",
+          "script": "What was this car's mileage and warranty start date, exactly?",
+          "escalation": "New York gives you up to four years from original delivery to file, but the clock and mileage thresholds matter immediately. Document the date of every repair attempt."
+        }
+      },
+      "connecticut": {
+        "CT-WARRANTY": {
+          "title": "Used Car Dealer Warranty by Price",
+          "citation": "Connecticut DMV used-car warranty bulletin",
+          "plain": "Connecticut requires dealers to give a warranty on qualifying used cars priced at least $3,000: 30 days or 1,500 miles for cars $3,000 to $5,000, and 60 days or 3,000 miles for cars above $5,000, subject to age limits.",
+          "script": "Which Connecticut warranty tier does this car fall into based on its price, and can I get that in writing?",
+          "escalation": "File quickly with the Connecticut DMV Consumer Complaint Center. These are time and mileage limited windows."
+        },
+        "CT-INSPECT": {
+          "title": "Pre-Sale Safety Inspection Required",
+          "citation": "Connecticut DMV",
+          "plain": "Connecticut dealers must complete a safety inspection before offering a used vehicle for retail sale.",
+          "script": "Can I see the completed pre-sale safety inspection form for this specific car?",
+          "escalation": "No inspection form is a red flag and a potential DMV complaint on its own, separate from any warranty dispute."
+        }
+      },
+      "maine": {
+        "ME-INFOACT": {
+          "title": "Used Car Information Act",
+          "citation": "Maine Used Car Information Act",
+          "plain": "Maine has its own Used Car Information Act with dealer disclosure and inspection-related duties. Maine is exempt from the federal FTC Buyers Guide rule because of this state system.",
+          "script": "Can I see the Maine Buyers Guide for this car, separate from any federal paperwork?",
+          "escalation": "Photograph the Maine Buyers Guide before you sign. It is the document-driven backbone of your protection in Maine."
+        },
+        "ME-INSPECTION": {
+          "title": "Inspection Sticker Requirement",
+          "citation": "Maine SOS/BMV used-car guide",
+          "plain": "Most Maine dealer-sold used cars must carry a valid inspection sticker issued within the prior 60 days, or otherwise meet a warranty-of-inspectability standard.",
+          "script": "When was this car's current inspection sticker issued?",
+          "escalation": "An inspection sticker older than 60 days, or missing entirely, is something to raise with the dealer immediately, before you sign anything."
+        }
+      },
+      "wisconsin": {
+        "WI-BUYERSGUIDE": {
+          "title": "Wisconsin Buyers Guide System",
+          "citation": "Wisconsin Admin. Code Trans 139",
+          "plain": "Wisconsin's lemon law excludes previously owned vehicles entirely, but Wisconsin has its own detailed, mandatory used-car Buyers Guide system that's stricter than the federal version it replaces.",
+          "script": "Can I see the Wisconsin Buyers Guide for this car, and has any rebuilt or salvage history been disclosed on it?",
+          "escalation": "Photograph the Wisconsin Buyers Guide before signing. Since the lemon law doesn't cover used cars here, this document is effectively your main protection."
+        },
+        "WI-ASIS": {
+          "title": "Strict Rules on “As Is” Language",
+          "citation": "Wisconsin DOT consumer guidance",
+          "plain": "Wisconsin has strict formatting rules for any “AS IS, NO WARRANTY” language, and a written-warranty delivery rule applies whenever a sale is made subject to warranty.",
+          "script": "If this is sold as is, can you show me that the as-is disclosure follows Wisconsin's required format?",
+          "escalation": "Improperly formatted as-is language can itself be a basis for a complaint to the Wisconsin DOT or DOJ."
+        }
+      }
+    },
+    "direction": {
+      "alabama": "Alabama's lemon law covers new vehicles only.",
+      "arizona": "Arizona's lemon law appears to extend some coverage to used vehicles.",
+      "arkansas": "Arkansas's lemon law is focused on new vehicles, with notably strong salvage-title disclosure rules.",
+      "colorado": "Colorado's lemon law appears to cover some used vehicles, but excludes leased ones.",
+      "delaware": "Delaware's lemon law appears to extend coverage to used vehicles.",
+      "florida": "Florida's lemon law covers new and leased cars and trucks, with a structured state lemon process.",
+      "georgia": "Georgia's lemon law covers new vehicles only.",
+      "hawaii": "Hawaii's lemon law appears to extend coverage to used vehicles.",
+      "idaho": "Idaho's lemon law appears to extend coverage to used vehicles.",
+      "illinois": "Illinois's lemon law covers new vehicles only.",
+      "indiana": "Indiana's lemon law covers vehicles purchased, leased, or transferred within the state.",
+      "iowa": "Iowa's lemon law covers new or previously untitled vehicles, including some leased vehicles.",
+      "kansas": "Kansas's lemon law covers new vehicles only, per state guidance.",
+      "kentucky": "Kentucky's lemon law covers new vehicles only.",
+      "louisiana": "Louisiana's lemon law appears to extend coverage to used vehicles.",
+      "maryland": "Maryland's lemon law covers specific registered vehicle classes, mostly newer vehicles.",
+      "michigan": "Michigan's lemon law covers new vehicles and used vehicles transferred while still under the manufacturer's warranty.",
+      "minnesota": "Minnesota's lemon law extends coverage to used vehicles.",
+      "mississippi": "Mississippi's lemon law appears to extend coverage to used and lease-purchase vehicles.",
+      "missouri": "Missouri's lemon law covers new vehicles only.",
+      "nebraska": "Nebraska's lemon law covers new vehicles, with guidance suggesting some vehicles under two years old may also qualify.",
+      "nevada": "Nevada's lemon law appears to extend coverage to used vehicles.",
+      "new hampshire": "New Hampshire's lemon law covers used vehicles only if still under the manufacturer's original warranty.",
+      "new mexico": "New Mexico's lemon law covers passenger vehicles sold and registered in the state.",
+      "north carolina": "North Carolina's lemon law covers new vehicles only.",
+      "north dakota": "North Dakota's lemon law appears to extend coverage to used vehicles.",
+      "ohio": "Ohio's lemon law covers new and leased vehicles.",
+      "oklahoma": "Oklahoma's lemon law covers most vehicles registered in the state, subject to weight limits.",
+      "oregon": "Oregon's lemon law appears to extend coverage to used vehicles.",
+      "pennsylvania": "Pennsylvania's lemon law covers new vehicles only.",
+      "rhode island": "Rhode Island's lemon law extends coverage to used vehicles.",
+      "south carolina": "South Carolina's lemon law covers new vehicles only.",
+      "south dakota": "South Dakota's lemon law appears to extend coverage to used vehicles.",
+      "tennessee": "Tennessee's lemon law covers passenger vehicles sold in the state.",
+      "utah": "Utah's lemon law covers highway vehicles sold in the state, including motorcycles.",
+      "vermont": "Vermont's lemon law covers passenger vehicles purchased, leased, or registered in the state.",
+      "virginia": "Virginia's lemon law covers motor vehicles under its lemon-law framework.",
+      "washington": "Washington's lemon law covers new vehicles, with a prominent state-run arbitration process.",
+      "west virginia": "West Virginia's lemon law covers passenger vehicles and some trucks and vans.",
+      "wyoming": "Wyoming's lemon law covers vehicles under 10,000 pounds sold or registered in the state."
+    },
+    "fallback": {
+      "summary": "Based on a 50-state legal summary: {direction}",
+      "unknown": "We have not yet researched {state} specifically.",
+      "cooling": {
+        "title": "No Automatic Right to Cancel",
+        "citation": "16 CFR Part 429, FTC Cooling-Off Rule",
+        "plain": "The FTC's Cooling-Off Rule gives buyers three days to cancel certain purchases, but it explicitly excludes cars sold at a dealer's permanent location. Once you sign, the deal is final unless the dealer agrees in writing to something more.",
+        "script": "Will you put a cancellation window into the contract, in writing, before I sign?",
+        "escalation": "Don't assume a “cooling-off period” exists by default. Federal law specifically carves cars out of it. If you want an exit, negotiate it into the contract before signing, not after."
+      },
+      "comingSoon": {
+        "title": "State-Specific Laws Coming Soon",
+        "plain": "{direction} Exact statute section numbers have not been independently verified for {state}, so treat this as a starting point, not legal advice. The five federal protections already apply to you regardless of state.",
+        "script": "Does {state} have its own cooling-off period, interest rate cap, or add-on disclosure rule?",
+        "escalation": "Search \"{state} lemon law\" and \"{state} used car dealer warranty\" on your state Attorney General's website before you sign anything."
+      }
+    }
+  },
   "eventsPage": {
     "preview": "Private preview: only admins can see this page.",
     "hero": {
@@ -2276,7 +2523,8 @@
       "emailError": "Add a valid email address.",
       "schoolError": "Choose your school or affiliation.",
       "error": "That didn't go through. Try again in a minute.",
-      "closed": "RSVPs for this event are closed."
+      "closed": "RSVPs for this event are closed.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again."
     },
     "done": {
       "title": "You're in!",
@@ -2293,6 +2541,22 @@
       "online": "Online",
       "inPerson": "In person",
       "rsvp": "RSVP"
+    },
+    "email": {
+      "confirmSubject": "You're in: {title} · {when}",
+      "reminderSubject": "Reminder: {title} · {when}",
+      "hi": "Hi {name},",
+      "confirmBody": "Thanks for your RSVP! You're signed up for {title}. It's free, and it's also in the calendar file attached to this email.",
+      "reminderBody": "Just a reminder: {title} is coming up on {when}.",
+      "join": "Join on Zoom: {link}",
+      "linkLater": "We'll email you the Zoom link before the event.",
+      "inPerson": "It's in person at {address}.",
+      "when": "When",
+      "where": "Where",
+      "host": "Host",
+      "zoomLink": "Zoom link",
+      "details": "Event details: {link}",
+      "signoff": "VINdicated"
     }
   }
 }

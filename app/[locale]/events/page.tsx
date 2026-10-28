@@ -27,7 +27,7 @@ export default async function EventsPage({ params }: { params: Promise<{ locale:
   if (!isPublic && !eventsAdmin(await headers())) notFound();
 
   const d = (await getDictionary(locale as Locale)).eventsPage;
-  const events: ShownEvent[] = (await listPublicEvents().catch((e) => {
+  const events: ShownEvent[] = (await listPublicEvents(locale).catch((e) => {
     console.error("[events] Couldn't load events:", e instanceof Error ? e.message : e);
     return [];
   })).map((e) => ({ ...e, ...eventLabels(e, locale) }));

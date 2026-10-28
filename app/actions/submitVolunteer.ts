@@ -1,6 +1,11 @@
 "use server";
 
 import { sendEmail } from "@/lib/brevo";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { isValidLocale, type Locale } from "@/lib/i18n/config";
+
+const esc = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 import { isBot, rateLimiter } from "@/lib/spam-guard";
 
 interface VolunteerFormData {
@@ -15,6 +20,8 @@ interface VolunteerFormData {
   why: string;
   student: string;
   resume?: { filename: string; base64: string };
+  // The role as the visitor saw it, for their confirmation email.
+  roleLabel?: string;
   // Hidden honeypot field; real visitors leave it blank. Named to look
   // like an ordinary form field so it isn't obviously a trap.
   company?: string;
@@ -40,20 +47,25 @@ const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
   ],
 };
 
-export async function submitVolunteerApplication(data: VolunteerFormData) {
+// Returns a result code; the form shows the matching message in the
+// visitor's language. Their confirmation email is in that language too.
+export async function submitVolunteerApplication(
+  data: VolunteerFormData,
+  locale = "en",
+): Promise<{ success: boolean; code: "sent" | "missing" | "tooMany" | "failed" }> {
   try {
     if (!data.name || !data.email || !data.role) {
-      return { success: false, message: "Name, email, and role are required." };
+      return { success: false, code: "missing" };
     }
 
     // Bots fill in the honeypot. Report success without sending anything,
     // so the bot has no signal that it was caught.
     if (isBot(data.company ?? "")) {
-      return { success: true, message: "Your application has been submitted successfully! Check your inbox for a confirmation email." };
+      return { success: true, code: "sent" };
     }
 
     if (await limited("volunteer")) {
-      return { success: false, message: "Too many applications from here. Please wait a few minutes and try again." };
+      return { success: false, code: "tooMany" };
     }
 
     // Falls back to the UCLA chapter leads for any unrecognized chapter
@@ -99,23 +111,29 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
       `,
     });
 
+    const e = (await getDictionary((isValidLocale(locale) ? locale : "en") as Locale)).joinPage.emails;
+    const first = data.name.split(" ")[0] || e.friend;
+    // Some languages leave `friend` empty and just drop the name.
+    const hi = first ? e.hi.replace("{name}", first) : e.hi.replace(/[\s,،]*\{name\}/, "");
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [{ email: data.email, name: data.name }],
-      subject: "We've received your volunteer application - VINdicated",
+      subject: e.apply.subject,
       htmlContent: `
-        <p>Hi ${data.name.split(" ")[0] || "there"},</p>
-        <p>Thank you for your interest in volunteering with VINdicated! We have received your application for the <strong>${data.role}</strong> role and will review it shortly.</p>
-        <p>We'll be in touch within a few days.</p>
+        <div dir="${locale === "fa" || locale === "ar-EG" ? "rtl" : "ltr"}">
+        <p>${esc(hi)}</p>
+        <p>${esc(e.apply.body).replace("{role}", `<strong>${esc(data.roleLabel || data.role)}</strong>`)}</p>
+        <p>${esc(e.apply.next)}</p>
         <br>
-        <p>Best regards,</p>
-        <p>The VINdicated Team</p>
+        <p>${esc(e.signoff)}</p>
+        <p>${esc(e.team)}</p>
+        </div>
       `,
     });
 
-    return { success: true, message: "Your application has been submitted successfully! Check your inbox for a confirmation email." };
+    return { success: true, code: "sent" };
   } catch (error) {
     console.error("Error submitting volunteer application:", error);
-    return { success: false, message: "Failed to submit application. Please try again or email us directly at getvindicated@outlook.com." };
+    return { success: false, code: "failed" };
   }
 }

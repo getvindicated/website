@@ -1,366 +1,2562 @@
 {
   "nav": {
     "home": "Home",
-    "about": "Tungkol Sa Amin",
+    "about": "Tungkol sa Amin",
     "aboutWhoWeAre": "Sino Kami",
-    "aboutMission": "Aming Misyon",
+    "aboutMission": "Ang Aming Misyon",
     "aboutFounder": "Mula sa Founder",
-    "aboutProvides": "Ano ang Ibinibigay Namin",
+    "aboutProvides": "Ano ang Inaalok Namin",
     "team": "Team",
-    "inspection": "Gabay sa Inspeksyon",
-    "inspectionPpi": "Ano ang PPI?",
-    "inspectionEngine": "Diagram ng Makina",
-    "inspectionChecks": "Ano ang Tinitingnan ng Inspector",
-    "inspectionWhere": "Saan Kumuha Nito",
-    "inspectionDealership": "Maghanap ng Dealership",
-    "fraud": "Pag-iwas sa Panloloko",
-    "fraudOverview": "Overview",
-    "fraudRedFlags": "Mga Red Flag",
-    "fraudRights": "Alamin ang Iyong Karapatan",
-    "fraudAfter": "Ano ang Gagawin Pagkatapos",
-    "documents": "Mga Dokumentong Ipinaliwanag",
+    "events": "Mga Event",
+    "inspection": "Gabay sa Pag-inspect",
+    "fraud": "Iwas-Scam",
+    "documents": "Mga Dokumento, Ipinaliwanag",
     "volunteer": "Mag-volunteer",
-    "research": "Pananaliksik",
-    "contact": "Makipag-ugnayan",
-    "learningResources": "Mga Learning Resource",
-    "getInvolved": "Sumali"
+    "research": "Research",
+    "contact": "Kontakin Kami",
+    "learningResources": "Mga Matututunan",
+    "getInvolved": "Sumali",
+    "projects": "Mga Project",
+    "dealerMap": "Mapa ng mga Dealer"
   },
   "ui": {
     "openMenu": "Buksan ang menu",
     "closeMenu": "Isara ang menu",
-    "expandSection": "Palawakin ang {label}",
-    "languageSwitcher": "Palitan ang wika"
+    "languageSwitcher": "Palitan ang wika",
+    "homeLabel": "Home ng VINdicated"
+  },
+  "notFound": {
+    "title": "Walang ganitong page",
+    "body": "Sorry, hindi namin makita ang page na 'yan. Baka nailipat na, o mali ang link.",
+    "home": "Bumalik sa home page"
   },
   "footer": {
-    "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
-    "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
-    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
-    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto.",
     "columns": {
-      "navigate": "Mag-navigate",
       "resources": "Mga Resource",
-      "connect": "Kumonekta"
+      "connect": "I-follow Kami",
+      "organization": "Organisasyon"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "instagram": "Instagram",
-      "getInTouch": "Makipag-ugnayan"
-    }
+      "getInTouch": "Kontakin Kami",
+      "aboutUs": "Tungkol sa Amin",
+      "instagramUcla": "Instagram · UCLA",
+      "instagramBerkeley": "Instagram · UC Berkeley",
+      "instagramUcsc": "Instagram · UC Santa Cruz"
+    },
+    "about": "Ang VINdicated ay isang nonprofit na pinapatakbo ng mga estudyante para ipagtanggol ang mga consumer. Ibinabahagi namin sa lahat ang kaalaman tungkol sa kotse sa pamamagitan ng libreng gabay, mga workshop sa komunidad, at research ng mga estudyante, para walang maloko sa pagbili, pag-loan, o pagpapaayos ng kotse.",
+    "rights": "© 2026 VINdicated. Lahat ng karapatan ay nakalaan.",
+    "founded": "Itinatag ni Rana Darwich."
   },
   "meta": {
-    "defaultTitle": "VINdicated | Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
-    "defaultDescription": "Ang VINdicated ay isang nonprofit na naniniwalang dapat pampubliko ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa mga konsumer.",
+    "defaultTitle": "VINdicated | Matuto. Lumakas ang loob. Ipaglaban ang tama.",
+    "defaultDescription": "Ang VINdicated ay isang nonprofit na naniniwalang dapat alam ng lahat ang tungkol sa kotse. Ipinapaliwanag namin ang mga sistemang nagpapahintulot na madiskrimina ang mga buyer.",
     "routes": {
       "home": {
-        "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
-        "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan.",
+        "title": "Matuto. Lumakas ang loob. Ipaglaban ang tama.",
+        "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa'yo na makabili ng kotse nang hindi naloloko. Libreng gabay, research, at impormasyon tungkol sa mga karapatan mo.",
         "imageAlt": "VINdicated"
       },
       "about": {
-        "title": "Tungkol Sa Amin",
-        "description": "Itinatag ni Rana Darwich ang VINdicated matapos niyang maranasan mismo ang diskriminasyon sa dealership. Alamin ang aming misyong turuan, bigyang-kapangyarihan, at ipagtanggol ang mga bumibili ng kotse.",
-        "imageAlt": "VINdicated: Tungkol Sa Amin"
+        "title": "Tungkol sa Amin",
+        "description": "Itinatag ni Rana Darwich ang VINdicated matapos siyang madiskrimina habang bumibili ng kotse. Basahin kung paano ito nagsimula at kung ano ang ginagawa namin.",
+        "imageAlt": "VINdicated: Tungkol sa Amin"
       },
       "team": {
-        "title": "Aming Team",
-        "description": "Kilalanin ang mga tao sa likod ng VINdicated: mga advocate, researcher, at estudyanteng lumalaban sa diskriminasyon sa dealership.",
-        "imageAlt": "VINdicated: Aming Team"
+        "title": "Ang Aming Team",
+        "description": "Kilalanin ang mga tao sa likod ng VINdicated: mga advocate, researcher, at estudyanteng lumalaban sa diskriminasyon sa mga dealership.",
+        "imageAlt": "VINdicated: Ang Aming Team"
       },
       "inspection": {
-        "title": "Gabay sa Inspeksyon",
-        "description": "Sunud-sunod na gabay sa pag-inspeksyon ng used car bago bumili. Alamin kung ano ang dapat tingnan sa makina, sa lot, at sa papeles.",
-        "imageAlt": "VINdicated: Gabay sa Inspeksyon"
+        "title": "Gabay sa Pag-inspect",
+        "description": "Step-by-step na gabay sa pag-inspect ng second-hand na kotse bago mo bilhin. Alamin kung ano ang titingnan sa ilalim ng hood, sa lote, at sa mga papeles.",
+        "imageAlt": "VINdicated: Gabay sa Pag-inspect"
       },
       "fraud": {
-        "title": "Pag-iwas sa Panloloko",
-        "description": "Matutong kumilala at sumagot sa karaniwang panloloko ng dealer. Alamin ang mga red flag, legal na karapatan, at gagawin kung naloko ka.",
-        "imageAlt": "VINdicated: Pag-iwas sa Panloloko"
+        "title": "Iwas-Scam",
+        "description": "Matutong kilalanin at labanan ang mga karaniwang scam ng dealer. Alamin ang mga red flag, ang mga karapatan mo sa ilalim ng batas ng California at federal, at ano ang gagawin kung na-scam ka na.",
+        "imageAlt": "VINdicated: Iwas-Scam"
       },
       "documents": {
-        "title": "Mga Dokumentong Ipinaliwanag",
-        "description": "Mga interactive na gabay para maintindihan ang papeles sa pagbili ng kotse: pink slip, Carfax reports, financing contracts, at iba pa. Alamin ang pinipirmahan mo bago pumirma.",
-        "imageAlt": "VINdicated: Mga Dokumentong Ipinaliwanag"
+        "title": "Mga Dokumento, Ipinaliwanag",
+        "description": "Interactive na gabay para maintindihan ang mga papeles sa pagbili ng kotse: ang pink slip (titulo ng kotse), mga Carfax report, mga financing contract, at iba pa. Alamin kung ano ang pinipirmahan mo bago ka pumirma.",
+        "imageAlt": "VINdicated: Mga Dokumento, Ipinaliwanag"
       },
       "research": {
-        "title": "Pananaliksik",
-        "description": "Gumagawa ang VINdicated ng correspondence audit studies na nagdodokumento ng gender at racial pricing disparities sa car dealerships. Basahin ang aming findings at methodology.",
-        "imageAlt": "VINdicated: Pananaliksik"
+        "title": "Mga Project",
+        "description": "Labing-isang project ng mga estudyante sa apat na team: apps, data tools, research, at content na tumutulong sa mga tao na bumili, mag-finance, at magpaayos ng kotse nang hindi naloloko.",
+        "imageAlt": "VINdicated: Mga Project"
+      },
+      "join": {
+        "title": "Sumali",
+        "description": "Sumali sa VINdicated: mag-volunteer sa team namin, ikuwento ang karanasan mo, sumali sa research, o makipag-partner sa amin.",
+        "imageAlt": "VINdicated: Sumali"
       },
       "rights": {
-        "title": "Alamin ang Iyong Karapatan",
-        "description": "Alamin ang legal na karapatan mo bilang bumibili ng kotse. Pinoprotektahan ka ng federal at California laws laban sa diskriminasyon at mapanlinlang na gawain sa dealership.",
-        "imageAlt": "VINdicated: Alamin ang Iyong Karapatan"
+        "title": "Alamin ang Karapatan Mo",
+        "description": "Alamin ang mga legal na karapatan mo bilang buyer ng kotse. Pinoprotektahan ka ng mga batas federal at ng California laban sa diskriminasyon at panloloko sa mga dealership.",
+        "imageAlt": "VINdicated: Alamin ang Karapatan Mo"
       },
       "contact": {
-        "title": "Makipag-ugnayan",
-        "description": "Makipag-ugnayan sa VINdicated: mag-volunteer, ibahagi ang iyong kuwento, lumahok sa pananaliksik, o makipag-partner sa amin.",
-        "imageAlt": "VINdicated: Makipag-ugnayan"
+        "title": "Kontakin Kami",
+        "description": "Kontakin ang VINdicated: mag-volunteer sa team namin, ikuwento ang karanasan mo, sumali sa research, o makipag-partner sa amin.",
+        "imageAlt": "VINdicated: Kontakin Kami"
       },
       "volunteer": {
         "title": "Mag-volunteer",
-        "description": "Mag-apply para sumali sa VINdicated bilang student volunteer, researcher, engineer, designer, o outreach contributor.",
+        "description": "Mag-apply para sumali sa VINdicated bilang student volunteer, researcher, engineer, designer, o tumulong sa outreach sa komunidad.",
         "imageAlt": "VINdicated: Mag-volunteer"
+      },
+      "map": {
+        "title": "Mapa ng mga Dealer",
+        "description": "Satellite map ng 100 dealership sa Westside ng LA at kung ano ang sinasabi ng mga public review nila, gaya ng pamimilit at mga biglaang dagdag-singil.",
+        "imageAlt": "VINdicated: Mapa ng mga Dealer"
+      },
+      "mapMethods": {
+        "title": "Paano Namin Ginawa ang Mapa ng mga Dealer",
+        "description": "Saan galing ang impormasyon sa mapa, paano inayos ng isang AI model ang mga review, paano gumagana ang mga level, at ano ang hindi masasabi sa'yo ng mapa.",
+        "imageAlt": "VINdicated: Paano namin ginawa ang Mapa ng mga Dealer"
+      },
+      "events": {
+        "title": "Mga Event",
+        "description": "Libreng workshop at meetup ng VINdicated tungkol sa pagbili, pagpapaayos, at pagbabayad ng kotse.",
+        "imageAlt": "VINdicated: Mga Event"
       }
     }
   },
   "home": {
-    "hero": {
-      "titleLine1": "Karapat-dapat Kang",
-      "titleLine2": "Bumili ng Kotse",
-      "titleEm": "Nang Walang Takot.",
-      "subtitle": "Itinatag ang VINdicated sa paniniwalang dapat maging pampublikong kaalaman ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa konsumer sa pamamagitan ng edukasyon, pananaliksik, at komunidad.",
-      "ctaPrimary": "Kunin ang PPI Guide",
-      "ctaSecondary": "Aming Kuwento",
-      "stats": [
-        {
-          "label": "na dagdag na sinisingil sa Black male buyers kumpara sa white male buyers, kahit parehong kotse at parehong script",
-          "cite": "Ayres & Siegelman, 1995"
-        },
-        {
-          "label": "ng Gen Z women ang nadidiscourage pumunta sa dealership dahil sa gender discrimination",
-          "cite": "Morning Consult / Caribou, 2022"
-        },
-        {
-          "label": "ng non-white testers ang binigyan ng mas masamang presyo sa dealership kumpara sa white testers",
-          "cite": "National Fair Housing Alliance, 2018"
-        },
-        {
-          "label": "na mas mahabang negosasyon ang naranasan ng minority buyers, kahit parehong kotse at parehong presyo",
-          "cite": "Ayres & Siegelman, 1995"
-        }
-      ]
-    },
-    "cards": {
-      "titlePrefix": "Dalawang haligi ng",
-      "titleEm": "automotive justice.",
-      "pillars": [
-        {
-          "kicker": "Edukasyon",
-          "title": "Gabay sa Pre-Purchase Inspection",
-          "body": "Sunud-sunod na walkthrough ng lahat ng dapat mong tingnan, itanong, at i-verify bago maglabas ng pera. Isinulat para sa first-time buyers.",
-          "label": "Basahin ang Gabay"
-        },
-        {
-          "kicker": "Proteksyon",
-          "title": "Pag-iwas sa Panloloko",
-          "body": "Tunay na taktika laban sa buyers, pinangalanan, ipinaliwanag, at sinagot. Alamin kung ano mismo ang sasabihin kapag pine-pressure ka ng dealer.",
-          "label": "Tingnan ang Red Flags"
-        }
-      ]
-    },
-    "quote": {
-      "text": "Bakit dapat panatilihin sa kamangmangan ang babae sa ilalim ng mapanlinlang na pangalan ng inosensiya?",
-      "cite": "Mary Wollstonecraft",
-      "source": "A Vindication of the Rights of Woman (1792)"
-    },
-    "founder": {
-      "titleLine1": "Itinatag sa edad 19.",
-      "titleEm": "Dahil kailangan.",
-      "body1": "Tatlong strike sa tatlong magkakaibang dealership ang nagpakita sa akin ng parehong bagay: dinisenyo ang sistema para lituhin ka, madaliin ka, at pagkakitaan ang hindi mo alam.",
-      "body2Prefix": "Umiiral ang VINdicated dahil ",
-      "body2Bold": "sana mayroon na nito para sa akin noon.",
-      "cta": "Basahin ang Buong Kuwento ni Rana"
-    },
     "meta": {
-      "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
-      "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
+      "title": "Matuto. Lumakas ang loob. Ipaglaban ang tama.",
+      "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa'yo na makabili ng kotse nang hindi naloloko. Libreng gabay, research, at impormasyon tungkol sa mga karapatan mo."
     }
   },
-  "about": {
+  "homePage": {
     "hero": {
-      "titlePlain": "Itinatag sa paniniwalang ang kaalaman tungkol sa sasakyan",
-      "titleEm": "ay dapat maging pampublikong kaalaman.",
-      "subtitle": "Umiiral ang VINdicated dahil hindi kami naniniwalang kailangang magsama ng lalaki ang babae para lang makabili ng kotse nang ligtas."
+      "titleLead": "Sa VINdicated, kaya mo nang",
+      "phrases": [
+        "pumasok nang mag-isa.",
+        "makilala ang pekeng listing.",
+        "basahin ang kontrata.",
+        "itanong ang mga tamang tanong.",
+        "umalis kung hindi tama."
+      ],
+      "body": "Karamihan ng tao bumibili ng kotse nang walang basic na kaalaman tungkol dito. Ang maglabas ng ganoon kalaking pera nang hindi alam kung magkano talaga ang halaga nito ay puwedeng makasira sa finances mo. Kaya ipinapaliwanag namin ang lahat sa simpleng salita, nang libre.",
+      "ctaPrimary": "Kunin ang PPI Guide",
+      "ctaSecondary": "Ang kuwento namin",
+      "photoAlt": "Ang UC Berkeley chapter ng VINdicated na magkakasama sa damuhan sa harap ng Doe Library, at nasa likod nila ang Campanile"
     },
-    "whyWeExist": {
-      "titleLine1": "Ang diskriminasyon",
-      "titleEm": "ay masusukat.",
-      "titleLine2": "Totoo ang pinsala.",
-      "para1": [
+    "publicKnowledge": {
+      "title": "Ang kaalaman sa kotse ay dapat alam ng lahat.",
+      "body": [
+        "Nangyayari ito sa mga first-time buyer at pati sa mga nakabili na ng sampung kotse. Kapag may alam ka, may tiwala ka sa sarili; at kapag may tiwala ka sa sarili, hindi ka basta maloloko. Gumawa kami ng mga checklist sa pag-inspect, paliwanag tungkol sa financing, at mga sasabihin mo kapag pinipilit ka ng salesperson, para alam mo kung ano ang pinapayagan mo. Gusto naming ",
         {
-          "text": "Natuklasan ng pananaliksik nina Ian Ayres at Peter Siegelman na "
+          "b": "may tiwala ka sa sarili at alam mo ang lahat"
+        },
+        "."
+      ],
+      "cta": "Tingnan ang mga karaniwang scam"
+    },
+    "footing": {
+      "title": "Hindi ka dapat magbayad nang mas mahal dahil sa kung sino ka. Sa California, bawal 'yan sa batas.",
+      "quote": "“Lahat ng tao sa loob ng hurisdiksyon ng estadong ito ay malaya at pantay-pantay, at anuman ang kanilang kasarian, lahi, kulay, relihiyon, ninuno, pinagmulang bansa… ay may karapatan sa buo at pantay na akomodasyon, benepisyo, pasilidad, pribilehiyo, o serbisyo sa lahat ng uri ng negosyo.”",
+      "quoteCite": "Unruh Civil Rights Act (batas ng California laban sa diskriminasyon), Cal. Civ. Code § 51",
+      "body": "Ipinapakita ng mga pag-aaral na iba-iba ang presyong sinasabi ng mga dealer sa iba't ibang tao. Mas magaling na rin ang mga gamit ng mga scammer ngayon.",
+      "rows": [
+        {
+          "stat": "$1,100",
+          "title": "Mas mahal nang $1,100 ang presyong sinabi sa mga Black na lalaki para sa parehong kotse.",
+          "body": "Ang mga Black na lalaking buyer ay sinabihan ng presyong mas mataas nang $1,100 sa average kumpara sa mga puting lalaki, para sa parehong kotse at gamit ang parehong paraan ng pagtawad. Ang mga Black na babae ay sinabihan ng $410 na mas mataas kaysa sa mga puting lalaki, at ang mga puting babae ay $92 na mas mataas.",
+          "cite": "Ayres & Siegelman, The American Economic Review, 1995"
         },
         {
-          "text": "ang mga Black male buyer ay sinisingil ng average na $1,100 na mas mataas",
-          "bold": true
+          "stat": "$36,240",
+          "title": "May buyer na nag-loan para sa truck na hindi pala totoo.",
+          "body": "Isang maingat na buyer ang nakakita ng truck na tama ang presyo sa Facebook Marketplace, mula sa mukhang totoong dealer sa Texas. Maayos ang mga papeles at ang approval ng bangko, at may tracker pang nagpapakitang papunta na ang truck. Peke pala ang dealer, kopya ng totoong dealer na ginawa gamit ang AI, at hindi totoo ang truck.",
+          "cite": "The Drive, Setyembre 2026"
         },
         {
-          "text": " kumpara sa white male buyers para sa parehong kotse, kahit gumagamit ng eksaktong parehong bargaining script. Sinisingil ang Black women ng $410 na mas mataas kumpara sa white men. Sinisingil naman ang white women ng $92 na mas mataas."
+          "stat": "13%",
+          "title": "Mas matagal tumawad ang mga minority buyer, pero mas pangit pa rin ang presyong nakuha nila.",
+          "body": "13% na mas matagal nakipagtawaran ang mga dealer sa mga minority tester, at may sinabing racist o sexist na komento sa 4% ng mga test visit. Sa isa pang pag-aaral, 63% ng mga hindi puting tester ang binigyan ng mas pangit na presyo kaysa sa mga puting tester.",
+          "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
+        }
+      ]
+    },
+    "chapters": {
+      "title": "Hanapin kami sa campus.",
+      "body": "May chapter kami sa UCLA, UC Berkeley, at UC Santa Cruz. Hanapin ang sa'yo at pumunta sa isang meeting.",
+      "items": [
+        {
+          "tag": "UCLA",
+          "title": "Umakyat sa Janss Steps",
+          "body": "Ang unang chapter namin. Sila ang gumagawa ng mapa ng mga delikadong dealership at nangunguna sa pangunahing research at data work ng VINdicated.",
+          "cta": "Sumali sa UCLA",
+          "alt": "Royce Hall sa UCLA"
+        },
+        {
+          "tag": "UC Berkeley",
+          "title": "Pumunta sa Sproul",
+          "body": "Nagdadagdag pa ng members ngayon, at nakatutok sa pagtuturo sa mga consumer at outreach sa campus.",
+          "cta": "Sumali sa Berkeley",
+          "alt": "Sather Tower, ang Campanile, sa UC Berkeley"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "title": "Pumunta sa Quarry Amphitheater",
+          "body": "Nakatutok sa technical na bahagi ng consumer protection, at pinag-aaralan ang diskriminasyon ng mga algorithm at AI sa pagbebenta ng kotse.",
+          "cta": "Sumali sa UCSC",
+          "alt": "Ang Quarry Amphitheater sa UC Santa Cruz, napapalibutan ng mga redwood"
+        }
+      ]
+    },
+    "follow": {
+      "title": "I-follow ang VINdicated.",
+      "body": "Nagpo-post kami ng mga petsa ng tabling namin, mga bagong gabay, at mga scam na ikinukuwento sa amin ng mga tao.",
+      "links": [
+        {
+          "platform": "LinkedIn · Lahat ng chapter",
+          "handle": "VINdicated"
+        },
+        {
+          "platform": "Instagram · UCLA",
+          "handle": "@vindicatedbruins"
+        },
+        {
+          "platform": "Instagram · UC Berkeley",
+          "handle": "@ucb_vindicated"
+        },
+        {
+          "platform": "Instagram · UC Santa Cruz",
+          "handle": "@ucsc_vindicated"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "Magsimula sa dalawang gabay na ito.",
+      "body": "Libreng gabay na puwede mong buksan habang nasa dealership ka.",
+      "items": [
+        {
+          "title": "Gabay sa Pre-Purchase Inspection",
+          "body": "Ano ang dapat i-check at itanong bago ka magbayad ng kahit ano. Para sa mga first-time buyer."
+        },
+        {
+          "title": "Iwas-Scam",
+          "body": "Mga karaniwang diskarte ng dealer, at ano ang isasagot mo."
+        }
+      ]
+    },
+    "free": {
+      "title": "Libre ang lahat ng ginagawa namin.",
+      "body": "Hindi mo kailangan ng account, at wala kaming ibinebenta.",
+      "planTitle": "Para sa bawat buyer",
+      "price": "$0",
+      "checks": [
+        "Gabay sa pre-purchase inspection",
+        "Mga checklist ng red flag",
+        "Mga sasabihin mo kapag pinipilit ka",
+        "Paliwanag tungkol sa financing",
+        "Mga dokumento, ipinaliwanag",
+        "Impormasyon tungkol sa mga karapatan mo"
+      ],
+      "offers": [
+        {
+          "title": "Libreng workshop tungkol sa kotse",
+          "body": "Mga session sa komunidad tungkol sa financing, pagpapaayos, at mga legal na karapatan mo sa dealership."
+        },
+        {
+          "title": "Mga mekanikong mapagkakatiwalaan",
+          "body": "Mga mekanikong nasubukan na at pinagkakatiwalaan ng mga member namin."
+        },
+        {
+          "title": "Mga online na resource at gabay",
+          "body": "Step-by-step na gabay para sa mga first-time buyer."
+        },
+        {
+          "title": "Mga research project ng estudyante",
+          "body": "Mga team na nag-aaral tungkol sa access sa wika, paraan ng pagbebenta, at consumer law ng California."
+        }
+      ]
+    },
+    "ppi": {
+      "title": "Bibili ng second-hand na kotse? Magpa-PPI muna.",
+      "body": [
+        "Ang ",
+        {
+          "b": "pre-purchase inspection (PPI), o pagpapa-check bago bumili,"
+        },
+        " ay kapag nagbayad ka ng independent na mekaniko, hindi ang seller o ang dealership, para i-check ang kotse bago mo bilhin. Nakikita nila ang mga problemang hindi lalabas sa test drive."
+      ],
+      "items": [
+        {
+          "title": "Ano ang chine-check nila",
+          "body": "Ang makina, transmission, preno, suspension, at frame, pati mga tagas, kalawang, at senyales na naaksidente na ito dati."
+        },
+        {
+          "title": "Magkano",
+          "body": "Kadalasan $100–$200, at may mga AAA (samahan ng mga motorista) na branch na libre o may discount para sa members. Isang nakatagong problema lang, puwede ka nang gumastos ng libu-libo."
+        },
+        {
+          "title": "Saan pupunta",
+          "body": "Isang mekanikong pinagkakatiwalaan mo, isang mobile inspection service, o isang dealership ng parehong brand ng kotse na hindi siyang nagbebenta nito."
+        },
+        {
+          "title": "Ano ang makukuha mo",
+          "body": "Isang nakasulat na report na magagamit mo para tumawad, o magandang dahilan para hindi na bumili."
         }
       ],
-      "para2": [
+      "primary": "Basahin ang PPI Guide",
+      "secondary": "Saan magpapa-PPI"
+    }
+  },
+  "team": {
+    "members": {
+      "Rana Darwich": {
+        "position": "Founder at President",
+        "bio": "Si Rana Darwich ay isang student researcher sa UC Berkeley at ang Founder at President ng VINdicated, na may mga chapter na ngayon sa UCLA, Berkeley, at UC Santa Cruz. Research Assistant siya sa School of Education ng UC Berkeley, kung saan pinag-aaralan niya ang pagkakapantay ng kasarian sa pondo ng sports sa unibersidad. Research Apprentice din siya sa Center for Comparative Inequality and Anti-Discrimination Law ng Berkeley Law, at dati siyang Student Researcher sa Political Violence Lab. Nag-intern siya dati sa Amazon at ngayon ay nagsusulat ng opinion pieces para sa The Daily Californian."
+      },
+      "Fiona Wangsawidjaja": {
+        "position": "President",
+        "bio": "Si Fiona Wangsawidjaja ay nag-aaral ng Statistics at Data Science sa UCLA at siya ang kasalukuyang President ng UCLA chapter ng VINdicated. Gustong-gusto ni Fiona na magturo at tumulong sa komunidad niya kapag kaya niya, dati man bilang coding tutor, sa pagtulong sa iba na matuto tungkol sa digital world sa mga conference, o dito sa VINdicated, kung saan sana ay makinabang ang mga tao sa madaling matutunang kaalaman tungkol sa kotse. May karanasan siya sa data sa mga organisasyon gaya ng DataRes at NSDC: nagturo siya sa mga high school student tungkol sa data, gumawa ng mga data analysis project, at nag-consult para sa mga kumpanya.",
+        "major": "Statistics at Data Science"
+      },
+      "Ashwin Vinod": {
+        "position": "President",
+        "bio": "Si Ashwin Vinod ay nag-aaral ng Computer Science sa UCSC. Siya ang President ng VINdicated chapter sa UCSC. Sa pagsali niya sa iba't ibang research lab at sa mga karanasan niya sa software engineering, nakabuo si Ashwin ng matibay na technical na pundasyon na gusto niyang gamitin para isulong ang computational research na makakatulong sa komunidad, at para magbigay ng pagkakataong matuto sa komunidad niya. Nag-intern dati si Ashwin sa IBM bilang Software Developer Intern, at tuloy pa rin ang hilig niya sa research bilang bahagi ng AIEA Lab sa UCSC, na nakatutok sa explainable AI (AI na naipapaliwanag kung paano ito nagdedesisyon).",
+        "major": "Computer Science"
+      },
+      "Rizwaan Bana": {
+        "position": "Strategist",
+        "bio": "Si Rizwaan Bana ay nag-aaral ng Computer Science sa UCLA. Strategist siya sa VINdicated sa UCLA, kung saan tumutulong siyang ayusin ang mga plano ng chapter para sa outreach at mga project. Siya rin ang Internal Vice President ng Bruin Software Engineers, Dev Team Project Manager ng ACM sa UCLA, at Web Chair ng UPE sa UCLA."
+      },
+      "William Prawira": {
+        "position": "Internal Vice President",
+        "bio": "Si Will Prawira ay nag-aaral ng Math at Data Science sa UCLA at siya ang Internal VP ng VINdicated chapter doon. Dahil sa background niya sa data science at sa karanasan niya sa industriya, gusto ni Will na magkaroon ng kultura ng mabilis pero de-kalidad na trabaho, para gawing kapaki-pakinabang na resource para sa komunidad ang malalaking ideya. Ngayong school year, Reliability Intern siya sa Navitas Semiconductor, kung saan gumagawa siya ng mga tool at application para sa automation at sa pag-predict kung gaano katagal tatagal ang isang produkto.",
+        "major": "Data Science at Applied Mathematics"
+      },
+      "Ayat Ashraf": {
+        "position": "External Vice President",
+        "bio": "Si Ayat Ashraf ay nag-aaral ng Math at Econ sa UCLA at interesado sa paggawa ng economic policy. Nagre-research siya sa VINdicated para sana, sa susunod, makabili siya ng kotse nang hindi tinatawagan ang tatay niya nang 8,000 beses.",
+        "major": "Math/Econ"
+      },
+      "Noirit Ghosh Choudhuri": {
+        "position": "Internal Vice President",
+        "bio": "Si Noirit Ghosh Choudhuri ay nag-aaral ng Computer Science sa UC Berkeley. Siya ang Internal Vice President ng VINdicated chapter sa UC Berkeley. Dahil sa karanasan niya sa paggawa ng ilang totoong project, nakabuo si Noirit ng matibay na technical skills at husay sa pakikipagtulungan na gusto niyang gamitin para makagawa ng mas maraming solusyon sa mga mabibigat na problema ng lipunan, gaya ng nilalabanan ng VINdicated.",
+        "major": "Computer Science"
+      },
+      "Halima Cherif Hminat": {
+        "position": "External Vice President",
+        "bio": "Si Halima Cherif Hminat ay estudyante ng Integrative Biology sa UC Berkeley, may minor sa Sustainable Business and Policy, at naghahanda para mag-dentistry. Siya rin ang EVP ng VINdicated sa UC Berkeley at tumutulong gumawa ng mga resource para makapagdesisyon ang mga tao nang may alam at may tiwala sa sarili. Sabi niya, mahalaga ang misyon ng VINdicated dahil gusto niyang suportahan ang mga babae at tulungan silang maiwasan ang hindi patas na pagtrato sa pagbili at pagpapaayos ng kotse.",
+        "major": "Integrative Biology"
+      },
+      "Gundeep Sambee": {
+        "position": "Internal Vice President",
+        "bio": "Si Gundeep ay estudyante ng Cognitive Science sa UC Santa Cruz, may minor sa Technology and Information Management. Interesado siya sa kung saan nagtatagpo ang tao at teknolohiya, lalo na kung paano hinuhubog ng AI, design, at psychology ang paraan ng pagdedesisyon natin. Sa labas ng klase, kasali siya sa research at gusto niya ang mga pagkakataong matuto pa tungkol sa ugali at pag-iisip ng tao. Gusto rin niya ang mga leadership role na bumubuo ng komunidad at nagbibigay ng makabuluhang karanasan sa iba.",
+        "major": "Cognitive Science"
+      },
+      "Adhya Maddukuri": {
+        "position": "External Vice President",
+        "bio": "Si Adhya ay estudyante ng Technology and Information Management sa UC Santa Cruz na mahilig gumawa ng teknolohiyang may totoong epekto sa mundo, mula software development, AI, at data analytics hanggang product strategy. Nag-research siya tungkol sa generative AI bilang undergrad, nag-consult para sa mga nonprofit sa 180 Degrees Consulting, at tumulong mag-organize ng mga hackathon kasama ang NVIDIA at ASUS. Ngayon, Software Development Engineering Intern siya sa Heron Power, kung saan gumagawa siya ng software systems at pinapalakas ang technical at problem-solving skills niya.",
+        "major": "Technology at Information Management"
+      },
+      "Fernando Cedillo-Hernandez": {
+        "position": "Research Lead",
+        "bio": "Si Fernando Cedillo-Hernandez ay may double major sa Biology at Political Science sa UCLA, at may minor sa Biomedical Research at sa Community Engagement and Social Change. Dala niya ang karanasan sa research at civic advocacy sa pagiging Research Lead sa VINdicated, at gusto niyang palawakin ang patas na access at proteksyon para sa mga komunidad na kulang sa serbisyo. Sa labas ng VINdicated, kasali si Fernando sa leadership at community work sa buong UCLA, kasama ang pagtatanggol sa mga immigrant at working-class na estudyante.",
+        "major": "Biology at Political Science"
+      },
+      "Yinrui (Ray) Gan": {
+        "position": "Data Lead",
+        "bio": "Si Ray Gan ang namamahala sa data at AI pipeline ng interactive na mapa ng mga delikadong dealership ng VINdicated. Siya ang nagdisenyo ng classification system na gumagamit ng LLM (isang uri ng AI na nakakaintindi ng text) para gawing malinaw at may ebidensyang babala para sa mga buyer ang magugulong review ng mga consumer. Nag-aaral si Ray ng Computer Science at Linguistics sa UCLA.",
+        "major": "Computer Science at Linguistics"
+      },
+      "Evanceline Tang": {
+        "position": "Design Lead at Outreach Lead",
+        "bio": "Si Evanceline ay second year na Biology major sa UCLA. Mahilig siyang gumamit ng art at design para iparating ang isang mensahe. Sa pamamagitan ng art niya, gusto niyang tulungan ang mga tao na mas makilala ang VINdicated at ang mga hindi pagkakapantay at panganib na umiiral pa rin sa industriya ng kotse.",
+        "major": "Biology"
+      },
+      "Rouqaya Elbanna": {
+        "position": "HS Lead",
+        "bio": "Si Rouqaya Elbanna ay isang high school student at ang HS Lead ng VINdicated, kung saan sinisikap niyang dalhin sa mas maraming estudyante ang misyon ng organisasyon na protektahan ang mga consumer. Dati siyang Vice President ng TEDxAIS Jeddah Youth at napili siya para sa Learn with Leaders Future Doctors Fellowship, kung saan ang ginawa niyang health education campaign tungkol sa pag-aalaga sa may Alzheimer's ang nanalo ng Best Presentation sa batch nila. Gusto niyang maging doktor, varsity volleyball player din siya, at nakatanggap siya ng Female Scholar Athlete Award ng school niya."
+      },
+      "Daryen Romero": {
+        "position": "Technical Writing Lead",
+        "bio": "Si Daryen Romero ay estudyante ng Computer Science sa UC Berkeley. Mahalaga sa kanya ang pagsali sa VINdicated dahil gusto niyang tulungan ang iba na maintindihan kung gaano kahalaga ang pagbili ng kotse at hindi matakot. Gusto rin niyang magsalita at tulungan ang iba na maintindihan kung paano puwedeng maloko ang isang tao dahil babae siya o iba ang lahi niya.",
+        "major": "Computer Science"
+      },
+      "Vanessa Phan": {
+        "position": "Data Analytics Lead",
+        "bio": "Si Vanessa ay nag-aaral ng Computer Engineering na may concentration sa Computer Systems, at interesado siya sa pagsasama ng software at electrical engineering, lalo na sa robotics at mga smart na teknolohiya. Siya ang Treasurer ng Society of Women Engineers sa UC Santa Cruz, kung saan nakakuha siya ng mahigit $5,000 na pondo ngayong taon, at naging developer din siya sa SlothLab. Gusto pa niyang sumali sa mas maraming research, para malaliman ang mga paksa at gamitin ang natutunan niya sa paggawa ng mga solusyon.",
+        "major": "Computer Engineering"
+      },
+      "Brisa Gómez": {
+        "position": "Technical Writing Lead",
+        "bio": "Si Brisa Gómez ay fourth-year na Psychology major sa UCLA at ang Technical Writing Lead sa UCLA. Sa mga writing at translation project nila, gusto ni Brisa na gumawa ng mga resource na madaling gamitin at para rin sa mga mas bulnerableng grupo.",
+        "major": "Psychology"
+      },
+      "Chino Sawatyanont": {
+        "position": "Software Engineer",
+        "bio": "Si Chino ay nag-aaral ng Electrical at Computer Engineering sa UC Berkeley at Software Engineer siya ng VINdicated chapter doon. Malawak ang karanasan niya sa pagsasama ng technical na kaalaman at epekto sa lipunan, at dati siyang nakatutok sa pagtulong sa mga mahihirap na komunidad sa Thailand. Gusto ni Chino na dalhin ang parehong sigasig sa misyon ng VINdicated.",
+        "major": "Electrical at Computer Engineering"
+      },
+      "William Guo": {
+        "position": "Software Engineer",
+        "bio": "Si William Guo ay junior na nag-aaral ng Computer Science sa UC Santa Cruz at Software Engineer sa VINdicated. Mahilig siyang magkalikot at mag-ayos ng electronics, maglaro ng video games, at gumawa ng sarili niyang mga project. Dumaan din siya sa nakaka-stress na proseso ng paghahanap ng tamang kotse, kaya sa tingin niya, dapat mas madaling mahanap ng lahat ang basic na kaalaman kung ano ang titingnan sa malaking bilihin gaya ng kotse.",
+        "major": "Computer Science"
+      },
+      "Daniel": {
+        "position": "Data Engineer",
+        "bio": "Si Daniel ay transfer student ng Applied Math na taga-Los Angeles at Data Engineer sa VINdicated. Interesado siya sa personal finance at sa pagtuturo sa iba kung paano humawak ng pera. Sa labas ng VINdicated, gusto niyang magbaklas at mag-ayos ng computer, mag-hiking, magbisikleta, at mag-ikot sa siyudad. Nahilig na rin siya sa climbing, pagluluto, at pagpunta sa mga music festival.",
+        "major": "Applied Mathematics"
+      },
+      "Chloe Lin": {
+        "position": "Outreach Lead",
+        "bio": "Si Chloe Lin ay estudyante ng Integrative Biology sa UC Berkeley at ang Outreach Lead sa VINdicated. Ipinaglaban na niya ang mga babae at mga komunidad na kulang ang representasyon, at gusto niyang maintindihan ng mga ordinaryong buyer ang pagbili at pag-maintain ng kotse para sila na mismo ang makapagdesisyon.",
+        "major": "Integrative Biology"
+      },
+      "Ian de la Houssaye": {
+        "position": "Software Lead",
+        "bio": "Si Ian de la Houssaye ay estudyante ng Mechanical Engineering at ang Software Lead ng VINdicated chapter sa UC Berkeley. Mahilig siyang gumawa ng teknolohiyang nakakasolusyon sa mga totoong problema. Itinatag at pinamunuan ni Ian ang competitive robotics team ng high school niya, at tinulungan niya itong maging isa sa pinakamagagaling na team sa San Diego habang pinamamahalaan ang paggawa ng software at autonomous systems nito. Dahil sa mga karanasang ito, nakabuo siya ng matibay na technical, leadership, at teamwork skills na gusto niyang gamitin para isulong ang misyon ng VINdicated.",
+        "major": "Mechanical Engineering"
+      },
+      "James Cheng": {
+        "position": "Data Engineer",
+        "bio": "Si James ay estudyante ng Data Science at Cognitive Science sa UC Berkeley at Data Engineer sa VINdicated. Malawak ang karanasan niya sa pagtuturo ng STEM at ng wika, iba-iba ang technical background niya, at marami na siyang nagawang sariling project. Gusto niyang gamitin ang mga karanasang ito para magdala ng kakaibang pananaw at sipag sa paglutas ng mga problema sa industriya ng kotse.",
+        "major": "Data Science at Cognitive Science"
+      },
+      "Bryan Zhang": {
+        "position": "Software Engineer",
+        "bio": "Si Bryan Zhang ay CS major sa UCLA. Kapag libre siya, mahilig siyang mag-basketball, mag-volleyball, at mag-bake. Developer siya ng VINdicated.",
+        "major": "Computer Science"
+      },
+      "Rahul Puritipati": {
+        "position": "Software Engineer",
+        "bio": "Si Rahul Puritipati ay first-year na CS student sa UCLA. Lumaki siya sa Folsom, CA, at mahilig siyang manood ng gym TikToks at magmarunong na parang GM ng 49ers at Kings mula sa sopa. Marami na siyang nagawang nonprofit work, karamihan sa pag-aayos ulit ng online presence ng mga lokal na negosyo at sa pag-iipon ng pondo para sa mga batang mahihirap sa India.",
+        "major": "Computer Science"
+      },
+      "Jordan Acle": {
+        "position": "Data Lead",
+        "bio": "Si Jordan Acle ay estudyante ng Data Science sa UC Berkeley at ang Data Lead ng VINdicated chapter doon. May hands-on siyang karanasan sa machine learning, data analysis, at data engineering. Ngayon, Product Strategy Intern siya sa Innov8AI, kung saan tumutulong siya sa isang health AI platform na nakasentro sa tiwala. Naglilingkod din siya sa komunidad ng UC Berkeley bilang Data Science Peer Advisor at Hello World Mentor, at tinutulungan ang mga bagong estudyante na magkaroon ng tiwala sa sarili at makapag-adjust sa campus.",
+        "major": "Data Science"
+      }
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Ang kaalaman sa kotse ay dapat alam ng lahat.",
+      "body": "Nandito ang VINdicated dahil walang dapat magdala pa ng resbak para lang ligtas na makabili ng kotse."
+    },
+    "zoom": {
+      "label": "Mga litrato ng mga chapter ng VINdicated",
+      "titleLine1": "UCLA, UC Berkeley,",
+      "titleLine2": "at UC Santa Cruz.",
+      "body": "Mga estudyanteng sinisigurong walang papasok sa dealership nang hindi handa.",
+      "pause": "I-pause ang slideshow",
+      "play": "I-play ang slideshow",
+      "alts": [
+        "Ang UC Berkeley chapter ng VINdicated sa damuhan sa harap ng Doe Library, at nasa likod nila ang Campanile",
+        "Mga volunteer ng VINdicated na nagta-tabling sa UC Berkeley campus, katabi ang banner ng VINdicated",
+        "Dalawang volunteer ng VINdicated na may hawak na karatula ng VINdicated sa UC Berkeley",
+        "Mga volunteer ng VINdicated sa tabling booth nila sa UCLA sa isang maaraw na activities day",
+        "Ang UC Berkeley chapter ng VINdicated na nagpo-pose sa tabi ng Doe Library",
+        "Dalawang volunteer ng VINdicated sa tabi ng display board ng VINdicated sa UCLA",
+        "Isang volunteer ng VINdicated na nagbabahagi ng libreng resource tungkol sa pagbili ng kotse sa isang estudyante sa UCLA",
+        "Ang UC Berkeley chapter ng VINdicated sa ilalim ng Campanile, kuha mula sa mas malayo",
+        "Isang volunteer ng VINdicated na kausap ang isang estudyante ng UCLA sa mesa",
+        "Isang volunteer ng VINdicated na tinuturo ang display board sa UCLA"
+      ]
+    },
+    "photos": {
+      "title": "Ang mga chapter namin",
+      "body": "Mga estudyante sa UCLA, UC Berkeley, at UC Santa Cruz na nagta-tabling, nagtuturo, at nagre-research tungkol sa pagbili ng kotse.",
+      "items": [
         {
-          "text": "48% ng Gen Z women ang nadidiscourage pumunta sa dealership",
-          "bold": true
+          "alt": "Mga volunteer ng VINdicated na nagta-tabling sa UC Berkeley campus, katabi ang banner ng VINdicated"
         },
         {
-          "text": " dahil sa alalahanin tungkol sa gender-based discrimination (Morning Consult para sa Caribou, 2022). Hindi ito paranoia. Ito ay pattern recognition."
+          "alt": "Dalawang volunteer ng VINdicated na may hawak na karatula ng VINdicated sa UC Berkeley"
+        },
+        {
+          "alt": "Mga volunteer ng VINdicated sa tabling booth nila sa UCLA sa isang maaraw na activities day"
+        },
+        {
+          "alt": "Isang volunteer ng VINdicated na nagbabahagi ng libreng resource tungkol sa pagbili ng kotse sa isang estudyante sa UCLA"
         }
-      ],
-      "para3": [
-        {
-          "text": "May racist o sexist na mga komento ang mga dealer sa "
-        },
-        {
-          "text": "4% ng test visits",
-          "bold": true
-        },
-        {
-          "text": ". Gumugol sila ng "
-        },
-        {
-          "text": "13% na mas mahabang oras sa negosasyon sa mga \"minority\" na tester",
-          "bold": true
-        },
-        {
-          "text": "."
-        }
-      ],
-      "para4": "At tapos na kaming magkunwaring hiwa-hiwalay at bihirang pangyayari lang ang mga ito."
+      ]
     },
     "mission": {
-      "heading": "Turuan. Bigyang-kapangyarihan.",
-      "headingEm": "Ipagtanggol.",
-      "subheading": "Wasakin ang consumer-level na kultura ng \"escort\", isang informed buyer sa bawat pagkakataon.",
-      "pillars": [
+      "title": "Matuto. Lumakas ang loob. Ipaglaban ang tama.",
+      "body": "Ito ang motto namin, at ito rin ang pagkakasunod ng trabaho namin.",
+      "items": [
         {
-          "word": "Turuan",
-          "body": "Gawing madaling maintindihan ang pagbili ng kotse. Madaling ma-navigate. Isinasalin namin ang playbook ng dealer sa simpleng wika dahil ang kaalaman ay kapangyarihan."
+          "title": "Matuto",
+          "body": "Isinasalin namin sa simpleng salita ang mga diskarte ng dealer, dahil karamihan ng mga trick na 'yan ay umuubra lang sa mga taong hindi pa nakakarinig nito."
         },
         {
-          "word": "Bigyang-kapangyarihan",
-          "body": "Bumuo ng tiwala sa sariling kakayahang pumasok nang mag-isa, magtanong ng tamang tanong, at lumayo kung kinakailangan, nang walang hiya, nang hindi kailangan ng kasamang lalaki."
+          "title": "Lumakas ang loob",
+          "body": "Sapat ang alam mo para pumasok nang mag-isa, at para umalis kapag parang mali ang deal."
         },
         {
-          "word": "Ipagtanggol",
-          "body": "Gumawa ng pananaliksik na nagdodokumento sa alam na ng mga konsumer. Gawing datos ang karanasan. Gawing pagbabago ng polisiya ang datos."
+          "title": "Ipaglaban ang tama",
+          "body": "Research na nagdodokumento ng pinagdadaanan ng mga buyer, para magamit ito sa pagbabago ng mga patakaran."
         }
       ]
     },
     "story": {
-      "titleEm": "Ipinagtanggol laban saan?",
-      "subtitle": "Tatlong beses. Tatlong magkakaibang sitwasyon. Parehong sistema sa bawat pagkakataon.",
+      "title": "Bakit sinimulan ni Rana ang VINdicated",
+      "body": "Sinimulan ni Rana Darwich ang VINdicated matapos ang tatlong magkakaibang pagbili ng kotse na pare-parehong pumalpak: umaasa ang seller na hindi niya alam ang mga patakaran.",
+      "quote": "\"Sana, 19-anyos na babae man o 50-anyos na lalaki ang pumasok, igalang n'yo ang lahat.\"",
+      "quoteCite": "Rana Darwich, Founder ng VINdicated",
       "strikes": [
         {
-          "num": "1",
-          "label": "Ang Pink Slip Scam",
-          "body": [
-            "Noong 18 anyos ako, sinusubukan kong bumili ng kotse mula sa tatay ng kaibigan ko. Pinaghintay niya ako ng tatlong buwan, patuloy na nangangako na ibebenta niya sa akin.",
-            "Nang dumating na ang oras, sinubukan niyang sabihin sa akin na hindi ko na kailangan ang pink slip. Sinusubukan niya akong lokohin. Kung wala sa pangalan mo ang title, legal na hindi mo pag-aari ang kotse, kahit magkano man ang binayad mo."
+          "n": "01",
+          "tag": "Edad 18 · private sale",
+          "title": "Ang scam sa pink slip",
+          "body": "Pinaghintay siya ng isang kaibigan ng pamilya nang tatlong buwan bago ibenta sa kanya ang kotse, tapos sinabing hindi na niya kailangan ang pink slip (ang titulo ng kotse). Kapag wala sa pangalan mo ang titulo, hindi legal na sa'yo ang kotse, kahit magkano pa ang ibinayad mo."
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "Biglang nag-iba ang tono",
+          "body": "Normal ang usapan hanggang napansin ng seller na babae siya. Ininsulto siya nito at bina-block. Nang mag-message siya sa mga seller bilang \"Randall\" at pinatawag niya ang kapatid niyang lalaki, mas magaganda ang deal na nakuha niya."
+        },
+        {
+          "n": "03",
+          "tag": "Abril 2025 · dealership",
+          "title": "Ang nakakandadong drawer",
+          "body": "Sabi ng dealer, ang mga service record ay \"nasa nakakandadong drawer,\" at ang ipinangakong 300-point inspection ay naging 150 na lang. Tapos binigyan pa siya ng financing contract na 30% APR (taunang interes) kahit cash ang bayad niya, may arbitration clause pa imbes na paraan para mag-cancel. Nakilala niya ang trick, tumanggi siya, at isinumbong niya ang salesperson."
+        }
+      ]
+    },
+    "video": {
+      "label": "Si Rana Darwich, founder ng VINdicated, nagkukuwento kung bakit niya sinimulan ang VINdicated, kinunan sa UC Berkeley",
+      "play": "I-play ang video ng founder, 34 segundo",
+      "length": "0:34",
+      "title": "Pakinggan mismo si Rana.",
+      "body": "Si Rana, tungkol sa kung bakit niya sinimulan ang VINdicated at para kanino ito, kinunan sa UC Berkeley.",
+      "name": "Rana Darwich",
+      "role": "Founder at President, VINdicated"
+    },
+    "ai": {
+      "title": "Gumagamit na rin ng AI ang mga scammer.",
+      "body": "Mas madali nang gumawa ng pekeng website ng dealer, mga litrato ng listing, at mga papeles. Ito ang nangyari sa isang buyer noong Setyembre.",
+      "steps": [
+        {
+          "title": "Mukhang normal ang listing",
+          "body": "May SUV na tama ang presyo sa Facebook Marketplace, at naka-boost pa para makita ng mas maraming buyer."
+        },
+        {
+          "title": "Kopya lang ang dealer",
+          "body": "Kinopya ng mga scammer ang isang totoong dealership pati ang mga papeles, at isang salita lang ang tinanggal sa pangalan nito."
+        },
+        {
+          "title": "Ang bangko ang nagbayad sa pekeng dealer",
+          "body": "Inaprubahan ng isang malaking lender ang loan at nag-wire ng $36,240 sa pekeng dealer."
+        },
+        {
+          "title": "Hindi dumating ang truck",
+          "body": "Isang pekeng tracker ang nagpakitang tumatawid ng bansa ang kotse. \"Dumating\" ito sa isang bakanteng kalye."
+        }
+      ],
+      "source": "Batay sa report ni Caleb Jacobs sa The Drive, Setyembre 2026.",
+      "saveStat": "$0",
+      "saveTitle": "Hindi na niya kinailangang bayaran ang loan.",
+      "saveBody": "Dahil itinago niya ang bawat message at dokumento, nagamit ng buyer ang FTC Holder Rule (isang federal na patakaran) para makawala sa loan. Karamihan ng tao, hindi alam na may ganitong patakaran.",
+      "saveCta": "Alamin ang karapatan mo",
+      "tipsTitle": "Bago ka magbayad kahit kanino",
+      "tips": [
+        "I-search ang pangalan ng dealer kasama ang \"scam,\" \"review,\" o \"complaint.\"",
+        "Huwag magtiwala sa dealer dahil lang maganda ang mga review nito. Puwedeng hiramin ng pekeng site ang mga review ng totoong dealer.",
+        "Hilinging makita nang personal ang kotse at ang lote. Kung ayaw nila, umalis ka na.",
+        "Masyadong malayo? Magpadala ng mobile inspector. Hindi aangal ang totoong seller.",
+        "Huwag na huwag magbayad nang paunang wire transfer lang."
+      ],
+      "ftcCta": "Basahin ang babala ng FTC",
+      "reportCta": "Mag-report ng scam"
+    },
+    "quote": {
+      "text": "Lahat tayo, naloloko sa isang punto. Gusto naming mapansin mo kapag nangyayari na ito.",
+      "cite": "Ang ideya sa likod ng VINdicated"
+    },
+    "provide": {
+      "title": "Ano ang inaalok namin",
+      "body": "Hindi mo kailangang mag-sign up, at wala kaming ibinebenta.",
+      "items": [
+        {
+          "title": "Mga workshop",
+          "body": "Mga session sa komunidad tungkol sa financing, pagpapaayos, at mga karapatan mo sa dealership."
+        },
+        {
+          "title": "Mga gabay",
+          "body": "Step-by-step na pag-inspect, mga checklist ng red flag, mga sasabihin mo, at paliwanag tungkol sa financing."
+        },
+        {
+          "title": "Mga mekaniko",
+          "body": "Listahan ng mga mekanikong sinuri ng komunidad, na hindi ka mamaliitin at hindi ka pipilitin sa mas mahal."
+        },
+        {
+          "title": "Mga research project",
+          "body": "Labing-isang team ng estudyante na gumagawa ng apps, data tools, research, at content."
+        }
+      ],
+      "projectsLink": "Tingnan ang mga project"
+    },
+    "cta": {
+      "title": "Tulungan kaming gawing patas ang pagbili ng kotse.",
+      "body": "Sumali sa isang chapter, tumulong sa isang research project, o magdala ng workshop sa campus mo.",
+      "primary": "Sumali",
+      "secondary": "Kilalanin ang team"
+    }
+  },
+  "teamPage": {
+    "hero": {
+      "title": "Pare-pareho kaming nainis sa iisang problema.",
+      "body": "Kilalanin ang mga estudyante, researcher, at builder sa likod ng VINdicated sa tatlong UC campus."
+    },
+    "filterLabel": "I-filter ang team ayon sa campus",
+    "filters": {
+      "all": "Lahat",
+      "leadership": "Mga Leader",
+      "ucla": "UCLA",
+      "ucb": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "readMore": "Magbasa pa",
+    "showLess": "Paikliin",
+    "watchLabel": "Panoorin ang video intro ni {name}",
+    "watch": "Kilalanin si {name}",
+    "dialogLabel": "Video ng team member",
+    "close": "Isara ang video",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "website": "Website"
+    },
+    "cta": {
+      "title": "Gusto mo bang maging bahagi nito?",
+      "body": "Naghahanap kami ng mga researcher, developer, designer, at mga taong mahilig magturo. Kung gusto mong maging patas ang pagbili ng kotse, kontakin mo kami.",
+      "button": "Kontakin kami"
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "title": "Labing-isang project sa apat na team.",
+      "body": "Gumagawa ang mga estudyante sa mga chapter namin ng apps, nag-a-analyze ng data, nagre-research, at gumagawa ng content para makabili, makapag-finance, at makapagpaayos ng kotse ang mga tao nang hindi naloloko."
+    },
+    "navLabel": "Mga project team",
+    "status": "Bumubuo pa ng team",
+    "skillsLabel": "Mga skill",
+    "membersLabel": "Laki ng team",
+    "chapters": {
+      "ucla": "UCLA",
+      "berkeley": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "tracks": {
+      "app": {
+        "title": "Paggawa ng app",
+        "body": "Gumagawa kami ng mga app na gagamitin ng mga tao para matuto tungkol sa kotse at makabili nang ligtas.",
+        "projects": [
+          {
+            "name": "Project Duolingo",
+            "desc": "Isang app na parang Duolingo, pero imbes na wika, kotse at kung paano ito gumagana ang matututunan mo.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 hanggang 4 na tao",
+            "join": "Sumali sa Duolingo"
+          },
+          {
+            "name": "Project Marketplace",
+            "desc": "Isang bilihan at bentahan na parang Facebook Marketplace, pero para lang sa kotse at piyesa, at may verification para mabawasan ang scam.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 hanggang 4 na tao",
+            "join": "Sumali sa Marketplace"
+          }
+        ]
+      },
+      "data": {
+        "title": "Data",
+        "body": "Ginagawa naming mga tool na magagamit ng buyer ang magugulong public data.",
+        "projects": [
+          {
+            "name": "Project Crosscheck",
+            "desc": "Pinagsasama ang mga safety rating mula sa iba't ibang testing program para maikumpara mo ang mga model nang magkatabi.",
+            "skills": [
+              "APIs",
+              "Web scraping (pagkuha ng data sa mga website)",
+              "Estadistika"
+            ],
+            "members": "5 tao",
+            "join": "Sumali sa Crosscheck"
+          },
+          {
+            "name": "Project Carcam",
+            "desc": "Kunan mo ng litrato ang sira ng kotse at tatantiyahin nito kung magkano ang pagpapaayos, at kung kailangan ba talagang ipaayos.",
+            "skills": [
+              "APIs ng multimodal model",
+              "Pagsusuri ng data"
+            ],
+            "members": "5 tao",
+            "join": "Sumali sa Carcam"
+          },
+          {
+            "name": "Project Price Is Right",
+            "desc": "Ipapakita sa'yo ang model, mileage, at history ng kotse, tapos huhulaan mo ang presyo. Galing sa mga totoong listing ang mga tamang sagot.",
+            "skills": [
+              "Basic na estadistika",
+              "Machine learning"
+            ],
+            "members": "5 tao",
+            "join": "Sumali sa Price Is Right"
+          }
+        ]
+      },
+      "research": {
+        "title": "Research",
+        "body": "Field at legal research kung bakit pumapalpak ang pagbili ng kotse at paano ito aayusin.",
+        "projects": [
+          {
+            "name": "Project Spanish Lang",
+            "desc": "Pinag-aaralan kung paano nakakaapekto ang wika at komunikasyon sa pag-intindi ng buyer sa proseso ng pagbili ng kotse.",
+            "skills": [
+              "Qualitative na research",
+              "Pagsusuri ng text at dokumento"
+            ],
+            "members": "4 hanggang 6 na tao",
+            "join": "Sumali sa Spanish Lang"
+          },
+          {
+            "name": "Project Price Gaps",
+            "desc": "Pinag-aaralan kung paano inilalarawan at naiintindihan ng mga buyer ang mga paraan ng pagbebenta: kung paano sila kinakausap, kinukumbinsi, pinipilit, gaano kalinaw ang usapan, at ang tiwala.",
+            "skills": [
+              "Qualitative na research",
+              "Thematic analysis (paghahanap ng paulit-ulit na tema)"
+            ],
+            "members": "4 hanggang 6 na tao",
+            "join": "Sumali sa Price Gaps"
+          },
+          {
+            "name": "Project Legal",
+            "desc": "Nire-research ang mga batas ng California na nagpoprotekta sa mga bumibili o may-ari ng kotse, at gumagawa ng madaling gabay para sa may naaksidente, may problema sa dealer, na-scam, nagpapaayos, o may iba pang problema sa kotse.",
+            "skills": [
+              "Legal at document research",
+              "Pagsusulat"
+            ],
+            "members": "6 hanggang 10 tao",
+            "join": "Sumali sa Legal"
+          }
+        ]
+      },
+      "outreach": {
+        "title": "Outreach at content",
+        "body": "Dinadala namin ang alam namin sa mga taong nangangailangan nito.",
+        "projects": [
+          {
+            "name": "Project Comics",
+            "desc": "Gumagawa ng komiks na nagpapakita ng mga karaniwang scam sa kotse.",
+            "skills": [
+              "Ilustrasyon",
+              "Pagguhit"
+            ],
+            "members": "2 hanggang 3 tao",
+            "join": "Sumali sa Comics"
+          },
+          {
+            "name": "Project Spanish",
+            "desc": "Gumagawa ng nakakatawang social media post para sa mga nagsasalita ng Spanish (isipin ang mga pun at Spanglish) at nire-review ang Spanish na translation ng site.",
+            "skills": [
+              "Wikang Espanyol"
+            ],
+            "members": "2 hanggang 3 tao",
+            "join": "Sumali sa Spanish"
+          },
+          {
+            "name": "Project Booklet",
+            "desc": "Gumagawa ng maikling gabay tungkol sa basic na kaalaman sa kotse.",
+            "skills": [
+              "Pagre-research online",
+              "Pagsusulat",
+              "Disenyo"
+            ],
+            "members": "3 hanggang 5 tao",
+            "join": "Sumali sa Booklet"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "Wala kang karanasan? Okay lang.",
+      "body": "Matututunan mo ang mga tool kasama ang team. Ang mahalaga, curious ka at may ilang oras ka bawat linggo.",
+      "button": "Mag-apply sa isang project"
+    }
+  },
+  "inspectionPage": {
+    "hero": {
+      "title": "Huwag bibili ng kotse nang wala nito.",
+      "body": "Ang pre-purchase inspection (PPI), o pagpapa-check sa mekaniko bago bumili, ang pinakamakakatulong na magagawa mo bago bumili ng second-hand na kotse. $100–200 lang ito at puwede kang makatipid ng libu-libo.",
+      "ctaPrimary": "Paano magpa-schedule ng PPI",
+      "ctaSecondary": "Saan magpapa-PPI"
+    },
+    "what": {
+      "title": "Ano ang pre-purchase inspection?",
+      "body": [
+        "Ang PPI ay kapag nagbayad ka ng ",
+        {
+          "b": "independent na mekaniko"
+        },
+        ", hindi ang seller at hindi ang dealership, para i-inspect ang kotse bago mo bilhin. Ang magandang PPI ay mga ",
+        {
+          "b": "$100–$200"
+        },
+        " at ito ang pinakamagandang pagkakataon mo para makita ang mga problema bago ka pumirma ng kahit ano."
+      ],
+      "notTitle": "Iba ang PPI sa",
+      "nots": [
+        {
+          "title": "Inspection ng seller",
+          "body": "Gusto nilang maibenta sa'yo ang kotse."
+        },
+        {
+          "title": "Pagtingin mo lang",
+          "body": "Hindi ka trained na mekaniko."
+        },
+        {
+          "title": "Test drive",
+          "body": "Hindi mo nakikita ang nangyayari sa ilalim ng hood."
+        }
+      ]
+    },
+    "engine": {
+      "title": "Ikaw mismo ang mag-check.",
+      "body": "I-tap ang kahit anong umiilaw na parte, o simulan ang guided inspection. Ize-zoom namin, gagabayan ka namin sa pag-check, at bibilangin namin ang mga natapos mo.",
+      "progress": "{n} sa {total} ang na-check",
+      "start": "Simulan ang guided inspection",
+      "imageAlt": "Drawing ng makina ng kotse na may label ang mga parte, kasama ang fuse box, intake air tube, lalagyan ng brake fluid, spark plugs, battery, lalagyan ng coolant, radiator, at fan",
+      "inspect": "I-inspect ang {part}",
+      "close": "Isara",
+      "of": "{n} sa {total}",
+      "how": "Paano i-check",
+      "back": "Bumalik",
+      "markChecked": "Tapos na →",
+      "nextPart": "Susunod na parte →",
+      "severity": {
+        "easy": "Madaling i-check",
+        "watch": "Tingnang mabuti",
+        "red": "Seryosong red flag",
+        "know": "Dapat mong malaman"
+      },
+      "doneTitle": "Tapos na ang inspection.",
+      "doneBody": "Na-check mo na ang lahat ng 9. Lahat ng minarkahan mo ay tanong para sa mekaniko mo, o dahilan para tumawad.",
+      "reset": "Ulitin",
+      "parts": [
+        {
+          "t": "Fuse Box",
+          "sub": "Ang kahon na nagpapanatiling ligtas sa kuryente ng kotse",
+          "what": "Nasa fuse box ang maliliit na safety piece na tinatawag na fuse, na nagpoprotekta sa bawat electrical circuit. Kapag may nagkaproblema, napuputol ang fuse para hindi lumala ang sira, parang breaker sa bahay.",
+          "steps": [
+            "Ipabukas ang takip. Tingnan kung may putol na fuse; sira ang metal na piraso sa loob nito.",
+            "Tingnan kung may fuse na hindi tugma. Kapag may 30-amp na fuse sa 10-amp na slot, may nag-bypass ng problema sa kuryente, at delikado 'yan.",
+            "Tingnan kung may sunog, natunaw na parte, o amoy-sunog.",
+            "Tingnan kung may dumi, mantsa ng tubig, o kalawang. Dapat malinis at tuyo ang loob.",
+            "Tingnan kung magulo, may tape, o dinugtong-dugtong ang mga wire. Normal ang malinis na wiring galing pabrika."
+          ],
+          "flag": "Red flag: ang putol o hindi tugmang fuse, sunog, o magulong wiring ay senyales na may problema na sa kuryente, isa sa pinakamahirap hanapin at pinakamahal ayusin sa second-hand na kotse."
+        },
+        {
+          "t": "Intake Air Tube at Filter",
+          "sub": "Dito humihinga ang makina",
+          "what": "Ang malaking tubo na may guhit-guhit ay nagdadala ng hangin mula sa kahon ng air filter papunta sa makina. Sa loob ng kahong 'yon, may filter na papel o foam na humaharang sa alikabok at dumi.",
+          "steps": [
+            "Tingnan ang buong tubo kung may lamat, punit, o maluwag na clamp.",
+            "Hanapin ang kahon ng filter na kinakabitan ng tubo at buksan kung kaya mo (kadalasan 2 hanggang 4 na clip).",
+            "Itapat sa ilaw ang filter. Ang malinis ay light gray o puti; ang madumi ay dark gray o itim."
+          ],
+          "flag": "Kapag barado ang filter ng kotseng sinasabing may \"kumpletong service history,\" red flag 'yan: kulang ang record, o nagmamalabis ang seller. $15 hanggang $30 lang ang filter at dapat palitan tuwing 15,000 hanggang 30,000 milya."
+        },
+        {
+          "t": "Lalagyan ng Brake Fluid",
+          "sub": "Tangke ng brake fluid",
+          "what": "Ang medyo malinaw na tangkeng ito ang nagsusuplay sa preno. Sumisipsip ng tubig ang brake fluid habang tumatagal, kaya unti-unting humihina ang preno.",
+          "steps": [
+            "Tingnan ang level sa gilid ng tangke. Dapat nasa pagitan ng MIN at MAX.",
+            "Tingnan ang kulay. Malinaw hanggang light amber ay maayos; ang dark brown ay matagal nang dapat pinalitan.",
+            "Kapag mababa ang level, baka manipis na ang brake pads o may tagas. Itanong kung kailan huling nagpaayos ng preno.",
+            "Sa test drive, dapat matigas ang pakiramdam ng pedal, hindi malambot na parang espongha."
+          ],
+          "flag": "Red flag: kapag malambot ang pedal, o madilim at kaunti ang fluid, kailangang ipaayos ang preno bago ka bumili."
+        },
+        {
+          "t": "Spark Plugs at Coils",
+          "sub": "Ang nagpapasiklab sa bawat cylinder",
+          "what": "Ang spark plugs ang nagpapasiklab sa gasolina sa bawat cylinder. Sa karamihan ng bagong makina, nasa ilalim sila ng ignition coils, ang mga pulang takip sa ibabaw ng makinang ito.",
+          "steps": [
+            "Tingnan ang mga coil boot kung may lamat o sira.",
+            "Ipa-check sa mekaniko kung may naipong langis sa butas ng spark plug, senyales na may tumatagas na gasket.",
+            "Sa test drive, pansinin kung umuuga ang idle, nanginginig, o nag-aalangan kapag umaarangkada.",
+            "Itanong kung kailan huling pinalitan ang plugs. Marami ang kailangang palitan sa mga 60,000 hanggang 100,000 milya."
+          ],
+          "flag": "Ang misfire o langis sa butas ng plug ay sirang puwede mong gamitin sa pagtawad. Kapag kumikislap ang check engine light, may misfire na nangyayari: itigil ang test drive."
+        },
+        {
+          "t": "Takip ng Oil Filler",
+          "sub": "Sulit buksan",
+          "what": "Dito ibinubuhos ang bagong langis. Dalawang segundo lang buksan, at ang makikita mo sa loob ay may sinasabi na hindi makikita sa dipstick lang.",
+          "steps": [
+            "Ikutin pakaliwa at iangat. Tingnan ang ilalim ng takip at ang loob ng butas.",
+            "Tingnan kung may puti o kulay-cream na latak, bula, o naipon.",
+            "Amuyin sandali ang loob. Dapat amoy-langis, hindi amoy-kemikal o matamis."
+          ],
+          "flag": "Seryosong red flag: ang puti o malapot na latak na parang mayonnaise ay langis na humahalo sa coolant, kadalasan dahil sa sirang head gasket. Puwedeng lumampas sa $3,000 ang pagpapaayos nito. Umalis ka na o tumawad nang husto.",
+          "flag2": "Bantayan din: makapal na putik na parang alkitran. Ibig sabihin, matagal na hindi napalitan ng langis ang makina, kaya iikli ang buhay nito."
+        },
+        {
+          "t": "Battery",
+          "sub": "Tingnan ang mga terminal at ang petsa",
+          "what": "Ang 12-volt na battery ang nagpapaandar sa starter at sa lahat ng electronics. Karamihan ay tumatagal ng 3 hanggang 5 taon, at $100 hanggang $250 ang pamalit.",
+          "steps": [
+            "Hanapin ang sticker ng petsa sa ibabaw o gilid.",
+            "Tingnan kung may puti, asul, o berdeng parang-bulak na kalawang sa mga terminal.",
+            "Tingnan kung bumubukol, may lamat, o tumatagas ang casing."
+          ],
+          "flag": "Mga red flag: makapal na kalawang, battery na 4 na taon pataas, o bumubukol na casing. Kapag halatang luma na ang battery, patas na humingi ng $150 hanggang $250 na bawas sa presyo."
+        },
+        {
+          "t": "Lalagyan ng Coolant",
+          "sub": "I-check kapag malamig ang makina",
+          "what": "Ang lalagyan ng coolant ay medyo malinaw na plastik na tangke na naglalaman ng coolant ng makina. Mababasa mo ito nang hindi binubuksan.",
+          "steps": [
+            "Tingnan ang level sa gilid ng tangke.",
+            "Siguraduhing nasa pagitan ng marka ng MIN at MAX.",
+            "Tingnan ang kulay. Dapat matingkad na berde, orange, pink, o asul ang coolant.",
+            "Buksan lang ang takip kapag lubusang malamig na ang makina. Puwedeng magdulot ng malalang paso ang mainit na coolant na may pressure."
+          ],
+          "flag": "Mga red flag: kapag brown o kulay-kalawang ang coolant, napabayaan ang kotse. Kapag parang gatas o mabula, may langis na humalo, sirang head gasket na aabot sa $1,500 hanggang $3,000 pataas."
+        },
+        {
+          "t": "Serpentine Belt",
+          "sub": "Nagpapaandar sa karamihan ng accessories ng makina",
+          "what": "Ang serpentine belt ang nagpapaandar sa alternator, power steering, AC, at water pump. Kapag naputol ito habang nagmamaneho, sabay-sabay na mawawala ang lahat ng 'yan.",
+          "steps": [
+            "Habang patay ang makina, hanapin ang malapad at patag na belt na may guhit-guhit na nakapulupot sa ilang pulley sa harap ng makina.",
+            "Tingnan ang gilid na may guhit. Ang maliliit na lamat sa pagitan ng mga guhit ang unang senyales ng pagkaluma.",
+            "Tingnan ang makinis na likod. Kapag makintab at parang may glaze, dumudulas na ito.",
+            "Ipatantiya sa mekaniko kung gaano pa ito katagal."
+          ],
+          "flag": "Epekto sa presyo: $75 hanggang $200 ang bagong belt kasama ang pagkakabit. Kapag mukhang gasgas na, gamitin sa pagtawad; hindi ito dahilan para hindi bumili."
+        },
+        {
+          "t": "Radiator at Fan",
+          "sub": "Ang sistemang pumipigil sa pag-overheat ng makina",
+          "what": "Nasa pinakaharap ang radiator. Dumadaan dito ang mainit na coolant, at pinapalamig ito ng hanging dumadaan sa mga fin bago bumalik sa makina. Ang fan ang humihila ng dagdag na hangin kapag nakatigil ang kotse.",
+          "steps": [
+            "Habang malamig ang makina, tingnan kung may baluktot na fin, lamat, o tuyong latak na berde, orange, o pink.",
+            "Tingnan ang paligid ng ilalim at ng mga hose kung may basa o mantsa ng coolant.",
+            "Paandarin ang makina at hayaang naka-idle nang ilang minuto. Dapat kusang umandar ang fan.",
+            "Bantayan ang temperature gauge habang nagte-test drive. Dapat nasa normal na range lang."
+          ],
+          "flag": "Red flag: kahit anong tagas ng coolant ay dapat ipaayos bago bumili. $300 hanggang $900 ang may lamat na radiator, at seryosong babala ang pag-overheat habang nagte-test drive."
+        }
+      ]
+    },
+    "where": {
+      "title": "Saan magpapa-PPI.",
+      "recommended": "Rekomendado",
+      "cards": [
+        {
+          "title": "Mga independent inspection service",
+          "paras": [
+            [
+              {
+                "b": "Lemon Squad"
+              },
+              " (lemonsquad.com): Mobile service, 110-point inspection. Presyo: $150–250."
+            ],
+            [
+              {
+                "b": "CARCHEX"
+              },
+              " (carchex.com): Mobile o sa shop, detalyadong report. Presyo: $100–200."
+            ]
           ]
         },
         {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Sinubukan kong bumili ng kotse sa Facebook Marketplace. Normal ang simula ng usapan: mileage, presyo, kung kailan ako makakapunta para tingnan.",
-            "Nang malaman niyang babae ako, biglang nagbago ang tono niya. Sinabi niya sa akin, \"Shut your mouth, bitch,\" at pagkatapos ay in-block niya ako."
+          "title": "Mga dealership ng manufacturer",
+          "paras": [
+            [
+              "Kung bibili ka ng second-hand na Honda sa isang Mitsubishi dealership, ",
+              {
+                "b": "dalhin mo ito sa isang Honda dealership para sa PPI."
+              }
+            ],
+            [
+              "Kilala nila ang brand, kumpleto sila sa diagnostic tools, at wala silang pakinabang sa bentahan. Presyo: kadalasan $100–150."
+            ]
           ]
         },
         {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Nag-isa akong pumunta para mag-test drive ng kotse. Nang bumalik ako kasama ang kapatid kong babae para bilhin ito, biglang nagbago ang nakasulat: \"Buy today or lose it.\"",
-            "Nagbayad ako para sa independent inspection. Nakahanap sila ng problema. Binigyan nila ako ng financing contract na may 30% APR. Alam ko kung ano ang masamang deal. Hindi ako pumirma."
+          "title": "Membership sa AAA",
+          "paras": [
+            [
+              "Maraming branch ng AAA ang may libre o discounted na PPI para sa members. Tanungin ang AAA auto service center na malapit sa'yo."
+            ]
+          ]
+        },
+        {
+          "title": "Mga lokal na mekanikong pinagkakatiwalaan",
+          "paras": [
+            [
+              "Kung may mekaniko kang pinagkakatiwalaan, tanungin kung gumagawa sila ng PPI. Mga red flag: ayaw nilang isulat ang nakita nila, minamadali nila, o sinasabi nilang \"mukhang okay naman lahat\" nang wala namang chine-check."
+            ]
           ]
         }
       ],
-      "pullquote": {
-        "quote": "Ini-report ko si Eddy. Nang tumawag ang GM para humingi ng paumanhin, sinabi ko: hindi ko tinatanggap ang paumanhin mo. Sana kung sino man ang papasok, 19 anyos na babae man o 50 anyos na lalaki, tratuhin ninyo silang lahat nang may respeto.",
-        "attribution": "Rana Darwich, Founder ng VINdicated"
-      },
-      "bio": {
-        "label": "Tungkol sa Founder",
-        "body": "Itinatag ni Rana Darwich ang VINdicated sa edad na 19, matapos halos pumirma sa isang predatory arbitration clause sa isang dealership.",
-        "closingLine": "Ngayon, turn mo na."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Palakasin ang isip ng babae sa pamamagitan ng pagpapalawak nito, at magwawakas ang bulag na pagsunod."
-      }
+      "dealersTitle": "Maghanap ng dealership ng manufacturer",
+      "dealersBody": "Bibili ng second-hand na Honda sa isang Mitsubishi dealer? Dalhin ito sa isang Honda dealership para sa PPI mo."
     },
-    "provide": {
-      "titlePlain": "Libre. Accessible.",
-      "titleEm": "Walang kundisyon.",
-      "subtitle": "Lahat ng inaalok ng VINdicated ay libre. Walang kailangang mag-sign up, walang upsell, walang catch.",
+    "checks": {
+      "title": "Bakit nagbabayad ka para sa kaligtasan mo.",
+      "body": "Isa-isang sinusuri ng magaling na inspector ang bawat sistema ng kotse. Ito ang chine-check nila, at kung bakit mahalaga ang bawat parte.",
       "items": [
         {
-          "cat": "Edukasyon",
-          "title": "Libreng Automotive Workshops",
-          "body": "Mga session na pinamumunuan ng komunidad na nagpapaliwanag kung ano ang ayaw malaman ng mga dealer, kasama ang financing, repairs, at ang legal na karapatan mo sa lot."
+          "title": "Makina",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Tagas ng langis:"
+              },
+              " May tumutulong langis ba sa makina? Ang maliit na tagas ay nagiging malaking gastos."
+            ],
+            [
+              {
+                "b": "Tagas ng coolant:"
+              },
+              " Kayang sirain ng overheating ang makina nang mabilis at mahal."
+            ],
+            [
+              {
+                "b": "Timing belt/chain:"
+              },
+              " Kapag naputol ito habang nagmamaneho, puwedeng tuluyang masira ang makina mo."
+            ],
+            [
+              {
+                "b": "Mga code ng check engine light:"
+              },
+              " Kahit hindi nakailaw, kayang basahin ng mekaniko ang mga naka-save na code."
+            ],
+            [
+              {
+                "b": "Compression test:"
+              },
+              " Ipinapakita ang pagkaluma sa loob ng makina na hindi makikita sa pagtingin lang."
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Mga Tool",
-          "title": "Online Resources at Gabay",
-          "body": "Sunud-sunod na inspection guide, red flag checklist, script templates, at financing explainer. Ginawa para sa first-time buyers."
+          "title": "Transmission: kadalasan ang pinakamahal na ayusin",
+          "intro": "Puwedeng umabot sa $3,000–$8,000 ang pagpapaayos ng transmission. Ito ang chine-check ng inspector:",
+          "points": [
+            [
+              "Makinis na pagpapalit ng gear (automatic at manual)"
+            ],
+            [
+              "Kondisyon at kulay ng fluid (dapat malinaw na pink o pula, hindi brown o amoy-sunog)"
+            ],
+            [
+              "Pagdulas sa pagitan ng mga gear kapag umaarangkada"
+            ],
+            [
+              "Kakaibang tunog kapag nagpapalit ng gear"
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Komunidad",
-          "title": "Vetted Mechanic Network",
-          "body": "Gumagawa kami ng direktoryo ng mga mekanikong sinuri ng aming komunidad: mga tapat na mekanikong hindi ka babalewalain, hindi ka pipilitin bumili nang higit pa."
+          "title": "Preno",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Kapal ng brake pads:"
+              },
+              " Kapag mas manipis sa 3mm, kailangang palitan agad."
+            ],
+            [
+              {
+                "b": "Kondisyon ng rotor:"
+              },
+              " Ang gasgas, may lamat, o baluktot na rotor ay nagpapahaba ng layo bago huminto ang kotse."
+            ],
+            [
+              {
+                "b": "Brake fluid:"
+              },
+              " Sumisipsip ng tubig ang lumang fluid at humihina ang preno."
+            ],
+            [
+              {
+                "b": "ABS:"
+              },
+              " Kailangan ng espesyal na diagnostic tools para ma-check ang anti-lock braking system."
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "Pananaliksik",
-          "title": "Correspondence Audit Studies",
-          "body": "Idinodokumento namin ang diskriminasyon gamit ang datos. Sinusukat ng aming patuloy na pananaliksik ang gender-based na pagkakaiba sa presyo."
+          "title": "Suspension at steering",
+          "intro": "Direktang naaapektuhan ng problema sa suspension ang kontrol at kaligtasan sa bilis ng highway, at isa ito sa pinakamadalas na hindi napapansin sa inspection na galing sa seller.",
+          "points": [
+            [
+              "Ball joints, tie rods, at control arms"
+            ],
+            [
+              "CV axle boots (tingnan kung may lamat o talsik ng grasa sa paligid)"
+            ],
+            [
+              "Shock absorbers at struts"
+            ],
+            [
+              "Kondisyon ng steering rack"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Body at frame: history ng aksidente",
+          "intro": "Nakakatulong ang Carfax report (report ng history ng kotse) pero hindi ito ang buong kuwento. Sa pisikal na inspection, makikita ang:",
+          "points": [
+            [
+              "Hindi pantay na puwang sa pagitan ng mga panel (senyales ng body repair matapos maaksidente)"
+            ],
+            [
+              "Hindi magkatugmang pintura (iba ang kintab = pininturahan ulit ang panel)"
+            ],
+            [
+              "Sira sa frame o dati nang inayos ang frame"
+            ],
+            [
+              "Kalawang sa ilalim, lalo na sa mga kotseng galing sa northeast ng US"
+            ]
+          ],
+          "outro": [
+            {
+              "b": "Tip:"
+            },
+            " Kumuha ng Carfax AT magpa-inspect. Magkaibang bagay ang nakikita nila."
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "“Hindi mo kaibigan ang salesperson mo, hindi mo partner, at hindi siya ang nagbabantay sa kapakanan mo. Commission ang sweldo nila. Kapag mas malaki ang binayad mo, mas malaki ang kita nila. Hindi ibig sabihing masama sila. Kailangan mo lang protektahan ang sarili mo.”",
+      "cite": "Rana Darwich, Founder ng VINdicated"
+    },
+    "schedule": {
+      "title": "Paano magpa-schedule ng PPI.",
+      "stops": [
+        {
+          "title": "Maghanap muna ng inspector.",
+          "body": "Bago ka ma-in love sa isang kotse. Kapag may mekaniko ka nang maaasahan, hindi ka mapapamadali kapag may nakita kang kotseng gusto mo."
+        },
+        {
+          "title": "Sabihin agad sa seller.",
+          "body": "\"Gusto ko munang ipa-inspect ito sa independent na mekaniko bago bilhin.\" Red flag ang seller na tumatanggi; umalis ka na."
+        },
+        {
+          "title": "Ikaw ang magdadala ng kotse sa mekaniko.",
+          "body": "Sa private seller, ikaw ang magmamaneho papunta roon. Sa dealership, makipag-usap: \"Gusto kong i-extended test drive ito papunta sa mekanikong naka-book na ako.\" Ipasulat mo."
+        },
+        {
+          "title": "Kunin ang report nang nakasulat.",
+          "body": "Hingin nang nakasulat ang lahat ng nakita nila, hindi lang kuwento. Kakailanganin mo ang papeles sa pagtawad at para sa sarili mong record."
+        },
+        {
+          "title": "Gamitin ang nakita para tumawad.",
+          "body": "May tumatagas na CV boot? $300-600 'yan na pagpapaayos. Hilingin sa seller na ibaba ang presyo o ipaayos muna bago ibenta."
+        },
+        {
+          "title": "Puwede ka pa ring umatras pagkatapos ng PPI.",
+          "body": "Kung seryoso ang nakita at ayaw tumawad ng seller, sulit pa rin ang inspection. Iniligtas ka nito sa mas malaking talo."
+        }
+      ],
+      "alertTitle": "Mahalaga",
+      "alert": [
+        "Kung pinatatagal ng seller ang pagbibigay ng service records o nangangakong \"ibibigay na lang mamaya,\" magpa-schedule ng inspection bago ka pa ma-attach sa kotse. ",
+        {
+          "b": "Magpa-schedule ng inspection bago ka ma-attach, hindi pagkatapos."
         }
       ]
     }
   },
-  "team": {
+  "fraudPage": {
     "hero": {
-      "titleLine1": "Dala ng parehong",
-      "titleEm": "frustration."
+      "title": "Alamin ang ginagawa nila.",
+      "body": "Mga diskarteng talagang ginagamit ng mga dealer at scammer sa mga buyer, at ano ang sasabihin mo kapag nangyari ito sa'yo.",
+      "ctaPrimary": "Tingnan ang mga red flag",
+      "ctaSecondary": "Alamin ang karapatan mo"
     },
-    "sectionTitle": "Kilalanin ang Team",
-    "members": {
-      "Rana Darwich": {
-        "position": "Founder",
-        "bio": "Itinatag ni Rana ang VINdicated sa edad na 19 matapos siyang mailigtas ng isang business law term sa pagpirma ng predatory sales contract sa isang dealership. Ang nagsimula bilang personal breaking point ay naging misyon para wasakin ang mga sistemang nang-eexploit sa mga konsumer na pumapasok sa car lot nang mag-isa, walang backup. Pinamumunuan niya ang research initiatives at strategic direction ng VINdicated, dahil naniniwala siyang ang kaalaman tungkol sa sasakyan ay dapat pampublikong kaalaman."
+    "pinkSlip": {
+      "title": "Ang dokumentong ito lang ang patunay na sa'yo ang kotse.",
+      "body": "Ang California Certificate of Title, ang tinatawag na \"pink slip,\" ay ang legal na dokumentong nagpapatunay kung sino ang may-ari. Mag-scroll para isa-isahin ang bawat bahagi nito.",
+      "imageAlt": "Sample ng California Certificate of Title",
+      "intro": "Anim na kahon ang nagdedesisyon kung talagang sa'yo ang kotse. Mag-scroll para i-highlight ang bawat isa.",
+      "items": [
+        {
+          "label": "Certificate of Title",
+          "title": "Ang California Certificate of Title",
+          "body": "Ito ang \"pink slip,\" galing sa California DMV (ang ahensyang namamahala sa mga sasakyan at lisensya), at ito lang ang legal na patunay na may-ari ka ng sasakyan. Kapag bumili ka ng kotse, pipirmahan ng seller ang likod at iaabot sa'yo. Dadalhin mo ito sa DMV para mailipat sa pangalan mo. Kung hindi mo gagawin ito, hindi legal na sa'yo ang kotse, kahit magkano pa ang ibinayad mo.",
+          "say": "Kung sabihin ng seller na hindi mo kailangan ang pink slip, na \"ipapadala na lang mamaya,\" o na \"nawala\": huwag mong ituloy ang pagbili."
+        },
+        {
+          "label": "Registered Owner",
+          "title": "Sino ang Legal na May-ari ng Kotseng Ito",
+          "body": "Dapat tugma ang pangalan dito sa taong nagbebenta sa'yo ng kotse. Mga red flag: hindi tugma ang pangalan sa ID ng seller, ang registered owner ay negosyong hindi mo kilala, o sinasabi ng seller na nagbebenta siya \"para sa\" ibang tao nang walang papeles.",
+          "say": "Laging hingin ang government ID ng seller. Dapat eksaktong tugma ang pangalan sa titulo."
+        },
+        {
+          "label": "Vehicle History",
+          "title": "History ng Sasakyan: Ito ang Unahin Mo.",
+          "body": "Nakalista sa kahong ito ang mga marka ng DMV: salvage, binili pabalik dahil sa lemon law (batas para sa sirang kotse), nasira sa baha, o nanakaw at narekober. Ang \"salvage\" na titulo ay ibig sabihing idineklara ng insurance na total loss ang kotse. Parehong malaki ang ibinababa ng halaga ng salvage at rebuilt na titulo.",
+          "say": "Kapag may nakasulat sa kahon ng Vehicle History, alamin muna kung ano talaga ang ibig sabihin nito bago ituloy."
+        },
+        {
+          "label": "Vehicle ID Number",
+          "title": "Dapat Eksaktong Tugma ang VIN.",
+          "body": "Ang VIN (Vehicle Identification Number) ay natatanging 17-character na code na ibinigay noong ginawa ang kotse. Hanapin mismo ito sa kotse (sa dashboard at sa gilid ng pinto) at i-check na tugma ito sa dokumentong ito, letra por letra. Kapag hindi tugma, puwedeng VIN cloning ito, kung saan ginagamit ng nakaw na kotse ang pagkakakilanlan ng isang lehitimong kotse.",
+          "say": "I-type ang VIN sa vehiclehistory.gov (libre) o sa Carfax para i-check ang history ng aksidente at status ng titulo bago ang lahat."
+        },
+        {
+          "label": "Signature Section",
+          "title": "Dapat Pumirma ang Seller sa Harap Mo.",
+          "body": "Dito legal na binibitawan ng registered owner ang karapatan niya sa sasakyan. Kailangang pumirma ang registered owner sa harap mo sa oras ng bentahan. Kapag may pirma na ang titulo bago pa ang bentahan, may nakapagbitaw na ng pagmamay-ari, at hindi mo alam kung kanino o kailan.",
+          "say": "Huwag na huwag tatanggapin: titulong may pirma na, bakanteng signature section, o pirma ng ibang tao maliban sa registered owner na nakatala."
+        },
+        {
+          "label": "Odometer Disclosure",
+          "title": "Federal na Krimen ang Pandaraya sa Mileage.",
+          "body": "Ayon sa federal na batas, dapat sabihin ng seller ang totoong mileage sa oras ng bentahan. Federal na krimen ang pag-rollback ng odometer ayon sa Motor Vehicle Information and Cost Savings Act. I-check na tugma ang reading dito sa mismong odometer ng kotse, tapos ikumpara sa vehicle history report.",
+          "say": "Kung may hinala kang pandaraya: kunan ng litrato ang hindi pagkakatugma, huwag ituloy ang pagbili, at i-report sa NHTSA (federal na ahensya para sa kaligtasan sa kalsada) sa nhtsa.gov."
+        }
+      ]
+    },
+    "tour": {
+      "countIntro": "{total} hinto",
+      "countStep": "{n} / {total}"
+    },
+    "flags": {
+      "title": "Mga red flag sa pagbili ng kotse.",
+      "body": "Anim na sinasabi ng mga dealer, at eksakto kung paano sasagot. Mag-scroll para i-play ang bawat usapan.",
+      "intro": "Mga maririnig mo sa dealership.",
+      "dealer": "Dealer",
+      "floor": "Showroom",
+      "start": "Mag-scroll para simulan ang unang usapan.",
+      "counter": "Red flag {n} sa {total}",
+      "tag": "Red flag {n}",
+      "chip": "Red flag",
+      "whatToDo": "Ano ang gagawin: {text}",
+      "items": [
+        {
+          "title": "Presyong Masyadong Maganda Para Maging Totoo",
+          "body": "Nag-a-advertise ang mga dealer ng presyong kasama na ang tambak na rebate at discount: para sa military, teacher, loyal customer, bagong graduate, at iba pa. Karamihan ng buyer, hindi qualified sa karamihan nito. Ang presyo online ay para lang papuntahin ka, hindi 'yan ang talagang babayaran mo.",
+          "todo": "Hingin nang nakasulat ang out-the-door price (ang kabuuang babayaran mo, kasama na ang lahat) bago ka pumunta, at itanong kung aling discount talaga ang qualified ka.",
+          "dealer": "Kasama na sa presyong 'yan online ang lahat ng incentive namin. Qualified ka naman sa lahat, 'di ba?",
+          "you": "Puwede ko bang makuha nang nakasulat ang out-the-door price, at kung aling discount talaga ang qualified ako?"
+        },
+        {
+          "title": "Ang mga Discount na Biglang Nawawala",
+          "body": "Pagdating sa mesa, magtatanong ang salesperson ng sunod-sunod: college grad ka ba, military, taga-rito, may ipapalit ka bang kotse. Bawat \"hindi\" ay tanggal na discount. Sa dulo, libu-libo na ang itinaas ng presyo mo, kahit sinabihan ka pang qualified ka sa rebate ng manufacturer.",
+          "todo": "Hilinging makita ang orihinal na advertised price katabi ng final price, kasama ang bawat linyang nagbago at kung bakit.",
+          "dealer": "Ilang tanong lang: military ka? Bagong graduate? May ipapalit na kotse? ...Wala? Sige, i-a-update ko lang ang presyo mo.",
+          "you": "Ipakita mo sa akin ang advertised price katabi nito, kasama ang bawat linyang nagbago at kung bakit."
+        },
+        {
+          "title": "Mga Accessories na Hindi Mo Hiningi",
+          "body": "Wheel locks, splash guards, paint protectant, at iba pang dagdag ang isinasama sa presyo kahit hindi mo hiningi. Kung sabihin ng dealer na nakakabit na ito sa kotse, dahilan 'yan para tumawad, hindi para magbayad.",
+          "todo": "Hilingin sa dealer na tanggalin ang lahat ng hindi mo hiningi, o ibawas ito sa presyo.",
+          "dealer": "Nakakabit na ang wheel locks at paint protection, kaya kasama na sila sa presyo.",
+          "you": "Hindi ko hiningi 'yan. Tanggalin n'yo, o ibawas n'yo sa presyo."
+        },
+        {
+          "title": "Mga Inimbentong Bayarin",
+          "body": "Punong tangke ng gas, reconditioning fee, CPO fee, delivery o clean-up fee: kadalasan kasama na ang mga ito sa presyo mula sa manufacturer. Kapag sinisingil ulit, dagdag-patong lang 'yan na may pangalang tunog-opisyal.",
+          "todo": "Itanong kung aling bayarin ang hinihingi ng batas at alin ang inimbento, tapos ipatanggal ang mga inimbento.",
+          "dealer": "May maliit na reconditioning fee at delivery fee. Standard lang 'yan.",
+          "you": "Alin sa mga bayaring ito ang hinihingi ng batas? Pakitanggal na lang ang iba."
+        },
+        {
+          "title": "Dalawang Beses na Destination Fee",
+          "body": "Ang destination, na tinatawag ding freight (bayad sa pagpapadala ng kotse), ay nakalista na sa window sticker sa tabi ng MSRP (ang presyong suggested ng manufacturer). Ang hindi tapat na dealer ay magbibigay ng presyong kasama na ito, tapos idadagdag ulit mamaya bilang hiwalay na bayarin. Kapag nakita mong may sariling linya ang destination, dalawang beses ka nang sinisingil.",
+          "todo": "Itanong kung kasama na ang destination sa presyong sinabi sa'yo, at ipatanggal ito kapag lumabas ulit.",
+          "dealer": "Hiwalay ang destination. Idadagdag natin 'yan sa dulo.",
+          "you": "Kasama na ba ang destination sa presyong sinabi mo? Kung oo, tanggalin mo 'yung pangalawa."
+        },
+        {
+          "title": "Mga Dealer na Kinopya Gamit ang AI",
+          "body": "Kinokopya ng mga scammer ang pangalan, website, at papeles ng totoong dealership, madalas may mga litratong gawa ng AI, tapos tatanggap ng bayad para sa kotseng hindi naman totoo. Mag-ingat sa mga seller na ayaw ipakita nang personal ang kotse, o tumatanggap lang ng paunang wire transfer.",
+          "todo": "Hilinging makita ang kotse sa lote ng dealer, o magpadala ng mobile inspector, bago ka magbayad ng kahit ano.",
+          "dealer": "Wire transfer lang ang tinatanggap namin. Ipapadala bukas, at heto ang tracking link mo!",
+          "you": "Titingnan ko muna nang personal ang kotse o magpapadala ako ng inspector. Walang wire."
+        }
+      ]
+    },
+    "yoyo": {
+      "label": "Ang yo-yo scam, naka-animate",
+      "title": "Ang yo-yo scam.",
+      "body": "Tinatawag ding spot delivery. Patuloy na mag-scroll para makita kung paano ito nangyayari.",
+      "svgLabel": "Isang kotse na umaandar mula sa dealership papunta sa bahay, tapos hinihila pabalik sa dealership gamit ang tali",
+      "dealership": "DEALERSHIP",
+      "home": "BAHAY",
+      "day": "Araw {n}",
+      "back": "Balik sa dealer",
+      "okContract": {
+        "label": "Pinirmahan (may kondisyon)",
+        "rate": "6.9% APR",
+        "pay": "$412/buwan"
       },
-      "Rizwaan Bana": {
-        "position": "Strategist",
-        "bio": "Si Rizwaan Bana ay Computer Science major sa UCLA. Siya ang Software Lead sa VINdicated, kung saan gumagawa siya ng mga tool para tulungan ang mga konsumer na madaling makapag-navigate sa proseso ng pagbili ng kotse. Masigasig si Rizwaan sa paggamit ng teknolohiya para sa positive change at paggawang mas accessible ang impormasyon para sa lahat."
+      "badContract": {
+        "label": "Bagong kontrata",
+        "rate": "13.9% APR",
+        "pay": "$498/buwan"
       },
-      "William Prawira": {
-        "position": "Data Engineer",
-        "bio": "Si Will Prawira ay double major sa Data Science & Applied Mathematics sa UCLA. Sa UCLA, kasali siya ngayon sa Bruin Sports Analytics bilang bahagi ng Tennis Consulting team, pati na sa NSDC bilang project lead. Aktibo siyang gumagawa sa VINdicated bilang data product engineer."
+      "captions": [
+        {
+          "tag": "Araw 1",
+          "text": "\"Congrats! Iuwi mo na ngayon. Aayusin na lang namin ang financing mo mamaya.\""
+        },
+        {
+          "tag": "Makalipas ang isang linggo",
+          "text": "Makalipas ang isang linggo, matapos mong ipalit ang luma mong kotse, tatawag ang dealer."
+        },
+        {
+          "tag": "Ang paghila",
+          "text": "\"Hindi namin na-approve ang financing mo. Kailangan mong bumalik dito.\""
+        },
+        {
+          "tag": "Ang bagong deal",
+          "text": "Gusto nilang pumirma ka ng bagong kontrata na mas mataas ang interes, at ang ipinalit mong kotse ay \"naibenta na raw.\""
+        },
+        {
+          "tag": "Paano ito pipigilan",
+          "text": "Huwag na huwag iuuwi ang kotse hangga't hindi buong approved ang financing, hindi \"may kondisyon.\" Huwag na huwag pipirma ng pangalawa at mas pangit na kontrata."
+        }
+      ]
+    },
+    "fourSquare": {
+      "title": "Ang four-square trap.",
+      "body": "Karaniwang paraan para itago ang totoong presyo ng kotse. Panoorin ang nangyayari kapag humingi ka ng mas mababang monthly payment.",
+      "sheetLabel": "Four-square worksheet ng dealer",
+      "tradeIn": "Trade-in",
+      "price": "Presyo ng kotse",
+      "down": "Down payment",
+      "monthly": "Monthly payment",
+      "hidden": "Ang parteng hindi nila isinusulat sa kahon",
+      "months": "{n} buwan",
+      "total": "Ang talagang babayaran mo",
+      "financed": "Halagang inutang",
+      "interest": "Interes",
+      "ask": "\"Puwede pa bang ibaba ang hulog ko?\"",
+      "replay": "Ulitin",
+      "say": "Ang sasabihin mo: \"Magkano ang out-the-door price? Doon muna tayo magsimula bago pag-usapan ang hulog.\"",
+      "note": "Sample na numero: $19,000 na inutang sa 8% APR (taunang interes).",
+      "lines": [
+        "Heto ang deal mo. $385 kada buwan.",
+        "Puwede pa bang ibaba ang hulog ko?",
+        "Sige, tingnan ko kung ano'ng magagawa ko... $333!",
+        "Medyo mataas pa rin. Mas mababa pa?",
+        "Good news: $296 kada buwan! Pirma ka na dito.",
+        "Bumaba nga ang hulog mo. Pero ang loan mo, mula 60 naging 84 na buwan, at $1,761 ang madadagdag sa babayaran mo."
+      ]
+    },
+    "receipt": {
+      "title": "Basahin ang resibo linya por linya.",
+      "body": "I-tap ang kahit anong singil sa sample na resibo ng bagong kotse para makita kung hinihingi ito ng batas, kung puwedeng tawaran, o kung red flag ito.",
+      "categories": {
+        "req": "Hinihingi ng batas",
+        "neg": "Puwedeng tawaran",
+        "opt": "Hindi required",
+        "red": "Red flag"
       },
-      "Halima Cherif Hminat": {
-        "position": "Research & Outreach Lead",
-        "bio": "Si Halima Cherif Hminat ay estudyante ng Integrative Biology sa UC Berkeley, minor sa Sustainable Business and Policy, at nasa pre-dental track. Siya rin ay Research and Outreach Lead sa VINdicated at tumutulong gumawa ng resources para makagawa ang mga tao ng informed decisions nang may kumpiyansa. Sabi niya, importante ang misyon ng VINdicated dahil gusto niyang suportahan ang mga kababaihan sa pag-iwas sa unfair treatment sa pagbili at pagpapaayos ng kotse."
+      "label": "Sample na resibo ng dealer",
+      "heading": "Buyer's Order",
+      "sub": "Halimbawa · 2026 compact SUV",
+      "total": "Kabuuan",
+      "strip": "Tanggalin ang lahat ng puwede mong tanggihan",
+      "saved": "Nakatipid ka na ng {amount} bago pa man tawaran ang presyo.",
+      "whatToSay": "Ang sasabihin mo: {text}",
+      "note": "Sample na numero lang. Iba-iba ang tax rate at bayarin ng estado depende sa siyudad at county.",
+      "lines": [
+        {
+          "name": "Presyo ng sasakyan",
+          "short": "Ang presyo ng mismong kotse.",
+          "long": "Dito nagsisimula ang lahat. Ikumpara ang quote ng ilang dealer at tawaran ang out-the-door price, hindi ang monthly payment.",
+          "say": "\"Magkano ang best out-the-door price n'yo, nakasulat?\""
+        },
+        {
+          "name": "Destination charge",
+          "short": "Bayad sa pagpapadala mula sa pabrika papunta sa dealer.",
+          "long": "Totoong singil ito ng manufacturer sa mga bagong kotse, at nakaprint na ito sa window sticker. Dapat isang beses lang ito lalabas. Kapag dalawang beses, o may pangalawang linya na \"freight,\" red flag 'yan.",
+          "say": "\"Nasa sticker na ang destination charge. Ipakita n'yo sa akin na isang beses lang ito nakalista.\""
+        },
+        {
+          "name": "Market adjustment",
+          "short": "Dagdag-patong sa presyo ng sticker.",
+          "long": "Kita lang ito ng dealer na wala namang katumbas. Puwede mo itong tanggihan, o bumili sa dealer na hindi nagdadagdag nito.",
+          "say": "\"Hindi ako magbabayad ng market adjustment. Tanggalin n'yo o sa iba na lang ako bibili.\""
+        },
+        {
+          "name": "Dealer prep",
+          "short": "Bayad sa paghahanda ng kotse.",
+          "long": "Kadalasan, ang manufacturer na ang nagbabayad sa dealer para ihanda ang bagong kotse, kaya kapag sinisingil ka pa, dalawang beses na silang kumikita.",
+          "say": "\"Hindi ba sagot na ng manufacturer ang prep? Pakitanggal.\""
+        },
+        {
+          "name": "VIN etching",
+          "short": "Ang VIN na inukit sa mga bintana.",
+          "long": "Madalas nakalagay na at sinasabing required. Hindi totoo. Mas mura nang malaki ang kit na pang-bahay, at maraming insurance ang hindi nagbibigay ng discount dahil dito.",
+          "say": "\"Hindi ako humingi ng VIN etching. Tanggalin n'yo sa presyo.\""
+        },
+        {
+          "name": "Gulong na may nitrogen",
+          "short": "Nitrogen imbes na hangin sa gulong.",
+          "long": "Mga 78% nitrogen na ang hangin. Bihirang may totoong pakinabang ito at karaniwang pampadagdag lang sa singil.",
+          "say": "\"Pakitanggal ang singil sa nitrogen.\""
+        },
+        {
+          "name": "Proteksyon sa pintura at tela",
+          "short": "Package ng coating o sealant.",
+          "long": "Dagdag na produkto ito, hindi required. Sa California, dapat hiwalay na nakalista ang bawat add-on na may sariling presyo, at puwede mong tanggihan ang kahit alin.",
+          "say": "\"Hindi na, salamat, sa protection package.\""
+        },
+        {
+          "name": "Extended service contract",
+          "short": "Coverage sa pagpapaayos lampas sa warranty ng pabrika.",
+          "long": "Optional ito, at kadalasan puwedeng tawaran ang presyo. Hindi ito puwedeng gawing kondisyon para ma-approve ang financing mo. Madalas, puwede kang bumili nito mamaya, at sa ibang lugar.",
+          "say": "\"Hindi muna ako kukuha ng service contract.\""
+        },
+        {
+          "name": "GAP insurance",
+          "short": "Sinasagot ang kulang kapag na-total loss ang kotse habang mas malaki pa ang utang mo kaysa sa halaga nito.",
+          "long": "Puwedeng sulit kapag malaki ang loan, pero optional ito at hindi puwedeng gawing kondisyon ng financing mo. Puwedeng mas mura ito sa sarili mong insurance o credit union (kooperatibang parang bangko).",
+          "say": "\"Sa insurance ko na lang ako kukuha ng GAP. Pakitanggal.\""
+        },
+        {
+          "name": "Document fee",
+          "short": "Bayad sa pag-aasikaso ng papeles ng dealer.",
+          "long": "May limit sa batas ng California ang bayaring ito. Kadalasan hindi ito matatawaran, pero hindi ka dapat magbayad nang lampas sa limit ng estado.",
+          "say": "\"Pasok ba ang doc fee na ito sa limit ng California?\""
+        },
+        {
+          "name": "Tire fee ng California",
+          "short": "Bayarin ng estado sa bagong gulong.",
+          "long": "Bayarin ng estado na kinokolekta sa bawat bagong gulong na nabenta. Maliit lang ito, at required.",
+          "say": ""
+        },
+        {
+          "name": "Sales tax",
+          "short": "Sales tax ng estado at lokal.",
+          "long": "Required, at depende sa kung saan mo irerehistro ang kotse. Kinukuwenta ito sa taxable na presyo, kaya bawat dolyar na naibawas mo sa presyo ay nagpapababa rin ng tax mo.",
+          "say": ""
+        },
+        {
+          "name": "Bayad sa registration, titulo, at lisensya",
+          "short": "Bayarin sa gobyerno na ibinabayad sa DMV.",
+          "long": "Napupunta ito sa estado at required. Hingin ang itemized na listahan ng bayarin sa DMV at i-check kung tugma.",
+          "say": "\"Puwede ko bang makita ang itemized na DMV fees?\""
+        }
+      ]
+    },
+    "apr": {
+      "title": "Magkano talaga ang ilang puntos ng APR.",
+      "body": "Sabi ng Truth in Lending Act (federal na batas sa pagpapautang), may karapatan kang makita ang APR, o taunang interes ng loan mo, bago ka pumirma. I-drag ang rate para makita kung bakit mahalaga 'yan.",
+      "rateLabel": "Rate na ino-offer sa'yo ng dealer",
+      "rateValue": "{rate} porsyentong APR",
+      "approval": "Ang approval mo",
+      "capMark": "Limit ng CA {rate}%",
+      "termLabel": "Haba ng loan",
+      "termOption": "{n} buwan",
+      "approvedLabel": "Rate na in-approve ng lender mo",
+      "lower": "Ibaba ang approved na rate",
+      "raise": "Itaas ang approved na rate",
+      "hint": "Halaga ng loan: $15,000.",
+      "monthly": "Monthly payment",
+      "perMonth": "{amount}/buwan",
+      "interest": "Interes na babayaran mo",
+      "totalCost": "Kabuuang gastos ng loan",
+      "car": "Ang kotse",
+      "interestKey": "Interes",
+      "overTitle": "Lampas sa puwedeng idagdag ng dealer.",
+      "over": "Kung {buy}% ang in-approve ng lender mo, ang limit ng California sa dagdag ng dealer ay {points} puntos para sa {term}-buwang loan, kaya {cap}%. Hilinging makita ang rate na in-approve ng lender.",
+      "markupTitle": "Pinatungan ng dealer ang rate mo.",
+      "markup": "Dagdag na {amount} sa interes 'yan kumpara sa {buy}% na in-approve sa'yo. Legal ito hanggang sa limit, at puwedeng tawaran.",
+      "okTitle": "Pareho o mas mababa sa approved rate mo.",
+      "ok": "Ang pagpapa-pre-approve bago ka pumasok ang nagpapagana nito."
+    },
+    "law": {
+      "title": "Nasa panig mo na ang batas.",
+      "body": "Karamihan ng buyer, hindi alam kung ano ang legal na obligasyon ng mga dealer. Heto ang sinasabi ng batas, sa simpleng salita, at eksakto kung ano ang sasabihin mo kapag sinubukan nilang balewalain ito.",
+      "federalTitle": "Proteksyon ng federal",
+      "californiaTitle": "Proteksyon ng California",
+      "federal": [
+        {
+          "tag": "Truth in Lending Act (TILA)",
+          "title": "Dapat sabihin ang APR mo bago ka pumirma. Walang exception.",
+          "body": "Ayon sa federal na batas, dapat ipakita sa'yo ng dealer ang Annual Percentage Rate (APR), ang kabuuang finance charge, at ang kabuuang gastos ng loan bago ka pumirma ng kahit ano. Sa $15,000 na loan, lampas $8,000 ang pagitan ng 7% APR at 30% APR.",
+          "say": "\"Ipakita n'yo sa akin ngayon ang APR, finance charge, at kabuuan ng mga hulog, bago ako pumirma.\""
+        },
+        {
+          "tag": "FTC Used Car Rule",
+          "title": "Dapat may Buyers Guide sa bintana ng bawat second-hand na kotse.",
+          "body": "Ayon sa batas, bawat second-hand na kotse sa lote ng dealer ay dapat may Buyers Guide sticker na nagsasabi kung may warranty ito, ano ang sakop ng warranty, o kung ibinebenta ito nang \"as is\" (kung ano ang lagay, walang warranty). Puwedeng pagmultahin ng FTC (Federal Trade Commission, ahensyang nagpoprotekta sa consumer) ang mga dealer nang hanggang $51,744 kada nawawalang sticker.",
+          "say": "Kapag walang sticker, o tinanggal ito ng dealer bago mo mabasa, paglabag 'yan sa federal na batas. Kunan ng litrato."
+        },
+        {
+          "tag": "Motor Vehicle Information Act",
+          "title": "Federal na felony ang pag-rollback ng odometer.",
+          "body": "Dapat magbigay ang dealer ng nakasulat na odometer disclosure sa oras ng bentahan. Ikumpara ang numero sa kontrata sa mismong odometer, sa Carfax report, at sa mga service record. Dapat magkakatugma ang tatlo.",
+          "say": "Kapag hindi tugma: itigil ang transaksyon. Kunan ng litrato ang lahat. I-report sa FTC sa reportfraud.ftc.gov."
+        },
+        {
+          "tag": "Fair Credit Reporting Act",
+          "title": "Kapag chineck nila ang credit mo, may karapatan kang makita kung ano ang nakita nila.",
+          "body": "Dapat bigyan ka ng dealer ng nakasulat na disclosure na nagpapakita ng eksaktong credit score mo, kung aling credit bureau ang nagbigay nito, at kung paano nito naapektuhan ang terms ng loan mo. Alamin ang score mo bago ka pumasok.",
+          "say": "Bago ka pumunta: kunin ang libreng report mo sa annualcreditreport.com. Pumasok nang alam mo ang score mo."
+        }
+      ],
+      "holder": {
+        "tag": "FTC Holder Rule",
+        "title": "Kung sa seller ka nag-finance, puwedeng managot din ang lender mo.",
+        "body": "Ang mga consumer credit contract na inayos sa pamamagitan ng seller ay dapat may abiso na nagpapahintulot sa'yong ireklamo sa lender ang parehong reklamo mo sa seller, hanggang sa halagang naibayad mo na. Kapag scam pala ang bentahan, ito ang puwedeng magpalaya sa'yo sa loan.",
+        "say": "Itago ang bawat resibo, message, at kontrata, at kontakin agad ang lender mo nang nakasulat."
       },
-      "Yinrui (Ray) Gan": {
-        "position": "Technical Lead",
-        "bio": "Pinamumunuan ni Ray Gan ang data at AI pipeline para sa interactive dealership risk map ng VINdicated. Dinisenyo niya ang LLM-based classification system na nagko-convert ng unstructured consumer reviews maging transparent, evidence-backed risk signals para sa mga bumibili ng kotse. Nag-aaral si Ray ng Computer Science and Linguistics sa UCLA."
-      },
-      "Fiona Wangsawidjaja": {
-        "position": "Research Analyst",
-        "bio": "Si Fiona Wangsawidjaja ay kasalukuyang undergraduate student sa UCLA. Tumutulong siya sa data section ng VINdicated!"
-      },
-      "Ameerah Zafar": {
-        "position": "Data Engineer",
-        "bio": "Si Ameerah Zafar ay senior sa Chemical Engineering sa UC Berkeley, kasali rin siya sa Muslim Student Association ng Berkeley at sa Undergraduate Research tungkol sa coating mechanics. Tumutulong si Ameerah sa data research at graphic design sa VINdicated."
-      },
-      "Evanceline Tang": {
-        "position": "Visual Design Lead",
-        "bio": "Si Evanceline ay second year biology major sa UCLA. Masigasig siya sa paggamit ng art at design bilang paraan ng paghahatid ng mensahe. Sa pamamagitan ng kanyang art, sana matulungan niya ang mga tao na mas maintindihan ang VINdicated at ang existing inequalities at panganib sa automotive industry."
-      },
-      "Ayat Ashraf": {
-        "position": "Research Analyst",
-        "bio": "Si Ayat Ashraf ay Math/Econ major sa UCLA na interesado sa economic policymaking. Gumagawa siya ng research sa VINdicated, para sana makabili siya ng kotse in the future nang hindi na kailangang tumawag sa tatay niya ng 8,000 beses."
-      },
-      "Brisa Gómez": {
-        "position": "Data Analyst",
-        "bio": "Si Brisa Gómez ay first-year transfer psychology student. Lumaki sa Tijuana, México, masigasig sila sa research na may kinalaman sa underrepresented communities tulad ng kababaihan, taong may kapansanan, at queer identities. Sana maging behavioral therapist sila sa hinaharap. Sa libreng oras, gustong magbasa ng cheesy romance novels at gumawa ng creative writing."
+      "california": [
+        {
+          "tag": "AB68: Pag-cancel",
+          "title": "Puwede mong bawiin ang pagbili sa loob ng 2 araw, pero kailangan mo itong bilhin mismo sa pagpirma.",
+          "body": "Dapat mag-offer ang bawat lisensyadong dealer ng 2-day contract cancellation option sa mga second-hand na kotseng $40,000 pababa. Nagkakahalaga ito ng $75 hanggang 1% ng presyo, plus restocking fee kapag ginamit mo, pero binibigyan ka nito ng legal na paraan para umatras.",
+          "say": "\"Gusto kong bilhin ang 2-day contract cancellation option.\""
+        },
+        {
+          "tag": "AB68: Interes",
+          "title": "May limit ang patong sa interes. Hindi puwedeng singilin ng dealer kahit magkano.",
+          "body": "Nililimitahan ng batas ng California ang patong ng dealer sa interes: max 2% sa loan na lampas 60 buwan, max 2.5% sa mas maiikli. Kapag nagpa-pre-approve ka sa bangko o credit union bago pumasok, wala na silang panlamang dito.",
+          "say": "Bago ka pumunta: magpa-pre-approve. Pumasok nang may rate ka na. Kailangan nilang talunin 'yon."
+        },
+        {
+          "tag": "AB68: Mga Add-On",
+          "title": "Dapat hiwalay na nakalista ang bawat add-on na may sariling presyo. Bawal ang bundle.",
+          "body": "Dapat may sariling linya ang bawat item na naka-finance. Dapat ipakita ng dealer ang monthly payment mo nang may at walang bawat optional na item. Paglabag sa batas ng California ang isang malaking bundled na numero na sinasabing \"ito ang hulog.\"",
+          "say": "Hindi legal ang \"package na lahat 'yan.\" Hingin nang nakasulat ang itemized na listahan."
+        },
+        {
+          "tag": "Bawal na Gawain",
+          "title": "Hindi nila puwedeng gawing kondisyon ng financing ang add-on.",
+          "body": "Walang dealer na puwedeng mag-require na bumili ka ng GAP insurance, extended warranty, paint protection, o kahit anong add-on para ma-approve ang loan mo. Kung ipinapahiwatig ng finance manager na \"kailangan\" mong kumuha ng add-on para ma-qualify, kasinungalingan 'yan, at ilegal.",
+          "say": "\"Pakipakita nang nakasulat kung saan sinasabing kailangan ito para sa financing.\" Tingnan mo kung ano ang mangyayari."
+        }
+      ],
+      "californiaNotice": {
+        "title": "Ina-update pa ang bahaging ito.",
+        "body": "May bagong batas ang California, ang SB 766 (isang state bill), na magkakabisa sa Oktubre 1, 2026. Binibigyan nito ng bagong karapatang magsauli ang maraming bumibili ng second-hand na kotse, at binabago nito ang ilan sa mga patakaran sa ibaba. Hangga't hindi pa namin naa-update ang mga card na ito, i-check muna ang detalye bago umasa rito.",
+        "link": "Basahin ang buod ng CalMatters tungkol sa bagong batas"
       }
     },
+    "after": {
+      "title": "Ano ang gagawin kapag na-scam ka.",
+      "body": "Pumili ng card para baligtarin ito.",
+      "items": [
+        {
+          "front": "I-dokumento agad ang lahat.",
+          "back": "Mga petsa, oras, pangalan. Itago ang lahat ng text, email, at kontrata."
+        },
+        {
+          "front": "Mag-file sa DMV ng estado mo.",
+          "back": "Karamihan ng estado ay may consumer protection division para sa pandaraya sa sasakyan."
+        },
+        {
+          "front": "I-report sa FTC.",
+          "back": "Mag-file ng report sa reportfraud.ftc.gov, lalo na kung may pandaraya sa odometer o walang Buyers Guide."
+        }
+      ]
+    },
+    "brochure": {
+      "coverAlt": "Cover ng brochure ng VINdicated",
+      "tag": "Dalhin mo",
+      "title": "Ang brochure ng VINdicated.",
+      "body": "Ang VIN, ang yo-yo scam, ang four-square trap, mga add-on ng dealer, at ang mga legal na karapatan mo, lahat nasa iisang handout. Dala namin ito sa tabling at sa pagbisita sa mga school.",
+      "soon": "Malapit nang lumabas ang bagong edition na libreng ma-download."
+    },
     "cta": {
-      "headingPlain": "Gusto mo bang maging",
-      "headingEm": "bahagi nito?",
-      "body": "Lagi hinahanap ng VINdicated ang mga taong masigasig: researchers, developers, designers, educators, at advocates. Kung naniniwala kang dapat fair ang pagbili ng kotse para sa lahat, gusto naming marinig mula sa'yo.",
-      "button": "Makipag-ugnayan"
+      "title": "Susunod, alamin ang mga papeles.",
+      "body": "Ituloy mo: matutong basahin ang mga dokumentong iniaabot ng dealer, at ipa-inspect ang kotse bago ka pumirma.",
+      "primary": "Tingnan ang mga totoong dokumento, ipinaliwanag",
+      "secondary": "Gabay sa pag-inspect"
+    }
+  },
+  "documentsPage": {
+    "hero": {
+      "title": "Mga totoong dokumento. Ipinaliwanag.",
+      "body": "Isang vehicle history report na ipinaliwanag isa-isa, plus ang FTC Buyers Guide sa simpleng salita: ang dalawang dokumentong dapat maintindihan ng bawat bumibili ng second-hand na kotse.",
+      "ctaPrimary": "Basahin ang history report",
+      "ctaSecondary": "Basahin ang Buyers Guide"
+    },
+    "severity": {
+      "easy": "Madaling i-check",
+      "watch": "Tingnang mabuti",
+      "red": "Seryosong red flag",
+      "know": "Dapat mong malaman"
+    },
+    "tour": {
+      "countIntro": "{total} hinto",
+      "countStep": "{n} / {total}"
+    },
+    "page1": {
+      "title": "Paano basahin ang Carfax, unang pahina.",
+      "body": "Mileage at VIN, history ng aksidente, reliability, at mga bagong service. Mag-scroll para isa-isahin ang bawat bahagi at kung ano ang ibig sabihin nito sa presyo.",
+      "imageAlt": "Unang pahina ng sample na Carfax vehicle history report para sa 2013 Honda Accord",
+      "intro": "Mag-scroll at iilaw ang bawat bahagi ng report.",
+      "items": [
+        {
+          "title": "195,555 Milya: Ano ang Ibig Sabihin ng Mataas na Mileage",
+          "body": "Wala pang 100k: mababa ang mileage, karamihan ng sistema ay nasa buhay pa nila. 100k–150k: sweet spot; bumaba na ang halaga, maayos pa ang mga sistema. 150k–200k: mataas, pero ang maayos na inalagaang Honda ay kayang umabot ng 250k–300k pataas. Ang kotseng ito ay nag-average ng 10,257 milya kada taon sa Owner 3, mas mababa nang malaki sa average na 15,000 kada taon, at timing chain ang gamit ng 2013 Accord, hindi belt, kaya bawas ang isang malaking gastos sa mataas na mileage.",
+          "say": "Range ng presyo: sa 195k milya, ang 2013 Accord EX-L na maayos ang kondisyon ay dapat mga $7,000–$10,000 depende sa lagay."
+        },
+        {
+          "title": "Walang Na-report na Aksidente: Totoong Magandang Senyales, Pero May Isang Paalala",
+          "body": "Walang insurance claim, police report, o damage report ng rental sa lahat ng tatlong may-ari. Para sa 13-taong kotse na 195k milya na, magandang senyales 'yan. Ang malinis na history ng aksidente ay sulit ng $1,000–$2,000 na mas mataas kaysa sa katulad na kotseng may na-report na aksidente.",
+          "say": "Ang paalala: ang \"walang na-report na aksidente\" ay hindi ibig sabihing hindi pa kailanman naaksidente. Maraming aksidente ang hindi nire-report, at nakikita ng pisikal na inspection ang sirang hindi na-report."
+        },
+        {
+          "title": "Magandang Reliability Forecast: Ano ang Ibig Sabihin ng \"Maganda\" sa 195k Milya",
+          "body": "Nasa top 50% kumpara sa katulad na sasakyang ganito rin ang mileage, $350 ang average na gastos sa pagpapaayos kada taon. Maglaan para sa tuloy-tuloy na pagpapaayos: spark plugs ($150–200), accessory belt ($150–300), CV axles ($300–500), at sa huli, timing chain ($800–1,200).",
+          "say": "Maglaan ng $500–$1,000 kada taon para sa maintenance sa ganitong mileage, at isama ito sa offer mo."
+        },
+        {
+          "title": "17 Record, 3 May-ari, Personal na Gamit, California",
+          "body": "Ang 17 service record ay ibig sabihing ginawa ang maintenance sa mga shop na nagre-report sa Carfax. Mas maganda ang personal na gamit sa lahat ng tatlong may-ari kaysa sa commercial o fleet. Ang pagiging nasa California ay ibig sabihing walang kalawang mula sa mga estado sa northeast na nilalagyan ng asin ang kalsada tuwing winter.",
+          "say": "Plus ang pagiging puro California ang may-ari. Hindi dumaan ang kotse sa mga winter na may asin sa kalsada, kaya dapat mas tumagal ang makina nito."
+        },
+        {
+          "title": "Ang Sariling Disclaimer ng Report: Hindi Ito Sapat Nang Mag-isa",
+          "body": "Sabi sa fine print, puwedeng may iba pang problemang hindi na-report, at dapat gamitin ang report kasabay ng inspection at test drive. Direkta nang sinasabi sa'yo ng report: huwag umasa rito lang.",
+          "say": "Hindi sapat ang malinis na report nang mag-isa. Laging magpa-independent inspection din."
+        },
+        {
+          "title": "Pinalitan ang Langis noong Agosto 2025: Ano ang Sinasabi ng Bagong Service",
+          "body": "Inalagaan ng kasalukuyang may-ari ang kotseng ito hanggang halos 200,000 milya. Kapag regular na sine-service ang kotse hanggang ibenta, malamang hindi itinatago ng may-ari ang lumalalang problema.",
+          "say": "Ano ang hihingin: mga totoong resibo, hindi lang ang buod ng report. Dapat ipaliwanag ng kasalukuyang seller ang mga puwang sa record."
+        }
+      ]
+    },
+    "page2": {
+      "title": "Paano basahin ang Carfax, ikalawang pahina.",
+      "body": "Mga marka sa titulo, ang history grid, at ang table ng mga may-ari. Dito lumalabas ang pinakamalalaking problema. Mag-scroll para isa-isahin.",
+      "imageAlt": "Ikalawang pahina ng sample na Carfax vehicle history report na nagpapakita ng history grid, history ng titulo, at table ng mga may-ari",
+      "intro": "Ngayon, ang seryosong history. Patuloy na mag-scroll.",
+      "items": [
+        {
+          "title": "Ang mga Check na Pinakamahalaga",
+          "body": "Total Loss: idineklarang mas mababa ang halaga kaysa sa gastos ng pagpapaayos; 30–50% na mas mura ang mga sasakyang ito. Structural/Frame Damage: permanenteng apektado ang kontrol at kaligtasan sa banggaan. Airbag Deployment: ibig sabihing malala ang banggaan. Odometer Rollback: federal na krimen; umalis ka agad.",
+          "say": "Kahit anong marka sa grid na ito ay malaking dahilan para tumawad o dahilan para hindi na ituloy. Ang \"Total Loss\" o \"Structural Damage\" ay dapat magpababa ng hinihinging presyo nang 30% pataas, o umalis ka na."
+        },
+        {
+          "title": "Mga Marka sa Titulo at Kahulugan Nito",
+          "body": "Salvage: total loss; legal na hindi puwedeng ibenta ulit hangga't hindi naaayos at na-inspect. Rebuilt/Reconstructed: dating salvage, naayos na; kadalasan 20–40% na mas mura kaysa sa malinis na titulo. Flood/Fire/Hail (baha/sunog/yelo): lalong problemado ang kotseng binaha dahil puwedeng lumabas ang kalawang sa kuryente makalipas ang ilang taon. Lemon Law Buyback (binili pabalik ng manufacturer dahil sira): dapat sabihin sa'yo; legal na ibenta ulit pero may alam nang sira.",
+          "say": "Sinasagot ng buyback guarantee ang mga markang na-report sa DMV. Hindi nito sinasagot ang sirang hindi na-report, kaya kailangan mo pa rin ng pisikal na inspection."
+        },
+        {
+          "title": "Pagbasa sa Table ng mga May-ari: Mas Mahalaga ang Tagal Kaysa sa Bilang",
+          "body": "Matagal na pagmamay-ari (3 taon pataas bawat isa): kadalasan inaalagaan ng mga may-aring nagtatagal sa kotse. Maikling pagmamay-ari (wala pang 12 buwan): laging itanong kung ano ang alam ng kasalukuyang seller kung bakit. Maraming sunod-sunod na may-ari: may kuwento ang kotseng 'yan.",
+          "say": "Ang pinakamaganda: isa o dalawang matagal na may-ari na average o mas mababa ang taunang mileage."
+        },
+        {
+          "title": "Kapag Ilang Buwan Lang Hinawakan ng Isang May-ari",
+          "body": "Hindi agad ibig sabihing may problema ang maikling pagmamay-ari, pero dapat itong maipaliwanag. I-check: ilang beses ba silang nagpaayos sa panahong 'yon? Saan nila ito binili? Tugma ba ang mileage sa normal na pagmamaneho?",
+          "say": "Ang sasabihin mo: \"Napansin kong [X] buwan lang hinawakan ng dating may-ari ang kotseng ito. May alam ka ba kung bakit nila ibinenta?\" Pansinin kung paano sila sumagot."
+        },
+        {
+          "title": "Ikaw Mismo ang Magkuwenta ng Mileage",
+          "body": "Ibawas ang panimulang odometer sa huling odometer para makuha ang kabuuang milya ng bawat may-ari. Hatiin sa bilang ng buwan ng pagmamay-ari at i-multiply sa 12 para makuha ang taunang rate. Ikumpara sa industry average na 12,000–15,000 milya.",
+          "say": "Mas marami kang malalaman tungkol sa kung paano ginamit ang kotse sa taunang rate kaysa sa kabuuan."
+        }
+      ]
+    },
+    "guide": {
+      "title": "Ang sticker sa bintana ng bawat second-hand na kotse. Ano ang ibig sabihin nito.",
+      "body": "Ayon sa federal na batas, dapat nakadikit ang form na ito sa bintana ng bawat second-hand na kotseng ibinebenta sa dealership. Karamihan ng buyer, sinisilip lang at lumilipat na. Ito ang ibig sabihin ng bawat bahagi.",
+      "imageAlt": "Ang FTC Buyers Guide form na nakadikit sa bintana ng mga second-hand na kotse",
+      "items": [
+        {
+          "tag": "Pinakamahalaga",
+          "title": "\"As is, walang warranty ng dealer\"",
+          "body": "Ito ang pinakamahalagang kahon sa form. Kapag naka-check ang \"As Is,\" sinasabi ng dealer na kapag may nasira pagkaalis mo sa lote, problema mo na 'yan. Wala silang utang sa'yong refund o pagpapaayos.",
+          "say": "Ano ang gagawin: kung \"As Is\" ibinebenta ang kotse, isama ang panganib na 'yan sa offer mo. Maglaan para sa posibleng pagpapaayos, at magpa-independent inspection bago bumili. Ito lang ang proteksyon mo."
+        },
+        {
+          "tag": "Alamin ito",
+          "title": "\"Dealer warranty\": full o limited",
+          "body": "Kapag naka-check ang kahon ng Dealer Warranty, nangangako ang dealer na sasagutin ang ilang pagpapaayos sa limitadong panahon. Ang Full Warranty ay 100%. Ang Limited Warranty ay porsyento lang, kaya basahing mabuti ang mga numerong 'yon.",
+          "say": "Laging hingin nang nakasulat ang warranty. Nakasulat sa form kung aling mga sistema ang sakop at gaano katagal. Halos imposibleng ipatupad ang warranty na sinabi lang."
+        },
+        {
+          "tag": "Alamin ito",
+          "title": "\"May bisa pa ang warranty ng manufacturer\"",
+          "body": "Hindi pa expired ang orihinal na warranty ng pabrika. Sakop pa ng manufacturer, hindi ng dealer, ang ilang parte ng kotse, at may halaga 'yan.",
+          "say": "Hanapin ang terms ng warranty para sa mismong brand at model na 'yon. Mas mahalaga ang kotseng nasa warranty pa ng manufacturer."
+        },
+        {
+          "tag": "Bantayan ito",
+          "title": "May \"service contract\" na mabibili nang may dagdag-bayad",
+          "body": "Optional at hindi libre ang service contract (extended warranty). Ang salitang \"mabibili\" ay ibig sabihing gusto nilang ibenta ito sa'yo, hindi na kailangan mo ito.",
+          "say": "Kung gusto mo ng extended coverage, ikumpara ang presyo ng dealer sa ibang provider. Halos laging mas mahal ang sa dealer para sa parehong coverage."
+        },
+        {
+          "tag": "Proteksyon mo",
+          "title": "\"Mahirap ipatupad ang mga pangakong sinabi lang\"",
+          "body": "Ang linyang ito ay federal na batas na direktang nagsasabi sa'yo: huwag magtiwala sa mga pangakong sinabi lang. Kahit anong pangako ng dealer na hindi nakasulat sa kontrata ay legal na parang hindi nangyari.",
+          "say": "Kung ayaw nilang isulat, isipin mong hindi nila gagawin."
+        },
+        {
+          "tag": "Alamin ito",
+          "title": "\"Itanong sa dealer kung puwedeng mag-inspect ang mekaniko mo\"",
+          "body": "Federal na batas din ang linyang ito. Hindi mo kailangang humingi ng permiso; karapatan mo ito. Required din sa California na maglagay ang mga dealer ng karatula sa loob ng dealership na nagsasabi nito.",
+          "say": "Laging magpa-inspect. Mura ang $100–$200 kumpara sa mga sirang makikita nito."
+        }
+      ],
+      "keys": [
+        {
+          "kicker": "Ang pinakamahalagang linya",
+          "title": "\"Itago ang form na ito.\"",
+          "body": "Bahagi ng kontrata ang Buyers Guide. Itago ang kopya mo. Kapag hindi tugma ang mga pangako sa dealer warranty sa sinabi nila sa'yo, ito ang ebidensya mo."
+        },
+        {
+          "kicker": "Paglabag sa federal",
+          "title": "Ilegal ang pagtanggal ng sticker bago ang bentahan.",
+          "body": "Ipinagbabawal ng 16 C.F.R. 455 ang pagtanggal ng Buyers Guide bago bumili ang consumer. Kung wala ito sa bintana, paglabag 'yan sa federal na batas na puwede mong i-report sa FTC."
+        },
+        {
+          "kicker": "I-check ang dalawang ito",
+          "title": "VIN + status ng warranty",
+          "body": "Ikumpara ang VIN sa Buyers Guide sa VIN sa dashboard at sa titulo. Tandaan kung aling kahon ng warranty ang naka-check bago pag-usapan ang presyo."
+        }
+      ]
+    }
+  },
+  "joinPage": {
+    "hero": {
+      "title": "Sumali.",
+      "body": "Mag-volunteer sa isang chapter, ikuwento ang karanasan mo, sumali sa research namin, o mag-hello lang. Piliin sa ibaba kung ano ang bagay sa'yo.",
+      "ctaPrimary": "Mag-apply na mag-volunteer",
+      "ctaSecondary": "Ang mga chapter namin"
+    },
+    "chapters": {
+      "title": "Ang mga chapter namin.",
+      "leadsLabel": "Mga leader:",
+      "items": [
+        {
+          "tag": "UCLA",
+          "name": "UCLA Chapter",
+          "school": "University of California, Los Angeles",
+          "focus": "Sila ang gumawa ng interactive na mapa ng mga delikadong dealership at nangunguna sa pangunahing consumer research at data work ng VINdicated.",
+          "leads": "Fiona Wangsawidjaja, President · William Prawira, Internal Vice President"
+        },
+        {
+          "tag": "UC Berkeley",
+          "name": "UC Berkeley Chapter",
+          "school": "University of California, Berkeley",
+          "focus": "Nagdadagdag pa ng members ngayon. Nakatutok sa pagtuturo sa mga consumer at outreach.",
+          "leads": "Rana Darwich, President · Noirit Ghosh Choudhuri, Internal Vice President · Halima Cherif Hminat, External Vice President"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "name": "UC Santa Cruz Chapter",
+          "school": "University of California, Santa Cruz",
+          "focus": "Nakatutok sa diskriminasyon ng mga algorithm at bias ng AI sa pagbebenta ng kotse.",
+          "leads": "Ashwin Vinod, President · Gundeep Sambee, Internal Vice President"
+        }
+      ]
+    },
+    "roles": {
+      "title": "Sino ang hinahanap namin.",
+      "body": "Remote at walang bayad ang lahat ng posisyon. Ang VINdicated ay nonprofit na pinapatakbo ng mga volunteer.",
+      "hours": "{n}+ oras kada linggo",
+      "items": [
+        "Research Analyst",
+        "Data Engineer / Analyst",
+        "Software Engineer",
+        "Outreach at Communications",
+        "Legal Research",
+        "Graphic Design / Illustration"
+      ]
+    },
+    "form": {
+      "title": "Mag-apply na mag-volunteer.",
+      "chapter": "Saang chapter ka mag-a-apply?",
+      "chapterPlaceholder": "Pumili ng chapter",
+      "role": "Anong posisyon ang ina-apply-an mo?",
+      "rolePlaceholder": "Pumili ng posisyon",
+      "name": "Buong pangalan",
+      "email": "Email",
+      "phone": "Numero ng telepono",
+      "hours": "Ilang oras ka available kada linggo",
+      "student": "Estudyante ka ba ngayon o kaka-graduate lang (sa loob ng 2 taon)?",
+      "yes": "Oo",
+      "no": "Hindi",
+      "location": "Lokasyon (siyudad, estado, o bansa)",
+      "background": "Mga karanasang may kinalaman sa posisyong ito",
+      "resume": "Resume (optional, mas maganda kung PDF, max 5MB)",
+      "why": "Bakit VINdicated?",
+      "submit": "I-submit ang application",
+      "submitting": "Ipinapadala…",
+      "missing": "Pakilagay ang chapter, posisyon, buong pangalan, at email.",
+      "badEmail": "Maglagay ng tamang email address, gaya ng name@school.edu.",
+      "tooLarge": "Masyadong malaki ang resume file mo. Mag-upload ng file na mas maliit sa 5MB.",
+      "failed": "May nagkaproblema. Subukan ulit o i-email kami nang direkta sa getvindicated@outlook.com.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit.",
+      "sent": "Salamat! Natanggap namin ang application mo. Tingnan ang inbox mo para sa confirmation email."
+    },
+    "contact": {
+      "title": "O mag-hello lang.",
+      "body": "Press, partnership, pagsali sa research, o sarili mong kuwento: padalhan kami ng mensahe at sasagot kami.",
+      "firstName": "Pangalan",
+      "lastName": "Apelyido",
+      "email": "Email",
+      "topic": "Ang tungkol sa…",
+      "topicPlaceholder": "Pumili ng paksa",
+      "topics": [
+        "Pag-volunteer sa VINdicated",
+        "Pagsali sa Research",
+        "Pagbabahagi ng Kuwento Ko",
+        "Press at Media",
+        "Partnership o Collaboration",
+        "Grants at Pondo",
+        "Iba pang Tanong"
+      ],
+      "message": "Mensahe",
+      "submit": "Ipadala ang mensahe",
+      "submitting": "Ipinapadala…",
+      "missing": "Pakilagay ang email mo at isang mensahe.",
+      "sent": "Salamat! Papunta na ang mensahe mo, at nagpadala kami ng kopya sa inbox mo.",
+      "failed": "May nagkaproblema. Subukan ulit o i-email kami nang direkta sa getvindicated@outlook.com.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit."
+    },
+    "emails": {
+      "hi": "Kumusta, {name}!",
+      "friend": "",
+      "signoff": "Salamat,",
+      "team": "Ang VINdicated team",
+      "apply": {
+        "subject": "Natanggap namin ang volunteer application mo - VINdicated",
+        "body": "Salamat sa pagnanais na mag-volunteer sa VINdicated! Natanggap namin ang application mo para sa posisyong {role}, at titingnan namin ito agad.",
+        "next": "Babalikan ka namin sa loob ng ilang araw."
+      },
+      "contact": {
+        "subject": "Natanggap namin ang mensahe mo - VINdicated",
+        "body": "Salamat sa pag-message sa VINdicated! Natanggap namin ang mensahe mo tungkol sa \"{topic}\" at sasagot kami sa lalong madaling panahon.",
+        "copy": "Heto ang kopya ng mensahe mo:"
+      }
+    }
+  },
+  "mapPage": {
+    "hero": {
+      "title": "Kilalanin ang dealer bago ka pumasok.",
+      "body": "Satellite map ng 100 dealership sa Westside ng LA at kung ano ang sinasabi ng mga public review nila, gaya ng pamimilit at mga biglaang dagdag-singil."
+    },
+    "gate": {
+      "title": "Bago ka tumingin",
+      "body": "Ipinapakita ng mapang ito ang sinabi ng mga tao sa public Google reviews ng 100 dealership sa Westside ng LA. Isang AI model ang nag-ayos ng mga review, at ikinumpara namin ito sa mga review na mano-manong nilagyan ng label ng team namin. Hindi ito rating ng kahit anong negosyo, hindi ito napatunayang katotohanan, at hindi ito legal advice. Basahin mo mismo ang mga review bago ka magdesisyon.",
+      "check": "Naiintindihan kong buod lang ito ng mga opinyon ng mga nag-review.",
+      "open": "Buksan ang mapa",
+      "methodsLink": "Paano namin ginawa ang mapang ito →",
+      "frameTitle": "Mapa ng mga Dealer: satellite map ng 100 dealership sa Westside ng LA",
+      "fullScreen": "Buksan ang mapa nang full screen",
+      "loading": "Nilo-load ang mapa…"
+    },
+    "news": {
+      "title": "Matuto sa nangyari sa iba.",
+      "body": "Mga totoong kuwento ng mga buyer na naloko, at kung ano ang ginagawa ng gobyerno tungkol dito. May link ang bawat isa sa orihinal na balita.",
+      "items": [
+        {
+          "kicker": "Scam gamit ang AI",
+          "title": "Kumakalat sa Facebook Marketplace ang mga scam ng pekeng car dealer na gawa ng AI",
+          "byline": "Ni Caleb Jacobs / The Drive / Set. 18, 2026",
+          "dek": "Isang photographer sa California ang nag-finance ng 4Runner mula sa isang listing sa Marketplace na ipinost ng halos perpektong kopya ng isang totoong dealer sa Texas, may pekeng papeles, pekeng GPS tracker, at boses ng driver na gawa ng computer. Hindi dumating ang truck.",
+          "takeLabel": "Ang aral",
+          "take": "Ang tamang VIN at approval ng lender ay hindi patunay na totoo ang kotse. Tingnan ito nang personal o magpadala ng inspector.",
+          "cta": "Basahin ang buong balita sa The Drive →"
+        },
+        {
+          "kicker": "Babala sa consumer",
+          "title": "Kinokopya ng mga scammer ang website ng mga car dealership",
+          "byline": "Ni BCP Staff / Federal Trade Commission / Set. 1, 2026",
+          "dek": "Nagbababala ang FTC (federal na ahensyang nagpoprotekta sa consumer) na kinokopya ng mga scammer ang website ng totoong dealer, madalas gamit ang AI, pati logo, listing, at mga pekeng testimonial, tapos tatanggap ng bayad para sa kotseng hindi kailanman darating.",
+          "takeLabel": "Ang aral",
+          "take": "I-search ang pangalan ng dealer kasama ang “scam” o “complaint,” at iwasan ang mga deal na wire transfer lang ang tinatanggap.",
+          "cta": "Basahin ang buong balita sa Federal Trade Commission →"
+        },
+        {
+          "kicker": "Aksyon ng gobyerno",
+          "title": "Pinarusahan ng gobyerno ang junk fees sa $4 milyong settlement ng isang dealer",
+          "byline": "Hinshaw & Culbertson / Agosto 2026",
+          "dek": "Nakipag-settle ang FTC at ang attorney general ng Connecticut sa isang Nissan dealership na inakusahang nanlinlang sa mga buyer tungkol sa presyo at naningil ng mga add-on at bayaring hindi nila pinayagan. Ibabalik sa mga consumer ang pera.",
+          "takeLabel": "Ang aral",
+          "take": "Basahin ang bawat linya ng kontrata. Puwedeng kontrahin ang mga singil na hindi mo pinayagan, at talagang kumikilos ang gobyerno.",
+          "cta": "Basahin ang buong balita sa Hinshaw & Culbertson →"
+        },
+        {
+          "kicker": "Aksyon ng gobyerno",
+          "title": "Binalaan ang mga car dealership sa buong bansa na itigil ang junk fees",
+          "byline": "PIRG",
+          "dek": "Nagpadala ang gobyerno ng sulat sa 97 auto group, na may-ari ng daan-daang dealership, na nagsasabing dapat kasama sa advertised na presyo ang mga mandatory na bayarin at hindi puwedeng i-require ng dealer na sa kanila ka mag-finance para makuha ang advertised na presyo.",
+          "takeLabel": "Ang aral",
+          "take": "Dapat presyong kaya mo talagang bayaran ang advertised na presyo. Hingin nang nakasulat ang out-the-door na halaga (kabuuang babayaran mo).",
+          "cta": "Basahin ang buong balita sa PIRG →"
+        },
+        {
+          "kicker": "Bagong batas",
+          "title": "Ang bagong batas ng California para sa mga bumibili ng kotse",
+          "byline": "CalMatters / Disyembre 2025",
+          "dek": "Ang SB 766 (isang state bill), na isinulat ng state senator ng Santa Monica, ay nagbibigay sa maraming bumibili ng second-hand na kotse ng tatlong araw para isauli ang kotse, nag-uutos sa mga dealer na ipakita agad ang buong presyo, at nagbabawal sa paniningil ng mga add-on na wala namang pakinabang sa'yo.",
+          "takeLabel": "Ang aral",
+          "take": "Kung bibili ka ng second-hand na kotse sa California pagkatapos ng Oktubre 1, 2026, baka may tatlong araw ka para magbago ng isip.",
+          "cta": "Basahin ang buong balita sa CalMatters →"
+        }
+      ],
+      "footnote": "Ang orihinal na headline ay sa kani-kanilang publikasyon; isinalin namin dito. Ang mga buod ay gawa ng VINdicated. Papunta sa ibang publikasyon ang mga link, na hindi namin kontrolado."
+    },
+    "app": {
+      "pageTitle": "Mapa ng mga Dealer | VINdicated",
+      "gateTitle": "Bago ka tumingin",
+      "gateBody": "Ipinapakita ng mapang ito ang sinabi ng mga tao sa public Google reviews ng 100 dealership sa Westside ng LA. Isang AI model ang nag-ayos ng mga review, at ikinumpara namin ito sa mga review na mano-manong nilagyan ng label ng team namin. Hindi ito rating ng kahit anong negosyo, hindi ito napatunayang katotohanan, at hindi ito legal advice. Basahin mo mismo ang mga review bago ka magdesisyon.",
+      "gateCheck": "Naiintindihan kong buod lang ito ng mga opinyon ng mga nag-review.",
+      "gateOpen": "Buksan ang mapa",
+      "methods": "Paano namin ginawa ang mapang ito",
+      "title": "Mapa ng mga Dealer",
+      "sub": "Mga dealership sa Westside ng LA at kung ano ang sinasabi ng mga public Google review nila.",
+      "loading": "Nilo-load ang data…",
+      "live": "Live na data",
+      "snapshot": "Data noong Setyembre 2026",
+      "filterLabel": "I-filter ayon sa level ng panganib",
+      "search": "Maghanap ng dealership",
+      "legend": {
+        "flaggedLabel": "Babala:",
+        "flagged": "may review na nagsasabi ng ilang problema nang sabay-sabay.",
+        "cautionLabel": "Ingat:",
+        "caution": "may review na nagsasabi ng isang problema.",
+        "clearLabel": "Malinis:",
+        "clear": "walang nakita.",
+        "basis": "Batay sa hanggang limang public Google review bawat dealership. Buod ng mga opinyon ng nag-review.",
+        "by": "Gawa ng"
+      },
+      "layersLabel": "Style ng mapa",
+      "satellite": "Satellite",
+      "map": "Mapa",
+      "showAll": "Ipakita lahat",
+      "about": "Tungkol sa mapang ito",
+      "tiers": {
+        "all": "Lahat",
+        "flagged": "Babala",
+        "caution": "Ingat",
+        "clear": "Malinis"
+      },
+      "categories": {
+        "1": "Sorpresa sa presyo at bayarin",
+        "2": "Mali ang sinabi tungkol sa kotse",
+        "3": "Problema sa kontrata at papeles",
+        "4": "Pamimilit at manipulasyon",
+        "5": "Pinabayaan pagkatapos ng bentahan",
+        "6": "Diskriminasyon",
+        "7": "Pangit na serbisyo",
+        "8": "Ibang reklamo"
+      },
+      "concern": "Reklamo {n}",
+      "flaggedOf": "{f} sa {r}",
+      "flaggedOfRest": "review na binasa namin ang may babala",
+      "listMeta": "{f} sa {r} may babala",
+      "described": "Ano ang ikinuwento ng mga nag-review",
+      "excerpts": "Mga sipi mula sa public Google reviews.",
+      "nothing": "Walang nakakabahala sa mga review na binasa namin.",
+      "readOnGoogle": "Basahin ang mga review sa Google Maps",
+      "noMatch": "Walang tugmang dealership."
+    }
+  },
+  "mapMethods": {
+    "title": "Paano namin ginawa ang Mapa ng mga Dealer",
+    "intro": "Ipinapaliwanag ng page na ito kung saan galing ang impormasyon sa mapa, paano namin ito inayos, at ano ang hindi nito masasabi sa'yo.",
+    "back": "← Bumalik sa mapa",
+    "sections": {
+      "onMap": {
+        "title": "Ano ang nasa mapa",
+        "paras": [
+          "Ipinapakita ng mapa ang 100 dealership at service center sa Santa Monica, Beverly Hills, West LA, Culver City, at West Hollywood. Kinolekta namin ang data noong Setyembre 2026."
+        ]
+      },
+      "sources": {
+        "title": "Saan galing ang mga review",
+        "paras": [
+          "Sa bawat dealership, binasa namin ang hanggang limang public Google review. Ito ang mga review na ipinakita ng Google noong kinolekta namin ang data. Hindi ito ang pinakabagong review o ang lahat ng review ng isang dealership, at puwedeng may daan-daang review ang isang dealership na hindi namin nabasa."
+        ]
+      },
+      "sorting": {
+        "title": "Paano inayos ang mga review",
+        "paras": [
+          "Isang language model (isang uri ng AI) ang nagbasa ng bawat review at hinati ang mga reklamo dito sa walong kategorya. Ginamit namin ang classifier version 1.5.0 at pinatakbo ito noong Setyembre 24, 2026. Bago ito gamitin, sinubukan namin ito sa mga review na mano-manong nilagyan ng label ng team namin, para matiyak na inaayos nito ang mga reklamo gaya ng gagawin ng isang maingat na tao."
+        ],
+        "rulesIntro": "Bibilangin lang ang isang reklamo kung pasok ito sa tatlong patakarang ito:",
+        "rules": [
+          "Sariling salita ito ng nag-review. Kailangang i-quote ito ng model.",
+          "Tungkol ito sa dealership na ito.",
+          "Hindi pa ito naresolba."
+        ],
+        "rulesOutro": "Hindi kasama ang maliliit na reklamo, hula-hula, at pangkalahatang pagkainis.",
+        "catsIntro": "Ang walong kategorya ng reklamo ay:",
+        "cats": [
+          {
+            "title": "Sorpresa sa presyo at bayarin",
+            "body": "Siningil nang mas mahal kaysa sa advertised o napagkasunduan: nakatagong bayarin, last-minute na patong, add-on o pagpapaayos na hindi pinayagan."
+          },
+          {
+            "title": "Mali ang sinabi tungkol sa kotse",
+            "body": "Hindi totoo ang sinabi tungkol sa kondisyon, history, o availability ng kotse, o hindi pala talaga naayos ang ipinaayos."
+          },
+          {
+            "title": "Problema sa kontrata at papeles",
+            "body": "Nakakalitong papeles, binago, o hindi ibinigay, gaya ng malabong terms ng loan o naantalang titulo."
+          },
+          {
+            "title": "Pamimilit at manipulasyon",
+            "body": "Agresibo o hindi tapat na diskarte para madaliin o pilitin ang desisyon."
+          },
+          {
+            "title": "Pinabayaan pagkatapos ng bentahan",
+            "body": "Pagkatapos ng bentahan o service, hindi na sumasagot ang dealer o hindi tinupad ang mga pangako."
+          },
+          {
+            "title": "Diskriminasyon",
+            "body": "Sabi ng nag-review, mas pangit ang trato sa kanila dahil sa kung sino sila."
+          },
+          {
+            "title": "Pangit na serbisyo",
+            "body": "Bastos, walang pakialam, o hindi propesyonal na staff, o matagal na antala nang walang paliwanag."
+          },
+          {
+            "title": "Ibang reklamo",
+            "body": "Isang tiyak at totoong reklamo na hindi pasok sa mga kategorya sa itaas."
+          }
+        ]
+      },
+      "tiers": {
+        "title": "Paano gumagana ang mga level",
+        "items": [
+          {
+            "name": "Malinis",
+            "body": "Walang review na nabasa namin ang may reklamong pasok sa patakaran."
+          },
+          {
+            "name": "Ingat",
+            "body": "May kahit isang review na may reklamo."
+          },
+          {
+            "name": "Babala",
+            "body": "May kahit isang review na nagsasabi ng ilang magkakaibang problema nang sabay-sabay."
+          }
+        ]
+      },
+      "shown": {
+        "title": "Ano ang ipinapakita namin",
+        "intro": "Sa bawat dealership, ipinapakita ng mapa ang:",
+        "items": [
+          "Ang level nito.",
+          "Ilan sa mga review na binasa namin ang may babala.",
+          "Isang maikling quote para sa bawat reklamo, tinanggal ang pangalan ng mga empleyado.",
+          "Link para basahin ang lahat ng review nito sa Google."
+        ]
+      },
+      "limits": {
+        "title": "Mga limitasyon",
+        "items": [
+          "Maliit ang sample. Hindi masasabi ng limang review kung paano tinatrato ng isang negosyo ang karamihan ng customer nito.",
+          "Puwedeng magkamali ang model. Puwede nitong hindi maintindihan ang sarcasm o konteksto, o mailagay ang reklamo sa maling kategorya, at hindi lahat ng resulta sa mapa ay mano-manong chineck ulit.",
+          "Hindi namin ma-verify ang sinasabi ng mga nag-review. Puwedeng mali, sobra, luma, tungkol sa problemang naayos na ng dealership, o peke ang mga review. Hindi namin kinontak ang mga dealership o ang mga nag-review.",
+          "Kuha lang ito sa isang panahon. Nagbabago ang staff, may-ari, at paraan ng pagnenegosyo, at pati ang mga review. Puwedeng hindi na tugma ang level ng isang dealership sa kung paano ito tumatakbo ngayon.",
+          "Ang \"Malinis\" ay hindi rekomendasyon, at ang \"Babala\" ay hindi utos na lumayo ka. Puwede ka pa ring tratuhin nang masama ng malinis na dealership, at puwede kang tratuhin nang maayos ng may babala. Gamitin ang mapa bilang isa sa mga dahilan para magtanong pa."
+        ]
+      },
+      "independence": {
+        "title": "Pagiging independent",
+        "paras": [
+          "Ang VINdicated ay isang independent na student nonprofit. Wala kaming koneksyon, hindi kami binabayaran, at hindi kami ini-endorse ng kahit anong dealership, manufacturer, o ng Google. Ang mga pangalan ng negosyo at trademark ay pag-aari ng kani-kanilang may-ari."
+        ]
+      },
+      "advice": {
+        "title": "Hindi ito payo, at ibinibigay kung ano ito",
+        "paras": [
+          "Walang anuman sa mapa o sa page na ito ang legal o financial advice tungkol sa kahit anong pagbili, kontrata, o alitan. Basahin ang mga papeles mo, magpa-independent pre-purchase inspection, at kumonsulta sa kwalipikadong propesyonal tungkol sa sitwasyon mo.",
+          "Sinisikap naming panatilihing tama ang mapa, pero ibinibigay ito kung ano ito. Hindi namin ginagarantiyang kumpleto o tama ito, at hindi kami responsable sa mga desisyong ginawa batay dito."
+        ]
+      },
+      "corrections": {
+        "title": "Mga pagtatama",
+        "before": "Kung kinakatawan mo ang isang dealership o sa tingin mo ay mali ang pagbasa namin sa isang review, mag-email sa ",
+        "email": "getvindicated@outlook.com",
+        "after": " kasama ang pangalan ng dealership at kung ano sa tingin mo ang mali. Rerebyuhin namin ito at aayusin o tatanggalin ang hindi tama."
+      }
+    }
+  },
+  "rightsPage": {
+    "hero": {
+      "title": "Alamin ang karapatan mo",
+      "titleEm": "bago ka pumirma.",
+      "body": "Pinoprotektahan ka ng mga batas federal at ng California laban sa diskriminasyon at panloloko sa mga dealership. Ito ang dapat malaman ng bawat buyer."
+    },
+    "tryIt": {
+      "title": "Subukan mo",
+      "titleEm": "mismo.",
+      "body": "Preview ng mobile app version ng page na ito: sabihin kung saang estado ka, tapos mag-scroll sa mga batas na talagang sakop ka."
+    },
+    "remember": {
+      "label": "Tandaan",
+      "lead": "Hindi mo kailangang maging abogado para gamitin ang mga batas na ito.",
+      "body": "Kapag alam mo lang na may ganitong mga batas, nag-iiba na kung sino ang may hawak ng kapangyarihan. Kung ayaw magbigay ng dealer ng nakasulat na impormasyon, red flag na 'yan.",
+      "complaint": "Kung sa tingin mo ay nilabag ang karapatan mo, puwede kang mag-file ng reklamo sa {cfpb}, sa {ftc}, o sa {dmv}.",
+      "cfpb": "Consumer Financial Protection Bureau (CFPB, ahensyang nagbabantay sa mga loan at bangko)",
+      "ftc": "Federal Trade Commission (FTC, ahensyang nagpoprotekta sa consumer)",
+      "dmv": "California Department of Motor Vehicles (DMV, ahensya ng mga sasakyan at lisensya)"
+    },
+    "buttons": {
+      "flags": "Kilalanin ang mga Red Flag",
+      "inspection": "Gabay sa Pre-Purchase Inspection"
+    },
+    "demo": {
+      "logoAlt": "Logo ng VINdicated",
+      "entryTitle": "Saan ka bibili?",
+      "entryBody": "Nag-iiba ang karapatan mo depende kung nasaan ka. Sabihin sa amin ang estado mo para maipakita namin ang mga proteksyong talagang sakop ka.",
+      "placeholder": "hal. California",
+      "continue": "Tuloy",
+      "skip": "Laktawan muna",
+      "homeTitle": "Alamin ang",
+      "homeTitleEm": "Karapatan Mo.",
+      "pickOne": "Pumili ng isa para magsimulang magbasa.",
+      "showing": "Ipinapakita ang sakop sa {state}.",
+      "federal": "Proteksyon ng Federal",
+      "federalMeta": "5 batas · sakop ang buong bansa",
+      "stateLink": "Proteksyon ng {state}",
+      "stateLinkNone": "Proteksyon ng Estado",
+      "stateMetaNone": "Ilagay ang estado mo para makita ito",
+      "stateMetaCount": "{n} batas · sakop ka",
+      "stateMetaPartial": "Ang mayroon kami sa ngayon para sa {state}",
+      "back": "Home",
+      "scroll": "mag-scroll para sa buod"
+    },
+    "stateNames": {
+      "alabama": "Alabama",
+      "alaska": "Alaska",
+      "arizona": "Arizona",
+      "arkansas": "Arkansas",
+      "california": "California",
+      "colorado": "Colorado",
+      "connecticut": "Connecticut",
+      "delaware": "Delaware",
+      "florida": "Florida",
+      "georgia": "Georgia",
+      "hawaii": "Hawaii",
+      "idaho": "Idaho",
+      "illinois": "Illinois",
+      "indiana": "Indiana",
+      "iowa": "Iowa",
+      "kansas": "Kansas",
+      "kentucky": "Kentucky",
+      "louisiana": "Louisiana",
+      "maine": "Maine",
+      "maryland": "Maryland",
+      "massachusetts": "Massachusetts",
+      "michigan": "Michigan",
+      "minnesota": "Minnesota",
+      "mississippi": "Mississippi",
+      "missouri": "Missouri",
+      "montana": "Montana",
+      "nebraska": "Nebraska",
+      "nevada": "Nevada",
+      "new hampshire": "New Hampshire",
+      "new jersey": "New Jersey",
+      "new mexico": "New Mexico",
+      "new york": "New York",
+      "north carolina": "North Carolina",
+      "north dakota": "North Dakota",
+      "ohio": "Ohio",
+      "oklahoma": "Oklahoma",
+      "oregon": "Oregon",
+      "pennsylvania": "Pennsylvania",
+      "rhode island": "Rhode Island",
+      "south carolina": "South Carolina",
+      "south dakota": "South Dakota",
+      "tennessee": "Tennessee",
+      "texas": "Texas",
+      "utah": "Utah",
+      "vermont": "Vermont",
+      "virginia": "Virginia",
+      "washington": "Washington",
+      "west virginia": "West Virginia",
+      "wisconsin": "Wisconsin",
+      "wyoming": "Wyoming"
+    },
+    "laws": {
+      "federal": {
+        "TILA": {
+          "title": "Truth in Lending Act (batas sa tapat na pagpapautang)",
+          "citation": "15 U.S.C. § 1601",
+          "plain": "Dapat ipakita sa'yo ng dealer ang buo at totoong gastos ng loan bago ka pumirma ng kahit ano: ang APR (taunang interes ng loan mo), ang finance charge, at ang kabuuan ng lahat ng hulog.",
+          "script": "Ipakita n'yo sa akin ang APR, ang finance charge, at ang kabuuan ng lahat ng hulog, ngayon din, bago ako pumirma ng kahit ano.",
+          "escalation": "Kung ayaw nilang ibigay nang nakasulat ang mga numerong ito bago ka pumirma, huminto ka. Requirement ito ng federal na batas, hindi pabor. Puwede kang mag-file ng reklamo sa CFPB."
+        },
+        "FTC": {
+          "title": "FTC Used Car Rule",
+          "citation": "16 CFR § 455",
+          "plain": "Bawat second-hand na kotse sa lote ay dapat may Buyers Guide sticker na nagsasabi kung ibinebenta ito nang “as is” (kung ano ang lagay, walang warranty) o may warranty, at kung ano ang sakop ng warranty na 'yon.",
+          "script": "Kailangan kong makita ang Buyers Guide sticker bago tayo mag-usap tungkol sa presyo.",
+          "escalation": "Kapag walang sticker, o tinanggal ito bago mo nabasa, paglabag 'yan sa federal na batas. Puwedeng pagmultahin ng FTC ang dealer nang hanggang $51,744 kada kotse. I-dokumento at i-report sa FTC."
+        },
+        "ODO": {
+          "title": "Batas sa Odometer Disclosure",
+          "citation": "49 U.S.C. § 32705",
+          "plain": "Dapat bigyan ka ng dealer ng pirmadong nakasulat na pahayag ng totoong mileage ng kotse sa oras ng bentahan.",
+          "script": "Gusto ko ang pirmadong odometer disclosure statement, at ikukumpara ko ito sa dashboard at sa vehicle history report.",
+          "escalation": "Federal na krimen ang pag-rollback ng odometer. Kapag hindi tugma ang mga numero, itigil ang deal, kunan ng litrato ang lahat, at i-report sa FTC."
+        },
+        "FCRA": {
+          "title": "Fair Credit Reporting Act (batas sa patas na credit report)",
+          "citation": "15 U.S.C. § 1681",
+          "plain": "Kung chineck ng dealer ang credit mo para itakda ang rate mo, dapat nilang sabihin kung aling credit bureau ang ginamit nila at bigyan ka ng nakasulat na paliwanag kung paano nito naapektuhan ang terms mo.",
+          "script": "Ginamit ba ang credit report ko para itakda ang rate na ito? Gusto ko ang adverse action notice at kung saang bureau ito galing.",
+          "escalation": "Kapag walang notice, o hindi tugma ang rate sa totoong score mo, puwede mo itong i-report sa CFPB."
+        },
+        "ECOA": {
+          "title": "Equal Credit Opportunity Act (batas sa pantay na pagkakataon sa credit)",
+          "citation": "15 U.S.C. § 1691",
+          "plain": "Hindi puwedeng iba ang presyo ng loan mo dahil sa lahi, kasarian, edad, o bansang pinagmulan mo. Dapat pare-pareho ang paraan ng pagsusuri sa bawat aplikante.",
+          "script": "Puwede mo bang ipaliwanag sa akin, step by step, kung paano eksaktong kinuwenta ang rate na ito para sa akin?",
+          "escalation": "Kung hindi tugma ang paliwanag, puwede kang magdemanda para sa danyos, at puwedeng magpataw ng civil penalty ang gobyerno sa dealer."
+        }
+      },
+      "california": {
+        "AB68-C": {
+          "title": "2-Day Cancellation Option (opsyong mag-cancel sa loob ng 2 araw)",
+          "citation": "Cal. Veh. Code § 11713.21",
+          "plain": "Puwede kang bumili ng karapatang mag-cancel sa loob ng 2 araw para sa second-hand na kotseng wala pang $40,000, pero kailangan mo itong hingin sa oras ng pagpirma. Hindi ito awtomatiko.",
+          "script": "Gusto kong bilhin ang 2-day contract cancellation option.",
+          "escalation": "Kung hindi ito in-offer sa'yo agad, direktang itanong. Mga 1% ng presyo ang halaga, plus restocking fee kapag ginamit mo talaga."
+        },
+        "AB68-R": {
+          "title": "Limit sa Patong sa Interes",
+          "citation": "Cal. Veh. Code § 11711",
+          "plain": "Hanggang sa limit lang puwedeng patungan ng dealer ang interes mo: 2% sa loan na lampas 60 buwan, 2.5% sa mas maiikli.",
+          "script": "Pre-approved na ako sa rate na ito, kailangan n'yo itong talunin, hindi lang tapatan.",
+          "escalation": "Kapag pumasok ka nang pre-approved na mula sa sarili mong bangko o credit union, halos wala nang panlamang ang dealer sa numerong ito."
+        },
+        "AB68-A": {
+          "title": "Hiwa-hiwalay na Presyo ng Add-On",
+          "citation": "Cal. Civ. Code § 2982",
+          "plain": "Dapat may sariling presyo at sariling linya ang bawat optional na add-on. Hindi puwedeng pagsamahin ng dealer ang lahat sa isang numero at tawaging “ang hulog.”",
+          "script": "Ipakita n'yo sa akin ang monthly payment ko nang may at walang bawat add-on, isa-isa, nakasulat.",
+          "escalation": "Hindi legal sa California ang “iisang package lang 'yan.” Hingin ang listahan linya por linya bago ka pumayag sa kahit ano."
+        },
+        "VC-11713": {
+          "title": "Mga Bawal sa Dealer",
+          "citation": "Cal. Veh. Code § 11713",
+          "plain": "Hindi puwedeng mag-advertise ang dealer ng kotseng wala naman sila, baguhin ang napagkasunduang terms pagkatapos, o itago sa'yo ang alam nilang history ng kotse.",
+          "script": "Tama pa ba ngayon, ngayong araw mismo, ang eksaktong presyo at kondisyong ito?",
+          "escalation": "Ang bait-and-switch (pag-advertise ng isang bagay tapos iba ang ibibigay) ay malinaw na paglabag sa batas na ito. Itago ang kopya ng orihinal na ad o listing bilang ebidensya."
+        },
+        "CCLRA": {
+          "title": "Consumers Legal Remedies Act (batas para sa legal na remedyo ng consumer)",
+          "citation": "Cal. Civ. Code § 1750",
+          "plain": "Hindi ka puwedeng lokohin ng dealer tungkol sa presyo, kondisyon, o features ng kotse. Tapos. Walang exception para sa “bola ng salesman.”",
+          "script": "Puwede mo bang ituro kung saan eksaktong nakasulat 'yan?",
+          "escalation": "Puwede kang magdemanda para sa danyos, o para ipabago ang kontrata, kung nagsinungaling sila tungkol sa mahalagang bagay sa bentahan."
+        },
+        "CC-2981.9": {
+          "title": "Iisang Nakasulat na Kontrata",
+          "citation": "Cal. Civ. Code § 2981.9",
+          "plain": "Bawat pangako ng dealer sa'yo ay dapat nakasulat sa iisang kontratang pipirmahan mo. Hindi bilang sa batas ang mga side deal na sinabi lang.",
+          "script": "Kung pumapayag ka diyan, pakisulat sa kontrata bago ako pumirma, hindi pagkatapos.",
+          "escalation": "Ang pangakong sinabi lang na walang nakasulat ay wala nang legal na saysay sa sandaling pumirma ka."
+        }
+      },
+      "texas": {
+        "DTPA": {
+          "title": "Deceptive Trade Practices Act (batas laban sa mapanlinlang na negosyo)",
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq.",
+          "plain": "Hindi puwedeng mag-advertise ang dealer ng isang kotse para papuntahin ka tapos itulak ka sa iba (“bait and switch”), at hindi puwedeng magsinungaling tungkol sa kondisyon, history, o features ng kotse para mabili mo ito.",
+          "script": "Ito ba mismo ang kotse sa ad: parehong presyo, parehong kondisyon, ngayon?",
+          "escalation": "Ang bait-and-switch at iba pang panlilinlang ay malinaw na paglabag sa DTPA. Puwede kang magdemanda para sa danyos, bayad sa abogado, at sa ilang kaso, dagdag na multa."
+        },
+        "OCC-2301": {
+          "title": "Code sa Disclosure at Lisensya ng Dealer",
+          "citation": "Tex. Occ. Code ch. 2301",
+          "plain": "Walang awtomatikong karapatang mag-cancel sa Texas kapag nakapirma ka na. Kinukumpirma ito mismo ng buying guide ng Texas Attorney General. Pero dapat ka pa ring bigyan ng dealer ng nakasulat na odometer disclosure at ng Buyer's Guide na required ng federal.",
+          "script": "Puwede ko bang makuha ang odometer disclosure at ang Buyer's Guide bago ako pumirma ng kahit ano?",
+          "escalation": "Kapag walang odometer disclosure o walang Buyer's Guide, lumalabag na ang dealer. Mag-file sa Texas DMV o sa consumer protection office ng Attorney General."
+        }
+      },
+      "massachusetts": {
+        "MA-LEMON": {
+          "title": "Proteksyon Laban sa Sirang Second-Hand na Kotse",
+          "citation": "Mass. Gen. Laws ch. 90, §7N½",
+          "plain": "Sakop ng lemon law (batas para sa kotseng paulit-ulit na nasisira) ng Massachusetts ang maraming bagong sasakyan at pati ang mga second-hand na ibinenta o ni-lease habang nasa orihinal na warranty pa ng manufacturer, hindi lang mga brand-new.",
+          "script": "Kailan eksaktong matatapos ang warranty ng manufacturer sa kotseng ito?",
+          "escalation": "Kung nasa loob ka pa ng warranty at tinatanggihan ka ng dealer, mag-file agad sa consumer office ng Massachusetts Attorney General. Napakahalaga ng timing."
+        },
+        "MA-AG": {
+          "title": "Saan Magfa-file: AG / Consumer Affairs",
+          "citation": "Mass. Office of Consumer Affairs & Business Regulation",
+          "plain": "Sa Massachusetts, ang mga alitan tungkol sa sirang second-hand na kotse at warranty ay dumadaan sa opisina ng Attorney General at sa Office of Consumer Affairs, hiwalay sa federal na sistema ng reklamo ng FTC.",
+          "script": "Kung mauwi ito sa alitan, makikilahok ba kayo nang tapat sa consumer process ng Attorney General?",
+          "escalation": "Mag-file agad sa Massachusetts AG o sa Office of Consumer Affairs, at itago ang bawat ad ng dealer at repair order bilang ebidensya ng mga petsa."
+        }
+      },
+      "alaska": {
+        "AK-LEMON": {
+          "title": "Lemon Law na Para Lang sa Bagong Kotse",
+          "citation": "Alaska Stat. §§45.45.300–45.45.360",
+          "plain": "Bagong sasakyan lang ang pinoprotektahan ng lemon law ng Alaska. Kung second-hand ang bibilhin mo sa Alaska, hindi ka sakop ng batas na ito, gaano man kalala ang sira.",
+          "script": "Kung second-hand ang bibilhin ko, may aktibo pa bang warranty ng manufacturer ang kotseng ito?",
+          "escalation": "Para sa second-hand na kotse sa Alaska, ang aasahan mo ay ang batas sa titulo, ang federal na odometer rule, at ang FTC Buyers Guide, hindi ang lemon law ng estado. I-dokumento pa rin ang lahat."
+        },
+        "AK-DISPUTE": {
+          "title": "Puwedeng Required ang Dispute Program ng Manufacturer",
+          "citation": "Alaska Dept. of Law",
+          "plain": "Puwedeng i-require ng proseso ng lemon law sa Alaska na dumaan ka muna sa aprubadong dispute program ng manufacturer bago ka payagang dalhin ang kaso sa korte.",
+          "script": "May aprubado ba kayong informal dispute resolution program, at puwede ko bang makuha 'yon nang nakasulat?",
+          "escalation": "Magpadala ng nakasulat na abiso sa manufacturer gamit ang certified mail at itago ang patunay. 60 araw lang ang ibinibigay ng Alaska pagkatapos ng cutoff ng sira para gawin ito."
+        }
+      },
+      "new jersey": {
+        "NJ-USEDCAR": {
+          "title": "Minimum na Warranty ng Dealer sa Second-Hand na Kotse",
+          "citation": "NJ Used Car Lemon Law, Div. of Consumer Affairs",
+          "plain": "Required sa New Jersey na magbigay ang dealer ng warranty sa mga qualified na second-hand na kotseng ibinenta nang lampas $3,000, pitong model year pababa ang edad, hindi idineklarang total loss, at 100,000 milya pababa.",
+          "script": "Qualified ba ang kotseng ito sa used car warranty ng New Jersey: wala pang 7 model year, wala pang 100,000 milya, at hindi total-loss ang titulo?",
+          "escalation": "Kung qualified ito at tinatanggihan ng dealer ang warranty, mag-file agad sa Lemon Law Unit ng NJ Division of Consumer Affairs."
+        },
+        "NJ-ASIS": {
+          "title": "May Totoong Limitasyon ang “As Is”",
+          "citation": "NJ Div. of Consumer Affairs",
+          "plain": "Malinaw na itinakda ng consumer affairs office ng New Jersey kung kailan puwede ang bentahang “as is” sa ilalim ng Used Car Lemon Law. Hindi ito awtomatikong panangga sa bawat bentahan ng second-hand na kotse.",
+          "script": "Kung ibinebenta ito nang as is, puwede mo bang ipakita nang nakasulat kung bakit hindi qualified ang kotseng ito sa used car warranty?",
+          "escalation": "Ang NJ Lemon Law Unit ay humahawak ng kaso ng bago at second-hand na kotse nang administratibo. Hindi mo kailangang dumiretso agad sa korte."
+        }
+      },
+      "new york": {
+        "NY-USEDCAR": {
+          "title": "Lemon Law para sa Second-Hand na Kotse",
+          "citation": "NY AG used-car lemon law fact sheet",
+          "plain": "Required sa New York ang nakasulat na warranty ng dealer sa mga qualified na bentahan ng second-hand na kotse, at kapag ilang beses nang nabigo ang pagpapaayos, puwede kang dumaan sa state arbitration o humingi ng refund.",
+          "script": "Puwede ko bang makita ang nakasulat na warranty na required ng used car lemon law ng New York bago ako bumili?",
+          "escalation": "Kung paulit-ulit na pumapalpak ang pagpapaayos, may binding na state arbitration program ang New York. Gamitin ito imbes na tanggapin ang paikot-ikot na palusot ng dealer."
+        },
+        "NY-TIMING": {
+          "title": "Mahigpit na Limit sa Mileage at Edad",
+          "citation": "NY AG new-car lemon law fact sheet",
+          "plain": "Tiyak ang mga threshold ng lemon law ng New York. Maraming proteksyon ang nakabatay sa 18,000 milya o dalawang taon mula nang magsimula ang warranty, at itinuturing na lemon ang kotse pagkatapos ng apat na pagpapaayos o tatlumpung araw na hindi magamit.",
+          "script": "Ano eksakto ang mileage ng kotseng ito at kailan nagsimula ang warranty?",
+          "escalation": "Binibigyan ka ng New York ng hanggang apat na taon mula sa orihinal na delivery para mag-file, pero mahalaga agad ang orasan at mileage. I-dokumento ang petsa ng bawat pagpapaayos."
+        }
+      },
+      "connecticut": {
+        "CT-WARRANTY": {
+          "title": "Warranty ng Dealer sa Second-Hand na Kotse Ayon sa Presyo",
+          "citation": "Connecticut DMV used-car warranty bulletin",
+          "plain": "Required sa Connecticut na magbigay ang dealer ng warranty sa mga qualified na second-hand na kotseng $3,000 pataas: 30 araw o 1,500 milya para sa kotseng $3,000 hanggang $5,000, at 60 araw o 3,000 milya para sa lampas $5,000, depende rin sa edad.",
+          "script": "Saang warranty tier ng Connecticut pasok ang kotseng ito batay sa presyo, at puwede ko bang makuha 'yon nang nakasulat?",
+          "escalation": "Mag-file agad sa Consumer Complaint Center ng Connecticut DMV. May limit sa oras at mileage ang mga ito."
+        },
+        "CT-INSPECT": {
+          "title": "Required ang Safety Inspection Bago Ibenta",
+          "citation": "Connecticut DMV",
+          "plain": "Dapat tapusin ng mga dealer sa Connecticut ang safety inspection bago ibenta ang second-hand na sasakyan.",
+          "script": "Puwede ko bang makita ang tapos na pre-sale safety inspection form para sa mismong kotseng ito?",
+          "escalation": "Kapag walang inspection form, red flag 'yan at puwedeng reklamo sa DMV, hiwalay sa kahit anong alitan sa warranty."
+        }
+      },
+      "maine": {
+        "ME-INFOACT": {
+          "title": "Used Car Information Act (batas sa impormasyon ng second-hand na kotse)",
+          "citation": "Maine Used Car Information Act",
+          "plain": "May sariling Used Car Information Act ang Maine na may mga tungkulin ng dealer sa disclosure at inspection. Exempted ang Maine sa federal na FTC Buyers Guide rule dahil sa sistemang ito ng estado.",
+          "script": "Puwede ko bang makita ang Maine Buyers Guide para sa kotseng ito, hiwalay sa mga federal na papeles?",
+          "escalation": "Kunan ng litrato ang Maine Buyers Guide bago ka pumirma. Ito ang pundasyon ng proteksyon mo sa Maine."
+        },
+        "ME-INSPECTION": {
+          "title": "Required ang Inspection Sticker",
+          "citation": "Maine SOS/BMV used-car guide",
+          "plain": "Karamihan ng second-hand na kotseng ibinebenta ng dealer sa Maine ay dapat may valid na inspection sticker na inilabas sa loob ng nakaraang 60 araw, o pasok sa pamantayang warranty na papasa ito sa inspection.",
+          "script": "Kailan inilabas ang kasalukuyang inspection sticker ng kotseng ito?",
+          "escalation": "Kapag lampas 60 araw na ang inspection sticker, o wala talaga, sabihin agad sa dealer, bago ka pumirma ng kahit ano."
+        }
+      },
+      "wisconsin": {
+        "WI-BUYERSGUIDE": {
+          "title": "Buyers Guide System ng Wisconsin",
+          "citation": "Wisconsin Admin. Code Trans 139",
+          "plain": "Hindi talaga sakop ng lemon law ng Wisconsin ang mga dating nagamit na sasakyan, pero may sariling detalyado at mandatory na Buyers Guide system ang Wisconsin para sa second-hand na kotse na mas mahigpit pa kaysa sa federal na pinapalitan nito.",
+          "script": "Puwede ko bang makita ang Wisconsin Buyers Guide para sa kotseng ito, at nakasulat ba dito kung rebuilt o salvage ito dati?",
+          "escalation": "Kunan ng litrato ang Wisconsin Buyers Guide bago pumirma. Dahil hindi sakop ng lemon law ang second-hand na kotse dito, ang dokumentong ito na halos ang pangunahing proteksyon mo."
+        },
+        "WI-ASIS": {
+          "title": "Mahigpit na Patakaran sa Salitang “As Is”",
+          "citation": "Wisconsin DOT consumer guidance",
+          "plain": "May mahigpit na patakaran ang Wisconsin sa format ng kahit anong “AS IS, NO WARRANTY” (kung ano ang lagay, walang warranty) na salita, at kapag may warranty ang bentahan, dapat ibigay sa'yo ang nakasulat na warranty.",
+          "script": "Kung ibinebenta ito nang as is, puwede mo bang ipakita na sumusunod ang as-is disclosure sa format na required ng Wisconsin?",
+          "escalation": "Ang maling format ng as-is na salita ay puwede nang maging basehan ng reklamo sa Wisconsin DOT o DOJ."
+        }
+      }
+    },
+    "direction": {
+      "alabama": "Bagong sasakyan lang ang sakop ng lemon law ng Alabama.",
+      "arizona": "Mukhang may kaunting sakop sa second-hand na sasakyan ang lemon law ng Arizona.",
+      "arkansas": "Nakatutok sa bagong sasakyan ang lemon law ng Arkansas, at mahigpit ang patakaran nito sa pagsasabi kung salvage ang titulo.",
+      "colorado": "Mukhang sakop ng lemon law ng Colorado ang ilang second-hand na sasakyan, pero hindi ang mga naka-lease.",
+      "delaware": "Mukhang sakop din ng lemon law ng Delaware ang second-hand na sasakyan.",
+      "florida": "Sakop ng lemon law ng Florida ang bago at naka-lease na kotse at truck, at may maayos na proseso ang estado para dito.",
+      "georgia": "Bagong sasakyan lang ang sakop ng lemon law ng Georgia.",
+      "hawaii": "Mukhang sakop din ng lemon law ng Hawaii ang second-hand na sasakyan.",
+      "idaho": "Mukhang sakop din ng lemon law ng Idaho ang second-hand na sasakyan.",
+      "illinois": "Bagong sasakyan lang ang sakop ng lemon law ng Illinois.",
+      "indiana": "Sakop ng lemon law ng Indiana ang mga sasakyang binili, ni-lease, o inilipat sa loob ng estado.",
+      "iowa": "Sakop ng lemon law ng Iowa ang bago o hindi pa natitituluhang sasakyan, kasama ang ilang naka-lease.",
+      "kansas": "Ayon sa gabay ng estado, bagong sasakyan lang ang sakop ng lemon law ng Kansas.",
+      "kentucky": "Bagong sasakyan lang ang sakop ng lemon law ng Kentucky.",
+      "louisiana": "Mukhang sakop din ng lemon law ng Louisiana ang second-hand na sasakyan.",
+      "maryland": "Sakop ng lemon law ng Maryland ang ilang klase ng rehistradong sasakyan, karamihan ay mga mas bago.",
+      "michigan": "Sakop ng lemon law ng Michigan ang bagong sasakyan at ang second-hand na inilipat habang nasa warranty pa ng manufacturer.",
+      "minnesota": "Sakop din ng lemon law ng Minnesota ang second-hand na sasakyan.",
+      "mississippi": "Mukhang sakop din ng lemon law ng Mississippi ang second-hand at lease-to-own na sasakyan.",
+      "missouri": "Bagong sasakyan lang ang sakop ng lemon law ng Missouri.",
+      "nebraska": "Sakop ng lemon law ng Nebraska ang bagong sasakyan, at ayon sa gabay, baka qualified din ang ilang sasakyang wala pang dalawang taon.",
+      "nevada": "Mukhang sakop din ng lemon law ng Nevada ang second-hand na sasakyan.",
+      "new hampshire": "Sakop lang ng lemon law ng New Hampshire ang second-hand na sasakyan kung nasa orihinal na warranty pa ng manufacturer.",
+      "new mexico": "Sakop ng lemon law ng New Mexico ang mga pampasaherong sasakyang ibinenta at nirehistro sa estado.",
+      "north carolina": "Bagong sasakyan lang ang sakop ng lemon law ng North Carolina.",
+      "north dakota": "Mukhang sakop din ng lemon law ng North Dakota ang second-hand na sasakyan.",
+      "ohio": "Sakop ng lemon law ng Ohio ang bago at naka-lease na sasakyan.",
+      "oklahoma": "Sakop ng lemon law ng Oklahoma ang karamihan ng sasakyang rehistrado sa estado, may limit sa bigat.",
+      "oregon": "Mukhang sakop din ng lemon law ng Oregon ang second-hand na sasakyan.",
+      "pennsylvania": "Bagong sasakyan lang ang sakop ng lemon law ng Pennsylvania.",
+      "rhode island": "Sakop din ng lemon law ng Rhode Island ang second-hand na sasakyan.",
+      "south carolina": "Bagong sasakyan lang ang sakop ng lemon law ng South Carolina.",
+      "south dakota": "Mukhang sakop din ng lemon law ng South Dakota ang second-hand na sasakyan.",
+      "tennessee": "Sakop ng lemon law ng Tennessee ang mga pampasaherong sasakyang ibinenta sa estado.",
+      "utah": "Sakop ng lemon law ng Utah ang mga sasakyang pang-highway na ibinenta sa estado, kasama ang motorsiklo.",
+      "vermont": "Sakop ng lemon law ng Vermont ang mga pampasaherong sasakyang binili, ni-lease, o nirehistro sa estado.",
+      "virginia": "Sakop ng lemon law ng Virginia ang mga motor vehicle ayon sa sarili nitong patakaran sa lemon law.",
+      "washington": "Sakop ng lemon law ng Washington ang bagong sasakyan, at kilala ang arbitration process na pinapatakbo ng estado.",
+      "west virginia": "Sakop ng lemon law ng West Virginia ang mga pampasaherong sasakyan at ilang truck at van.",
+      "wyoming": "Sakop ng lemon law ng Wyoming ang mga sasakyang wala pang 10,000 pounds na ibinenta o nirehistro sa estado."
+    },
+    "fallback": {
+      "summary": "Batay sa legal na buod ng 50 estado: {direction}",
+      "unknown": "Hindi pa namin partikular na na-research ang {state}.",
+      "cooling": {
+        "title": "Walang Awtomatikong Karapatang Mag-cancel",
+        "citation": "16 CFR Part 429, FTC Cooling-Off Rule",
+        "plain": "Binibigyan ng Cooling-Off Rule ng FTC ang mga buyer ng tatlong araw para i-cancel ang ilang klase ng pagbili, pero malinaw na hindi kasama ang mga kotseng ibinenta sa permanenteng lokasyon ng dealer. Kapag pumirma ka na, final na ang deal maliban kung pumayag ang dealer nang nakasulat sa iba pa.",
+        "script": "Puwede n'yo bang ilagay sa kontrata, nakasulat, ang panahon para mag-cancel bago ako pumirma?",
+        "escalation": "Huwag ipagpalagay na may “cooling-off period” agad. Sadyang hindi kasama ang kotse sa federal na batas. Kung gusto mo ng labasan, ipasok ito sa kontrata bago pumirma, hindi pagkatapos."
+      },
+      "comingSoon": {
+        "title": "Malapit Na ang mga Batas ng Bawat Estado",
+        "plain": "{direction} Hindi pa namin sariling na-verify ang eksaktong numero ng batas para sa {state}, kaya ituring itong panimula, hindi legal advice. Sakop ka na ng limang federal na proteksyon kahit saang estado ka.",
+        "script": "May sarili bang cooling-off period, limit sa interes, o patakaran sa add-on disclosure ang {state}?",
+        "escalation": "I-search ang \"{state} lemon law\" at \"{state} used car dealer warranty\" sa website ng Attorney General ng estado mo bago ka pumirma ng kahit ano."
+      }
+    }
+  },
+  "eventsPage": {
+    "preview": "Private preview: mga admin lang ang nakakakita ng page na ito.",
+    "hero": {
+      "title": "Mga Event",
+      "body": "Mga workshop at meetup tungkol sa pagbili, pagpapaayos, at pagbabayad ng kotse nang hindi naloloko. Libre at bukas sa lahat."
+    },
+    "toggleLabel": "Ipakita ang mga event",
+    "upcoming": "Paparating",
+    "past": "Nakaraan",
+    "noneUpcoming": "Wala pang paparating na event ngayon. Bumalik ka ulit.",
+    "nonePast": "Wala pang nakaraang event.",
+    "flyerAlt": "Flyer para sa {title}",
+    "enlarge": "Palakihin ang flyer",
+    "close": "Isara",
+    "time": "{time} Pacific time",
+    "online": "Online, sa Zoom",
+    "onlineNote": "Ipapadala sa email mo ang link kapag nag-RSVP ka",
+    "going": "{n} tao ang pupunta",
+    "goingOne": "1 tao ang pupunta",
+    "rsvp": "Mag-RSVP, libre",
+    "ended": "Tapos na ang event na ito.",
+    "form": {
+      "title": "Mag-RSVP",
+      "name": "Pangalan",
+      "email": "Email",
+      "school": "School o organisasyon",
+      "schoolPick": "Pumili",
+      "schools": {
+        "berkeley": "UC Berkeley",
+        "ucla": "UCLA",
+        "ucsc": "UC Santa Cruz",
+        "other": "Ibang school",
+        "none": "Hindi estudyante"
+      },
+      "question": "Tanong para sa host (optional)",
+      "optIn": "I-email ako tungkol sa mga susunod na event ng VINdicated",
+      "submit": "Mag-RSVP",
+      "sending": "Ipinapadala…",
+      "cancel": "Kanselahin",
+      "nameError": "Ilagay ang pangalan mo.",
+      "emailError": "Maglagay ng tamang email address.",
+      "schoolError": "Piliin ang school o organisasyon mo.",
+      "error": "Hindi natuloy. Subukan ulit pagkalipas ng isang minuto.",
+      "closed": "Sarado na ang RSVP para sa event na ito.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit."
+    },
+    "done": {
+      "title": "Pasok ka na!",
+      "online": "Salamat, {first}. Ipinadala namin ang Zoom link sa {email}.",
+      "inPerson": "Salamat, {first}. Ipinadala namin ang detalye sa {email}.",
+      "emailFailed": "Salamat, {first}. Nasa listahan ka na, pero hindi naipadala ang confirmation email. Mag-e-email kami sa {email} bago ang event.",
+      "google": "Idagdag sa Google Calendar",
+      "ics": "I-download para sa Apple / Outlook",
+      "calendarNote": "Nasa confirmation email mo ang Zoom link."
+    },
+    "strip": {
+      "label": "Susunod na event",
+      "free": "Libre",
+      "online": "Online",
+      "inPerson": "Personal",
+      "rsvp": "Mag-RSVP"
+    },
+    "email": {
+      "confirmSubject": "Pasok ka na: {title} · {when}",
+      "reminderSubject": "Paalala: {title} · {when}",
+      "hi": "Kumusta, {name}!",
+      "confirmBody": "Salamat sa pag-RSVP! Naka-sign up ka na sa {title}. Libre ito, at nasa calendar file din na naka-attach sa email na ito.",
+      "reminderBody": "Paalala lang: malapit na ang {title} sa {when}.",
+      "join": "Sumali sa Zoom: {link}",
+      "linkLater": "Ie-email namin sa'yo ang Zoom link bago ang event.",
+      "inPerson": "Personal ito, sa {address}.",
+      "when": "Kailan",
+      "where": "Saan",
+      "host": "Host",
+      "zoomLink": "Link ng Zoom",
+      "details": "Detalye ng event: {link}",
+      "signoff": "VINdicated"
     }
   }
 }

@@ -43,7 +43,7 @@ export default async function MapPage({
         <div className="wrap">
           <MapGate
             dict={d.gate}
-            mapSrc={MAP_SRC}
+            mapSrc={`${MAP_SRC}?lang=${encodeURIComponent(locale)}`}
             methodsHref={localizeHref(locale as Locale, "/map/methods")}
           />
         </div>

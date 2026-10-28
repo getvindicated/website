@@ -21,14 +21,17 @@ export type IcsEvent = {
   description: string;
 };
 
-export function buildEventIcs(e: IcsEvent, meetingLink: string | null): string {
-  const where = e.online ? meetingLink || "Online, on Zoom" : e.address;
-  const join = e.online
-    ? meetingLink
-      ? `Join: ${meetingLink}`
-      : "The Zoom link is in your RSVP confirmation email."
-    : "";
-  const description = [e.description, e.hostName && `Host: ${e.hostName}`, join, eventUrl(e.id)].filter(Boolean).join("\n\n");
+// Wording for the file, in the visitor's language (eventsPage in the
+// dictionaries): "Online, on Zoom", where the link is, "Host", "Join on
+// Zoom: {link}".
+export type IcsLabels = { online: string; linkNote: string; host: string; join: string };
+
+export function buildEventIcs(e: IcsEvent, meetingLink: string | null, labels: IcsLabels, locale = "en"): string {
+  const where = e.online ? meetingLink || labels.online : e.address;
+  const join = e.online ? (meetingLink ? labels.join.replace("{link}", meetingLink) : labels.linkNote) : "";
+  const description = [e.description, e.hostName && `${labels.host}: ${e.hostName}`, join, eventUrl(e.id, locale)]
+    .filter(Boolean)
+    .join("\n\n");
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -45,7 +48,7 @@ export function buildEventIcs(e: IcsEvent, meetingLink: string | null): string {
     `SUMMARY:${text(e.title)}`,
     ...(where ? [`LOCATION:${text(where)}`] : []),
     `DESCRIPTION:${text(description)}`,
-    `URL:${eventUrl(e.id)}`,
+    `URL:${eventUrl(e.id, locale)}`,
     "STATUS:CONFIRMED",
     "TRANSP:OPAQUE",
     "END:VEVENT",

@@ -896,6 +896,15 @@
 .board .event-form label {
   align-content: start;
 }
+.board .event-langs fieldset {
+  border: 1px solid var(--rule);
+  padding: 10px 14px 14px;
+  margin: 10px 0 0;
+}
+.board .event-langs summary {
+  cursor: pointer;
+  font-weight: 700;
+}
 .board .event-item .rsvps {
   margin-top: 10px;
 }

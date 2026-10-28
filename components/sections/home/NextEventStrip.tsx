@@ -14,14 +14,14 @@ export function NextEventStrip({ dict, locale, eventsHref }: { dict: EventsPageD
 
   useEffect(() => {
     let live = true;
-    fetch("/api/events/next")
+    fetch(`/api/events/next?locale=${encodeURIComponent(locale)}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => live && setEvent(j?.event ?? null))
       .catch(() => {});
     return () => {
       live = false;
     };
-  }, []);
+  }, [locale]);
 
   if (!event) return null;
   const l = eventLabels(event, locale);

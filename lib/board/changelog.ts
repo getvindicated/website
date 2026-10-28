@@ -76,6 +76,7 @@ async function put(tx: Sql, table: string, chapter: string, id: number, row: Row
   }
   const values: Row = { ...row };
   if (table === "board_settings") values.value = tx.json(row.value as never);
+  if (table === "board_events") values.translations = tx.json((row.translations ?? {}) as never);
   const [exists] = await tx`SELECT 1 FROM ${tx(table)} WHERE id = ${id} AND chapter = ${chapter}`;
   if (exists) {
     const { id: _id, ...rest } = values;

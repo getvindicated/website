@@ -221,3 +221,9 @@ CREATE TABLE IF NOT EXISTS board_event_rsvps (
   created_at  timestamptz NOT NULL DEFAULT now()
 );
 CREATE UNIQUE INDEX IF NOT EXISTS board_event_rsvps_once ON board_event_rsvps (event_id, lower(email));
+
+-- Events in other languages: {"es": {"title": …, "tag": …, "hostTitle": …,
+-- "description": …}, …}. Missing fields show the English.
+ALTER TABLE board_events ADD COLUMN IF NOT EXISTS translations jsonb NOT NULL DEFAULT '{}';
+-- The language the visitor RSVPed in; their emails go out in it.
+ALTER TABLE board_event_rsvps ADD COLUMN IF NOT EXISTS locale text NOT NULL DEFAULT 'en';

@@ -66,6 +66,7 @@
   border-radius: 999px;
   padding: 8px 14px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .rd-hdr .lang > button:hover {
   border-color: var(--purple);
@@ -893,6 +894,13 @@
   font-size: 1.05rem;
   margin-bottom: 18px;
 }
+/* Admin-entered event text is often English. On RTL pages, take each
+   line's direction from its own text so its punctuation lands in the
+   right place, but keep it aligned with the rest of the card. */
+[dir="rtl"] .rd .ev-body :is(h2, .ev-desc, .ev-facts b, .ev-facts span) {
+  unicode-bidi: plaintext;
+  text-align: right;
+}
 .rd .ev-count {
   font-weight: 700;
   color: var(--purple);
@@ -1067,4 +1075,12 @@
   .rd .ev-strip-btn {
     width: 100%;
   }
+}
+
+/* Centered page heroes (the 404 page). */
+.rd .phero .center p {
+  margin-inline: auto;
+}
+.rd .center .ctas {
+  justify-content: center;
 }

@@ -4,363 +4,2559 @@
     "about": "关于我们",
     "aboutWhoWeAre": "我们是谁",
     "aboutMission": "我们的使命",
-    "aboutFounder": "创始人的故事",
-    "aboutProvides": "我们提供什么",
+    "aboutFounder": "创始人的话",
+    "aboutProvides": "我们能帮什么",
     "team": "团队",
-    "inspection": "检验指南",
-    "inspectionPpi": "什么是 PPI？",
-    "inspectionEngine": "发动机图解",
-    "inspectionChecks": "检验师会检查什么",
-    "inspectionWhere": "在哪里做检查",
-    "inspectionDealership": "查找经销商",
-    "fraud": "防范欺诈",
-    "fraudOverview": "概览",
-    "fraudRedFlags": "危险信号",
-    "fraudRights": "了解你的权利",
-    "fraudAfter": "被骗后怎么办",
-    "documents": "文件解读",
-    "volunteer": "志愿者",
+    "events": "活动",
+    "inspection": "验车指南",
+    "fraud": "防骗指南",
+    "documents": "文件看得懂",
+    "volunteer": "当志愿者",
     "research": "研究",
     "contact": "联系我们",
-    "learningResources": "学习资源",
-    "getInvolved": "参与我们"
+    "learningResources": "学习资料",
+    "getInvolved": "加入我们",
+    "projects": "项目",
+    "dealerMap": "车行风险地图"
   },
   "ui": {
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
-    "expandSection": "展开 {label}",
-    "languageSwitcher": "更改语言"
+    "languageSwitcher": "切换语言",
+    "homeLabel": "VINdicated 首页"
+  },
+  "notFound": {
+    "title": "找不到这个页面",
+    "body": "不好意思，我们找不到这个页面。可能已经搬走了，也可能链接打错了。",
+    "home": "回到首页"
   },
   "footer": {
-    "tagline": "教育。赋能。维权。",
-    "subtagline": "为女性、移民和首次购车者提供免费的汽车知识教育。",
-    "copyright": "© 2026 VINdicated。保留所有权利。由 Rana Darwich 创立。",
-    "mission": "一家致力于促进汽车商务性别平等的非营利组织。",
     "columns": {
-      "navigate": "导航",
-      "resources": "资源",
-      "connect": "联系"
+      "resources": "资料",
+      "connect": "关注我们",
+      "organization": "组织"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "instagram": "Instagram",
-      "getInTouch": "联系我们"
-    }
+      "getInTouch": "联系我们",
+      "aboutUs": "关于我们",
+      "instagramUcla": "Instagram · UCLA",
+      "instagramBerkeley": "Instagram · UC Berkeley",
+      "instagramUcsc": "Instagram · UC Santa Cruz"
+    },
+    "about": "VINdicated 是一个由学生带头、为消费者说话的非营利组织。我们通过免费指南、社区讲座和学生研究，把买车的门道讲给大家听，让谁买车、贷款、修车都不会被坑。",
+    "rights": "© 2026 VINdicated。版权所有。",
+    "founded": "由 Rana Darwich 创办。"
   },
   "meta": {
-    "defaultTitle": "VINdicated | 教育。赋能。维权。",
-    "defaultDescription": "VINdicated 是一个非营利组织，基于一个信念：汽车知识应该是公共知识。我们拆解让消费者歧视得以延续的系统。",
+    "defaultTitle": "VINdicated | 学知识，有底气，讨公道。",
+    "defaultDescription": "VINdicated 是一个非营利组织。我们相信，懂车的知识应该人人都有。我们把那些让买车的人受歧视的套路，一个个拆开讲清楚。",
     "routes": {
       "home": {
-        "title": "教育。赋能。维权。",
-        "description": "VINdicated 是一个免费的非营利组织，帮助购车者在经销商处不被利用。提供免费指南、研究和权益资源。",
+        "title": "学知识，有底气，讨公道。",
+        "description": "VINdicated 是一个免费的非营利组织，帮大家买车不被坑。有免费指南、研究，还有讲清楚你有哪些权利的资料。",
         "imageAlt": "VINdicated"
       },
       "about": {
         "title": "关于我们",
-        "description": "Rana Darwich 在亲身经历经销商歧视后创立了 VINdicated。了解我们教育、赋能并维护购车者权益的使命。",
+        "description": "Rana Darwich 自己买车时受到歧视，后来就创办了 VINdicated。来看看我们是怎么开始的，都在做些什么。",
         "imageAlt": "VINdicated：关于我们"
       },
       "team": {
         "title": "我们的团队",
-        "description": "认识 VINdicated 背后的人：倡导者、研究者和反对经销商歧视的学生。",
+        "description": "认识一下 VINdicated 背后的人：一群为消费者发声的人、做研究的人和学生，一起对抗车行里的歧视。",
         "imageAlt": "VINdicated：我们的团队"
       },
       "inspection": {
-        "title": "检验指南",
-        "description": "购买二手车前的逐步检验指南。了解在发动机舱、车场和文件中应该检查什么。",
-        "imageAlt": "VINdicated：检验指南"
+        "title": "验车指南",
+        "description": "买二手车之前，一步一步教你怎么验车。引擎盖下面、车行停车场上、合同文件里，都该看什么。",
+        "imageAlt": "VINdicated：验车指南"
       },
       "fraud": {
-        "title": "防范欺诈",
-        "description": "学习识别并应对常见经销商骗局。了解危险信号、你的法律权利，以及被骗后该怎么做。",
-        "imageAlt": "VINdicated：防范欺诈"
+        "title": "防骗指南",
+        "description": "学会认出车行常见的骗局，知道怎么应对。危险信号有哪些，加州和联邦法律给你什么权利，被骗了以后该怎么办。",
+        "imageAlt": "VINdicated：防骗指南"
       },
       "documents": {
-        "title": "文件解读",
-        "description": "交互式指南，帮助理解购车文件：车辆所有权证、Carfax 报告、贷款合同等。签字前先知道自己签的是什么。",
-        "imageAlt": "VINdicated：文件解读"
+        "title": "文件看得懂",
+        "description": "互动指南，帮你看懂买车的各种文件：pink slip（车辆产权证）、Carfax 车况报告、贷款合同等等。签字之前，先搞清楚你签的是什么。",
+        "imageAlt": "VINdicated：文件看得懂"
       },
       "research": {
-        "title": "研究",
-        "description": "VINdicated 通过通信审计研究记录经销商中基于性别和种族的定价差异。阅读我们的发现和方法。",
-        "imageAlt": "VINdicated：研究"
+        "title": "项目",
+        "description": "四个小组、十一个学生项目：做 App、数据工具、研究和内容，帮大家买车、贷款、修车都不被坑。",
+        "imageAlt": "VINdicated：项目"
+      },
+      "join": {
+        "title": "加入我们",
+        "description": "加入 VINdicated：来当志愿者、讲讲你的经历、参加研究，或者跟我们合作。",
+        "imageAlt": "VINdicated：加入我们"
       },
       "rights": {
         "title": "了解你的权利",
-        "description": "了解你作为购车者的法律权利。联邦和加州法律保护你免受经销商歧视和欺骗性做法的伤害。",
+        "description": "买车时你有哪些法律权利？联邦和加州的法律保护你，不让车行歧视你、骗你。",
         "imageAlt": "VINdicated：了解你的权利"
       },
       "contact": {
         "title": "联系我们",
-        "description": "联系 VINdicated：加入志愿团队、分享你的故事、参与研究或与我们合作。",
+        "description": "联系 VINdicated：来当志愿者、讲讲你的经历、参加研究，或者跟我们合作。",
         "imageAlt": "VINdicated：联系我们"
       },
       "volunteer": {
-        "title": "志愿者",
-        "description": "申请加入 VINdicated，成为学生志愿者、研究员、工程师、设计师或社区外展成员。",
-        "imageAlt": "VINdicated：志愿者"
+        "title": "当志愿者",
+        "description": "申请加入 VINdicated 当学生志愿者，可以做研究、写程序、做设计，或者去社区做宣传。",
+        "imageAlt": "VINdicated：当志愿者"
+      },
+      "map": {
+        "title": "车行风险地图",
+        "description": "一张卫星地图，标出洛杉矶西区（Westside）100 家车行，以及它们的公开评论里提到的事，比如逼你买车、突然多收费。",
+        "imageAlt": "VINdicated：车行风险地图"
+      },
+      "mapMethods": {
+        "title": "车行风险地图是怎么做的",
+        "description": "地图的信息从哪来，AI 模型怎么给评论分类，风险等级怎么分，还有地图告诉不了你的事。",
+        "imageAlt": "VINdicated：车行风险地图是怎么做的"
+      },
+      "events": {
+        "title": "活动",
+        "description": "VINdicated 的免费讲座和见面会，聊怎么买车、修车、付车钱。",
+        "imageAlt": "VINdicated：活动"
       }
     }
   },
   "home": {
-    "hero": {
-      "titleLine1": "你应该能够",
-      "titleLine2": "买车",
-      "titleEm": "不再害怕。",
-      "subtitle": "VINdicated 建立在这样一个信念上：汽车知识应该是公共知识。我们通过教育、研究和社区，拆解让消费者歧视得以延续的系统。",
-      "ctaPrimary": "获取购前检查指南",
-      "ctaSecondary": "我们的故事",
-      "stats": [
-        {
-          "label": "是黑人男性买家相对白人男性买家平均多出的报价，即使是同一辆车和同一套话术",
-          "cite": "Ayres & Siegelman, 1995"
-        },
-        {
-          "label": "的 Z 世代女性因为担心性别歧视而不愿去经销商处",
-          "cite": "Morning Consult / Caribou, 2022"
-        },
-        {
-          "label": "的非白人测试者在经销商处获得了比白人测试者更差的报价",
-          "cite": "National Fair Housing Alliance, 2018"
-        },
-        {
-          "label": "是少数族裔买家面临的额外谈判时间，即使车辆和报价相同",
-          "cite": "Ayres & Siegelman, 1995"
-        }
-      ]
-    },
-    "cards": {
-      "titlePrefix": "汽车正义的",
-      "titleEm": "两大支柱。",
-      "pillars": [
-        {
-          "kicker": "教育",
-          "title": "购前检查指南",
-          "body": "在交钱前，逐步了解你应该检查、询问和核实的内容。为首次购车者编写。",
-          "label": "阅读指南"
-        },
-        {
-          "kicker": "保护",
-          "title": "防范欺诈",
-          "body": "真实的购车陷阱，被命名、解释并逐一应对。知道当经销商施压时该怎么说。",
-          "label": "查看危险信号"
-        }
-      ]
-    },
-    "quote": {
-      "text": "为什么要以天真的名义让女人保持无知？",
-      "cite": "Mary Wollstonecraft",
-      "source": "《女权辩护》（1792）"
-    },
-    "founder": {
-      "titleLine1": "19 岁创立。",
-      "titleEm": "源于必要。",
-      "body1": "在三个不同经销商处连续三次受挫后，我看清了同一件事：这个系统被设计成让你困惑、催促你，并从你不知道的事情中获利。",
-      "body2Prefix": "VINdicated 存在，是因为",
-      "body2Bold": "我希望当时也有这样的资源。",
-      "cta": "阅读 Rana 的完整故事"
-    },
     "meta": {
-      "title": "教育。赋能。维权。",
-      "description": "VINdicated 是一个免费的非营利组织，帮助购车者在经销商处不被利用。提供免费指南、研究和权益资源。"
+      "title": "学知识，有底气，讨公道。",
+      "description": "VINdicated 是一个免费的非营利组织，帮大家买车不被坑。有免费指南、研究，还有讲清楚你有哪些权利的资料。"
     }
   },
-  "about": {
+  "homePage": {
     "hero": {
-      "titlePlain": "我们坚信，汽车知识",
-      "titleEm": "应该是公共知识。",
-      "subtitle": "VINdicated 的存在，是因为我们不认为女性需要带着男性陪同才能安全地买车。"
+      "titleLead": "有了 VINdicated，你可以放心地",
+      "phrases": [
+        "一个人去车行。",
+        "认出假广告。",
+        "看懂合同。",
+        "问对问题。",
+        "转身就走。"
+      ],
+      "body": "大多数人买车的时候，对车其实不太懂。花那么多钱买一样东西，却不知道它到底值多少，很可能让你在钱上吃大亏。所以我们用大白话把这些都讲清楚，而且免费。",
+      "ctaPrimary": "看买前验车（PPI）指南",
+      "ctaSecondary": "我们的故事",
+      "photoAlt": "VINdicated 的 UC Berkeley 分会成员一起坐在 Doe 图书馆前的草坪上，后面是钟楼（Campanile）"
     },
-    "whyWeExist": {
-      "titleLine1": "歧视",
-      "titleEm": "是可以量化的。",
-      "titleLine2": "伤害是真实的。",
-      "para1": [
+    "publicKnowledge": {
+      "title": "懂车的知识，应该人人都有。",
+      "body": [
+        "第一次买车的人会被坑，买过十辆车的人也会被坑。知道得多，心里才有底；心里有底，才不会被人占便宜。我们做了验车清单、贷款说明，还有销售逼你时可以直接照着说的话，让你知道自己到底答应了什么。我们希望你",
         {
-          "text": "Ian Ayres 和 Peter Siegelman 的研究发现，"
+          "b": "心里有底、什么都清楚"
+        },
+        "。"
+      ],
+      "cta": "看看常见骗局"
+    },
+    "footing": {
+      "title": "不能因为你是谁就让你多付钱。在加州，这是违法的。",
+      "quote": "“在本州管辖范围内的所有人都是自由和平等的，不论其性别、种族、肤色、宗教、祖籍、原国籍……都有权在各类商业机构中享有完全和平等的住宿、利益、设施、优待或服务。”",
+      "quoteCite": "Unruh 民权法（Unruh Civil Rights Act），Cal. Civ. Code § 51",
+      "body": "研究发现，车行会给不同的人报不同的价。现在骗子手里的工具也更厉害了。",
+      "rows": [
+        {
+          "stat": "$1,100",
+          "title": "同一辆车，黑人男性被多报了 $1,100。",
+          "body": "同样的车、同样的砍价说法，黑人男性买家拿到的报价平均比白人男性高 $1,100。黑人女性比白人男性多 $410，白人女性多 $92。",
+          "cite": "Ayres & Siegelman, The American Economic Review, 1995"
         },
         {
-          "text": "黑人男性买家的报价平均比白人男性买家高出 1,100 美元",
-          "bold": true
+          "stat": "$36,240",
+          "title": "有人贷款买了一辆根本不存在的皮卡。",
+          "body": "一位很小心的买家在 Facebook Marketplace 上看到一辆价格公道的皮卡，卖家看起来是德州一家真的车行。文件和银行批的贷款都没问题，追踪器还显示车正在送来的路上。结果那家车行是用 AI 工具仿冒真车行做出来的假货，那辆皮卡根本不存在。",
+          "cite": "The Drive，2026 年 9 月"
         },
         {
-          "text": "，即使是相同的车型，使用完全相同的议价话术。黑人女性的报价比白人男性高 410 美元。白人女性的报价比白人男性高 92 美元。"
+          "stat": "13%",
+          "title": "少数族裔买家砍价砍得更久，价格却更差。",
+          "body": "车行跟少数族裔测试者砍价的时间多了 13%，而且在 4% 的测试中说了种族歧视或性别歧视的话。另一项研究里，63% 的非白人测试者拿到的价格比白人测试者差。",
+          "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
+        }
+      ]
+    },
+    "chapters": {
+      "title": "来校园找我们。",
+      "body": "我们在 UCLA、UC Berkeley 和 UC Santa Cruz 都有分会。找到你学校的，来参加一次聚会吧。",
+      "items": [
+        {
+          "tag": "UCLA",
+          "title": "走上 Janss 台阶",
+          "body": "我们的第一个分会。负责做车行风险地图，也带头做 VINdicated 主要的研究和数据工作。",
+          "cta": "加入 UCLA 分会",
+          "alt": "UCLA 的 Royce Hall"
+        },
+        {
+          "tag": "UC Berkeley",
+          "title": "来 Sproul 广场",
+          "body": "现在正在招新成员，重点是教大家消费者知识，还有在校园里做宣传。",
+          "cta": "加入 Berkeley 分会",
+          "alt": "UC Berkeley 的 Sather 钟楼（Campanile）"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "title": "来 Quarry 露天剧场",
+          "body": "做消费者保护的技术方面，研究买车时算法和 AI 带来的歧视和偏见。",
+          "cta": "加入 UCSC 分会",
+          "alt": "UC Santa Cruz 的 Quarry 露天剧场，四周是红杉树"
+        }
+      ]
+    },
+    "follow": {
+      "title": "关注 VINdicated。",
+      "body": "我们会发摆摊宣传的时间、新的指南，还有大家告诉我们的骗局。",
+      "links": [
+        {
+          "platform": "LinkedIn · 所有分会",
+          "handle": "VINdicated"
+        },
+        {
+          "platform": "Instagram · UCLA",
+          "handle": "@vindicatedbruins"
+        },
+        {
+          "platform": "Instagram · UC Berkeley",
+          "handle": "@ucb_vindicated"
+        },
+        {
+          "platform": "Instagram · UC Santa Cruz",
+          "handle": "@ucsc_vindicated"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "先从这两份指南看起。",
+      "body": "免费指南，在车行里也能随时打开看。",
+      "items": [
+        {
+          "title": "买前验车指南",
+          "body": "付钱之前要检查什么、要问什么。专门写给第一次买车的人。"
+        },
+        {
+          "title": "防骗指南",
+          "body": "车行常用的套路，还有你可以怎么回。"
+        }
+      ]
+    },
+    "free": {
+      "title": "我们做的东西全都免费。",
+      "body": "不用注册账号，我们也什么都不卖。",
+      "planTitle": "每一位买家",
+      "price": "$0",
+      "checks": [
+        "买前验车指南",
+        "危险信号清单",
+        "被逼单时可以照着说的话",
+        "贷款知识讲解",
+        "文件看得懂",
+        "了解你的权利"
+      ],
+      "offers": [
+        {
+          "title": "免费汽车讲座",
+          "body": "社区里办的讲座，讲贷款、修车，还有你在车行里有哪些法律权利。"
+        },
+        {
+          "title": "靠得住的修车师傅",
+          "body": "我们成员自己找过、信得过的修车师傅。"
+        },
+        {
+          "title": "网上资料和指南",
+          "body": "一步一步的指南，专门给第一次买车的人。"
+        },
+        {
+          "title": "学生研究项目",
+          "body": "研究语言障碍、销售手法和加州消费者法律的小组。"
+        }
+      ]
+    },
+    "ppi": {
+      "title": "买二手车？先做个 PPI。",
+      "body": [
+        "",
+        {
+          "b": "PPI（买前验车）"
+        },
+        "就是你自己花钱请一个独立的修车师傅（不是卖家，也不是车行的人），在买之前把车检查一遍。试驾看不出来的毛病，他们能找出来。"
+      ],
+      "items": [
+        {
+          "title": "检查什么",
+          "body": "引擎、变速箱、刹车、悬挂和车架，还有漏油、生锈和以前出过事故的痕迹。"
+        },
+        {
+          "title": "要花多少钱",
+          "body": "一般 $100–$200，有些 AAA（美国汽车协会）网点给会员免费或打折做。一个藏起来的毛病就可能让你花上几千块。"
+        },
+        {
+          "title": "去哪里做",
+          "body": "你信得过的修车师傅、上门验车的服务，或者同一个品牌、但不是卖你车的那家车行。"
+        },
+        {
+          "title": "你能拿到什么",
+          "body": "一份书面报告，可以拿来砍价，也可以是你不买的好理由。"
         }
       ],
-      "para2": [
+      "primary": "看 PPI 指南",
+      "secondary": "去哪里做"
+    }
+  },
+  "team": {
+    "members": {
+      "Rana Darwich": {
+        "position": "创始人兼会长",
+        "bio": "Rana Darwich 是 UC Berkeley 的学生研究员，也是 VINdicated 的创始人兼会长。VINdicated 现在在 UCLA、Berkeley 和 UC Santa Cruz 都有分会。她在 UC Berkeley 教育学院当研究助理，研究大学体育经费里的性别平等问题；也在 Berkeley Law 的比较不平等与反歧视法中心（Center for Comparative Inequality and Anti-Discrimination Law）做研究学徒，之前还在政治暴力实验室（Political Violence Lab）当过学生研究员。她以前在 Amazon 实习过，现在给校报 The Daily Californian 写评论文章。"
+      },
+      "Fiona Wangsawidjaja": {
+        "position": "会长",
+        "bio": "Fiona Wangsawidjaja 在 UCLA 读统计与数据科学，现在是 VINdicated UCLA 分会的会长。Fiona 很喜欢有机会就教别人、帮社区的忙：以前当过编程家教，也通过各种会议帮大家了解数字世界，现在在 VINdicated，希望让更多人轻松学到汽车知识。她在 DataRes 和 NSDC 等组织专门做数据，教过高中生数据知识，做过数据分析项目，也给公司做过咨询。",
+        "major": "统计与数据科学"
+      },
+      "Ashwin Vinod": {
+        "position": "会长",
+        "bio": "Ashwin Vinod 在 UCSC 读计算机科学，是 VINdicated UCSC 分会的会长。他在好几个研究实验室待过，也做过软件工程，打下了扎实的技术基础，想用它来推动对社区有帮助的计算研究，也给社区的人创造学习机会。Ashwin 以前在 IBM 当过软件开发实习生，现在继续在 UCSC 的 AIEA 实验室做研究，方向是“可解释的人工智能”。",
+        "major": "计算机科学"
+      },
+      "Rizwaan Bana": {
+        "position": "策划",
+        "bio": "Rizwaan Bana 在 UCLA 读计算机科学，是 VINdicated UCLA 分会的策划，帮忙安排分会的宣传和项目计划。他还是 Bruin Software Engineers 的内部副会长、UCLA ACM 的开发团队项目经理，以及 UCLA UPE 的网站负责人。"
+      },
+      "William Prawira": {
+        "position": "内部副会长",
+        "bio": "Will Prawira 在 UCLA 读数学与数据科学，是 VINdicated UCLA 分会的内部副会长。他有数据科学背景，也有业界经验，希望带出一种“做得快、做得好”的风气，把大胆的想法变成对社区真正有用的资源。这个学年他在 Navitas Semiconductor 当可靠性实习生，开发自动化工具，还有预测产品寿命的模型。",
+        "major": "数据科学与应用数学"
+      },
+      "Ayat Ashraf": {
+        "position": "外部副会长",
+        "bio": "Ayat Ashraf 在 UCLA 读数学和经济，对经济政策制定很感兴趣。她在 VINdicated 做研究，希望以后自己买车的时候，不用给她爸打八千个电话。",
+        "major": "数学/经济"
+      },
+      "Noirit Ghosh Choudhuri": {
+        "position": "内部副会长",
+        "bio": "Noirit Ghosh Choudhuri 在 UC Berkeley 读计算机科学，是 VINdicated Berkeley 分会的内部副会长。他做过好几个真实世界的项目，练出了扎实的技术和团队合作能力，想用这些能力为紧迫的社会问题想出更多办法，比如 VINdicated 正在对抗的问题。",
+        "major": "计算机科学"
+      },
+      "Halima Cherif Hminat": {
+        "position": "外部副会长",
+        "bio": "Halima Cherif Hminat 在 UC Berkeley 读整合生物学，辅修可持续商业与政策，正在为读牙医做准备。她也是 VINdicated Berkeley 分会的外部副会长，帮忙做资料，让大家心里有底、明明白白地做决定。她说 VINdicated 的使命对她很重要，因为她想支持女性，帮她们在买车和修车时不受不公平的对待。",
+        "major": "整合生物学"
+      },
+      "Gundeep Sambee": {
+        "position": "内部副会长",
+        "bio": "Gundeep 在 UC Santa Cruz 读认知科学，辅修技术与信息管理。她对人和科技之间的关系很感兴趣，尤其是 AI、设计和心理学怎么影响我们做决定。课外她参与研究，喜欢有机会多了解人的行为和思维，也喜欢担任领导角色，把大家聚在一起，给别人创造有意义的经历。",
+        "major": "认知科学"
+      },
+      "Adhya Maddukuri": {
+        "position": "外部副会长",
+        "bio": "Adhya 在 UC Santa Cruz 读技术与信息管理，热爱做能在现实中带来改变的科技，包括软件开发、AI、数据分析和产品策略。她做过生成式 AI 方面的本科研究，通过 180 Degrees Consulting 给非营利组织做过咨询，还帮忙跟 NVIDIA 和 ASUS 一起办过黑客松。她现在在 Heron Power 当软件开发工程实习生，做软件系统，也在提升自己的技术和解决问题的能力。",
+        "major": "技术与信息管理"
+      },
+      "Fernando Cedillo-Hernandez": {
+        "position": "研究负责人",
+        "bio": "Fernando Cedillo-Hernandez 在 UCLA 双主修生物和政治学，辅修生物医学研究，以及社区参与与社会变革。他有研究和公民倡导的背景，在 VINdicated 当研究负责人，一心想让资源不足的社区也能公平地得到机会和保护。在 VINdicated 之外，Fernando 在 UCLA 各处做领导和社区工作，包括为移民学生和工薪家庭的学生发声。",
+        "major": "生物与政治学"
+      },
+      "Yinrui (Ray) Gan": {
+        "position": "数据负责人",
+        "bio": "Ray Gan 负责 VINdicated 互动式车行风险地图背后的数据和 AI 流程。他设计了一套用大语言模型（LLM）分类的系统，把乱七八糟的消费者评论整理成透明、有证据支持的风险信号，给买车的人参考。Ray 在 UCLA 读计算机科学和语言学。",
+        "major": "计算机科学与语言学"
+      },
+      "Evanceline Tang": {
+        "position": "设计负责人兼宣传负责人",
+        "bio": "Evanceline 在 UCLA 读生物，大二。她很喜欢用艺术和设计来传达想法，希望通过她的作品，让更多人了解 VINdicated，也了解汽车行业里现在还存在的不平等和危险。",
+        "major": "生物"
+      },
+      "Rouqaya Elbanna": {
+        "position": "高中部负责人",
+        "bio": "Rouqaya Elbanna 是一名高中生，也是 VINdicated 的高中部负责人，努力把我们保护消费者的使命带给更多学生。她以前当过 TEDxAIS Jeddah Youth 的副会长，还入选了 Learn with Leaders 的“未来医生”项目（Future Doctors Fellowship），她做的阿尔茨海默症照护健康教育项目拿到了那一届的最佳展示奖。Rouqaya 想以后当医生，也是校排球队的队员，还拿过学校的“女子学业运动员奖”。"
+      },
+      "Daryen Romero": {
+        "position": "技术写作负责人",
+        "bio": "Daryen Romero 在 UC Berkeley 读计算机科学。加入 VINdicated 对他很重要，因为他想让大家知道买车有多重要，也不用害怕。他也想站出来，让更多人明白，如果你是女性或者是不同种族的人，可能会怎样被人占便宜。",
+        "major": "计算机科学"
+      },
+      "Vanessa Phan": {
+        "position": "数据分析负责人",
+        "bio": "Vanessa 在读计算机工程，方向是计算机系统，对软件和电子工程的结合很感兴趣，特别是机器人和智能科技。她是 UC Santa Cruz 女工程师协会（Society of Women Engineers）的财务，今年拉到了超过 $5,000 的经费，还在 SlothLab 当过开发者。她想多参与研究，把题目钻得很深，再把学到的东西拿来做解决方案。",
+        "major": "计算机工程"
+      },
+      "Brisa Gómez": {
+        "position": "技术写作负责人",
+        "bio": "Brisa Gómez 在 UCLA 读心理学，大四，是 UCLA 分会的技术写作负责人。Brisa 通过写作和翻译项目，想做出好用、也照顾到弱势群体的资料。",
+        "major": "心理学"
+      },
+      "Chino Sawatyanont": {
+        "position": "软件工程师",
+        "bio": "Chino 在 UC Berkeley 读电子与计算机工程，是 VINdicated Berkeley 分会的软件工程师。他有很多把技术和社会影响结合起来的经验，以前专门帮助泰国的弱势社区。Chino 希望把同样的干劲带到 VINdicated 的使命里。",
+        "major": "电子与计算机工程"
+      },
+      "William Guo": {
+        "position": "软件工程师",
+        "bio": "William Guo 在 UC Santa Cruz 读计算机科学，大三，是 VINdicated 的软件工程师。他喜欢捣鼓和修电子产品、打游戏，也喜欢自己动手做项目。他自己也经历过找车的那段头疼日子，觉得像买车这么大的开销，该看些什么，这些基本知识应该让每个人都更容易找到。",
+        "major": "计算机科学"
+      },
+      "Daniel": {
+        "position": "数据工程师",
+        "bio": "Daniel 是从洛杉矶来的应用数学转学生，也是 VINdicated 的数据工程师。他对个人理财很感兴趣，也喜欢教别人理财知识。在 VINdicated 之外，他喜欢拆电脑、修电脑，去爬山、骑车，满城跑。他最近还迷上了攀岩、做饭和去音乐节。",
+        "major": "应用数学"
+      },
+      "Chloe Lin": {
+        "position": "宣传负责人",
+        "bio": "Chloe Lin 在 UC Berkeley 读整合生物学，是 VINdicated 的宣传负责人。她一直为女性和弱势社区发声，希望普通买家能把买车和养车的事弄明白，自己拿主意。",
+        "major": "整合生物学"
+      },
+      "Ian de la Houssaye": {
+        "position": "软件负责人",
+        "bio": "Ian de la Houssaye 读机械工程，是 VINdicated Berkeley 分会的软件负责人。他热爱做能解决现实问题的科技。高中时他创办并带领学校的机器人竞赛队，主导软件和自动驾驶系统的开发，把队伍带成了圣地亚哥成绩最好的队伍之一。这些经历让他练出了扎实的技术、领导和合作能力，他希望用这些能力推动 VINdicated 的使命。",
+        "major": "机械工程"
+      },
+      "James Cheng": {
+        "position": "数据工程师",
+        "bio": "James 在 UC Berkeley 读数据科学和认知科学，是 VINdicated 的数据工程师。他在理工科教育和语言教育方面都有很多经验，技术背景也很广，还自己做过不少独立项目。他希望用这些经历，带着独特的视角和十足的干劲，去解决汽车行业里的问题。",
+        "major": "数据科学与认知科学"
+      },
+      "Bryan Zhang": {
+        "position": "软件工程师",
+        "bio": "Bryan Zhang 在 UCLA 读计算机科学。空闲时他喜欢打篮球、打排球和烤东西。他是 VINdicated 的开发者。",
+        "major": "计算机科学"
+      },
+      "Rahul Puritipati": {
+        "position": "软件工程师",
+        "bio": "Rahul Puritipati 在 UCLA 读计算机科学，大一。他在加州 Folsom 长大，喜欢刷健身 TikTok，也喜欢在沙发上当 49ers 和 Kings 的“场外总经理”。他做过不少非营利工作，主要是帮本地小商家重新做网上形象，还有给印度的贫困孩子募款。",
+        "major": "计算机科学"
+      },
+      "Jordan Acle": {
+        "position": "数据负责人",
+        "bio": "Jordan Acle 在 UC Berkeley 读数据科学，是 VINdicated Berkeley 分会的数据负责人，有机器学习、数据分析和数据工程方面的实际经验。他现在在 Innov8AI 当产品策略实习生，参与一个以信任为核心的健康 AI 平台；他也在 UC Berkeley 当数据科学朋辈顾问和 Hello World 导师，帮新生建立信心，在校园里站稳脚跟。",
+        "major": "数据科学"
+      }
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "懂车的知识，应该人人都有。",
+      "body": "我们做 VINdicated，是因为买辆车不该还得找人陪着、给你撑腰才安心。"
+    },
+    "zoom": {
+      "label": "VINdicated 各分会的照片",
+      "titleLine1": "UCLA、UC Berkeley",
+      "titleLine2": "和 UC Santa Cruz。",
+      "body": "一群学生，想让每个人走进车行前都有准备。",
+      "pause": "暂停播放",
+      "play": "播放照片",
+      "alts": [
+        "VINdicated 的 UC Berkeley 分会在 Doe 图书馆前的草坪上，后面是钟楼（Campanile）",
+        "VINdicated 志愿者在 UC Berkeley 校园里摆摊，旁边挂着 VINdicated 的横幅",
+        "两位 VINdicated 志愿者在 UC Berkeley 举着 VINdicated 的牌子",
+        "阳光很好的社团日，VINdicated 志愿者在 UCLA 的摊位前",
+        "VINdicated 的 UC Berkeley 分会在 Doe 图书馆旁合影",
+        "两位 VINdicated 志愿者站在 UCLA 的 VINdicated 展板旁边",
+        "一位 VINdicated 志愿者在 UCLA 给一位学生介绍免费的买车资料",
+        "VINdicated 的 UC Berkeley 分会在钟楼（Campanile）下面，从远一点的地方拍的",
+        "一位 VINdicated 志愿者在摊位前跟一位 UCLA 学生聊天",
+        "一位 VINdicated 志愿者指着 UCLA 的展板"
+      ]
+    },
+    "photos": {
+      "title": "我们的分会",
+      "body": "UCLA、UC Berkeley 和 UC Santa Cruz 的学生，在校园摆摊、讲课，研究买车的事。",
+      "items": [
         {
-          "text": "48% 的 Z 世代女性因担心遭遇性别歧视而不愿前往经销商",
-          "bold": true
+          "alt": "VINdicated 志愿者在 UC Berkeley 校园里摆摊，旁边挂着 VINdicated 的横幅"
         },
         {
-          "text": "（Morning Consult 为 Caribou 所做的调查，2022 年）。这不是多虑，这是规律。"
+          "alt": "两位 VINdicated 志愿者在 UC Berkeley 举着 VINdicated 的牌子"
+        },
+        {
+          "alt": "阳光很好的社团日，VINdicated 志愿者在 UCLA 的摊位前"
+        },
+        {
+          "alt": "一位 VINdicated 志愿者在 UCLA 给一位学生介绍免费的买车资料"
         }
-      ],
-      "para3": [
-        {
-          "text": "经销商在 "
-        },
-        {
-          "text": "4% 的测试访问中",
-          "bold": true
-        },
-        {
-          "text": " 说出了带有种族或性别歧视的言论。他们与"
-        },
-        {
-          "text": "“少数族裔”测试者的谈判时间多出了 13%",
-          "bold": true
-        },
-        {
-          "text": "。"
-        }
-      ],
-      "para4": "我们不会再假装这些只是个别事件。"
+      ]
     },
     "mission": {
-      "heading": "教育。赋能。",
-      "headingEm": "维权。",
-      "subheading": "从消费者层面瓦解“护送”文化，一次一位知情买家。",
-      "pillars": [
+      "title": "学知识，有底气，讨公道。",
+      "body": "这是我们的口号，也是我们做事的顺序。",
+      "items": [
         {
-          "word": "教育",
-          "body": "让买车这件事变得可理解、可操作。我们把经销商的套路翻译成大白话，因为知识就是筹码。"
+          "title": "学知识",
+          "body": "我们把车行那一套套路翻成大白话。因为这些花招，大多只对没听说过的人管用。"
         },
         {
-          "word": "赋能",
-          "body": "建立独自走进展厅、问对问题、必要时转身离开的信心——不带愧疚，也不需要人陪。"
+          "title": "有底气",
+          "body": "懂得够多，就敢一个人走进车行，觉得不对劲也敢转身就走。"
         },
         {
-          "word": "维权",
-          "body": "用研究去证明消费者早已知道的事实。把亲身经历转化为数据，把数据转化为政策改变。"
+          "title": "讨公道",
+          "body": "用研究把买家遇到的事记录下来，拿去推动政策改变。"
         }
       ]
     },
     "story": {
-      "titleEm": "“维权”从何而来？",
-      "subtitle": "三次受挫。三种完全不同的情况。每一次都是同一个系统。",
+      "title": "Rana 为什么创办 VINdicated",
+      "body": "Rana Darwich 买过三次车，情况完全不一样，却栽在同一个地方：卖家就指望她不懂规矩。",
+      "quote": "“不管走进来的是一个 19 岁的女生，还是一个 50 岁的男人，我希望你们都能尊重每一个人。”",
+      "quoteCite": "Rana Darwich，创始人",
       "strikes": [
         {
-          "num": "1",
-          "label": "粉色所有权证骗局",
-          "body": [
-            "18 岁那年，我想从朋友父亲那里买一辆车。他让我等了三个月，一直承诺会卖给我。",
-            "等到最后关头，他却想告诉我不需要那张“粉色所有权证”。他是想骗我。如果所有权证上不是你的名字，无论你付了多少钱，这辆车在法律上都不属于你。"
+          "n": "01",
+          "tag": "18 岁 · 私人卖车",
+          "title": "pink slip 骗局",
+          "body": "一个家里的朋友让她等了三个月才把车卖给她，然后跟她说不需要 pink slip（车辆产权证）。可是产权证上不是你的名字，不管你付了多少钱，这辆车在法律上都不算你的。"
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "说变脸就变脸",
+          "body": "本来聊得好好的，卖家一发现她是女生，就开始骂她，然后把她拉黑了。后来她用“Randall”这个名字给卖家发消息，再让她弟弟打电话，拿到的价格反而更好。"
+        },
+        {
+          "n": "03",
+          "tag": "2025 年 4 月 · 车行",
+          "title": "“锁在抽屉里”",
+          "body": "车行说保养记录“锁在抽屉里”，答应好的 300 项检查缩水成 150 项。明明是付现金，他们却递给她一份 30% APR（年利率）的贷款合同，里面只有强制仲裁条款，没有取消的办法。她一眼就认出来了，当场拒绝，还举报了那个销售。"
+        }
+      ]
+    },
+    "video": {
+      "label": "VINdicated 创始人 Rana Darwich 讲她为什么创办 VINdicated，在 UC Berkeley 拍摄",
+      "play": "播放创始人视频，34 秒",
+      "length": "0:34",
+      "title": "听 Rana 自己说。",
+      "body": "Rana 讲她为什么创办 VINdicated，又是为谁做的，在 UC Berkeley 拍摄。",
+      "name": "Rana Darwich",
+      "role": "VINdicated 创始人兼会长"
+    },
+    "ai": {
+      "title": "现在骗子也在用 AI。",
+      "body": "假的车行网站、车辆照片和文件越来越好做了。下面是 9 月一位买家遇到的事。",
+      "steps": [
+        {
+          "title": "广告看起来很正常",
+          "body": "Facebook Marketplace 上出现一辆价格公道的 SUV，还花钱推广给更多买家看。"
+        },
+        {
+          "title": "车行是仿冒的",
+          "body": "骗子把一家真车行连文件都照抄了一遍，只在名字里少了一个字。"
+        },
+        {
+          "title": "银行把钱打给了假车行",
+          "body": "一家大贷款机构批了贷款，把 $36,240 电汇给了假车行。"
+        },
+        {
+          "title": "车一直没来",
+          "body": "一个假的追踪器显示车正在横穿全国，最后“到了”一条空荡荡的街上。"
+        }
+      ],
+      "source": "根据 Caleb Jacobs 在 The Drive 的报道，2026 年 9 月。",
+      "saveStat": "$0",
+      "saveTitle": "他最后不用还这笔贷款。",
+      "saveBody": "因为他把每一条消息、每一份文件都留着，这位买家用 FTC（美国联邦贸易委员会）的 Holder Rule 摆脱了这笔贷款。大多数人根本不知道有这条规定。",
+      "saveCta": "了解你的权利",
+      "tipsTitle": "给任何人付钱之前",
+      "tips": [
+        "把车行的名字加上“scam”（骗局）、“review”（评论）或“complaint”（投诉）搜一下。",
+        "别光看评论好就相信一家车行。假网站可以把真车行的评论搬过来用。",
+        "要求亲眼看车、看车行。对方不肯，就别买了。",
+        "太远去不了？请上门验车的人去看。真卖家不会介意的。",
+        "只收电汇、要你先付钱的，千万别付。"
+      ],
+      "ftcCta": "看 FTC 的提醒",
+      "reportCta": "举报骗局"
+    },
+    "quote": {
+      "text": "每个人都会有被占便宜的时候。我们希望你在它发生的时候能察觉到。",
+      "cite": "VINdicated 背后的想法"
+    },
+    "provide": {
+      "title": "我们能提供什么",
+      "body": "不用注册，我们也不卖任何东西。",
+      "items": [
+        {
+          "title": "讲座",
+          "body": "社区里办的讲座，讲贷款、修车，还有你在车行里有哪些权利。"
+        },
+        {
+          "title": "指南",
+          "body": "一步步的验车说明、危险信号清单、可以照着说的话，还有贷款知识讲解。"
+        },
+        {
+          "title": "修车师傅名单",
+          "body": "大家一起把关的修车师傅名单，不看不起人，也不硬推你多花钱。"
+        },
+        {
+          "title": "研究项目",
+          "body": "十一个学生小组，在做 App、数据工具、研究和内容。"
+        }
+      ],
+      "projectsLink": "看看这些项目"
+    },
+    "cta": {
+      "title": "一起让买车变得公平。",
+      "body": "加入一个分会、参加研究项目，或者把讲座带到你的学校。",
+      "primary": "加入我们",
+      "secondary": "认识团队"
+    }
+  },
+  "teamPage": {
+    "hero": {
+      "title": "我们都受够了同样的事。",
+      "body": "认识一下 VINdicated 在三个 UC 校区的学生、研究员和动手做事的人。"
+    },
+    "filterLabel": "按校区筛选团队",
+    "filters": {
+      "all": "全部",
+      "leadership": "领导团队",
+      "ucla": "UCLA",
+      "ucb": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "readMore": "展开",
+    "showLess": "收起",
+    "watchLabel": "看 {name} 的自我介绍视频",
+    "watch": "认识 {name}",
+    "dialogLabel": "团队成员视频",
+    "close": "关闭视频",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "website": "个人网站"
+    },
+    "cta": {
+      "title": "想加入我们吗？",
+      "body": "我们在找做研究的、写程序的、做设计的，还有喜欢教人的。如果你也希望买车变得公平，就来联系我们吧。",
+      "button": "联系我们"
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "title": "四个小组，十一个项目。",
+      "body": "我们各分会的学生在做 App、分析数据、做研究、做内容，帮大家买车、贷款、修车都不被坑。"
+    },
+    "navLabel": "项目小组",
+    "status": "正在招人",
+    "skillsLabel": "需要的技能",
+    "membersLabel": "小组人数",
+    "chapters": {
+      "ucla": "UCLA",
+      "berkeley": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "tracks": {
+      "app": {
+        "title": "App 开发",
+        "body": "我们做 App，让大家学汽车知识，买车也更放心。",
+        "projects": [
+          {
+            "name": "Duolingo 项目",
+            "desc": "一个像 Duolingo 那样的 App，只不过不是学外语，而是学汽车知识、学车是怎么运作的。",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 到 4 人",
+            "join": "加入 Duolingo 项目"
+          },
+          {
+            "name": "Marketplace 项目",
+            "desc": "一个像 Facebook Marketplace 那样买卖东西的地方，但只卖车和汽车零件，还自带验证，减少骗局。",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 到 4 人",
+            "join": "加入 Marketplace 项目"
+          }
+        ]
+      },
+      "data": {
+        "title": "数据",
+        "body": "我们把乱七八糟的公开数据变成买家用得上的工具。",
+        "projects": [
+          {
+            "name": "Crosscheck 项目",
+            "desc": "把好几个测试机构的安全评分放在一起，让你把不同车型并排比一比。",
+            "skills": [
+              "APIs",
+              "网页数据抓取",
+              "统计"
+            ],
+            "members": "5 人",
+            "join": "加入 Crosscheck 项目"
+          },
+          {
+            "name": "Carcam 项目",
+            "desc": "给车上的损伤拍张照，它就能估算修好要花多少钱，还有到底需不需要修。",
+            "skills": [
+              "多模态模型 API",
+              "数据评估"
+            ],
+            "members": "5 人",
+            "join": "加入 Carcam 项目"
+          },
+          {
+            "name": "Price Is Right 项目",
+            "desc": "给你看一辆车的型号、里程和历史，让你猜价格。正确答案来自真实的卖车广告。",
+            "skills": [
+              "基础统计",
+              "机器学习"
+            ],
+            "members": "5 人",
+            "join": "加入 Price Is Right 项目"
+          }
+        ]
+      },
+      "research": {
+        "title": "研究",
+        "body": "实地调查和法律研究：买车为什么会出问题，又该怎么解决。",
+        "projects": [
+          {
+            "name": "Spanish Lang 项目",
+            "desc": "研究语言和沟通怎么影响买家能不能看懂买车的流程。",
+            "skills": [
+              "定性研究",
+              "文本和文件分析"
+            ],
+            "members": "4 到 6 人",
+            "join": "加入 Spanish Lang 项目"
+          },
+          {
+            "name": "Price Gaps 项目",
+            "desc": "研究买家怎么描述和理解销售手法：销售怎么跟他们说话、怎么说服他们、施加多大压力、讲得清不清楚，还有信任的问题。",
+            "skills": [
+              "定性研究",
+              "主题分析"
+            ],
+            "members": "4 到 6 人",
+            "join": "加入 Price Gaps 项目"
+          },
+          {
+            "name": "Legal 项目",
+            "desc": "研究加州保护买车和有车的人的法律，给遇到车祸、车行纠纷、诈骗、修车或其他车子问题的人，写一份好懂的指南。",
+            "skills": [
+              "法律和文件研究",
+              "写作"
+            ],
+            "members": "6 到 10 人",
+            "join": "加入 Legal 项目"
+          }
+        ]
+      },
+      "outreach": {
+        "title": "宣传和内容",
+        "body": "我们把学到的东西带给需要的人。",
+        "projects": [
+          {
+            "name": "Comics 项目",
+            "desc": "画漫画，讲常见的汽车骗局。",
+            "skills": [
+              "插画",
+              "绘画"
+            ],
+            "members": "2 到 3 人",
+            "join": "加入 Comics 项目"
+          },
+          {
+            "name": "Spanish 项目",
+            "desc": "给说西班牙语的人做好玩的社交媒体内容（比如双关语和西英混搭的 Spanglish），还帮忙检查网站的西班牙语翻译。",
+            "skills": [
+              "西班牙语"
+            ],
+            "members": "2 到 3 人",
+            "join": "加入 Spanish 项目"
+          },
+          {
+            "name": "Booklet 项目",
+            "desc": "做一本简短的小册子，讲汽车的基本知识。",
+            "skills": [
+              "网上查资料",
+              "写作",
+              "设计"
+            ],
+            "members": "3 到 5 人",
+            "join": "加入 Booklet 项目"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "没经验？没关系。",
+      "body": "工具可以跟着小组边做边学。重要的是你有好奇心，每周能抽出几个小时。",
+      "button": "申请加入项目"
+    }
+  },
+  "inspectionPage": {
+    "hero": {
+      "title": "买车之前，一定要做这一步。",
+      "body": "买二手车之前，最有用的一件事就是做 PPI（买前验车）。花 $100–200，可能帮你省下好几千。",
+      "ctaPrimary": "怎么预约 PPI",
+      "ctaSecondary": "去哪里做"
+    },
+    "what": {
+      "title": "什么是买前验车？",
+      "body": [
+        "PPI 就是你自己花钱请一位",
+        {
+          "b": "独立的修车师傅"
+        },
+        "（不是卖家，也不是车行），在买之前把车检查一遍。一次好的 PPI 大概",
+        {
+          "b": "$100–$200"
+        },
+        "，是你签字前把问题找出来的最好机会。"
+      ],
+      "notTitle": "PPI 跟这些不一样",
+      "nots": [
+        {
+          "title": "卖家自己做的检查",
+          "body": "他们是想把车卖给你。"
+        },
+        {
+          "title": "你自己看一看",
+          "body": "你不是受过训练的修车师傅。"
+        },
+        {
+          "title": "试驾",
+          "body": "你看不到引擎盖下面在发生什么。"
+        }
+      ]
+    },
+    "engine": {
+      "title": "自己动手查一查。",
+      "body": "点任何一个发光的零件，或者开始跟着步骤检查。我们会放大给你看，一步步带你检查，还帮你记分。",
+      "progress": "已检查 {n}/{total}",
+      "start": "开始跟着步骤检查",
+      "imageAlt": "引擎舱示意图，标出了各个零件，包括保险丝盒、进气管、刹车油壶、火花塞、电瓶、冷却液壶、水箱和风扇",
+      "inspect": "检查{part}",
+      "close": "关闭",
+      "of": "{n}/{total}",
+      "how": "怎么检查",
+      "back": "上一步",
+      "markChecked": "标记为已检查 →",
+      "nextPart": "下一个零件 →",
+      "severity": {
+        "easy": "很好检查",
+        "watch": "要仔细看",
+        "red": "严重危险信号",
+        "know": "要知道的事"
+      },
+      "doneTitle": "检查完了。",
+      "doneBody": "9 个都查过了。你标出来的问题，可以拿去问修车师傅，也可以拿来砍价。",
+      "reset": "重新开始",
+      "parts": [
+        {
+          "t": "保险丝盒",
+          "sub": "保护车上用电安全的盒子",
+          "what": "保险丝盒里装着叫保险丝的小零件，保护车上每一条电路。一旦出问题，保险丝就会烧断，防止东西被烧坏，就像家里的电闸一样。",
+          "steps": [
+            "请对方打开盖子。看看有没有烧断的保险丝：里面的金属条会是断的。",
+            "看看保险丝是不是对不上。10 安培的位置插着 30 安培的保险丝，说明有人绕过了电路问题，这很危险。",
+            "看看有没有烧焦的痕迹、熔化的地方，或者焦味。",
+            "看看有没有脏东西、水渍或生锈。里面应该干净、干燥。",
+            "看看电线是不是乱七八糟、缠着胶布或者被接过。整齐的原厂电线才正常。"
+          ],
+          "flag": "危险信号：保险丝烧断或对不上、有烧焦痕迹、电线很乱，都说明已经有电路问题了。二手车上的电路问题，是最难查、也最贵的毛病之一。"
+        },
+        {
+          "t": "进气管和空气滤芯",
+          "sub": "引擎吸气的地方",
+          "what": "那根带一圈圈纹路的大管子，把空气从空气滤芯盒送进引擎。盒子里有一片纸或海绵做的滤芯，挡住灰尘和杂物。",
+          "steps": [
+            "顺着管子看看有没有裂缝、破口，或者松掉的卡箍。",
+            "找到管子连着的滤芯盒，能打开就打开（一般有 2 到 4 个卡扣）。",
+            "把滤芯对着光看。干净的是浅灰或白色；脏的是深灰或黑色。"
+          ],
+          "flag": "一辆号称“保养记录齐全”的车，滤芯却堵得很厉害，这就是危险信号：要么记录不全，要么卖家在夸大。滤芯只要 $15 到 $30，每 15,000 到 30,000 英里就该换。"
+        },
+        {
+          "t": "刹车油壶",
+          "sub": "装刹车油的小罐子",
+          "what": "这个半透明的小罐子给刹车供油。刹车油时间长了会吸水，刹车就会慢慢变得没那么灵。",
+          "steps": [
+            "从罐子侧面看油位，应该在 MIN 和 MAX 之间。",
+            "看颜色。清澈到浅琥珀色是好的；深褐色说明早该换了。",
+            "油位低可能是刹车片磨薄了，或者漏油。问问上次修刹车是什么时候。",
+            "试驾时，踩刹车应该是实的，不该软软的、像踩在海绵上。"
+          ],
+          "flag": "危险信号：刹车踩起来软软的，或者刹车油又黑又少，说明买之前刹车得先修。"
+        },
+        {
+          "t": "火花塞和点火线圈",
+          "sub": "让每个汽缸点火的东西",
+          "what": "火花塞负责点燃每个汽缸里的汽油。大多数新一点的引擎，火花塞都在点火线圈下面，也就是这台引擎上面那些红色的帽子。",
+          "steps": [
+            "看看线圈帽有没有裂开或损坏。",
+            "请修车师傅检查火花塞孔里有没有积机油，那说明垫片在漏。",
+            "试驾时留意怠速是不是不稳、车会不会抖，或者加油时有没有顿一下。",
+            "问问火花塞上次是什么时候换的。很多车大概在 60,000 到 100,000 英里就该换了。"
+          ],
+          "flag": "缺缸（失火）或火花塞孔里有机油，都是要修的地方，可以拿来砍价。如果故障灯（check engine）在闪，说明正在缺缸：马上停止试驾。"
+        },
+        {
+          "t": "机油加注盖",
+          "sub": "值得打开看看",
+          "what": "机油加注盖是加新机油的地方。打开只要两秒钟，里面看到的东西，能告诉你光看机油尺看不出来的事。",
+          "steps": [
+            "逆时针拧开，拿起来。看看盖子底面和开口里面。",
+            "看有没有白色或奶油色的残留物、泡沫或者积垢。",
+            "凑近闻一下。应该是机油味，不该有化学味或甜味。"
+          ],
+          "flag": "严重危险信号：看起来像美乃滋（蛋黄酱）的白色糊状东西，是机油混进了冷却液，常常是汽缸垫坏了。这个修起来可能超过 $3,000。要么别买，要么狠狠砍价。",
+          "flag2": "还要注意：像沥青一样又黑又稠的油泥。说明这台引擎很长时间没换机油，寿命会变短。"
+        },
+        {
+          "t": "电瓶",
+          "sub": "看看接头和日期",
+          "what": "12 伏的电瓶负责发动车子，也给所有电子设备供电。大多数能用 3 到 5 年，换一个要 $100 到 $250。",
+          "steps": [
+            "在电瓶上面或侧面找日期标签。",
+            "看看接头上有没有白色、蓝色或绿色毛茸茸的锈。",
+            "看看电瓶外壳有没有鼓起来、裂开或者漏液。"
+          ],
+          "flag": "危险信号：锈得很厉害、电瓶用了 4 年以上，或者外壳鼓起来。电瓶一看就很旧的话，要求便宜 $150 到 $250 是合理的。"
+        },
+        {
+          "t": "冷却液壶",
+          "sub": "等引擎凉了再查",
+          "what": "冷却液壶是一个半透明的塑料罐子，装着引擎的冷却液。不用打开就能看。",
+          "steps": [
+            "从罐子侧面看液位。",
+            "确认液位在 MIN 和 MAX 两条线之间。",
+            "看颜色。冷却液应该是鲜绿色、橙色、粉色或蓝色。",
+            "只有引擎完全凉了才可以打开盖子。热的冷却液有压力，可能把人严重烫伤。"
+          ],
+          "flag": "危险信号：冷却液是褐色或铁锈色，说明没好好保养。如果像牛奶一样浑浊或者有泡沫，说明混进了机油，是汽缸垫坏了，修一下要 $1,500 到 $3,000 以上。"
+        },
+        {
+          "t": "发动机皮带",
+          "sub": "带动引擎上大部分配件",
+          "what": "这条皮带（也叫蛇形皮带）带动发电机、方向盘助力、空调和水泵。开车时它要是断了，这些东西会一下子全部停掉。",
+          "steps": [
+            "把引擎熄火，在引擎前面找一条又宽又平、带纹路的皮带，绕着好几个轮子。",
+            "看有纹路的那一面。纹路之间出现细细的裂纹，就是开始老化了。",
+            "看光滑的背面。如果亮亮的、像上了一层釉，说明在打滑。",
+            "请修车师傅估一下还能用多久。"
+          ],
+          "flag": "对价格的影响：换一条新皮带连工带料 $75 到 $200。看起来磨损了就拿来砍价，但不用因为这个就不买。"
+        },
+        {
+          "t": "水箱和风扇",
+          "sub": "让引擎不过热的系统",
+          "what": "水箱（散热器）在车子的最前面。热的冷却液从里面流过，空气穿过它的散热片把冷却液降温，再流回引擎。车停着不动时，风扇会多抽一些空气过来。",
+          "steps": [
+            "趁引擎凉的时候，看看散热片有没有弯掉、裂开，或者有干掉的绿色、橙色、粉色残留。",
+            "看看水箱底部和水管周围有没有湿的地方或冷却液的痕迹。",
+            "发动引擎，让它怠速几分钟。风扇应该会自己转起来。",
+            "试驾时盯着水温表，应该一直在正常范围内。"
+          ],
+          "flag": "危险信号：只要冷却液在漏，就得先修好再买。水箱裂了要 $300 到 $900，试驾时过热是很严重的警告。"
+        }
+      ]
+    },
+    "where": {
+      "title": "去哪里做 PPI。",
+      "recommended": "推荐",
+      "cards": [
+        {
+          "title": "独立验车服务",
+          "paras": [
+            [
+              {
+                "b": "Lemon Squad"
+              },
+              "（lemonsquad.com）：上门服务，检查 110 项。费用：$150–250。"
+            ],
+            [
+              {
+                "b": "CARCHEX"
+              },
+              "（carchex.com）：可以上门也可以去店里，报告很详细。费用：$100–200。"
+            ]
           ]
         },
         {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "我曾试着在 Facebook Marketplace 上买车。一开始对话很正常，聊里程、价格、什么时候能去看车。",
-            "可他一旦发现我是女性，语气立刻完全变了。他对我说“闭上你的臭嘴，贱人”，然后把我拉黑了。"
+          "title": "原厂品牌车行",
+          "paras": [
+            [
+              "如果你在 Mitsubishi 车行买一辆二手 Honda，",
+              {
+                "b": "就把车开去 Honda 车行做 PPI。"
+              }
+            ],
+            [
+              "他们懂这个牌子，有合适的检测工具，而且这笔买卖跟他们没关系。费用：一般 $100–150。"
+            ]
           ]
         },
         {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "我独自一人去试驾了一辆车。等我和姐妹一起回去准备买车时，页面上突然写着：“今天不买就没了”。",
-            "后来我付费做了独立检验，发现了问题。他们递给我一份年利率高达 30% 的贷款合同。我知道什么是坑人的交易，我没有签字。"
+          "title": "AAA 会员",
+          "paras": [
+            [
+              "很多 AAA（美国汽车协会）网点给会员免费或打折做 PPI。去问问你附近的 AAA 汽车服务中心。"
+            ]
+          ]
+        },
+        {
+          "title": "信得过的本地修车师傅",
+          "paras": [
+            [
+              "如果你有信得过的修车师傅，问问他们做不做 PPI。危险信号：不肯把检查结果写下来、草草了事，或者什么都没查就说“看起来都没问题”。"
+            ]
           ]
         }
       ],
-      "pullquote": {
-        "quote": "我举报了 Eddy。总经理打电话来道歉时，我说：我不接受你的道歉。我希望无论走进来的是一个 19 岁的女孩，还是一个 50 岁的男人，你们都能一视同仁、尊重对待。",
-        "attribution": "Rana Darwich，VINdicated 创始人"
-      },
-      "bio": {
-        "label": "关于创始人",
-        "body": "Rana Darwich 在 19 岁那年，在几乎签下一份带有掠夺性仲裁条款的合同后，创立了 VINdicated。",
-        "closingLine": "现在，轮到你了。"
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft，1792 年",
-        "quote": "拓展女性的思想，让它变得强大，盲目的顺从便会随之终结。"
-      }
+      "dealersTitle": "找原厂品牌车行",
+      "dealersBody": "在 Mitsubishi 车行买二手 Honda？把车开去 Honda 车行做 PPI。"
     },
-    "provide": {
-      "titlePlain": "完全免费。人人可用。",
-      "titleEm": "没有任何附加条件。",
-      "subtitle": "VINdicated 提供的一切都是免费的。无需注册，没有推销，没有套路。",
+    "checks": {
+      "title": "为什么这钱是花在你的安全上。",
+      "body": "好的验车师傅会把车一个系统一个系统地查。下面是他们查什么，还有每一样为什么重要。",
       "items": [
         {
-          "cat": "教育",
-          "title": "免费汽车知识工作坊",
-          "body": "由社区主导的分享会，拆解经销商不希望你知道的事情，包括贷款、维修和你在车行的合法权利。"
+          "title": "引擎",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "漏机油："
+              },
+              "引擎有没有在滴油？小漏不管，就会变成大修。"
+            ],
+            [
+              {
+                "b": "漏冷却液："
+              },
+              "过热能很快把引擎毁掉，修起来很贵。"
+            ],
+            [
+              {
+                "b": "正时皮带/链条："
+              },
+              "开车时它要是断了，整台引擎可能就报废了。"
+            ],
+            [
+              {
+                "b": "故障灯代码："
+              },
+              "就算故障灯没亮，修车师傅也能读出电脑里存着的故障代码。"
+            ],
+            [
+              {
+                "b": "缸压测试："
+              },
+              "能查出引擎内部的磨损，光用眼睛看是看不出来的。"
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "工具",
-          "title": "在线资源与指南",
-          "body": "逐步检验指南、危险信号清单、话术模板和贷款讲解。专为首次购车者设计。"
+          "title": "变速箱：常常是最贵的修理",
+          "intro": "修变速箱可能要 $3,000–$8,000。验车师傅会检查：",
+          "points": [
+            [
+              "换挡顺不顺（自动挡和手动挡都查）"
+            ],
+            [
+              "变速箱油的状况和颜色（应该是清澈的粉红或红色，不是褐色或有焦味）"
+            ],
+            [
+              "加油时会不会在挡位之间打滑"
+            ],
+            [
+              "换挡时有没有奇怪的声音"
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "社区",
-          "title": "经审核的技师网络",
-          "body": "我们正在建立一个由社区审核的技师目录：诚实的技师，不会看轻你，也不会向你过度推销。"
+          "title": "刹车",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "刹车片厚度："
+              },
+              "不到 3 毫米就得马上换。"
+            ],
+            [
+              {
+                "b": "刹车盘状况："
+              },
+              "刹车盘有划痕、裂纹或变形，刹车距离就会变长。"
+            ],
+            [
+              {
+                "b": "刹车油："
+              },
+              "旧刹车油会吸水，刹车就没那么灵。"
+            ],
+            [
+              {
+                "b": "ABS 功能："
+              },
+              "防抱死刹车系统要用专门的检测工具才能确认。"
+            ]
+          ],
+          "outro": []
         },
         {
-          "cat": "研究",
-          "title": "通信审计研究",
-          "body": "我们用数据记录歧视现象。我们持续进行的研究量化了基于性别的定价差异。"
+          "title": "悬挂和转向",
+          "intro": "悬挂有问题，会直接影响高速公路上的操控和安全，而且是卖家自己做的检查里最常漏掉的问题之一。",
+          "points": [
+            [
+              "球头、转向拉杆和摆臂"
+            ],
+            [
+              "半轴防尘套（看看有没有裂开，或者周围喷了一圈黄油）"
+            ],
+            [
+              "避震器和减震支柱"
+            ],
+            [
+              "方向机的状况"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "车身和车架：有没有出过事故",
+          "intro": "Carfax（车况历史报告）有用，但不能告诉你全部。亲自检查能发现：",
+          "points": [
+            [
+              "钣金之间的缝隙不均匀（出过事故、修过车身的迹象）"
+            ],
+            [
+              "油漆颜色对不上（光泽不一样 = 那块重新喷过漆）"
+            ],
+            [
+              "车架受过损伤，或者以前被校正过"
+            ],
+            [
+              "底盘生锈，特别是以前在美国东北部开过的车"
+            ]
+          ],
+          "outro": [
+            {
+              "b": "小提示："
+            },
+            "Carfax 要查，亲自验车也要做。两样查出来的东西不一样。"
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "“销售不是你的朋友，不是你的搭档，也不是替你着想的人。他们拿提成，你付得越多，他们赚得越多。这不代表他们是坏人，只是说你得保护好自己。”",
+      "cite": "Rana Darwich，VINdicated 创始人"
+    },
+    "schedule": {
+      "title": "怎么预约 PPI。",
+      "stops": [
+        {
+          "title": "先找好验车的人。",
+          "body": "趁你还没爱上哪辆车之前。先有个固定的修车师傅，看到喜欢的车时就不会手忙脚乱。"
+        },
+        {
+          "title": "一开始就跟卖家说清楚。",
+          "body": "“买之前，我想请一位独立的修车师傅检查一下。”不肯的卖家就是危险信号，直接走人。"
+        },
+        {
+          "title": "你把车开去修车师傅那里。",
+          "body": "私人卖家的话，你自己开过去。车行的话，就跟他们谈：“我想把车开出去试久一点，开到我已经约好的修车师傅那里。”让他们写下来。"
+        },
+        {
+          "title": "检查报告要书面的。",
+          "body": "每一项发现都要写下来，不要只听口头说。砍价和自己留底都用得上。"
+        },
+        {
+          "title": "拿检查结果来砍价。",
+          "body": "发现半轴防尘套在漏？那要花 $300-600 修。请卖家照着降价，或者卖之前先修好。"
+        },
+        {
+          "title": "做完 PPI，你还是可以不买。",
+          "body": "如果问题很严重，卖家又不肯谈，这次检查也值了。它让你躲过了一个大得多的损失。"
+        }
+      ],
+      "alertTitle": "注意",
+      "alert": [
+        "如果卖家一直拖着不给保养记录，或者说“以后再给你”，那就在你动心之前先把验车约好。",
+        {
+          "b": "趁你还没舍不得这辆车，先约好验车，别等到之后。"
         }
       ]
     }
   },
-  "team": {
+  "fraudPage": {
     "hero": {
-      "titleLine1": "出于同样的",
-      "titleEm": "愤懑而行动。"
+      "title": "看穿他们的套路。",
+      "body": "车行和骗子真的会对买家用的手段，还有遇到时你可以怎么说。",
+      "ctaPrimary": "看看危险信号",
+      "ctaSecondary": "了解你的权利"
     },
-    "sectionTitle": "认识我们的团队",
-    "members": {
-      "Rana Darwich": {
-        "position": "创始人",
-        "bio": "Rana 在 19 岁那年，因为一个商业法术语，让她躲过了在经销商处签下一份掠夺性销售合同，从而创立了 VINdicated。最初的个人低谷，后来变成了一场使命：瓦解那些利用独自走进车行、没有后援的消费者的系统。她主导 VINdicated 的研究方向与战略，坚信汽车知识应该是公共知识。"
+    "pinkSlip": {
+      "title": "这份文件，是你拥有这辆车的唯一证明。",
+      "body": "加州的车辆产权证（Certificate of Title），大家叫它“pink slip”，是证明车归谁的法律文件。往下滑，一块一块地看。",
+      "imageAlt": "加州车辆产权证样本",
+      "intro": "六个格子决定这辆车是不是真的归你。往下滑，逐个看清楚。",
+      "items": [
+        {
+          "label": "产权证",
+          "title": "加州车辆产权证",
+          "body": "这就是“pink slip”，由加州 DMV（车管局）发的，是证明车归谁的唯一法律文件。买车时，卖家在背面签字交给你，你再拿去 DMV 过户到自己名下。没做这一步，不管你付了多少钱，这辆车在法律上都不是你的。",
+          "say": "如果卖家说你不需要 pink slip、说“以后再寄给你”，或者说“弄丢了”：别买。"
+        },
+        {
+          "label": "登记车主",
+          "title": "这辆车在法律上归谁",
+          "body": "这里的名字必须跟卖车给你的人对得上。危险信号：名字跟卖家的证件对不上、登记车主是一家没听过的公司，或者卖家说是“替别人卖”，却拿不出任何证明。",
+          "say": "一定要看卖家的政府发的身份证件。名字必须跟产权证上的一模一样。"
+        },
+        {
+          "label": "车辆历史",
+          "title": "车辆历史：先看这里。",
+          "body": "这一栏记录 DMV 的标记：salvage（报废车）、因 lemon law（问题车法）被厂家回购、泡过水，或者被偷过又找回来。“salvage”产权说明保险公司曾经判定这辆车全损。salvage 和重建（rebuilt）产权都会让车大大贬值。",
+          "say": "车辆历史这一栏只要有任何字，先查清楚是什么意思再往下走。"
+        },
+        {
+          "label": "车辆识别号",
+          "title": "VIN 必须一模一样。",
+          "body": "VIN（车辆识别号）是出厂时给每辆车的 17 位独一无二的编码。在车上亲手找到它（仪表台和车门框上），一个字一个字地跟这份文件对。对不上，可能是“克隆 VIN”，也就是偷来的车冒用了一辆正常车的身份。",
+          "say": "先把 VIN 输进 vehiclehistory.gov（免费）或 Carfax，查事故记录和产权状况，再说别的。"
+        },
+        {
+          "label": "签名栏",
+          "title": "卖家必须当着你的面签字。",
+          "body": "登记车主在这里签字，等于在法律上放弃这辆车。登记车主必须在卖车的时候当着你的面签。如果产权证已经提前签好了，说明有人已经放弃了所有权，你却不知道是给了谁、什么时候。",
+          "say": "千万别接受：提前签好的产权证、签名栏空着，或者签字的人不是登记车主本人。"
+        },
+        {
+          "label": "里程声明",
+          "title": "里程造假是联邦犯罪。",
+          "body": "联邦法律要求卖家在卖车时如实写明实际里程。按照《机动车信息与节约成本法》（Motor Vehicle Information and Cost Savings Act），调里程表是联邦罪行。确认这里写的数字跟车上的里程表一样，再跟车辆历史报告对一对。",
+          "say": "如果你怀疑造假：拍照记下对不上的地方，别买，然后去 nhtsa.gov 向 NHTSA（美国国家公路交通安全管理局）举报。"
+        }
+      ]
+    },
+    "tour": {
+      "countIntro": "共 {total} 站",
+      "countStep": "{n} / {total}"
+    },
+    "flags": {
+      "title": "买车时的危险信号。",
+      "body": "车行常说的六句话，还有你该怎么回。往下滑，每段对话都会播放。",
+      "intro": "你在车行会听到的话。",
+      "dealer": "车行",
+      "floor": "展厅",
+      "start": "往下滑，开始第一段对话。",
+      "counter": "危险信号 {n}/{total}",
+      "tag": "危险信号 {n}",
+      "chip": "危险信号",
+      "whatToDo": "怎么办：{text}",
+      "items": [
+        {
+          "title": "好得不像真的价格",
+          "body": "车行打出来的价格，早就把一堆返现和折扣算进去了：军人、老师、老客户、应届毕业生等等。大多数买家大部分都拿不到。网上的价格是用来把你骗进门的，不是你最后真正要付的价。",
+          "todo": "去之前就要一份书面的落地价（out-the-door price，含所有税费的最终价格），再问清楚你到底能拿哪些折扣。",
+          "dealer": "网上那个价已经包括我们所有的优惠了。这些你全都符合，对吧？",
+          "you": "可以把落地价写给我吗？还有，我到底符合哪几个折扣？"
+        },
+        {
+          "title": "说没就没的折扣",
+          "body": "坐下来以后，销售会问你一连串问题：你是大学毕业生吗？军人吗？本地居民吗？有没有旧车要换？每说一个“不是”，就划掉一个折扣。问到最后，价格已经涨了好几千，虽然之前跟你说厂家返现你是符合的。",
+          "todo": "要求把原来广告上的价格和最后的价格放在一起看，每一行改了什么、为什么改，都要列出来。",
+          "dealer": "问几个小问题：当过兵吗？刚毕业吗？有旧车要换吗？……都没有？好，那我把价格更新一下。",
+          "you": "把广告价和这个价放在一起给我看，每一行改了什么、为什么改。"
+        },
+        {
+          "title": "硬塞的配件",
+          "body": "轮胎防盗螺丝、挡泥板、车漆保护之类的东西，你根本没要，也被加进价格里。车行要是说“已经装在车上了”，那是你砍价的理由，不是你该付钱的理由。",
+          "todo": "让车行把你没要的东西全部拿掉，或者从价格里扣掉。",
+          "dealer": "轮胎防盗螺丝和车漆保护已经装在车上了，所以算在价格里。",
+          "you": "这些我没要。要么拆掉，要么从价格里扣掉。"
+        },
+        {
+          "title": "编出来的费用",
+          "body": "加满一箱油、整备费、CPO（原厂认证二手车）费、交车费、清洁费：这些通常厂家早就算进价格里了。再收一次，就是换个听起来很正式的名字多加钱。",
+          "todo": "问清楚哪些费用是法律规定的，哪些是编出来的，然后要求把编出来的拿掉。",
+          "dealer": "有一点点整备费和交车费，这都是标准的。",
+          "you": "这些费用里哪些是法律规定的？其他的请拿掉。"
+        },
+        {
+          "title": "运费收两次",
+          "body": "运费（destination，也叫 freight）本来就印在车窗贴纸上，在 MSRP（厂家建议零售价）旁边。不老实的车行会先给你一个已经含运费的价，后面再把运费单独加一次。如果你看到运费单独占一行，那你就被收了两次。",
+          "todo": "问清楚给你的报价里是不是已经含了运费，如果又冒出来一次，要求拿掉。",
+          "dealer": "运费是另外算的，最后再加上。",
+          "you": "你给我的报价里已经有运费了吗？那就把第二笔拿掉。"
+        },
+        {
+          "title": "用 AI 仿冒的车行",
+          "body": "骗子会照抄一家真车行的名字、网站和文件，常常还用 AI 做出来的照片，然后收钱卖一辆根本不存在的车。如果卖家不让你亲眼看车，或者只收先付的电汇，就要小心了。",
+          "todo": "付任何钱之前，先去车行看车，或者请上门验车的人去看。",
+          "dealer": "我们只收电汇。明天就发车，这是你的物流追踪链接！",
+          "you": "我要先亲眼看车，或者请人去验车。不电汇。"
+        }
+      ]
+    },
+    "yoyo": {
+      "label": "“溜溜球”骗局动画",
+      "title": "“溜溜球”骗局。",
+      "body": "也叫 spot delivery（先交车后批贷款）。继续往下滑，看看它是怎么上演的。",
+      "svgLabel": "一辆车从车行开回家，又被一根绳子拉回车行",
+      "dealership": "车行",
+      "home": "家",
+      "day": "第 {n} 天",
+      "back": "又回到车行",
+      "okContract": {
+        "label": "已签（有条件的）",
+        "rate": "6.9% APR",
+        "pay": "$412/月"
       },
-      "Rizwaan Bana": {
-        "position": "战略师",
-        "bio": "Rizwaan Bana 在 UCLA 主修计算机科学。他是 VINdicated 的软件负责人，构建帮助消费者顺畅完成购车流程的工具。Rizwaan 热衷于用技术推动积极的改变，让信息对每个人都更易获取。"
+      "badContract": {
+        "label": "新合同",
+        "rate": "13.9% APR",
+        "pay": "$498/月"
       },
-      "William Prawira": {
-        "position": "数据工程师",
-        "bio": "Will Prawira 在 UCLA 双修数据科学与应用数学。他目前参与 Bruin Sports Analytics 的网球咨询团队，同时也是 NSDC 的项目负责人。他正积极以数据产品工程师的身份参与 VINdicated 的工作。"
+      "captions": [
+        {
+          "tag": "第 1 天",
+          "text": "“恭喜！今天就可以开回家。贷款的事我们之后再搞定。”"
+        },
+        {
+          "tag": "一个星期后",
+          "text": "一个星期后，你的旧车已经换给他们了，车行打来电话。"
+        },
+        {
+          "tag": "一把拉回",
+          "text": "“你的贷款没批下来，你得回来一趟。”"
+        },
+        {
+          "tag": "新的合同",
+          "text": "他们要你签一份利率更高的新合同，还说你换掉的旧车“已经卖掉了”。"
+        },
+        {
+          "tag": "怎么防",
+          "text": "贷款没有完全批下来（不是“有条件批准”）之前，千万别把车开走。也千万别签第二份更差的合同。"
+        }
+      ]
+    },
+    "fourSquare": {
+      "title": "“四格表”陷阱。",
+      "body": "一种常见的、把车的真实价格藏起来的办法。看看你要求降低月供的时候会发生什么。",
+      "sheetLabel": "车行的四格表",
+      "tradeIn": "旧车折价",
+      "price": "车价",
+      "down": "首付",
+      "monthly": "月供",
+      "hidden": "他们不写进格子里的部分",
+      "months": "{n} 个月",
+      "total": "你真正要付的钱",
+      "financed": "贷款金额",
+      "interest": "利息",
+      "ask": "“月供能再低一点吗？”",
+      "replay": "再看一遍",
+      "say": "你可以说：“落地价是多少？先从这个谈起，再说月供。”",
+      "note": "示例数字：贷款 $19,000，APR（年利率）8%。",
+      "lines": [
+        "这是你的方案，每月 $385。",
+        "月供能再低一点吗？",
+        "没问题，我看看能怎么弄……$333！",
+        "还是有点高，能再低吗？",
+        "好消息：每月 $296！在这里签字。",
+        "月供是降了。可是贷款从 60 个月变成了 84 个月，你要多付 $1,761。"
+      ]
+    },
+    "receipt": {
+      "title": "收据要一行一行地看。",
+      "body": "点这张新车收据样本上的任何一笔费用，看看它是法律规定的、可以谈的，还是危险信号。",
+      "categories": {
+        "req": "法律规定",
+        "neg": "可以谈",
+        "opt": "可选",
+        "red": "危险信号"
       },
-      "Halima Cherif Hminat": {
-        "position": "研究与外联负责人",
-        "bio": "Halima Cherif Hminat 就读于 UC Berkeley 综合生物学专业，辅修可持续商业与政策，同时走牙医预科方向。她也是 VINdicated 的研究与外联负责人，参与制作帮助人们自信做出明智决策的资源。她说 VINdicated 的使命对她很重要，因为她希望通过帮助女性避免在购车和维修中受到不公平对待来支持她们。"
+      "label": "车行收据样本",
+      "heading": "购车单",
+      "sub": "样本 · 2026 款小型 SUV",
+      "total": "总计",
+      "strip": "把能拒绝的全部拿掉",
+      "saved": "还没开始砍车价，你就已经省下了 {amount}。",
+      "whatToSay": "你可以说：{text}",
+      "note": "示例数字，仅供说明。税率和州里的费用因城市和县而不同。",
+      "lines": [
+        {
+          "name": "车价",
+          "short": "车本身的价格。",
+          "long": "一切都从这里开始。多问几家车行的报价，谈落地价，别谈月供。",
+          "say": "“你们最低的落地价是多少？写下来给我。”"
+        },
+        {
+          "name": "运费",
+          "short": "从工厂运到车行的费用。",
+          "long": "这是新车真实存在的厂家费用，而且已经印在车窗贴纸上了。它只应该出现一次。出现两次，或者又多一行“freight”，就是危险信号。",
+          "say": "“运费在贴纸上有。给我看清楚它只列了一次。”"
+        },
+        {
+          "name": "市场调价",
+          "short": "在贴纸价上面再加的钱。",
+          "long": "这就是车行的利润，背后什么都没有。你可以拒绝，或者去一家不加价的车行买。",
+          "say": "“市场调价我不付。拿掉，不然我去别家买。”"
+        },
+        {
+          "name": "车行整备费",
+          "short": "把车准备好交给你的费用。",
+          "long": "一般来说，厂家已经付钱给车行让他们准备新车交车了，再跟你收一次就是重复收钱。",
+          "say": "“整备不是已经由厂家付了吗？请拿掉。”"
+        },
+        {
+          "name": "VIN 蚀刻",
+          "short": "把 VIN 刻在车窗玻璃上。",
+          "long": "常常事先就弄好了，还说是必须的。其实不是。自己在家弄的套装只要一点点钱，很多保险公司也不会因为这个给你折扣。",
+          "say": "“我没要 VIN 蚀刻。从价格里拿掉。”"
+        },
+        {
+          "name": "轮胎充氮气",
+          "short": "轮胎里充氮气，不充普通空气。",
+          "long": "空气里本来就有大约 78% 是氮气。这个很少有真正的好处，是常见的凑数项目。",
+          "say": "“把充氮气的钱拿掉。”"
+        },
+        {
+          "name": "车漆和内饰保护",
+          "short": "一套镀膜或密封的套餐。",
+          "long": "这是加购的产品，不是必须的。在加州，每一项加购都要单独列出、单独标价，任何一项你都可以拒绝。",
+          "say": "“保护套餐不用了，谢谢。”"
+        },
+        {
+          "name": "延长保修合同",
+          "short": "原厂保修以外的维修保障。",
+          "long": "可选的，价格通常可以谈。不能把它当成批贷款的条件。很多时候你也可以以后再买，或者在别的地方买。",
+          "say": "“保修合同我先不要。”"
+        },
+        {
+          "name": "GAP 保险",
+          "short": "车全损时，如果你欠的钱比车值的多，它补上中间的差额。",
+          "long": "贷款金额大的话可能值得买，但它是可选的，不能当成批贷款的条件。你自己的保险公司或 credit union（信用合作社）可能卖得更便宜。",
+          "say": "“GAP 我会找自己的保险公司买。请拿掉。”"
+        },
+        {
+          "name": "文件费",
+          "short": "车行处理文件的费用。",
+          "long": "加州法律给这笔费用设了上限。一般没法谈掉，但不应该超过州里的上限。",
+          "say": "“这笔文件费有没有超过加州的上限？”"
+        },
+        {
+          "name": "加州轮胎费",
+          "short": "州政府对新轮胎收的费。",
+          "long": "每卖一条新轮胎，州里都会收一点费。金额很小，而且是必须的。",
+          "say": ""
+        },
+        {
+          "name": "销售税",
+          "short": "州和地方的销售税。",
+          "long": "必须付，税率看你在哪里登记这辆车。它是按应税价格算的，所以车价每砍掉一块钱，税也跟着少。",
+          "say": ""
+        },
+        {
+          "name": "登记、产权和牌照费",
+          "short": "交给 DMV 的政府费用。",
+          "long": "这些钱是交给州政府的，必须付。要一份 DMV 费用的明细，核对一下对不对得上。",
+          "say": "“可以给我看 DMV 费用的明细吗？”"
+        }
+      ]
+    },
+    "apr": {
+      "title": "APR 多几个点，到底要多花多少钱。",
+      "body": "《诚实借贷法》（Truth in Lending Act）规定，签字之前你有权看到 APR（年利率）。拖动利率看看为什么这很重要。",
+      "rateLabel": "车行给你的利率",
+      "rateValue": "APR {rate}%",
+      "approval": "你被批的利率",
+      "capMark": "加州上限 {rate}%",
+      "termLabel": "贷款期限",
+      "termOption": "{n} 个月",
+      "approvedLabel": "贷款方批给你的利率",
+      "lower": "降低批准利率",
+      "raise": "提高批准利率",
+      "hint": "贷款金额：$15,000。",
+      "monthly": "月供",
+      "perMonth": "{amount}/月",
+      "interest": "你要付的利息",
+      "totalCost": "贷款总花费",
+      "car": "车",
+      "interestKey": "利息",
+      "overTitle": "超过了车行能加的上限。",
+      "over": "如果贷款方批给你的是 {buy}%，加州规定 {term} 个月的贷款车行最多只能加 {points} 个点，也就是 {cap}%。要求看贷款方批给你的利率。",
+      "markupTitle": "车行给你的利率加了价。",
+      "markup": "比你被批的 {buy}% 多付了 {amount} 的利息。在上限以内是合法的，但可以谈。",
+      "okTitle": "等于或低于你被批的利率。",
+      "ok": "进车行之前先拿到贷款预批，才能做到这样。"
+    },
+    "law": {
+      "title": "法律本来就站在你这边。",
+      "body": "大多数买家都不知道车行在法律上必须做哪些事。下面用大白话告诉你法律怎么说，还有他们想装作不知道时，你该怎么说。",
+      "federalTitle": "联邦法律的保护",
+      "californiaTitle": "加州法律的保护",
+      "federal": [
+        {
+          "tag": "诚实借贷法（TILA）",
+          "title": "签字之前，必须告诉你 APR。没有例外。",
+          "body": "联邦法律规定，车行必须在你签任何东西之前，给你看年利率（APR）、全部贷款费用和贷款总花费。贷款 $15,000 的话，7% 和 30% APR 之间差了 $8,000 多。",
+          "say": "“签字之前，现在就给我看 APR、贷款费用和还款总额。”"
+        },
+        {
+          "tag": "FTC 二手车规定",
+          "title": "每辆二手车的车窗上都必须贴 Buyers Guide（买家指南）。",
+          "body": "按法律，车行里每一辆二手车都必须贴一张 Buyers Guide，写明有没有保修、保修包括什么，或者是“as is”（按现状出售，不保修）。少一张贴纸，FTC（美国联邦贸易委员会）最多可以罚车行 $51,744。",
+          "say": "看不到贴纸，或者车行在你看之前就撕掉了，这就违反了联邦法律。拍照记下来。"
+        },
+        {
+          "tag": "机动车信息法",
+          "title": "调里程表是联邦重罪。",
+          "body": "车行必须在卖车时给你书面的里程声明。把合同上的数字跟车上的里程表、Carfax 报告和保养记录对一对。三样都必须对得上。",
+          "say": "如果对不上：停止交易，把所有东西拍下来，去 reportfraud.ftc.gov 向 FTC 举报。"
+        },
+        {
+          "tag": "公平信用报告法（FCRA）",
+          "title": "他们查了你的信用，你就有权知道他们查到了什么。",
+          "body": "车行必须给你一份书面说明，写清楚你的信用分数、是哪家信用机构给的，以及它怎么影响了你的贷款条件。进车行之前先知道自己的分数。",
+          "say": "去之前：在 annualcreditreport.com 免费查你的信用报告。带着分数进门。"
+        }
+      ],
+      "holder": {
+        "tag": "FTC Holder Rule",
+        "title": "如果你是通过卖家办的贷款，贷款方也可能要负责。",
+        "body": "通过卖家安排的消费贷款合同，必须写上一条通知：你对卖家能提出的要求，也可以向贷款方提出，最多到你已经付了的钱。如果这笔买卖原来是骗局，这一条可能就是让你摆脱贷款的关键。",
+        "say": "把每一张收据、每一条消息、每一份合同都留好，马上用书面方式联系你的贷款方。"
       },
-      "Yinrui (Ray) Gan": {
-        "position": "技术负责人",
-        "bio": "Ray Gan 负责 VINdicated 互动式经销商风险地图背后的数据和 AI 流程。他设计了基于大语言模型的分类系统，把非结构化的消费者评论转化为透明、有据可依的购车风险信号。Ray 在 UCLA 学习计算机科学与语言学。"
-      },
-      "Fiona Wangsawidjaja": {
-        "position": "研究分析员",
-        "bio": "Fiona Wangsawidjaja 是 UCLA 的在读本科生。她协助负责 VINdicated 的数据部分！"
-      },
-      "Ameerah Zafar": {
-        "position": "数据工程师",
-        "bio": "Ameerah Zafar 是 UC Berkeley 化学工程专业的大四学生，同时参与 Berkeley 穆斯林学生协会，并从事涂层力学方向的本科研究。Ameerah 在 VINdicated 负责数据研究和平面设计。"
-      },
-      "Evanceline Tang": {
-        "position": "视觉设计负责人",
-        "bio": "Evanceline 是 UCLA 生物学专业的大二学生。她热衷于用艺术和设计作为传递信息的方式。她希望通过自己的作品，帮助人们更多地了解 VINdicated 以及汽车行业中存在的不平等和风险。"
-      },
-      "Ayat Ashraf": {
-        "position": "研究分析员",
-        "bio": "Ayat Ashraf 在 UCLA 主修数学与经济学，对经济政策制定感兴趣。她在 VINdicated 从事研究工作，希望将来买车时不用再给爸爸打八千次电话求助。"
-      },
-      "Brisa Gómez": {
-        "position": "数据分析师",
-        "bio": "Brisa Gómez 是心理学专业的大一转学生。在墨西哥蒂华纳长大的她，热衷于与女性、残障人士和酷儿群体等未被充分代表的社群相关的研究。她希望未来能成为一名行为治疗师。闲暇时，她喜欢读甜腻的爱情小说，也喜欢进行创意写作。"
+      "california": [
+        {
+          "tag": "AB68：取消",
+          "title": "两天内可以反悔，但必须在签字时就买下这个选项。",
+          "body": "每一家有执照的车行，都必须给 $40,000 或以下的二手车提供“两天内取消合同”的选项。费用是 $75 到车价的 1%，真的用的话还要加一笔回收费，但它给了你一条合法的退路。",
+          "say": "“我想买两天内取消合同的选项。”"
+        },
+        {
+          "tag": "AB68：利率",
+          "title": "利率加价有上限，车行不能想收多少就收多少。",
+          "body": "加州法律限制车行给利率加价：60 个月以上的贷款最多加 2%，更短的最多加 2.5%。进车行之前先在银行或 credit union（信用合作社）拿到预批，车行在这上面就完全没法拿捏你了。",
+          "say": "去之前：先拿到预批，带着利率进门。他们得给你更低的。"
+        },
+        {
+          "tag": "AB68：加购项目",
+          "title": "每一项加购都要单独列出、单独标价，不能打包。",
+          "body": "任何贷款买的东西都必须单独列一行。车行必须给你看加上和不加每一项可选项目时的月供。把所有东西打包成一个大数字，说“这就是月供”，在加州是违法的。",
+          "say": "“这都是一个套餐”是不合法的。要求书面的分项明细。"
+        },
+        {
+          "tag": "禁止的做法",
+          "title": "他们不能把加购当成批贷款的条件。",
+          "body": "任何车行都不能要求你买 GAP 保险、延长保修、车漆保护或其他加购项目，才给你批贷款。如果贷款经理暗示你“必须”买才能批下来，那是骗你的，而且违法。",
+          "say": "“请把写着这是批贷款必须的条件的地方，书面给我看。”然后看他们怎么说。"
+        }
+      ],
+      "californiaNotice": {
+        "title": "这一部分正在更新。",
+        "body": "加州的新法律 SB 766（加州参议院法案）从 2026 年 10 月 1 日起生效。它给很多二手车买家新的退车权利，也改了下面的一些规定。在我们更新这些卡片之前，用之前请先核对细节。",
+        "link": "看 CalMatters 对新法律的介绍"
       }
     },
+    "after": {
+      "title": "被骗以后该怎么办。",
+      "body": "点卡片翻过来看。",
+      "items": [
+        {
+          "front": "马上把一切记录下来。",
+          "back": "日期、时间、名字。所有短信、邮件和合同都留着。"
+        },
+        {
+          "front": "向你所在州的 DMV 投诉。",
+          "back": "大多数州都有专门处理汽车诈骗的消费者保护部门。"
+        },
+        {
+          "front": "向 FTC 举报。",
+          "back": "去 reportfraud.ftc.gov 提交举报，特别是里程造假或没有 Buyers Guide 的情况。"
+        }
+      ]
+    },
+    "brochure": {
+      "coverAlt": "VINdicated 小册子封面",
+      "tag": "带在身上",
+      "title": "VINdicated 小册子。",
+      "body": "VIN、溜溜球骗局、四格表陷阱、车行加购项目，还有你的法律权利，都折在一张传单里。我们摆摊和去学校时都会带。",
+      "soon": "新版很快会出，可以免费下载。"
+    },
     "cta": {
-      "headingPlain": "想成为",
-      "headingEm": "其中一员吗？",
-      "body": "VINdicated 一直在寻找充满热情的人：研究者、开发者、设计师、教育者和倡导者。如果你也相信买车对每个人来说都应该是公平的，我们很想听到你的声音。",
-      "button": "联系我们"
+      "title": "下一步，学会看文件。",
+      "body": "继续学：学会看懂车行递给你的文件，签字之前先把车验一验。",
+      "primary": "看真实文件讲解",
+      "secondary": "验车指南"
+    }
+  },
+  "documentsPage": {
+    "hero": {
+      "title": "真实文件，一看就懂。",
+      "body": "一份车况历史报告，一个标记一个标记地讲给你听；再加上用大白话解释的 FTC Buyers Guide（买家指南）。这两份文件，每个买二手车的人都得看懂。",
+      "ctaPrimary": "看历史报告",
+      "ctaSecondary": "看 Buyers Guide"
+    },
+    "severity": {
+      "easy": "很好检查",
+      "watch": "要仔细看",
+      "red": "严重危险信号",
+      "know": "要知道的事"
+    },
+    "tour": {
+      "countIntro": "共 {total} 站",
+      "countStep": "{n} / {total}"
+    },
+    "page1": {
+      "title": "Carfax 报告怎么看：第一页。",
+      "body": "里程和 VIN、事故记录、可靠性，还有最近的保养。往下滑，一块一块地看，每一块对价格意味着什么。",
+      "imageAlt": "一份 2013 年 Honda Accord 的 Carfax 车况历史报告样本，第一页",
+      "intro": "往下滑，报告的每一块都会亮起来。",
+      "items": [
+        {
+          "title": "195,555 英里：里程高意味着什么",
+          "body": "10 万英里以下：里程低，大部分系统都还在寿命以内。10 万到 15 万：最划算的区间，折旧已经折完了，系统也还不错。15 万到 20 万：算高了，但保养得好的 Honda 能开到 25 万到 30 万以上。这辆车在第三任车主手上平均每年开 10,257 英里，远低于每年 15,000 英里的平均数；而且 2013 款 Accord 用的是正时链条，不是皮带，高里程时少了一笔大开销。",
+          "say": "价格范围：195k 英里、车况好的 2013 款 Accord EX-L，大概在 $7,000–$10,000，看具体车况。"
+        },
+        {
+          "title": "没有事故记录：真的是好信号，但有一点要注意",
+          "body": "三任车主都没有保险理赔、警察报告或租车公司的损坏报告。一辆 13 年、195k 英里的车，这是个好兆头。没有事故记录的车，比有事故记录的同类车可以多值 $1,000–$2,000。",
+          "say": "要注意：“没有事故记录”不代表从来没出过事故。很多事故根本没报上去，亲自验车才能发现没记录的损伤。"
+        },
+        {
+          "title": "可靠性预测“良好”：195k 英里时“良好”是什么意思",
+          "body": "跟同样里程的类似车比，排在前 50%，平均每年修车费 $350。要留出钱来做后续维修：火花塞（$150–200）、附件皮带（$150–300）、半轴（$300–500），最后还有正时链条（$800–1,200）。",
+          "say": "这个里程，每年要预留 $500–$1,000 做保养，出价时把这笔钱算进去。"
+        },
+        {
+          "title": "17 条记录、3 任车主、私人用车、加州",
+          "body": "17 条保养记录，说明保养是在会向 Carfax 报数据的店里做的。三任车主都是私人用车，比做生意或车队用车好。一直在加州，说明没有在东北部撒盐化雪的州待过，不会因为这个生锈。",
+          "say": "一直在加州是加分项。这辆车没熬过撒盐的冬天，机械上应该更耐用。"
+        },
+        {
+          "title": "报告自己的免责声明：光看它不够",
+          "body": "小字写着：可能还有别的问题没报上来，要跟验车和试驾一起用。报告自己都直接告诉你了：别光靠它。",
+          "say": "报告干净还不够。一定也要做独立验车。"
+        },
+        {
+          "title": "2025 年 8 月换过机油：最近的保养说明什么",
+          "body": "现在的车主一直保养到快 20 万英里。一辆车一直按时保养到卖之前，说明车主不太可能在藏一个正在变严重的问题。",
+          "say": "要什么：真正的收据，不能只看报告的摘要。记录中间有空白的话，要请现在的卖家解释。"
+        }
+      ]
+    },
+    "page2": {
+      "title": "Carfax 报告怎么看：第二页。",
+      "body": "产权标记、历史表格和车主表格。最大的问题都在这里出现。往下滑，一个个看。",
+      "imageAlt": "一份 Carfax 车况历史报告样本的第二页，显示历史表格、产权历史和车主表格",
+      "intro": "现在看严重的历史。继续往下滑。",
+      "items": [
+        {
+          "title": "最要紧的几项检查",
+          "body": "全损（Total Loss）：被判定修车费比车还值钱，这种车要便宜 30–50%。结构/车架损伤：会永久影响操控和撞车时的安全。安全气囊弹出过：说明撞得很严重。里程表被调过：联邦犯罪，马上走人。",
+          "say": "这个表格里只要有任何一个标记，要么是砍价的大筹码，要么就别买了。看到“全损”或“结构损伤”，要价至少该打七折，不然就走人。"
+        },
+        {
+          "title": "产权标记是什么意思",
+          "body": "Salvage（报废）：全损，不重建、不检查的话法律上不能再卖。Rebuilt/Reconstructed（重建）：以前是报废车，修好了；一般比干净产权的车便宜 20–40%。Flood/Fire/Hail（泡水/火烧/冰雹）：泡水车特别麻烦，电路腐蚀可能几年后才冒出来。Lemon Law Buyback（问题车被厂家回购）：必须告诉你；可以合法再卖，但说明这车有已知的毛病。",
+          "say": "回购保证只管 DMV 记录在案的标记，不管没报上去的损伤，所以你还是得亲自验车。"
+        },
+        {
+          "title": "看车主表格：每任开了多久，比有几任更重要",
+          "body": "开得久（每任 3 年以上）：一辆车留了好几年的车主，一般都会好好爱护。开得短（不到 12 个月）：一定要问问现在的卖家知不知道为什么。很多车主一个接一个：这辆车有故事。",
+          "say": "最理想的情况：一两任长期车主，每年开的里程在平均或平均以下。"
+        },
+        {
+          "title": "有人只开了几个月",
+          "body": "开得短不一定就有问题，但值得问个清楚。查一查：那段时间有没有修了好几次？他们是从哪里买的？里程跟正常开车对得上吗？",
+          "say": "你可以说：“我看到上一任车主只开了 [X] 个月。你知道他们为什么卖吗？”留意他们怎么回答。"
+        },
+        {
+          "title": "自己算里程",
+          "body": "用结束时的里程减掉开始时的里程，就是每任车主开的总里程。除以开了几个月，再乘 12，就是每年开多少。跟业内平均每年 12,000–15,000 英里比一比。",
+          "say": "比起总里程，每年开多少更能说明这辆车是怎么被开的。"
+        }
+      ]
+    },
+    "guide": {
+      "title": "每辆二手车窗上的那张贴纸，是什么意思。",
+      "body": "联邦法律规定，车行里每辆在卖的二手车，车窗上都必须贴这张表。大多数买家瞄一眼就过去了。下面是每一块的意思。",
+      "imageAlt": "贴在二手车车窗上的 FTC Buyers Guide 表格",
+      "items": [
+        {
+          "tag": "最重要",
+          "title": "“As is，车行不保修”",
+          "body": "这是表上最重要的一格。如果勾了“As Is”（按现状出售），车行就是在告诉你：你把车开出车行以后，坏了什么都是你自己的事。他们不用退钱，也不用帮你修。",
+          "say": "怎么办：如果车是“As Is”卖的，出价时就要把这个风险算进去。留出可能的修车钱，买之前一定做独立验车。这是你唯一的保障。"
+        },
+        {
+          "tag": "要知道",
+          "title": "“车行保修”：全部或部分",
+          "body": "如果勾了车行保修（Dealer Warranty），车行就是答应在一段时间内负责某些维修。Full Warranty（全部保修）是 100% 负责；Limited Warranty（部分保修）是只负责一定比例，那些数字要仔细看。",
+          "say": "保修一定要书面的。表上会写清楚包括哪些系统、保多久。口头保修几乎没法让对方兑现。"
+        },
+        {
+          "tag": "要知道",
+          "title": "“原厂保修仍然有效”",
+          "body": "原厂保修还没过期。车上有些零件还在厂家（不是车行）的保修范围里，这是有价值的。",
+          "say": "查一查这个品牌和车型的保修条款。还在原厂保修期内的车更值钱。"
+        },
+        {
+          "tag": "要留意",
+          "title": "可以加钱买“服务合同”",
+          "body": "服务合同（延长保修）是可选的，不是免费的。“可以买”的意思是他们想卖给你，不是你一定需要。",
+          "say": "如果你想要延长保修，把车行的价格跟第三方公司比一比。同样的保障，车行的几乎总是更贵。"
+        },
+        {
+          "tag": "保护你",
+          "title": "“口头承诺很难兑现”",
+          "body": "这句话是联邦法律直接告诉你：别相信口头承诺。车行答应你的任何事，只要没写进合同，在法律上就等于不存在。",
+          "say": "他们不肯写下来，就当他们不会做。"
+        },
+        {
+          "tag": "要知道",
+          "title": "“问问车行能不能让你的修车师傅检查”",
+          "body": "这句话也是联邦法律。你不用请求许可，这是你的权利。加州还规定车行必须在店里贴告示写明这一点。",
+          "say": "一定要验车。跟它能帮你发现的维修费比，$100–$200 很便宜。"
+        }
+      ],
+      "keys": [
+        {
+          "kicker": "最重要的一句",
+          "title": "“保留这张表。”",
+          "body": "Buyers Guide 是合同的一部分。把你那份留好。如果车行保修的承诺跟他们跟你说的不一样，这就是你的证据。"
+        },
+        {
+          "kicker": "违反联邦法律",
+          "title": "卖车前撕掉贴纸是违法的。",
+          "body": "16 C.F.R. 455 禁止在顾客买车前撕掉 Buyers Guide。如果车窗上没有，这就是违反联邦法律，你可以向 FTC 举报。"
+        },
+        {
+          "kicker": "查这两样",
+          "title": "VIN + 保修状况",
+          "body": "把 Buyers Guide 上的 VIN 跟仪表台上的 VIN、产权证上的 VIN 对一对。谈价格之前，先看清楚勾的是哪一格保修。"
+        }
+      ]
+    }
+  },
+  "joinPage": {
+    "hero": {
+      "title": "加入我们。",
+      "body": "去一个分会当志愿者、讲讲你的经历、参加我们的研究，或者就来打个招呼。下面挑一个适合你的。",
+      "ctaPrimary": "申请当志愿者",
+      "ctaSecondary": "我们的分会"
+    },
+    "chapters": {
+      "title": "我们的分会。",
+      "leadsLabel": "负责人：",
+      "items": [
+        {
+          "tag": "UCLA",
+          "name": "UCLA 分会",
+          "school": "加州大学洛杉矶分校",
+          "focus": "做出了互动式车行风险地图，也带头做 VINdicated 主要的消费者研究和数据工作。",
+          "leads": "Fiona Wangsawidjaja，会长 · William Prawira，内部副会长"
+        },
+        {
+          "tag": "UC Berkeley",
+          "name": "UC Berkeley 分会",
+          "school": "加州大学伯克利分校",
+          "focus": "现在正在招新成员，重点是教大家消费者知识和做宣传。",
+          "leads": "Rana Darwich，会长 · Noirit Ghosh Choudhuri，内部副会长 · Halima Cherif Hminat，外部副会长"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "name": "UC Santa Cruz 分会",
+          "school": "加州大学圣克鲁兹分校",
+          "focus": "研究卖车时算法和 AI 带来的歧视和偏见。",
+          "leads": "Ashwin Vinod，会长 · Gundeep Sambee，内部副会长"
+        }
+      ]
+    },
+    "roles": {
+      "title": "我们在找这些人。",
+      "body": "所有职位都是远程、没有报酬的。VINdicated 是一个靠志愿者运作的非营利组织。",
+      "hours": "每周 {n} 小时以上",
+      "items": [
+        "研究分析",
+        "数据工程 / 数据分析",
+        "软件工程",
+        "宣传和沟通",
+        "法律研究",
+        "平面设计 / 插画"
+      ]
+    },
+    "form": {
+      "title": "申请当志愿者。",
+      "chapter": "你想加入哪个分会？",
+      "chapterPlaceholder": "选一个分会",
+      "role": "你想申请什么职位？",
+      "rolePlaceholder": "选一个职位",
+      "name": "全名",
+      "email": "电子邮箱",
+      "phone": "电话号码",
+      "hours": "每周能抽出几个小时",
+      "student": "你现在是学生，或者毕业不到 2 年吗？",
+      "yes": "是",
+      "no": "不是",
+      "location": "所在地（城市、州或国家）",
+      "background": "跟这个职位相关的经历",
+      "resume": "简历（可选，最好是 PDF，最大 5MB）",
+      "why": "为什么想加入 VINdicated？",
+      "submit": "提交申请",
+      "submitting": "正在发送…",
+      "missing": "请填好分会、职位、全名和电子邮箱。",
+      "badEmail": "请输入有效的邮箱地址，比如 name@school.edu。",
+      "tooLarge": "简历文件太大了。请上传小于 5MB 的文件。",
+      "failed": "出了点问题。请再试一次，或者直接发邮件到 getvindicated@outlook.com。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。",
+      "sent": "谢谢！我们收到你的申请了。去邮箱看看，我们发了一封确认邮件给你。"
+    },
+    "contact": {
+      "title": "或者就来打个招呼。",
+      "body": "媒体采访、合作、参加研究，或者你自己的经历：给我们留个言，我们会回复你。",
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "电子邮箱",
+      "topic": "我想聊的是…",
+      "topicPlaceholder": "选一个主题",
+      "topics": [
+        "来 VINdicated 当志愿者",
+        "参加研究",
+        "讲讲我的经历",
+        "媒体采访",
+        "合作",
+        "资助和经费",
+        "其他问题"
+      ],
+      "message": "留言",
+      "submit": "发送",
+      "submitting": "正在发送…",
+      "missing": "请填上你的邮箱和留言。",
+      "sent": "谢谢！你的留言已经发出去了，我们也给你的邮箱发了一份副本。",
+      "failed": "出了点问题。请再试一次，或者直接发邮件到 getvindicated@outlook.com。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。"
+    },
+    "emails": {
+      "hi": "你好，{name}：",
+      "friend": "",
+      "signoff": "祝好，",
+      "team": "VINdicated 团队",
+      "apply": {
+        "subject": "我们收到你的志愿者申请了 - VINdicated",
+        "body": "谢谢你想来 VINdicated 当志愿者！我们收到了你申请 {role} 职位的资料，很快就会看。",
+        "next": "我们会在几天内回复你。"
+      },
+      "contact": {
+        "subject": "我们收到你的留言了 - VINdicated",
+        "body": "谢谢你联系 VINdicated！我们收到了你关于“{topic}”的留言，会尽快回复你。",
+        "copy": "这是你的留言副本："
+      }
+    }
+  },
+  "mapPage": {
+    "hero": {
+      "title": "走进车行之前，先摸清它的底。",
+      "body": "一张卫星地图，标出洛杉矶西区（Westside）100 家车行，以及它们的公开评论里提到的事，比如逼你买车、突然多收费。"
+    },
+    "gate": {
+      "title": "看之前先说明",
+      "body": "这张地图显示的是大家在 Google 上公开评论洛杉矶西区 100 家车行时说的话。评论是用 AI 模型分类的，我们也拿团队手动分类的评论核对过。它不是给任何商家打分，不是确定的事实，也不是法律建议。做任何决定之前，请自己去看看评论。",
+      "check": "我明白这张地图总结的是评论者的个人看法。",
+      "open": "打开地图",
+      "methodsLink": "这张地图是怎么做的 →",
+      "frameTitle": "车行风险地图：洛杉矶西区 100 家车行的卫星地图",
+      "fullScreen": "全屏打开地图",
+      "loading": "地图加载中…"
+    },
+    "news": {
+      "title": "看看别人遇到了什么。",
+      "body": "真实的故事：买家怎么被坑的，政府又在怎么管。每一篇都链接到原始报道。",
+      "items": [
+        {
+          "kicker": "AI 骗局",
+          "title": "用 AI 做的假车行骗局，正在 Facebook Marketplace 上泛滥",
+          "byline": "作者 Caleb Jacobs / The Drive / 2026 年 9 月 18 日",
+          "dek": "一位加州摄影师在 Marketplace 上看到一辆 4Runner，贷款买了下来。发广告的是一家几乎一模一样仿冒德州真车行的假车行，有假文件、假 GPS 追踪器，连司机的声音都是电脑合成的。那辆车一直没到。",
+          "takeLabel": "教训",
+          "take": "VIN（车辆识别号）是真的、贷款也批了，都不能证明这辆车真的存在。要亲眼去看，或者请人去验车。",
+          "cta": "去 The Drive 看全文 →"
+        },
+        {
+          "kicker": "消费者提醒",
+          "title": "骗子在仿冒车行的网站",
+          "byline": "作者 BCP 工作人员 / Federal Trade Commission / 2026 年 9 月 1 日",
+          "dek": "FTC（美国联邦贸易委员会）提醒：骗子在照抄真车行的网站，常常用 AI，连标志、车辆广告和假的顾客好评都抄，然后收了钱，车却永远不会到。",
+          "takeLabel": "教训",
+          "take": "把车行名字加上“scam”（骗局）或“complaint”（投诉）搜一下；只收电汇的交易，别做。",
+          "cta": "去 Federal Trade Commission 看全文 →"
+        },
+        {
+          "kicker": "执法",
+          "title": "政府打击乱收费，一家车行和解赔了 $400 万",
+          "byline": "Hinshaw & Culbertson / 2026 年 8 月",
+          "dek": "FTC 和康涅狄格州总检察长跟一家 Nissan 车行达成和解。这家车行被控在价格上误导买家，还收了买家从没同意过的加购和费用。这笔钱会退还给消费者。",
+          "takeLabel": "教训",
+          "take": "合同每一行都要看。你没同意的费用可以提出异议，政府也真的会管。",
+          "cta": "去 Hinshaw & Culbertson 看全文 →"
+        },
+        {
+          "kicker": "执法",
+          "title": "全美车行被警告：别再乱收费",
+          "byline": "PIRG",
+          "dek": "政府给 97 个汽车集团发了信，这些集团旗下有几百家车行。信里说：广告上的价格必须包括必收的费用，车行也不能要求你用他们的贷款才给你广告上的价。",
+          "takeLabel": "教训",
+          "take": "广告上的价格，应该是你真的付得到的价格。要一份书面的落地价（含所有税费的最终价格）。",
+          "cta": "去 PIRG 看全文 →"
+        },
+        {
+          "kicker": "新法律",
+          "title": "加州给买车的人的新法律",
+          "byline": "CalMatters / 2025 年 12 月",
+          "dek": "SB 766（加州参议院法案）由圣莫尼卡选区的州参议员提出，给很多二手车买家三天退车的权利，要求车行一开始就把全部价格摆出来，还禁止车行收对你没好处的加购项目的钱。",
+          "takeLabel": "教训",
+          "take": "如果你在 2026 年 10 月 1 日以后在加州买二手车，你可能有三天时间反悔。",
+          "cta": "去 CalMatters 看全文 →"
+        }
+      ],
+      "footnote": "原标题归各家媒体所有，这里是我们翻译的。摘要由 VINdicated 撰写。报道链接到其他媒体的网站，我们管不了那些网站。"
+    },
+    "app": {
+      "pageTitle": "车行风险地图 | VINdicated",
+      "gateTitle": "看之前先说明",
+      "gateBody": "这张地图显示的是大家在 Google 上公开评论洛杉矶西区 100 家车行时说的话。评论是用 AI 模型分类的，我们也拿团队手动分类的评论核对过。它不是给任何商家打分，不是确定的事实，也不是法律建议。做任何决定之前，请自己去看看评论。",
+      "gateCheck": "我明白这张地图总结的是评论者的个人看法。",
+      "gateOpen": "打开地图",
+      "methods": "这张地图是怎么做的",
+      "title": "车行风险地图",
+      "sub": "洛杉矶西区的车行，以及它们的 Google 公开评论里提到的事。",
+      "loading": "数据加载中…",
+      "live": "实时数据",
+      "snapshot": "2026 年 9 月的数据",
+      "filterLabel": "按风险等级筛选",
+      "search": "搜索车行",
+      "legend": {
+        "flaggedLabel": "警告：",
+        "flagged": "有评论同时提到好几个问题。",
+        "cautionLabel": "注意：",
+        "caution": "有评论提到一个问题。",
+        "clearLabel": "没问题：",
+        "clear": "没发现什么。",
+        "basis": "每家车行最多看 5 条 Google 公开评论。总结的是评论者的看法。",
+        "by": "来源"
+      },
+      "layersLabel": "地图样式",
+      "satellite": "卫星",
+      "map": "地图",
+      "showAll": "全部显示",
+      "about": "关于这张地图",
+      "tiers": {
+        "all": "全部",
+        "flagged": "警告",
+        "caution": "注意",
+        "clear": "没问题"
+      },
+      "categories": {
+        "1": "价格和费用上的意外",
+        "2": "车况说得不实",
+        "3": "合同和文件问题",
+        "4": "施压和操控",
+        "5": "卖完就不管了",
+        "6": "歧视对待",
+        "7": "服务差",
+        "8": "其他投诉"
+      },
+      "concern": "问题 {n}",
+      "flaggedOf": "{f}/{r}",
+      "flaggedOfRest": "条我们看过的评论被标记了",
+      "listMeta": "{r} 条里 {f} 条被标记",
+      "described": "评论者说了什么",
+      "excerpts": "摘自 Google 公开评论。",
+      "nothing": "我们看过的评论里，没有让人担心的地方。",
+      "readOnGoogle": "去 Google 地图看评论",
+      "noMatch": "没有符合的车行。"
+    }
+  },
+  "mapMethods": {
+    "title": "车行风险地图是怎么做的",
+    "intro": "这一页说明地图的信息从哪来、我们怎么分类，还有它告诉不了你的事。",
+    "back": "← 回到地图",
+    "sections": {
+      "onMap": {
+        "title": "地图上有什么",
+        "paras": [
+          "地图上有 100 家车行和维修服务中心，分布在圣莫尼卡（Santa Monica）、比佛利山（Beverly Hills）、西洛杉矶（West LA）、卡尔弗城（Culver City）和西好莱坞（West Hollywood）。数据是 2026 年 9 月收集的。"
+        ]
+      },
+      "sources": {
+        "title": "评论从哪来",
+        "paras": [
+          "每家车行，我们最多看 5 条 Google 公开评论。这些是我们收集数据时 Google 显示出来的评论。它们不是最新的评论，也不是这家车行的全部评论，一家车行可能有几百条评论我们没看过。"
+        ]
+      },
+      "sorting": {
+        "title": "评论是怎么分类的",
+        "paras": [
+          "一个语言模型（一种 AI）读了每一条评论，把里面的投诉分成八类。我们用的是分类器 1.5.0 版，在 2026 年 9 月 24 日运行。用之前，我们拿团队手动分类的一批评论测试过，确认它分类的方式跟一个认真的人差不多。"
+        ],
+        "rulesIntro": "一条投诉要同时符合下面三条规则才算数：",
+        "rules": [
+          "是评论者自己说的话。模型必须引用原话。",
+          "说的是这家车行。",
+          "问题还没有解决。"
+        ],
+        "rulesOutro": "小小的抱怨、猜测和一般的负面情绪都不算。",
+        "catsIntro": "八类投诉是：",
+        "cats": [
+          {
+            "title": "价格和费用上的意外",
+            "body": "收的钱比广告上或谈好的多：隐藏费用、最后一刻加价、没同意的加购或维修。"
+          },
+          {
+            "title": "车况说得不实",
+            "body": "车的状况、历史或者有没有货，跟说的不一样；或者说修好了，其实没修好。"
+          },
+          {
+            "title": "合同和文件问题",
+            "body": "文件让人看不懂、被改过或者不给，比如贷款条件说不清楚，或者产权证拖着不给。"
+          },
+          {
+            "title": "施压和操控",
+            "body": "用很强硬或不老实的手段，催你、逼你做决定。"
+          },
+          {
+            "title": "卖完就不管了",
+            "body": "卖完车或做完服务以后，车行就不理人了，或者没做到答应的事。"
+          },
+          {
+            "title": "歧视对待",
+            "body": "评论者说，因为他们是什么样的人，受到了更差的对待。"
+          },
+          {
+            "title": "服务差",
+            "body": "员工没礼貌、爱理不理或者不专业，或者拖了很久又不解释。"
+          },
+          {
+            "title": "其他投诉",
+            "body": "一个具体、真实的投诉，但不属于上面任何一类。"
+          }
+        ]
+      },
+      "tiers": {
+        "title": "风险等级怎么分",
+        "items": [
+          {
+            "name": "没问题",
+            "body": "我们看过的评论里，没有一条符合条件的投诉。"
+          },
+          {
+            "name": "注意",
+            "body": "至少有一条评论里有投诉。"
+          },
+          {
+            "name": "警告",
+            "body": "至少有一条评论同时提到了好几种不同的问题。"
+          }
+        ]
+      },
+      "shown": {
+        "title": "我们显示什么",
+        "intro": "每家车行，地图会显示：",
+        "items": [
+          "它的风险等级。",
+          "我们看过的评论里，有几条被标记了。",
+          "每个问题配一句简短的原话，员工名字已经去掉。",
+          "一个链接，去 Google 看它的全部评论。"
+        ]
+      },
+      "limits": {
+        "title": "局限",
+        "items": [
+          "样本很小。五条评论说明不了一家店是怎么对待大多数顾客的。",
+          "模型会出错。它可能看不懂反话或上下文，也可能把投诉分错类，而且地图上的结果不是每一条都人工再查过。",
+          "我们没法核实评论者说的话。评论可能说错了、夸大了、过时了、说的是车行后来已经解决的问题，也可能是假的。我们没有联系过车行，也没有联系过评论者。",
+          "这只是某一个时间点的样子。员工、老板和做事方式都会变，评论也会变。一家车行的等级，不一定反映它现在怎么做生意。",
+          "“没问题”不代表我们推荐，“警告”也不代表你一定要躲开。“没问题”的车行也可能对你不好，“警告”的车行也可能对你很好。把地图当成多问几个问题的一个理由。"
+        ]
+      },
+      "independence": {
+        "title": "独立性",
+        "paras": [
+          "VINdicated 是一个独立的学生非营利组织。我们跟任何车行、汽车厂家或 Google 都没有关系，没收他们的钱，也没有得到他们的背书。商家名称和商标归各自的主人所有。"
+        ]
+      },
+      "advice": {
+        "title": "不是建议，按现状提供",
+        "paras": [
+          "地图和这一页上的任何内容，都不是关于任何购买、合同或纠纷的法律或财务建议。请看清楚你的文件，买之前做独立验车，并就你的情况咨询合格的专业人士。",
+          "我们尽力让地图准确，但它是按现状提供的。我们不保证它完整或正确，也不对根据它做出的决定负责。"
+        ]
+      },
+      "corrections": {
+        "title": "更正",
+        "before": "如果你代表一家车行，或者觉得哪条评论我们理解错了，请发邮件到 ",
+        "email": "getvindicated@outlook.com",
+        "after": "，写上车行名字和你觉得哪里不对。我们会查看，把不准确的地方改掉或删掉。"
+      }
+    }
+  },
+  "rightsPage": {
+    "hero": {
+      "title": "签字之前，",
+      "titleEm": "先了解你的权利。",
+      "body": "联邦和加州的法律保护你，不让车行歧视你、骗你。下面是每个买家都该知道的事。"
+    },
+    "tryIt": {
+      "title": "自己",
+      "titleEm": "试一试。",
+      "body": "这是这一页手机 App 版的预览：告诉它你在哪个州，然后往下滑，看真正适用于你的法律。"
+    },
+    "remember": {
+      "label": "记住",
+      "lead": "不用当律师，你也能用这些法律。",
+      "body": "光是知道有这些法律，谁说了算就不一样了。如果车行不肯把信息写下来给你，这本身就是危险信号。",
+      "complaint": "如果你觉得自己的权利被侵犯了，可以向 {cfpb}、{ftc} 或 {dmv} 投诉。",
+      "cfpb": "消费者金融保护局（CFPB）",
+      "ftc": "联邦贸易委员会（FTC）",
+      "dmv": "加州车管局（DMV）"
+    },
+    "buttons": {
+      "flags": "认出危险信号",
+      "inspection": "买前验车指南"
+    },
+    "demo": {
+      "logoAlt": "VINdicated 标志",
+      "entryTitle": "你在哪里买车？",
+      "entryBody": "你有哪些权利，要看你在哪里。告诉我们你在哪个州，我们就给你看真正适用于你的保护。",
+      "placeholder": "比如：加州",
+      "continue": "继续",
+      "skip": "先跳过",
+      "homeTitle": "了解你的",
+      "homeTitleEm": "权利。",
+      "pickOne": "选一个开始看。",
+      "showing": "正在显示 {state} 适用的内容。",
+      "federal": "联邦法律的保护",
+      "federalMeta": "5 条法律 · 全国适用",
+      "stateLink": "{state}的保护",
+      "stateLinkNone": "州法律的保护",
+      "stateMetaNone": "输入你的州就能看到",
+      "stateMetaCount": "{n} 条法律 · 适用于你",
+      "stateMetaPartial": "{state}目前整理到的内容",
+      "back": "首页",
+      "scroll": "往下滑看重点"
+    },
+    "stateNames": {
+      "alabama": "阿拉巴马州",
+      "alaska": "阿拉斯加州",
+      "arizona": "亚利桑那州",
+      "arkansas": "阿肯色州",
+      "california": "加州",
+      "colorado": "科罗拉多州",
+      "connecticut": "康涅狄格州",
+      "delaware": "特拉华州",
+      "florida": "佛罗里达州",
+      "georgia": "佐治亚州",
+      "hawaii": "夏威夷州",
+      "idaho": "爱达荷州",
+      "illinois": "伊利诺伊州",
+      "indiana": "印第安纳州",
+      "iowa": "艾奥瓦州",
+      "kansas": "堪萨斯州",
+      "kentucky": "肯塔基州",
+      "louisiana": "路易斯安那州",
+      "maine": "缅因州",
+      "maryland": "马里兰州",
+      "massachusetts": "马萨诸塞州",
+      "michigan": "密歇根州",
+      "minnesota": "明尼苏达州",
+      "mississippi": "密西西比州",
+      "missouri": "密苏里州",
+      "montana": "蒙大拿州",
+      "nebraska": "内布拉斯加州",
+      "nevada": "内华达州",
+      "new hampshire": "新罕布什尔州",
+      "new jersey": "新泽西州",
+      "new mexico": "新墨西哥州",
+      "new york": "纽约州",
+      "north carolina": "北卡罗来纳州",
+      "north dakota": "北达科他州",
+      "ohio": "俄亥俄州",
+      "oklahoma": "俄克拉何马州",
+      "oregon": "俄勒冈州",
+      "pennsylvania": "宾夕法尼亚州",
+      "rhode island": "罗得岛州",
+      "south carolina": "南卡罗来纳州",
+      "south dakota": "南达科他州",
+      "tennessee": "田纳西州",
+      "texas": "德州",
+      "utah": "犹他州",
+      "vermont": "佛蒙特州",
+      "virginia": "弗吉尼亚州",
+      "washington": "华盛顿州",
+      "west virginia": "西弗吉尼亚州",
+      "wisconsin": "威斯康星州",
+      "wyoming": "怀俄明州"
+    },
+    "laws": {
+      "federal": {
+        "TILA": {
+          "title": "诚实借贷法（Truth in Lending Act）",
+          "citation": "15 U.S.C. § 1601",
+          "plain": "签任何东西之前，车行都必须给你看这笔贷款真正要花多少钱：APR（年利率）、贷款费用，还有所有还款加起来的总额。",
+          "script": "现在就给我看 APR、贷款费用和还款总额，在我签任何东西之前。",
+          "escalation": "如果签字前他们不肯把这些数字写给你，就停下来。这是联邦法律规定必须告诉你的，不是人情。你可以向 CFPB 投诉。"
+        },
+        "FTC": {
+          "title": "FTC 二手车规定",
+          "citation": "16 CFR § 455",
+          "plain": "车行里每辆二手车都必须贴一张 Buyers Guide（买家指南），写明是“as is”（按现状出售）还是有保修，保修又包括什么。",
+          "script": "谈价格之前，我要先看 Buyers Guide 贴纸。",
+          "escalation": "没有贴纸，或者在你看之前就被撕掉了，都违反联邦法律。FTC 每辆车最多可以罚车行 $51,744。拍照记下来，向 FTC 举报。"
+        },
+        "ODO": {
+          "title": "里程表声明法",
+          "citation": "49 U.S.C. § 32705",
+          "plain": "卖车时，车行必须给你一份签了字的书面声明，写明这辆车真实的里程。",
+          "script": "我要那份签了字的里程声明，我会拿它跟仪表盘和车况历史报告对一对。",
+          "escalation": "调里程表是联邦犯罪。数字对不上的话，停止交易，把所有东西拍下来，向 FTC 举报。"
+        },
+        "FCRA": {
+          "title": "公平信用报告法（Fair Credit Reporting Act）",
+          "citation": "15 U.S.C. § 1681",
+          "plain": "如果车行查了你的信用来定利率，他们必须告诉你用的是哪家信用机构，并且书面解释它怎么影响了你的贷款条件。",
+          "script": "这个利率是根据我的信用报告定的吗？我要那份不利决定通知（adverse action notice），还有它是哪家信用机构出的。",
+          "escalation": "没给你通知，或者利率跟你真实的信用分数对不上，都可以向 CFPB 举报。"
+        },
+        "ECOA": {
+          "title": "平等信贷机会法（Equal Credit Opportunity Act）",
+          "citation": "15 U.S.C. § 1691",
+          "plain": "车行不能因为你的种族、性别、年龄或原国籍，给你的贷款定不一样的价。每个申请人都应该按同样的标准来评估。",
+          "script": "能不能一步一步告诉我，我这个利率到底是怎么算出来的？",
+          "escalation": "如果解释说不通，你可以起诉要求赔偿，政府也可以对车行追究民事罚款。"
+        }
+      },
+      "california": {
+        "AB68-C": {
+          "title": "两天取消选项",
+          "citation": "Cal. Veh. Code § 11713.21",
+          "plain": "买 $40,000 以下的二手车，你可以花钱买一个两天内取消的权利，但必须在签字的时候就提出来。它不会自动给你。",
+          "script": "我想买两天内取消合同的选项。",
+          "escalation": "如果他们一开始没主动提，你就直接问。费用大约是车价的 1%，如果你真的用了，还要加一笔回收费。"
+        },
+        "AB68-R": {
+          "title": "利率加价有上限",
+          "citation": "Cal. Veh. Code § 11711",
+          "plain": "车行给你的利率加价，最多只能加到上限：60 个月以上的贷款最多加 2%，更短的最多加 2.5%。",
+          "script": "我已经拿到这个利率的预批了，你们得给我更低的，不是只跟它一样。",
+          "escalation": "带着自己银行或 credit union（信用合作社）的预批走进车行，车行在这个数字上几乎就没法拿捏你了。"
+        },
+        "AB68-A": {
+          "title": "加购项目要分开列",
+          "citation": "Cal. Civ. Code § 2982",
+          "plain": "每一项可选的加购都要单独标价、单独列一行。车行不能把所有东西打包成一个数字，然后说“这就是月供”。",
+          "script": "把加上和不加每一项加购时的月供，分项写下来给我看。",
+          "escalation": "“这都是一个套餐”在加州是不合法的。同意任何东西之前，先要一份逐行的明细。"
+        },
+        "VC-11713": {
+          "title": "车行禁止的做法",
+          "citation": "Cal. Veh. Code § 11713",
+          "plain": "车行不能打广告卖他们根本没有的车，不能事后改掉已经谈好的条件，也不能把他们知道的车况历史瞒着你。",
+          "script": "这个价格和车况，现在、今天，还是一模一样吗？",
+          "escalation": "按这条法律，挂羊头卖狗肉（bait and switch）是有记录的违法行为。把原来的广告留一份当证据。"
+        },
+        "CCLRA": {
+          "title": "消费者法律救济法（Consumers Legal Remedies Act）",
+          "citation": "Cal. Civ. Code § 1750",
+          "plain": "车行不能在车的价格、车况或配置上骗你。就这么简单。不能拿“销售话术”当借口。",
+          "script": "你能指给我看，这句话到底写在哪里吗？",
+          "escalation": "如果他们在这笔买卖的重要事情上说了假话，你可以起诉要求赔偿，或者要求改合同。"
+        },
+        "CC-2981.9": {
+          "title": "所有承诺都要写进一份合同",
+          "citation": "Cal. Civ. Code § 2981.9",
+          "plain": "车行答应你的每一件事，都必须写进你签的那一份合同。口头答应的“私下约定”在法律上不算数。",
+          "script": "如果你答应了这一点，请在我签字之前写进合同里，不是签完以后。",
+          "escalation": "口头承诺没写下来的话，你一签字，在法律上就一文不值了。"
+        }
+      },
+      "texas": {
+        "DTPA": {
+          "title": "欺诈性商业行为法（Deceptive Trade Practices Act）",
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq.",
+          "plain": "车行不能用一辆车的广告把你骗进来，再推你买另一辆（“bait and switch”，挂羊头卖狗肉），也不能为了让你买车，在车况、历史或配置上说假话。",
+          "script": "这是广告上那一辆车吗？价格一样、车况一样，现在就是？",
+          "escalation": "挂羊头卖狗肉和其他欺骗行为，都是有记录的违反 DTPA 的行为。你可以起诉要求赔偿、律师费，有些情况下还能要求额外的罚款。"
+        },
+        "OCC-2301": {
+          "title": "车行信息披露和执照法规",
+          "citation": "Tex. Occ. Code ch. 2301",
+          "plain": "在德州，签字以后你没有自动取消的权利。德州总检察长自己的买车指南也直接这么说。不过车行还是必须给你书面的里程声明，以及联邦规定的 Buyer's Guide（买家指南）。",
+          "script": "签任何东西之前，可以先给我里程声明和 Buyer's Guide 吗？",
+          "escalation": "没有里程声明或没有 Buyer's Guide，说明车行已经违规了。可以向德州 DMV 或总检察长的消费者保护办公室投诉。"
+        }
+      },
+      "massachusetts": {
+        "MA-LEMON": {
+          "title": "二手问题车保护",
+          "citation": "Mass. Gen. Laws ch. 90, §7N½",
+          "plain": "马萨诸塞州的 lemon law（问题车法）保护很多新车，也保护还在原厂保修期内卖出或租出的二手车，不只是全新的车。",
+          "script": "这辆车的原厂保修到底什么时候结束？",
+          "escalation": "如果你还在保修期内，车行却拒绝负责，马上向马萨诸塞州总检察长的消费者办公室投诉。时间最要紧。"
+        },
+        "MA-AG": {
+          "title": "去哪里投诉：总检察长 / 消费者事务办公室",
+          "citation": "Mass. Office of Consumer Affairs & Business Regulation",
+          "plain": "在马萨诸塞州，二手问题车和保修纠纷是交给总检察长办公室和消费者事务办公室处理的，跟联邦的 FTC 投诉系统是分开的。",
+          "script": "如果这变成了纠纷，你们会诚心配合总检察长的消费者处理程序吗？",
+          "escalation": "尽快向马萨诸塞州总检察长或消费者事务办公室投诉，把车行的每一个广告和维修单都留好，证明时间。"
+        }
+      },
+      "alaska": {
+        "AK-LEMON": {
+          "title": "只管新车的问题车法",
+          "citation": "Alaska Stat. §§45.45.300–45.45.360",
+          "plain": "阿拉斯加州的 lemon law（问题车法）只保护买新车。如果你在阿拉斯加买二手车，不管毛病多严重，这条法律都管不到你。",
+          "script": "如果我买二手的，这辆车还有原厂保修吗？",
+          "escalation": "在阿拉斯加买二手车，靠的是产权法、联邦里程表规定和 FTC Buyers Guide，不是州里的问题车法。不管怎样，都要把一切记录下来。"
+        },
+        "AK-DISPUTE": {
+          "title": "厂家的纠纷处理程序可能是必须走的",
+          "citation": "Alaska Dept. of Law",
+          "plain": "阿拉斯加州的问题车法流程，可能要求你先参加厂家经过批准的纠纷处理程序，然后才能上法院。",
+          "script": "你们有经过批准的非正式纠纷处理程序吗？可以书面给我吗？",
+          "escalation": "用挂号信给厂家寄书面通知，并保留凭证。阿拉斯加只给你在毛病截止日期后 60 天内做这件事。"
+        }
+      },
+      "new jersey": {
+        "NJ-USEDCAR": {
+          "title": "二手车车行必须给的最低保修",
+          "citation": "NJ Used Car Lemon Law, Div. of Consumer Affairs",
+          "plain": "新泽西州规定，符合条件的二手车车行必须给保修：售价超过 $3,000、车龄七年以内、没被判全损、里程 100,000 英里以下。",
+          "script": "这辆车符合新泽西州的二手车保修吗？车龄不到 7 年、不到 100,000 英里，产权也不是全损？",
+          "escalation": "如果符合条件，车行却不给保修，马上向新泽西州消费者事务处的问题车法小组投诉。"
+        },
+        "NJ-ASIS": {
+          "title": "“As is”（按现状出售）是有限制的",
+          "citation": "NJ Div. of Consumer Affairs",
+          "plain": "新泽西州消费者事务办公室明确规定了，在二手问题车法的框架下，什么时候才能“按现状出售”。它不是每次卖二手车都能自动拿来挡的盾牌。",
+          "script": "如果这辆车是按现状卖的，能不能书面告诉我，为什么它不符合二手车保修？",
+          "escalation": "新泽西州的问题车法小组用行政程序处理新车和二手车的案子。你不一定要直接上法院。"
+        }
+      },
+      "new york": {
+        "NY-USEDCAR": {
+          "title": "二手问题车法",
+          "citation": "NY AG used-car lemon law fact sheet",
+          "plain": "纽约州规定，符合条件的二手车买卖，车行必须给书面保修。修了好几次还修不好的话，你可以申请州政府的仲裁，或者要求退款。",
+          "script": "买之前，可以给我看纽约州二手问题车法规定的书面保修吗？",
+          "escalation": "如果一直修不好，纽约州有一个有约束力的州仲裁程序。用它，别让车行把你踢来踢去。"
+        },
+        "NY-TIMING": {
+          "title": "里程和时间的门槛很严格",
+          "citation": "NY AG new-car lemon law fact sheet",
+          "plain": "纽约州问题车法的门槛很具体。很多保护看的是 18,000 英里或保修开始后两年以内；修了四次，或者三十天不能开，就推定是问题车。",
+          "script": "这辆车当时的里程是多少，保修是哪天开始的？",
+          "escalation": "纽约州给你从最初交车起最多四年的时间去申请，但时间和里程的门槛从一开始就算。每一次修车的日期都要记下来。"
+        }
+      },
+      "connecticut": {
+        "CT-WARRANTY": {
+          "title": "按价格给的二手车保修",
+          "citation": "Connecticut DMV used-car warranty bulletin",
+          "plain": "康涅狄格州规定，售价至少 $3,000、符合条件的二手车，车行必须给保修：$3,000 到 $5,000 的车，保 30 天或 1,500 英里；$5,000 以上的车，保 60 天或 3,000 英里；还有车龄限制。",
+          "script": "按价格算，这辆车属于康涅狄格州哪一级保修？可以书面给我吗？",
+          "escalation": "尽快向康涅狄格州 DMV 的消费者投诉中心投诉。这些保修有时间和里程的限制。"
+        },
+        "CT-INSPECT": {
+          "title": "卖车前必须做安全检查",
+          "citation": "Connecticut DMV",
+          "plain": "在康涅狄格州，车行把二手车拿出来零售之前，必须先做完安全检查。",
+          "script": "可以给我看这辆车做完的卖前安全检查表吗？",
+          "escalation": "没有检查表就是危险信号，光这一点就可以向 DMV 投诉，跟保修纠纷是两回事。"
+        }
+      },
+      "maine": {
+        "ME-INFOACT": {
+          "title": "二手车信息法（Used Car Information Act）",
+          "citation": "Maine Used Car Information Act",
+          "plain": "缅因州有自己的二手车信息法，规定车行要告知信息、承担和检查有关的责任。因为有这套州里的制度，缅因州不用联邦的 FTC Buyers Guide 规定。",
+          "script": "可以给我看这辆车的缅因州 Buyers Guide 吗？跟联邦的文件分开的那份。",
+          "escalation": "签字之前，把缅因州的 Buyers Guide 拍下来。在缅因州，这份文件就是你受保护的根据。"
+        },
+        "ME-INSPECTION": {
+          "title": "必须有检验贴纸",
+          "citation": "Maine SOS/BMV used-car guide",
+          "plain": "缅因州车行卖的大多数二手车，都必须有一张 60 天内发的有效检验贴纸，或者符合“保证能通过检验”的标准。",
+          "script": "这辆车现在这张检验贴纸是什么时候发的？",
+          "escalation": "检验贴纸超过 60 天，或者根本没有，马上跟车行提出来，在签任何东西之前。"
+        }
+      },
+      "wisconsin": {
+        "WI-BUYERSGUIDE": {
+          "title": "威斯康星州 Buyers Guide 制度",
+          "citation": "Wisconsin Admin. Code Trans 139",
+          "plain": "威斯康星州的问题车法完全不管二手车，但威斯康星州有自己一套详细、强制的二手车 Buyers Guide 制度，比它取代的联邦版本更严格。",
+          "script": "可以给我看这辆车的威斯康星州 Buyers Guide 吗？上面有没有写它是重建车或报废车（salvage）？",
+          "escalation": "签字之前，把威斯康星州的 Buyers Guide 拍下来。因为这里的问题车法不管二手车，这份文件实际上就是你最主要的保护。"
+        },
+        "WI-ASIS": {
+          "title": "“As is”的写法有严格规定",
+          "citation": "Wisconsin DOT consumer guidance",
+          "plain": "威斯康星州对“AS IS, NO WARRANTY”（按现状出售，不保修）这类字眼的格式有严格规定；如果卖车时带保修，还必须把书面保修交给你。",
+          "script": "如果是按现状卖的，可以给我看这个声明符合威斯康星州要求的格式吗？",
+          "escalation": "按现状出售的字眼格式不对，本身就可以作为向威斯康星州 DOT（交通厅）或 DOJ（司法厅）投诉的理由。"
+        }
+      }
+    },
+    "direction": {
+      "alabama": "阿拉巴马州的问题车法只管新车。",
+      "arizona": "亚利桑那州的问题车法看起来对二手车也有一些保护。",
+      "arkansas": "阿肯色州的问题车法主要管新车，对报废车产权的告知规定特别严。",
+      "colorado": "科罗拉多州的问题车法看起来管一些二手车，但不管租的车。",
+      "delaware": "特拉华州的问题车法看起来也管二手车。",
+      "florida": "佛罗里达州的问题车法管新车和租的轿车、卡车，州里有一套有条理的问题车处理流程。",
+      "georgia": "佐治亚州的问题车法只管新车。",
+      "hawaii": "夏威夷州的问题车法看起来也管二手车。",
+      "idaho": "爱达荷州的问题车法看起来也管二手车。",
+      "illinois": "伊利诺伊州的问题车法只管新车。",
+      "indiana": "印第安纳州的问题车法管在州内买、租或过户的车。",
+      "iowa": "艾奥瓦州的问题车法管新车或以前没登记过产权的车，包括一些租的车。",
+      "kansas": "根据州政府的说明，堪萨斯州的问题车法只管新车。",
+      "kentucky": "肯塔基州的问题车法只管新车。",
+      "louisiana": "路易斯安那州的问题车法看起来也管二手车。",
+      "maryland": "马里兰州的问题车法管某些登记类别的车，大多是比较新的车。",
+      "michigan": "密歇根州的问题车法管新车，也管还在原厂保修期内过户的二手车。",
+      "minnesota": "明尼苏达州的问题车法也管二手车。",
+      "mississippi": "密西西比州的问题车法看起来也管二手车和租购的车。",
+      "missouri": "密苏里州的问题车法只管新车。",
+      "nebraska": "内布拉斯加州的问题车法管新车，州政府的说明表示有些不到两年的车可能也符合。",
+      "nevada": "内华达州的问题车法看起来也管二手车。",
+      "new hampshire": "新罕布什尔州的问题车法只管还在原厂保修期内的二手车。",
+      "new mexico": "新墨西哥州的问题车法管在州内卖出并登记的乘用车。",
+      "north carolina": "北卡罗来纳州的问题车法只管新车。",
+      "north dakota": "北达科他州的问题车法看起来也管二手车。",
+      "ohio": "俄亥俄州的问题车法管新车和租的车。",
+      "oklahoma": "俄克拉何马州的问题车法管在州内登记的大多数车，有重量限制。",
+      "oregon": "俄勒冈州的问题车法看起来也管二手车。",
+      "pennsylvania": "宾夕法尼亚州的问题车法只管新车。",
+      "rhode island": "罗得岛州的问题车法也管二手车。",
+      "south carolina": "南卡罗来纳州的问题车法只管新车。",
+      "south dakota": "南达科他州的问题车法看起来也管二手车。",
+      "tennessee": "田纳西州的问题车法管在州内卖出的乘用车。",
+      "utah": "犹他州的问题车法管在州内卖出的公路用车，包括摩托车。",
+      "vermont": "佛蒙特州的问题车法管在州内买、租或登记的乘用车。",
+      "virginia": "弗吉尼亚州的问题车法按它的问题车法框架管机动车。",
+      "washington": "华盛顿州的问题车法管新车，州里有一个很有名的仲裁程序。",
+      "west virginia": "西弗吉尼亚州的问题车法管乘用车和一些卡车、厢型车。",
+      "wyoming": "怀俄明州的问题车法管在州内卖出或登记、10,000 磅以下的车。"
+    },
+    "fallback": {
+      "summary": "根据一份 50 个州的法律总结：{direction}",
+      "unknown": "我们还没有专门研究过{state}。",
+      "cooling": {
+        "title": "没有自动取消的权利",
+        "citation": "16 CFR Part 429, FTC Cooling-Off Rule",
+        "plain": "FTC 的“冷静期规定”（Cooling-Off Rule）给某些购买三天取消的时间，但明确把在车行固定营业地点卖的车排除在外。你一签字，这笔买卖就定了，除非车行书面同意给你更多。",
+        "script": "签字之前，你能把一个取消期限书面写进合同吗？",
+        "escalation": "别以为默认就有“冷静期”。联邦法律特意把车排除在外了。如果你想要一条退路，签字之前就把它谈进合同里，别等到之后。"
+      },
+      "comingSoon": {
+        "title": "各州法律即将上线",
+        "plain": "{direction} {state}的具体法条编号我们还没有独立核实过，所以把这当作一个起点，不是法律建议。不管你在哪个州，那五条联邦保护都已经适用于你。",
+        "script": "{state}有没有自己的冷静期、利率上限，或者加购项目的告知规定？",
+        "escalation": "签任何东西之前，在你所在州总检察长的网站上搜索 \"{state} lemon law\" 和 \"{state} used car dealer warranty\"。"
+      }
+    }
+  },
+  "eventsPage": {
+    "preview": "内部预览：只有管理员能看到这个页面。",
+    "hero": {
+      "title": "活动",
+      "body": "讲座和见面会，聊怎么买车、修车、付车钱才不会被坑。免费，谁都可以来。"
+    },
+    "toggleLabel": "显示活动",
+    "upcoming": "即将举行",
+    "past": "往期",
+    "noneUpcoming": "现在还没有新的活动，过阵子再来看看。",
+    "nonePast": "还没有往期活动。",
+    "flyerAlt": "{title} 的海报",
+    "enlarge": "放大海报",
+    "close": "关闭",
+    "time": "太平洋时间 {time}",
+    "online": "线上，用 Zoom",
+    "onlineNote": "报名后，我们会把链接发到你的邮箱",
+    "going": "{n} 人会来",
+    "goingOne": "1 人会来",
+    "rsvp": "免费报名",
+    "ended": "这个活动已经结束了。",
+    "form": {
+      "title": "报名",
+      "name": "名字",
+      "email": "电子邮箱",
+      "school": "学校或单位",
+      "schoolPick": "选一个",
+      "schools": {
+        "berkeley": "UC Berkeley",
+        "ucla": "UCLA",
+        "ucsc": "UC Santa Cruz",
+        "other": "其他学校",
+        "none": "不是学生"
+      },
+      "question": "想问主讲人的问题（可选）",
+      "optIn": "以后有 VINdicated 的活动，发邮件告诉我",
+      "submit": "报名",
+      "sending": "正在发送…",
+      "cancel": "取消",
+      "nameError": "请填上你的名字。",
+      "emailError": "请填一个有效的邮箱。",
+      "schoolError": "请选你的学校或单位。",
+      "error": "没发出去。过一分钟再试试。",
+      "closed": "这个活动已经停止报名了。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。"
+    },
+    "done": {
+      "title": "报名成功！",
+      "online": "谢谢你，{first}。我们已经把 Zoom 链接发到 {email}。",
+      "inPerson": "谢谢你，{first}。我们已经把详情发到 {email}。",
+      "emailFailed": "谢谢你，{first}。你已经在名单上了，但确认邮件没发出去。活动前我们会再发邮件到 {email}。",
+      "google": "加到 Google 日历",
+      "ics": "下载到 Apple / Outlook 日历",
+      "calendarNote": "Zoom 链接在你的确认邮件里。"
+    },
+    "strip": {
+      "label": "下一场活动",
+      "free": "免费",
+      "online": "线上",
+      "inPerson": "线下",
+      "rsvp": "报名"
+    },
+    "email": {
+      "confirmSubject": "报名成功：{title} · {when}",
+      "reminderSubject": "提醒：{title} · {when}",
+      "hi": "你好，{name}：",
+      "confirmBody": "谢谢你报名！你已经报上了 {title}。活动免费，时间也写在这封邮件附带的日历文件里。",
+      "reminderBody": "提醒你一下：{title} 就在 {when}。",
+      "join": "用 Zoom 参加：{link}",
+      "linkLater": "活动前我们会把 Zoom 链接发到你的邮箱。",
+      "inPerson": "活动在线下举行，地点是 {address}。",
+      "when": "时间",
+      "where": "地点",
+      "host": "主讲人",
+      "zoomLink": "Zoom 链接",
+      "details": "活动详情：{link}",
+      "signoff": "VINdicated"
     }
   }
 }

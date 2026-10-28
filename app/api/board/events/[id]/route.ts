@@ -18,7 +18,7 @@ export async function PATCH(request: Request, ctx: Ctx) {
   const done = await db().begin(async (tx) => {
     const before = await snapshot(tx, "board_events", user.chapter, id);
     if (!before) return false;
-    await tx`UPDATE board_events SET ${tx(cols)} WHERE id = ${id} AND chapter = ${user.chapter}`;
+    await tx`UPDATE board_events SET ${tx({ ...cols, translations: tx.json(cols.translations as never) })} WHERE id = ${id} AND chapter = ${user.chapter}`;
     const after = await snapshot(tx, "board_events", user.chapter, id);
     await logEntry(tx, user, actorOf(request), "update", `Edited the event "${cols.title}"`, [{ table: "board_events", id, before, after }]);
     return true;

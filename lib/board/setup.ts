@@ -8,6 +8,7 @@ import ucla from "./starter-ucla.json";
 import { seedSettings } from "./settings-server";
 import { CHAPTER_SERVER } from "./chapter-server";
 import { UCLA_ROW2 } from "./chapters";
+import { NEGOTIATION_TRANSLATIONS } from "@/lib/events/seed-translations";
 
 // Makes the board database ready on first use, so nobody has to run
 // commands: creates the tables (scripts/board-schema.sql, safe to re-run)
@@ -76,6 +77,34 @@ async function setup() {
   await seedFirstEvent(sql);
   await fillNegotiationLink(sql);
   await negotiationFlyer(sql);
+  await negotiationTranslations(sql);
+}
+
+// Adds the Negotiation Workshop's wording in other languages
+// (lib/events/seed-translations.ts), once per language, and never over
+// wording an admin already entered for that language.
+async function negotiationTranslations(sql: ReturnType<typeof db>) {
+  const langs = Object.keys(NEGOTIATION_TRANSLATIONS);
+  if (!langs.length) return;
+  await sql.begin(async (tx) => {
+    const [event] = await tx`SELECT id, title, translations FROM board_events
+      WHERE chapter = 'berkeley' AND date = '2026-11-19' AND title = 'Negotiation Workshop with Emily Epstein'
+      ORDER BY id LIMIT 1 FOR UPDATE`;
+    if (!event) return;
+    const current = { ...((event.translations as Record<string, unknown>) ?? {}) };
+    const added: string[] = [];
+    for (const lang of langs) {
+      const [first] = await tx`INSERT INTO board_changes (name) VALUES (${`2026-10-28-negotiation-${lang}`})
+        ON CONFLICT DO NOTHING RETURNING name`;
+      if (!first || current[lang]) continue;
+      current[lang] = NEGOTIATION_TRANSLATIONS[lang];
+      added.push(lang);
+    }
+    if (!added.length) return;
+    await tx`UPDATE board_events SET translations = ${tx.json(current as never)} WHERE id = ${event.id}`;
+    await tx`INSERT INTO board_changelog (chapter, role, actor, action, summary, changes)
+      VALUES ('berkeley', 'system', '', 'note', ${`"${event.title}": added its wording in ${added.join(", ")}`}, '[]')`;
+  });
 }
 
 const SEEDED_HOST_TITLE = "Negotiation Professor, UC Berkeley Law · CEO, Oakbay Consulting";
