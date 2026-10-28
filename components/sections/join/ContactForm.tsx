@@ -45,6 +45,7 @@ export function ContactForm({ dict, locale }: { dict: JoinPageDict["contact"]; l
           topic,
           topicLabel: dict.topics[TOPIC_VALUES.indexOf(topic)],
           message: get("message"),
+          company: get("company"),
         },
         locale,
       );
@@ -54,7 +55,7 @@ export function ContactForm({ dict, locale }: { dict: JoinPageDict["contact"]; l
         form.reset();
       } else {
         setStatus("error");
-        setMessage(res.code === "missing" ? dict.missing : dict.failed);
+        setMessage(res.code === "missing" ? dict.missing : res.code === "tooMany" ? dict.tooMany : dict.failed);
       }
     } catch {
       setStatus("error");
@@ -64,6 +65,14 @@ export function ContactForm({ dict, locale }: { dict: JoinPageDict["contact"]; l
 
   return (
     <form className="apply" noValidate onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div className="fld">
         <label htmlFor="c-first">{dict.firstName}</label>
         <input id="c-first" name="firstName" autoComplete="given-name" />

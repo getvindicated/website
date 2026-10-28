@@ -106,9 +106,12 @@ export function ApplyForm({ dict, locale }: { dict: Dict; locale: string }) {
         student: get("student"),
         resume,
         roleLabel: dict.roles.items[ROLE_VALUES.indexOf(get("role") as (typeof ROLE_VALUES)[number])],
+        company: get("company"),
       }, locale);
       setStatus(result.success ? "success" : "error");
-      setMessage(result.code === "sent" ? f.sent : result.code === "missing" ? f.missing : f.failed);
+      setMessage(
+        result.code === "sent" ? f.sent : result.code === "missing" ? f.missing : result.code === "tooMany" ? f.tooMany : f.failed,
+      );
       if (result.success) {
         form.reset();
         setChapter("");
@@ -122,6 +125,14 @@ export function ApplyForm({ dict, locale }: { dict: Dict; locale: string }) {
 
   return (
     <form className="apply" ref={formRef} noValidate onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       <div className="fld">
         <label htmlFor="f-ch">{f.chapter}</label>
         <select id="f-ch" name="chapter" required value={chapter} onChange={(e) => setChapter(e.target.value)}>

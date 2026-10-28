@@ -1821,6 +1821,7 @@
       "badEmail": "Enter a valid email address, like name@school.edu.",
       "tooLarge": "Your resume file is too large. Please upload a file under 5MB.",
       "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again.",
       "sent": "Thanks! We got your application. Check your inbox for a confirmation email."
     },
     "contact": {
@@ -1845,7 +1846,8 @@
       "submitting": "Sending…",
       "missing": "Please add your email and a message.",
       "sent": "Thanks! Your message is on its way, and we sent a copy to your inbox.",
-      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com."
+      "failed": "Something went wrong. Please try again or email us directly at getvindicated@outlook.com.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again."
     },
     "emails": {
       "hi": "Hi {name},",

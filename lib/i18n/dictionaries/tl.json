@@ -1821,6 +1821,7 @@
       "badEmail": "Maglagay ng tamang email address, gaya ng name@school.edu.",
       "tooLarge": "Masyadong malaki ang resume file mo. Mag-upload ng file na mas maliit sa 5MB.",
       "failed": "May nagkaproblema. Subukan ulit o i-email kami nang direkta sa getvindicated@outlook.com.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit.",
       "sent": "Salamat! Natanggap namin ang application mo. Tingnan ang inbox mo para sa confirmation email."
     },
     "contact": {
@@ -1845,7 +1846,8 @@
       "submitting": "Ipinapadala…",
       "missing": "Pakilagay ang email mo at isang mensahe.",
       "sent": "Salamat! Papunta na ang mensahe mo, at nagpadala kami ng kopya sa inbox mo.",
-      "failed": "May nagkaproblema. Subukan ulit o i-email kami nang direkta sa getvindicated@outlook.com."
+      "failed": "May nagkaproblema. Subukan ulit o i-email kami nang direkta sa getvindicated@outlook.com.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit."
     },
     "emails": {
       "hi": "Kumusta, {name}!",

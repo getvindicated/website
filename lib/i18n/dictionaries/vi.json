@@ -1821,6 +1821,7 @@
       "badEmail": "Nhập địa chỉ email hợp lệ, ví dụ ten@truong.edu.",
       "tooLarge": "File sơ yếu lý lịch quá lớn. Vui lòng tải lên file dưới 5MB.",
       "failed": "Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi ở getvindicated@outlook.com.",
+      "tooMany": "Thử quá nhiều lần từ đây. Đợi vài phút rồi thử lại.",
       "sent": "Cảm ơn bạn! Chúng tôi đã nhận được đơn. Kiểm tra hộp thư để xem email xác nhận nhé."
     },
     "contact": {
@@ -1845,7 +1846,8 @@
       "submitting": "Đang gửi…",
       "missing": "Vui lòng ghi email và tin nhắn.",
       "sent": "Cảm ơn bạn! Tin nhắn của bạn đã được gửi, và chúng tôi đã gửi một bản vào hộp thư của bạn.",
-      "failed": "Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi ở getvindicated@outlook.com."
+      "failed": "Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi ở getvindicated@outlook.com.",
+      "tooMany": "Thử quá nhiều lần từ đây. Đợi vài phút rồi thử lại."
     },
     "emails": {
       "hi": "Chào {name},",

@@ -6,6 +6,7 @@ import { isValidLocale, type Locale } from "@/lib/i18n/config";
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+import { isBot, rateLimiter } from "@/lib/spam-guard";
 
 interface VolunteerFormData {
   name: string;
@@ -21,7 +22,13 @@ interface VolunteerFormData {
   resume?: { filename: string; base64: string };
   // The role as the visitor saw it, for their confirmation email.
   roleLabel?: string;
+  // Hidden honeypot field; real visitors leave it blank. Named to look
+  // like an ordinary form field so it isn't obviously a trap.
+  company?: string;
 }
+
+// 5 applications per IP per 10 minutes.
+const limited = rateLimiter(10 * 60 * 1000, 5);
 
 // Chapter value -> who should get the notification email.
 // Values must match the CHAPTERS options in app/[locale]/volunteer/page.tsx
@@ -45,10 +52,20 @@ const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
 export async function submitVolunteerApplication(
   data: VolunteerFormData,
   locale = "en",
-): Promise<{ success: boolean; code: "sent" | "missing" | "failed" }> {
+): Promise<{ success: boolean; code: "sent" | "missing" | "tooMany" | "failed" }> {
   try {
     if (!data.name || !data.email || !data.role) {
       return { success: false, code: "missing" };
+    }
+
+    // Bots fill in the honeypot. Report success without sending anything,
+    // so the bot has no signal that it was caught.
+    if (isBot(data.company ?? "")) {
+      return { success: true, code: "sent" };
+    }
+
+    if (await limited("volunteer")) {
+      return { success: false, code: "tooMany" };
     }
 
     // Falls back to the UCLA chapter leads for any unrecognized chapter

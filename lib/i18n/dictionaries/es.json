@@ -1821,6 +1821,7 @@
       "badEmail": "Escribe un correo válido, como nombre@escuela.edu.",
       "tooLarge": "Tu currículum pesa demasiado. Sube un archivo de menos de 5 MB.",
       "failed": "Algo salió mal. Inténtalo otra vez o escríbenos directo a getvindicated@outlook.com.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar.",
       "sent": "¡Gracias! Ya nos llegó tu solicitud. Revisa tu correo, te mandamos una confirmación."
     },
     "contact": {
@@ -1845,7 +1846,8 @@
       "submitting": "Enviando…",
       "missing": "Por favor pon tu correo y un mensaje.",
       "sent": "¡Gracias! Tu mensaje ya va en camino y te mandamos una copia a tu correo.",
-      "failed": "Algo salió mal. Inténtalo otra vez o escríbenos directo a getvindicated@outlook.com."
+      "failed": "Algo salió mal. Inténtalo otra vez o escríbenos directo a getvindicated@outlook.com.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar."
     },
     "emails": {
       "hi": "Hola, {name}:",

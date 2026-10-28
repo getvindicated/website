@@ -1821,6 +1821,7 @@
       "badEmail": "请输入有效的邮箱地址，比如 name@school.edu。",
       "tooLarge": "简历文件太大了。请上传小于 5MB 的文件。",
       "failed": "出了点问题。请再试一次，或者直接发邮件到 getvindicated@outlook.com。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。",
       "sent": "谢谢！我们收到你的申请了。去邮箱看看，我们发了一封确认邮件给你。"
     },
     "contact": {
@@ -1845,7 +1846,8 @@
       "submitting": "正在发送…",
       "missing": "请填上你的邮箱和留言。",
       "sent": "谢谢！你的留言已经发出去了，我们也给你的邮箱发了一份副本。",
-      "failed": "出了点问题。请再试一次，或者直接发邮件到 getvindicated@outlook.com。"
+      "failed": "出了点问题。请再试一次，或者直接发邮件到 getvindicated@outlook.com。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。"
     },
     "emails": {
       "hi": "你好，{name}：",

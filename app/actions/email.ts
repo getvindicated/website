@@ -6,6 +6,7 @@ import { isValidLocale, type Locale } from "@/lib/i18n/config";
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+import { isBot, rateLimiter } from "@/lib/spam-guard";
 
 export interface ContactFormData {
   firstName: string;
@@ -15,17 +16,33 @@ export interface ContactFormData {
   // The topic as the visitor saw it, for their copy of the message.
   topicLabel?: string;
   message: string;
+  // Hidden honeypot field; real visitors leave it blank. Named to look
+  // like an ordinary form field so it isn't obviously a trap.
+  company?: string;
 }
+
+// 5 messages per IP per 10 minutes.
+const limited = rateLimiter(10 * 60 * 1000, 5);
 
 // Returns a result code; the form shows the matching message in the
 // visitor's language, and their copy of the message is in that language.
 export async function submitContactForm(
   data: ContactFormData,
   locale = "en",
-): Promise<{ success: boolean; code: "sent" | "missing" | "failed" }> {
+): Promise<{ success: boolean; code: "sent" | "missing" | "tooMany" | "failed" }> {
   try {
     if (!data.email || !data.message) {
       return { success: false, code: "missing" };
+    }
+
+    // Bots fill in the honeypot. Report success without sending anything,
+    // so the bot has no signal that it was caught.
+    if (isBot(data.company ?? "")) {
+      return { success: true, code: "sent" };
+    }
+
+    if (await limited("contact")) {
+      return { success: false, code: "tooMany" };
     }
 
     const topicLabel = data.topic || "General Inquiry";
