@@ -110,15 +110,22 @@ html:has(.rd-page){scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-
 }
 .rd .hero{padding:88px 0 96px;background:var(--bg);overflow:hidden}
 .rd .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.rd .hero-grid>*{min-width:0}
 @media (max-width:960px){
 .rd .hero-grid{grid-template-columns:1fr}
 }
 .rd .hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem)}
-.rd .rotator{display:grid;color:var(--purple)}
+/* Long words (Armenian, Tagalog) must wrap rather than push the page wide. */
+.rd :is(h1,h2,h3){overflow-wrap:break-word}
+/* Armenian words run long; a smaller phone hero keeps them whole. */
+@media (max-width:480px){
+.rd .hero h1:lang(hy){font-size:1.9rem}
+}
+.rd .rotator{display:grid;grid-template-columns:minmax(0,1fr);color:var(--purple)}
 .rd .rotator>span,.rd .rot-sizer>span{grid-area:1/1}
 .rd .rot-sizer{display:grid;visibility:hidden}
-.rd .rot-sizer>span{padding-right:.16em}
-.rd .rot-caret{display:inline-block;width:.08em;height:.92em;margin-left:.06em;vertical-align:-.1em;background:currentColor;animation:rd-caret 1s steps(1) infinite}
+.rd .rot-sizer>span{padding-inline-end:.16em}
+.rd .rot-caret{display:inline-block;width:.08em;height:.92em;margin-inline-start:.06em;vertical-align:-.1em;background:currentColor;animation:rd-caret 1s steps(1) infinite}
 .rd .rot-caret.busy{animation:none}
 @keyframes rd-caret{50%{opacity:0}}
 .rd .hero p{margin:26px 0 34px;font-size:1.2rem;max-width:540px}
@@ -485,6 +492,7 @@ html:has(.rd-page){scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-
 .rd .rc-panel{position:static}
 }
 .rd .apr{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
+.rd .apr>*{min-width:0}
 @media (max-width:960px){
 .rd .apr{grid-template-columns:1fr}
 }
@@ -515,9 +523,13 @@ html:has(.rd-page){scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-
 @media (max-width:640px){
 .rd .apr-row{grid-template-columns:1fr}
 }
-.rd .seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px;gap:2px;flex-wrap:nowrap}
+.rd .seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px;gap:2px;flex-wrap:nowrap;max-width:100%}
 .rd .seg button{border:0;background:none;font:inherit;font-weight:700;padding:9px 13px;border-radius:999px;cursor:pointer;color:var(--ink);font-size:.92rem;white-space:nowrap}
 .rd .seg button[aria-checked="true"]{background:var(--purple);color:#fff}
+@media (max-width:480px){
+.rd .seg{display:flex;flex-wrap:wrap;border-radius:22px}
+.rd .seg button{flex:1 1 auto}
+}
 .rd .stepper{display:inline-flex;align-items:center;gap:4px;background:var(--tint);border-radius:999px;padding:4px}
 .rd .stepper button{width:36px;height:36px;border-radius:50%;border:0;background:#fff;font:inherit;font-weight:800;font-size:1.2rem;cursor:pointer;color:var(--purple)}
 .rd .stepper input{width:56px;border:0;background:none;font:inherit;font-weight:800;text-align:right;color:var(--ink);font-size:1.05rem;-moz-appearance:textfield}
@@ -845,6 +857,7 @@ html:has(.rd-page){scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-
 .rd .track-nav a.on{background:var(--purple);color:#fff}
 .rd .track-nav a.on b{background:#fff}
 .rd .track-head{display:flex;gap:20px;align-items:flex-start;margin-bottom:40px}
+.rd .track-head>div{min-width:0}
 .rd .track-head .icon{margin:0;flex:0 0 60px}
 .rd .track-head .lede{margin-top:10px}
 .rd .projects-2{grid-template-columns:repeat(2,1fr)}
