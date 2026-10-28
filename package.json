@@ -10,7 +10,8 @@
     "lint": "eslint --fix .",
     "lint:fix": "prettier --write .",
     "board:migrate": "node scripts/board-migrate.mjs",
-    "board:seed": "node scripts/board-seed.mjs"
+    "board:seed": "node scripts/board-seed.mjs",
+    "i18n:check": "node scripts/check-i18n.mjs"
   },
   "dependencies": {
     "next": "16.2.2",

@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Starfield } from "@/components/ui/Starfield";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { LocaleStrings } from "@/components/layout/LocaleStrings";
 import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRootMetadata } from "@/lib/i18n/metadata";
@@ -82,7 +83,9 @@ export default async function RootLayout({
   {/* <Starfield /> */}
   {/* <CarCursor /> */}
   <SiteHeader locale={locale as Locale} dict={{ nav: dict.nav, ui: dict.ui }} showEvents={eventsPublic()} />
-  <main>{children}</main>
+  <main>
+    <LocaleStrings value={{ locale: locale as Locale, notFound: dict.notFound }}>{children}</LocaleStrings>
+  </main>
   <SiteFooter locale={locale as Locale} dict={dict} />
 </body>
     </html>

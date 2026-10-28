@@ -1,19 +1,31 @@
 "use server";
 
 import { sendEmail } from "@/lib/brevo";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { isValidLocale, type Locale } from "@/lib/i18n/config";
+
+const esc = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export interface ContactFormData {
   firstName: string;
   lastName: string;
   email: string;
   topic: string;
+  // The topic as the visitor saw it, for their copy of the message.
+  topicLabel?: string;
   message: string;
 }
 
-export async function submitContactForm(data: ContactFormData) {
+// Returns a result code; the form shows the matching message in the
+// visitor's language, and their copy of the message is in that language.
+export async function submitContactForm(
+  data: ContactFormData,
+  locale = "en",
+): Promise<{ success: boolean; code: "sent" | "missing" | "failed" }> {
   try {
     if (!data.email || !data.message) {
-      return { success: false, error: "Email and message are required." };
+      return { success: false, code: "missing" };
     }
 
     const topicLabel = data.topic || "General Inquiry";
@@ -34,27 +46,30 @@ export async function submitContactForm(data: ContactFormData) {
       `,
     });
 
-    // 2. Send auto-response to the user
+    // 2. Send auto-response to the user, in the language they used
+    const e = (await getDictionary((isValidLocale(locale) ? locale : "en") as Locale)).joinPage.emails;
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [{ email: data.email, name: `${data.firstName} ${data.lastName}`.trim() }],
-      subject: "We've received your message - VINdicated",
+      subject: e.contact.subject,
       htmlContent: `
-        <p>Hi ${data.firstName || "there"},</p>
-        <p>Thank you for reaching out to VINdicated! We have received your message regarding "<strong>${topicLabel}</strong>" and will get back to you as soon as possible.</p>
-        <p>Here is a copy of your message:</p>
+        <div dir="${locale === "fa" || locale === "ar-EG" ? "rtl" : "ltr"}">
+        <p>${esc(e.hi.replace("{name}", data.firstName || e.friend))}</p>
+        <p>${esc(e.contact.body).replace("{topic}", `<strong>${esc(data.topicLabel || topicLabel)}</strong>`)}</p>
+        <p>${esc(e.contact.copy)}</p>
         <blockquote style="border-left: 4px solid #eee; padding-left: 10px; margin-left: 0; color: #555;">
-          ${data.message.replace(/\n/g, "<br>")}
+          ${esc(data.message).replace(/\n/g, "<br>")}
         </blockquote>
         <br>
-        <p>Best regards,</p>
-        <p>The VINdicated Team</p>
+        <p>${esc(e.signoff)}</p>
+        <p>${esc(e.team)}</p>
+        </div>
       `,
     });
 
-    return { success: true };
+    return { success: true, code: "sent" };
   } catch (error) {
     console.error("Error submitting contact form:", error);
-    return { success: false, error: "Failed to send message. Please try again later." };
+    return { success: false, code: "failed" };
   }
 }

@@ -24,6 +24,7 @@ export async function POST(request: Request) {
   const id = await sql.begin(async (tx) => {
     const [row] = await tx`INSERT INTO board_events ${tx({
       ...cols,
+      translations: tx.json(cols.translations as never),
       chapter: user.chapter,
       uid: `${user.chapter}-${randomUUID()}@getvindicated.org`,
     })} RETURNING id`;

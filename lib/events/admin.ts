@@ -1,6 +1,8 @@
 import "server-only";
 import { db } from "@/lib/board/db";
 import { isDate } from "@/lib/board/api";
+import { locales } from "@/lib/i18n/config";
+import { EVENT_TEXT, type EventTranslations } from "./types";
 
 // Checks an event sent by the hub's Events form (admins). Returns the
 // database columns, or an error to show.
@@ -21,7 +23,31 @@ export type EventColumns = {
   description: string;
   flyer_id: number | null;
   show_count: boolean;
+  translations: EventTranslations;
 };
+
+const LIMITS = { title: 200, tag: 80, hostTitle: 200, description: 2000 } as const;
+
+// The optional wording in other languages: only known languages and fields,
+// trimmed, and empty ones dropped.
+function parseTranslations(raw: unknown): EventTranslations | { error: string } {
+  const out: EventTranslations = {};
+  if (!raw || typeof raw !== "object") return out;
+  for (const locale of locales) {
+    if (locale === "en") continue;
+    const src = (raw as Record<string, unknown>)[locale];
+    if (!src || typeof src !== "object") continue;
+    const text: Record<string, string> = {};
+    for (const k of EVENT_TEXT) {
+      const v = (src as Record<string, unknown>)[k];
+      if (typeof v !== "string" || !v.trim()) continue;
+      if (v.trim().length > LIMITS[k]) return { error: `Make the ${locale} ${k === "hostTitle" ? "host title" : k} shorter.` };
+      text[k] = v.trim();
+    }
+    if (Object.keys(text).length) out[locale] = text;
+  }
+  return out;
+}
 
 export async function parseEvent(body: Record<string, unknown>, chapter: string): Promise<EventColumns | { error: string }> {
   const s = (k: string) => (typeof body[k] === "string" ? (body[k] as string).trim() : "");
@@ -47,6 +73,9 @@ export async function parseEvent(body: Record<string, unknown>, chapter: string)
   if (s("hostName").length > 100 || s("hostTitle").length > 200) return { error: "Make the host's name or title shorter." };
   if (s("description").length > 2000) return { error: "Make the description shorter." };
 
+  const translations = parseTranslations(body.translations);
+  if ("error" in translations) return { error: translations.error as string };
+
   let flyer: number | null = null;
   if (body.flyerId !== null && body.flyerId !== undefined && body.flyerId !== "") {
     const n = Number(body.flyerId);
@@ -69,6 +98,7 @@ export async function parseEvent(body: Record<string, unknown>, chapter: string)
     description: s("description"),
     flyer_id: flyer,
     show_count: body.showCount === true,
+    translations,
   };
 }
 

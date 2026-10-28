@@ -70,7 +70,7 @@ export default async function JoinPage({
       <section id="apply">
         <div className="wrap apply-wrap">
           <h2 className="h2">{d.form.title}</h2>
-          <ApplyForm dict={d} />
+          <ApplyForm dict={d} locale={locale} />
         </div>
       </section>
 
@@ -78,7 +78,7 @@ export default async function JoinPage({
         <div className="wrap apply-wrap">
           <h2 className="h2">{d.contact.title}</h2>
           <p className="lede mt18">{d.contact.body}</p>
-          <ContactForm dict={d.contact} />
+          <ContactForm dict={d.contact} locale={locale} />
         </div>
       </section>
     </div>

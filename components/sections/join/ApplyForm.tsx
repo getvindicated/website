@@ -36,7 +36,7 @@ const ROLE_ALIASES: Record<string, string> = {
 
 const MAX_RESUME = 5 * 1024 * 1024;
 
-export function ApplyForm({ dict }: { dict: Dict }) {
+export function ApplyForm({ dict, locale }: { dict: Dict; locale: string }) {
   const f = dict.form;
   const [chapter, setChapter] = useState("");
   const [role, setRole] = useState("");
@@ -84,7 +84,7 @@ export function ApplyForm({ dict }: { dict: Dict }) {
       const base64 = await new Promise<string>((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve((reader.result as string).split(",")[1]);
-        reader.onerror = () => reject(new Error("Could not read file"));
+        reader.onerror = () => reject(reader.error);
         reader.readAsDataURL(file);
       }).catch(() => undefined);
       if (base64) resume = { filename: file.name, base64 };
@@ -105,9 +105,10 @@ export function ApplyForm({ dict }: { dict: Dict }) {
         why: get("why"),
         student: get("student"),
         resume,
-      });
+        roleLabel: dict.roles.items[ROLE_VALUES.indexOf(get("role") as (typeof ROLE_VALUES)[number])],
+      }, locale);
       setStatus(result.success ? "success" : "error");
-      setMessage(result.message);
+      setMessage(result.code === "sent" ? f.sent : result.code === "missing" ? f.missing : f.failed);
       if (result.success) {
         form.reset();
         setChapter("");

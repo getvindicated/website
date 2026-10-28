@@ -5,8 +5,11 @@ import {
   InfoBox,
   Button,
 } from "@/components/ui";
+import { Fragment } from "react";
 import { RightsPhoneDemo } from "@/components/sections/RightsPhoneDemo";
 import { getRouteMetadata } from "@/lib/i18n/metadata";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
 
 export async function generateMetadata({
   params,
@@ -17,19 +20,39 @@ export async function generateMetadata({
   return getRouteMetadata(locale, "rights", "/rights");
 }
 
-export default function RightsPage() {
+export default async function RightsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const d = (await getDictionary(locale as Locale)).rightsPage;
+  const r = d.remember;
+  // "…with the {cfpb}, the {ftc}, or the {dmv}." with the agencies in bold.
+  const agencies: Record<string, string> = { cfpb: r.cfpb, ftc: r.ftc, dmv: r.dmv };
+  const complaint = r.complaint.split(/(\{\w+\})/).map((part, i) => {
+    const name = agencies[part.slice(1, -1)];
+    return name ? (
+      <strong key={i} className="text-white">
+        {name}
+      </strong>
+    ) : (
+      <Fragment key={i}>{part}</Fragment>
+    );
+  });
+
   return (
     <>
       <PageHero
         kicker=""
         title={
           <>
-            Know your rights
+            {d.hero.title}
             <br />
-            <em>before you sign.</em>
+            <em>{d.hero.titleEm}</em>
           </>
         }
-        subtitle="Federal and California laws protect you from discrimination and deceptive practices at dealerships. Here is what every buyer should know."
+        subtitle={d.hero.body}
       />
 
       {/* Federal Laws */}
@@ -39,13 +62,13 @@ export default function RightsPage() {
     style={{ background: "var(--color-bg-surface)", margin: 0 }}
   >
     <SectionTitle className="mb-6">
-      Try It <em>Yourself.</em>
+      {d.tryIt.title} <em>{d.tryIt.titleEm}</em>
     </SectionTitle>
     <p className="text-base text-white leading-[1.7] max-w-[680px] mb-10">
-      A preview of the mobile app version of this page: tell it your state, then scroll through the laws that actually apply to you.
+      {d.tryIt.body}
     </p>
     <div className="flex justify-center">
-      <RightsPhoneDemo />
+      <RightsPhoneDemo dict={d} />
     </div>
   </section>
 </FadeUp>
@@ -53,36 +76,17 @@ export default function RightsPage() {
       {/* Bottom CTA */}
       <FadeUp>
         <section className="px-20 py-24 max-md:px-6 max-md:py-16">
-          <InfoBox label="Remember">
+          <InfoBox label={r.label}>
             <p className="mb-3">
-              <strong className="text-white">
-                You do not need to be a lawyer to use these laws.
-              </strong>{" "}
-              Simply knowing they exist changes the power dynamic. If a dealer
-              refuses to provide written disclosures, that itself is a red flag.
+              <strong className="text-white">{r.lead}</strong> {r.body}
             </p>
-            <p>
-              If you believe your rights have been violated, you can file a
-              complaint with the{" "}
-              <strong className="text-white">
-                Consumer Financial Protection Bureau (CFPB)
-              </strong>
-              , the{" "}
-              <strong className="text-white">
-                Federal Trade Commission (FTC)
-              </strong>
-              , or the{" "}
-              <strong className="text-white">
-                California Department of Motor Vehicles (DMV)
-              </strong>
-              .
-            </p>
+            <p>{complaint}</p>
           </InfoBox>
 
           <div className="flex gap-4 mt-10 flex-wrap">
-            <Button href="/fraud">Spot the Red Flags</Button>
-            <Button href="/inspection" variant="outline">
-              Pre-Purchase Inspection Guide
+            <Button href={localizeHref(locale as Locale, "/fraud")}>{d.buttons.flags}</Button>
+            <Button href={localizeHref(locale as Locale, "/inspection")} variant="outline">
+              {d.buttons.inspection}
             </Button>
           </div>
         </section>

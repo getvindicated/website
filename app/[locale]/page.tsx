@@ -39,7 +39,7 @@ export async function generateMetadata({
       url: localizeHref(locale as Locale, "/"),
       type: "website",
       locale,
-      images: [SHARE_IMAGE],
+      images: [{ ...SHARE_IMAGE, alt: dict.meta.routes.home.imageAlt }],
     },
     twitter: {
       title,

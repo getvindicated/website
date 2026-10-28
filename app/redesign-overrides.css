@@ -1068,3 +1068,11 @@
     width: 100%;
   }
 }
+
+/* Centered page heroes (the 404 page). */
+.rd .phero .center p {
+  margin-inline: auto;
+}
+.rd .center .ctas {
+  justify-content: center;
+}

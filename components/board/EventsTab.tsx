@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState, type FormEvent } from "react";
-import type { AdminEvent } from "@/lib/events/types";
+import { EVENT_TEXT, type AdminEvent, type EventTranslations } from "@/lib/events/types";
+import { localeLabels, locales } from "@/lib/i18n/config";
 import { longDate, timeRange } from "@/lib/board/schedule";
 import { useBoard } from "./BoardApp";
 import { INVITE_TIMEOUT, apiCall, chapterUrl, photoSrc } from "./util";
@@ -23,6 +24,7 @@ type Form = {
   description: string;
   flyerId: number | null;
   showCount: boolean;
+  translations: EventTranslations;
 };
 
 const blank = (tag: string): Form => ({
@@ -39,6 +41,7 @@ const blank = (tag: string): Form => ({
   description: "",
   flyerId: null,
   showCount: false,
+  translations: {},
 });
 
 const toForm = (e: AdminEvent): Form => ({
@@ -55,6 +58,7 @@ const toForm = (e: AdminEvent): Form => ({
   description: e.description,
   flyerId: e.flyerId,
   showCount: e.showCount,
+  translations: e.translations,
 });
 
 const people = (n: number) => `${n} ${n === 1 ? "person" : "people"}`;
@@ -386,6 +390,36 @@ function EventForm({ id: eventId, initial, chapterTitle, onDone }: { id?: number
           Description
           <textarea id={`${id}-desc`} value={f.description} onChange={(e) => set("description", e.target.value)} />
         </label>
+        <details className="event-langs">
+          <summary>Other languages (optional)</summary>
+          <p className="deep">
+            The Events page shows these to visitors using that language. Anything left blank shows the English above. RSVP
+            emails use them too.
+          </p>
+          {locales
+            .filter((l) => l !== "en")
+            .map((l) => (
+              <fieldset key={l} className="stack" lang={l} dir={l === "fa" || l === "ar-EG" ? "rtl" : undefined}>
+                <legend>{localeLabels[l]}</legend>
+                {EVENT_TEXT.map((k) => {
+                  const value = f.translations[l]?.[k] ?? "";
+                  const change = (v: string) =>
+                    set("translations", { ...f.translations, [l]: { ...f.translations[l], [k]: v } });
+                  const label = { title: "Title", tag: "Tag", hostTitle: "Host title", description: "Description" }[k];
+                  return (
+                    <label key={k}>
+                      {label}
+                      {k === "description" ? (
+                        <textarea value={value} onChange={(e) => change(e.target.value)} />
+                      ) : (
+                        <input type="text" value={value} onChange={(e) => change(e.target.value)} />
+                      )}
+                    </label>
+                  );
+                })}
+              </fieldset>
+            ))}
+        </details>
         <div className="stack">
           <span>Flyer</span>
           {f.flyerId ? (

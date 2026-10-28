@@ -1,6 +1,11 @@
 "use server";
 
 import { sendEmail } from "@/lib/brevo";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { isValidLocale, type Locale } from "@/lib/i18n/config";
+
+const esc = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 interface VolunteerFormData {
   name: string;
@@ -14,6 +19,8 @@ interface VolunteerFormData {
   why: string;
   student: string;
   resume?: { filename: string; base64: string };
+  // The role as the visitor saw it, for their confirmation email.
+  roleLabel?: string;
 }
 
 // Chapter value -> who should get the notification email.
@@ -33,10 +40,15 @@ const CHAPTER_RECIPIENTS: Record<string, { email: string; name: string }[]> = {
   ],
 };
 
-export async function submitVolunteerApplication(data: VolunteerFormData) {
+// Returns a result code; the form shows the matching message in the
+// visitor's language. Their confirmation email is in that language too.
+export async function submitVolunteerApplication(
+  data: VolunteerFormData,
+  locale = "en",
+): Promise<{ success: boolean; code: "sent" | "missing" | "failed" }> {
   try {
     if (!data.name || !data.email || !data.role) {
-      return { success: false, message: "Name, email, and role are required." };
+      return { success: false, code: "missing" };
     }
 
     // Falls back to the UCLA chapter leads for any unrecognized chapter
@@ -82,23 +94,27 @@ export async function submitVolunteerApplication(data: VolunteerFormData) {
       `,
     });
 
+    const e = (await getDictionary((isValidLocale(locale) ? locale : "en") as Locale)).joinPage.emails;
+    const first = data.name.split(" ")[0] || e.friend;
     await sendEmail({
       sender: { email: "getvindicated@outlook.com", name: "VINdicated" },
       to: [{ email: data.email, name: data.name }],
-      subject: "We've received your volunteer application - VINdicated",
+      subject: e.apply.subject,
       htmlContent: `
-        <p>Hi ${data.name.split(" ")[0] || "there"},</p>
-        <p>Thank you for your interest in volunteering with VINdicated! We have received your application for the <strong>${data.role}</strong> role and will review it shortly.</p>
-        <p>We'll be in touch within a few days.</p>
+        <div dir="${locale === "fa" || locale === "ar-EG" ? "rtl" : "ltr"}">
+        <p>${esc(e.hi.replace("{name}", first))}</p>
+        <p>${esc(e.apply.body).replace("{role}", `<strong>${esc(data.roleLabel || data.role)}</strong>`)}</p>
+        <p>${esc(e.apply.next)}</p>
         <br>
-        <p>Best regards,</p>
-        <p>The VINdicated Team</p>
+        <p>${esc(e.signoff)}</p>
+        <p>${esc(e.team)}</p>
+        </div>
       `,
     });
 
-    return { success: true, message: "Your application has been submitted successfully! Check your inbox for a confirmation email." };
+    return { success: true, code: "sent" };
   } catch (error) {
     console.error("Error submitting volunteer application:", error);
-    return { success: false, message: "Failed to submit application. Please try again or email us directly at getvindicated@outlook.com." };
+    return { success: false, code: "failed" };
   }
 }

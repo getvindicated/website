@@ -186,7 +186,8 @@ function RsvpForm({
       const res = await fetch("/api/events/rsvp", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ eventId: event.id, name, email, school, question, optIn }),
+        // The page's language, so their emails come in it.
+        body: JSON.stringify({ eventId: event.id, name, email, school, question, optIn, locale: document.documentElement.lang }),
       });
       const j = await res.json().catch(() => null);
       if (res.ok && j?.ok) return onSettled({ first: j.first, email: j.email, emailed: j.emailed, count: j.count ?? null });
@@ -196,6 +197,7 @@ function RsvpForm({
       else if (code === "email") setErrors({ email: f.emailError });
       else if (code === "school") setErrors({ school: f.schoolError });
       else if (code === "closed") setErrors({ form: f.closed });
+      else if (code === "tooMany") setErrors({ form: f.tooMany });
       else setErrors({ form: f.error });
     } catch {
       onRollback();
@@ -285,7 +287,7 @@ function Done({ dict, event: e, done }: { dict: EventsPageDict; event: ShownEven
         <a className="btn btn-solid" href={googleCalendarUrl(e, dict.online, d.calendarNote, page)} target="_blank" rel="noopener noreferrer">
           {d.google}
         </a>
-        <a className="btn btn-line" href={`/api/events/${e.id}/ics`} download>
+        <a className="btn btn-line" href={`/api/events/${e.id}/ics?locale=${encodeURIComponent(document.documentElement.lang)}`} download>
           {d.ics}
         </a>
       </div>

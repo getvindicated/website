@@ -8,16 +8,7 @@
     "aboutProvides": "Ano ang Ibinibigay Namin",
     "team": "Team",
     "inspection": "Gabay sa Inspeksyon",
-    "inspectionPpi": "Ano ang PPI?",
-    "inspectionEngine": "Diagram ng Makina",
-    "inspectionChecks": "Ano ang Tinitingnan ng Inspector",
-    "inspectionWhere": "Saan Kumuha Nito",
-    "inspectionDealership": "Maghanap ng Dealership",
     "fraud": "Pag-iwas sa Panloloko",
-    "fraudOverview": "Overview",
-    "fraudRedFlags": "Mga Red Flag",
-    "fraudRights": "Alamin ang Iyong Karapatan",
-    "fraudAfter": "Ano ang Gagawin Pagkatapos",
     "documents": "Mga Dokumentong Ipinaliwanag",
     "volunteer": "Mag-volunteer",
     "research": "Pananaliksik",
@@ -28,22 +19,15 @@
   "ui": {
     "openMenu": "Buksan ang menu",
     "closeMenu": "Isara ang menu",
-    "expandSection": "Palawakin ang {label}",
     "languageSwitcher": "Palitan ang wika"
   },
   "footer": {
-    "tagline": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
-    "subtagline": "Libreng edukasyon tungkol sa sasakyan para sa mga kababaihan, imigrante, at mga unang beses na bumibili.",
-    "copyright": "© 2026 VINdicated. Nakalaan ang lahat ng karapatan. Itinatag ni Rana Darwich.",
-    "mission": "Isang nonprofit na nakatuon sa pagkakapantay-pantay ng kasarian sa kalakalang pang-awto.",
     "columns": {
-      "navigate": "Mag-navigate",
       "resources": "Mga Resource",
       "connect": "Kumonekta"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "instagram": "Instagram",
       "getInTouch": "Makipag-ugnayan"
     }
   },
@@ -104,216 +88,12 @@
     }
   },
   "home": {
-    "hero": {
-      "titleLine1": "Karapat-dapat Kang",
-      "titleLine2": "Bumili ng Kotse",
-      "titleEm": "Nang Walang Takot.",
-      "subtitle": "Itinatag ang VINdicated sa paniniwalang dapat maging pampublikong kaalaman ang kaalaman tungkol sa sasakyan. Ipinapaliwanag namin ang mga sistemang nagpapalaganap ng diskriminasyon sa konsumer sa pamamagitan ng edukasyon, pananaliksik, at komunidad.",
-      "ctaPrimary": "Kunin ang PPI Guide",
-      "ctaSecondary": "Aming Kuwento",
-      "stats": [
-        {
-          "label": "na dagdag na sinisingil sa Black male buyers kumpara sa white male buyers, kahit parehong kotse at parehong script",
-          "cite": "Ayres & Siegelman, 1995"
-        },
-        {
-          "label": "ng Gen Z women ang nadidiscourage pumunta sa dealership dahil sa gender discrimination",
-          "cite": "Morning Consult / Caribou, 2022"
-        },
-        {
-          "label": "ng non-white testers ang binigyan ng mas masamang presyo sa dealership kumpara sa white testers",
-          "cite": "National Fair Housing Alliance, 2018"
-        },
-        {
-          "label": "na mas mahabang negosasyon ang naranasan ng minority buyers, kahit parehong kotse at parehong presyo",
-          "cite": "Ayres & Siegelman, 1995"
-        }
-      ]
-    },
-    "cards": {
-      "titlePrefix": "Dalawang haligi ng",
-      "titleEm": "automotive justice.",
-      "pillars": [
-        {
-          "kicker": "Edukasyon",
-          "title": "Gabay sa Pre-Purchase Inspection",
-          "body": "Sunud-sunod na walkthrough ng lahat ng dapat mong tingnan, itanong, at i-verify bago maglabas ng pera. Isinulat para sa first-time buyers.",
-          "label": "Basahin ang Gabay"
-        },
-        {
-          "kicker": "Proteksyon",
-          "title": "Pag-iwas sa Panloloko",
-          "body": "Tunay na taktika laban sa buyers, pinangalanan, ipinaliwanag, at sinagot. Alamin kung ano mismo ang sasabihin kapag pine-pressure ka ng dealer.",
-          "label": "Tingnan ang Red Flags"
-        }
-      ]
-    },
-    "quote": {
-      "text": "Bakit dapat panatilihin sa kamangmangan ang babae sa ilalim ng mapanlinlang na pangalan ng inosensiya?",
-      "cite": "Mary Wollstonecraft",
-      "source": "A Vindication of the Rights of Woman (1792)"
-    },
-    "founder": {
-      "titleLine1": "Itinatag sa edad 19.",
-      "titleEm": "Dahil kailangan.",
-      "body1": "Tatlong strike sa tatlong magkakaibang dealership ang nagpakita sa akin ng parehong bagay: dinisenyo ang sistema para lituhin ka, madaliin ka, at pagkakitaan ang hindi mo alam.",
-      "body2Prefix": "Umiiral ang VINdicated dahil ",
-      "body2Bold": "sana mayroon na nito para sa akin noon.",
-      "cta": "Basahin ang Buong Kuwento ni Rana"
-    },
     "meta": {
       "title": "Turuan. Bigyang-kapangyarihan. Ipagtanggol.",
       "description": "Ang VINdicated ay isang libreng nonprofit na tumutulong sa mga bumibili ng kotse na makipagtransaksyon sa dealership nang hindi naaabuso. Libreng gabay, pananaliksik, at resources tungkol sa iyong mga karapatan."
     }
   },
-  "about": {
-    "hero": {
-      "titlePlain": "Itinatag sa paniniwalang ang kaalaman tungkol sa sasakyan",
-      "titleEm": "ay dapat maging pampublikong kaalaman.",
-      "subtitle": "Umiiral ang VINdicated dahil hindi kami naniniwalang kailangang magsama ng lalaki ang babae para lang makabili ng kotse nang ligtas."
-    },
-    "whyWeExist": {
-      "titleLine1": "Ang diskriminasyon",
-      "titleEm": "ay masusukat.",
-      "titleLine2": "Totoo ang pinsala.",
-      "para1": [
-        {
-          "text": "Natuklasan ng pananaliksik nina Ian Ayres at Peter Siegelman na "
-        },
-        {
-          "text": "ang mga Black male buyer ay sinisingil ng average na $1,100 na mas mataas",
-          "bold": true
-        },
-        {
-          "text": " kumpara sa white male buyers para sa parehong kotse, kahit gumagamit ng eksaktong parehong bargaining script. Sinisingil ang Black women ng $410 na mas mataas kumpara sa white men. Sinisingil naman ang white women ng $92 na mas mataas."
-        }
-      ],
-      "para2": [
-        {
-          "text": "48% ng Gen Z women ang nadidiscourage pumunta sa dealership",
-          "bold": true
-        },
-        {
-          "text": " dahil sa alalahanin tungkol sa gender-based discrimination (Morning Consult para sa Caribou, 2022). Hindi ito paranoia. Ito ay pattern recognition."
-        }
-      ],
-      "para3": [
-        {
-          "text": "May racist o sexist na mga komento ang mga dealer sa "
-        },
-        {
-          "text": "4% ng test visits",
-          "bold": true
-        },
-        {
-          "text": ". Gumugol sila ng "
-        },
-        {
-          "text": "13% na mas mahabang oras sa negosasyon sa mga \"minority\" na tester",
-          "bold": true
-        },
-        {
-          "text": "."
-        }
-      ],
-      "para4": "At tapos na kaming magkunwaring hiwa-hiwalay at bihirang pangyayari lang ang mga ito."
-    },
-    "mission": {
-      "heading": "Turuan. Bigyang-kapangyarihan.",
-      "headingEm": "Ipagtanggol.",
-      "subheading": "Wasakin ang consumer-level na kultura ng \"escort\", isang informed buyer sa bawat pagkakataon.",
-      "pillars": [
-        {
-          "word": "Turuan",
-          "body": "Gawing madaling maintindihan ang pagbili ng kotse. Madaling ma-navigate. Isinasalin namin ang playbook ng dealer sa simpleng wika dahil ang kaalaman ay kapangyarihan."
-        },
-        {
-          "word": "Bigyang-kapangyarihan",
-          "body": "Bumuo ng tiwala sa sariling kakayahang pumasok nang mag-isa, magtanong ng tamang tanong, at lumayo kung kinakailangan, nang walang hiya, nang hindi kailangan ng kasamang lalaki."
-        },
-        {
-          "word": "Ipagtanggol",
-          "body": "Gumawa ng pananaliksik na nagdodokumento sa alam na ng mga konsumer. Gawing datos ang karanasan. Gawing pagbabago ng polisiya ang datos."
-        }
-      ]
-    },
-    "story": {
-      "titleEm": "Ipinagtanggol laban saan?",
-      "subtitle": "Tatlong beses. Tatlong magkakaibang sitwasyon. Parehong sistema sa bawat pagkakataon.",
-      "strikes": [
-        {
-          "num": "1",
-          "label": "Ang Pink Slip Scam",
-          "body": [
-            "Noong 18 anyos ako, sinusubukan kong bumili ng kotse mula sa tatay ng kaibigan ko. Pinaghintay niya ako ng tatlong buwan, patuloy na nangangako na ibebenta niya sa akin.",
-            "Nang dumating na ang oras, sinubukan niyang sabihin sa akin na hindi ko na kailangan ang pink slip. Sinusubukan niya akong lokohin. Kung wala sa pangalan mo ang title, legal na hindi mo pag-aari ang kotse, kahit magkano man ang binayad mo."
-          ]
-        },
-        {
-          "num": "2",
-          "label": "Facebook Marketplace",
-          "body": [
-            "Sinubukan kong bumili ng kotse sa Facebook Marketplace. Normal ang simula ng usapan: mileage, presyo, kung kailan ako makakapunta para tingnan.",
-            "Nang malaman niyang babae ako, biglang nagbago ang tono niya. Sinabi niya sa akin, \"Shut your mouth, bitch,\" at pagkatapos ay in-block niya ako."
-          ]
-        },
-        {
-          "num": "3",
-          "label": "South Coast Mitsubishi",
-          "body": [
-            "Nag-isa akong pumunta para mag-test drive ng kotse. Nang bumalik ako kasama ang kapatid kong babae para bilhin ito, biglang nagbago ang nakasulat: \"Buy today or lose it.\"",
-            "Nagbayad ako para sa independent inspection. Nakahanap sila ng problema. Binigyan nila ako ng financing contract na may 30% APR. Alam ko kung ano ang masamang deal. Hindi ako pumirma."
-          ]
-        }
-      ],
-      "pullquote": {
-        "quote": "Ini-report ko si Eddy. Nang tumawag ang GM para humingi ng paumanhin, sinabi ko: hindi ko tinatanggap ang paumanhin mo. Sana kung sino man ang papasok, 19 anyos na babae man o 50 anyos na lalaki, tratuhin ninyo silang lahat nang may respeto.",
-        "attribution": "Rana Darwich, Founder ng VINdicated"
-      },
-      "bio": {
-        "label": "Tungkol sa Founder",
-        "body": "Itinatag ni Rana Darwich ang VINdicated sa edad na 19, matapos halos pumirma sa isang predatory arbitration clause sa isang dealership.",
-        "closingLine": "Ngayon, turn mo na."
-      },
-      "wollstonecraft": {
-        "label": "Mary Wollstonecraft, 1792",
-        "quote": "Palakasin ang isip ng babae sa pamamagitan ng pagpapalawak nito, at magwawakas ang bulag na pagsunod."
-      }
-    },
-    "provide": {
-      "titlePlain": "Libre. Accessible.",
-      "titleEm": "Walang kundisyon.",
-      "subtitle": "Lahat ng inaalok ng VINdicated ay libre. Walang kailangang mag-sign up, walang upsell, walang catch.",
-      "items": [
-        {
-          "cat": "Edukasyon",
-          "title": "Libreng Automotive Workshops",
-          "body": "Mga session na pinamumunuan ng komunidad na nagpapaliwanag kung ano ang ayaw malaman ng mga dealer, kasama ang financing, repairs, at ang legal na karapatan mo sa lot."
-        },
-        {
-          "cat": "Mga Tool",
-          "title": "Online Resources at Gabay",
-          "body": "Sunud-sunod na inspection guide, red flag checklist, script templates, at financing explainer. Ginawa para sa first-time buyers."
-        },
-        {
-          "cat": "Komunidad",
-          "title": "Vetted Mechanic Network",
-          "body": "Gumagawa kami ng direktoryo ng mga mekanikong sinuri ng aming komunidad: mga tapat na mekanikong hindi ka babalewalain, hindi ka pipilitin bumili nang higit pa."
-        },
-        {
-          "cat": "Pananaliksik",
-          "title": "Correspondence Audit Studies",
-          "body": "Idinodokumento namin ang diskriminasyon gamit ang datos. Sinusukat ng aming patuloy na pananaliksik ang gender-based na pagkakaiba sa presyo."
-        }
-      ]
-    }
-  },
   "team": {
-    "hero": {
-      "titleLine1": "Dala ng parehong",
-      "titleEm": "frustration."
-    },
-    "sectionTitle": "Kilalanin ang Team",
     "members": {
       "Rana Darwich": {
         "position": "Founder",
@@ -339,10 +119,6 @@
         "position": "Research Analyst",
         "bio": "Si Fiona Wangsawidjaja ay kasalukuyang undergraduate student sa UCLA. Tumutulong siya sa data section ng VINdicated!"
       },
-      "Ameerah Zafar": {
-        "position": "Data Engineer",
-        "bio": "Si Ameerah Zafar ay senior sa Chemical Engineering sa UC Berkeley, kasali rin siya sa Muslim Student Association ng Berkeley at sa Undergraduate Research tungkol sa coating mechanics. Tumutulong si Ameerah sa data research at graphic design sa VINdicated."
-      },
       "Evanceline Tang": {
         "position": "Visual Design Lead",
         "bio": "Si Evanceline ay second year biology major sa UCLA. Masigasig siya sa paggamit ng art at design bilang paraan ng paghahatid ng mensahe. Sa pamamagitan ng kanyang art, sana matulungan niya ang mga tao na mas maintindihan ang VINdicated at ang existing inequalities at panganib sa automotive industry."
@@ -355,12 +131,6 @@
         "position": "Data Analyst",
         "bio": "Si Brisa Gómez ay first-year transfer psychology student. Lumaki sa Tijuana, México, masigasig sila sa research na may kinalaman sa underrepresented communities tulad ng kababaihan, taong may kapansanan, at queer identities. Sana maging behavioral therapist sila sa hinaharap. Sa libreng oras, gustong magbasa ng cheesy romance novels at gumawa ng creative writing."
       }
-    },
-    "cta": {
-      "headingPlain": "Gusto mo bang maging",
-      "headingEm": "bahagi nito?",
-      "body": "Lagi hinahanap ng VINdicated ang mga taong masigasig: researchers, developers, designers, educators, at advocates. Kung naniniwala kang dapat fair ang pagbili ng kotse para sa lahat, gusto naming marinig mula sa'yo.",
-      "button": "Makipag-ugnayan"
     }
   }
 }

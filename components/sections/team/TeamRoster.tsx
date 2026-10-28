@@ -96,8 +96,12 @@ function MemberCard({
   onPlay: (m: RosterMember, from: HTMLElement) => void;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const long = m.bio.length > BIO_LIMIT;
-  const short = long ? m.bio.slice(0, m.bio.lastIndexOf(" ", 190)) + "…" : m.bio;
+  // Chinese and Korean pack more into each character, so they get a shorter
+  // preview. Cut at a space when there's one late enough, else mid-text.
+  const limit = /[\u3040-\u9fff\uac00-\ud7af]/.test(m.bio) ? 90 : BIO_LIMIT;
+  const long = m.bio.length > limit;
+  const space = m.bio.lastIndexOf(" ", limit - 10);
+  const short = long ? m.bio.slice(0, space > limit * 0.6 ? space : limit - 10) + "…" : m.bio;
   const school = [m.chapter === "leadership" ? "" : dict.filters[m.chapter], m.major]
     .filter(Boolean)
     .join(" · ");

@@ -48,7 +48,7 @@ export default async function TeamPage({
 					name: member.name,
 					position: entry.position,
 					bio: entry.bio,
-					major: member.major,
+					major: entry.major,
 					chapter: member.chapter,
 					photo: member.photo,
 					socials: member.socials,
