@@ -54,7 +54,7 @@ const ALLOWED = [
   "Caleb Jacobs", "Rana", "Darwich", "Esri", "Maxar", "Supabase", "OpenStreetMap", "CARTO", "AI", "PDF", "MB", "PT", "AM", "PM",
   "CA", "TX", "NY", "NJ", "CT", "MA", "AK", "WI", "ME", "DOJ", "DOT", "AG", "BMV", "SOS", "Cal", "Civ", "Code", "Veh",
   "Price Is Right", "Crosscheck", "Morning Consult", "Caribou", "Mary Wollstonecraft", "Wollstonecraft", "South Coast Mitsubishi", "Carcam", "Duolingo", "U.S.C.", "CFR", "Mass", "Tex", "Occ", "ch", "Trans", "Admin",
-  "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
+  "Federal Trade Commission", "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
 ];
 
 // One-word strings that are spelled the same as English in a language.
@@ -76,6 +76,9 @@ function englishLeft(s) {
   for (const a of [...ALLOWED].sort((x, y) => y.length - x.length)) t = t.split(a).join(" ");
   for (const n of names) if (n.length > 2) t = t.split(n).join(" ");
   t = t.replace(/https?:\/\/\S+|\S+@\S+|\{\w+\}|<\/?\w+[^>]*>|§+\s*[\d.]+/g, " ");
+  // A short English name or search term glossed in brackets or quotes,
+  // like 诚实借贷法（Truth in Lending Act） or “scam”, is on purpose.
+  t = t.replace(/[（(“"«]\s*[A-Za-z][A-Za-z0-9 .,'’&/-]{0,60}[）)”"»]/g, " ");
   const words = t.match(/[A-Za-z][A-Za-z'’-]*/g) ?? [];
   return words;
 }
@@ -104,7 +107,8 @@ for (const file of files) {
       }
       if (placeholders(t) !== placeholders(v)) problems.placeholders.push(`${k}: ${placeholders(v)} -> ${placeholders(t)}`);
       if (markup(t) !== markup(v)) problems.markup.push(k);
-      const same = t === v && SAME_OK.every((re) => !re.test(k)) && !(SAME_WORDS[lang] ?? []).includes(t);
+      const keepOk = t === v && SAME_OK.some((re) => re.test(k));
+      const same = t === v && !keepOk && !(SAME_WORDS[lang] ?? []).includes(t);
       const words = englishLeft(t);
       // Same as English and has real words left: untranslated. Otherwise,
       // in Latin scripts look for several common English words; in other
@@ -112,7 +116,9 @@ for (const file of files) {
       // letters (tech and company names on their own are fine).
       const enCommon = words.filter((w) => EN_WORDS.has(w.toLowerCase())).length;
       const latinShare = words.join("").length / Math.max(t.replace(/[\s\d\p{P}\p{S}]/gu, "").length, 1);
-      const leak = same
+      const leak = keepOk
+        ? false
+        : same
         ? words.length > 0
         : latin
           ? enCommon >= 3 && enCommon / Math.max(words.length, 1) > 0.2
