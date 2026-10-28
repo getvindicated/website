@@ -17,4 +17,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     hostTitle: "UC Berkeley Law 谈判课讲师 · Oakbay Consulting CEO",
     description: "跟在 Berkeley Law 教谈判的老师学怎么砍车价，学会了别的东西也能谈。带上你的问题来吧。",
   },
+  tl: {
+    title: "Negotiation Workshop kasama si Emily Epstein",
+    tag: "Workshop · UC Berkeley",
+    hostTitle: "Negotiation Lecturer, UC Berkeley Law · CEO, Oakbay Consulting",
+    description:
+      "Matutong tumawad sa presyo ng kotse, at sa kahit ano pa, mula sa isang nagtuturo nito sa Berkeley Law. Dalhin ang mga tanong mo.",
+  },
 };
