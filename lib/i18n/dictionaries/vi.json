@@ -1,136 +1,2560 @@
 {
   "nav": {
-    "home": "Trang Chủ",
-    "about": "Về Chúng Tôi",
-    "aboutWhoWeAre": "Chúng Tôi Là Ai",
-    "aboutMission": "Sứ Mệnh",
-    "aboutFounder": "Từ Người Sáng Lập",
-    "aboutProvides": "Chúng Tôi Cung Cấp Gì",
-    "team": "Đội Ngũ",
-    "inspection": "Hướng Dẫn Kiểm Tra",
-    "fraud": "Phòng Chống Gian Lận",
-    "documents": "Giải Mã Tài Liệu",
-    "volunteer": "Tình Nguyện",
-    "research": "Nghiên Cứu",
-    "contact": "Liên Hệ",
-    "learningResources": "Tài Nguyên Học Tập",
-    "getInvolved": "Tham Gia"
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "aboutWhoWeAre": "Chúng tôi là ai",
+    "aboutMission": "Sứ mệnh",
+    "aboutFounder": "Lời người sáng lập",
+    "aboutProvides": "Chúng tôi giúp gì",
+    "team": "Đội ngũ",
+    "events": "Sự kiện",
+    "inspection": "Hướng dẫn kiểm tra xe",
+    "fraud": "Phòng tránh lừa đảo",
+    "documents": "Giải thích giấy tờ",
+    "volunteer": "Làm tình nguyện",
+    "research": "Nghiên cứu",
+    "contact": "Liên hệ",
+    "learningResources": "Tài liệu học",
+    "getInvolved": "Tham gia",
+    "projects": "Dự án",
+    "dealerMap": "Bản đồ dealer"
   },
   "ui": {
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu",
-    "languageSwitcher": "Đổi ngôn ngữ"
+    "languageSwitcher": "Đổi ngôn ngữ",
+    "homeLabel": "Trang chủ VINdicated"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "body": "Xin lỗi, chúng tôi không tìm thấy trang này. Có thể trang đã được dời đi, hoặc đường link bị sai.",
+    "home": "Về trang chủ"
   },
   "footer": {
     "columns": {
-      "resources": "Tài Nguyên",
-      "connect": "Kết Nối"
+      "resources": "Tài liệu",
+      "connect": "Kết nối",
+      "organization": "Tổ chức"
     },
     "links": {
       "linkedIn": "LinkedIn",
-      "getInTouch": "Liên Hệ"
-    }
+      "getInTouch": "Liên lạc với chúng tôi",
+      "aboutUs": "Giới thiệu",
+      "instagramUcla": "Instagram · UCLA",
+      "instagramBerkeley": "Instagram · UC Berkeley",
+      "instagramUcsc": "Instagram · UC Santa Cruz"
+    },
+    "about": "VINdicated là một tổ chức phi lợi nhuận do sinh viên điều hành, đứng về phía người tiêu dùng. Chúng tôi chia sẻ kiến thức về xe cho mọi người qua hướng dẫn miễn phí, buổi học trong cộng đồng và nghiên cứu của sinh viên, để không ai bị lợi dụng khi mua xe, vay tiền mua xe hay sửa xe.",
+    "rights": "© 2026 VINdicated. Bảo lưu mọi quyền.",
+    "founded": "Do Rana Darwich sáng lập."
   },
   "meta": {
-    "defaultTitle": "VINdicated | Giáo Dục. Trao Quyền. Minh Oan.",
-    "defaultDescription": "VINdicated là một tổ chức phi lợi nhuận dựa trên niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng. Chúng tôi phân tích các hệ thống khiến phân biệt đối xử với người tiêu dùng tiếp diễn.",
+    "defaultTitle": "VINdicated | Hiểu biết. Tự tin. Đòi lại công bằng.",
+    "defaultDescription": "VINdicated là một tổ chức phi lợi nhuận tin rằng kiến thức về xe nên là điều ai cũng biết. Chúng tôi giải thích rõ những cách làm khiến người mua xe bị phân biệt đối xử.",
     "routes": {
       "home": {
-        "title": "Giáo Dục. Trao Quyền. Minh Oan.",
-        "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn.",
+        "title": "Hiểu biết. Tự tin. Đòi lại công bằng.",
+        "description": "VINdicated là một tổ chức phi lợi nhuận miễn phí, giúp mọi người mua xe mà không bị lợi dụng. Có hướng dẫn miễn phí, nghiên cứu và tài liệu về quyền lợi của bạn.",
         "imageAlt": "VINdicated"
       },
       "about": {
-        "title": "Về Chúng Tôi",
-        "description": "VINdicated được Rana Darwich sáng lập sau khi trực tiếp trải qua phân biệt đối xử tại đại lý xe. Tìm hiểu sứ mệnh giáo dục, trao quyền và bảo vệ người mua xe của chúng tôi.",
-        "imageAlt": "VINdicated: Về Chúng Tôi"
+        "title": "Giới thiệu",
+        "description": "Rana Darwich lập ra VINdicated sau khi cô bị phân biệt đối xử lúc mua xe. Đọc xem mọi chuyện bắt đầu thế nào và chúng tôi đang làm gì.",
+        "imageAlt": "VINdicated: Giới thiệu"
       },
       "team": {
-        "title": "Đội Ngũ",
-        "description": "Gặp những người đứng sau VINdicated: các nhà vận động, nhà nghiên cứu và sinh viên chống lại phân biệt đối xử tại đại lý xe.",
-        "imageAlt": "VINdicated: Đội Ngũ"
+        "title": "Đội ngũ của chúng tôi",
+        "description": "Gặp gỡ những người đứng sau VINdicated: những người bênh vực người tiêu dùng, nhà nghiên cứu và sinh viên chống lại sự phân biệt đối xử ở các dealer.",
+        "imageAlt": "VINdicated: Đội ngũ của chúng tôi"
       },
       "inspection": {
-        "title": "Hướng Dẫn Kiểm Tra",
-        "description": "Hướng dẫn từng bước để kiểm tra xe đã qua sử dụng trước khi mua. Biết cần xem gì dưới nắp capo, tại bãi xe và trong giấy tờ.",
-        "imageAlt": "VINdicated: Hướng Dẫn Kiểm Tra"
+        "title": "Hướng dẫn kiểm tra xe",
+        "description": "Hướng dẫn từng bước cách kiểm tra xe cũ trước khi mua. Biết cần xem gì dưới nắp capo, ở bãi xe và trong giấy tờ.",
+        "imageAlt": "VINdicated: Hướng dẫn kiểm tra xe"
       },
       "fraud": {
-        "title": "Phòng Chống Gian Lận",
-        "description": "Học cách nhận biết và đối phó với các chiêu lừa phổ biến của đại lý. Biết dấu hiệu cảnh báo, quyền pháp lý của bạn và làm gì nếu bị lừa.",
-        "imageAlt": "VINdicated: Phòng Chống Gian Lận"
+        "title": "Phòng tránh lừa đảo",
+        "description": "Học cách nhận ra và đối phó với những chiêu lừa thường gặp của dealer. Biết các dấu hiệu nguy hiểm, quyền lợi của bạn theo luật California và luật liên bang, và phải làm gì nếu đã bị lừa.",
+        "imageAlt": "VINdicated: Phòng tránh lừa đảo"
       },
       "documents": {
-        "title": "Giải Mã Tài Liệu",
-        "description": "Hướng dẫn tương tác để hiểu giấy tờ mua xe: giấy chủ quyền, báo cáo Carfax, hợp đồng tài chính và hơn thế nữa. Biết mình ký gì trước khi ký.",
-        "imageAlt": "VINdicated: Giải Mã Tài Liệu"
+        "title": "Giải thích giấy tờ",
+        "description": "Hướng dẫn tương tác giúp bạn hiểu giấy tờ khi mua xe: pink slip (giấy chủ quyền xe), báo cáo Carfax, hợp đồng vay tiền và nhiều thứ khác. Hiểu rõ mình ký gì trước khi ký.",
+        "imageAlt": "VINdicated: Giải thích giấy tờ"
       },
       "research": {
-        "title": "Nghiên Cứu",
-        "description": "VINdicated thực hiện các nghiên cứu kiểm toán thư tín ghi nhận chênh lệch giá theo giới tính và chủng tộc tại đại lý xe. Đọc kết quả và phương pháp của chúng tôi.",
-        "imageAlt": "VINdicated: Nghiên Cứu"
+        "title": "Dự án",
+        "description": "Mười một dự án của sinh viên trong bốn nhóm: app, công cụ dữ liệu, nghiên cứu và nội dung giúp mọi người mua xe, vay mua xe và sửa xe mà không bị lợi dụng.",
+        "imageAlt": "VINdicated: Dự án"
+      },
+      "join": {
+        "title": "Tham gia",
+        "description": "Tham gia VINdicated: làm tình nguyện cùng đội ngũ, kể câu chuyện của bạn, tham gia nghiên cứu, hoặc hợp tác với chúng tôi.",
+        "imageAlt": "VINdicated: Tham gia"
       },
       "rights": {
-        "title": "Biết Quyền Của Bạn",
-        "description": "Biết quyền pháp lý của bạn khi mua xe. Luật liên bang và California bảo vệ bạn khỏi phân biệt đối xử và hành vi lừa dối tại đại lý.",
-        "imageAlt": "VINdicated: Biết Quyền Của Bạn"
+        "title": "Biết quyền của bạn",
+        "description": "Biết các quyền hợp pháp của bạn khi mua xe. Luật liên bang và luật California bảo vệ bạn khỏi phân biệt đối xử và gian lận ở các dealer.",
+        "imageAlt": "VINdicated: Biết quyền của bạn"
       },
       "contact": {
-        "title": "Liên Hệ",
-        "description": "Liên hệ với VINdicated: tình nguyện cùng đội ngũ, chia sẻ câu chuyện, tham gia nghiên cứu hoặc hợp tác với chúng tôi.",
-        "imageAlt": "VINdicated: Liên Hệ"
+        "title": "Liên hệ",
+        "description": "Liên lạc với VINdicated: làm tình nguyện cùng đội ngũ, kể câu chuyện của bạn, tham gia nghiên cứu, hoặc hợp tác với chúng tôi.",
+        "imageAlt": "VINdicated: Liên hệ"
       },
       "volunteer": {
-        "title": "Tình Nguyện",
-        "description": "Nộp đơn tham gia VINdicated với vai trò sinh viên tình nguyện, nhà nghiên cứu, kỹ sư, nhà thiết kế hoặc cộng tác viên tiếp cận cộng đồng.",
-        "imageAlt": "VINdicated: Tình Nguyện"
+        "title": "Làm tình nguyện",
+        "description": "Đăng ký tham gia VINdicated với vai trò sinh viên tình nguyện, nghiên cứu, lập trình, thiết kế hoặc làm việc với cộng đồng.",
+        "imageAlt": "VINdicated: Làm tình nguyện"
+      },
+      "map": {
+        "title": "Bản đồ dealer",
+        "description": "Bản đồ vệ tinh 100 dealer ở khu Westside của Los Angeles và những gì đánh giá công khai của họ kể lại, như ép mua và phí bất ngờ.",
+        "imageAlt": "VINdicated: Bản đồ dealer"
+      },
+      "mapMethods": {
+        "title": "Chúng tôi làm bản đồ dealer như thế nào",
+        "description": "Thông tin trên bản đồ lấy từ đâu, một mô hình AI phân loại đánh giá ra sao, các mức hoạt động thế nào, và những gì bản đồ không cho bạn biết được.",
+        "imageAlt": "VINdicated: Chúng tôi làm bản đồ dealer như thế nào"
+      },
+      "events": {
+        "title": "Sự kiện",
+        "description": "Các buổi học và buổi gặp mặt miễn phí của VINdicated về chuyện mua xe, sửa xe và trả tiền xe.",
+        "imageAlt": "VINdicated: Sự kiện"
       }
     }
   },
   "home": {
     "meta": {
-      "title": "Giáo Dục. Trao Quyền. Minh Oan.",
-      "description": "VINdicated là tổ chức phi lợi nhuận miễn phí giúp người mua xe đi qua quá trình làm việc với đại lý mà không bị lợi dụng. Hướng dẫn miễn phí, nghiên cứu và tài nguyên về quyền của bạn."
+      "title": "Hiểu biết. Tự tin. Đòi lại công bằng.",
+      "description": "VINdicated là một tổ chức phi lợi nhuận miễn phí, giúp mọi người mua xe mà không bị lợi dụng. Có hướng dẫn miễn phí, nghiên cứu và tài liệu về quyền lợi của bạn."
+    }
+  },
+  "homePage": {
+    "hero": {
+      "titleLead": "Với VINdicated, bạn có thể dễ dàng",
+      "phrases": [
+        "tự đi một mình.",
+        "nhận ra tin rao giả.",
+        "đọc hiểu hợp đồng.",
+        "hỏi đúng câu hỏi.",
+        "bỏ đi khi thấy không ổn."
+      ],
+      "body": "Phần lớn mọi người mua xe mà không có kiến thức cơ bản về xe. Bỏ ra nhiều tiền như vậy cho một thứ mà không biết nó thật sự đáng giá bao nhiêu có thể làm bạn thiệt hại nặng về tài chính. Vì vậy chúng tôi giải thích tất cả bằng lời lẽ đơn giản, hoàn toàn miễn phí.",
+      "ctaPrimary": "Xem hướng dẫn PPI",
+      "ctaSecondary": "Câu chuyện của chúng tôi",
+      "photoAlt": "Nhóm VINdicated ở UC Berkeley ngồi cùng nhau trên bãi cỏ trước thư viện Doe, phía sau là tháp chuông Campanile"
+    },
+    "publicKnowledge": {
+      "title": "Kiến thức về xe nên là điều ai cũng biết.",
+      "body": [
+        "Chuyện này xảy ra với người mua xe lần đầu, và cả với người đã mua mười chiếc. Biết nhiều thì mới tự tin, mà tự tin thì mới không bị lợi dụng. Chúng tôi làm sẵn danh sách kiểm tra xe, giải thích về vay tiền mua xe, và những câu bạn có thể nói khi bị người bán ép, để bạn biết rõ mình đang đồng ý với điều gì. Chúng tôi muốn bạn ",
+        {
+          "b": "tự tin và hiểu rõ mọi chuyện"
+        },
+        "."
+      ],
+      "cta": "Xem các chiêu lừa thường gặp"
+    },
+    "footing": {
+      "title": "Bạn không nên phải trả nhiều tiền hơn chỉ vì bạn là ai. Ở California, làm vậy là phạm luật.",
+      "quote": "“Tất cả mọi người trong phạm vi quyền hạn của tiểu bang này đều tự do và bình đẳng, và bất kể giới tính, chủng tộc, màu da, tôn giáo, tổ tiên, nguồn gốc quốc gia… đều được hưởng đầy đủ và bình đẳng chỗ ở, lợi ích, tiện nghi, đặc quyền hoặc dịch vụ tại mọi cơ sở kinh doanh dưới bất kỳ hình thức nào.”",
+      "quoteCite": "Unruh Civil Rights Act (luật dân quyền của California), Cal. Civ. Code § 51",
+      "body": "Các nghiên cứu cho thấy dealer báo giá khác nhau cho những người khác nhau. Kẻ lừa đảo bây giờ cũng có công cụ tinh vi hơn.",
+      "rows": [
+        {
+          "stat": "$1,100",
+          "title": "Đàn ông da đen bị báo giá cao hơn $1,100 cho cùng một chiếc xe.",
+          "body": "Người mua là đàn ông da đen bị báo giá trung bình cao hơn $1,100 so với đàn ông da trắng, cho cùng một chiếc xe và cùng một cách trả giá. Phụ nữ da đen bị báo cao hơn $410 so với đàn ông da trắng, còn phụ nữ da trắng cao hơn $92.",
+          "cite": "Ayres & Siegelman, The American Economic Review, 1995"
+        },
+        {
+          "stat": "$36,240",
+          "title": "Một người đã vay tiền mua một chiếc xe tải không hề có thật.",
+          "body": "Một người mua cẩn thận thấy một chiếc xe tải giá hợp lý trên Facebook Marketplace, do một dealer trông như thật ở Texas đăng. Giấy tờ và giấy duyệt vay của ngân hàng đều ổn, còn có cả thiết bị định vị cho thấy xe đang trên đường tới. Hóa ra dealer đó là bản sao giả của một dealer thật, làm bằng công cụ AI, và chiếc xe không hề tồn tại.",
+          "cite": "The Drive, tháng 9 năm 2026"
+        },
+        {
+          "stat": "13%",
+          "title": "Người mua thuộc nhóm thiểu số phải trả giá lâu hơn mà vẫn bị giá tệ hơn.",
+          "body": "Dealer tốn thời gian trả giá với người thử nghiệm thuộc nhóm thiểu số lâu hơn 13%, và có những câu nói phân biệt chủng tộc hoặc giới tính trong 4% các lần thử. Trong một nghiên cứu khác, 63% người thử nghiệm không phải da trắng bị báo giá tệ hơn người da trắng.",
+          "cite": "Ayres & Siegelman, 1995 · National Fair Housing Alliance, 2018"
+        }
+      ]
+    },
+    "chapters": {
+      "title": "Tìm chúng tôi ở trường.",
+      "body": "Chúng tôi có nhóm ở UCLA, UC Berkeley và UC Santa Cruz. Tìm nhóm ở trường bạn và ghé một buổi họp nhé.",
+      "items": [
+        {
+          "tag": "UCLA",
+          "title": "Lên bậc thang Janss",
+          "body": "Nhóm đầu tiên của chúng tôi. Làm bản đồ rủi ro dealer và dẫn dắt phần nghiên cứu và dữ liệu chính của VINdicated.",
+          "cta": "Tham gia UCLA",
+          "alt": "Royce Hall ở UCLA"
+        },
+        {
+          "tag": "UC Berkeley",
+          "title": "Đến Sproul",
+          "body": "Đang tìm thêm thành viên, tập trung vào việc chỉ cho người tiêu dùng hiểu biết và hoạt động trong trường.",
+          "cta": "Tham gia Berkeley",
+          "alt": "Tháp Sather, tức tháp chuông Campanile, ở UC Berkeley"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "title": "Đến Quarry Amphitheater",
+          "body": "Lo phần kỹ thuật của việc bảo vệ người tiêu dùng, nghiên cứu sự phân biệt đối xử của thuật toán và AI khi bán xe.",
+          "cta": "Tham gia UCSC",
+          "alt": "Sân khấu ngoài trời Quarry Amphitheater ở UC Santa Cruz, xung quanh là cây gỗ đỏ redwood"
+        }
+      ]
+    },
+    "follow": {
+      "title": "Theo dõi VINdicated.",
+      "body": "Chúng tôi đăng ngày đặt bàn thông tin ở trường, hướng dẫn mới, và những chiêu lừa mọi người kể cho chúng tôi nghe.",
+      "links": [
+        {
+          "platform": "LinkedIn · Tất cả các nhóm",
+          "handle": "VINdicated"
+        },
+        {
+          "platform": "Instagram · UCLA",
+          "handle": "@vindicatedbruins"
+        },
+        {
+          "platform": "Instagram · UC Berkeley",
+          "handle": "@ucb_vindicated"
+        },
+        {
+          "platform": "Instagram · UC Santa Cruz",
+          "handle": "@ucsc_vindicated"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "Bắt đầu với hai hướng dẫn này.",
+      "body": "Hướng dẫn miễn phí, bạn có thể mở ra xem ngay tại dealer.",
+      "items": [
+        {
+          "title": "Hướng dẫn kiểm tra xe trước khi mua",
+          "body": "Cần kiểm tra gì và hỏi gì trước khi trả bất kỳ đồng nào. Viết cho người mua xe lần đầu."
+        },
+        {
+          "title": "Phòng tránh lừa đảo",
+          "body": "Những chiêu dealer hay dùng, và bạn nên đáp lại thế nào."
+        }
+      ]
+    },
+    "free": {
+      "title": "Mọi thứ chúng tôi làm đều miễn phí.",
+      "body": "Bạn không cần tạo tài khoản, và chúng tôi không bán gì cả.",
+      "planTitle": "Mọi người mua xe",
+      "price": "$0",
+      "checks": [
+        "Hướng dẫn kiểm tra xe trước khi mua",
+        "Danh sách dấu hiệu nguy hiểm",
+        "Những câu nói sẵn khi bị ép mua",
+        "Giải thích về vay tiền mua xe",
+        "Giải thích giấy tờ",
+        "Tài liệu về quyền lợi của bạn"
+      ],
+      "offers": [
+        {
+          "title": "Buổi học miễn phí về xe",
+          "body": "Các buổi học trong cộng đồng về vay tiền, sửa xe và quyền hợp pháp của bạn ở dealer."
+        },
+        {
+          "title": "Thợ máy đáng tin",
+          "body": "Những thợ sửa xe mà thành viên của chúng tôi đã dùng và tin tưởng."
+        },
+        {
+          "title": "Tài liệu và hướng dẫn trên mạng",
+          "body": "Hướng dẫn từng bước dành cho người mua xe lần đầu."
+        },
+        {
+          "title": "Dự án nghiên cứu của sinh viên",
+          "body": "Các nhóm nghiên cứu về rào cản ngôn ngữ, cách bán hàng và luật bảo vệ người tiêu dùng của California."
+        }
+      ]
+    },
+    "ppi": {
+      "title": "Mua xe cũ? Làm PPI trước đã.",
+      "body": [
+        "",
+        {
+          "b": "PPI (pre-purchase inspection, kiểm tra xe trước khi mua)"
+        },
+        " là khi bạn trả tiền cho một thợ máy độc lập, không phải người bán hay dealer, để kiểm tra xe trước khi mua. Họ tìm ra những vấn đề mà lái thử không cho bạn thấy."
+      ],
+      "items": [
+        {
+          "title": "Họ kiểm tra gì",
+          "body": "Máy, hộp số, thắng, hệ thống treo và khung xe, cùng với chỗ rò rỉ, rỉ sét và dấu vết từng bị tai nạn."
+        },
+        {
+          "title": "Tốn bao nhiêu",
+          "body": "Thường $100–$200, và một số chi nhánh AAA (hội ô tô Mỹ) làm miễn phí hoặc giảm giá cho hội viên. Chỉ một lỗi bị giấu thôi cũng có thể làm bạn tốn cả ngàn đô."
+        },
+        {
+          "title": "Đi đâu",
+          "body": "Một thợ máy bạn tin, một dịch vụ kiểm tra tận nơi, hoặc một dealer cùng hãng xe nhưng không phải chỗ đang bán xe đó."
+        },
+        {
+          "title": "Bạn nhận được gì",
+          "body": "Một bản báo cáo viết ra giấy để bạn dùng trả giá xuống, hoặc là lý do chính đáng để bỏ đi."
+        }
+      ],
+      "primary": "Đọc hướng dẫn PPI",
+      "secondary": "Làm ở đâu"
     }
   },
   "team": {
     "members": {
       "Rana Darwich": {
-        "position": "Người Sáng Lập",
-        "bio": "Rana thành lập VINdicated ở tuổi 19, sau khi một thuật ngữ luật kinh doanh đã cứu cô khỏi việc ký một hợp đồng bán hàng mang tính bóc lột tại một đại lý xe. Điều bắt đầu như một điểm vỡ cá nhân đã trở thành một sứ mệnh: xóa bỏ những hệ thống bóc lột người tiêu dùng bước vào bãi xe một mình, không có ai hỗ trợ. Cô dẫn dắt các sáng kiến nghiên cứu và định hướng chiến lược của VINdicated, với niềm tin rằng kiến thức về ô tô nên là kiến thức công cộng."
-      },
-      "Rizwaan Bana": {
-        "position": "Chiến Lược Gia",
-        "bio": "Rizwaan Bana học chuyên ngành Khoa học Máy tính tại UCLA. Anh là Trưởng nhóm Phần mềm tại VINdicated, nơi anh xây dựng các công cụ giúp người tiêu dùng vượt qua quy trình mua xe một cách suôn sẻ. Rizwaan đam mê sử dụng công nghệ để tạo ra thay đổi tích cực và làm cho thông tin dễ tiếp cận hơn với mọi người."
-      },
-      "William Prawira": {
-        "position": "Kỹ Sư Dữ Liệu",
-        "bio": "Will Prawira học kép ngành Khoa học Dữ liệu và Toán Ứng dụng tại UCLA. Tại UCLA, anh hiện tham gia Bruin Sports Analytics trong đội tư vấn quần vợt, cũng như là trưởng dự án tại NSDC. Anh đang tích cực làm việc tại VINdicated với vai trò kỹ sư sản phẩm dữ liệu."
-      },
-      "Halima Cherif Hminat": {
-        "position": "Trưởng Nhóm Nghiên Cứu & Tiếp Cận Cộng Đồng",
-        "bio": "Halima Cherif Hminat là sinh viên ngành Sinh học Tổng hợp tại UC Berkeley, học phụ ngành Kinh doanh Bền vững và Chính sách, và đang theo hướng tiền nha khoa. Cô cũng là Trưởng nhóm Nghiên cứu và Tiếp cận Cộng đồng tại VINdicated, đóng góp vào việc tạo ra các nguồn tài liệu giúp mọi người đưa ra quyết định sáng suốt một cách tự tin. Cô nói sứ mệnh của VINdicated quan trọng với cô vì cô muốn hỗ trợ phụ nữ bằng cách giúp họ tránh bị đối xử bất công khi mua và sửa xe."
-      },
-      "Yinrui (Ray) Gan": {
-        "position": "Trưởng Nhóm Kỹ Thuật",
-        "bio": "Ray Gan dẫn dắt hệ thống dữ liệu và AI cho bản đồ rủi ro đại lý tương tác của VINdicated. Anh đã thiết kế hệ thống phân loại dựa trên LLM biến các đánh giá của người tiêu dùng chưa có cấu trúc thành các tín hiệu rủi ro minh bạch, có bằng chứng cho người mua xe. Ray học Khoa học Máy tính và Ngôn ngữ học tại UCLA."
+        "position": "Người sáng lập kiêm Chủ tịch",
+        "bio": "Rana Darwich là sinh viên nghiên cứu ở UC Berkeley, đồng thời là người sáng lập kiêm Chủ tịch của VINdicated, hiện đã có nhóm ở UCLA, Berkeley và UC Santa Cruz. Cô là trợ lý nghiên cứu ở Trường Sư phạm (School of Education) của UC Berkeley, nghiên cứu về sự bình đẳng giới trong ngân sách thể thao đại học; là học viên nghiên cứu ở Trung tâm Luật So sánh về Bất bình đẳng và Chống Phân biệt Đối xử (Center for Comparative Inequality and Anti-Discrimination Law) của Berkeley Law; và từng là sinh viên nghiên cứu ở Phòng thí nghiệm Bạo lực Chính trị (Political Violence Lab). Cô từng thực tập ở Amazon và hiện viết bài bình luận cho tờ The Daily Californian."
       },
       "Fiona Wangsawidjaja": {
-        "position": "Chuyên Viên Nghiên Cứu",
-        "bio": "Fiona Wangsawidjaja là sinh viên đại học hiện tại ở UCLA. Cô ấy giúp đỡ phần dữ liệu của VINdicated!"
+        "position": "Chủ tịch",
+        "bio": "Fiona Wangsawidjaja học ngành Thống kê và Khoa học Dữ liệu ở UCLA, hiện là Chủ tịch nhóm VINdicated ở UCLA. Fiona rất thích dạy và giúp cộng đồng mỗi khi có thể: từng làm gia sư lập trình, giúp mọi người tìm hiểu thế giới số qua các hội thảo, và bây giờ ở VINdicated, nơi cô mong mọi người được hưởng lợi từ kiến thức về xe dễ tiếp cận. Cô có kinh nghiệm chuyên về dữ liệu qua các tổ chức như DataRes và NSDC: dạy học sinh trung học về dữ liệu, làm các dự án phân tích dữ liệu và tư vấn cho các công ty.",
+        "major": "Thống kê và Khoa học Dữ liệu"
       },
-      "Evanceline Tang": {
-        "position": "Trưởng Nhóm Thiết Kế Hình Ảnh",
-        "bio": "Evanceline là sinh viên năm hai ngành sinh học tại UCLA. Cô đam mê sử dụng nghệ thuật và thiết kế như một phương tiện truyền tải thông điệp. Thông qua nghệ thuật của mình, cô hy vọng giúp mọi người hiểu thêm về VINdicated và những bất bình đẳng cũng như nguy hiểm hiện có trong ngành công nghiệp ô tô."
+      "Ashwin Vinod": {
+        "position": "Chủ tịch",
+        "bio": "Ashwin Vinod học ngành Khoa học Máy tính ở UCSC và là Chủ tịch nhóm VINdicated ở UCSC. Qua nhiều phòng thí nghiệm nghiên cứu và kinh nghiệm làm kỹ sư phần mềm, Ashwin đã xây được nền tảng kỹ thuật vững chắc mà anh muốn dùng để thúc đẩy các nghiên cứu điện toán có ích cho cộng đồng, và tạo cơ hội học tập cho cộng đồng của mình. Ashwin từng thực tập ở IBM với vai trò thực tập sinh lập trình phần mềm, và tiếp tục theo đuổi nghiên cứu ở AIEA Lab của UCSC, tập trung vào AI có thể giải thích được (AI cho biết vì sao nó ra quyết định).",
+        "major": "Khoa học Máy tính"
+      },
+      "Rizwaan Bana": {
+        "position": "Hoạch định chiến lược",
+        "bio": "Rizwaan Bana học ngành Khoa học Máy tính ở UCLA. Anh lo hoạch định chiến lược cho VINdicated ở UCLA, giúp sắp xếp kế hoạch tiếp cận cộng đồng và các dự án của nhóm. Anh cũng là Phó chủ tịch nội vụ của Bruin Software Engineers, quản lý dự án của nhóm phát triển ở ACM tại UCLA, và phụ trách website cho UPE tại UCLA."
+      },
+      "William Prawira": {
+        "position": "Phó chủ tịch nội vụ",
+        "bio": "Will Prawira học ngành Toán và Khoa học Dữ liệu ở UCLA và là Phó chủ tịch nội vụ của nhóm VINdicated ở đó. Với nền tảng khoa học dữ liệu và kinh nghiệm làm việc thực tế, Will muốn xây dựng thói quen làm nhanh mà vẫn chất lượng, biến những ý tưởng lớn thành tài liệu có ích cho cộng đồng. Trong năm học này, anh đang thực tập ở Navitas Semiconductor với vai trò thực tập sinh về độ bền sản phẩm, làm các công cụ tự động hóa và mô hình dự đoán tuổi thọ sản phẩm.",
+        "major": "Khoa học Dữ liệu và Toán ứng dụng"
       },
       "Ayat Ashraf": {
-        "position": "Chuyên Viên Nghiên Cứu",
-        "bio": "Ayat Ashraf học chuyên ngành Toán/Kinh tế tại UCLA, quan tâm đến việc hoạch định chính sách kinh tế. Cô thực hiện nghiên cứu tại VINdicated, hy vọng trong tương lai có thể mua xe mà không cần gọi điện cho bố 8.000 lần."
+        "position": "Phó chủ tịch đối ngoại",
+        "bio": "Ayat Ashraf học Toán và Kinh tế ở UCLA, quan tâm đến việc làm chính sách kinh tế. Cô làm nghiên cứu ở VINdicated để mai mốt có thể tự mua xe mà không phải gọi cho ba 8,000 lần.",
+        "major": "Toán/Kinh tế"
+      },
+      "Noirit Ghosh Choudhuri": {
+        "position": "Phó chủ tịch nội vụ",
+        "bio": "Noirit Ghosh Choudhuri học ngành Khoa học Máy tính ở UC Berkeley và là Phó chủ tịch nội vụ của nhóm VINdicated ở UC Berkeley. Qua kinh nghiệm làm nhiều dự án thực tế, Noirit đã rèn được kỹ năng kỹ thuật và làm việc nhóm vững vàng, và muốn dùng chúng để tạo ra thêm giải pháp cho những vấn đề xã hội cấp bách, như vấn đề mà VINdicated đang đấu tranh.",
+        "major": "Khoa học Máy tính"
+      },
+      "Halima Cherif Hminat": {
+        "position": "Phó chủ tịch đối ngoại",
+        "bio": "Halima Cherif Hminat học ngành Sinh học Tích hợp ở UC Berkeley, học phụ về Kinh doanh và Chính sách Bền vững, và đang chuẩn bị để học nha khoa. Cô cũng là Phó chủ tịch đối ngoại của VINdicated ở UC Berkeley, góp phần làm tài liệu giúp mọi người tự tin ra quyết định khi đã hiểu rõ. Cô nói sứ mệnh của VINdicated quan trọng vì cô muốn hỗ trợ phụ nữ, giúp họ tránh bị đối xử bất công khi mua xe và sửa xe.",
+        "major": "Sinh học Tích hợp"
+      },
+      "Gundeep Sambee": {
+        "position": "Phó chủ tịch nội vụ",
+        "bio": "Gundeep học ngành Khoa học Nhận thức ở UC Santa Cruz, học phụ về Quản lý Công nghệ và Thông tin. Cô quan tâm đến chỗ con người và công nghệ gặp nhau, nhất là cách AI, thiết kế và tâm lý học ảnh hưởng đến cách chúng ta ra quyết định. Ngoài giờ học, cô tham gia nghiên cứu, thích có dịp tìm hiểu thêm về hành vi và suy nghĩ của con người, và thích đảm nhận vai trò lãnh đạo để gắn kết cộng đồng và tạo ra trải nghiệm ý nghĩa cho người khác.",
+        "major": "Khoa học Nhận thức"
+      },
+      "Adhya Maddukuri": {
+        "position": "Phó chủ tịch đối ngoại",
+        "bio": "Adhya học ngành Quản lý Công nghệ và Thông tin ở UC Santa Cruz, đam mê làm ra công nghệ tạo thay đổi thật trong cuộc sống, từ phát triển phần mềm, AI, phân tích dữ liệu đến chiến lược sản phẩm. Cô đã làm nghiên cứu bậc đại học về AI tạo sinh, tư vấn cho các tổ chức phi lợi nhuận qua 180 Degrees Consulting, và giúp tổ chức các cuộc thi hackathon cùng NVIDIA và ASUS. Hiện cô là thực tập sinh kỹ sư phát triển phần mềm ở Heron Power, xây dựng hệ thống phần mềm và nâng cao kỹ năng kỹ thuật cũng như giải quyết vấn đề.",
+        "major": "Quản lý Công nghệ và Thông tin"
+      },
+      "Fernando Cedillo-Hernandez": {
+        "position": "Trưởng nhóm nghiên cứu",
+        "bio": "Fernando Cedillo-Hernandez học song ngành Sinh học và Khoa học Chính trị ở UCLA, học phụ về Nghiên cứu Y sinh và về Gắn kết Cộng đồng và Thay đổi Xã hội. Anh mang kinh nghiệm nghiên cứu và vận động xã hội vào vai trò Trưởng nhóm nghiên cứu ở VINdicated, với quyết tâm mở rộng sự tiếp cận và bảo vệ công bằng cho những cộng đồng còn thiệt thòi. Ngoài VINdicated, Fernando tham gia các hoạt động lãnh đạo và cộng đồng khắp UCLA, trong đó có việc lên tiếng cho sinh viên nhập cư và sinh viên từ gia đình lao động.",
+        "major": "Sinh học và Khoa học Chính trị"
+      },
+      "Yinrui (Ray) Gan": {
+        "position": "Trưởng nhóm dữ liệu",
+        "bio": "Ray Gan phụ trách hệ thống dữ liệu và AI phía sau bản đồ rủi ro dealer tương tác của VINdicated. Anh thiết kế hệ thống phân loại dùng LLM (mô hình ngôn ngữ lớn, một loại AI) để biến những đánh giá lộn xộn của khách hàng thành tín hiệu rủi ro rõ ràng, có bằng chứng, cho người mua xe. Ray học Khoa học Máy tính và Ngôn ngữ học ở UCLA.",
+        "major": "Khoa học Máy tính và Ngôn ngữ học"
+      },
+      "Evanceline Tang": {
+        "position": "Trưởng nhóm thiết kế kiêm Trưởng nhóm tiếp cận cộng đồng",
+        "bio": "Evanceline là sinh viên năm hai ngành Sinh học ở UCLA. Cô rất thích dùng nghệ thuật và thiết kế để truyền tải thông điệp. Qua tác phẩm của mình, cô mong giúp mọi người hiểu thêm về VINdicated, cũng như những bất công và nguy hiểm vẫn còn tồn tại trong ngành ô tô.",
+        "major": "Sinh học"
+      },
+      "Rouqaya Elbanna": {
+        "position": "Trưởng nhóm học sinh trung học",
+        "bio": "Rouqaya Elbanna là học sinh trung học và là Trưởng nhóm học sinh trung học của VINdicated, nơi cô cố gắng đưa sứ mệnh bảo vệ người tiêu dùng của tổ chức đến với nhiều học sinh hơn. Cô từng là Phó chủ tịch của TEDxAIS Jeddah Youth và được chọn vào chương trình Future Doctors Fellowship của Learn with Leaders, nơi chiến dịch giáo dục sức khỏe của cô về việc chăm sóc người bệnh Alzheimer đoạt giải Thuyết trình hay nhất của khóa. Mơ ước làm bác sĩ, Rouqaya còn là vận động viên bóng chuyền đội tuyển trường và được trao giải Nữ sinh vừa học giỏi vừa chơi thể thao giỏi của trường."
+      },
+      "Daryen Romero": {
+        "position": "Trưởng nhóm viết tài liệu kỹ thuật",
+        "bio": "Daryen Romero học ngành Khoa học Máy tính ở UC Berkeley. Tham gia VINdicated quan trọng với anh vì anh muốn giúp mọi người hiểu tầm quan trọng của việc mua xe và không còn sợ. Anh cũng muốn lên tiếng và giúp mọi người hiểu rằng người ta có thể bị lợi dụng như thế nào nếu là phụ nữ hoặc thuộc chủng tộc khác.",
+        "major": "Khoa học Máy tính"
+      },
+      "Vanessa Phan": {
+        "position": "Trưởng nhóm phân tích dữ liệu",
+        "bio": "Vanessa đang học ngành Kỹ thuật Máy tính, chuyên về Hệ thống Máy tính, và quan tâm đến sự kết hợp giữa phần mềm và kỹ thuật điện, nhất là robot và công nghệ thông minh. Cô là thủ quỹ của Hội Nữ Kỹ sư (Society of Women Engineers) ở UC Santa Cruz, năm nay đã xin được hơn $5,000 tiền tài trợ, và từng làm lập trình viên ở SlothLab. Cô muốn tham gia nghiên cứu nhiều hơn, đào sâu vào từng chủ đề và áp dụng những gì học được để tạo ra giải pháp.",
+        "major": "Kỹ thuật Máy tính"
       },
       "Brisa Gómez": {
-        "position": "Nhà Phân Tích Dữ Liệu",
-        "bio": "Brisa Gómez là sinh viên chuyển trường năm nhất ngành tâm lý học. Lớn lên ở Tijuana, México, họ đam mê nghiên cứu liên quan đến các cộng đồng chưa được đại diện đầy đủ như phụ nữ, người khuyết tật và cộng đồng queer. Họ hy vọng trở thành nhà trị liệu hành vi trong tương lai. Trong thời gian rảnh, họ thích đọc tiểu thuyết lãng mạn nhẹ nhàng và viết sáng tạo."
+        "position": "Trưởng nhóm viết tài liệu kỹ thuật",
+        "bio": "Brisa Gómez là sinh viên năm tư ngành Tâm lý học ở UCLA và là Trưởng nhóm viết tài liệu kỹ thuật ở UCLA. Qua các dự án viết và dịch, Brisa muốn làm ra những tài liệu dễ dùng và không bỏ sót những nhóm người dễ bị tổn thương.",
+        "major": "Tâm lý học"
+      },
+      "Chino Sawatyanont": {
+        "position": "Kỹ sư phần mềm",
+        "bio": "Chino học ngành Kỹ thuật Điện và Máy tính ở UC Berkeley và là kỹ sư phần mềm của nhóm VINdicated ở đó. Anh có nhiều kinh nghiệm kết hợp kiến thức kỹ thuật với việc tạo tác động cho xã hội, trước đây từng tập trung hỗ trợ các cộng đồng khó khăn ở Thái Lan. Chino mong mang cùng nhiệt huyết đó vào sứ mệnh của VINdicated.",
+        "major": "Kỹ thuật Điện và Máy tính"
+      },
+      "William Guo": {
+        "position": "Kỹ sư phần mềm",
+        "bio": "William Guo là sinh viên năm ba ngành Khoa học Máy tính ở UC Santa Cruz và là kỹ sư phần mềm ở VINdicated. Anh thích mày mò và sửa đồ điện tử, chơi game, và tự tay làm các dự án của mình. Chính anh cũng từng trải qua chuyện tìm xe vất vả, và anh nghĩ những kiến thức cơ bản về việc cần xem gì khi mua một món lớn như xe hơi nên dễ tìm hơn cho mọi người.",
+        "major": "Khoa học Máy tính"
+      },
+      "Daniel": {
+        "position": "Kỹ sư dữ liệu",
+        "bio": "Daniel là sinh viên chuyển trường ngành Toán ứng dụng, đến từ Los Angeles, và là kỹ sư dữ liệu ở VINdicated. Anh rất quan tâm đến tài chính cá nhân và việc dạy người khác cách quản lý tiền bạc. Ngoài VINdicated, anh thích tháo ra sửa máy tính, đi bộ đường dài, đạp xe và chạy khắp thành phố. Anh còn mới mê leo núi, nấu ăn và đi lễ hội âm nhạc.",
+        "major": "Toán ứng dụng"
+      },
+      "Chloe Lin": {
+        "position": "Trưởng nhóm tiếp cận cộng đồng",
+        "bio": "Chloe Lin học ngành Sinh học Tích hợp ở UC Berkeley và là Trưởng nhóm tiếp cận cộng đồng ở VINdicated. Cô từng lên tiếng cho phụ nữ và những cộng đồng ít được đại diện, và muốn người mua bình thường hiểu đủ về việc mua và bảo dưỡng xe để tự mình quyết định.",
+        "major": "Sinh học Tích hợp"
+      },
+      "Ian de la Houssaye": {
+        "position": "Trưởng nhóm phần mềm",
+        "bio": "Ian de la Houssaye học ngành Kỹ thuật Cơ khí và là Trưởng nhóm phần mềm của nhóm VINdicated ở UC Berkeley. Anh đam mê làm ra công nghệ giải quyết vấn đề thực tế. Ian từng lập ra và dẫn dắt đội thi robot của trường trung học, giúp đội trở thành một trong những đội mạnh nhất San Diego, đồng thời chỉ đạo việc phát triển phần mềm và hệ thống tự hành của đội. Qua những trải nghiệm này, anh rèn được kỹ năng kỹ thuật, lãnh đạo và làm việc nhóm vững vàng, và mong dùng chúng để thúc đẩy sứ mệnh của VINdicated.",
+        "major": "Kỹ thuật Cơ khí"
+      },
+      "James Cheng": {
+        "position": "Kỹ sư dữ liệu",
+        "bio": "James học ngành Khoa học Dữ liệu và Khoa học Nhận thức ở UC Berkeley và là kỹ sư dữ liệu ở VINdicated. Anh có nhiều kinh nghiệm dạy cả các môn khoa học kỹ thuật lẫn ngôn ngữ, có nền tảng kỹ thuật đa dạng và đã tự làm nhiều dự án riêng. Anh mong dùng những kinh nghiệm này để mang đến góc nhìn riêng và sự chủ động khi giải quyết các vấn đề trong ngành ô tô.",
+        "major": "Khoa học Dữ liệu và Khoa học Nhận thức"
+      },
+      "Bryan Zhang": {
+        "position": "Kỹ sư phần mềm",
+        "bio": "Bryan Zhang học ngành Khoa học Máy tính ở UCLA. Lúc rảnh, anh thích chơi bóng rổ, bóng chuyền và làm bánh. Anh là lập trình viên của VINdicated.",
+        "major": "Khoa học Máy tính"
+      },
+      "Rahul Puritipati": {
+        "position": "Kỹ sư phần mềm",
+        "bio": "Rahul Puritipati là sinh viên năm nhất ngành Khoa học Máy tính ở UCLA. Lớn lên ở Folsom, California, anh thích xem video tập gym trên TikTok và ngồi sofa làm \"tổng giám đốc\" bất đắc dĩ cho đội 49ers và Kings. Anh đã làm khá nhiều việc thiện nguyện, chủ yếu là làm lại hình ảnh trên mạng cho các cửa hàng địa phương và gây quỹ cho trẻ em nghèo ở Ấn Độ.",
+        "major": "Khoa học Máy tính"
+      },
+      "Jordan Acle": {
+        "position": "Trưởng nhóm dữ liệu",
+        "bio": "Jordan Acle học ngành Khoa học Dữ liệu ở UC Berkeley và là Trưởng nhóm dữ liệu của nhóm VINdicated ở đó, có kinh nghiệm thực tế về học máy, phân tích dữ liệu và kỹ thuật dữ liệu. Hiện anh là thực tập sinh chiến lược sản phẩm ở Innov8AI, góp phần làm một nền tảng AI về sức khỏe lấy sự tin cậy làm trọng tâm. Anh cũng phục vụ cộng đồng UC Berkeley với vai trò cố vấn Khoa học Dữ liệu cho bạn học và người hướng dẫn trong chương trình Hello World, giúp sinh viên mới tự tin và làm quen với trường.",
+        "major": "Khoa học Dữ liệu"
       }
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Kiến thức về xe nên là điều ai cũng biết.",
+      "body": "VINdicated có mặt vì không ai phải dắt theo người \"chống lưng\" chỉ để mua xe cho an toàn."
+    },
+    "zoom": {
+      "label": "Hình ảnh các nhóm VINdicated",
+      "titleLine1": "UCLA, UC Berkeley,",
+      "titleLine2": "và UC Santa Cruz.",
+      "body": "Những sinh viên lo sao cho không ai bước vào dealer mà không có chuẩn bị.",
+      "pause": "Tạm dừng trình chiếu",
+      "play": "Phát trình chiếu",
+      "alts": [
+        "Nhóm VINdicated ở UC Berkeley trên bãi cỏ trước thư viện Doe, phía sau là tháp chuông Campanile",
+        "Tình nguyện viên VINdicated đặt bàn thông tin trong khuôn viên UC Berkeley, bên cạnh băng rôn VINdicated",
+        "Hai tình nguyện viên VINdicated cầm bảng hiệu VINdicated ở UC Berkeley",
+        "Tình nguyện viên VINdicated tại bàn thông tin ở UCLA trong một ngày hội câu lạc bộ đầy nắng",
+        "Nhóm VINdicated ở UC Berkeley chụp hình bên thư viện Doe",
+        "Hai tình nguyện viên VINdicated bên cạnh bảng trưng bày của VINdicated ở UCLA",
+        "Một tình nguyện viên VINdicated chia sẻ tài liệu mua xe miễn phí với một sinh viên ở UCLA",
+        "Nhóm VINdicated ở UC Berkeley dưới tháp chuông Campanile, chụp từ xa hơn",
+        "Một tình nguyện viên VINdicated nói chuyện với một sinh viên UCLA tại bàn",
+        "Một tình nguyện viên VINdicated chỉ vào bảng trưng bày ở UCLA"
+      ]
+    },
+    "photos": {
+      "title": "Các nhóm của chúng tôi",
+      "body": "Sinh viên ở UCLA, UC Berkeley và UC Santa Cruz đặt bàn thông tin, chỉ dạy và nghiên cứu về chuyện mua xe.",
+      "items": [
+        {
+          "alt": "Tình nguyện viên VINdicated đặt bàn thông tin trong khuôn viên UC Berkeley, bên cạnh băng rôn VINdicated"
+        },
+        {
+          "alt": "Hai tình nguyện viên VINdicated cầm bảng hiệu VINdicated ở UC Berkeley"
+        },
+        {
+          "alt": "Tình nguyện viên VINdicated tại bàn thông tin ở UCLA trong một ngày hội câu lạc bộ đầy nắng"
+        },
+        {
+          "alt": "Một tình nguyện viên VINdicated chia sẻ tài liệu mua xe miễn phí với một sinh viên ở UCLA"
+        }
+      ]
+    },
+    "mission": {
+      "title": "Hiểu biết. Tự tin. Đòi lại công bằng.",
+      "body": "Đây là khẩu hiệu của chúng tôi, và cũng là thứ tự chúng tôi làm việc.",
+      "items": [
+        {
+          "title": "Hiểu biết",
+          "body": "Chúng tôi dịch những chiêu trò của dealer ra lời lẽ đơn giản, vì phần lớn các chiêu đó chỉ hiệu quả với người chưa từng nghe tới."
+        },
+        {
+          "title": "Tự tin",
+          "body": "Biết đủ để tự đi một mình, và dám bỏ về khi thấy giao dịch không ổn."
+        },
+        {
+          "title": "Đòi lại công bằng",
+          "body": "Nghiên cứu ghi lại những gì người mua xe phải trải qua, để dùng nó thay đổi chính sách."
+        }
+      ]
+    },
+    "story": {
+      "title": "Vì sao Rana lập ra VINdicated",
+      "body": "Rana Darwich lập ra VINdicated sau ba lần mua xe rất khác nhau nhưng đều hỏng theo đúng một kiểu: người bán trông chờ vào việc cô không biết luật.",
+      "quote": "\"Tôi mong rằng dù người bước vào là một cô gái 19 tuổi hay một người đàn ông 50 tuổi, các anh chị cũng đối xử với ai cũng tôn trọng.\"",
+      "quoteCite": "Rana Darwich, người sáng lập",
+      "strikes": [
+        {
+          "n": "01",
+          "tag": "18 tuổi · mua xe của người quen",
+          "title": "Chiêu lừa pink slip",
+          "body": "Một người bạn của gia đình bắt cô chờ ba tháng mới chịu bán xe, rồi nói cô không cần pink slip (giấy chủ quyền xe). Nếu giấy chủ quyền không đứng tên bạn, thì về mặt pháp lý chiếc xe không phải của bạn, bất kể bạn đã trả bao nhiêu tiền."
+        },
+        {
+          "n": "02",
+          "tag": "Facebook Marketplace",
+          "title": "Đổi giọng liền",
+          "body": "Cuộc nói chuyện vẫn bình thường cho đến khi người bán nhận ra cô là phụ nữ. Ông ta xúc phạm cô rồi chặn luôn. Sau này, khi cô nhắn tin cho người bán dưới tên \"Randall\" và nhờ em trai gọi điện, cô lại được giá tốt hơn."
+        },
+        {
+          "n": "03",
+          "tag": "Tháng 4 năm 2025 · dealer",
+          "title": "Cái ngăn kéo bị khóa",
+          "body": "Dealer nói sổ bảo trì xe \"nằm trong ngăn kéo bị khóa\", và buổi kiểm tra 300 điểm như đã hứa bị rút còn 150. Rồi họ đưa cô một hợp đồng vay với APR (lãi suất mỗi năm) 30% dù cô trả tiền mặt, lại có điều khoản trọng tài thay vì cách để hủy hợp đồng. Cô nhận ra ngay, từ chối, và báo cáo người bán hàng đó."
+        }
+      ]
+    },
+    "video": {
+      "label": "Rana Darwich, người sáng lập VINdicated, kể vì sao cô lập ra VINdicated, quay tại UC Berkeley",
+      "play": "Phát video của người sáng lập, 34 giây",
+      "length": "0:34",
+      "title": "Nghe chính Rana kể.",
+      "body": "Rana kể vì sao cô lập ra VINdicated và nó dành cho ai, quay tại UC Berkeley.",
+      "name": "Rana Darwich",
+      "role": "Người sáng lập kiêm Chủ tịch, VINdicated"
+    },
+    "ai": {
+      "title": "Giờ kẻ lừa đảo cũng dùng AI.",
+      "body": "Làm website dealer giả, hình xe rao bán và giấy tờ giả ngày càng dễ. Đây là chuyện đã xảy ra với một người mua hồi tháng 9.",
+      "steps": [
+        {
+          "title": "Tin rao trông rất bình thường",
+          "body": "Một chiếc SUV giá hợp lý hiện lên trên Facebook Marketplace, còn được trả tiền quảng cáo để nhiều người thấy hơn."
+        },
+        {
+          "title": "Dealer là đồ giả",
+          "body": "Kẻ lừa đảo sao chép một dealer thật, đến cả giấy tờ, chỉ bỏ bớt một chữ trong tên."
+        },
+        {
+          "title": "Ngân hàng trả tiền cho dealer giả",
+          "body": "Một công ty cho vay lớn duyệt khoản vay và chuyển khoản $36,240 cho dealer giả."
+        },
+        {
+          "title": "Chiếc xe không bao giờ tới",
+          "body": "Một thiết bị định vị giả cho thấy chiếc xe đang chạy xuyên nước Mỹ. Nó \"tới nơi\" ở một con đường trống trơn."
+        }
+      ],
+      "source": "Dựa theo bài viết của Caleb Jacobs trên The Drive, tháng 9 năm 2026.",
+      "saveStat": "$0",
+      "saveTitle": "Anh ấy không phải trả khoản vay đó.",
+      "saveBody": "Vì đã giữ lại mọi tin nhắn và giấy tờ, người mua dùng được quy định FTC Holder Rule (của Ủy ban Thương mại Liên bang Mỹ) để thoát khỏi khoản vay. Phần lớn mọi người không biết có quy định này.",
+      "saveCta": "Tìm hiểu quyền của bạn",
+      "tipsTitle": "Trước khi trả tiền cho bất kỳ ai",
+      "tips": [
+        "Tìm tên dealer trên mạng kèm chữ \"scam\" (lừa đảo), \"review\" (đánh giá) hoặc \"complaint\" (khiếu nại).",
+        "Đừng tin một dealer chỉ vì đánh giá tốt. Website giả có thể mượn đánh giá của dealer thật.",
+        "Đòi xem tận mắt chiếc xe và bãi xe. Nếu họ từ chối, bỏ đi.",
+        "Ở xa quá không tới được? Nhờ dịch vụ kiểm tra xe tận nơi. Người bán thật sẽ không ngại.",
+        "Đừng bao giờ trả trước nếu họ chỉ nhận chuyển khoản ngân hàng (wire transfer)."
+      ],
+      "ftcCta": "Đọc cảnh báo của FTC",
+      "reportCta": "Báo cáo lừa đảo"
+    },
+    "quote": {
+      "text": "Ai rồi cũng có lúc bị lợi dụng. Chúng tôi muốn bạn nhận ra khi chuyện đó đang xảy ra.",
+      "cite": "Ý tưởng đằng sau VINdicated"
+    },
+    "provide": {
+      "title": "Chúng tôi có gì cho bạn",
+      "body": "Bạn không cần đăng ký, và chúng tôi không bán gì cả.",
+      "items": [
+        {
+          "title": "Buổi học",
+          "body": "Các buổi học trong cộng đồng về vay tiền, sửa xe và quyền của bạn ở dealer."
+        },
+        {
+          "title": "Hướng dẫn",
+          "body": "Hướng dẫn kiểm tra xe từng bước, danh sách dấu hiệu nguy hiểm, câu nói sẵn và giải thích về vay tiền."
+        },
+        {
+          "title": "Danh sách thợ máy",
+          "body": "Danh sách thợ máy được cộng đồng kiểm chứng, không coi thường bạn và không ép bạn làm thêm."
+        },
+        {
+          "title": "Dự án nghiên cứu",
+          "body": "Mười một nhóm sinh viên làm app, công cụ dữ liệu, nghiên cứu và nội dung."
+        }
+      ],
+      "projectsLink": "Xem các dự án"
+    },
+    "cta": {
+      "title": "Cùng chúng tôi làm cho việc mua xe công bằng hơn.",
+      "body": "Tham gia một nhóm, làm một dự án nghiên cứu, hoặc mang một buổi học về trường bạn.",
+      "primary": "Tham gia",
+      "secondary": "Gặp đội ngũ"
+    }
+  },
+  "teamPage": {
+    "hero": {
+      "title": "Cùng chung một nỗi bực mình.",
+      "body": "Gặp gỡ các sinh viên, nhà nghiên cứu và những người bắt tay làm ra VINdicated ở ba trường UC."
+    },
+    "filterLabel": "Lọc đội ngũ theo trường",
+    "filters": {
+      "all": "Tất cả",
+      "leadership": "Ban lãnh đạo",
+      "ucla": "UCLA",
+      "ucb": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "readMore": "Đọc thêm",
+    "showLess": "Thu gọn",
+    "watchLabel": "Xem video giới thiệu của {name}",
+    "watch": "Gặp {name}",
+    "dialogLabel": "Video thành viên",
+    "close": "Đóng video",
+    "socials": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "website": "Trang web"
+    },
+    "cta": {
+      "title": "Bạn muốn cùng tham gia không?",
+      "body": "Chúng tôi đang tìm người làm nghiên cứu, lập trình, thiết kế, và những người thích chỉ dạy. Nếu bạn muốn chuyện mua xe công bằng hơn, hãy liên lạc với chúng tôi.",
+      "button": "Liên lạc với chúng tôi"
+    }
+  },
+  "researchPage": {
+    "hero": {
+      "title": "Mười một dự án trong bốn nhóm.",
+      "body": "Sinh viên ở các nhóm của chúng tôi làm app, phân tích dữ liệu, nghiên cứu và làm nội dung để mọi người mua xe, vay mua xe và sửa xe mà không bị lợi dụng."
+    },
+    "navLabel": "Các nhóm dự án",
+    "status": "Đang tuyển thành viên",
+    "skillsLabel": "Kỹ năng",
+    "membersLabel": "Số người trong nhóm",
+    "chapters": {
+      "ucla": "UCLA",
+      "berkeley": "UC Berkeley",
+      "ucsc": "UC Santa Cruz"
+    },
+    "tracks": {
+      "app": {
+        "title": "Làm app",
+        "body": "Chúng tôi làm những app giúp mọi người học về xe và mua xe an toàn.",
+        "projects": [
+          {
+            "name": "Dự án Duolingo",
+            "desc": "Một app giống Duolingo, nhưng thay vì học ngoại ngữ, bạn học về xe và cách xe hoạt động.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 đến 4 người",
+            "join": "Tham gia Duolingo"
+          },
+          {
+            "name": "Dự án Marketplace",
+            "desc": "Một chỗ mua bán giống Facebook Marketplace, nhưng chỉ dành cho xe và phụ tùng, có sẵn bước xác minh để bớt lừa đảo.",
+            "skills": [
+              "Swift",
+              "SwiftUI",
+              "React Native",
+              "Expo"
+            ],
+            "members": "2 đến 4 người",
+            "join": "Tham gia Marketplace"
+          }
+        ]
+      },
+      "data": {
+        "title": "Dữ liệu",
+        "body": "Chúng tôi biến dữ liệu công khai lộn xộn thành công cụ người mua xe dùng được.",
+        "projects": [
+          {
+            "name": "Dự án Crosscheck",
+            "desc": "Gom điểm an toàn từ nhiều chương trình thử nghiệm lại một chỗ để bạn so sánh các dòng xe cạnh nhau.",
+            "skills": [
+              "APIs",
+              "Thu thập dữ liệu từ website",
+              "Thống kê"
+            ],
+            "members": "5 người",
+            "join": "Tham gia Crosscheck"
+          },
+          {
+            "name": "Dự án Carcam",
+            "desc": "Chụp hình chỗ xe bị hư, nó sẽ ước tính sửa hết bao nhiêu, và có thật sự cần sửa không.",
+            "skills": [
+              "API của mô hình AI đa phương thức",
+              "Đánh giá dữ liệu"
+            ],
+            "members": "5 người",
+            "join": "Tham gia Carcam"
+          },
+          {
+            "name": "Dự án Price Is Right",
+            "desc": "Cho bạn xem đời xe, số dặm đã chạy và lịch sử của một chiếc xe, rồi bạn đoán giá. Đáp án đúng lấy từ tin rao bán thật.",
+            "skills": [
+              "Thống kê cơ bản",
+              "Học máy"
+            ],
+            "members": "5 người",
+            "join": "Tham gia Price Is Right"
+          }
+        ]
+      },
+      "research": {
+        "title": "Nghiên cứu",
+        "body": "Nghiên cứu thực địa và pháp lý về lý do việc mua xe hay gặp trục trặc và cách khắc phục.",
+        "projects": [
+          {
+            "name": "Dự án Spanish Lang",
+            "desc": "Nghiên cứu xem ngôn ngữ và cách giao tiếp ảnh hưởng thế nào đến việc người mua có hiểu quá trình mua xe hay không.",
+            "skills": [
+              "Nghiên cứu định tính",
+              "Phân tích văn bản và giấy tờ"
+            ],
+            "members": "4 đến 6 người",
+            "join": "Tham gia Spanish Lang"
+          },
+          {
+            "name": "Dự án Price Gaps",
+            "desc": "Nghiên cứu cách người mua kể lại và hiểu các chiêu bán hàng: người bán nói chuyện với họ ra sao, thuyết phục thế nào, ép đến đâu, có rõ ràng không, và chuyện lòng tin.",
+            "skills": [
+              "Nghiên cứu định tính",
+              "Phân tích theo chủ đề"
+            ],
+            "members": "4 đến 6 người",
+            "join": "Tham gia Price Gaps"
+          },
+          {
+            "name": "Dự án Legal",
+            "desc": "Tìm hiểu các luật của California bảo vệ người mua hoặc người có xe, và làm một bản hướng dẫn dễ hiểu cho ai bị tai nạn, gặp rắc rối với dealer, bị lừa, đi sửa xe hoặc gặp vấn đề khác với xe.",
+            "skills": [
+              "Nghiên cứu luật và giấy tờ",
+              "Viết"
+            ],
+            "members": "6 đến 10 người",
+            "join": "Tham gia Legal"
+          }
+        ]
+      },
+      "outreach": {
+        "title": "Tiếp cận cộng đồng và nội dung",
+        "body": "Chúng tôi mang những gì mình biết đến với người cần nó.",
+        "projects": [
+          {
+            "name": "Dự án Comics",
+            "desc": "Vẽ truyện tranh về những chiêu lừa thường gặp khi mua xe.",
+            "skills": [
+              "Minh họa",
+              "Vẽ"
+            ],
+            "members": "2 đến 3 người",
+            "join": "Tham gia Comics"
+          },
+          {
+            "name": "Dự án Spanish",
+            "desc": "Làm bài đăng mạng xã hội vui nhộn cho người nói tiếng Tây Ban Nha (kiểu chơi chữ và Spanglish) và xem lại bản dịch tiếng Tây Ban Nha của website.",
+            "skills": [
+              "Tiếng Tây Ban Nha"
+            ],
+            "members": "2 đến 3 người",
+            "join": "Tham gia Spanish"
+          },
+          {
+            "name": "Dự án Booklet",
+            "desc": "Làm một cuốn hướng dẫn ngắn về những điều cơ bản về xe.",
+            "skills": [
+              "Tìm tài liệu trên mạng",
+              "Viết",
+              "Thiết kế"
+            ],
+            "members": "3 đến 5 người",
+            "join": "Tham gia Booklet"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "Chưa có kinh nghiệm? Không sao.",
+      "body": "Bạn sẽ học dùng công cụ cùng với nhóm. Quan trọng là bạn tò mò và có vài tiếng mỗi tuần.",
+      "button": "Đăng ký vào một dự án"
+    }
+  },
+  "inspectionPage": {
+    "hero": {
+      "title": "Đừng mua xe mà bỏ qua bước này.",
+      "body": "PPI (pre-purchase inspection, kiểm tra xe trước khi mua) là việc có ích nhất bạn có thể làm trước khi mua xe cũ. Tốn $100–200 nhưng có thể giúp bạn tiết kiệm cả ngàn đô.",
+      "ctaPrimary": "Cách hẹn làm PPI",
+      "ctaSecondary": "Làm ở đâu"
+    },
+    "what": {
+      "title": "Kiểm tra xe trước khi mua là gì?",
+      "body": [
+        "PPI là khi bạn trả tiền cho một ",
+        {
+          "b": "thợ máy độc lập"
+        },
+        ", không phải người bán, không phải dealer, để kiểm tra xe trước khi mua. Một lần PPI tốt tốn khoảng ",
+        {
+          "b": "$100–$200"
+        },
+        " và là cơ hội tốt nhất để phát hiện vấn đề trước khi bạn ký bất cứ thứ gì."
+      ],
+      "notTitle": "PPI không giống như",
+      "nots": [
+        {
+          "title": "Kiểm tra của người bán",
+          "body": "Họ đang muốn bán xe cho bạn."
+        },
+        {
+          "title": "Tự bạn nhìn qua",
+          "body": "Bạn không phải thợ máy được đào tạo."
+        },
+        {
+          "title": "Lái thử",
+          "body": "Bạn không thấy được chuyện gì đang xảy ra dưới nắp capo."
+        }
+      ]
+    },
+    "engine": {
+      "title": "Tự mình kiểm tra.",
+      "body": "Bấm vào bộ phận nào đang sáng, hoặc bắt đầu kiểm tra có hướng dẫn. Chúng tôi sẽ phóng to, chỉ bạn từng bước và đếm giúp bạn.",
+      "progress": "Đã kiểm tra {n}/{total}",
+      "start": "Bắt đầu kiểm tra có hướng dẫn",
+      "imageAlt": "Hình vẽ khoang máy xe có ghi tên các bộ phận, gồm hộp cầu chì, ống hút gió, bình dầu thắng, bugi, bình điện, bình nước làm mát, két nước và quạt",
+      "inspect": "Kiểm tra {part}",
+      "close": "Đóng",
+      "of": "{n}/{total}",
+      "how": "Cách kiểm tra",
+      "back": "Quay lại",
+      "markChecked": "Đánh dấu đã xem →",
+      "nextPart": "Bộ phận tiếp theo →",
+      "severity": {
+        "easy": "Dễ kiểm tra",
+        "watch": "Xem kỹ",
+        "red": "Dấu hiệu nguy hiểm nghiêm trọng",
+        "know": "Cần biết"
+      },
+      "doneTitle": "Kiểm tra xong rồi.",
+      "doneBody": "Bạn đã xem hết 9 bộ phận. Chỗ nào bạn đánh dấu là câu hỏi cho thợ máy, hoặc là lý do để trả giá.",
+      "reset": "Làm lại từ đầu",
+      "parts": [
+        {
+          "t": "Hộp cầu chì",
+          "sub": "Chiếc hộp giữ an toàn cho điện trong xe",
+          "what": "Hộp cầu chì chứa những miếng an toàn nhỏ gọi là cầu chì, bảo vệ từng mạch điện. Khi có sự cố, cầu chì sẽ đứt để ngăn hư hại, giống như cầu dao điện trong nhà.",
+          "steps": [
+            "Nhờ họ mở nắp. Tìm cầu chì bị đứt; thanh kim loại bên trong sẽ bị gãy.",
+            "Tìm cầu chì không khớp. Cầu chì 30 amp cắm vào chỗ 10 amp nghĩa là có người đã lách qua một lỗi điện, rất nguy hiểm.",
+            "Xem có vết cháy, chỗ bị chảy nhựa, hay mùi khét không.",
+            "Xem có bụi bẩn, vết nước hay rỉ sét không. Bên trong phải sạch và khô.",
+            "Xem dây điện có lộn xộn, quấn băng keo hay bị nối chắp vá không. Dây điện gọn gàng từ nhà máy mới là bình thường."
+          ],
+          "flag": "Dấu hiệu nguy hiểm: cầu chì đứt hoặc không khớp, vết cháy, dây điện lộn xộn đều cho thấy xe đã có lỗi điện, loại lỗi khó tìm và tốn kém nhất trên xe cũ."
+        },
+        {
+          "t": "Ống hút gió và lọc gió",
+          "sub": "Nơi máy xe lấy không khí",
+          "what": "Cái ống lớn có gân dẫn không khí từ hộp lọc gió vào máy. Trong hộp đó có một miếng lọc bằng giấy hoặc mút để chặn bụi và rác.",
+          "steps": [
+            "Nhìn dọc theo ống xem có vết nứt, rách, hay kẹp bị lỏng không.",
+            "Tìm hộp lọc gió mà ống nối vào và mở ra nếu được (thường có 2 đến 4 cái kẹp).",
+            "Đưa miếng lọc lên chỗ sáng. Sạch thì màu xám nhạt hoặc trắng; bẩn thì xám đậm hoặc đen."
+          ],
+          "flag": "Lọc gió bị nghẹt nặng trên một chiếc xe \"bảo trì đầy đủ\" là dấu hiệu nguy hiểm: hoặc sổ bảo trì không đầy đủ, hoặc người bán đang nói quá. Lọc gió chỉ $15 đến $30 và nên thay mỗi 15,000 đến 30,000 dặm."
+        },
+        {
+          "t": "Bình dầu thắng",
+          "sub": "Bình chứa dầu thắng",
+          "what": "Bình nhựa trong mờ này cấp dầu cho hệ thống thắng. Dầu thắng hút ẩm theo thời gian, làm thắng dần dần kém ăn hơn.",
+          "steps": [
+            "Nhìn mức dầu qua thành bình. Mức dầu phải nằm giữa MIN và MAX.",
+            "Xem màu. Trong đến vàng hổ phách nhạt là tốt; nâu đậm là đã quá hạn thay.",
+            "Mức dầu thấp có thể là má thắng đã mòn hoặc bị rò rỉ. Hỏi lần cuối làm thắng là khi nào.",
+            "Khi lái thử, đạp thắng phải thấy chắc chân, không mềm hay lún như đạp lên miếng mút."
+          ],
+          "flag": "Dấu hiệu nguy hiểm: đạp thắng thấy mềm, hoặc dầu vừa đen vừa thấp, nghĩa là phải sửa thắng trước khi mua."
+        },
+        {
+          "t": "Bugi và cuộn đánh lửa",
+          "sub": "Thứ làm từng xi-lanh nổ máy",
+          "what": "Bugi đốt cháy xăng trong từng xi-lanh. Trên đa số máy đời mới, bugi nằm dưới cuộn đánh lửa, chính là mấy cái chụp màu đỏ trên máy này.",
+          "steps": [
+            "Xem các chụp cuộn đánh lửa có bị nứt hay hư không.",
+            "Nhờ thợ máy xem trong lỗ bugi có đọng nhớt không, dấu hiệu gioăng bị rò.",
+            "Khi lái thử, để ý máy nổ không đều lúc đứng yên, xe rung, hay bị khựng khi tăng ga.",
+            "Hỏi lần cuối thay bugi là khi nào. Nhiều loại cần thay khoảng 60,000 đến 100,000 dặm."
+          ],
+          "flag": "Máy bị bỏ máy hoặc có nhớt trong lỗ bugi là chỗ cần sửa mà bạn có thể dùng để trả giá. Đèn check engine nhấp nháy nghĩa là máy đang bỏ máy: dừng lái thử ngay."
+        },
+        {
+          "t": "Nắp đổ nhớt",
+          "sub": "Đáng mở ra xem",
+          "what": "Nắp đổ nhớt là chỗ đổ nhớt mới vào. Mở ra chỉ mất hai giây, và những gì bạn thấy bên trong cho biết những điều mà que thăm nhớt không cho biết được.",
+          "steps": [
+            "Vặn ngược chiều kim đồng hồ rồi nhấc ra. Xem mặt dưới nắp và bên trong miệng đổ.",
+            "Tìm cặn màu trắng hoặc kem, bọt, hay chất bám tụ lại.",
+            "Ngửi nhanh bên trong. Phải có mùi nhớt, không có mùi hóa chất hay mùi ngọt."
+          ],
+          "flag": "Dấu hiệu nguy hiểm nghiêm trọng: cặn trắng sệt trông như sốt mayonnaise là nhớt bị lẫn nước làm mát, thường do hỏng gioăng mặt máy. Sửa có thể tốn hơn $3,000. Bỏ đi hoặc trả giá thật mạnh.",
+          "flag2": "Cũng để ý: cặn đặc quánh như hắc ín. Nghĩa là máy đã chạy rất lâu không thay nhớt, làm giảm tuổi thọ máy."
+        },
+        {
+          "t": "Bình điện",
+          "sub": "Xem cọc bình và ngày sản xuất",
+          "what": "Bình điện 12 volt cấp điện cho máy đề và toàn bộ đồ điện tử. Đa số dùng được 3 đến 5 năm, thay mới tốn $100 đến $250.",
+          "steps": [
+            "Tìm nhãn ghi ngày ở trên mặt hoặc bên hông bình.",
+            "Xem các cọc bình có lớp gỉ trắng, xanh dương hoặc xanh lá như bông không.",
+            "Xem vỏ bình có bị phồng, nứt hay chảy nước không."
+          ],
+          "flag": "Dấu hiệu nguy hiểm: gỉ nhiều, bình đã 4 năm trở lên, hoặc vỏ bị phồng. Bình nhìn rõ là cũ thì đòi bớt $150 đến $250 là hợp lý."
+        },
+        {
+          "t": "Bình nước làm mát",
+          "sub": "Kiểm tra khi máy nguội",
+          "what": "Bình nước làm mát là một bình nhựa trong mờ chứa nước làm mát của máy. Bạn có thể xem mà không cần mở nắp.",
+          "steps": [
+            "Nhìn qua thành bình để thấy mức nước.",
+            "Xem mức nước có nằm giữa vạch MIN và MAX không.",
+            "Xem màu. Nước làm mát phải có màu xanh lá, cam, hồng hoặc xanh dương tươi.",
+            "Chỉ mở nắp khi máy đã nguội hẳn. Nước làm mát nóng đang có áp suất có thể gây bỏng nặng."
+          ],
+          "flag": "Dấu hiệu nguy hiểm: nước làm mát màu nâu hoặc màu rỉ sét là xe bị bỏ bê. Nước đục như sữa hoặc có bọt là nhớt đã lẫn vào, tức hỏng gioăng mặt máy, tốn $1,500 đến hơn $3,000."
+        },
+        {
+          "t": "Dây curoa tổng",
+          "sub": "Kéo hầu hết các bộ phận phụ của máy",
+          "what": "Dây curoa tổng (serpentine belt) kéo máy phát điện, trợ lực tay lái, máy lạnh và bơm nước. Nếu nó đứt khi đang chạy, bạn mất hết những thứ đó cùng lúc.",
+          "steps": [
+            "Khi máy tắt, tìm sợi dây rộng, dẹt, có gân, vòng quanh mấy cái puli ở phía trước máy.",
+            "Xem mặt có gân. Những vết nứt nhỏ giữa các gân là dấu hiệu đầu tiên của dây bị lão hóa.",
+            "Xem mặt lưng trơn. Nếu bóng loáng như tráng men là dây đang bị trượt.",
+            "Nhờ thợ máy ước tính dây còn dùng được bao lâu."
+          ],
+          "flag": "Ảnh hưởng đến giá: dây mới tốn $75 đến $200 cả công. Nếu thấy mòn, dùng nó để trả giá; không cần vì vậy mà bỏ không mua."
+        },
+        {
+          "t": "Két nước và quạt",
+          "sub": "Hệ thống giữ cho máy không bị quá nóng",
+          "what": "Két nước nằm ở phía trước nhất. Nước làm mát nóng chảy qua nó, và gió thổi qua các lá tản nhiệt làm mát nước trước khi nước quay về máy. Quạt hút thêm gió khi xe đứng yên.",
+          "steps": [
+            "Khi máy nguội, xem các lá tản nhiệt có bị cong, nứt, hay có cặn khô màu xanh lá, cam hoặc hồng không.",
+            "Xem quanh đáy két và các ống có chỗ ướt hay vết nước làm mát không.",
+            "Nổ máy và để chạy không tải vài phút. Quạt phải tự bật lên.",
+            "Để ý đồng hồ nhiệt độ khi lái thử. Kim phải nằm trong vùng bình thường."
+          ],
+          "flag": "Dấu hiệu nguy hiểm: rò nước làm mát ở đâu cũng phải sửa trước khi mua. Két nước bị nứt tốn $300 đến $900, còn máy bị quá nóng khi lái thử là cảnh báo nghiêm trọng."
+        }
+      ]
+    },
+    "where": {
+      "title": "Làm PPI ở đâu.",
+      "recommended": "Nên dùng",
+      "cards": [
+        {
+          "title": "Dịch vụ kiểm tra xe độc lập",
+          "paras": [
+            [
+              {
+                "b": "Lemon Squad"
+              },
+              " (lemonsquad.com): Kiểm tra tận nơi, 110 điểm. Giá: $150–250."
+            ],
+            [
+              {
+                "b": "CARCHEX"
+              },
+              " (carchex.com): Tận nơi hoặc tại tiệm, báo cáo chi tiết. Giá: $100–200."
+            ]
+          ]
+        },
+        {
+          "title": "Dealer chính hãng",
+          "paras": [
+            [
+              "Nếu bạn mua một chiếc Honda cũ ở dealer Mitsubishi, ",
+              {
+                "b": "hãy mang xe đến dealer Honda để làm PPI."
+              }
+            ],
+            [
+              "Họ rành hãng xe đó, có đúng máy chẩn đoán, và không được lợi gì từ vụ mua bán. Giá: thường $100–150."
+            ]
+          ]
+        },
+        {
+          "title": "Hội viên AAA",
+          "paras": [
+            [
+              "Nhiều chi nhánh AAA làm PPI miễn phí hoặc giảm giá cho hội viên. Hỏi trung tâm dịch vụ xe AAA gần bạn."
+            ]
+          ]
+        },
+        {
+          "title": "Thợ máy quen đáng tin",
+          "paras": [
+            [
+              "Nếu bạn có thợ máy quen tin được, hỏi họ có làm PPI không. Dấu hiệu nguy hiểm: họ không chịu ghi kết quả ra giấy, làm qua loa, hoặc nói \"nhìn ổn hết\" mà chẳng kiểm tra gì."
+            ]
+          ]
+        }
+      ],
+      "dealersTitle": "Tìm dealer chính hãng",
+      "dealersBody": "Mua Honda cũ ở dealer Mitsubishi? Mang xe đến dealer Honda để làm PPI."
+    },
+    "checks": {
+      "title": "Vì sao bạn trả tiền cho sự an toàn của mình.",
+      "body": "Một người kiểm tra giỏi sẽ xem xe từng hệ thống một. Đây là những gì họ kiểm tra, và vì sao từng phần lại quan trọng.",
+      "items": [
+        {
+          "title": "Máy",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Rò nhớt:"
+              },
+              " Máy có nhỏ giọt nhớt không? Rò nhỏ sẽ thành sửa lớn."
+            ],
+            [
+              {
+                "b": "Rò nước làm mát:"
+              },
+              " Máy quá nóng có thể hỏng rất nhanh và rất tốn tiền."
+            ],
+            [
+              {
+                "b": "Dây curoa cam / xích cam:"
+              },
+              " Nếu nó đứt khi đang chạy, máy có thể hư luôn."
+            ],
+            [
+              {
+                "b": "Mã lỗi đèn check engine:"
+              },
+              " Dù đèn không sáng, thợ máy vẫn đọc được các mã lỗi đã lưu."
+            ],
+            [
+              {
+                "b": "Đo nén máy:"
+              },
+              " Cho thấy độ mòn bên trong máy mà nhìn bằng mắt không thấy được."
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Hộp số: thường là món sửa đắt nhất",
+          "intro": "Sửa hộp số có thể tốn $3,000–$8,000. Người kiểm tra sẽ xem:",
+          "points": [
+            [
+              "Sang số có êm không (cả số tự động lẫn số tay)"
+            ],
+            [
+              "Tình trạng và màu dầu hộp số (phải màu hồng hoặc đỏ trong, không nâu hay có mùi khét)"
+            ],
+            [
+              "Có bị trượt số khi tăng ga không"
+            ],
+            [
+              "Có tiếng lạ khi sang số không"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Thắng",
+          "intro": "",
+          "points": [
+            [
+              {
+                "b": "Độ dày má thắng:"
+              },
+              " Dưới 3mm là phải thay ngay."
+            ],
+            [
+              {
+                "b": "Tình trạng đĩa thắng:"
+              },
+              " Đĩa bị trầy, nứt hay cong vênh làm xe thắng xa hơn mới dừng."
+            ],
+            [
+              {
+                "b": "Dầu thắng:"
+              },
+              " Dầu cũ hút ẩm làm thắng kém ăn."
+            ],
+            [
+              {
+                "b": "Hệ thống ABS:"
+              },
+              " Thắng chống bó cứng cần máy chẩn đoán riêng mới kiểm tra được."
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Hệ thống treo và tay lái",
+          "intro": "Lỗi hệ thống treo ảnh hưởng trực tiếp đến việc điều khiển xe và an toàn khi chạy freeway, và là một trong những lỗi hay bị bỏ sót nhất trong kiểm tra do người bán làm.",
+          "points": [
+            [
+              "Rô-tuyn, rô-tuyn lái và càng A"
+            ],
+            [
+              "Chụp bụi láp (xem có nứt hay mỡ bắn ra xung quanh không)"
+            ],
+            [
+              "Phuộc nhún và giảm xóc"
+            ],
+            [
+              "Tình trạng thước lái"
+            ]
+          ],
+          "outro": []
+        },
+        {
+          "title": "Thân xe và khung: lịch sử tai nạn",
+          "intro": "Báo cáo Carfax (lịch sử xe) có ích nhưng không nói hết. Kiểm tra tận mắt có thể phát hiện:",
+          "points": [
+            [
+              "Khe hở giữa các tấm vỏ xe không đều (dấu hiệu từng làm đồng sau tai nạn)"
+            ],
+            [
+              "Sơn không khớp màu (độ bóng khác nhau = tấm đó đã sơn lại)"
+            ],
+            [
+              "Khung xe bị hư hoặc từng được nắn lại"
+            ],
+            [
+              "Gầm xe bị rỉ sét, nhất là xe từng chạy ở vùng Đông Bắc nước Mỹ"
+            ]
+          ],
+          "outro": [
+            {
+              "b": "Mẹo:"
+            },
+            " Lấy Carfax VÀ kiểm tra tận mắt. Mỗi cái phát hiện những thứ khác nhau."
+          ]
+        }
+      ]
+    },
+    "quote": {
+      "text": "“Người bán hàng không phải bạn bè, không phải người cùng phe, cũng không phải người lo cho quyền lợi của bạn. Họ ăn hoa hồng. Bạn trả càng nhiều, họ kiếm càng nhiều. Không có nghĩa họ là người xấu. Chỉ là bạn cần tự bảo vệ mình.”",
+      "cite": "Rana Darwich, người sáng lập VINdicated"
+    },
+    "schedule": {
+      "title": "Cách hẹn làm PPI.",
+      "stops": [
+        {
+          "title": "Tìm người kiểm tra trước.",
+          "body": "Trước khi bạn mê một chiếc xe. Có sẵn một thợ máy quen thì khi thấy xe ưng ý, bạn không bị cuống."
+        },
+        {
+          "title": "Nói với người bán ngay từ đầu.",
+          "body": "\"Tôi muốn nhờ một thợ máy độc lập kiểm tra xe trước khi mua.\" Người bán nào từ chối là dấu hiệu nguy hiểm; bỏ đi."
+        },
+        {
+          "title": "Bạn mang xe đến thợ máy.",
+          "body": "Với người bán tư nhân, bạn tự lái xe đến đó. Với dealer, hãy thương lượng: \"Tôi muốn lái thử lâu hơn, chạy đến chỗ thợ máy tôi đã hẹn sẵn.\" Bảo họ ghi ra giấy."
+        },
+        {
+          "title": "Lấy báo cáo bằng giấy.",
+          "body": "Đòi ghi ra giấy mọi thứ họ phát hiện, không chỉ nói miệng. Bạn sẽ cần giấy tờ để trả giá và để tự lưu lại."
+        },
+        {
+          "title": "Dùng kết quả để trả giá.",
+          "body": "Thấy chụp bụi láp bị rò? Sửa mất $300-600. Đề nghị người bán bớt giá tương ứng hoặc sửa xong rồi mới bán."
+        },
+        {
+          "title": "Làm PPI xong bạn vẫn có thể không mua.",
+          "body": "Nếu kết quả có vấn đề nghiêm trọng mà người bán không chịu bớt, buổi kiểm tra vẫn đáng tiền. Nó giúp bạn tránh được một khoản lỗ lớn hơn nhiều."
+        }
+      ],
+      "alertTitle": "Quan trọng",
+      "alert": [
+        "Nếu người bán cứ lần lữa không đưa sổ bảo trì, hoặc hứa \"để sau đưa\", hãy hẹn kiểm tra xe trước khi bạn bị mê chiếc xe. ",
+        {
+          "b": "Hẹn kiểm tra trước khi bạn mê xe, đừng đợi sau."
+        }
+      ]
+    }
+  },
+  "fraudPage": {
+    "hero": {
+      "title": "Biết họ đang làm gì.",
+      "body": "Những chiêu mà dealer và kẻ lừa đảo thật sự dùng với người mua, và bạn nên nói gì khi gặp phải.",
+      "ctaPrimary": "Xem các dấu hiệu nguy hiểm",
+      "ctaSecondary": "Biết quyền của bạn"
+    },
+    "pinkSlip": {
+      "title": "Giấy này là bằng chứng duy nhất cho thấy xe là của bạn.",
+      "body": "Giấy chủ quyền xe của California (Certificate of Title), còn gọi là \"pink slip\", là giấy tờ pháp lý chứng minh ai là chủ xe. Kéo xuống để xem từng phần một.",
+      "imageAlt": "Mẫu giấy chủ quyền xe của California",
+      "intro": "Sáu ô quyết định chiếc xe có thật sự là của bạn hay không. Kéo xuống để làm nổi bật từng ô.",
+      "items": [
+        {
+          "label": "Giấy chủ quyền",
+          "title": "Giấy chủ quyền xe của California",
+          "body": "Đây là \"pink slip\", do DMV California (sở xe cộ) cấp, và là bằng chứng pháp lý duy nhất cho thấy ai sở hữu chiếc xe. Khi bạn mua xe, người bán ký mặt sau rồi đưa cho bạn. Bạn mang nó đến DMV để sang tên cho mình. Không làm bước này thì về mặt pháp lý chiếc xe không phải của bạn, dù bạn đã trả bao nhiêu.",
+          "say": "Nếu người bán nói bạn không cần pink slip, rằng họ sẽ \"gửi sau\", hoặc nói là \"bị mất rồi\": đừng mua."
+        },
+        {
+          "label": "Chủ xe đăng ký",
+          "title": "Ai là chủ hợp pháp của chiếc xe này",
+          "body": "Tên ở đây phải khớp với người đang bán xe cho bạn. Dấu hiệu nguy hiểm: tên không khớp với giấy tờ tùy thân của người bán, chủ xe đăng ký là một công ty lạ, hoặc người bán nói là bán \"giùm\" người khác mà không có giấy tờ gì.",
+          "say": "Luôn đòi xem giấy tờ tùy thân do chính phủ cấp của người bán. Tên phải khớp đúng y như trên giấy chủ quyền."
+        },
+        {
+          "label": "Lịch sử xe",
+          "title": "Lịch sử xe: Xem chỗ này trước.",
+          "body": "Ô này ghi các đánh dấu của DMV: xe salvage (xe từng bị coi là hư toàn bộ), xe bị hãng mua lại theo lemon law (luật xe lỗi), xe bị ngập nước, hoặc xe bị trộm rồi tìm lại được. Giấy chủ quyền \"salvage\" nghĩa là công ty bảo hiểm đã xác định xe bị hư toàn bộ. Cả giấy salvage lẫn giấy rebuilt (xe làm lại) đều làm xe mất giá rất nhiều.",
+          "say": "Nếu thấy có chữ gì trong ô Lịch sử xe, tìm hiểu cho rõ nó nghĩa là gì trước khi tiếp tục."
+        },
+        {
+          "label": "Số VIN",
+          "title": "Số VIN phải khớp hoàn toàn.",
+          "body": "VIN (số nhận dạng xe) là một mã 17 ký tự riêng cho từng xe, được gán lúc sản xuất. Tự tìm nó trên xe (trên táp-lô và khung cửa) và so với giấy này từng ký tự một. Không khớp có thể là xe bị \"nhân bản VIN\", tức là xe ăn cắp mượn danh tính của một xe hợp pháp.",
+          "say": "Nhập số VIN vào vehiclehistory.gov (miễn phí) hoặc Carfax để xem lịch sử tai nạn và tình trạng giấy chủ quyền trước khi làm gì khác."
+        },
+        {
+          "label": "Phần chữ ký",
+          "title": "Người bán phải ký trước mặt bạn.",
+          "body": "Đây là chỗ chủ xe đăng ký chính thức từ bỏ quyền của họ với chiếc xe. Chủ xe đăng ký phải ký trước mặt bạn lúc bán. Giấy chủ quyền đã ký sẵn nghĩa là đã có người từ bỏ quyền sở hữu, mà bạn không biết là cho ai hay lúc nào.",
+          "say": "Đừng bao giờ chấp nhận: giấy chủ quyền đã ký sẵn, phần chữ ký để trống, hoặc chữ ký của bất kỳ ai không phải chủ xe đăng ký trong hồ sơ."
+        },
+        {
+          "label": "Khai số dặm",
+          "title": "Gian lận số dặm là tội liên bang.",
+          "body": "Luật liên bang buộc người bán khai đúng số dặm thật lúc bán. Quay lùi đồng hồ đo dặm là tội liên bang theo Motor Vehicle Information and Cost Savings Act (luật liên bang về thông tin xe). Kiểm tra số ghi ở đây có khớp với đồng hồ trên xe không, rồi so thêm với báo cáo lịch sử xe.",
+          "say": "Nếu nghi có gian lận: chụp hình chỗ không khớp, đừng mua, và báo cho NHTSA (cơ quan an toàn giao thông liên bang) tại nhtsa.gov."
+        }
+      ]
+    },
+    "tour": {
+      "countIntro": "{total} điểm dừng",
+      "countStep": "{n} / {total}"
+    },
+    "flags": {
+      "title": "Dấu hiệu nguy hiểm khi mua xe.",
+      "body": "Sáu câu dealer hay nói, và bạn nên đáp lại chính xác thế nào. Kéo xuống để xem từng đoạn hội thoại.",
+      "intro": "Những câu bạn sẽ nghe ở dealer.",
+      "dealer": "Dealer",
+      "floor": "Phòng trưng bày",
+      "start": "Kéo xuống để bắt đầu đoạn hội thoại đầu tiên.",
+      "counter": "Dấu hiệu nguy hiểm {n}/{total}",
+      "tag": "Dấu hiệu nguy hiểm {n}",
+      "chip": "Dấu hiệu nguy hiểm",
+      "whatToDo": "Nên làm gì: {text}",
+      "items": [
+        {
+          "title": "Giá rẻ đến khó tin",
+          "body": "Dealer quảng cáo một mức giá đã trừ sẵn cả đống khoản giảm giá: cho quân nhân, giáo viên, khách quen, người mới tốt nghiệp, và nhiều thứ khác. Phần lớn người mua không đủ điều kiện cho hầu hết các khoản đó. Giá trên mạng là để kéo bạn tới, không phải giá bạn thật sự trả.",
+          "todo": "Đòi giá out-the-door (tổng số tiền phải trả, đã gồm mọi thứ) bằng giấy trước khi đến, và hỏi rõ bạn đủ điều kiện cho những khoản giảm nào.",
+          "dealer": "Giá trên mạng đó đã gồm mọi ưu đãi của bên tôi rồi. Anh/chị đủ điều kiện hết mà, đúng không?",
+          "you": "Cho tôi giá out-the-door bằng giấy được không, và tôi đủ điều kiện chính xác những khoản giảm nào?"
+        },
+        {
+          "title": "Những khoản giảm giá biến mất",
+          "body": "Ngồi vào bàn, người bán hỏi bạn một loạt câu: bạn tốt nghiệp đại học chưa, có đi lính không, có phải dân địa phương không, có xe đổi không. Mỗi câu \"không\" là gạch đi một khoản giảm. Đến cuối, giá của bạn đã tăng cả ngàn đô, dù trước đó bạn được nói là đủ điều kiện nhận khoản giảm của hãng.",
+          "todo": "Đòi xem giá quảng cáo ban đầu đặt cạnh giá cuối cùng, kèm từng dòng đã thay đổi và lý do.",
+          "dealer": "Hỏi nhanh vài câu: có đi lính không? Mới tốt nghiệp? Có xe đổi không? ...Không à? Được, để tôi cập nhật lại giá.",
+          "you": "Cho tôi xem giá quảng cáo đặt cạnh giá này, với từng dòng đã đổi và lý do."
+        },
+        {
+          "title": "Phụ kiện vô lý",
+          "body": "Ốc khóa bánh xe, chắn bùn, lớp bảo vệ sơn và những món thêm kiểu vậy bị cộng vào giá dù bạn không hề yêu cầu. Nếu dealer nói đã gắn sẵn trên xe, đó là chỗ để bạn trả giá, không phải lý do để trả tiền.",
+          "todo": "Yêu cầu dealer bỏ bất cứ thứ gì bạn không đòi, hoặc trừ nó ra khỏi giá.",
+          "dealer": "Ốc khóa bánh và lớp bảo vệ sơn đã gắn sẵn trên xe rồi, nên tính vào giá luôn.",
+          "you": "Tôi đâu có đòi mấy thứ đó. Tháo ra, hoặc trừ ra khỏi giá."
+        },
+        {
+          "title": "Phí bịa ra",
+          "body": "Đổ đầy bình xăng, phí làm lại xe (reconditioning), phí CPO (xe cũ được hãng chứng nhận), phí giao xe hay phí dọn xe: những khoản này thường đã được hãng tính vào giá rồi. Tính thêm lần nữa chỉ là cộng thêm lời với một cái tên nghe cho có vẻ chính thức.",
+          "todo": "Hỏi phí nào luật bắt buộc và phí nào bịa ra, rồi đòi bỏ những phí bịa ra.",
+          "dealer": "Có một chút phí làm lại xe và phí giao xe thôi. Bình thường mà.",
+          "you": "Trong mấy phí này, phí nào luật bắt buộc? Phần còn lại bỏ giùm tôi."
+        },
+        {
+          "title": "Phí vận chuyển tính hai lần",
+          "body": "Phí vận chuyển (destination, còn gọi là freight) đã ghi trên tem dán cửa sổ, ngay trên giá MSRP (giá bán lẻ hãng đề nghị). Dealer gian sẽ báo bạn một giá đã gồm phí này, rồi sau đó cộng thêm lần nữa thành một khoản riêng. Nếu thấy phí vận chuyển nằm riêng một dòng, là bạn đang bị tính hai lần.",
+          "todo": "Hỏi phí vận chuyển đã nằm trong giá báo cho bạn chưa, và đòi bỏ nếu nó xuất hiện thêm lần nữa.",
+          "dealer": "Phí vận chuyển tính riêng. Cuối cùng mình cộng vô sau.",
+          "you": "Phí vận chuyển có nằm trong giá anh báo tôi chưa? Vậy thì bỏ cái thứ hai đi."
+        },
+        {
+          "title": "Dealer giả làm bằng AI",
+          "body": "Kẻ lừa đảo sao chép tên, website và giấy tờ của một dealer thật, thường kèm hình ảnh làm bằng AI, rồi lấy tiền cho một chiếc xe không hề có. Cẩn thận với người bán không cho bạn xem xe tận mắt, hoặc chỉ nhận chuyển khoản trước.",
+          "todo": "Đòi xem xe tại bãi của dealer, hoặc nhờ dịch vụ kiểm tra xe tận nơi, trước khi trả bất kỳ đồng nào.",
+          "dealer": "Bên tôi chỉ nhận chuyển khoản. Mai gửi xe đi, đây là link theo dõi của anh/chị!",
+          "you": "Tôi sẽ xem xe tận mắt hoặc nhờ người kiểm tra trước. Không chuyển khoản."
+        }
+      ]
+    },
+    "yoyo": {
+      "label": "Chiêu lừa yo-yo, dạng hoạt hình",
+      "title": "Chiêu lừa yo-yo.",
+      "body": "Còn gọi là spot delivery (giao xe trước, duyệt vay sau). Tiếp tục kéo xuống để xem nó diễn ra thế nào.",
+      "svgLabel": "Một chiếc xe chạy từ dealer về nhà, rồi bị kéo ngược về dealer bằng một sợi dây",
+      "dealership": "DEALER",
+      "home": "NHÀ",
+      "day": "Ngày {n}",
+      "back": "Quay lại dealer",
+      "okContract": {
+        "label": "Đã ký (có điều kiện)",
+        "rate": "APR 6.9%",
+        "pay": "$412/tháng"
+      },
+      "badContract": {
+        "label": "Hợp đồng mới",
+        "rate": "APR 13.9%",
+        "pay": "$498/tháng"
+      },
+      "captions": [
+        {
+          "tag": "Ngày 1",
+          "text": "\"Chúc mừng! Hôm nay chạy xe về luôn đi. Chuyện vay tiền tụi tôi lo xong sau.\""
+        },
+        {
+          "tag": "Một tuần sau",
+          "text": "Một tuần sau, khi bạn đã đổi chiếc xe cũ cho họ, dealer gọi điện."
+        },
+        {
+          "tag": "Giật lại",
+          "text": "\"Bên tôi không duyệt được khoản vay của anh/chị. Anh/chị phải quay lại đây.\""
+        },
+        {
+          "tag": "Giao dịch mới",
+          "text": "Họ muốn bạn ký hợp đồng mới với lãi suất cao hơn, và chiếc xe cũ bạn đổi thì \"đã bán mất rồi\"."
+        },
+        {
+          "tag": "Cách chặn chiêu này",
+          "text": "Đừng bao giờ lái xe đi khi khoản vay chưa được duyệt hoàn toàn, không phải \"có điều kiện\". Đừng bao giờ ký hợp đồng thứ hai tệ hơn."
+        }
+      ]
+    },
+    "fourSquare": {
+      "title": "Cái bẫy bốn ô.",
+      "body": "Một cách thường gặp để giấu giá thật của chiếc xe. Xem chuyện gì xảy ra khi bạn xin trả góp mỗi tháng ít hơn.",
+      "sheetLabel": "Bảng bốn ô của dealer",
+      "tradeIn": "Xe đổi",
+      "price": "Giá xe",
+      "down": "Tiền đặt trước",
+      "monthly": "Tiền trả mỗi tháng",
+      "hidden": "Phần họ không ghi vào ô nào",
+      "months": "{n} tháng",
+      "total": "Số tiền bạn thật sự trả",
+      "financed": "Số tiền vay",
+      "interest": "Tiền lời",
+      "ask": "\"Bớt tiền trả mỗi tháng cho tôi được không?\"",
+      "replay": "Xem lại",
+      "say": "Nên nói: \"Giá out-the-door là bao nhiêu? Tôi muốn bắt đầu từ đó trước khi nói chuyện trả góp.\"",
+      "note": "Số liệu mẫu: vay $19,000 với APR (lãi suất mỗi năm) 8%.",
+      "lines": [
+        "Đây là giá cho anh/chị. $385 một tháng.",
+        "Bớt tiền trả mỗi tháng cho tôi được không?",
+        "Được chứ, để tôi xem... $333!",
+        "Vẫn hơi cao. Bớt nữa được không?",
+        "Tin vui: $296 một tháng! Ký vô đây.",
+        "Tiền trả mỗi tháng giảm thật. Nhưng khoản vay của bạn kéo dài từ 60 lên 84 tháng, và bạn sẽ trả thêm $1,761."
+      ]
+    },
+    "receipt": {
+      "title": "Đọc hóa đơn từng dòng một.",
+      "body": "Bấm vào bất kỳ khoản nào trên hóa đơn mẫu của xe mới này để xem luật có bắt buộc không, có trả giá được không, hay là dấu hiệu nguy hiểm.",
+      "categories": {
+        "req": "Luật bắt buộc",
+        "neg": "Trả giá được",
+        "opt": "Không bắt buộc",
+        "red": "Dấu hiệu nguy hiểm"
+      },
+      "label": "Hóa đơn mẫu của dealer",
+      "heading": "Đơn đặt mua xe",
+      "sub": "Mẫu · SUV cỡ nhỏ đời 2026",
+      "total": "Tổng cộng",
+      "strip": "Bỏ hết những gì bạn có quyền từ chối",
+      "saved": "Bạn vừa tiết kiệm {amount} mà chưa cần trả giá xe.",
+      "whatToSay": "Nên nói: {text}",
+      "note": "Số liệu mẫu để minh họa. Thuế và phí tiểu bang khác nhau tùy thành phố và quận.",
+      "lines": [
+        {
+          "name": "Giá xe",
+          "short": "Giá của chính chiếc xe.",
+          "long": "Mọi thứ bắt đầu từ đây. So giá của vài dealer và trả giá con số out-the-door, đừng trả giá tiền góp mỗi tháng.",
+          "say": "\"Giá out-the-door tốt nhất của anh là bao nhiêu, ghi ra giấy giùm?\""
+        },
+        {
+          "name": "Phí vận chuyển",
+          "short": "Phí chở xe từ nhà máy đến dealer.",
+          "long": "Đây là phí thật của hãng cho xe mới, và đã in sẵn trên tem dán cửa sổ. Nó chỉ được xuất hiện một lần. Thấy hai lần, hoặc thêm một dòng \"freight\" nữa, là dấu hiệu nguy hiểm.",
+          "say": "\"Phí vận chuyển có trên tem rồi. Cho tôi thấy nó chỉ ghi một lần.\""
+        },
+        {
+          "name": "Phí điều chỉnh theo thị trường",
+          "short": "Tiền cộng thêm trên giá ghi trên tem.",
+          "long": "Đây là tiền lời của dealer, không có gì đằng sau cả. Bạn có thể từ chối, hoặc mua ở dealer không tính khoản này.",
+          "say": "\"Tôi không trả phí điều chỉnh theo thị trường. Bỏ ra, không thì tôi đi chỗ khác.\""
+        },
+        {
+          "name": "Phí chuẩn bị xe",
+          "short": "Phí để chuẩn bị xe cho bạn.",
+          "long": "Thường thì hãng đã trả tiền cho dealer để chuẩn bị xe mới trước khi giao, nên tính tiền bạn nữa là ăn hai lần.",
+          "say": "\"Phí chuẩn bị xe hãng trả rồi mà? Bỏ ra giùm tôi.\""
+        },
+        {
+          "name": "Khắc số VIN",
+          "short": "Khắc số VIN lên kính xe.",
+          "long": "Thường làm sẵn rồi nói là bắt buộc. Không phải vậy. Bộ tự làm ở nhà rẻ hơn nhiều, và nhiều hãng bảo hiểm cũng không giảm giá vì nó.",
+          "say": "\"Tôi không yêu cầu khắc VIN. Bỏ ra khỏi giá.\""
+        },
+        {
+          "name": "Bơm bánh xe bằng khí nitơ",
+          "short": "Bơm nitơ thay vì không khí vào bánh xe.",
+          "long": "Không khí vốn đã có khoảng 78% là nitơ. Món này hiếm khi có ích thật sự, là dòng hay được thêm vào cho đội giá.",
+          "say": "\"Bỏ tiền bơm nitơ ra giùm.\""
+        },
+        {
+          "name": "Bảo vệ sơn và nội thất",
+          "short": "Gói phủ hoặc bịt bảo vệ.",
+          "long": "Đây là sản phẩm mua thêm, không bắt buộc. Ở California, mỗi món mua thêm phải ghi riêng với giá riêng, và bạn có thể từ chối bất kỳ món nào.",
+          "say": "\"Gói bảo vệ thì thôi, cảm ơn.\""
+        },
+        {
+          "name": "Hợp đồng bảo hành mở rộng",
+          "short": "Bảo hành sửa chữa ngoài bảo hành của hãng.",
+          "long": "Không bắt buộc, và giá thường trả giá được. Không được bắt mua mới cho vay. Bạn thường có thể mua sau, và mua ở chỗ khác.",
+          "say": "\"Hợp đồng bảo hành thì để sau, giờ tôi không lấy.\""
+        },
+        {
+          "name": "Bảo hiểm GAP",
+          "short": "Trả phần chênh lệch nếu xe hư toàn bộ mà bạn còn nợ nhiều hơn giá trị xe.",
+          "long": "Có thể đáng mua nếu vay nhiều, nhưng không bắt buộc và không được làm điều kiện để cho vay. Hãng bảo hiểm của bạn hoặc credit union (hợp tác xã tín dụng) có thể bán rẻ hơn.",
+          "say": "\"Tôi sẽ mua GAP qua hãng bảo hiểm của tôi. Bỏ ra giùm.\""
+        },
+        {
+          "name": "Phí giấy tờ",
+          "short": "Phí làm giấy tờ của dealer.",
+          "long": "Luật California có giới hạn cho phí này. Thường bạn không trả giá bỏ đi được, nhưng không nên trả quá mức tiểu bang cho phép.",
+          "say": "\"Phí giấy tờ này có nằm trong mức trần của California không?\""
+        },
+        {
+          "name": "Phí bánh xe của California",
+          "short": "Phí tiểu bang cho bánh xe mới.",
+          "long": "Phí tiểu bang thu trên mỗi bánh xe mới bán ra. Không nhiều, và là bắt buộc.",
+          "say": ""
+        },
+        {
+          "name": "Thuế bán hàng",
+          "short": "Thuế bán hàng của tiểu bang và địa phương.",
+          "long": "Bắt buộc, và tùy theo nơi bạn đăng ký xe. Thuế tính trên giá chịu thuế, nên mỗi đồng bạn bớt được trên giá xe cũng làm thuế giảm theo.",
+          "say": ""
+        },
+        {
+          "name": "Phí đăng ký, giấy chủ quyền và bảng số",
+          "short": "Phí của chính phủ trả cho DMV.",
+          "long": "Khoản này nộp cho tiểu bang và là bắt buộc. Đòi bảng kê chi tiết phí DMV và kiểm tra xem có khớp không.",
+          "say": "\"Cho tôi xem chi tiết từng khoản phí DMV được không?\""
+        }
+      ]
+    },
+    "apr": {
+      "title": "Vài điểm APR thật ra tốn bao nhiêu.",
+      "body": "Truth in Lending Act (luật liên bang về minh bạch khi cho vay) nói bạn được xem APR, tức lãi suất mỗi năm của khoản vay, trước khi ký. Kéo mức lãi để thấy vì sao điều đó quan trọng.",
+      "rateLabel": "Lãi suất dealer đưa ra",
+      "rateValue": "APR {rate} phần trăm",
+      "approval": "Mức bạn được duyệt",
+      "capMark": "Mức trần CA {rate}%",
+      "termLabel": "Thời hạn vay",
+      "termOption": "{n} tháng",
+      "approvedLabel": "Lãi suất bên cho vay duyệt cho bạn",
+      "lower": "Giảm lãi suất được duyệt",
+      "raise": "Tăng lãi suất được duyệt",
+      "hint": "Số tiền vay: $15,000.",
+      "monthly": "Tiền trả mỗi tháng",
+      "perMonth": "{amount}/tháng",
+      "interest": "Tiền lời bạn sẽ trả",
+      "totalCost": "Tổng chi phí khoản vay",
+      "car": "Chiếc xe",
+      "interestKey": "Tiền lời",
+      "overTitle": "Cao hơn mức dealer được cộng thêm.",
+      "over": "Nếu bên cho vay duyệt cho bạn {buy}%, luật California chỉ cho dealer cộng thêm tối đa {points} điểm với khoản vay {term} tháng, tức là {cap}%. Đòi xem lãi suất bên cho vay đã duyệt.",
+      "markupTitle": "Dealer đã cộng thêm vào lãi suất của bạn.",
+      "markup": "Bạn phải trả thêm {amount} tiền lời so với mức {buy}% bạn được duyệt. Việc này hợp pháp nếu không vượt mức trần, và bạn có thể trả giá.",
+      "okTitle": "Bằng hoặc thấp hơn mức bạn được duyệt.",
+      "ok": "Có được điều này là nhờ bạn xin duyệt vay trước khi bước vào dealer."
+    },
+    "law": {
+      "title": "Luật pháp đã đứng về phía bạn rồi.",
+      "body": "Phần lớn người mua không biết dealer bị luật bắt buộc phải làm gì. Đây là những gì luật nói, bằng lời lẽ đơn giản, và chính xác bạn nên nói gì khi họ cố lờ đi.",
+      "federalTitle": "Bảo vệ của luật liên bang",
+      "californiaTitle": "Bảo vệ của luật California",
+      "federal": [
+        {
+          "tag": "Truth in Lending Act (TILA)",
+          "title": "Phải cho bạn biết APR trước khi ký. Không có ngoại lệ.",
+          "body": "Luật liên bang buộc dealer cho bạn xem lãi suất mỗi năm (APR), tổng phí vay và tổng chi phí khoản vay trước khi bạn ký bất cứ thứ gì. Với khoản vay $15,000, chênh lệch giữa APR 7% và 30% là hơn $8,000.",
+          "say": "\"Cho tôi xem APR, phí vay và tổng số tiền phải trả ngay bây giờ, trước khi tôi ký.\""
+        },
+        {
+          "tag": "Quy định xe cũ của FTC",
+          "title": "Mỗi xe cũ phải dán Buyers Guide (hướng dẫn người mua) trên cửa sổ.",
+          "body": "Theo luật, mỗi xe cũ trong bãi của dealer phải dán tờ Buyers Guide ghi rõ có bảo hành không, bảo hành gồm những gì, hoặc bán theo kiểu \"as is\" (bán sao để vậy, không bảo hành). FTC (Ủy ban Thương mại Liên bang) có thể phạt dealer đến $51,744 cho mỗi tờ bị thiếu.",
+          "say": "Không thấy tờ dán, hoặc dealer gỡ nó đi trước khi bạn kịp đọc, là vi phạm luật liên bang. Chụp hình lại."
+        },
+        {
+          "tag": "Motor Vehicle Information Act",
+          "title": "Quay lùi đồng hồ dặm là trọng tội liên bang.",
+          "body": "Dealer phải đưa bạn giấy khai số dặm lúc bán. So số trên hợp đồng với đồng hồ trên xe, báo cáo Carfax và sổ bảo trì. Cả ba phải khớp nhau.",
+          "say": "Nếu không khớp: dừng giao dịch. Chụp hình mọi thứ. Báo cho FTC tại reportfraud.ftc.gov."
+        },
+        {
+          "tag": "Fair Credit Reporting Act",
+          "title": "Nếu họ kéo hồ sơ tín dụng của bạn, bạn có quyền xem chính xác họ thấy gì.",
+          "body": "Dealer phải đưa bạn giấy ghi rõ điểm tín dụng chính xác của bạn, công ty tín dụng nào cung cấp, và nó ảnh hưởng thế nào đến điều kiện vay. Biết điểm của mình trước khi bước vào.",
+          "say": "Trước khi đi: lấy báo cáo tín dụng miễn phí ở annualcreditreport.com. Bước vào khi đã biết điểm của mình."
+        }
+      ],
+      "holder": {
+        "tag": "FTC Holder Rule",
+        "title": "Nếu bạn vay qua người bán, bên cho vay cũng có thể phải chịu trách nhiệm.",
+        "body": "Hợp đồng tín dụng tiêu dùng làm qua người bán phải có một thông báo cho phép bạn khiếu nại bên cho vay y như khiếu nại người bán, tối đa bằng số tiền bạn đã trả. Khi vụ mua bán hóa ra là lừa đảo, điều này có thể giúp bạn thoát khỏi khoản vay.",
+        "say": "Giữ lại mọi hóa đơn, tin nhắn và hợp đồng, và liên lạc với bên cho vay bằng văn bản ngay."
+      },
+      "california": [
+        {
+          "tag": "AB68: Hủy hợp đồng",
+          "title": "Bạn có thể hủy mua trong 2 ngày, nhưng phải mua quyền này ngay lúc ký.",
+          "body": "Mọi dealer có giấy phép phải cho bạn mua quyền hủy hợp đồng trong 2 ngày với xe cũ giá $40,000 trở xuống. Giá từ $75 đến 1% giá xe, cộng phí nhận lại xe nếu bạn dùng tới, nhưng nó cho bạn một lối thoát hợp pháp.",
+          "say": "\"Tôi muốn mua quyền hủy hợp đồng trong 2 ngày.\""
+        },
+        {
+          "tag": "AB68: Lãi suất",
+          "title": "Lãi suất dealer cộng thêm có mức trần. Họ không được tính bao nhiêu tùy thích.",
+          "body": "Luật California giới hạn mức dealer cộng thêm vào lãi suất: tối đa 2% với khoản vay trên 60 tháng, tối đa 2.5% với khoản vay ngắn hơn. Xin duyệt vay trước ở ngân hàng hoặc credit union trước khi đến là họ hết cách ép bạn chỗ này.",
+          "say": "Trước khi đi: xin duyệt vay trước. Bước vào với một mức lãi sẵn. Họ phải đưa mức thấp hơn."
+        },
+        {
+          "tag": "AB68: Món mua thêm",
+          "title": "Mỗi món mua thêm phải ghi riêng với giá riêng. Không được gộp.",
+          "body": "Món nào được tính vào khoản vay cũng phải ghi riêng một dòng. Dealer phải cho bạn xem tiền trả mỗi tháng khi có và khi không có từng món tùy chọn. Gộp hết thành một con số lớn rồi gọi đó là \"tiền góp\" là vi phạm luật California.",
+          "say": "\"Tất cả là một gói\" là không hợp pháp. Đòi bảng kê từng món, bằng giấy."
+        },
+        {
+          "tag": "Hành vi bị cấm",
+          "title": "Họ không được bắt bạn mua thêm món gì mới cho vay.",
+          "body": "Không dealer nào được bắt bạn mua bảo hiểm GAP, bảo hành mở rộng, bảo vệ sơn hay bất kỳ món mua thêm nào làm điều kiện để duyệt vay. Nếu người lo phần vay tiền ám chỉ bạn \"phải\" lấy món nào đó mới đủ điều kiện, đó là nói dối, và là phạm luật.",
+          "say": "\"Cho tôi xem bằng giấy chỗ nào ghi đây là điều kiện bắt buộc để được vay.\" Rồi xem họ phản ứng ra sao."
+        }
+      ],
+      "californiaNotice": {
+        "title": "Phần này đang được cập nhật.",
+        "body": "Một luật mới của California, SB 766 (dự luật của Thượng viện tiểu bang), có hiệu lực từ ngày 1 tháng 10 năm 2026. Luật này cho nhiều người mua xe cũ quyền trả lại xe và thay đổi một số quy định bên dưới. Cho đến khi chúng tôi cập nhật các thẻ này, hãy kiểm tra lại chi tiết trước khi dựa vào chúng.",
+        "link": "Đọc tóm tắt luật mới của CalMatters"
+      }
+    },
+    "after": {
+      "title": "Phải làm gì sau khi bị lừa.",
+      "body": "Bấm vào thẻ để lật.",
+      "items": [
+        {
+          "front": "Ghi lại mọi thứ ngay lập tức.",
+          "back": "Ngày, giờ, tên người. Giữ lại hết tin nhắn, email và hợp đồng."
+        },
+        {
+          "front": "Khiếu nại với DMV tiểu bang bạn.",
+          "back": "Phần lớn các tiểu bang có bộ phận bảo vệ người tiêu dùng chuyên về lừa đảo xe cộ."
+        },
+        {
+          "front": "Báo cho FTC.",
+          "back": "Gửi báo cáo tại reportfraud.ftc.gov, nhất là khi bị gian lận số dặm hoặc xe không có Buyers Guide."
+        }
+      ]
+    },
+    "brochure": {
+      "coverAlt": "Bìa tờ gấp của VINdicated",
+      "tag": "Mang theo bên mình",
+      "title": "Tờ gấp của VINdicated.",
+      "body": "Số VIN, chiêu lừa yo-yo, bẫy bốn ô, các món dealer bán thêm và quyền hợp pháp của bạn, gói gọn trong một tờ gấp. Chúng tôi mang theo khi đặt bàn thông tin và khi đến các trường.",
+      "soon": "Bản mới sắp có, tải về miễn phí."
+    },
+    "cta": {
+      "title": "Tiếp theo, tìm hiểu giấy tờ.",
+      "body": "Học tiếp nhé: học cách đọc giấy tờ dealer đưa cho bạn, và mang xe đi kiểm tra trước khi ký.",
+      "primary": "Xem giấy tờ thật được giải thích",
+      "secondary": "Hướng dẫn kiểm tra xe"
+    }
+  },
+  "documentsPage": {
+    "hero": {
+      "title": "Giấy tờ thật. Giải thích rõ.",
+      "body": "Một báo cáo lịch sử xe được giải thích từng điểm một, cùng với tờ Buyers Guide của FTC bằng lời lẽ đơn giản: hai giấy tờ mà ai mua xe cũ cũng cần hiểu.",
+      "ctaPrimary": "Đọc báo cáo lịch sử xe",
+      "ctaSecondary": "Đọc Buyers Guide"
+    },
+    "severity": {
+      "easy": "Dễ kiểm tra",
+      "watch": "Xem kỹ",
+      "red": "Dấu hiệu nguy hiểm nghiêm trọng",
+      "know": "Cần biết"
+    },
+    "tour": {
+      "countIntro": "{total} điểm dừng",
+      "countStep": "{n} / {total}"
+    },
+    "page1": {
+      "title": "Cách đọc Carfax, trang một.",
+      "body": "Số dặm và số VIN, lịch sử tai nạn, độ bền, và lần bảo trì gần nhất. Kéo xuống để xem từng phần và ý nghĩa của nó với giá xe.",
+      "imageAlt": "Trang một của báo cáo lịch sử xe Carfax mẫu cho chiếc Honda Accord 2013",
+      "intro": "Kéo xuống, từng phần của báo cáo sẽ sáng lên.",
+      "items": [
+        {
+          "title": "195,555 dặm: Số dặm cao nghĩa là gì",
+          "body": "Dưới 100k: số dặm thấp, hầu hết các hệ thống còn trong tuổi thọ. 100k–150k: khoảng đẹp nhất; xe đã mất giá xong, các hệ thống vẫn còn tốt. 150k–200k: cao, nhưng một chiếc Honda được chăm kỹ có thể chạy tới 250k–300k hoặc hơn. Chiếc xe này chạy trung bình 10,257 dặm/năm dưới tay Chủ xe 3, thấp hơn nhiều so với mức trung bình 15,000/năm, và Accord 2013 dùng xích cam, không phải dây curoa cam, nên bớt được một khoản sửa lớn khi số dặm cao.",
+          "say": "Khoảng giá: ở 195k dặm, một chiếc Accord EX-L 2013 tình trạng tốt nên vào khoảng $7,000–$10,000 tùy tình trạng."
+        },
+        {
+          "title": "Không có tai nạn được báo cáo: Dấu hiệu tốt thật, nhưng có một điều cần lưu ý",
+          "body": "Không có yêu cầu bồi thường bảo hiểm, biên bản cảnh sát hay báo cáo hư hại từ công ty cho thuê xe qua cả ba đời chủ. Với một chiếc xe 13 năm tuổi chạy 195k dặm, đó là dấu hiệu tốt. Lịch sử sạch tai nạn giúp xe đáng giá hơn $1,000–$2,000 so với xe tương tự có tai nạn được báo cáo.",
+          "say": "Điều cần lưu ý: \"không có tai nạn được báo cáo\" không có nghĩa là chưa từng bị tai nạn. Nhiều vụ tai nạn không được báo cáo, và kiểm tra tận mắt sẽ phát hiện hư hại không được báo."
+        },
+        {
+          "title": "Dự báo độ bền tốt: \"Tốt\" ở 195k dặm nghĩa là gì",
+          "body": "Nằm trong 50% tốt nhất so với xe tương tự có số dặm tương tự, chi phí sửa trung bình $350/năm. Dành tiền cho các khoản sửa sắp tới: bugi ($150–200), dây curoa phụ kiện ($150–300), láp ($300–500), và sau này là xích cam ($800–1,200).",
+          "say": "Ở số dặm này, dành $500–$1,000 mỗi năm cho bảo trì, và tính khoản đó vào giá bạn trả."
+        },
+        {
+          "title": "17 hồ sơ, 3 đời chủ, dùng cá nhân, California",
+          "body": "17 hồ sơ bảo trì nghĩa là xe được bảo trì ở những tiệm có báo về Carfax. Cả ba đời chủ đều dùng cá nhân thì tốt hơn xe dùng cho kinh doanh hay xe của công ty. Xe ở California nghĩa là không bị rỉ sét do muối rải đường ở các tiểu bang miền Đông Bắc.",
+          "say": "Chỉ ở California là điểm cộng. Xe chưa qua những mùa đông rải muối, nên máy móc sẽ bền hơn."
+        },
+        {
+          "title": "Lời miễn trừ của chính báo cáo: Chỉ báo cáo thôi là chưa đủ",
+          "body": "Dòng chữ nhỏ nói có thể có những vấn đề khác chưa được báo cáo, và nên dùng báo cáo cùng với kiểm tra xe và lái thử. Chính báo cáo đang nói thẳng với bạn: đừng chỉ dựa vào nó.",
+          "say": "Báo cáo sạch thôi là chưa đủ. Luôn làm thêm kiểm tra độc lập."
+        },
+        {
+          "title": "Thay nhớt tháng 8 năm 2025: Lần bảo trì gần đây cho thấy gì",
+          "body": "Chủ hiện tại đã bảo trì chiếc xe này đến tận gần 200,000 dặm. Xe được bảo trì đều đặn cho đến lúc bán cho thấy người chủ không giấu một vấn đề đang nặng dần.",
+          "say": "Nên đòi gì: hóa đơn thật, không chỉ bản tóm tắt trên báo cáo. Người bán hiện tại nên giải thích những khoảng trống trong hồ sơ."
+        }
+      ]
+    },
+    "page2": {
+      "title": "Cách đọc Carfax, trang hai.",
+      "body": "Các đánh dấu trên giấy chủ quyền, bảng lịch sử, và bảng đời chủ. Những vấn đề lớn nhất hiện ra ở đây. Kéo xuống để xem từng cái.",
+      "imageAlt": "Trang hai của báo cáo lịch sử xe Carfax mẫu, có bảng lịch sử, lịch sử giấy chủ quyền và bảng đời chủ",
+      "intro": "Giờ tới phần lịch sử quan trọng. Kéo tiếp nhé.",
+      "items": [
+        {
+          "title": "Những mục kiểm tra quan trọng nhất",
+          "body": "Total Loss (hư toàn bộ): bị đánh giá là giá trị thấp hơn chi phí sửa; những xe này rẻ hơn 30–50%. Structural/Frame Damage (hư khung sườn): ảnh hưởng vĩnh viễn đến việc điều khiển và an toàn khi va chạm. Airbag Deployment (túi khí đã bung): cho thấy từng va chạm mạnh. Odometer Rollback (quay lùi đồng hồ dặm): tội liên bang; bỏ đi ngay.",
+          "say": "Bất kỳ đánh dấu nào trong bảng này cũng là điểm trả giá lớn hoặc lý do để thôi luôn. Thấy \"Total Loss\" hay \"Structural Damage\" thì giá đòi phải bớt từ 30% trở lên, không thì bỏ đi."
+        },
+        {
+          "title": "Các đánh dấu trên giấy chủ quyền và ý nghĩa",
+          "body": "Salvage: hư toàn bộ; theo luật không được bán lại nếu chưa làm lại và kiểm tra. Rebuilt/Reconstructed: từng là salvage, đã sửa lại; thường rẻ hơn 20–40% so với giấy chủ quyền sạch. Flood/Fire/Hail (ngập nước/cháy/mưa đá): xe ngập nước đặc biệt rắc rối vì điện bị ăn mòn có thể vài năm sau mới lộ ra. Lemon Law Buyback (hãng mua lại vì xe lỗi): bắt buộc phải cho bạn biết; được phép bán lại nhưng là xe có lỗi đã biết.",
+          "say": "Bảo đảm mua lại chỉ áp dụng cho các đánh dấu có báo về DMV. Nó không áp dụng cho hư hại không được báo, vì vậy bạn vẫn cần kiểm tra tận mắt."
+        },
+        {
+          "title": "Đọc bảng đời chủ: Giữ xe bao lâu quan trọng hơn có mấy đời chủ",
+          "body": "Giữ lâu (mỗi người 3 năm trở lên): người giữ xe nhiều năm thường chăm xe kỹ. Giữ ngắn (dưới 12 tháng): luôn hỏi người bán hiện tại có biết vì sao không. Nhiều đời chủ nối tiếp nhau nhanh: chiếc xe đó có chuyện.",
+          "say": "Lý tưởng nhất: một hoặc hai đời chủ giữ lâu, mỗi năm chạy bằng hoặc ít hơn mức trung bình."
+        },
+        {
+          "title": "Khi có người chỉ giữ xe vài tháng",
+          "body": "Giữ xe ngắn không có nghĩa chắc chắn có vấn đề, nhưng cần được giải thích. Kiểm tra: họ có sửa nhiều lần trong thời gian đó không? Họ mua xe từ đâu? Số dặm có khớp với việc chạy bình thường không?",
+          "say": "Nên nói: \"Tôi thấy người chủ trước chỉ giữ xe này [X] tháng. Anh có biết vì sao họ bán không?\" Để ý cách họ trả lời."
+        },
+        {
+          "title": "Tự tính số dặm",
+          "body": "Lấy số dặm lúc cuối trừ số dặm lúc đầu để ra tổng số dặm của mỗi đời chủ. Chia cho số tháng họ giữ xe rồi nhân 12 để ra số dặm mỗi năm. So với mức trung bình trong ngành là 12,000–15,000 dặm.",
+          "say": "Số dặm mỗi năm cho bạn biết nhiều hơn tổng số dặm về cách chiếc xe đã được dùng."
+        }
+      ]
+    },
+    "guide": {
+      "title": "Tờ dán trên cửa sổ mọi xe cũ. Nó có nghĩa là gì.",
+      "body": "Luật liên bang buộc tờ này phải được dán trên cửa sổ của mọi xe cũ đang bán ở dealer. Phần lớn người mua chỉ liếc qua rồi thôi. Đây là ý nghĩa của từng phần.",
+      "imageAlt": "Tờ Buyers Guide của FTC dán trên cửa sổ xe cũ",
+      "items": [
+        {
+          "tag": "Quan trọng nhất",
+          "title": "\"As is, dealer không bảo hành\"",
+          "body": "Đây là ô quan trọng nhất trên tờ này. Nếu ô \"As Is\" (bán sao để vậy) được đánh dấu, dealer đang nói với bạn rằng nếu có gì hư sau khi bạn lái xe ra khỏi bãi, đó là chuyện của bạn. Họ không nợ bạn tiền hoàn lại hay việc sửa chữa nào.",
+          "say": "Nên làm gì: nếu xe bán \"As Is\", hãy tính rủi ro đó vào giá bạn trả. Dành tiền cho những khoản sửa có thể xảy ra, và làm kiểm tra độc lập trước khi mua. Đó là sự bảo vệ duy nhất của bạn."
+        },
+        {
+          "tag": "Cần biết",
+          "title": "\"Bảo hành của dealer\": toàn phần hoặc giới hạn",
+          "body": "Nếu ô Dealer Warranty được đánh dấu, dealer hứa sẽ lo một số khoản sửa chữa trong một thời gian nhất định. Full Warranty (toàn phần) là 100%. Limited Warranty (giới hạn) là chỉ một phần trăm, nên đọc kỹ mấy con số đó.",
+          "say": "Luôn đòi bảo hành bằng giấy. Tờ này ghi hệ thống nào được bảo hành và trong bao lâu. Bảo hành nói miệng gần như không thể đòi được."
+        },
+        {
+          "tag": "Cần biết",
+          "title": "\"Bảo hành của hãng vẫn còn hiệu lực\"",
+          "body": "Bảo hành gốc của nhà máy chưa hết hạn. Một số bộ phận của xe vẫn được hãng bảo hành, không phải dealer, và điều đó có giá trị.",
+          "say": "Tra điều khoản bảo hành của đúng hãng và dòng xe đó. Xe còn bảo hành hãng thì đáng giá hơn."
+        },
+        {
+          "tag": "Để ý",
+          "title": "Có bán \"hợp đồng dịch vụ\" với giá thêm",
+          "body": "Hợp đồng dịch vụ (bảo hành mở rộng) là không bắt buộc và không miễn phí. Chữ \"có bán\" nghĩa là họ muốn bán nó cho bạn, không phải bạn cần nó.",
+          "say": "Nếu bạn muốn bảo hành mở rộng, so giá của dealer với các công ty khác. Bản của dealer gần như luôn đắt hơn cho cùng mức bảo hành."
+        },
+        {
+          "tag": "Bảo vệ bạn",
+          "title": "\"Lời hứa miệng rất khó đòi\"",
+          "body": "Dòng này là luật liên bang nói thẳng với bạn: đừng tin lời hứa miệng. Bất kỳ lời hứa nào của dealer mà không ghi trong hợp đồng thì về mặt pháp lý coi như không có.",
+          "say": "Nếu họ không chịu ghi ra, cứ coi như họ sẽ không làm."
+        },
+        {
+          "tag": "Cần biết",
+          "title": "\"Hỏi dealer xem thợ máy của bạn có được kiểm tra không\"",
+          "body": "Dòng này cũng là luật liên bang. Bạn không cần xin phép; đó là quyền của bạn. California còn buộc dealer phải treo bảng trong cửa hàng ghi rõ điều này.",
+          "say": "Luôn đi kiểm tra. $100–$200 là rẻ so với những khoản sửa mà nó phát hiện được."
+        }
+      ],
+      "keys": [
+        {
+          "kicker": "Dòng quan trọng nhất",
+          "title": "\"Giữ lại tờ này.\"",
+          "body": "Buyers Guide là một phần của hợp đồng. Giữ lại bản của bạn. Nếu lời hứa bảo hành của dealer không khớp với những gì họ đã nói, đây là bằng chứng của bạn."
+        },
+        {
+          "kicker": "Vi phạm luật liên bang",
+          "title": "Gỡ tờ dán trước khi bán là phạm luật.",
+          "body": "16 C.F.R. 455 cấm gỡ Buyers Guide trước khi người tiêu dùng mua xe. Nếu nó không có trên cửa sổ, đó là vi phạm luật liên bang mà bạn có thể báo cho FTC."
+        },
+        {
+          "kicker": "Kiểm tra hai thứ này",
+          "title": "Số VIN + tình trạng bảo hành",
+          "body": "So số VIN trên Buyers Guide với số VIN trên táp-lô và trên giấy chủ quyền. Ghi nhớ chính xác ô bảo hành nào được đánh dấu trước khi nói chuyện giá cả."
+        }
+      ]
+    }
+  },
+  "joinPage": {
+    "hero": {
+      "title": "Tham gia cùng chúng tôi.",
+      "body": "Làm tình nguyện ở một nhóm, kể câu chuyện của bạn, tham gia nghiên cứu, hoặc chỉ ghé chào thôi cũng được. Chọn điều hợp với bạn bên dưới.",
+      "ctaPrimary": "Đăng ký làm tình nguyện",
+      "ctaSecondary": "Các nhóm của chúng tôi"
+    },
+    "chapters": {
+      "title": "Các nhóm của chúng tôi.",
+      "leadsLabel": "Trưởng nhóm:",
+      "items": [
+        {
+          "tag": "UCLA",
+          "name": "Nhóm UCLA",
+          "school": "Đại học California, Los Angeles",
+          "focus": "Làm ra bản đồ rủi ro dealer tương tác, và dẫn dắt phần nghiên cứu người tiêu dùng và hệ thống dữ liệu chính của VINdicated.",
+          "leads": "Fiona Wangsawidjaja, Chủ tịch · William Prawira, Phó chủ tịch nội vụ"
+        },
+        {
+          "tag": "UC Berkeley",
+          "name": "Nhóm UC Berkeley",
+          "school": "Đại học California, Berkeley",
+          "focus": "Đang tìm thêm thành viên. Tập trung vào giáo dục người tiêu dùng và tiếp cận cộng đồng.",
+          "leads": "Rana Darwich, Chủ tịch · Noirit Ghosh Choudhuri, Phó chủ tịch nội vụ · Halima Cherif Hminat, Phó chủ tịch đối ngoại"
+        },
+        {
+          "tag": "UC Santa Cruz",
+          "name": "Nhóm UC Santa Cruz",
+          "school": "Đại học California, Santa Cruz",
+          "focus": "Tập trung vào sự phân biệt đối xử của thuật toán và thiên kiến của AI khi bán xe.",
+          "leads": "Ashwin Vinod, Chủ tịch · Gundeep Sambee, Phó chủ tịch nội vụ"
+        }
+      ]
+    },
+    "roles": {
+      "title": "Chúng tôi đang tìm ai.",
+      "body": "Mọi vị trí đều làm từ xa và không lương. VINdicated là tổ chức phi lợi nhuận do tình nguyện viên điều hành.",
+      "hours": "{n}+ tiếng mỗi tuần",
+      "items": [
+        "Phân tích nghiên cứu",
+        "Kỹ sư / phân tích dữ liệu",
+        "Kỹ sư phần mềm",
+        "Tiếp cận cộng đồng và truyền thông",
+        "Nghiên cứu luật",
+        "Thiết kế đồ họa / minh họa"
+      ]
+    },
+    "form": {
+      "title": "Đăng ký làm tình nguyện.",
+      "chapter": "Bạn muốn vào nhóm nào?",
+      "chapterPlaceholder": "Chọn một nhóm",
+      "role": "Vị trí bạn muốn đăng ký",
+      "rolePlaceholder": "Chọn một vị trí",
+      "name": "Họ và tên",
+      "email": "Địa chỉ email",
+      "phone": "Số điện thoại",
+      "hours": "Mỗi tuần bạn rảnh mấy tiếng",
+      "student": "Bạn đang đi học hoặc mới tốt nghiệp (trong vòng 2 năm) không?",
+      "yes": "Có",
+      "no": "Không",
+      "location": "Nơi ở (thành phố, tiểu bang hoặc quốc gia)",
+      "background": "Kinh nghiệm liên quan đến vị trí này",
+      "resume": "Sơ yếu lý lịch (không bắt buộc, tốt nhất là PDF, tối đa 5MB)",
+      "why": "Vì sao bạn chọn VINdicated?",
+      "submit": "Gửi đơn",
+      "submitting": "Đang gửi…",
+      "missing": "Vui lòng điền nhóm, vị trí, họ tên và email.",
+      "badEmail": "Nhập địa chỉ email hợp lệ, ví dụ ten@truong.edu.",
+      "tooLarge": "File sơ yếu lý lịch quá lớn. Vui lòng tải lên file dưới 5MB.",
+      "failed": "Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi ở getvindicated@outlook.com.",
+      "sent": "Cảm ơn bạn! Chúng tôi đã nhận được đơn. Kiểm tra hộp thư để xem email xác nhận nhé."
+    },
+    "contact": {
+      "title": "Hoặc chỉ ghé chào thôi.",
+      "body": "Báo chí, hợp tác, tham gia nghiên cứu, hay câu chuyện của riêng bạn: gửi cho chúng tôi vài dòng, chúng tôi sẽ trả lời.",
+      "firstName": "Tên",
+      "lastName": "Họ",
+      "email": "Địa chỉ email",
+      "topic": "Tôi liên lạc về chuyện…",
+      "topicPlaceholder": "Chọn một chủ đề",
+      "topics": [
+        "Làm tình nguyện với VINdicated",
+        "Tham gia nghiên cứu",
+        "Kể câu chuyện của tôi",
+        "Báo chí và truyền thông",
+        "Hợp tác hoặc cộng tác",
+        "Tài trợ và kinh phí",
+        "Câu hỏi khác"
+      ],
+      "message": "Tin nhắn",
+      "submit": "Gửi tin nhắn",
+      "submitting": "Đang gửi…",
+      "missing": "Vui lòng ghi email và tin nhắn.",
+      "sent": "Cảm ơn bạn! Tin nhắn của bạn đã được gửi, và chúng tôi đã gửi một bản vào hộp thư của bạn.",
+      "failed": "Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi ở getvindicated@outlook.com."
+    },
+    "emails": {
+      "hi": "Chào {name},",
+      "friend": "bạn",
+      "signoff": "Thân mến,",
+      "team": "Đội ngũ VINdicated",
+      "apply": {
+        "subject": "Chúng tôi đã nhận đơn tình nguyện của bạn - VINdicated",
+        "body": "Cảm ơn bạn đã muốn làm tình nguyện với VINdicated! Chúng tôi đã nhận đơn của bạn cho vị trí {role}, và sẽ xem sớm.",
+        "next": "Chúng tôi sẽ trả lời bạn trong vài ngày tới."
+      },
+      "contact": {
+        "subject": "Chúng tôi đã nhận tin nhắn của bạn - VINdicated",
+        "body": "Cảm ơn bạn đã liên lạc với VINdicated! Chúng tôi đã nhận tin nhắn của bạn về \"{topic}\" và sẽ trả lời sớm nhất có thể.",
+        "copy": "Đây là bản sao tin nhắn của bạn:"
+      }
+    }
+  },
+  "mapPage": {
+    "hero": {
+      "title": "Biết rõ dealer trước khi bước vào.",
+      "body": "Bản đồ vệ tinh 100 dealer ở khu Westside của Los Angeles và những gì đánh giá công khai của họ kể lại, như ép mua và phí bất ngờ."
+    },
+    "gate": {
+      "title": "Trước khi xem",
+      "body": "Bản đồ này cho thấy những gì mọi người viết trong đánh giá công khai trên Google về 100 dealer ở khu Westside của Los Angeles. Một mô hình AI đã phân loại các đánh giá, và chúng tôi đối chiếu nó với những đánh giá do đội ngũ tự phân loại bằng tay. Đây không phải là xếp hạng doanh nghiệp nào, không phải sự thật đã được xác minh, cũng không phải tư vấn pháp lý. Hãy tự đọc các đánh giá trước khi quyết định điều gì.",
+      "check": "Tôi hiểu bản đồ này chỉ tóm tắt ý kiến của người viết đánh giá.",
+      "open": "Mở bản đồ",
+      "methodsLink": "Chúng tôi làm bản đồ này thế nào →",
+      "frameTitle": "Bản đồ rủi ro dealer: bản đồ vệ tinh 100 dealer ở khu Westside của Los Angeles",
+      "fullScreen": "Mở bản đồ toàn màn hình",
+      "loading": "Đang tải bản đồ…"
+    },
+    "news": {
+      "title": "Học từ chuyện của người khác.",
+      "body": "Chuyện thật của những người mua bị lợi dụng, và những gì cơ quan chức năng đang làm. Mỗi chuyện đều có link đến bài báo gốc.",
+      "items": [
+        {
+          "kicker": "Lừa đảo bằng AI",
+          "title": "Lừa đảo bằng dealer giả làm từ AI đang tràn lan trên Facebook Marketplace",
+          "byline": "Tác giả Caleb Jacobs / The Drive / 18 tháng 9, 2026",
+          "dek": "Một nhiếp ảnh gia ở California vay tiền mua một chiếc 4Runner từ tin rao trên Marketplace, do một bản sao gần như hoàn hảo của một dealer thật ở Texas đăng, có giấy tờ giả, thiết bị GPS giả và cả giọng tài xế làm bằng máy. Chiếc xe không bao giờ tới.",
+          "takeLabel": "Bài học",
+          "take": "Số VIN hợp lệ và giấy duyệt vay không chứng minh được chiếc xe có thật. Hãy đi xem tận mắt hoặc nhờ người kiểm tra.",
+          "cta": "Đọc toàn bài trên The Drive →"
+        },
+        {
+          "kicker": "Cảnh báo người tiêu dùng",
+          "title": "Kẻ lừa đảo đang giả mạo website của dealer",
+          "byline": "Nhân viên BCP / Federal Trade Commission / 1 tháng 9, 2026",
+          "dek": "FTC (Ủy ban Thương mại Liên bang) cảnh báo kẻ lừa đảo đang sao chép website của dealer thật, thường bằng AI, đến cả logo, tin rao và lời khen giả của khách, rồi lấy tiền cho những chiếc xe người mua không bao giờ nhận được.",
+          "takeLabel": "Bài học",
+          "take": "Tìm tên dealer kèm chữ “scam” (lừa đảo) hoặc “complaint” (khiếu nại), và tránh những giao dịch chỉ nhận chuyển khoản ngân hàng.",
+          "cta": "Đọc toàn bài trên Federal Trade Commission →"
+        },
+        {
+          "kicker": "Xử phạt",
+          "title": "Cơ quan chức năng mạnh tay với phí vô lý qua vụ dàn xếp $4 triệu với một dealer",
+          "byline": "Hinshaw & Culbertson / tháng 8, 2026",
+          "dek": "FTC và tổng chưởng lý bang Connecticut đã dàn xếp với một dealer Nissan bị cáo buộc nói sai về giá với người mua và tính tiền những món mua thêm và phí mà họ chưa từng đồng ý. Số tiền này được trả lại cho người tiêu dùng.",
+          "takeLabel": "Bài học",
+          "take": "Đọc từng dòng trong hợp đồng. Những khoản bạn không đồng ý có thể khiếu nại được, và cơ quan chức năng thật sự ra tay.",
+          "cta": "Đọc toàn bài trên Hinshaw & Culbertson →"
+        },
+        {
+          "kicker": "Xử phạt",
+          "title": "Các dealer trên toàn quốc bị cảnh cáo phải ngưng tính phí vô lý",
+          "byline": "PIRG",
+          "dek": "Cơ quan chức năng đã gửi thư cho 97 tập đoàn ô tô, sở hữu hàng trăm dealer, nói rằng giá quảng cáo phải bao gồm các phí bắt buộc và dealer không được bắt bạn vay qua họ mới có giá quảng cáo.",
+          "takeLabel": "Bài học",
+          "take": "Giá quảng cáo phải là giá bạn trả được. Đòi con số out-the-door (tổng số tiền phải trả) bằng giấy.",
+          "cta": "Đọc toàn bài trên PIRG →"
+        },
+        {
+          "kicker": "Luật mới",
+          "title": "Luật mới của California cho người mua xe",
+          "byline": "CalMatters / tháng 12, 2025",
+          "dek": "SB 766 (dự luật của Thượng viện tiểu bang), do thượng nghị sĩ tiểu bang đại diện Santa Monica viết, cho nhiều người mua xe cũ quyền trả lại xe trong ba ngày, buộc dealer công bố giá đầy đủ ngay từ đầu, và cấm tính tiền những món mua thêm không có lợi cho bạn.",
+          "takeLabel": "Bài học",
+          "take": "Nếu bạn mua xe cũ ở California sau ngày 1 tháng 10 năm 2026, bạn có thể có ba ngày để đổi ý.",
+          "cta": "Đọc toàn bài trên CalMatters →"
+        }
+      ],
+      "footnote": "Tựa bài gốc thuộc về các báo; ở đây chúng tôi dịch lại. Phần tóm tắt do VINdicated viết. Các bài dẫn đến trang báo bên ngoài, chúng tôi không kiểm soát."
+    },
+    "app": {
+      "pageTitle": "Bản đồ rủi ro dealer | VINdicated",
+      "gateTitle": "Trước khi xem",
+      "gateBody": "Bản đồ này cho thấy những gì mọi người viết trong đánh giá công khai trên Google về 100 dealer ở khu Westside của Los Angeles. Một mô hình AI đã phân loại các đánh giá, và chúng tôi đối chiếu nó với những đánh giá do đội ngũ tự phân loại bằng tay. Đây không phải là xếp hạng doanh nghiệp nào, không phải sự thật đã được xác minh, cũng không phải tư vấn pháp lý. Hãy tự đọc các đánh giá trước khi quyết định điều gì.",
+      "gateCheck": "Tôi hiểu bản đồ này chỉ tóm tắt ý kiến của người viết đánh giá.",
+      "gateOpen": "Mở bản đồ",
+      "methods": "Chúng tôi làm bản đồ này thế nào",
+      "title": "Bản đồ rủi ro dealer",
+      "sub": "Các dealer ở khu Westside của Los Angeles và những gì đánh giá công khai trên Google kể lại.",
+      "loading": "Đang tải dữ liệu…",
+      "live": "Dữ liệu trực tiếp",
+      "snapshot": "Dữ liệu tháng 9 năm 2026",
+      "filterLabel": "Lọc theo mức rủi ro",
+      "search": "Tìm dealer",
+      "legend": {
+        "flaggedLabel": "Cảnh báo:",
+        "flagged": "có đánh giá kể nhiều vấn đề cùng lúc.",
+        "cautionLabel": "Cẩn thận:",
+        "caution": "có đánh giá kể một vấn đề.",
+        "clearLabel": "Không có gì:",
+        "clear": "không thấy vấn đề.",
+        "basis": "Dựa trên tối đa năm đánh giá công khai trên Google cho mỗi dealer. Tóm tắt ý kiến của người viết đánh giá.",
+        "by": "Thực hiện bởi"
+      },
+      "layersLabel": "Kiểu bản đồ",
+      "satellite": "Vệ tinh",
+      "map": "Bản đồ",
+      "showAll": "Hiện tất cả",
+      "about": "Về bản đồ này",
+      "tiers": {
+        "all": "Tất cả",
+        "flagged": "Cảnh báo",
+        "caution": "Cẩn thận",
+        "clear": "Không có gì"
+      },
+      "categories": {
+        "1": "Giá và phí bất ngờ",
+        "2": "Nói sai về xe",
+        "3": "Rắc rối hợp đồng và giấy tờ",
+        "4": "Ép buộc và thao túng",
+        "5": "Bán xong bỏ mặc",
+        "6": "Phân biệt đối xử",
+        "7": "Dịch vụ tệ",
+        "8": "Khiếu nại khác"
+      },
+      "concern": "Vấn đề {n}",
+      "flaggedOf": "{f}/{r}",
+      "flaggedOfRest": "đánh giá chúng tôi đọc bị gắn cảnh báo",
+      "listMeta": "{f}/{r} bị gắn cảnh báo",
+      "described": "Người viết đánh giá kể gì",
+      "excerpts": "Trích từ đánh giá công khai trên Google.",
+      "nothing": "Không thấy gì đáng lo trong các đánh giá chúng tôi đọc.",
+      "readOnGoogle": "Đọc đánh giá trên Google Maps",
+      "noMatch": "Không có dealer nào phù hợp."
+    }
+  },
+  "mapMethods": {
+    "title": "Chúng tôi làm bản đồ rủi ro dealer thế nào",
+    "intro": "Trang này giải thích thông tin trên bản đồ lấy từ đâu, chúng tôi phân loại ra sao, và những gì bản đồ không cho bạn biết được.",
+    "back": "← Quay lại bản đồ",
+    "sections": {
+      "onMap": {
+        "title": "Trên bản đồ có gì",
+        "paras": [
+          "Bản đồ cho thấy 100 dealer và trung tâm sửa xe ở Santa Monica, Beverly Hills, West LA, Culver City và West Hollywood. Chúng tôi thu thập dữ liệu vào tháng 9 năm 2026."
+        ]
+      },
+      "sources": {
+        "title": "Đánh giá lấy từ đâu",
+        "paras": [
+          "Với mỗi dealer, chúng tôi đọc tối đa năm đánh giá công khai trên Google. Đó là những đánh giá Google hiển thị lúc chúng tôi thu thập dữ liệu. Chúng không phải những đánh giá mới nhất hay toàn bộ đánh giá của dealer, và một dealer có thể có hàng trăm đánh giá chúng tôi chưa đọc."
+        ]
+      },
+      "sorting": {
+        "title": "Đánh giá được phân loại thế nào",
+        "paras": [
+          "Một mô hình ngôn ngữ (một loại AI) đọc từng đánh giá và xếp các khiếu nại trong đó vào tám nhóm. Chúng tôi dùng bộ phân loại phiên bản 1.5.0 và chạy nó vào ngày 24 tháng 9 năm 2026. Trước khi dùng, chúng tôi thử nó với một bộ đánh giá do đội ngũ tự phân loại bằng tay, để chắc rằng nó xếp khiếu nại giống như một người cẩn thận sẽ làm."
+        ],
+        "rulesIntro": "Một khiếu nại chỉ được tính nếu đáp ứng cả ba quy tắc này:",
+        "rules": [
+          "Đó là lời của chính người viết đánh giá. Mô hình phải trích nguyên văn.",
+          "Nó nói về dealer này.",
+          "Nó chưa được giải quyết."
+        ],
+        "rulesOutro": "Những lời than nhỏ nhặt, đoán mò và bực bội chung chung không được tính.",
+        "catsIntro": "Tám nhóm khiếu nại là:",
+        "cats": [
+          {
+            "title": "Giá và phí bất ngờ",
+            "body": "Bị tính nhiều hơn giá quảng cáo hoặc giá đã thỏa thuận: phí ẩn, tăng giá phút chót, món mua thêm hoặc sửa chữa không được cho phép."
+          },
+          {
+            "title": "Nói sai về xe",
+            "body": "Tình trạng, lịch sử hoặc việc còn xe hay không khác với những gì họ nói, hoặc sửa rồi mà thật ra chưa xong."
+          },
+          {
+            "title": "Rắc rối hợp đồng và giấy tờ",
+            "body": "Giấy tờ khó hiểu, bị sửa, hoặc không đưa, như điều kiện vay không rõ ràng hay giấy chủ quyền bị giao trễ."
+          },
+          {
+            "title": "Ép buộc và thao túng",
+            "body": "Chiêu hung hăng hoặc gian dối để hối thúc hay ép ra quyết định."
+          },
+          {
+            "title": "Bán xong bỏ mặc",
+            "body": "Sau khi bán hoặc làm dịch vụ, dealer im lặng hoặc không giữ lời hứa."
+          },
+          {
+            "title": "Phân biệt đối xử",
+            "body": "Người viết đánh giá nói họ bị đối xử tệ hơn vì họ là ai."
+          },
+          {
+            "title": "Dịch vụ tệ",
+            "body": "Nhân viên thô lỗ, coi thường, thiếu chuyên nghiệp, hoặc để chờ lâu mà không giải thích."
+          },
+          {
+            "title": "Khiếu nại khác",
+            "body": "Một khiếu nại cụ thể, có thật, nhưng không thuộc các nhóm trên."
+          }
+        ]
+      },
+      "tiers": {
+        "title": "Các mức hoạt động thế nào",
+        "items": [
+          {
+            "name": "Không có gì",
+            "body": "Không có đánh giá nào chúng tôi đọc có khiếu nại đủ điều kiện."
+          },
+          {
+            "name": "Cẩn thận",
+            "body": "Có ít nhất một đánh giá có khiếu nại."
+          },
+          {
+            "name": "Cảnh báo",
+            "body": "Có ít nhất một đánh giá kể nhiều loại vấn đề khác nhau cùng lúc."
+          }
+        ]
+      },
+      "shown": {
+        "title": "Chúng tôi hiển thị gì",
+        "intro": "Với mỗi dealer, bản đồ hiển thị:",
+        "items": [
+          "Mức của dealer.",
+          "Bao nhiêu đánh giá chúng tôi đọc bị gắn cảnh báo.",
+          "Một câu trích ngắn cho mỗi vấn đề, đã bỏ tên nhân viên.",
+          "Link để đọc tất cả đánh giá của dealer trên Google."
+        ]
+      },
+      "limits": {
+        "title": "Giới hạn",
+        "items": [
+          "Mẫu nhỏ. Năm đánh giá không thể cho bạn biết một doanh nghiệp đối xử với phần lớn khách hàng thế nào.",
+          "Mô hình có thể sai. Nó có thể hiểu nhầm câu mỉa mai hay ngữ cảnh, hoặc xếp khiếu nại vào sai nhóm, và không phải kết quả nào trên bản đồ cũng được kiểm tra lại bằng tay.",
+          "Chúng tôi không xác minh được lời người viết đánh giá. Đánh giá có thể sai, phóng đại, cũ, nói về vấn đề dealer đã sửa sau đó, hoặc là giả. Chúng tôi chưa liên lạc với các dealer hay người viết đánh giá.",
+          "Đây chỉ là hình chụp ở một thời điểm. Nhân viên, chủ và cách làm ăn đều thay đổi, đánh giá cũng vậy. Mức của một dealer có thể không phản ánh cách họ làm việc hôm nay.",
+          "Mức \"Không có gì\" không phải là lời giới thiệu, và mức \"Cảnh báo\" không phải là lời khuyên tránh xa. Một dealer \"Không có gì\" vẫn có thể đối xử tệ với bạn, và một dealer \"Cảnh báo\" có thể đối xử tốt. Hãy dùng bản đồ như một lý do để hỏi thêm."
+        ]
+      },
+      "independence": {
+        "title": "Độc lập",
+        "paras": [
+          "VINdicated là một tổ chức phi lợi nhuận độc lập của sinh viên. Chúng tôi không liên kết với, không được trả tiền bởi, và không được bảo trợ bởi bất kỳ dealer, hãng xe nào hay Google. Tên doanh nghiệp và nhãn hiệu thuộc về chủ sở hữu của chúng."
+        ]
+      },
+      "advice": {
+        "title": "Không phải lời khuyên, cung cấp nguyên trạng",
+        "paras": [
+          "Không có gì trên bản đồ hay trang này là tư vấn pháp lý hay tài chính về bất kỳ việc mua bán, hợp đồng hay tranh chấp nào. Hãy đọc giấy tờ của bạn, làm kiểm tra xe độc lập trước khi mua, và hỏi ý kiến chuyên gia có chuyên môn về trường hợp của bạn.",
+          "Chúng tôi cố gắng giữ bản đồ chính xác, nhưng nó được cung cấp nguyên trạng. Chúng tôi không bảo đảm nó đầy đủ hay đúng, và không chịu trách nhiệm cho các quyết định dựa vào nó."
+        ]
+      },
+      "corrections": {
+        "title": "Đính chính",
+        "before": "Nếu bạn đại diện cho một dealer hoặc nghĩ rằng chúng tôi hiểu sai một đánh giá, hãy email đến ",
+        "email": "getvindicated@outlook.com",
+        "after": " kèm tên dealer và điều bạn nghĩ là sai. Chúng tôi sẽ xem lại và sửa hoặc gỡ bất cứ gì không chính xác."
+      }
+    }
+  },
+  "rightsPage": {
+    "hero": {
+      "title": "Biết quyền của bạn",
+      "titleEm": "trước khi ký.",
+      "body": "Luật liên bang và luật California bảo vệ bạn khỏi phân biệt đối xử và gian lận ở các dealer. Đây là những điều mọi người mua xe nên biết."
+    },
+    "tryIt": {
+      "title": "Tự mình",
+      "titleEm": "thử xem.",
+      "body": "Bản xem trước của phiên bản app điện thoại cho trang này: cho nó biết bạn ở tiểu bang nào, rồi kéo xuống xem những luật thật sự áp dụng cho bạn."
+    },
+    "remember": {
+      "label": "Nhớ nhé",
+      "lead": "Bạn không cần là luật sư mới dùng được những luật này.",
+      "body": "Chỉ cần biết chúng tồn tại là thế mạnh đã đổi chiều. Nếu dealer không chịu đưa thông tin bằng giấy, bản thân điều đó đã là dấu hiệu nguy hiểm.",
+      "complaint": "Nếu bạn nghĩ quyền của mình bị vi phạm, bạn có thể khiếu nại với {cfpb}, {ftc} hoặc {dmv}.",
+      "cfpb": "Cục Bảo vệ Tài chính Người tiêu dùng (CFPB)",
+      "ftc": "Ủy ban Thương mại Liên bang (FTC)",
+      "dmv": "Sở Xe cộ California (DMV)"
+    },
+    "buttons": {
+      "flags": "Nhận ra dấu hiệu nguy hiểm",
+      "inspection": "Hướng dẫn kiểm tra xe trước khi mua"
+    },
+    "demo": {
+      "logoAlt": "Logo VINdicated",
+      "entryTitle": "Bạn mua xe ở đâu?",
+      "entryBody": "Quyền của bạn thay đổi tùy nơi bạn ở. Cho chúng tôi biết tiểu bang của bạn để xem những sự bảo vệ thật sự áp dụng cho bạn.",
+      "placeholder": "ví dụ: California",
+      "continue": "Tiếp tục",
+      "skip": "Bỏ qua lúc này",
+      "homeTitle": "Biết quyền",
+      "homeTitleEm": "của bạn.",
+      "pickOne": "Chọn một mục để bắt đầu đọc.",
+      "showing": "Đang hiện những gì áp dụng ở {state}.",
+      "federal": "Bảo vệ của luật liên bang",
+      "federalMeta": "5 luật · áp dụng toàn quốc",
+      "stateLink": "Bảo vệ của {state}",
+      "stateLinkNone": "Bảo vệ của tiểu bang",
+      "stateMetaNone": "Nhập tiểu bang để xem",
+      "stateMetaCount": "{n} luật · áp dụng cho bạn",
+      "stateMetaPartial": "Những gì chúng tôi có đến giờ cho {state}",
+      "back": "Trang chủ",
+      "scroll": "kéo xuống để xem tóm tắt"
+    },
+    "stateNames": {
+      "alabama": "Alabama",
+      "alaska": "Alaska",
+      "arizona": "Arizona",
+      "arkansas": "Arkansas",
+      "california": "California",
+      "colorado": "Colorado",
+      "connecticut": "Connecticut",
+      "delaware": "Delaware",
+      "florida": "Florida",
+      "georgia": "Georgia",
+      "hawaii": "Hawaii",
+      "idaho": "Idaho",
+      "illinois": "Illinois",
+      "indiana": "Indiana",
+      "iowa": "Iowa",
+      "kansas": "Kansas",
+      "kentucky": "Kentucky",
+      "louisiana": "Louisiana",
+      "maine": "Maine",
+      "maryland": "Maryland",
+      "massachusetts": "Massachusetts",
+      "michigan": "Michigan",
+      "minnesota": "Minnesota",
+      "mississippi": "Mississippi",
+      "missouri": "Missouri",
+      "montana": "Montana",
+      "nebraska": "Nebraska",
+      "nevada": "Nevada",
+      "new hampshire": "New Hampshire",
+      "new jersey": "New Jersey",
+      "new mexico": "New Mexico",
+      "new york": "New York",
+      "north carolina": "North Carolina",
+      "north dakota": "North Dakota",
+      "ohio": "Ohio",
+      "oklahoma": "Oklahoma",
+      "oregon": "Oregon",
+      "pennsylvania": "Pennsylvania",
+      "rhode island": "Rhode Island",
+      "south carolina": "South Carolina",
+      "south dakota": "South Dakota",
+      "tennessee": "Tennessee",
+      "texas": "Texas",
+      "utah": "Utah",
+      "vermont": "Vermont",
+      "virginia": "Virginia",
+      "washington": "Washington",
+      "west virginia": "West Virginia",
+      "wisconsin": "Wisconsin",
+      "wyoming": "Wyoming"
+    },
+    "laws": {
+      "federal": {
+        "TILA": {
+          "title": "Luật minh bạch khi cho vay (Truth in Lending Act)",
+          "citation": "15 U.S.C. § 1601",
+          "plain": "Dealer phải cho bạn xem toàn bộ chi phí thật của khoản vay trước khi bạn ký bất cứ gì: APR (lãi suất mỗi năm), phí vay, và tổng tất cả các khoản phải trả.",
+          "script": "Cho tôi xem APR, phí vay và tổng các khoản phải trả, ngay bây giờ, trước khi tôi ký bất cứ gì.",
+          "escalation": "Nếu họ không chịu ghi những con số này ra giấy trước khi bạn ký, dừng lại. Đây là yêu cầu của luật liên bang, không phải ơn huệ. Bạn có thể khiếu nại với CFPB."
+        },
+        "FTC": {
+          "title": "Quy định xe cũ của FTC",
+          "citation": "16 CFR § 455",
+          "plain": "Mỗi xe cũ trong bãi phải dán tờ Buyers Guide (hướng dẫn người mua) ghi rõ xe bán “as is” (bán sao để vậy) hay có bảo hành, và bảo hành gồm những gì.",
+          "script": "Tôi cần xem tờ Buyers Guide trước khi mình nói chuyện giá.",
+          "escalation": "Không có tờ dán, hoặc bị gỡ trước khi bạn kịp đọc, là vi phạm luật liên bang. FTC có thể phạt dealer đến $51,744 mỗi xe. Ghi lại và báo cho FTC."
+        },
+        "ODO": {
+          "title": "Luật khai số dặm",
+          "citation": "49 U.S.C. § 32705",
+          "plain": "Dealer phải đưa bạn giấy ký tên ghi số dặm thật của xe lúc bán.",
+          "script": "Tôi muốn giấy khai số dặm có chữ ký, và tôi sẽ so nó với đồng hồ trên xe và báo cáo lịch sử xe.",
+          "escalation": "Quay lùi đồng hồ dặm là tội liên bang. Nếu số không khớp, dừng giao dịch, chụp hình mọi thứ và báo cho FTC."
+        },
+        "FCRA": {
+          "title": "Luật báo cáo tín dụng công bằng (Fair Credit Reporting Act)",
+          "citation": "15 U.S.C. § 1681",
+          "plain": "Nếu dealer kéo hồ sơ tín dụng để định lãi suất cho bạn, họ phải cho bạn biết đã dùng công ty tín dụng nào và giải thích bằng giấy nó ảnh hưởng thế nào đến điều kiện vay.",
+          "script": "Hồ sơ tín dụng của tôi có được dùng để định lãi suất này không? Tôi muốn giấy thông báo bất lợi (adverse action notice) và biết nó từ công ty tín dụng nào.",
+          "escalation": "Không có thông báo, hoặc lãi suất không khớp với điểm tín dụng thật của bạn, thì có thể báo cho CFPB."
+        },
+        "ECOA": {
+          "title": "Luật cơ hội tín dụng bình đẳng (Equal Credit Opportunity Act)",
+          "citation": "15 U.S.C. § 1691",
+          "plain": "Dealer không được tính giá khoản vay khác đi vì chủng tộc, giới tính, tuổi hay nguồn gốc quốc gia của bạn. Mọi người xin vay phải được xét theo cùng một cách.",
+          "script": "Anh có thể giải thích từng bước lãi suất này được tính ra cho tôi như thế nào không?",
+          "escalation": "Nếu lời giải thích không hợp lý, bạn có thể kiện đòi bồi thường, và cơ quan chức năng có thể phạt dân sự dealer."
+        }
+      },
+      "california": {
+        "AB68-C": {
+          "title": "Quyền hủy trong 2 ngày",
+          "citation": "Cal. Veh. Code § 11713.21",
+          "plain": "Với xe cũ dưới $40,000, bạn có thể mua quyền hủy trong 2 ngày, nhưng phải đòi ngay lúc ký. Nó không tự động có.",
+          "script": "Tôi muốn mua quyền hủy hợp đồng trong 2 ngày.",
+          "escalation": "Nếu họ không đề nghị từ đầu, cứ hỏi thẳng. Giá khoảng 1% giá xe, cộng phí nhận lại xe nếu bạn thật sự dùng tới."
+        },
+        "AB68-R": {
+          "title": "Mức trần lãi suất dealer được cộng thêm",
+          "citation": "Cal. Veh. Code § 11711",
+          "plain": "Dealer chỉ được cộng thêm vào lãi suất của bạn đến một mức trần: 2% với khoản vay trên 60 tháng, 2.5% với khoản ngắn hơn.",
+          "script": "Tôi đã được duyệt vay trước với mức này rồi, anh phải đưa mức tốt hơn, không phải chỉ bằng.",
+          "escalation": "Bước vào với giấy duyệt vay trước từ ngân hàng hay credit union của bạn thì dealer gần như hết cách ép con số này."
+        },
+        "AB68-A": {
+          "title": "Món mua thêm phải ghi riêng",
+          "citation": "Cal. Civ. Code § 2982",
+          "plain": "Mỗi món mua thêm tùy chọn phải có giá riêng và một dòng riêng. Dealer không được gộp hết thành một con số rồi gọi đó là “tiền góp”.",
+          "script": "Cho tôi xem tiền trả mỗi tháng khi có và khi không có từng món, ghi từng dòng, bằng giấy.",
+          "escalation": "“Tất cả là một gói” là không hợp pháp ở California. Đòi bảng kê từng dòng trước khi đồng ý bất cứ gì."
+        },
+        "VC-11713": {
+          "title": "Những việc dealer bị cấm",
+          "citation": "Cal. Veh. Code § 11713",
+          "plain": "Dealer không được quảng cáo xe họ không có, đổi điều kiện đã thỏa thuận sau đó, hay giấu bạn lịch sử xe mà họ biết.",
+          "script": "Giá và tình trạng này có còn đúng y như vậy ngay bây giờ, hôm nay không?",
+          "escalation": "Chiêu quảng cáo một đằng bán một nẻo (bait and switch) là vi phạm rõ ràng theo luật này. Giữ lại bản quảng cáo gốc làm bằng chứng."
+        },
+        "CCLRA": {
+          "title": "Luật biện pháp pháp lý cho người tiêu dùng (Consumers Legal Remedies Act)",
+          "citation": "Cal. Civ. Code § 1750",
+          "plain": "Dealer không được lừa bạn về giá, tình trạng hay tính năng của xe. Hết. Không có ngoại lệ cho kiểu “nói cho vui để bán hàng”.",
+          "script": "Anh chỉ giùm tôi chính xác chỗ nào ghi điều đó bằng giấy?",
+          "escalation": "Bạn có thể kiện đòi bồi thường, hoặc buộc sửa hợp đồng, nếu họ nói sai về điều quan trọng trong vụ mua bán."
+        },
+        "CC-2981.9": {
+          "title": "Mọi thứ phải nằm trong một hợp đồng",
+          "citation": "Cal. Civ. Code § 2981.9",
+          "plain": "Mọi lời hứa của dealer phải được ghi vào hợp đồng duy nhất bạn ký. Thỏa thuận miệng bên ngoài không có giá trị pháp lý.",
+          "script": "Nếu anh đồng ý điều đó, xin ghi vào hợp đồng trước khi tôi ký, đừng để sau.",
+          "escalation": "Lời hứa miệng không có giấy tờ sẽ mất hết giá trị pháp lý ngay khi bạn ký."
+        }
+      },
+      "texas": {
+        "DTPA": {
+          "title": "Luật chống hành vi thương mại gian dối (Deceptive Trade Practices Act)",
+          "citation": "Tex. Bus. & Com. Code § 17.41 et seq.",
+          "plain": "Dealer không được quảng cáo một chiếc xe để dụ bạn tới rồi đẩy bạn sang chiếc khác (“bait and switch”), và không được nói sai về tình trạng, lịch sử hay tính năng của xe để bạn mua.",
+          "script": "Đây có đúng là chiếc trong quảng cáo không: cùng giá, cùng tình trạng, ngay bây giờ?",
+          "escalation": "Chiêu bait and switch và các hành vi gian dối khác là vi phạm DTPA. Bạn có thể kiện đòi bồi thường, phí luật sư, và có khi cả tiền phạt thêm."
+        },
+        "OCC-2301": {
+          "title": "Quy định về giấy phép và công bố thông tin của dealer",
+          "citation": "Tex. Occ. Code ch. 2301",
+          "plain": "Ở Texas bạn không có quyền tự động hủy sau khi ký. Chính hướng dẫn mua xe của Tổng chưởng lý Texas xác nhận điều này. Dealer vẫn phải đưa bạn giấy khai số dặm và tờ Buyer's Guide theo luật liên bang.",
+          "script": "Tôi lấy giấy khai số dặm và Buyer's Guide trước khi ký gì được không?",
+          "escalation": "Không có giấy khai số dặm hay Buyer's Guide là dealer đã vi phạm. Khiếu nại với DMV Texas hoặc văn phòng bảo vệ người tiêu dùng của Tổng chưởng lý."
+        }
+      },
+      "massachusetts": {
+        "MA-LEMON": {
+          "title": "Bảo vệ khi mua xe cũ bị lỗi",
+          "citation": "Mass. Gen. Laws ch. 90, §7N½",
+          "plain": "Lemon law (luật xe lỗi) của Massachusetts áp dụng cho nhiều xe mới và cả xe cũ được bán hay cho thuê khi còn trong thời hạn bảo hành gốc của hãng, không chỉ xe mới tinh.",
+          "script": "Bảo hành của hãng cho xe này hết hạn chính xác lúc nào?",
+          "escalation": "Nếu bạn vẫn còn trong thời hạn đó mà dealer từ chối, khiếu nại ngay với văn phòng người tiêu dùng của Tổng chưởng lý Massachusetts. Thời gian là quan trọng nhất."
+        },
+        "MA-AG": {
+          "title": "Nộp khiếu nại ở đâu: Tổng chưởng lý / Văn phòng Người tiêu dùng",
+          "citation": "Mass. Office of Consumer Affairs & Business Regulation",
+          "plain": "Massachusetts xử lý tranh chấp về xe cũ bị lỗi và bảo hành qua văn phòng Tổng chưởng lý và Văn phòng Người tiêu dùng, tách riêng với hệ thống khiếu nại liên bang của FTC.",
+          "script": "Nếu chuyện này thành tranh chấp, bên anh có tham gia thiện chí vào quy trình người tiêu dùng của Tổng chưởng lý không?",
+          "escalation": "Khiếu nại sớm với Tổng chưởng lý Massachusetts hoặc Văn phòng Người tiêu dùng, và giữ mọi quảng cáo của dealer và phiếu sửa xe làm bằng chứng về thời gian."
+        }
+      },
+      "alaska": {
+        "AK-LEMON": {
+          "title": "Luật xe lỗi chỉ cho xe mới",
+          "citation": "Alaska Stat. §§45.45.300–45.45.360",
+          "plain": "Luật xe lỗi của Alaska chỉ bảo vệ khi mua xe mới. Nếu bạn mua xe cũ ở Alaska, luật này không áp dụng cho bạn, dù lỗi nặng đến đâu.",
+          "script": "Nếu tôi mua xe cũ, xe này còn bảo hành nào của hãng không?",
+          "escalation": "Với xe cũ ở Alaska, bạn dựa vào luật giấy chủ quyền, quy định liên bang về số dặm và Buyers Guide của FTC, không phải luật xe lỗi của tiểu bang. Dù vậy vẫn ghi lại mọi thứ."
+        },
+        "AK-DISPUTE": {
+          "title": "Chương trình giải quyết tranh chấp của hãng có thể là bắt buộc",
+          "citation": "Alaska Dept. of Law",
+          "plain": "Quy trình luật xe lỗi ở Alaska có thể buộc bạn qua chương trình giải quyết tranh chấp được duyệt của hãng trước khi được ra tòa.",
+          "script": "Bên anh có chương trình giải quyết tranh chấp không chính thức được duyệt không, và tôi xin bằng giấy được không?",
+          "escalation": "Gửi thông báo bằng thư bảo đảm cho hãng và giữ bằng chứng. Alaska chỉ cho bạn 60 ngày sau mốc hạn của lỗi để làm việc này."
+        }
+      },
+      "new jersey": {
+        "NJ-USEDCAR": {
+          "title": "Bảo hành tối thiểu cho xe cũ của dealer",
+          "citation": "NJ Used Car Lemon Law, Div. of Consumer Affairs",
+          "plain": "New Jersey buộc dealer bảo hành cho xe cũ đủ điều kiện bán trên $3,000, đời xe từ bảy năm trở lại, không bị coi là hư toàn bộ, và chạy từ 100,000 dặm trở xuống.",
+          "script": "Xe này có đủ điều kiện bảo hành xe cũ của New Jersey không: dưới 7 năm đời xe, dưới 100,000 dặm, và giấy chủ quyền không phải hư toàn bộ?",
+          "escalation": "Nếu đủ điều kiện mà dealer từ chối bảo hành, khiếu nại ngay với Đơn vị Luật Xe lỗi của Sở Người tiêu dùng New Jersey."
+        },
+        "NJ-ASIS": {
+          "title": "“As is” cũng có giới hạn thật",
+          "citation": "NJ Div. of Consumer Affairs",
+          "plain": "Văn phòng người tiêu dùng New Jersey quy định rõ khi nào được bán “as is” theo luật xe lỗi cho xe cũ. Nó không phải tấm khiên tự động cho mọi vụ bán xe cũ.",
+          "script": "Nếu xe bán as is, anh có thể cho tôi xem bằng giấy vì sao xe này không đủ điều kiện bảo hành xe cũ không?",
+          "escalation": "Đơn vị Luật Xe lỗi của New Jersey xử lý hồ sơ xe mới và xe cũ theo thủ tục hành chính. Bạn không nhất thiết phải ra tòa ngay."
+        }
+      },
+      "new york": {
+        "NY-USEDCAR": {
+          "title": "Luật xe lỗi cho xe cũ",
+          "citation": "NY AG used-car lemon law fact sheet",
+          "plain": "New York buộc dealer bảo hành bằng giấy khi bán xe cũ đủ điều kiện, và sau một số lần sửa hợp lý mà không được, bạn có thể đưa ra trọng tài của tiểu bang hoặc đòi hoàn tiền.",
+          "script": "Cho tôi xem giấy bảo hành theo luật xe lỗi cho xe cũ của New York trước khi mua được không?",
+          "escalation": "Nếu sửa hoài không được, New York có chương trình trọng tài tiểu bang có tính ràng buộc. Hãy dùng nó thay vì để dealer cho bạn đi vòng vòng."
+        },
+        "NY-TIMING": {
+          "title": "Mốc số dặm và thời gian rất chặt",
+          "citation": "NY AG new-car lemon law fact sheet",
+          "plain": "Các mốc của luật xe lỗi New York rất cụ thể. Nhiều quyền tính theo 18,000 dặm hoặc hai năm từ lúc bắt đầu bảo hành, và xe được coi là xe lỗi sau bốn lần sửa hoặc ba mươi ngày không chạy được.",
+          "script": "Chính xác số dặm của xe này và ngày bắt đầu bảo hành là khi nào?",
+          "escalation": "New York cho bạn đến bốn năm từ ngày giao xe đầu tiên để nộp đơn, nhưng mốc thời gian và số dặm tính ngay từ đầu. Ghi lại ngày của mỗi lần sửa."
+        }
+      },
+      "connecticut": {
+        "CT-WARRANTY": {
+          "title": "Bảo hành xe cũ theo giá",
+          "citation": "Connecticut DMV used-car warranty bulletin",
+          "plain": "Connecticut buộc dealer bảo hành cho xe cũ đủ điều kiện có giá từ $3,000: 30 ngày hoặc 1,500 dặm cho xe $3,000 đến $5,000, và 60 ngày hoặc 3,000 dặm cho xe trên $5,000, có giới hạn về đời xe.",
+          "script": "Theo giá, xe này thuộc mức bảo hành nào của Connecticut, và tôi xin bằng giấy được không?",
+          "escalation": "Khiếu nại nhanh với Trung tâm Khiếu nại Người tiêu dùng của DMV Connecticut. Các mức bảo hành này có giới hạn thời gian và số dặm."
+        },
+        "CT-INSPECT": {
+          "title": "Bắt buộc kiểm tra an toàn trước khi bán",
+          "citation": "Connecticut DMV",
+          "plain": "Dealer ở Connecticut phải kiểm tra an toàn xong rồi mới được đem xe cũ ra bán lẻ.",
+          "script": "Cho tôi xem phiếu kiểm tra an toàn trước khi bán của đúng chiếc xe này được không?",
+          "escalation": "Không có phiếu kiểm tra là dấu hiệu nguy hiểm và có thể tự nó là lý do khiếu nại với DMV, tách riêng với tranh chấp bảo hành."
+        }
+      },
+      "maine": {
+        "ME-INFOACT": {
+          "title": "Luật thông tin xe cũ (Used Car Information Act)",
+          "citation": "Maine Used Car Information Act",
+          "plain": "Maine có luật thông tin xe cũ riêng, buộc dealer công bố thông tin và có trách nhiệm liên quan đến kiểm tra xe. Vì có hệ thống này, Maine được miễn quy định Buyers Guide liên bang của FTC.",
+          "script": "Cho tôi xem Buyers Guide của Maine cho xe này, tách riêng với giấy tờ liên bang được không?",
+          "escalation": "Chụp hình Buyers Guide của Maine trước khi ký. Ở Maine, đây là giấy tờ nền tảng bảo vệ bạn."
+        },
+        "ME-INSPECTION": {
+          "title": "Bắt buộc có tem kiểm định",
+          "citation": "Maine SOS/BMV used-car guide",
+          "plain": "Hầu hết xe cũ do dealer bán ở Maine phải có tem kiểm định còn hiệu lực cấp trong vòng 60 ngày trước đó, hoặc đạt tiêu chuẩn bảo đảm sẽ qua kiểm định.",
+          "script": "Tem kiểm định hiện tại của xe này được cấp khi nào?",
+          "escalation": "Tem kiểm định quá 60 ngày, hoặc không có, thì nói ngay với dealer, trước khi ký bất cứ gì."
+        }
+      },
+      "wisconsin": {
+        "WI-BUYERSGUIDE": {
+          "title": "Hệ thống Buyers Guide của Wisconsin",
+          "citation": "Wisconsin Admin. Code Trans 139",
+          "plain": "Luật xe lỗi của Wisconsin hoàn toàn không áp dụng cho xe đã qua sử dụng, nhưng Wisconsin có hệ thống Buyers Guide riêng, chi tiết và bắt buộc cho xe cũ, chặt hơn bản liên bang mà nó thay thế.",
+          "script": "Cho tôi xem Buyers Guide của Wisconsin cho xe này, và trên đó có ghi xe từng là xe làm lại hay salvage không?",
+          "escalation": "Chụp hình Buyers Guide của Wisconsin trước khi ký. Vì luật xe lỗi ở đây không áp dụng cho xe cũ, giấy này gần như là sự bảo vệ chính của bạn."
+        },
+        "WI-ASIS": {
+          "title": "Quy định chặt về chữ “As Is”",
+          "citation": "Wisconsin DOT consumer guidance",
+          "plain": "Wisconsin có quy định chặt về cách trình bày chữ “AS IS, NO WARRANTY” (bán sao để vậy, không bảo hành), và nếu bán có bảo hành thì phải đưa bạn giấy bảo hành.",
+          "script": "Nếu xe bán as is, anh có thể cho tôi thấy phần ghi as-is đúng theo mẫu Wisconsin yêu cầu không?",
+          "escalation": "Chữ as-is ghi không đúng mẫu tự nó đã có thể là lý do khiếu nại với DOT (Sở Giao thông) hoặc DOJ (Bộ Tư pháp) Wisconsin."
+        }
+      }
+    },
+    "direction": {
+      "alabama": "Luật xe lỗi của Alabama chỉ áp dụng cho xe mới.",
+      "arizona": "Luật xe lỗi của Arizona có vẻ áp dụng một phần cho xe cũ.",
+      "arkansas": "Luật xe lỗi của Arkansas tập trung vào xe mới, với quy định rất chặt về việc công bố giấy chủ quyền salvage.",
+      "colorado": "Luật xe lỗi của Colorado có vẻ áp dụng cho một số xe cũ, nhưng không áp dụng cho xe thuê.",
+      "delaware": "Luật xe lỗi của Delaware có vẻ áp dụng cả cho xe cũ.",
+      "florida": "Luật xe lỗi của Florida áp dụng cho xe hơi và xe tải mới và xe thuê, với quy trình xe lỗi bài bản của tiểu bang.",
+      "georgia": "Luật xe lỗi của Georgia chỉ áp dụng cho xe mới.",
+      "hawaii": "Luật xe lỗi của Hawaii có vẻ áp dụng cả cho xe cũ.",
+      "idaho": "Luật xe lỗi của Idaho có vẻ áp dụng cả cho xe cũ.",
+      "illinois": "Luật xe lỗi của Illinois chỉ áp dụng cho xe mới.",
+      "indiana": "Luật xe lỗi của Indiana áp dụng cho xe mua, thuê hoặc sang tên trong tiểu bang.",
+      "iowa": "Luật xe lỗi của Iowa áp dụng cho xe mới hoặc xe chưa từng có giấy chủ quyền, kể cả một số xe thuê.",
+      "kansas": "Theo hướng dẫn của tiểu bang, luật xe lỗi của Kansas chỉ áp dụng cho xe mới.",
+      "kentucky": "Luật xe lỗi của Kentucky chỉ áp dụng cho xe mới.",
+      "louisiana": "Luật xe lỗi của Louisiana có vẻ áp dụng cả cho xe cũ.",
+      "maryland": "Luật xe lỗi của Maryland áp dụng cho một số loại xe đăng ký nhất định, phần lớn là xe đời mới.",
+      "michigan": "Luật xe lỗi của Michigan áp dụng cho xe mới và xe cũ được sang tên khi còn bảo hành của hãng.",
+      "minnesota": "Luật xe lỗi của Minnesota áp dụng cả cho xe cũ.",
+      "mississippi": "Luật xe lỗi của Mississippi có vẻ áp dụng cả cho xe cũ và xe thuê mua.",
+      "missouri": "Luật xe lỗi của Missouri chỉ áp dụng cho xe mới.",
+      "nebraska": "Luật xe lỗi của Nebraska áp dụng cho xe mới, và theo hướng dẫn thì một số xe dưới hai năm tuổi cũng có thể đủ điều kiện.",
+      "nevada": "Luật xe lỗi của Nevada có vẻ áp dụng cả cho xe cũ.",
+      "new hampshire": "Luật xe lỗi của New Hampshire chỉ áp dụng cho xe cũ nếu còn bảo hành gốc của hãng.",
+      "new mexico": "Luật xe lỗi của New Mexico áp dụng cho xe chở người được bán và đăng ký trong tiểu bang.",
+      "north carolina": "Luật xe lỗi của North Carolina chỉ áp dụng cho xe mới.",
+      "north dakota": "Luật xe lỗi của North Dakota có vẻ áp dụng cả cho xe cũ.",
+      "ohio": "Luật xe lỗi của Ohio áp dụng cho xe mới và xe thuê.",
+      "oklahoma": "Luật xe lỗi của Oklahoma áp dụng cho hầu hết xe đăng ký trong tiểu bang, có giới hạn về trọng lượng.",
+      "oregon": "Luật xe lỗi của Oregon có vẻ áp dụng cả cho xe cũ.",
+      "pennsylvania": "Luật xe lỗi của Pennsylvania chỉ áp dụng cho xe mới.",
+      "rhode island": "Luật xe lỗi của Rhode Island áp dụng cả cho xe cũ.",
+      "south carolina": "Luật xe lỗi của South Carolina chỉ áp dụng cho xe mới.",
+      "south dakota": "Luật xe lỗi của South Dakota có vẻ áp dụng cả cho xe cũ.",
+      "tennessee": "Luật xe lỗi của Tennessee áp dụng cho xe chở người bán trong tiểu bang.",
+      "utah": "Luật xe lỗi của Utah áp dụng cho xe chạy đường cao tốc bán trong tiểu bang, kể cả xe máy.",
+      "vermont": "Luật xe lỗi của Vermont áp dụng cho xe chở người mua, thuê hoặc đăng ký trong tiểu bang.",
+      "virginia": "Luật xe lỗi của Virginia áp dụng cho xe cơ giới theo khuôn khổ luật xe lỗi của tiểu bang.",
+      "washington": "Luật xe lỗi của Washington áp dụng cho xe mới, với quy trình trọng tài do tiểu bang điều hành khá nổi tiếng.",
+      "west virginia": "Luật xe lỗi của West Virginia áp dụng cho xe chở người và một số xe tải, xe van.",
+      "wyoming": "Luật xe lỗi của Wyoming áp dụng cho xe dưới 10,000 pound bán hoặc đăng ký trong tiểu bang."
+    },
+    "fallback": {
+      "summary": "Dựa trên bản tóm tắt pháp lý của 50 tiểu bang: {direction}",
+      "unknown": "Chúng tôi chưa nghiên cứu riêng về {state}.",
+      "cooling": {
+        "title": "Không có quyền tự động hủy",
+        "citation": "16 CFR Part 429, FTC Cooling-Off Rule",
+        "plain": "Quy định Cooling-Off Rule (thời gian suy nghĩ) của FTC cho người mua ba ngày để hủy một số giao dịch, nhưng ghi rõ không áp dụng cho xe bán tại địa điểm cố định của dealer. Ký rồi là giao dịch xong, trừ khi dealer đồng ý bằng giấy cho thêm.",
+        "script": "Anh ghi thời hạn được hủy vào hợp đồng, bằng giấy, trước khi tôi ký được không?",
+        "escalation": "Đừng cho rằng mặc nhiên có “thời gian suy nghĩ”. Luật liên bang cố ý loại xe ra. Muốn có đường lui thì thương lượng ghi vào hợp đồng trước khi ký, đừng để sau."
+      },
+      "comingSoon": {
+        "title": "Sắp có luật riêng từng tiểu bang",
+        "plain": "{direction} Số điều luật chính xác của {state} chưa được chúng tôi tự xác minh, nên hãy coi đây là điểm bắt đầu, không phải tư vấn pháp lý. Năm sự bảo vệ liên bang đã áp dụng cho bạn dù ở tiểu bang nào.",
+        "script": "{state} có thời gian suy nghĩ riêng, mức trần lãi suất hay quy định công bố món mua thêm không?",
+        "escalation": "Tìm \"{state} lemon law\" và \"{state} used car dealer warranty\" trên website của Tổng chưởng lý tiểu bang bạn trước khi ký bất cứ gì."
+      }
+    }
+  },
+  "eventsPage": {
+    "preview": "Xem trước riêng: chỉ quản trị viên mới thấy trang này.",
+    "hero": {
+      "title": "Sự kiện",
+      "body": "Các buổi học và buổi gặp mặt về chuyện mua xe, sửa xe và trả tiền xe mà không bị lợi dụng. Miễn phí và mở cửa cho mọi người."
+    },
+    "toggleLabel": "Hiện sự kiện",
+    "upcoming": "Sắp diễn ra",
+    "past": "Đã qua",
+    "noneUpcoming": "Hiện chưa có sự kiện sắp tới. Ghé lại sau nhé.",
+    "nonePast": "Chưa có sự kiện nào đã qua.",
+    "flyerAlt": "Tờ rơi của {title}",
+    "enlarge": "Phóng to tờ rơi",
+    "close": "Đóng",
+    "time": "{time} giờ Thái Bình Dương",
+    "online": "Trực tuyến, qua Zoom",
+    "onlineNote": "Link sẽ được gửi qua email khi bạn đăng ký",
+    "going": "{n} người sẽ tham dự",
+    "goingOne": "1 người sẽ tham dự",
+    "rsvp": "Đăng ký, miễn phí",
+    "ended": "Sự kiện này đã kết thúc.",
+    "form": {
+      "title": "Đăng ký tham dự",
+      "name": "Tên",
+      "email": "Email",
+      "school": "Trường hoặc tổ chức",
+      "schoolPick": "Chọn một",
+      "schools": {
+        "berkeley": "UC Berkeley",
+        "ucla": "UCLA",
+        "ucsc": "UC Santa Cruz",
+        "other": "Trường khác",
+        "none": "Không phải sinh viên"
+      },
+      "question": "Câu hỏi cho người dẫn (không bắt buộc)",
+      "optIn": "Email cho tôi về các sự kiện sau của VINdicated",
+      "submit": "Đăng ký",
+      "sending": "Đang gửi…",
+      "cancel": "Hủy",
+      "nameError": "Điền tên của bạn.",
+      "emailError": "Điền một địa chỉ email hợp lệ.",
+      "schoolError": "Chọn trường hoặc tổ chức của bạn.",
+      "error": "Chưa gửi được. Thử lại sau một phút nhé.",
+      "closed": "Sự kiện này đã đóng đăng ký.",
+      "tooMany": "Thử quá nhiều lần từ đây. Đợi vài phút rồi thử lại."
+    },
+    "done": {
+      "title": "Bạn đã đăng ký xong!",
+      "online": "Cảm ơn {first}. Chúng tôi đã gửi link Zoom đến {email}.",
+      "inPerson": "Cảm ơn {first}. Chúng tôi đã gửi thông tin chi tiết đến {email}.",
+      "emailFailed": "Cảm ơn {first}. Bạn đã có tên trong danh sách, nhưng email xác nhận chưa gửi được. Chúng tôi sẽ email đến {email} trước sự kiện.",
+      "google": "Thêm vào Google Calendar",
+      "ics": "Tải về cho Apple / Outlook",
+      "calendarNote": "Link Zoom có trong email xác nhận của bạn."
+    },
+    "strip": {
+      "label": "Sự kiện tiếp theo",
+      "free": "Miễn phí",
+      "online": "Trực tuyến",
+      "inPerson": "Trực tiếp",
+      "rsvp": "Đăng ký"
+    },
+    "email": {
+      "confirmSubject": "Bạn đã đăng ký: {title} · {when}",
+      "reminderSubject": "Nhắc nhở: {title} · {when}",
+      "hi": "Chào {name},",
+      "confirmBody": "Cảm ơn bạn đã đăng ký! Bạn đã có chỗ ở {title}. Sự kiện miễn phí, và thông tin cũng có trong file lịch đính kèm email này.",
+      "reminderBody": "Nhắc bạn một chút: {title} sẽ diễn ra vào {when}.",
+      "join": "Vào Zoom: {link}",
+      "linkLater": "Chúng tôi sẽ email link Zoom cho bạn trước sự kiện.",
+      "inPerson": "Sự kiện diễn ra trực tiếp tại {address}.",
+      "when": "Thời gian",
+      "where": "Địa điểm",
+      "host": "Người dẫn",
+      "zoomLink": "Link Zoom",
+      "details": "Chi tiết sự kiện: {link}",
+      "signoff": "VINdicated"
     }
   }
 }

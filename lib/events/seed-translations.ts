@@ -24,4 +24,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "Matutong tumawad sa presyo ng kotse, at sa kahit ano pa, mula sa isang nagtuturo nito sa Berkeley Law. Dalhin ang mga tanong mo.",
   },
+  vi: {
+    title: "Buổi học thương lượng với Emily Epstein",
+    tag: "Buổi học · UC Berkeley",
+    hostTitle: "Giảng viên thương lượng, UC Berkeley Law · CEO, Oakbay Consulting",
+    description:
+      "Học cách trả giá khi mua xe, và cả những chuyện khác, từ người đang dạy môn này ở Berkeley Law. Mang theo câu hỏi của bạn nhé.",
+  },
 };
