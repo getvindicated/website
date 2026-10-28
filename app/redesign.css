@@ -22,7 +22,7 @@ html:has(.rd-page){scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-
   --red:#b3261e;
   --amber:#8a5a00;
   --green:#1d6b3a;
-  --font:var(--font-jakarta),"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  --font:var(--font-jakarta),"Plus Jakarta Sans",var(--font-script,-apple-system),-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
 .rd *,.rd *::before,.rd *::after{box-sizing:inherit}
 .rd{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .rd a{color:inherit;text-decoration:none}
