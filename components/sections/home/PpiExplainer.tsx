@@ -21,11 +21,13 @@ export function PpiExplainer({
   return (
     <section className="ppi" id="ppi">
       <div className="wrap what">
-        <h2 className="h2">{dict.title}</h2>
         <div>
+          <h2 className="h2">{dict.title}</h2>
           <p className="lede">
             <Rich text={dict.body} />
           </p>
+        </div>
+        <div>
           <div className="offer">
             {dict.items.map((item) => (
               <div key={item.title}>
