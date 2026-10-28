@@ -38,4 +38,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "Berkeley Law에서 협상을 가르치는 분에게 차 값, 그리고 그 밖의 무엇이든 흥정하는 법을 배워 보세요. 궁금한 건 들고 오세요.",
   },
+  fa: {
+    title: "کارگاه مذاکره با Emily Epstein",
+    tag: "کارگاه · UC Berkeley",
+    hostTitle: "مدرس مذاکره، UC Berkeley Law · مدیرعامل Oakbay Consulting",
+    description:
+      "از کسی که توی Berkeley Law مذاکره درس می‌ده یاد بگیرید چطور سر قیمت ماشین، و هر چیز دیگه‌ای، چونه بزنید. سؤال‌هاتون رو بیارید.",
+  },
 };
