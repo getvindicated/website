@@ -54,7 +54,8 @@ const ALLOWED = [
   "Caleb Jacobs", "Rana", "Darwich", "Esri", "Maxar", "Supabase", "OpenStreetMap", "CARTO", "AI", "PDF", "MB", "PT", "AM", "PM",
   "CA", "TX", "NY", "NJ", "CT", "MA", "AK", "WI", "ME", "DOJ", "DOT", "AG", "BMV", "SOS", "Cal", "Civ", "Code", "Veh",
   "Price Is Right", "Crosscheck", "Morning Consult", "Caribou", "Mary Wollstonecraft", "Wollstonecraft", "South Coast Mitsubishi", "Carcam", "Duolingo", "U.S.C.", "CFR", "Mass", "Tex", "Occ", "ch", "Trans", "Admin",
-  "Federal Trade Commission", "Truth in Lending Act", "FTC Used Car Rule", "Motor Vehicle Information Act",
+  "Federal Trade Commission", "Sather Tower", "Campanile", "Doe Library", "Royce Hall", "Navitas Semiconductor", "Will",
+  "Truth in Lending Act", "FTC Used Car Rule", "Motor Vehicle Information Act",
   "Fair Credit Reporting Act", "University of California", "Los Angeles", "SwiftUI", "Swift", "React Native", "Expo", "APIs", "API",
 ];
 

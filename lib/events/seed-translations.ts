@@ -52,4 +52,11 @@ export const NEGOTIATION_TRANSLATIONS: Partial<Record<string, EventText>> = {
     description:
       "Սովորեք սակարկել մեքենայի գինը, և ցանկացած այլ բան, մի մարդուց, ով դա դասավանդում է Berkeley Law-ում։ Բերեք ձեր հարցերը։",
   },
+  hi: {
+    title: "Emily Epstein के साथ मोलभाव की वर्कशॉप",
+    tag: "वर्कशॉप · UC Berkeley",
+    hostTitle: "नेगोशिएशन लेक्चरर, UC Berkeley Law · CEO, Oakbay Consulting",
+    description:
+      "Berkeley Law में मोलभाव पढ़ाने वाली से सीखिए कि कार की कीमत पर, और किसी भी चीज़ पर, मोलभाव कैसे करें। अपने सवाल लेकर आइए।",
+  },
 };
