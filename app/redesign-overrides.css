@@ -1006,42 +1006,6 @@
   display: flex;
   margin: 14px auto 0;
 }
-.rd .ev-strip-section {
-  padding: 0 0 24px;
-}
-.rd .ev-strip {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: var(--tint);
-  border-radius: 8px;
-  padding: 18px 22px;
-}
-.rd .ev-strip-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-  line-height: 1.4;
-}
-.rd .ev-strip-label {
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--purple);
-}
-.rd .ev-strip-title {
-  font-weight: 800;
-  font-size: 1.15rem;
-}
-.rd .ev-strip-title:hover {
-  text-decoration: underline;
-}
-.rd .ev-strip-meta {
-  color: var(--purple-deep);
-  font-weight: 600;
-}
 @media (max-width: 760px) {
   .rd .ev-card {
     grid-template-columns: 1fr;
@@ -1066,12 +1030,6 @@
   .rd .ev-form {
     grid-template-columns: 1fr;
     padding: 18px;
-  }
-  .rd .ev-strip {
-    flex-wrap: wrap;
-  }
-  .rd .ev-strip-btn {
-    width: 100%;
   }
 }
 
@@ -1227,4 +1185,146 @@
 .rd form input[name="company"][aria-hidden="true"] {
   left: auto !important;
   inset-inline-start: -9999px;
+}
+
+/* ---------- Upcoming workshop (home) and the workshop bar ---------- */
+/* The workshop sits right under the hero, close enough to be seen early. */
+.rd .hero:has(+ .workshop) {
+  padding-bottom: 40px;
+}
+.rd .workshop {
+  background: #fff;
+  padding: 24px 0 72px;
+}
+.rd .workshop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 56px;
+  align-items: center;
+}
+.rd .workshop-flyer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.rd .workshop-text {
+  min-width: 0;
+}
+.rd .workshop-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.rd .workshop h2 {
+  margin: 10px 0 18px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+.rd .workshop-when {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.rd .workshop-host {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 14px;
+  line-height: 1.45;
+}
+.rd .workshop-host span {
+  color: var(--purple-deep);
+}
+.rd .workshop-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0 0 28px;
+  max-width: 620px;
+}
+.rd .workshop .btn-line {
+  background: #fff;
+}
+@media (max-width: 760px) {
+  .rd .workshop {
+    padding: 8px 0 56px;
+  }
+  .rd .workshop-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .rd .workshop .ctas .btn {
+    width: 100%;
+  }
+}
+
+.workshop-bar {
+  background: var(--purple);
+  color: #fff;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 41;
+}
+.workshop-bar-in {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.workshop-bar-link {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.35em;
+  padding: 10px 0;
+  color: #fff;
+  white-space: nowrap;
+}
+/* A long title is cut short; "RSVP" always shows. */
+.workshop-bar-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.workshop-bar-date {
+  flex: none;
+}
+.workshop-bar-link b {
+  flex: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.workshop-bar-link:hover .workshop-bar-text {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.workshop-bar-x {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.workshop-bar-x:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.workshop-bar-x:focus-visible,
+.workshop-bar-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+@media (max-width: 760px) {
+  .workshop-bar {
+    font-size: 0.88rem;
+  }
 }

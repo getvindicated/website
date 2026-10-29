@@ -2546,12 +2546,19 @@
       "ics": "Descargar para Apple / Outlook",
       "calendarNote": "El enlace de Zoom está en tu correo de confirmación."
     },
-    "strip": {
-      "label": "Próximo evento",
-      "free": "Gratis",
-      "online": "En línea",
-      "inPerson": "En persona",
-      "rsvp": "Aparta tu lugar"
+    "feature": {
+      "section": "Próximo taller",
+      "label": "Taller gratis",
+      "when": "{date} · {time} hora del Pacífico",
+      "online": "En línea, por Zoom",
+      "rsvp": "Aparta tu lugar, es gratis",
+      "all": "Ver todos los eventos"
+    },
+    "bar": {
+      "label": "Próximo taller",
+      "text": "Gratis: {title} · {date}",
+      "rsvp": "Aparta tu lugar",
+      "close": "Ocultar este aviso"
     },
     "email": {
       "confirmSubject": "Ya estás dentro: {title} · {when}",

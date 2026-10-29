@@ -2546,12 +2546,19 @@
       "ics": "Download for Apple / Outlook",
       "calendarNote": "The Zoom link is in your confirmation email."
     },
-    "strip": {
-      "label": "Next event",
-      "free": "Free",
-      "online": "Online",
-      "inPerson": "In person",
-      "rsvp": "RSVP"
+    "feature": {
+      "section": "Upcoming workshop",
+      "label": "Free workshop",
+      "when": "{date} · {time} Pacific",
+      "online": "Online on Zoom",
+      "rsvp": "RSVP, it's free",
+      "all": "See all events"
+    },
+    "bar": {
+      "label": "Upcoming workshop",
+      "text": "Free: {title} · {date}",
+      "rsvp": "RSVP",
+      "close": "Hide this message"
     },
     "email": {
       "confirmSubject": "You're in: {title} · {when}",

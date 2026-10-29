@@ -2546,12 +2546,19 @@
       "ics": "Tải về cho Apple / Outlook",
       "calendarNote": "Link Zoom có trong email xác nhận của bạn."
     },
-    "strip": {
-      "label": "Sự kiện tiếp theo",
-      "free": "Miễn phí",
-      "online": "Trực tuyến",
-      "inPerson": "Trực tiếp",
-      "rsvp": "Đăng ký"
+    "feature": {
+      "section": "Workshop sắp tới",
+      "label": "Workshop miễn phí",
+      "when": "{date} · {time} giờ Thái Bình Dương",
+      "online": "Trực tuyến qua Zoom",
+      "rsvp": "Đăng ký, miễn phí",
+      "all": "Xem tất cả sự kiện"
+    },
+    "bar": {
+      "label": "Workshop sắp tới",
+      "text": "Miễn phí: {title} · {date}",
+      "rsvp": "Đăng ký",
+      "close": "Ẩn thông báo này"
     },
     "email": {
       "confirmSubject": "Bạn đã đăng ký: {title} · {when}",

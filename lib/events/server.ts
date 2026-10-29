@@ -107,7 +107,8 @@ export async function listPublicEvents(locale = "en"): Promise<PublicEvent[]> {
   return rows.map((r) => toPublic(r, n.get(r.id as number) ?? 0, locale));
 }
 
-// The next event that hasn't ended, for the home page strip.
+// The next event that hasn't ended, for the home page workshop section
+// and the top bar.
 export async function nextPublicEvent(locale = "en"): Promise<PublicEvent | null> {
   return (await listPublicEvents(locale)).find((e) => !e.past) ?? null;
 }

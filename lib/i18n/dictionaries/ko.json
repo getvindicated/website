@@ -2546,12 +2546,19 @@
       "ics": "Apple / Outlook용 다운로드",
       "calendarNote": "Zoom 링크는 확인 이메일에 있어요."
     },
-    "strip": {
-      "label": "다음 행사",
-      "free": "무료",
-      "online": "온라인",
-      "inPerson": "오프라인",
-      "rsvp": "참석 신청"
+    "feature": {
+      "section": "다가오는 워크숍",
+      "label": "무료 워크숍",
+      "when": "{date} · 태평양 시간 {time}",
+      "online": "Zoom 온라인",
+      "rsvp": "무료로 신청하기",
+      "all": "모든 행사 보기"
+    },
+    "bar": {
+      "label": "다가오는 워크숍",
+      "text": "무료: {title} · {date}",
+      "rsvp": "신청하기",
+      "close": "이 알림 숨기기"
     },
     "email": {
       "confirmSubject": "신청 완료: {title} · {when}",

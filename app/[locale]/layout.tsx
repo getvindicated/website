@@ -15,10 +15,11 @@ import {
 } from "next/font/google";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { WorkshopBar } from "@/components/layout/WorkshopBar";
 import { Starfield } from "@/components/ui/Starfield";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { LocaleStrings } from "@/components/layout/LocaleStrings";
-import { locales, isValidLocale, isRtl, type Locale } from "@/lib/i18n/config";
+import { locales, isValidLocale, isRtl, localizeHref, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRootMetadata } from "@/lib/i18n/metadata";
 import { eventsPublic } from "@/lib/events/flag";
@@ -142,6 +143,9 @@ export default async function RootLayout({
         />
         {/* <Starfield /> */}
         {/* <CarCursor /> */}
+        {eventsPublic() && (
+          <WorkshopBar dict={dict.eventsPage.bar} locale={locale} eventsHref={localizeHref(locale as Locale, "/events")} />
+        )}
         <SiteHeader
           locale={locale as Locale}
           dict={{ nav: dict.nav, ui: dict.ui }}

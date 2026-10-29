@@ -2546,12 +2546,19 @@
       "ics": "Apple / Outlook के लिए डाउनलोड करें",
       "calendarNote": "Zoom लिंक आपके कन्फर्मेशन ईमेल में है।"
     },
-    "strip": {
-      "label": "अगला इवेंट",
-      "free": "मुफ्त",
-      "online": "ऑनलाइन",
-      "inPerson": "आमने-सामने",
-      "rsvp": "RSVP करें"
+    "feature": {
+      "section": "आने वाली वर्कशॉप",
+      "label": "मुफ़्त वर्कशॉप",
+      "when": "{date} · {time} पैसिफ़िक टाइम",
+      "online": "Zoom पर ऑनलाइन",
+      "rsvp": "RSVP करें, मुफ़्त है",
+      "all": "सभी इवेंट देखें"
+    },
+    "bar": {
+      "label": "आने वाली वर्कशॉप",
+      "text": "मुफ़्त: {title} · {date}",
+      "rsvp": "RSVP करें",
+      "close": "यह मैसेज छिपाएं"
     },
     "email": {
       "confirmSubject": "आप शामिल हैं: {title} · {when}",

@@ -2546,12 +2546,19 @@
       "ics": "下载到 Apple / Outlook 日历",
       "calendarNote": "Zoom 链接在你的确认邮件里。"
     },
-    "strip": {
-      "label": "下一场活动",
-      "free": "免费",
-      "online": "线上",
-      "inPerson": "线下",
-      "rsvp": "报名"
+    "feature": {
+      "section": "即将举办的工作坊",
+      "label": "免费工作坊",
+      "when": "{date} · 太平洋时间 {time}",
+      "online": "线上，用 Zoom",
+      "rsvp": "免费报名",
+      "all": "查看所有活动"
+    },
+    "bar": {
+      "label": "即将举办的工作坊",
+      "text": "免费：{title} · {date}",
+      "rsvp": "报名",
+      "close": "隐藏这条消息"
     },
     "email": {
       "confirmSubject": "报名成功：{title} · {when}",

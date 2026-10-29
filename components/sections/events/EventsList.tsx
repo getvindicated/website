@@ -25,7 +25,7 @@ export function EventsList({ dict, events }: { dict: EventsPageDict; events: Sho
 
   // A link to a past event (#event-3) opens the Past list.
   useEffect(() => {
-    const id = Number(window.location.hash.replace("#event-", ""));
+    const id = Number(window.location.hash.replace(/^#(event|rsvp)-/, ""));
     if (id && past.some((e) => e.id === id)) setView("past");
     // Only on load.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,9 +60,23 @@ function EventCard({ dict, event: e, onFlyer }: { dict: EventsPageDict; event: S
   const [count, setCount] = useState(e.count);
   const prevCountRef = useRef(e.count);
   const titleId = useId();
+  const cardRef = useRef<HTMLElement>(null);
+
+  // "RSVP, it's free" on the home page and the top bar link to
+  // /events#rsvp-<id>: open this event's form and bring it into view.
+  useEffect(() => {
+    const check = () => {
+      if (window.location.hash !== `#rsvp-${e.id}` || e.past) return;
+      setOpen(true);
+      requestAnimationFrame(() => cardRef.current?.scrollIntoView({ block: "start" }));
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    return () => window.removeEventListener("hashchange", check);
+  }, [e.id, e.past]);
 
   return (
-    <article className="ev-card" id={`event-${e.id}`} aria-labelledby={titleId}>
+    <article className="ev-card" id={`event-${e.id}`} aria-labelledby={titleId} ref={cardRef}>
       <div className="ev-flyer">
         {e.flyer ? (
           <button type="button" className="ev-flyer-btn" onClick={onFlyer} aria-label={dict.enlarge}>
