@@ -16,6 +16,7 @@ import { AssignmentsTab } from "./AssignmentsTab";
 import { SocialsTab } from "./SocialsTab";
 import { MeetingsTab } from "./MeetingsTab";
 import { EventsTab } from "./EventsTab";
+import { ApplicationsTab } from "./ApplicationsTab";
 
 const LABELS: Record<Tab, string> = {
   me: "My page",
@@ -26,6 +27,7 @@ const LABELS: Record<Tab, string> = {
   socials: "Socials",
   meetings: "Meetings",
   events: "Events",
+  applications: "Applications",
   changes: "Changes",
 };
 
@@ -64,7 +66,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
   const [focus, setFocus] = useState<Ctx["focus"]>(null);
   const [editingTerm, setEditingTerm] = useState(false);
   const admin = user.role === "admin";
-  // The Events and Changes tabs are for admins only.
+  // The Events, Applications and Changes tabs are for admins only.
   const tabs = TABS.filter((t) => !ADMIN_TABS.includes(t) || admin);
 
   // Each tab is linkable: /board#socials, /board/ucla#me.
@@ -132,6 +134,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
           {tab === "socials" && <SocialsTab />}
           {tab === "meetings" && <MeetingsTab />}
           {tab === "events" && admin && <EventsTab />}
+          {tab === "applications" && admin && <ApplicationsTab />}
           {tab === "changes" && <ChangesTab />}
         </main>
       </div>

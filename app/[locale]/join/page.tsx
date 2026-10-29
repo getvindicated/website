@@ -2,8 +2,14 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/shared/PageHero";
 import { ApplyForm } from "@/components/sections/join/ApplyForm";
 import { ContactForm } from "@/components/sections/join/ContactForm";
+import { BoardStatus } from "@/components/sections/apply/BoardStatus";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import type { Locale } from "@/lib/i18n/config";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import { publicChapters } from "@/lib/apply/server";
+
+// The board applications section shows each chapter's status from the hub,
+// so the page renders on every request.
+export const dynamic = "force-dynamic";
 
 // Minimum weekly hours per role, same order as joinPage.roles.items.
 const ROLE_HOURS = [5, 5, 5, 3, 3, 3];
@@ -14,7 +20,12 @@ export default async function JoinPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const d = (await getDictionary(locale as Locale)).joinPage;
+  const dict = await getDictionary(locale as Locale);
+  const d = dict.joinPage;
+  const boards = await publicChapters().catch((e) => {
+    console.error("[apply] Couldn't load chapters:", e instanceof Error ? e.message : e);
+    return [];
+  });
 
   return (
     <div className="rd rd-page">
@@ -46,6 +57,19 @@ export default async function JoinPage({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pt0" id="board">
+        <div className="wrap apply-wrap board-cta">
+          <h2 className="h2">{d.board.title}</h2>
+          <p className="lede">{d.board.body}</p>
+          {boards.length > 0 && <BoardStatus dict={dict.applyPage} chapters={boards} locale={locale} label={d.board.statusLabel} />}
+          <div className="ctas">
+            <Link className="btn btn-solid" href={localizeHref(locale as Locale, "/apply")}>
+              {d.board.cta}
+            </Link>
           </div>
         </div>
       </section>

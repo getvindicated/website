@@ -918,3 +918,103 @@
   height: auto;
   border: 1px solid var(--rule);
 }
+
+/* ---------- Applications tab (admins) ---------- */
+.board .apps-settings h3,
+.board .app-detail h3 {
+  margin: 0;
+}
+.board .position-row input {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.board .apps-filters select {
+  max-width: 100%;
+}
+.board .apps-list tr.on td {
+  background: var(--tint, rgba(149, 51, 165, 0.08));
+}
+.board .apps-list td {
+  vertical-align: top;
+}
+.board .app-st {
+  display: inline-block;
+  padding: 1px 10px;
+  border: 1px solid var(--rule);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.board .app-st-new {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.board .app-st-interview {
+  border-color: var(--deep);
+}
+.board .app-st-accepted {
+  background: #e3f3e8;
+  border-color: #1d6b3a;
+  color: #1d6b3a;
+}
+.board .app-st-declined {
+  color: var(--deep);
+  text-decoration: line-through;
+}
+.board .app-head {
+  justify-content: space-between;
+  align-items: baseline;
+}
+.board .app-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px 24px;
+  margin: 8px 0 4px;
+}
+.board .app-facts div {
+  min-width: 0;
+}
+.board .app-facts dt {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--deep);
+  font-weight: 700;
+}
+.board .app-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.board .app-detail h4 {
+  margin: 14px 0 4px;
+}
+.board .app-detail .answer {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+.board .app-review {
+  margin-top: 14px;
+  align-items: start;
+}
+.board .apps-tab > h3,
+.board .apps-notify h3 {
+  margin-top: 28px;
+}
+.board .app-review label,
+.board .app-email label,
+.board .app-member label {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+.board textarea.tall {
+  min-height: 220px;
+}
+.board .notify-list {
+  list-style: none;
+  padding: 0;
+}
+.board .notify-list li {
+  padding: 4px 0;
+  overflow-wrap: anywhere;
+}
