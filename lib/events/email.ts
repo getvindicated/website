@@ -1,7 +1,6 @@
 import "server-only";
 import { EmailTimeoutError } from "@/lib/brevo";
-import { chapterConfig } from "@/lib/board/chapters";
-import { CHAPTER_SERVER, chapterSender } from "@/lib/board/chapter-server";
+import { CHAPTER_SERVER, eventSender } from "@/lib/board/chapter-server";
 import { deliver } from "@/lib/board/invites";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isRtl, isValidLocale, type Locale } from "@/lib/i18n/config";
@@ -10,14 +9,16 @@ import { eventLabels } from "./format";
 import { buildEventIcs, eventUrl, type IcsLabels } from "./ics";
 import { getFullEvent, type FullEvent } from "./server";
 
-// RSVP confirmations and "Send reminder to everyone" emails. They go out the
-// same way as board invites (lib/board/invites.ts: SMTP on 2525, then the
-// Brevo API, or the BOARD_INVITE_OUTBOX folder when testing), from the
-// event's chapter sender, with the event's .ics. Each person gets them in
-// the language they RSVPed in (eventsPage.email in the dictionaries). These
-// emails are the only place the meeting link appears.
+// RSVP confirmations, "Send reminder to everyone" and "Send the location to
+// everyone" emails. They go out the same way as board invites
+// (lib/board/invites.ts: SMTP on 2525, then the Brevo API, or the
+// BOARD_INVITE_OUTBOX folder when testing), from the chapter's address under
+// its name ("VINdicated", "VINdicated at UCLA": eventsFrom in
+// chapter-server.ts) and signed with that name, with the event's .ics. Each
+// person gets them in the language they RSVPed in (eventsPage.email in the
+// dictionaries). These emails are the only place the meeting link appears.
 
-export type EmailKind = "confirm" | "reminder";
+export type EmailKind = "confirm" | "reminder" | "location";
 export type Recipient = { name: string; email: string; locale?: string };
 
 const esc = (s: string) =>
@@ -29,17 +30,23 @@ export const icsLabels = (d: EventsPageDict): IcsLabels => ({
   linkNote: d.done.calendarNote,
   host: d.email.host,
   join: d.email.join,
+  tba: d.tba,
 });
 
-function content(kind: EmailKind, e: FullEvent, d: EventsPageDict, locale: string, first: string) {
+function content(kind: EmailKind, e: FullEvent, d: EventsPageDict, locale: string, first: string, signoff: string) {
   const m = d.email;
   const l = eventLabels(e, locale);
   const when = `${l.dateLabel} · ${fill(d.time, { time: l.timeLabel })}`;
-  const subject = fill(kind === "confirm" ? m.confirmSubject : m.reminderSubject, { title: e.title, when: `${l.short}` });
+  const subjects = { confirm: m.confirmSubject, reminder: m.reminderSubject, location: m.locationSubject };
+  const bodies = { confirm: m.confirmBody, reminder: m.reminderBody, location: m.locationBody };
+  const subject = fill(subjects[kind], { title: e.title, when: `${l.short}` });
   const link = e.online ? e.meetingLink : "";
-  const where = e.online ? d.online : e.address;
-  const opening = fill(kind === "confirm" ? m.confirmBody : m.reminderBody, { title: e.title, when });
-  const how = e.online ? (link ? fill(m.join, { link }) : m.linkLater) : fill(m.inPerson, { address: e.address });
+  // In person with no address yet: "Location to be announced", and a
+  // follow-up email with the location comes later.
+  const tba = !e.online && !e.address;
+  const where = e.online ? d.online : e.address || d.tba;
+  const opening = fill(bodies[kind], { title: e.title, when });
+  const how = e.online ? (link ? fill(m.join, { link }) : m.linkLater) : tba ? m.tba : fill(m.inPerson, { address: e.address });
   const page = eventUrl(e.id, locale);
   const row = (label: string, value: string, href?: string) =>
     `<p style="margin:0"><b>${esc(label)}:</b> ${href ? `<a href="${esc(href)}">${esc(value)}</a>` : esc(value)}</p>`;
@@ -61,7 +68,7 @@ ${e.hostName ? row(m.host, e.hostTitle ? `${e.hostName}, ${e.hostTitle}` : e.hos
 <p>${link ? esc(m.join).replace("{link}", `<a href="${esc(link)}">${esc(link)}</a>`) : esc(how)}</p>
 ${e.description ? `<p>${esc(e.description)}</p>` : ""}
 <p>${esc(m.details).replace("{link}", `<a href="${esc(page)}">${esc(page.replace(/^https?:\/\//, ""))}</a>`)}</p>
-<p>${esc(m.signoff)}</p>
+<p>${esc(signoff)}</p>
 </div>`;
   const textBody = [
     fill(m.hi, { name: first }),
@@ -71,7 +78,7 @@ ${e.description ? `<p>${esc(e.description)}</p>` : ""}
     how,
     e.description,
     fill(m.details, { link: page }),
-    m.signoff,
+    signoff,
   ]
     .filter(Boolean)
     .join("\n\n");
@@ -87,9 +94,9 @@ export async function sendEventEmails(
 ): Promise<{ sent: string[]; failed: string[] }> {
   const base = await getFullEvent(eventId);
   if (!base) return { sent: [], failed: recipients.map((r) => r.email) };
-  const config = chapterConfig(base.chapter);
+  const name = CHAPTER_SERVER[base.chapter].eventsFrom;
   const org = CHAPTER_SERVER[base.chapter].organizer;
-  const sender = chapterSender(base.chapter, config.title) ?? { name: config.title, email: "board@getvindicated.org" };
+  const sender = eventSender(base.chapter) ?? { name, email: "board@getvindicated.org" };
   const state = { useSmtp: !!(process.env.BREVO_SMTP_LOGIN?.trim() && process.env.BREVO_SMTP_KEY?.trim()) };
   // One copy of the event and its wording per language.
   const cache = new Map<string, { e: FullEvent; d: EventsPageDict; ics: string }>();
@@ -108,13 +115,14 @@ export async function sendEventEmails(
   for (const [i, r] of recipients.entries()) {
     const { locale, e, d, ics } = await forLocale(r.locale);
     const first = r.name.trim().split(/\s+/)[0] || r.name;
-    const c = content(kind, e, d, locale, first);
+    const c = content(kind, e, d, locale, first, name);
     try {
       await deliver(
         {
           sender,
           to: { name: r.name, email: r.email },
-          replyTo: { name: org.name, email: org.email },
+          // Replies still reach the organizer, under the chapter's name.
+          replyTo: { name, email: org.email },
           subject: c.subject,
           text: c.text,
           html: c.html,

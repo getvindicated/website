@@ -2508,6 +2508,8 @@
     "time": "{time} hora del Pacífico",
     "online": "En línea, por Zoom",
     "onlineNote": "Te mandamos el enlace por correo cuando confirmas que vas",
+    "tba": "Lugar por confirmar",
+    "tbaNote": "Te mandamos el lugar por correo cuando se acerque la fecha",
     "going": "{n} personas van a ir",
     "goingOne": "1 persona va a ir",
     "rsvp": "Aparta tu lugar, es gratis",
@@ -2541,6 +2543,7 @@
       "title": "¡Ya estás dentro!",
       "online": "Gracias, {first}. Te mandamos el enlace de Zoom a {email}.",
       "inPerson": "Gracias, {first}. Te mandamos los detalles a {email}.",
+      "tba": "Te vamos a mandar otro correo con el lugar cuando se acerque la fecha.",
       "emailFailed": "Gracias, {first}. Ya estás en la lista, pero no se pudo mandar el correo de confirmación. Te escribimos a {email} antes del evento.",
       "google": "Agregar a Google Calendar",
       "ics": "Descargar para Apple / Outlook",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "Ya estás dentro: {title} · {when}",
       "reminderSubject": "Recordatorio: {title} · {when}",
+      "locationSubject": "Lugar de {title} · {when}",
       "hi": "Hola, {name}:",
       "confirmBody": "¡Gracias por apartar tu lugar! Ya estás inscrito en {title}. Es gratis, y también va en el archivo de calendario que viene en este correo.",
       "reminderBody": "Nada más para recordarte: {title} es el {when}.",
+      "locationBody": "Aquí está el lugar de {title}, el {when}. Tu calendario se actualiza solo.",
       "join": "Entra por Zoom: {link}",
       "linkLater": "Te mandamos el enlace de Zoom por correo antes del evento.",
       "inPerson": "Es en persona en {address}.",
+      "tba": "Te vamos a mandar otro correo con el lugar cuando se acerque la fecha.",
       "when": "Cuándo",
       "where": "Dónde",
       "host": "Quién lo da",
       "zoomLink": "Enlace de Zoom",
-      "details": "Detalles del evento: {link}",
-      "signoff": "VINdicated"
+      "details": "Detalles del evento: {link}"
     }
   },
   "applyPage": {

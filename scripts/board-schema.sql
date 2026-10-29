@@ -276,3 +276,12 @@ CREATE TABLE IF NOT EXISTS board_application_notify (
   created_at  timestamptz NOT NULL DEFAULT now()
 );
 CREATE UNIQUE INDEX IF NOT EXISTS board_application_notify_once ON board_application_notify (chapter, lower(email));
+
+-- In-person events whose place isn't set yet: the page and emails say
+-- "Location to be announced". location_pending is set when an address is
+-- added (or changed) after people RSVPed, until an admin sends it to
+-- everyone. ics_sequence is the calendar SEQUENCE: it goes up each time the
+-- location is sent, so calendars update the entry they already have.
+ALTER TABLE board_events ADD COLUMN IF NOT EXISTS location_tba boolean NOT NULL DEFAULT false;
+ALTER TABLE board_events ADD COLUMN IF NOT EXISTS location_pending boolean NOT NULL DEFAULT false;
+ALTER TABLE board_events ADD COLUMN IF NOT EXISTS ics_sequence integer NOT NULL DEFAULT 0;

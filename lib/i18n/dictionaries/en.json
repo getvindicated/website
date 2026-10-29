@@ -2508,6 +2508,8 @@
     "time": "{time} Pacific",
     "online": "Online, on Zoom",
     "onlineNote": "The link is emailed to you when you RSVP",
+    "tba": "Location to be announced",
+    "tbaNote": "We'll email you the location closer to the date",
     "going": "{n} people are going",
     "goingOne": "1 person is going",
     "rsvp": "RSVP, it's free",
@@ -2541,6 +2543,7 @@
       "title": "You're in!",
       "online": "Thanks, {first}. We sent the Zoom link to {email}.",
       "inPerson": "Thanks, {first}. We sent the details to {email}.",
+      "tba": "We'll send you a follow-up email with the location closer to the date.",
       "emailFailed": "Thanks, {first}. You're on the list, but the confirmation email didn't go through. We'll email {email} before the event.",
       "google": "Add to Google Calendar",
       "ics": "Download for Apple / Outlook",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "You're in: {title} · {when}",
       "reminderSubject": "Reminder: {title} · {when}",
+      "locationSubject": "Location for {title} · {when}",
       "hi": "Hi {name},",
       "confirmBody": "Thanks for your RSVP! You're signed up for {title}. It's free, and it's also in the calendar file attached to this email.",
       "reminderBody": "Just a reminder: {title} is coming up on {when}.",
+      "locationBody": "Here's the location for {title} on {when}. Your calendar updates on its own.",
       "join": "Join on Zoom: {link}",
       "linkLater": "We'll email you the Zoom link before the event.",
       "inPerson": "It's in person at {address}.",
+      "tba": "We'll send you a follow-up email with the location closer to the date.",
       "when": "When",
       "where": "Where",
       "host": "Host",
       "zoomLink": "Zoom link",
-      "details": "Event details: {link}",
-      "signoff": "VINdicated"
+      "details": "Event details: {link}"
     }
   },
   "applyPage": {

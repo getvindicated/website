@@ -44,6 +44,7 @@ const PUBLIC_COLUMNS = [
   "end_time",
   "online",
   "address",
+  "location_tba",
   "host_name",
   "host_title",
   "description",
@@ -76,6 +77,7 @@ function toPublic(r: Row, count: number, locale = "en"): PublicEvent {
     endsAt: endsAt(r).toISOString(),
     online: r.online as boolean,
     address: r.online ? "" : (r.address as string),
+    locationTba: !r.online && (r.location_tba as boolean),
     hostName: r.host_name as string,
     hostTitle: text.hostTitle,
     description: text.description,
@@ -115,14 +117,14 @@ export async function nextPublicEvent(locale = "en"): Promise<PublicEvent | null
 
 // One event with everything, including the meeting link, for emails, in
 // the given language.
-export type FullEvent = PublicEvent & { chapter: ChapterId; uid: string; meetingLink: string };
+export type FullEvent = PublicEvent & { chapter: ChapterId; uid: string; meetingLink: string; sequence: number };
 
 export async function getFullEvent(id: number, locale = "en"): Promise<FullEvent | null> {
   if (!(await ready())) return null;
   const [r] = await db()`SELECT * FROM board_events WHERE id = ${id}`;
   if (!r || !isChapterId(r.chapter)) return null;
   const [{ n }] = await db()`SELECT count(*)::int AS n FROM board_event_rsvps WHERE event_id = ${id}`;
-  return { ...toPublic(r, n, locale), chapter: r.chapter, uid: r.uid, meetingLink: r.meeting_link };
+  return { ...toPublic(r, n, locale), chapter: r.chapter, uid: r.uid, meetingLink: r.meeting_link, sequence: (r.ics_sequence as number) ?? 0 };
 }
 
 export const toRsvp = (r: Row): Rsvp => ({
@@ -153,6 +155,7 @@ export async function listAdminEvents(chapter: ChapterId): Promise<AdminEvent[]>
       meetingLink: r.meeting_link as string,
       flyerId: (r.flyer_id as number | null) ?? null,
       showCount: r.show_count as boolean,
+      locationPending: !r.online && !r.location_tba && (r.location_pending as boolean),
       translations: (r.translations as EventTranslations | null) ?? {},
       rsvps: rsvps.filter((x) => x.event_id === r.id).map(toRsvp),
     };

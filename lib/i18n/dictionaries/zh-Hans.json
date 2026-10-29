@@ -2508,6 +2508,8 @@
     "time": "太平洋时间 {time}",
     "online": "线上，用 Zoom",
     "onlineNote": "报名后，我们会把链接发到你的邮箱",
+    "tba": "地点待定",
+    "tbaNote": "临近日期时我们会把地点发邮件给你",
     "going": "{n} 人会来",
     "goingOne": "1 人会来",
     "rsvp": "免费报名",
@@ -2541,6 +2543,7 @@
       "title": "报名成功！",
       "online": "谢谢你，{first}。我们已经把 Zoom 链接发到 {email}。",
       "inPerson": "谢谢你，{first}。我们已经把详情发到 {email}。",
+      "tba": "临近日期时，我们会再发一封邮件告诉你地点。",
       "emailFailed": "谢谢你，{first}。你已经在名单上了，但确认邮件没发出去。活动前我们会再发邮件到 {email}。",
       "google": "加到 Google 日历",
       "ics": "下载到 Apple / Outlook 日历",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "报名成功：{title} · {when}",
       "reminderSubject": "提醒：{title} · {when}",
+      "locationSubject": "{title} 的地点 · {when}",
       "hi": "你好，{name}：",
       "confirmBody": "谢谢你报名！你已经报上了 {title}。活动免费，时间也写在这封邮件附带的日历文件里。",
       "reminderBody": "提醒你一下：{title} 就在 {when}。",
+      "locationBody": "{title}（{when}）的地点定好了，见下方。你的日历会自动更新。",
       "join": "用 Zoom 参加：{link}",
       "linkLater": "活动前我们会把 Zoom 链接发到你的邮箱。",
       "inPerson": "活动在线下举行，地点是 {address}。",
+      "tba": "临近日期时，我们会再发一封邮件告诉你地点。",
       "when": "时间",
       "where": "地点",
       "host": "主讲人",
       "zoomLink": "Zoom 链接",
-      "details": "活动详情：{link}",
-      "signoff": "VINdicated"
+      "details": "活动详情：{link}"
     }
   },
   "applyPage": {

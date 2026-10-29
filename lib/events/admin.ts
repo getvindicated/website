@@ -18,6 +18,7 @@ export type EventColumns = {
   online: boolean;
   meeting_link: string;
   address: string;
+  location_tba: boolean;
   host_name: string;
   host_title: string;
   description: string;
@@ -58,7 +59,9 @@ export async function parseEvent(body: Record<string, unknown>, chapter: string)
   const end = s("endTime");
   const online = body.online !== false;
   const link = s("meetingLink");
-  const address = s("address");
+  // In person with "Location to be announced": no address yet.
+  const tba = !online && body.locationTba === true;
+  const address = tba ? "" : s("address");
   if (!title) return { error: "Add a title." };
   if (title.length > 200) return { error: "Make the title shorter." };
   if (tag.length > 80) return { error: "Make the tag shorter." };
@@ -68,7 +71,7 @@ export async function parseEvent(body: Record<string, unknown>, chapter: string)
   if (online && link && (!/^https?:\/\/\S+$/i.test(link) || link.length > 500)) {
     return { error: "The meeting link should start with https://" };
   }
-  if (!online && !address) return { error: "Add the address, or switch it to online." };
+  if (!online && !tba && !address) return { error: "Add the address, or tick \"Location to be announced\"." };
   if (address.length > 300) return { error: "Make the address shorter." };
   if (s("hostName").length > 100 || s("hostTitle").length > 200) return { error: "Make the host's name or title shorter." };
   if (s("description").length > 2000) return { error: "Make the description shorter." };
@@ -93,6 +96,7 @@ export async function parseEvent(body: Record<string, unknown>, chapter: string)
     online,
     meeting_link: online ? link : "",
     address: online ? "" : address,
+    location_tba: tba,
     host_name: s("hostName"),
     host_title: s("hostTitle"),
     description: s("description"),

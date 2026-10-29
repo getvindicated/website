@@ -31,6 +31,8 @@ export type PublicEvent = {
   endsAt: string;
   online: boolean;
   address: string;
+  // In person, place not set yet: shown as "Location to be announced".
+  locationTba: boolean;
   hostName: string;
   hostTitle: string;
   description: string;
@@ -47,6 +49,9 @@ export type AdminEvent = Omit<PublicEvent, "flyer" | "count"> & {
   flyerId: number | null;
   translations: EventTranslations;
   showCount: boolean;
+  // An address was added or changed after people RSVPed and hasn't been
+  // sent to them yet ("Send the location to everyone").
+  locationPending: boolean;
   rsvps: Rsvp[];
 };
 

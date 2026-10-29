@@ -19,6 +19,7 @@ type Form = {
   online: boolean;
   meetingLink: string;
   address: string;
+  locationTba: boolean;
   hostName: string;
   hostTitle: string;
   description: string;
@@ -36,6 +37,7 @@ const blank = (tag: string): Form => ({
   online: true,
   meetingLink: "",
   address: "",
+  locationTba: false,
   hostName: "",
   hostTitle: "",
   description: "",
@@ -53,6 +55,7 @@ const toForm = (e: AdminEvent): Form => ({
   online: e.online,
   meetingLink: e.meetingLink,
   address: e.address,
+  locationTba: e.locationTba,
   hostName: e.hostName,
   hostTitle: e.hostTitle,
   description: e.description,
@@ -133,7 +136,7 @@ export function EventsTab() {
 
 function EventItem({ event: e, onEdit, onChanged }: { event: AdminEvent; onEdit: () => void; onChanged: () => void }) {
   const [showRsvps, setShowRsvps] = useState(false);
-  const [confirm, setConfirm] = useState<"delete" | "remind" | null>(null);
+  const [confirm, setConfirm] = useState<"delete" | "remind" | "location" | null>(null);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
   const n = e.rsvps.length;
@@ -161,6 +164,21 @@ function EventItem({ event: e, onEdit, onChanged }: { event: AdminEvent; onEdit:
     });
   }
 
+  async function sendLocation() {
+    setBusy(true);
+    setMsg(null);
+    const { error, data } = await apiCall(`/api/board/events/${e.id}/location`, "POST", {}, INVITE_TIMEOUT);
+    setBusy(false);
+    setConfirm(null);
+    if (error) return setMsg({ kind: "err", text: error });
+    const failed = (data?.failed as string[]) ?? [];
+    setMsg({
+      kind: failed.length ? "err" : "ok",
+      text: `Location sent to ${people(Number(data?.sent ?? 0))}.${failed.length ? ` It didn't reach ${failed.join(", ")}.` : ""}`,
+    });
+    onChanged();
+  }
+
   async function copyEmails() {
     const list = e.rsvps.map((r) => r.email).join(", ");
     try {
@@ -175,14 +193,38 @@ function EventItem({ event: e, onEdit, onChanged }: { event: AdminEvent; onEdit:
     <div className="item event-item">
       <strong>{e.title}</strong>
       <div className="deep">
-        {longDate(e.date)} · {timeRange(e.startTime, e.endTime)} (Pacific) · {e.online ? "Online" : e.address}
+        {longDate(e.date)} · {timeRange(e.startTime, e.endTime)} (Pacific) · {e.online ? "Online" : e.address || "Location to be announced"}
         {e.tag && ` · ${e.tag}`}
       </div>
       <div className="deep">
         {people(n)} RSVPed{e.showCount ? " · count shown on the page" : ""}
         {e.online && !e.meetingLink && !e.past && " · meeting link to add"}
         {!e.flyerId && " · no flyer yet"}
+        {e.locationTba && !e.past && " · add the address when it's set"}
       </div>
+      {e.locationPending && !e.past && n > 0 && (
+        <div className="admin-row">
+          <span className="deep">
+            {people(n)} RSVPed before this address was set and {n === 1 ? "hasn't" : "haven't"} been sent it yet.
+          </span>
+          <button type="button" className="btn" onClick={() => (setConfirm("location"), setMsg(null))}>
+            Send the location to everyone
+          </button>
+        </div>
+      )}
+      {confirm === "location" && (
+        <div className="admin-row confirm">
+          <strong>
+            Email {e.address} and an updated calendar invite to {people(n)}? Their calendar entry updates instead of doubling.
+          </strong>
+          <button type="button" className="btn" disabled={busy} onClick={sendLocation}>
+            {busy ? "Sending…" : "Yes, send it"}
+          </button>
+          <button type="button" className="btn btn-line" disabled={busy} onClick={() => setConfirm(null)}>
+            Not yet
+          </button>
+        </div>
+      )}
       <div className="admin-row">
         <button type="button" className="linkbtn" onClick={onEdit}>
           Edit
@@ -262,7 +304,9 @@ function EventItem({ event: e, onEdit, onChanged }: { event: AdminEvent; onEdit:
           )}
           {confirm === "remind" && (
             <div className="admin-row confirm">
-              <strong>Email a reminder with the {e.online ? "meeting link" : "address"} to {people(n)}?</strong>
+              <strong>
+                Email a reminder with the {e.online ? "meeting link" : e.address ? "address" : "date and time (the location is still to be announced)"} to {people(n)}?
+              </strong>
               <button type="button" className="btn" disabled={busy} onClick={remind}>
                 {busy ? "Sending…" : "Yes, send"}
               </button>
@@ -371,10 +415,23 @@ function EventForm({ id: eventId, initial, chapterTitle, onDone }: { id?: number
             <span className="deep">Never shown on the page. It&apos;s only in the RSVP confirmation and reminder emails.</span>
           </label>
         ) : (
-          <label htmlFor={`${id}-address`}>
-            Address
-            <input id={`${id}-address`} type="text" value={f.address} onChange={(e) => set("address", e.target.value)} />
-          </label>
+          <div className="stack">
+            <label className="check">
+              <input type="checkbox" checked={f.locationTba} onChange={(e) => set("locationTba", e.target.checked)} />
+              Location to be announced
+            </label>
+            {f.locationTba ? (
+              <span className="deep">
+                The page says &ldquo;Location to be announced&rdquo; and RSVPs are told they&apos;ll get the location by email. When you
+                know it, untick this, add the address and use &ldquo;Send the location to everyone&rdquo;.
+              </span>
+            ) : (
+              <label htmlFor={`${id}-address`}>
+                Address
+                <input id={`${id}-address`} type="text" value={f.address} onChange={(e) => set("address", e.target.value)} />
+              </label>
+            )}
+          </div>
         )}
         <div className="pair">
           <label htmlFor={`${id}-host`}>

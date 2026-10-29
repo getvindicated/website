@@ -13,7 +13,7 @@ const fill = (s: string, vars: Record<string, string>) => s.replace(/\{(\w+)\}/g
 export function WorkshopFeature({ dict, event: e, locale, eventsHref }: { dict: EventsPageDict; event: PublicEvent; locale: string; eventsHref: string }) {
   const f = dict.feature;
   const l = eventLabels(e, locale);
-  const when = [fill(f.when, { date: l.dateLabel, time: l.hours }), e.online ? f.online : e.address].filter(Boolean).join(" · ");
+  const when = [fill(f.when, { date: l.dateLabel, time: l.hours }), e.online ? f.online : e.locationTba ? dict.tba : e.address].filter(Boolean).join(" · ");
   return (
     <section className="workshop" aria-label={f.section}>
       <div className="wrap workshop-grid">

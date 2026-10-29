@@ -18,7 +18,13 @@ export async function PATCH(request: Request, ctx: Ctx) {
   const done = await db().begin(async (tx) => {
     const before = await snapshot(tx, "board_events", user.chapter, id);
     if (!before) return false;
-    await tx`UPDATE board_events SET ${tx({ ...cols, translations: tx.json(cols.translations as never) })} WHERE id = ${id} AND chapter = ${user.chapter}`;
+    // An address added to a "to be announced" event, or a changed address,
+    // still has to reach the people who already RSVPed: the tab offers
+    // "Send the location to everyone" until it's sent.
+    const [{ n }] = await tx`SELECT count(*)::int AS n FROM board_event_rsvps WHERE event_id = ${id}`;
+    const newPlace = !cols.online && !!cols.address && (before.location_tba === true || before.online === true || before.address !== cols.address);
+    const pending = cols.online || cols.location_tba ? false : newPlace && n > 0 ? true : (before.location_pending as boolean);
+    await tx`UPDATE board_events SET ${tx({ ...cols, location_pending: pending, translations: tx.json(cols.translations as never) })} WHERE id = ${id} AND chapter = ${user.chapter}`;
     const after = await snapshot(tx, "board_events", user.chapter, id);
     await logEntry(tx, user, actorOf(request), "update", `Edited the event "${cols.title}"`, [{ table: "board_events", id, before, after }]);
     return true;
