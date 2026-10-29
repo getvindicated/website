@@ -121,6 +121,11 @@
         "title": "행사",
         "description": "차를 사고, 고치고, 차값을 내는 법에 대한 VINdicated의 무료 워크숍과 모임이에요.",
         "imageAlt": "VINdicated: 행사"
+      },
+      "apply": {
+        "title": "운영진 지원하기",
+        "description": "VINdicated 지부 운영진(board)에 지원하세요. 차 구매, 수리, 할부에 관한 워크숍, 연구, 홍보 활동을 이끌어요.",
+        "imageAlt": "VINdicated: 운영진 지원하기"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "운영진에 지원하세요.",
+      "body": "각 지부 운영진(board)이 VINdicated의 워크숍, 연구, 홍보를 맡아요. 지부마다 학기마다 한 번 운영진을 뽑고, 운영진은 일주일에 5시간 정도 활동해요.",
+      "cta": "운영진 지원하기",
+      "statusLabel": "운영진 모집"
+    },
     "roles": {
       "title": "이런 분을 찾아요.",
       "body": "모든 자리는 원격이고 무급이에요. VINdicated는 자원봉사자가 운영하는 비영리 단체예요.",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Zoom 링크",
       "details": "행사 자세히 보기: {link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "운영진 지원하기",
+      "body": "각 지부 운영진(board)이 우리 워크숍, 연구, 홍보를 맡아요. 운영진은 일주일에 5시간 정도 활동하고, 학기 내내 매주 한 번 모여요."
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "모집 중",
+      "openUntil": "{date}까지 모집",
+      "closed": "모집 마감"
+    },
+    "closed": {
+      "title": "지금은 운영진을 모집하지 않아요.",
+      "body": "자원봉사는 모집 기간을 기다릴 필요 없이 언제든 할 수 있어요.",
+      "volunteer": "자원봉사 하기",
+      "some": "지금 {chapters}은(는) 운영진을 모집하지 않아요.",
+      "notifyTitle": "모집이 시작되면 이메일로 알려 주세요",
+      "notifyChapter": "지부",
+      "notifyEmail": "이메일 주소",
+      "notifySubmit": "알림 받기",
+      "notifySending": "저장하는 중…",
+      "notifyDone": "알겠어요. {chapter} 운영진 모집이 시작되면 {email}(으)로 이메일을 보낼게요.",
+      "notifyError": "저장되지 않았어요. 이메일을 확인하고 다시 해 주세요."
+    },
+    "form": {
+      "title": "지원서",
+      "chapter": "지부",
+      "chapterPick": "지부를 고르세요",
+      "positions": "지원하는 자리",
+      "positionsHint": "1~3개를 고르세요.",
+      "positionsPickChapter": "지부를 고르면 모집 중인 자리가 보여요.",
+      "name": "이름",
+      "email": "이메일 주소",
+      "phone": "전화번호(선택)",
+      "year": "학년",
+      "yearPick": "학년을 고르세요",
+      "years": {
+        "1": "1학년",
+        "2": "2학년",
+        "3": "3학년",
+        "4": "4학년",
+        "5": "5학년 이상",
+        "grad": "대학원생"
+      },
+      "major": "전공",
+      "why": "VINdicated 운영진에 들어오고 싶은 이유가 뭔가요?",
+      "bring": "이 자리에서 어떤 걸 보여 줄 수 있나요? 경험, 기술, 프로젝트",
+      "words": "{n} / {max} 단어",
+      "hours": "일주일에 쓸 수 있는 시간",
+      "resume": "이력서(선택, PDF만, 최대 2MB)",
+      "link": "LinkedIn이나 포트폴리오 링크(선택)",
+      "heard": "저희를 어떻게 알게 됐나요? (선택)",
+      "commit": "일주일에 5시간 정도 활동하고, 매주 운영진 회의에 참석하고, 학기가 끝날 때까지 함께할 수 있어요.",
+      "submit": "지원서 보내기",
+      "sending": "보내는 중…"
+    },
+    "errors": {
+      "chapter": "지원을 받고 있는 지부를 고르세요.",
+      "positions": "자리를 1~3개 고르세요.",
+      "name": "이름을 적어 주세요.",
+      "email": "name@school.edu처럼 올바른 이메일을 적어 주세요.",
+      "phone": "전화번호를 확인하거나 비워 두세요.",
+      "year": "학년을 고르세요.",
+      "major": "전공을 적어 주세요.",
+      "why": "들어오고 싶은 이유를 150단어 이내로 적어 주세요.",
+      "bring": "보여 줄 수 있는 것을 150단어 이내로 적어 주세요.",
+      "hours": "일주일 시간을 1~40 사이로 적어 주세요.",
+      "link": "링크를 확인하거나 비워 두세요.",
+      "heard": "답이 너무 길어요.",
+      "commit": "시간을 낼 수 있다면 체크해 주세요.",
+      "resumeType": "이력서는 PDF여야 해요.",
+      "resumeSize": "이력서가 2MB를 넘어요. 더 작은 PDF로 해 주세요.",
+      "closed": "그 지부는 방금 모집을 마감했어요.",
+      "tooMany": "여기서 너무 많이 시도했어요. 몇 분 기다렸다가 다시 해 주세요.",
+      "failed": "문제가 생겼어요. 1분 뒤에 다시 해 보거나 getvindicated@outlook.com으로 이메일 주세요."
+    },
+    "done": {
+      "title": "지원서를 받았어요!",
+      "body": "{email}(으)로 연락드릴게요. 대부분의 지부는 2주 안에 답장해요."
+    },
+    "email": {
+      "subject": "지원서를 받았어요: VINdicated {chapter} 운영진",
+      "hi": "{name}님, 안녕하세요.",
+      "body": "{term} VINdicated {chapter} 운영진에 지원해 주셔서 고마워요. 보내 주신 내용을 아래에 담았어요. 대부분의 지부는 2주 안에 답장해요.",
+      "updated": "다시 지원하셔서 이전 답변을 이번 답변으로 바꿨어요.",
+      "copy": "지원서",
+      "resume": "이력서",
+      "none": "없음",
+      "signoff": "VINdicated 팀 드림"
     }
   }
 }
