@@ -86,7 +86,7 @@ export function ScrollTour({
         top: `${(r.y - pad) * H}px`,
         width: `${(r.w + 2 * pad) * W}px`,
         height: `${(r.h + 2 * pad) * H}px`,
-        borderRadius: "10px",
+        borderRadius: "8px",
       });
       spot.classList.add("show");
     };

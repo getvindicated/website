@@ -24,7 +24,7 @@ export default function NotFound() {
         </p>
         <a
           href="/"
-          className="px-4 py-2 bg-purple-950 text-white rounded-2xl hover:opacity-80 transition"
+          className="px-4 py-2 bg-purple-950 text-white rounded-lg hover:opacity-80 transition"
         >
           Return Home
         </a>

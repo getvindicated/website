@@ -21,7 +21,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const base =
-    "inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide no-underline rounded-2xl border-2 transition-all duration-150 ease-out " +
+    "inline-block px-8 py-[0.9rem] text-[0.85rem] font-bold tracking-wide no-underline rounded-lg border-2 transition-all duration-150 ease-out " +
     "shadow-[4px_4px_0_var(--color-light)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-light)] " +
     "active:translate-x-[4px] active:translate-y-[4px] active:shadow-none";
   const styles = {
@@ -178,7 +178,7 @@ export function Pullquote({
     return (
       <div className="my-32 max-md:my-16 max-w-[900px] mx-auto">
         <blockquote
-          className="rounded-2xl px-12 py-10 max-md:px-7 max-md:py-8"
+          className="rounded-lg px-12 py-10 max-md:px-7 max-md:py-8"
           style={{
             background: "rgba(149,51,165,0.08)",
             border: "1px solid var(--color-border)",
@@ -253,7 +253,7 @@ export function WarningBox({
 }) {
   return (
     <div
-      className={`my-8 max-w-[720px] px-8 max-md:px-5 py-6 rounded-2xl ${className}`}
+      className={`my-8 max-w-[720px] px-8 max-md:px-5 py-6 rounded-lg ${className}`}
       style={{
         background: "rgba(214,59,59,0.08)",
         border: "1px solid rgba(214,59,59,0.3)",
@@ -286,7 +286,7 @@ export function InfoBox({
 }) {
   return (
     <div
-      className={`my-8 max-w-[720px] px-8 max-md:px-5 py-6 rounded-2xl ${className}`}
+      className={`my-8 max-w-[720px] px-8 max-md:px-5 py-6 rounded-lg ${className}`}
       style={{
         background: "rgba(149,51,165,0.08)",
         border: "1px solid var(--color-border)",
@@ -375,7 +375,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
         return (
           <div key={i}>
             <button
-              className="group flex text-left py-7 px-3 mx-2 max-md:px-2 max-md:mx-1 justify-between items-center gap-4 rounded-xl bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-white/[0.05]"
+              className="group flex text-left py-7 px-3 mx-2 max-md:px-2 max-md:mx-1 justify-between items-center gap-4 rounded-lg bg-transparent border-none cursor-pointer transition-colors duration-200 hover:bg-white/[0.05]"
               style={{ width: "calc(100% - 1rem)" }}
               onClick={() => setOpenIndex(open ? null : i)}
               aria-expanded={open}
@@ -432,7 +432,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
         return (
           <div
             key={card.num}
-            className={`relative flex flex-col p-8 max-md:p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
+            className={`relative flex flex-col p-8 max-md:p-6 rounded-lg border transition-all duration-300 hover:-translate-y-1 ${
               recommended
                 ? "border-[var(--color-accent)] hover:shadow-[0_16px_40px_-16px_rgba(149,51,165,0.5)]"
                 : "border-[var(--color-border)] hover:border-white/25 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)]"
@@ -441,7 +441,7 @@ export function CardGrid({ cards }: { cards: CardData[] }) {
           >
             {recommended && (
               <span
-                className="absolute -top-3 right-7 max-md:right-6 rounded-full px-3 py-1 text-[0.68rem] font-bold tracking-wide text-white"
+                className="absolute -top-3 right-7 max-md:right-6 rounded-lg px-3 py-1 text-[0.68rem] font-bold tracking-wide text-white"
                 style={{ background: "var(--color-accent)" }}
               >
                 Recommended

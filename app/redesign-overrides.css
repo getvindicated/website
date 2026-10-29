@@ -63,7 +63,7 @@
   color: var(--ink);
   background: transparent;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 8px 14px;
   cursor: pointer;
   white-space: nowrap;
@@ -80,7 +80,7 @@
   padding: 8px;
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 20px 40px -20px rgba(42, 15, 49, 0.3);
   z-index: 5;
 }
@@ -97,7 +97,7 @@
   color: var(--ink);
   background: none;
   border: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 9px 12px;
   cursor: pointer;
 }
@@ -249,7 +249,7 @@
 .rd .chips-sm li {
   background: var(--tint);
   color: var(--ink);
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 4px 12px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -282,7 +282,7 @@
     position: relative;
     inset: auto;
     aspect-ratio: 3/2;
-    border-radius: 18px;
+    border-radius: 8px;
     background: #e9e9ee;
     box-shadow: 0 30px 60px -30px rgba(42, 15, 49, 0.45);
   }
@@ -410,7 +410,7 @@
 }
 .rd .roles li {
   background: var(--bg);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 22px;
 }
 .rd .roles li b {
@@ -518,7 +518,7 @@
   height: min(78vh, 760px);
   min-height: 520px;
   border: 4px solid var(--ink);
-  border-radius: 24px;
+  border-radius: 8px;
   background: #e9e9ee;
 }
 .rd .map-embed-links {
@@ -540,7 +540,7 @@
     height: 78vh;
     min-height: 480px;
     border-width: 3px;
-    border-radius: 18px;
+    border-radius: 8px;
   }
 }
 
@@ -606,7 +606,7 @@
 }
 .rd .methods-tiers div {
   background: var(--tint);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 14px 18px;
 }
 .rd .methods-tiers dt {
@@ -665,7 +665,7 @@
   height: auto;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 8px;
 }
 @media (max-width: 640px) {
   .rd .photo-grid {
@@ -736,7 +736,7 @@
 }
 .rd .phero-art {
   background: #fff;
-  border-radius: 28px;
+  border-radius: 8px;
   padding: 20px;
   justify-self: end;
   width: 100%;
@@ -746,7 +746,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 14px;
+  border-radius: 8px;
 }
 @media (max-width: 900px) {
   .rd .phero-split {
@@ -770,14 +770,14 @@
   display: inline-flex;
   gap: 4px;
   padding: 4px;
-  border-radius: 999px;
+  border-radius: 8px;
   background: var(--tint);
   margin-bottom: 32px;
 }
 .rd .ev-toggle button {
   border: 0;
   background: transparent;
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 10px 22px;
   font: inherit;
   font-weight: 700;
@@ -790,7 +790,7 @@
 }
 .rd .ev-empty {
   background: var(--tint);
-  border-radius: 22px;
+  border-radius: 8px;
   padding: 32px;
   font-weight: 600;
 }
@@ -806,7 +806,7 @@
   align-items: start;
   background: #fff;
   border: 1.5px solid var(--line);
-  border-radius: 28px;
+  border-radius: 8px;
   padding: 28px;
   scroll-margin-top: 100px;
 }
@@ -820,13 +820,13 @@
   border: 0;
   background: none;
   cursor: zoom-in;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 .rd .ev-flyer-btn img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 .rd .ev-datebox {
   display: flex;
@@ -836,7 +836,7 @@
   flex: 0 0 auto;
   width: 76px;
   height: 76px;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--purple);
   color: #fff;
   line-height: 1;
@@ -856,7 +856,7 @@
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
-  border-radius: 22px;
+  border-radius: 8px;
   background: var(--tint);
   color: var(--purple-deep);
 }
@@ -882,8 +882,6 @@
 .rd .ev-facts li {
   display: flex;
   flex-direction: column;
-  padding-inline-start: 14px;
-  border-inline-start: 3px solid var(--tint-2);
   line-height: 1.45;
 }
 .rd .ev-facts span {
@@ -915,7 +913,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   background: var(--tint);
-  border-radius: 22px;
+  border-radius: 8px;
   padding: 22px;
 }
 .rd .ev-form label {
@@ -943,7 +941,7 @@
   color: var(--ink);
   background: #fff;
   border: 1.5px solid var(--line);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 12px 14px;
   width: 100%;
 }
@@ -971,7 +969,7 @@
 }
 .rd .ev-done {
   background: var(--tint);
-  border-radius: 22px;
+  border-radius: 8px;
   padding: 24px;
 }
 .rd .ev-done:focus {
@@ -1002,7 +1000,7 @@
   max-width: 100%;
   max-height: calc(92vh - 72px);
   margin: 0 auto;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 .rd .ev-dialog-close {
   display: flex;
@@ -1016,7 +1014,7 @@
   align-items: center;
   gap: 20px;
   background: var(--tint);
-  border-radius: 28px;
+  border-radius: 8px;
   padding: 18px 22px;
 }
 .rd .ev-strip-text {
@@ -1049,7 +1047,7 @@
     grid-template-columns: 1fr;
     gap: 22px;
     padding: 20px;
-    border-radius: 24px;
+    border-radius: 8px;
   }
   .rd .ev-flyer {
     max-width: 320px;
@@ -1105,11 +1103,11 @@
   flex-wrap: wrap;
   background: var(--tint);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 16px 20px;
 }
 .rd .board-status .pill {
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 5px 12px;
   font-size: 0.88rem;
   font-weight: 700;
@@ -1138,7 +1136,7 @@
   gap: 8px;
   font-weight: 600;
   border: 1.5px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 10px 16px;
   cursor: pointer;
   background: #fff;
@@ -1169,7 +1167,7 @@
   gap: 12px;
   font-weight: 600;
   background: var(--tint);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 16px 18px;
   cursor: pointer;
 }
@@ -1183,7 +1181,7 @@
   margin-top: 32px;
   background: #e3f3e8;
   color: var(--green);
-  border-radius: 24px;
+  border-radius: 8px;
   padding: 26px 28px;
   font-weight: 600;
 }
@@ -1197,7 +1195,7 @@
 .rd .apply-closed {
   margin-top: 40px;
   background: var(--tint);
-  border-radius: 28px;
+  border-radius: 8px;
   padding: 36px;
 }
 .rd .apply-closed .lede {
