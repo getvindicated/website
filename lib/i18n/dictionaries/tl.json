@@ -121,6 +121,11 @@
         "title": "Mga Event",
         "description": "Libreng workshop at meetup ng VINdicated tungkol sa pagbili, pagpapaayos, at pagbabayad ng kotse.",
         "imageAlt": "VINdicated: Mga Event"
+      },
+      "apply": {
+        "title": "Mag-apply sa board",
+        "description": "Mag-apply para maging bahagi ng board ng isang VINdicated chapter: mamuno sa mga workshop, research at outreach tungkol sa pagbili, pagpapaayos at pagbabayad ng sasakyan.",
+        "imageAlt": "VINdicated: Mag-apply sa board"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "Mag-apply sa board.",
+      "body": "Ang board ng bawat chapter ang nagpapatakbo ng mga workshop, research at outreach ng VINdicated. Isang beses kada term pumipili ng board ang bawat chapter, at mga 5 oras kada linggo ang ibinibigay ng mga board member.",
+      "cta": "Mag-apply sa board",
+      "statusLabel": "Mga application sa board"
+    },
     "roles": {
       "title": "Sino ang hinahanap namin.",
       "body": "Remote at walang bayad ang lahat ng posisyon. Ang VINdicated ay nonprofit na pinapatakbo ng mga volunteer.",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Link ng Zoom",
       "details": "Detalye ng event: {link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "Mag-apply sa board",
+      "body": "Ang board ng bawat chapter ang nagpapatakbo ng aming mga workshop, research at outreach. Mga 5 oras kada linggo ang ibinibigay ng mga board member, at nagmi-meeting sila linggo-linggo buong term."
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "Bukas",
+      "openUntil": "Bukas hanggang {date}",
+      "closed": "Sarado"
+    },
+    "closed": {
+      "title": "Sarado muna ang mga application sa board ngayon.",
+      "body": "Puwede ka pa ring mag-volunteer sa amin kahit kailan, hindi na kailangang hintayin ang application round.",
+      "volunteer": "Mag-volunteer sa amin",
+      "some": "Sarado muna ngayon ang mga application sa board para sa {chapters}.",
+      "notifyTitle": "I-email ako kapag bukas na",
+      "notifyChapter": "Chapter",
+      "notifyEmail": "Email",
+      "notifySubmit": "I-email ako",
+      "notifySending": "Sine-save…",
+      "notifyDone": "Sige. Ii-email namin ang {email} kapag nagbukas na ng application sa board ang {chapter}.",
+      "notifyError": "Hindi na-save. Tingnan ang email mo at subukan ulit."
+    },
+    "form": {
+      "title": "Ang application mo",
+      "chapter": "Chapter",
+      "chapterPick": "Pumili ng chapter",
+      "positions": "Posisyon na ina-apply-an mo",
+      "positionsHint": "Pumili ng 1 hanggang 3.",
+      "positionsPickChapter": "Pumili ng chapter para makita ang mga bakanteng posisyon nito.",
+      "name": "Buong pangalan",
+      "email": "Email",
+      "phone": "Numero ng telepono (optional)",
+      "year": "Taon",
+      "yearPick": "Piliin ang taon mo",
+      "years": {
+        "1": "Unang taon",
+        "2": "Ikalawang taon",
+        "3": "Ikatlong taon",
+        "4": "Ikaapat na taon",
+        "5": "Ikalimang taon pataas",
+        "grad": "Nasa grad school"
+      },
+      "major": "Kurso (major)",
+      "why": "Bakit gusto mong sumali sa board ng VINdicated?",
+      "bring": "Ano ang maiaambag mo sa posisyong ito? Karanasan, skills o mga project",
+      "words": "{n} / {max} salita",
+      "hours": "Ilang oras kada linggo ang kaya mong ibigay",
+      "resume": "Resume (optional, PDF lang, hanggang 2 MB)",
+      "link": "Link ng LinkedIn o portfolio (optional)",
+      "heard": "Paano mo kami nalaman? (optional)",
+      "commit": "Kaya kong magbigay ng mga 5 oras kada linggo, um-attend sa lingguhang board meeting, at manatili hanggang matapos ang term.",
+      "submit": "Ipadala ang application ko",
+      "sending": "Ipinapadala…"
+    },
+    "errors": {
+      "chapter": "Pumili ng chapter na tumatanggap ng application.",
+      "positions": "Pumili ng 1 hanggang 3 posisyon.",
+      "name": "Ilagay ang buong pangalan mo.",
+      "email": "Maglagay ng tamang email, gaya ng pangalan@school.edu.",
+      "phone": "Tingnan ang phone number mo, o iwanang blangko.",
+      "year": "Piliin ang taon mo.",
+      "major": "Ilagay ang kurso mo.",
+      "why": "Sabihin kung bakit gusto mong sumali, sa 150 salita pababa.",
+      "bring": "Sabihin kung ano ang maiaambag mo, sa 150 salita pababa.",
+      "hours": "Ilagay ang oras kada linggo, mula 1 hanggang 40.",
+      "link": "Tingnan ang link, o iwanang blangko.",
+      "heard": "Masyadong mahaba ang sagot na iyan.",
+      "commit": "I-check ang box para kumpirmahing kaya mong ibigay ang oras.",
+      "resumeType": "Dapat PDF ang resume mo.",
+      "resumeSize": "Lampas 2 MB ang resume mo. Subukan ang mas maliit na PDF.",
+      "closed": "Kakasara lang ng application ng chapter na iyan.",
+      "tooMany": "Sobrang daming subok mula rito. Maghintay ng ilang minuto at subukan ulit.",
+      "failed": "Nagkaproblema. Subukan ulit pagkalipas ng isang minuto, o mag-email sa getvindicated@outlook.com."
+    },
+    "done": {
+      "title": "Natanggap na namin ang application mo!",
+      "body": "Ii-email ka namin sa {email}. Karamihan sa mga chapter ay sumasagot sa loob ng dalawang linggo."
+    },
+    "email": {
+      "subject": "Natanggap namin ang application mo: board ng VINdicated {chapter}",
+      "hi": "Kumusta, {name}!",
+      "body": "Salamat sa pag-apply sa board ng VINdicated {chapter} para sa {term}. Narito ang kopya ng ipinadala mo. Karamihan sa mga chapter ay sumasagot sa loob ng dalawang linggo.",
+      "updated": "Nag-apply ka ulit, kaya pinalitan namin ng mga ito ang mga dati mong sagot.",
+      "copy": "Ang application mo",
+      "resume": "Resume",
+      "none": "Wala",
+      "signoff": "Ang VINdicated team"
     }
   }
 }

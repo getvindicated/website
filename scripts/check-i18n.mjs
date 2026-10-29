@@ -73,7 +73,7 @@ const SAME_WORDS = {
 
 // Keys a language may leave in English, like job titles in Taglish.
 const SAME_KEYS = {
-  tl: [/^team\.members\..*\.(position|major)$/, /^joinPage\.roles\.items/, /^fraudPage\.pinkSlip\.items\[\d+\]\.label$/],
+  tl: [/^team\.members\..*\.(position|major)$/, /^joinPage\.roles\.items/, /^fraudPage\.pinkSlip\.items\[\d+\]\.label$/, /^applyPage\.(form\.chapter|closed\.notifyChapter|email\.resume)$/],
 };
 
 // Common English words: a sentence with several of these is still English.
