@@ -1223,3 +1223,10 @@
     padding: 24px 20px;
   }
 }
+
+/* The forms' hidden spam-trap field sits far off to the start side. In RTL
+   that's the right, so it doesn't make the page scroll sideways. */
+.rd form input[name="company"][aria-hidden="true"] {
+  left: auto !important;
+  inset-inline-start: -9999px;
+}

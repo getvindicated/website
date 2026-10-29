@@ -176,7 +176,7 @@ export function BoardApplyForm({ dict, chapters, locale }: { dict: ApplyPageDict
       </fieldset>
       <div className="fld">
         <label htmlFor="ba-name">{f.name}</label>
-        <input id="ba-name" name="name" data-field="name" autoComplete="name" required maxLength={120} />
+        <input id="ba-name" name="name" dir="auto" data-field="name" autoComplete="name" required maxLength={120} />
       </div>
       <div className="fld">
         <label htmlFor="ba-email">{f.email}</label>
@@ -199,7 +199,7 @@ export function BoardApplyForm({ dict, chapters, locale }: { dict: ApplyPageDict
       </div>
       <div className="fld">
         <label htmlFor="ba-major">{f.major}</label>
-        <input id="ba-major" name="major" data-field="major" required maxLength={120} />
+        <input id="ba-major" name="major" dir="auto" data-field="major" required maxLength={120} />
       </div>
       <div className="fld">
         <label htmlFor="ba-hours">{f.hours}</label>
@@ -207,12 +207,12 @@ export function BoardApplyForm({ dict, chapters, locale }: { dict: ApplyPageDict
       </div>
       <div className="fld full">
         <label htmlFor="ba-why">{f.why}</label>
-        <textarea id="ba-why" name="why" data-field="why" value={why} onChange={(e) => setWhy(e.target.value)} required aria-describedby="ba-why-n" />
+        <textarea id="ba-why" name="why" dir="auto" data-field="why" value={why} onChange={(e) => setWhy(e.target.value)} required aria-describedby="ba-why-n" />
         <span id="ba-why-n">{words(why)}</span>
       </div>
       <div className="fld full">
         <label htmlFor="ba-bring">{f.bring}</label>
-        <textarea id="ba-bring" name="bring" data-field="bring" value={bring} onChange={(e) => setBring(e.target.value)} required aria-describedby="ba-bring-n" />
+        <textarea id="ba-bring" name="bring" dir="auto" data-field="bring" value={bring} onChange={(e) => setBring(e.target.value)} required aria-describedby="ba-bring-n" />
         <span id="ba-bring-n">{words(bring)}</span>
       </div>
       <div className="fld full">
@@ -225,7 +225,7 @@ export function BoardApplyForm({ dict, chapters, locale }: { dict: ApplyPageDict
       </div>
       <div className="fld">
         <label htmlFor="ba-heard">{f.heard}</label>
-        <input id="ba-heard" name="heard" data-field="heard" maxLength={300} />
+        <input id="ba-heard" name="heard" dir="auto" data-field="heard" maxLength={300} />
       </div>
       <label className="fld full commit">
         <input type="checkbox" name="commit" value="yes" data-field="commit" required />
