@@ -2546,12 +2546,19 @@
       "ics": "نزّلها لـ Apple / Outlook",
       "calendarNote": "لينك الـ Zoom في إيميل التأكيد بتاعك."
     },
-    "strip": {
-      "label": "الفعالية الجاية",
-      "free": "ببلاش",
-      "online": "أونلاين",
-      "inPerson": "حضوري",
-      "rsvp": "سجّل"
+    "feature": {
+      "section": "الورشة الجاية",
+      "label": "ورشة ببلاش",
+      "when": "{date} · {time} بتوقيت المحيط الهادي",
+      "online": "أونلاين على Zoom",
+      "rsvp": "احجز مكانك، ببلاش",
+      "all": "شوف كل الفعاليات"
+    },
+    "bar": {
+      "label": "الورشة الجاية",
+      "text": "ببلاش: {title} · {date}",
+      "rsvp": "احجز",
+      "close": "اخفي الرسالة دي"
     },
     "email": {
       "confirmSubject": "إنت معانا: {title} · {when}",

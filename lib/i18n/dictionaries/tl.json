@@ -2546,12 +2546,19 @@
       "ics": "I-download para sa Apple / Outlook",
       "calendarNote": "Nasa confirmation email mo ang Zoom link."
     },
-    "strip": {
-      "label": "Susunod na event",
-      "free": "Libre",
-      "online": "Online",
-      "inPerson": "Personal",
-      "rsvp": "Mag-RSVP"
+    "feature": {
+      "section": "Paparating na workshop",
+      "label": "Libreng workshop",
+      "when": "{date} · {time} Pacific time",
+      "online": "Online sa Zoom",
+      "rsvp": "Mag-RSVP, libre ito",
+      "all": "Tingnan lahat ng event"
+    },
+    "bar": {
+      "label": "Paparating na workshop",
+      "text": "Libre: {title} · {date}",
+      "rsvp": "Mag-RSVP",
+      "close": "Itago ang mensaheng ito"
     },
     "email": {
       "confirmSubject": "Pasok ka na: {title} · {when}",

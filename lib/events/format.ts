@@ -12,6 +12,8 @@ export type EventLabels = {
   month: string; // "Nov"
   day: string; // "19"
   short: string; // "Thursday, 6 PM"
+  hours: string; // "6 – 7 PM" (minutes only when needed)
+  shortDate: string; // "Thu, Nov 19"
 };
 
 const lang = (locale: string) => (locale === "zh-Hans" ? "zh-Hans-CN" : locale);
@@ -42,6 +44,14 @@ export function eventLabels(e: Times, locale: string): EventLabels {
       hour: "numeric",
       ...(onTheHour ? {} : { minute: "2-digit" }),
     }).format(start)}`,
+    // "6 – 7 PM" in 12-hour languages; 24-hour ones keep the minutes
+    // ("18:00–19:00"), since a bare "18–19" reads like a range of numbers.
+    hours: new Intl.DateTimeFormat(l, {
+      timeZone: TZ,
+      hour: "numeric",
+      ...(onTheHour && end.getUTCMinutes() === 0 && new Intl.DateTimeFormat(l, { hour: "numeric" }).resolvedOptions().hour12 ? {} : { minute: "2-digit" }),
+    }).formatRange(start, end),
+    shortDate: new Intl.DateTimeFormat(l, { timeZone: TZ, weekday: "short", month: "short", day: "numeric" }).format(start),
   };
 }
 

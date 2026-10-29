@@ -168,9 +168,9 @@ export function RightsPhoneDemo({ dict }: { dict: RightsPageDict }) {
       <style>{`
         .rpd-stage { display: flex; flex-direction: column; align-items: center; width: 100%; }
         [dir="rtl"] .rpd-arrow { display: inline-block; transform: scaleX(-1); }
-        .rpd-phone { width: min(340px, calc(100vw - 3rem)); aspect-ratio: 340 / 700; background: #040207; border-radius: 48px; padding: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset, 0 40px 90px -20px rgba(0,0,0,0.6); position: relative; }
-        .rpd-screen { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 36px; overflow: hidden; --rpd-ink:#16131d; --rpd-purple:#6d33c9; --rpd-vivid:#9630a6; --rpd-vivid-deep:#7a2685; --rpd-danger:#c23b32; --rpd-line:rgba(0,0,0,0.1); }
-        .rpd-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; background: #000; border-radius: 18px; z-index: 50; }
+        .rpd-phone { width: min(340px, calc(100vw - 3rem)); aspect-ratio: 340 / 700; background: #040207; border-radius: 8px; padding: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset, 0 40px 90px -20px rgba(0,0,0,0.6); position: relative; }
+        .rpd-screen { position: relative; width: 100%; height: 100%; background: #fff; border-radius: 8px; overflow: hidden; --rpd-ink:#16131d; --rpd-purple:#6d33c9; --rpd-vivid:#9630a6; --rpd-vivid-deep:#7a2685; --rpd-danger:#c23b32; --rpd-line:rgba(0,0,0,0.1); }
+        .rpd-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; background: #000; border-radius: 8px; z-index: 50; }
         .rpd-home-indicator { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 110px; height: 4px; background: rgba(0,0,0,0.3); border-radius: 4px; z-index: 50; }
         .rpd-stack { position: absolute; inset: 0; padding-top: 46px; }
         .rpd-view { position: absolute; inset: 0; top: 46px; display: flex; flex-direction: column; background: #fff; }
@@ -183,7 +183,7 @@ export function RightsPhoneDemo({ dict }: { dict: RightsPageDict }) {
         .rpd-entry-wrap p { font-size: 0.85rem; color: var(--rpd-purple); line-height: 1.5; margin: 0 0 22px; font-family: -apple-system, sans-serif; }
         .rpd-entry-input { width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--rpd-line); color: var(--rpd-ink); font-family: Georgia, serif; font-size: 1.2rem; padding: 5px 2px 10px; outline: none; margin-bottom: 22px; }
         .rpd-entry-input:focus { border-bottom-color: var(--rpd-vivid); }
-        .rpd-entry-btn { background: var(--rpd-vivid); color: #fff; border: none; border-radius: 12px; padding: 13px 0; font-size: 0.92rem; font-weight: 600; cursor: pointer; width: 100%; font-family: -apple-system, sans-serif; }
+        .rpd-entry-btn { background: var(--rpd-vivid); color: #fff; border: none; border-radius: 8px; padding: 13px 0; font-size: 0.92rem; font-weight: 600; cursor: pointer; width: 100%; font-family: -apple-system, sans-serif; }
         .rpd-entry-skip { text-align: center; margin-top: 14px; font-size: 0.8rem; color: var(--rpd-purple); background: none; border: none; cursor: pointer; font-family: -apple-system, sans-serif; }
         .rpd-eyebrow { font-family: Arial, Helvetica, sans-serif; font-size: 0.66rem; color: var(--rpd-purple); display: block; margin-bottom: 8px; }
         .rpd-home-wrap img { width: 30px; margin-bottom: 12px; }

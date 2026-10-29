@@ -2546,12 +2546,19 @@
       "ics": "دانلود برای Apple / Outlook",
       "calendarNote": "لینک Zoom توی ایمیل تأییدتون هست."
     },
-    "strip": {
-      "label": "رویداد بعدی",
-      "free": "رایگان",
-      "online": "آنلاین",
-      "inPerson": "حضوری",
-      "rsvp": "ثبت‌نام"
+    "feature": {
+      "section": "کارگاه پیش رو",
+      "label": "کارگاه رایگان",
+      "when": "{date} · ساعت {time} به وقت اقیانوس آرام",
+      "online": "آنلاین، در Zoom",
+      "rsvp": "ثبت‌نام کنید، رایگانه",
+      "all": "همه‌ی رویدادها"
+    },
+    "bar": {
+      "label": "کارگاه پیش رو",
+      "text": "رایگان: {title} · {date}",
+      "rsvp": "ثبت‌نام",
+      "close": "بستن این پیام"
     },
     "email": {
       "confirmSubject": "ثبت‌نام شدید: {title} · {when}",
