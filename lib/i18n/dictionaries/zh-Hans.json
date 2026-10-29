@@ -121,6 +121,11 @@
         "title": "活动",
         "description": "VINdicated 的免费讲座和见面会，聊怎么买车、修车、付车钱。",
         "imageAlt": "VINdicated：活动"
+      },
+      "apply": {
+        "title": "申请加入理事会",
+        "description": "申请加入 VINdicated 分会理事会（board）：带头办工作坊、做研究、做社区宣传，帮大家买车、修车、贷款不吃亏。",
+        "imageAlt": "VINdicated：申请加入理事会"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "申请加入理事会。",
+      "body": "每个分会的理事会（board）负责 VINdicated 的工作坊、研究和宣传。每个分会每学期选一次理事，理事每周大约花 5 个小时。",
+      "cta": "申请加入理事会",
+      "statusLabel": "理事会申请"
+    },
     "roles": {
       "title": "我们在找这些人。",
       "body": "所有职位都是远程、没有报酬的。VINdicated 是一个靠志愿者运作的非营利组织。",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Zoom 链接",
       "details": "活动详情：{link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "申请加入理事会",
+      "body": "每个分会的理事会（board）负责我们的工作坊、研究和宣传。理事每周大约花 5 个小时，整个学期每周开一次会。"
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "开放中",
+      "openUntil": "开放到 {date}",
+      "closed": "已截止"
+    },
+    "closed": {
+      "title": "理事会现在不招人。",
+      "body": "你随时都可以来当志愿者，不用等招新。",
+      "volunteer": "来当志愿者",
+      "some": "{chapters} 的理事会现在不招人。",
+      "notifyTitle": "开放时发邮件告诉我",
+      "notifyChapter": "分会",
+      "notifyEmail": "电子邮箱",
+      "notifySubmit": "通知我",
+      "notifySending": "正在保存…",
+      "notifyDone": "好的。{chapter} 开放理事会申请时，我们会发邮件到 {email}。",
+      "notifyError": "没保存成功。检查一下邮箱再试一次。"
+    },
+    "form": {
+      "title": "你的申请",
+      "chapter": "分会",
+      "chapterPick": "选一个分会",
+      "positions": "申请的职位",
+      "positionsHint": "选 1 到 3 个。",
+      "positionsPickChapter": "先选分会，就能看到在招的职位。",
+      "name": "全名",
+      "email": "电子邮箱",
+      "phone": "电话（可选）",
+      "year": "年级",
+      "yearPick": "选你的年级",
+      "years": {
+        "1": "大一",
+        "2": "大二",
+        "3": "大三",
+        "4": "大四",
+        "5": "大五或以上",
+        "grad": "研究生"
+      },
+      "major": "专业",
+      "why": "你为什么想加入 VINdicated 的理事会？",
+      "bring": "你能为这个职位带来什么？经验、技能或做过的项目",
+      "words": "{n} / {max} 个词",
+      "hours": "你每周能投入几个小时",
+      "resume": "简历（可选，只收 PDF，最大 2 MB）",
+      "link": "LinkedIn 或作品集链接（可选）",
+      "heard": "你是怎么知道我们的？（可选）",
+      "commit": "我每周能投入大约 5 个小时，参加每周的理事会会议，并且一直做到学期结束。",
+      "submit": "提交申请",
+      "sending": "正在发送…"
+    },
+    "errors": {
+      "chapter": "选一个正在招人的分会。",
+      "positions": "选 1 到 3 个职位。",
+      "name": "填上你的全名。",
+      "email": "填一个有效的邮箱，比如 name@school.edu。",
+      "phone": "检查一下电话号码，或者留空。",
+      "year": "选你的年级。",
+      "major": "填上你的专业。",
+      "why": "说说你为什么想加入，150 个词以内。",
+      "bring": "说说你能带来什么，150 个词以内。",
+      "hours": "填每周的小时数，1 到 40。",
+      "link": "检查一下链接，或者留空。",
+      "heard": "这个回答太长了。",
+      "commit": "勾选这个框，确认你能投入这些时间。",
+      "resumeType": "简历必须是 PDF。",
+      "resumeSize": "简历超过 2 MB 了，换个小一点的 PDF 试试。",
+      "closed": "这个分会刚刚截止申请。",
+      "tooMany": "这里试的次数太多了。等几分钟再试。",
+      "failed": "出了点问题。过一分钟再试，或者发邮件到 getvindicated@outlook.com。"
+    },
+    "done": {
+      "title": "申请收到了！",
+      "body": "我们会发邮件到 {email}。大多数分会两周内回复。"
+    },
+    "email": {
+      "subject": "我们收到你的申请了：VINdicated {chapter} 理事会",
+      "hi": "{name}，你好：",
+      "body": "谢谢你申请 VINdicated {chapter} {term} 的理事会。下面是你提交内容的副本。大多数分会两周内回复。",
+      "updated": "你又申请了一次，所以我们用这次的回答替换了之前的。",
+      "copy": "你的申请",
+      "resume": "简历",
+      "none": "无",
+      "signoff": "VINdicated 团队"
     }
   }
 }

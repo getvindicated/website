@@ -227,3 +227,52 @@ CREATE UNIQUE INDEX IF NOT EXISTS board_event_rsvps_once ON board_event_rsvps (e
 ALTER TABLE board_events ADD COLUMN IF NOT EXISTS translations jsonb NOT NULL DEFAULT '{}';
 -- The language the visitor RSVPed in; their emails go out in it.
 ALTER TABLE board_event_rsvps ADD COLUMN IF NOT EXISTS locale text NOT NULL DEFAULT 'en';
+
+-- Board membership applications from the public /apply page (see
+-- lib/apply). One per email per chapter per term: applying again updates
+-- the same row. Admins only: nothing here is ever shown publicly. The
+-- resume is in board_application_files so change-log snapshots of a row
+-- never copy the file.
+CREATE TABLE IF NOT EXISTS board_applications (
+  id          serial PRIMARY KEY,
+  chapter     text NOT NULL,
+  term        text NOT NULL,
+  name        text NOT NULL,
+  email       text NOT NULL,
+  phone       text NOT NULL DEFAULT '',
+  year        text NOT NULL,
+  major       text NOT NULL,
+  positions   text[] NOT NULL,
+  why         text NOT NULL,
+  bring       text NOT NULL,
+  hours       smallint NOT NULL,
+  link        text NOT NULL DEFAULT '',
+  heard       text NOT NULL DEFAULT '',
+  locale      text NOT NULL DEFAULT 'en',
+  resume_id   integer,
+  resume_name text NOT NULL DEFAULT '',
+  status      text NOT NULL DEFAULT 'new',   -- new, reviewing, interview, accepted, declined
+  notes       text NOT NULL DEFAULT '',      -- private reviewer notes
+  member_id   integer,                       -- set by "Add to board"
+  created_at  timestamptz NOT NULL DEFAULT now(),
+  updated_at  timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS board_applications_once ON board_applications (chapter, term, lower(email));
+
+CREATE TABLE IF NOT EXISTS board_application_files (
+  id          serial PRIMARY KEY,
+  chapter     text NOT NULL,
+  filename    text NOT NULL,
+  data        bytea NOT NULL,
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
+
+-- "Email me when they open" on the closed /apply page.
+CREATE TABLE IF NOT EXISTS board_application_notify (
+  id          serial PRIMARY KEY,
+  chapter     text NOT NULL,
+  email       text NOT NULL,
+  locale      text NOT NULL DEFAULT 'en',
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS board_application_notify_once ON board_application_notify (chapter, lower(email));

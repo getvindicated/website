@@ -18,6 +18,7 @@ const routes = [
   { href: "/team", changeFrequency: "monthly", priority: 0.6 },
   { href: "/events", changeFrequency: "weekly", priority: 0.7 },
   { href: "/join", changeFrequency: "monthly", priority: 0.6 },
+  { href: "/apply", changeFrequency: "weekly", priority: 0.6 },
   { href: "/volunteer", changeFrequency: "monthly", priority: 0.6 },
   { href: "/contact", changeFrequency: "yearly", priority: 0.5 },
 ] as const;

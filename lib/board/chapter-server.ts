@@ -29,6 +29,8 @@ export type ChapterServer = {
     techTeams: string[];
     techTo: Person[];
   };
+  // Who gets each new board application from the public /apply page.
+  applications: { to: Person[]; cc: Person[] };
 };
 
 export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
@@ -48,6 +50,10 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
       cc: [],
       techTeams: [],
       techTo: [],
+    },
+    applications: {
+      to: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+      cc: [],
     },
   },
   ucla: {
@@ -70,6 +76,13 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
       techTeams: ["App Dev", "Data"],
       techTo: [{ email: "rizwaanbana@ucla.edu", name: "Rizwaan Bana", short: "Rizwaan" }],
     },
+    applications: {
+      to: [
+        { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja", short: "Fiona" },
+        { email: "prawira.j.william@gmail.com", name: "William Prawira", short: "Will" },
+      ],
+      cc: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+    },
   },
 };
 
@@ -89,6 +102,11 @@ export function submissionRecipients(chapter: ChapterId, team: string) {
   const s = CHAPTER_SERVER[chapter].submissions;
   const tech = s.techTeams.includes(team);
   return { to: tech ? [...s.to, ...s.techTo] : s.to, cc: s.cc };
+}
+
+// Who a new board application goes to.
+export function applicationRecipients(chapter: ChapterId) {
+  return CHAPTER_SERVER[chapter].applications;
 }
 
 // Short names for the submit form, without email addresses.

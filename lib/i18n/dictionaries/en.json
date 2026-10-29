@@ -121,6 +121,11 @@
         "title": "Events",
         "description": "Free workshops and meetups from VINdicated on buying, fixing and paying for a car.",
         "imageAlt": "VINdicated: Events"
+      },
+      "apply": {
+        "title": "Apply for the Board",
+        "description": "Apply to join a VINdicated chapter board: lead workshops, research and outreach on car buying, repairs and financing.",
+        "imageAlt": "VINdicated: Apply for the Board"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "Apply for the board.",
+      "body": "Chapter boards run VINdicated's workshops, research and outreach. Each chapter picks its board once a term, and board members give about 5 hours a week.",
+      "cta": "Apply for the board",
+      "statusLabel": "Board applications"
+    },
     "roles": {
       "title": "What we're looking for.",
       "body": "All positions are remote and unpaid. VINdicated is a volunteer-run nonprofit.",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Zoom link",
       "details": "Event details: {link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "Apply for the board",
+      "body": "Chapter boards run our workshops, research and outreach. Board members give about 5 hours a week and meet once a week for the whole term."
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "Open",
+      "openUntil": "Open until {date}",
+      "closed": "Closed"
+    },
+    "closed": {
+      "title": "Board applications are closed right now.",
+      "body": "You can still volunteer with us anytime, no application round needed.",
+      "volunteer": "Volunteer with us",
+      "some": "Board applications are closed right now for {chapters}.",
+      "notifyTitle": "Email me when they open",
+      "notifyChapter": "Chapter",
+      "notifyEmail": "Email",
+      "notifySubmit": "Email me",
+      "notifySending": "Saving…",
+      "notifyDone": "Got it. We'll email {email} when {chapter} opens board applications.",
+      "notifyError": "That didn't save. Check your email and try again."
+    },
+    "form": {
+      "title": "Your application",
+      "chapter": "Chapter",
+      "chapterPick": "Choose a chapter",
+      "positions": "Position(s) you're applying for",
+      "positionsHint": "Pick 1 to 3.",
+      "positionsPickChapter": "Choose a chapter to see its open positions.",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "year": "Year",
+      "yearPick": "Choose your year",
+      "years": {
+        "1": "1st year",
+        "2": "2nd year",
+        "3": "3rd year",
+        "4": "4th year",
+        "5": "5th year or more",
+        "grad": "Grad student"
+      },
+      "major": "Major",
+      "why": "Why do you want to join VINdicated's board?",
+      "bring": "What would you bring to this role? Experience, skills or projects",
+      "words": "{n} / {max} words",
+      "hours": "Hours per week you can commit",
+      "resume": "Resume (optional, PDF only, up to 2 MB)",
+      "link": "LinkedIn or portfolio link (optional)",
+      "heard": "How did you hear about us? (optional)",
+      "commit": "I can commit about 5 hours a week, attend the weekly board meeting, and stay through the end of the term.",
+      "submit": "Send my application",
+      "sending": "Sending…"
+    },
+    "errors": {
+      "chapter": "Choose a chapter that's taking applications.",
+      "positions": "Pick 1 to 3 positions.",
+      "name": "Add your full name.",
+      "email": "Add a valid email, like name@school.edu.",
+      "phone": "Check your phone number, or leave it empty.",
+      "year": "Choose your year.",
+      "major": "Add your major.",
+      "why": "Tell us why you want to join, in 150 words or fewer.",
+      "bring": "Tell us what you'd bring, in 150 words or fewer.",
+      "hours": "Enter the hours per week, from 1 to 40.",
+      "link": "Check the link, or leave it empty.",
+      "heard": "That answer is too long.",
+      "commit": "Check the box to confirm you can commit the time.",
+      "resumeType": "Your resume needs to be a PDF.",
+      "resumeSize": "Your resume is over 2 MB. Try a smaller PDF.",
+      "closed": "That chapter just stopped taking applications.",
+      "tooMany": "Too many tries from here. Wait a few minutes and try again.",
+      "failed": "Something went wrong. Try again in a minute, or email getvindicated@outlook.com."
+    },
+    "done": {
+      "title": "Application received!",
+      "body": "We'll email you at {email}. Most chapters reply within two weeks."
+    },
+    "email": {
+      "subject": "We got your application: VINdicated {chapter} board",
+      "hi": "Hi {name},",
+      "body": "Thanks for applying to VINdicated's {chapter} board for {term}. Here's a copy of what you sent. Most chapters reply within two weeks.",
+      "updated": "You applied again, so we replaced your earlier answers with these.",
+      "copy": "Your application",
+      "resume": "Resume",
+      "none": "None",
+      "signoff": "The VINdicated team"
     }
   }
 }

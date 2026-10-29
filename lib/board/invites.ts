@@ -134,16 +134,21 @@ ${paras.map((p) => `<p>${esc(p).replace(/\n/g, "<br>")}</p>`).join("\n")}
 
 export type Mail = {
   sender: Sender;
-  to: { name: string; email: string };
+  // One person, or several on the same To line (board application notices).
+  to: { name: string; email: string } | { name: string; email: string }[];
+  cc?: { name: string; email: string }[];
   replyTo: { name: string; email: string };
   subject: string;
   text: string;
   html: string;
   // REQUEST/CANCEL for meeting invites, PUBLISH for event confirmations.
-  ics: { method: "REQUEST" | "CANCEL" | "PUBLISH"; filename: string; content: string };
+  // Board applications send plain emails without one.
+  ics?: { method: "REQUEST" | "CANCEL" | "PUBLISH"; filename: string; content: string };
 };
 
-// Sends one email with a calendar file: to the outbox folder when testing,
+const toList = (mail: Mail) => (Array.isArray(mail.to) ? mail.to : [mail.to]);
+
+// Sends one email (with its calendar file, if any): to the outbox folder when testing,
 // else over SMTP while `state.useSmtp` holds, else through the Brevo API
 // (the .ics only as an attachment there). An SMTP failure turns
 // `state.useSmtp` off, so the rest of a batch goes straight to the API.
@@ -153,12 +158,13 @@ export async function deliver(mail: Mail, state: { useSmtp: boolean }, tag: stri
   // into an invite, and attaches the same .ics under its filename.
   const msg: SendMailOptions = {
     from: { name: mail.sender.name, address: mail.sender.email },
-    to: { name: mail.to.name, address: mail.to.email },
+    to: toList(mail).map((p) => ({ name: p.name, address: p.email })),
+    ...(mail.cc?.length ? { cc: mail.cc.map((p) => ({ name: p.name, address: p.email })) } : {}),
     replyTo: { name: mail.replyTo.name, address: mail.replyTo.email },
     subject: mail.subject,
     text: mail.text,
     html: mail.html,
-    icalEvent: mail.ics,
+    ...(mail.ics ? { icalEvent: mail.ics } : {}),
   };
   const outbox = process.env.BOARD_INVITE_OUTBOX;
   if (outbox) {
@@ -166,7 +172,7 @@ export async function deliver(mail: Mail, state: { useSmtp: boolean }, tag: stri
     mkdirSync(outbox, { recursive: true });
     const base = join(outbox, `${Date.now()}-${tag}`);
     writeFileSync(`${base}.eml`, info.message as Buffer);
-    writeFileSync(`${base}.ics`, mail.ics.content);
+    if (mail.ics) writeFileSync(`${base}.ics`, mail.ics.content);
     return "outbox";
   }
   if (state.useSmtp) {
@@ -175,17 +181,18 @@ export async function deliver(mail: Mail, state: { useSmtp: boolean }, tag: stri
       return "smtp";
     } catch (e) {
       state.useSmtp = false;
-      console.warn(`[board] Email to ${mail.to.email} over SMTP failed (${e instanceof Error ? e.message : e}); sending through the Brevo API instead.`);
+      console.warn(`[board] Email to ${toList(mail).map((p) => p.email).join(", ")} over SMTP failed (${e instanceof Error ? e.message : e}); sending through the Brevo API instead.`);
     }
   }
   await sendEmail({
     sender: mail.sender,
-    to: [mail.to],
+    to: toList(mail),
+    ...(mail.cc?.length ? { cc: mail.cc } : {}),
     replyTo: mail.replyTo,
     subject: mail.subject,
     htmlContent: mail.html,
     textContent: mail.text,
-    attachment: [{ name: mail.ics.filename, content: Buffer.from(mail.ics.content, "utf8").toString("base64") }],
+    ...(mail.ics ? { attachment: [{ name: mail.ics.filename, content: Buffer.from(mail.ics.content, "utf8").toString("base64") }] } : {}),
   });
   return "api";
 }

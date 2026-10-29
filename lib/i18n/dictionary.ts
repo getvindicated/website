@@ -16,6 +16,7 @@ export type JoinPageDict = EnJson["joinPage"];
 export type MapPageDict = EnJson["mapPage"];
 export type MapMethodsDict = EnJson["mapMethods"];
 export type EventsPageDict = EnJson["eventsPage"];
+export type ApplyPageDict = EnJson["applyPage"];
 export type NotFoundDict = EnJson["notFound"];
 export type RightsPageDict = EnJson["rightsPage"];
 
@@ -105,7 +106,8 @@ export type RouteMetadataKey =
 	| "volunteer"
 	| "map"
 	| "mapMethods"
-	| "events";
+	| "events"
+	| "apply";
 
 export type RouteMetadataDict = {
 	title: string;
@@ -157,6 +159,7 @@ export type SiteDictionary = {
 	mapPage: MapPageDict;
 	mapMethods: MapMethodsDict;
 	eventsPage: EventsPageDict;
+	applyPage: ApplyPageDict;
 	rightsPage: RightsPageDict;
 	team: TeamDict;
 };

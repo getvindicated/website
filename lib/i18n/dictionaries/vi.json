@@ -121,6 +121,11 @@
         "title": "Sự kiện",
         "description": "Các buổi học và buổi gặp mặt miễn phí của VINdicated về chuyện mua xe, sửa xe và trả tiền xe.",
         "imageAlt": "VINdicated: Sự kiện"
+      },
+      "apply": {
+        "title": "Ứng tuyển vào ban điều hành",
+        "description": "Ứng tuyển vào ban điều hành (board) của một nhóm VINdicated: dẫn dắt các buổi workshop, nghiên cứu và tiếp cận cộng đồng về mua xe, sửa xe và vay tiền mua xe.",
+        "imageAlt": "VINdicated: Ứng tuyển vào ban điều hành"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "Ứng tuyển vào ban điều hành.",
+      "body": "Ban điều hành (board) của mỗi nhóm lo các buổi workshop, nghiên cứu và tiếp cận cộng đồng của VINdicated. Mỗi nhóm chọn ban điều hành một lần mỗi học kỳ, và thành viên dành khoảng 5 tiếng mỗi tuần.",
+      "cta": "Ứng tuyển vào ban điều hành",
+      "statusLabel": "Đơn ứng tuyển ban điều hành"
+    },
     "roles": {
       "title": "Chúng tôi đang tìm ai.",
       "body": "Mọi vị trí đều làm từ xa và không lương. VINdicated là tổ chức phi lợi nhuận do tình nguyện viên điều hành.",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Link Zoom",
       "details": "Chi tiết sự kiện: {link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "Ứng tuyển vào ban điều hành",
+      "body": "Ban điều hành (board) của mỗi nhóm lo các buổi workshop, nghiên cứu và tiếp cận cộng đồng của chúng tôi. Thành viên dành khoảng 5 tiếng mỗi tuần và họp mỗi tuần một lần suốt học kỳ."
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "Đang mở",
+      "openUntil": "Mở đến {date}",
+      "closed": "Đã đóng"
+    },
+    "closed": {
+      "title": "Hiện ban điều hành chưa nhận đơn.",
+      "body": "Bạn vẫn có thể làm tình nguyện với chúng tôi bất cứ lúc nào, không cần chờ đợt tuyển.",
+      "volunteer": "Làm tình nguyện",
+      "some": "Hiện {chapters} chưa nhận đơn vào ban điều hành.",
+      "notifyTitle": "Báo cho tôi qua email khi mở đơn",
+      "notifyChapter": "Nhóm",
+      "notifyEmail": "Địa chỉ email",
+      "notifySubmit": "Báo cho tôi",
+      "notifySending": "Đang lưu…",
+      "notifyDone": "Xong rồi. Khi {chapter} mở đơn vào ban điều hành, chúng tôi sẽ gửi email đến {email}.",
+      "notifyError": "Chưa lưu được. Kiểm tra lại email rồi thử lại nhé."
+    },
+    "form": {
+      "title": "Đơn của bạn",
+      "chapter": "Nhóm",
+      "chapterPick": "Chọn một nhóm",
+      "positions": "Vị trí bạn ứng tuyển",
+      "positionsHint": "Chọn từ 1 đến 3.",
+      "positionsPickChapter": "Chọn nhóm để xem các vị trí đang tuyển.",
+      "name": "Họ và tên",
+      "email": "Địa chỉ email",
+      "phone": "Số điện thoại (không bắt buộc)",
+      "year": "Năm học",
+      "yearPick": "Chọn năm học",
+      "years": {
+        "1": "Năm nhất",
+        "2": "Năm hai",
+        "3": "Năm ba",
+        "4": "Năm tư",
+        "5": "Năm năm trở lên",
+        "grad": "Cao học"
+      },
+      "major": "Ngành học",
+      "why": "Vì sao bạn muốn vào ban điều hành của VINdicated?",
+      "bring": "Bạn sẽ mang lại gì cho vị trí này? Kinh nghiệm, kỹ năng hoặc dự án",
+      "words": "{n} / {max} từ",
+      "hours": "Số giờ mỗi tuần bạn có thể dành ra",
+      "resume": "Sơ yếu lý lịch (không bắt buộc, chỉ nhận PDF, tối đa 2 MB)",
+      "link": "Link LinkedIn hoặc portfolio (không bắt buộc)",
+      "heard": "Bạn biết đến chúng tôi qua đâu? (không bắt buộc)",
+      "commit": "Tôi có thể dành khoảng 5 tiếng mỗi tuần, dự buổi họp ban điều hành hằng tuần và làm đến hết học kỳ.",
+      "submit": "Gửi đơn của tôi",
+      "sending": "Đang gửi…"
+    },
+    "errors": {
+      "chapter": "Chọn một nhóm đang nhận đơn.",
+      "positions": "Chọn từ 1 đến 3 vị trí.",
+      "name": "Điền họ và tên của bạn.",
+      "email": "Điền email hợp lệ, ví dụ ten@truong.edu.",
+      "phone": "Kiểm tra lại số điện thoại, hoặc để trống.",
+      "year": "Chọn năm học của bạn.",
+      "major": "Điền ngành học của bạn.",
+      "why": "Cho chúng tôi biết vì sao bạn muốn tham gia, tối đa 150 từ.",
+      "bring": "Cho chúng tôi biết bạn sẽ mang lại gì, tối đa 150 từ.",
+      "hours": "Điền số giờ mỗi tuần, từ 1 đến 40.",
+      "link": "Kiểm tra lại link, hoặc để trống.",
+      "heard": "Câu trả lời đó dài quá.",
+      "commit": "Đánh dấu ô này để xác nhận bạn dành được thời gian đó.",
+      "resumeType": "Sơ yếu lý lịch phải là file PDF.",
+      "resumeSize": "Sơ yếu lý lịch nặng hơn 2 MB. Thử file PDF nhỏ hơn nhé.",
+      "closed": "Nhóm đó vừa ngừng nhận đơn.",
+      "tooMany": "Thử quá nhiều lần từ đây. Đợi vài phút rồi thử lại.",
+      "failed": "Có lỗi xảy ra. Thử lại sau một phút, hoặc gửi email đến getvindicated@outlook.com."
+    },
+    "done": {
+      "title": "Đã nhận đơn của bạn!",
+      "body": "Chúng tôi sẽ gửi email cho bạn tại {email}. Đa số các nhóm trả lời trong vòng hai tuần."
+    },
+    "email": {
+      "subject": "Chúng tôi đã nhận đơn của bạn: ban điều hành VINdicated {chapter}",
+      "hi": "Chào {name},",
+      "body": "Cảm ơn bạn đã ứng tuyển vào ban điều hành VINdicated {chapter} cho {term}. Dưới đây là bản sao những gì bạn đã gửi. Đa số các nhóm trả lời trong vòng hai tuần.",
+      "updated": "Bạn đã nộp đơn lại, nên chúng tôi đã thay các câu trả lời trước bằng những câu này.",
+      "copy": "Đơn của bạn",
+      "resume": "Sơ yếu lý lịch",
+      "none": "Không có",
+      "signoff": "Đội ngũ VINdicated"
     }
   }
 }

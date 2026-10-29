@@ -1084,3 +1084,149 @@
 .rd .center .ctas {
   justify-content: center;
 }
+
+/* ---------- Board applications (/apply, Get Involved) ---------- */
+.rd .board-cta .lede {
+  margin: 18px 0 24px;
+}
+.rd .board-status {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.rd .board-status li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 20px;
+}
+.rd .board-status .pill {
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.rd .board-status .pill.open {
+  background: var(--purple);
+  color: #fff;
+}
+.rd .board-status .pill.closed {
+  background: var(--tint-2);
+  color: var(--ink);
+}
+.rd .board-apply .hint {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.rd .board-apply .checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.rd .board-apply .pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  background: #fff;
+}
+.rd .board-apply .pick.on {
+  border-color: var(--purple);
+  background: var(--tint);
+}
+.rd .board-apply .pick input {
+  width: auto;
+  accent-color: var(--purple);
+}
+.rd .board-apply .pick:has(input:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.rd .board-apply .words {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+}
+.rd .board-apply .words.over {
+  color: var(--red);
+}
+.rd .board-apply .commit {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  font-weight: 600;
+  background: var(--tint);
+  border-radius: 18px;
+  padding: 16px 18px;
+  cursor: pointer;
+}
+.rd .board-apply .commit input {
+  width: auto;
+  margin-top: 4px;
+  accent-color: var(--purple);
+  flex: none;
+}
+.rd .apply-done {
+  margin-top: 32px;
+  background: #e3f3e8;
+  color: var(--green);
+  border-radius: 24px;
+  padding: 26px 28px;
+  font-weight: 600;
+}
+.rd .apply-done h3 {
+  margin: 0 0 8px;
+  color: var(--green);
+}
+.rd .apply-done:focus {
+  outline: none;
+}
+.rd .apply-closed {
+  margin-top: 40px;
+  background: var(--tint);
+  border-radius: 28px;
+  padding: 36px;
+}
+.rd .apply-closed .lede {
+  margin: 14px 0 24px;
+}
+.rd .apply-closed.small {
+  padding: 26px;
+}
+.rd .apply-closed.small p {
+  margin: 0;
+  font-weight: 600;
+}
+.rd form.notify {
+  margin-top: 28px;
+  align-items: end;
+}
+.rd form.notify h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .rd .apply-closed {
+    padding: 24px 20px;
+  }
+}
+
+/* The forms' hidden spam-trap field sits far off to the start side. In RTL
+   that's the right, so it doesn't make the page scroll sideways. */
+.rd form input[name="company"][aria-hidden="true"] {
+  left: auto !important;
+  inset-inline-start: -9999px;
+}

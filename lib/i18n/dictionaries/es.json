@@ -121,6 +121,11 @@
         "title": "Eventos",
         "description": "Talleres y reuniones gratis de VINdicated sobre cómo comprar, arreglar y pagar un carro.",
         "imageAlt": "VINdicated: Eventos"
+      },
+      "apply": {
+        "title": "Aplica a la mesa directiva",
+        "description": "Aplica para entrar a la mesa directiva de un grupo de VINdicated: dirige talleres, investigación y alcance sobre cómo comprar, arreglar y pagar un carro.",
+        "imageAlt": "VINdicated: Aplica a la mesa directiva"
       }
     }
   },
@@ -1785,6 +1790,12 @@
         }
       ]
     },
+    "board": {
+      "title": "Aplica a la mesa directiva.",
+      "body": "La mesa directiva de cada grupo organiza los talleres, la investigación y el alcance de VINdicated. Cada grupo escoge su mesa una vez por periodo, y los miembros dan unas 5 horas a la semana.",
+      "cta": "Aplicar a la mesa directiva",
+      "statusLabel": "Solicitudes a la mesa directiva"
+    },
     "roles": {
       "title": "A quién buscamos.",
       "body": "Todos los puestos son a distancia y sin pago. VINdicated es una organización sin fines de lucro que funciona con voluntarios.",
@@ -2557,6 +2568,101 @@
       "zoomLink": "Enlace de Zoom",
       "details": "Detalles del evento: {link}",
       "signoff": "VINdicated"
+    }
+  },
+  "applyPage": {
+    "hero": {
+      "title": "Aplica a la mesa directiva",
+      "body": "La mesa directiva de cada grupo organiza nuestros talleres, la investigación y el alcance. Los miembros dan unas 5 horas a la semana y se juntan una vez por semana todo el periodo."
+    },
+    "chapters": {
+      "berkeley": "UC Berkeley",
+      "ucla": "UCLA",
+      "ucsc": "UC Santa Cruz"
+    },
+    "status": {
+      "open": "Abierta",
+      "openUntil": "Abierta hasta el {date}",
+      "closed": "Cerrada"
+    },
+    "closed": {
+      "title": "Las solicitudes a la mesa directiva están cerradas por ahora.",
+      "body": "Igual puedes ser voluntario con nosotros cuando quieras, sin esperar una convocatoria.",
+      "volunteer": "Ser voluntario",
+      "some": "Por ahora las solicitudes a la mesa directiva están cerradas en {chapters}.",
+      "notifyTitle": "Avísame por correo cuando abran",
+      "notifyChapter": "Grupo",
+      "notifyEmail": "Correo electrónico",
+      "notifySubmit": "Avísame",
+      "notifySending": "Guardando…",
+      "notifyDone": "Listo. Te escribimos a {email} cuando {chapter} abra las solicitudes a la mesa directiva.",
+      "notifyError": "No se guardó. Revisa tu correo e inténtalo otra vez."
+    },
+    "form": {
+      "title": "Tu solicitud",
+      "chapter": "Grupo",
+      "chapterPick": "Escoge un grupo",
+      "positions": "Puesto(s) al que aplicas",
+      "positionsHint": "Escoge de 1 a 3.",
+      "positionsPickChapter": "Escoge un grupo para ver sus puestos abiertos.",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono (opcional)",
+      "year": "Año",
+      "yearPick": "Escoge tu año",
+      "years": {
+        "1": "1er año",
+        "2": "2º año",
+        "3": "3er año",
+        "4": "4º año",
+        "5": "5º año o más",
+        "grad": "Posgrado"
+      },
+      "major": "Carrera (major)",
+      "why": "¿Por qué quieres entrar a la mesa directiva de VINdicated?",
+      "bring": "¿Qué le traerías a este puesto? Experiencia, habilidades o proyectos",
+      "words": "{n} / {max} palabras",
+      "hours": "Horas a la semana que puedes dar",
+      "resume": "Currículum (opcional, solo PDF, máximo 2 MB)",
+      "link": "Link de LinkedIn o portafolio (opcional)",
+      "heard": "¿Cómo supiste de nosotros? (opcional)",
+      "commit": "Puedo dar unas 5 horas a la semana, ir a la junta semanal de la mesa directiva y quedarme hasta que termine el periodo.",
+      "submit": "Mandar mi solicitud",
+      "sending": "Enviando…"
+    },
+    "errors": {
+      "chapter": "Escoge un grupo que esté recibiendo solicitudes.",
+      "positions": "Escoge de 1 a 3 puestos.",
+      "name": "Pon tu nombre completo.",
+      "email": "Pon un correo válido, como nombre@escuela.edu.",
+      "phone": "Revisa tu número de teléfono, o déjalo vacío.",
+      "year": "Escoge tu año.",
+      "major": "Pon tu carrera.",
+      "why": "Cuéntanos por qué quieres entrar, en 150 palabras o menos.",
+      "bring": "Cuéntanos qué traerías, en 150 palabras o menos.",
+      "hours": "Pon las horas a la semana, de 1 a 40.",
+      "link": "Revisa el link, o déjalo vacío.",
+      "heard": "Esa respuesta es demasiado larga.",
+      "commit": "Marca la casilla para confirmar que puedes dar ese tiempo.",
+      "resumeType": "Tu currículum tiene que ser PDF.",
+      "resumeSize": "Tu currículum pesa más de 2 MB. Prueba con un PDF más ligero.",
+      "closed": "Ese grupo acaba de cerrar las solicitudes.",
+      "tooMany": "Demasiados intentos desde aquí. Espera unos minutos y vuelve a intentar.",
+      "failed": "Algo salió mal. Inténtalo otra vez en un minuto, o escríbenos a getvindicated@outlook.com."
+    },
+    "done": {
+      "title": "¡Recibimos tu solicitud!",
+      "body": "Te vamos a escribir a {email}. La mayoría de los grupos contesta en menos de dos semanas."
+    },
+    "email": {
+      "subject": "Recibimos tu solicitud: mesa directiva de VINdicated {chapter}",
+      "hi": "Hola, {name}:",
+      "body": "Gracias por aplicar a la mesa directiva de VINdicated {chapter} para {term}. Aquí va una copia de lo que mandaste. La mayoría de los grupos contesta en menos de dos semanas.",
+      "updated": "Volviste a aplicar, así que cambiamos tus respuestas anteriores por estas.",
+      "copy": "Tu solicitud",
+      "resume": "Currículum",
+      "none": "Nada",
+      "signoff": "El equipo de VINdicated"
     }
   }
 }

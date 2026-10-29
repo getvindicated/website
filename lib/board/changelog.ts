@@ -22,6 +22,7 @@ const RESTORABLE = new Set([
   "board_rounds",
   "board_settings",
   "board_events",
+  "board_applications",
 ]);
 
 const plain = (r: unknown) => JSON.parse(JSON.stringify(r)) as Row;
