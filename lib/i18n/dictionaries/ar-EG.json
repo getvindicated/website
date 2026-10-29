@@ -2508,6 +2508,8 @@
     "time": "{time} بتوقيت المحيط الهادي",
     "online": "أونلاين، على Zoom",
     "onlineNote": "اللينك هيتبعتلك على الإيميل لما تسجّل",
+    "tba": "المكان هيتعلن بعدين",
+    "tbaNote": "هنبعتلك المكان على الإيميل لما الميعاد يقرّب",
     "going": "{n} أشخاص جايين",
     "goingOne": "شخص واحد جاي",
     "rsvp": "سجّل، ببلاش",
@@ -2541,6 +2543,7 @@
       "title": "إنت معانا!",
       "online": "شكراً يا {first}. بعتنا لينك الـ Zoom على {email}.",
       "inPerson": "شكراً يا {first}. بعتنا التفاصيل على {email}.",
+      "tba": "هنبعتلك إيميل تاني فيه المكان لما الميعاد يقرّب.",
       "emailFailed": "شكراً يا {first}. إنت في الليستة، بس إيميل التأكيد ماتبعتش. هنبعت على {email} قبل الفعالية.",
       "google": "ضيفها على Google Calendar",
       "ics": "نزّلها لـ Apple / Outlook",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "إنت معانا: {title} · {when}",
       "reminderSubject": "تذكير: {title} · {when}",
+      "locationSubject": "مكان {title} · {when}",
       "hi": "أهلاً {name}،",
       "confirmBody": "شكراً إنك سجّلت! إنت مسجّل في {title}. الفعالية ببلاش، وموجودة كمان في ملف الكالندر المتبعت مع الإيميل ده.",
       "reminderBody": "بس بنفكّرك: {title} هتبقى {when}.",
+      "locationBody": "ده مكان {title} يوم {when}. الكالندر بتاعك هيتحدّث لوحده.",
       "join": "ادخل على Zoom: {link}",
       "linkLater": "هنبعتلك لينك الـ Zoom على الإيميل قبل الفعالية.",
       "inPerson": "الفعالية حضوري في {address}.",
+      "tba": "هنبعتلك إيميل تاني فيه المكان لما الميعاد يقرّب.",
       "when": "إمتى",
       "where": "فين",
       "host": "المقدّم",
       "zoomLink": "لينك الـ Zoom",
-      "details": "تفاصيل الفعالية: {link}",
-      "signoff": "VINdicated"
+      "details": "تفاصيل الفعالية: {link}"
     }
   },
   "applyPage": {

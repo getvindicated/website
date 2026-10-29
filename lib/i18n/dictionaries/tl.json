@@ -2508,6 +2508,8 @@
     "time": "{time} Pacific time",
     "online": "Online, sa Zoom",
     "onlineNote": "Ipapadala sa email mo ang link kapag nag-RSVP ka",
+    "tba": "Iaanunsyo pa ang lugar",
+    "tbaNote": "Ii-email namin ang lugar habang papalapit ang petsa",
     "going": "{n} tao ang pupunta",
     "goingOne": "1 tao ang pupunta",
     "rsvp": "Mag-RSVP, libre",
@@ -2541,6 +2543,7 @@
       "title": "Pasok ka na!",
       "online": "Salamat, {first}. Ipinadala namin ang Zoom link sa {email}.",
       "inPerson": "Salamat, {first}. Ipinadala namin ang detalye sa {email}.",
+      "tba": "Magpapadala kami ng follow-up na email kasama ang lugar habang papalapit ang petsa.",
       "emailFailed": "Salamat, {first}. Nasa listahan ka na, pero hindi naipadala ang confirmation email. Mag-e-email kami sa {email} bago ang event.",
       "google": "Idagdag sa Google Calendar",
       "ics": "I-download para sa Apple / Outlook",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "Pasok ka na: {title} · {when}",
       "reminderSubject": "Paalala: {title} · {when}",
+      "locationSubject": "Lugar ng {title} · {when}",
       "hi": "Kumusta, {name}!",
       "confirmBody": "Salamat sa pag-RSVP! Naka-sign up ka na sa {title}. Libre ito, at nasa calendar file din na naka-attach sa email na ito.",
       "reminderBody": "Paalala lang: malapit na ang {title} sa {when}.",
+      "locationBody": "Narito ang lugar ng {title} sa {when}. Kusang mag-a-update ang calendar mo.",
       "join": "Sumali sa Zoom: {link}",
       "linkLater": "Ie-email namin sa'yo ang Zoom link bago ang event.",
       "inPerson": "Personal ito, sa {address}.",
+      "tba": "Magpapadala kami ng follow-up na email kasama ang lugar habang papalapit ang petsa.",
       "when": "Kailan",
       "where": "Saan",
       "host": "Host",
       "zoomLink": "Link ng Zoom",
-      "details": "Detalye ng event: {link}",
-      "signoff": "VINdicated"
+      "details": "Detalye ng event: {link}"
     }
   },
   "applyPage": {

@@ -14,6 +14,9 @@ export type ChapterServer = {
   // Who the chapter's emails come from (announcements, invites, submissions).
   // Must be a verified sender in Brevo. Null falls back to BOARD_INVITE_FROM.
   from: Sender | null;
+  // The name public event emails (RSVP confirmations, reminders, location
+  // updates) come from and are signed with. Same address as \`from\`.
+  eventsFrom: string;
   // Members ticked as Hub admin when first loaded (for admins-only emails).
   // Admins change this on the Board tab afterwards.
   hubAdmins: string[];
@@ -37,6 +40,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   berkeley: {
     cookie: "board_session",
     from: { name: "Rana", email: "president@getvindicated.org" },
+    eventsFrom: "VINdicated",
     hubAdmins: ["Rana Darwich"],
     organizer: { email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" },
     passwords: [
@@ -59,6 +63,7 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
   ucla: {
     cookie: "board_session_ucla",
     from: { name: "President Fiona", email: "vindicatedbruins@getvindicated.org" },
+    eventsFrom: "VINdicated at UCLA",
     hubAdmins: ["Fiona Wangsawidjaja", "Will Prawira"],
     organizer: { email: "fionarhine@ucla.edu", name: "Fiona Wangsawidjaja", short: "Fiona" },
     passwords: [
@@ -95,6 +100,13 @@ export function chapterSender(chapter: ChapterId, fallbackName: string): Sender 
   if (!env) return null;
   const m = env.match(/^\s*"?([^"<]*?)"?\s*<([^>]+)>\s*$/);
   return m ? { name: m[1].trim() || fallbackName, email: m[2].trim() } : { name: fallbackName, email: env };
+}
+
+// Who public event emails come from: the chapter's sending address under
+// the chapter's name ("VINdicated", "VINdicated at UCLA"), not a person's.
+export function eventSender(chapter: ChapterId): Sender | null {
+  const s = chapterSender(chapter, CHAPTER_SERVER[chapter].eventsFrom);
+  return s ? { name: CHAPTER_SERVER[chapter].eventsFrom, email: s.email } : null;
 }
 
 // Who a submission from someone on `team` goes to.

@@ -140,13 +140,16 @@ show RSVP buttons on an invite sent to its own organizer.
 Admins add workshops and meetups on each hub's **Events** tab (admins only).
 They show on the public Events page, where anyone can RSVP. Each event has:
 - a title, tag, date and time (Pacific)
-- online or in person, with a meeting link or an address
+- online or in person, with a meeting link, an address, or "Location to
+  be announced"
 - a host and a description
 - a flyer, uploaded like the hub photos
 - an optional "Show RSVP count"
 
 An event belongs to the hub it's made on. Its emails come from that
-chapter's sender (above), with reply-to set to the chapter's organizer.
+chapter's sending address (above) under the chapter's name, "VINdicated"
+or "VINdicated at UCLA" (`eventsFrom` in `lib/board/chapter-server.ts`),
+and are signed with it. Replies go to the chapter's organizer.
 
 - **RSVPs:** each RSVP gets a confirmation email with the details, the
   meeting link and a calendar file. RSVPing again with the same email
@@ -154,13 +157,22 @@ chapter's sender (above), with reply-to set to the chapter's organizer.
 - **The meeting link is private.** It's never on the page or in anything
   the page loads. It only goes out in confirmations and reminders, so add it
   before people RSVP, or send a reminder once it's in.
+- **Location to be announced:** an in-person event can start without an
+  address. The page says "Location to be announced", and RSVPs are told
+  they'll get a follow-up email with the location (their calendar entry
+  says the same). When you know it, untick it and add the address: the
+  event then shows **Send the location to everyone**, which asks first
+  (with the count) and emails every RSVP the address with an updated
+  calendar invite that replaces the old entry. Reminders include the
+  address once it's set.
 - **RSVP list:** each event's RSVPs (name, email, school, question, whether
   they want future emails, time) are on the Events tab, with **Copy
   emails**, **Download CSV** and **Send reminder to everyone**. The
   reminder asks first, showing how many people it goes to. Nothing is sent
   on a schedule; reminders only go out when an admin presses the button.
 - **Change log:** adding, editing and deleting events goes in the Changes
-  tab, like everything else. Sending a reminder is noted there too.
+  tab, like everything else. Sending a reminder or the location is noted
+  there too.
 
 ### The Negotiation Workshop's meeting link
 

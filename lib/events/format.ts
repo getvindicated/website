@@ -57,6 +57,8 @@ export function eventLabels(e: Times, locale: string): EventLabels {
 
 // Google Calendar's "add event" link. The meeting link isn't public, so the
 // details point people to their confirmation email for it.
+// `where` is what to show when there's no address: "Online, on Zoom", or
+// "Location to be announced".
 export function googleCalendarUrl(e: Times & { title: string; description: string; online: boolean; address: string }, where: string, note: string, page: string) {
   const stamp = (iso: string) => new Date(iso).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
   const q = new URLSearchParams({
@@ -64,7 +66,7 @@ export function googleCalendarUrl(e: Times & { title: string; description: strin
     text: e.title,
     dates: `${stamp(e.startsAt)}/${stamp(e.endsAt)}`,
     details: [e.description, e.online ? note : "", page].filter(Boolean).join("\n\n"),
-    location: e.online ? where : e.address,
+    location: e.online ? where : e.address || where,
     ctz: TZ,
   });
   return `https://calendar.google.com/calendar/render?${q}`;

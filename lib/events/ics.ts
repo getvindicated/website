@@ -17,17 +17,21 @@ export type IcsEvent = {
   endTime: string;
   online: boolean;
   address: string;
+  locationTba?: boolean;
   hostName: string;
   description: string;
+  // Goes up when the location is sent to everyone, so calendars update the
+  // entry they already have (same UID) instead of adding another.
+  sequence?: number;
 };
 
 // Wording for the file, in the visitor's language (eventsPage in the
 // dictionaries): "Online, on Zoom", where the link is, "Host", "Join on
-// Zoom: {link}".
-export type IcsLabels = { online: string; linkNote: string; host: string; join: string };
+// Zoom: {link}", "Location to be announced".
+export type IcsLabels = { online: string; linkNote: string; host: string; join: string; tba: string };
 
 export function buildEventIcs(e: IcsEvent, meetingLink: string | null, labels: IcsLabels, locale = "en"): string {
-  const where = e.online ? meetingLink || labels.online : e.address;
+  const where = e.online ? meetingLink || labels.online : e.address || (e.locationTba ? labels.tba : "");
   const join = e.online ? (meetingLink ? labels.join.replace("{link}", meetingLink) : labels.linkNote) : "";
   const description = [e.description, e.hostName && `${labels.host}: ${e.hostName}`, join, eventUrl(e.id, locale)]
     .filter(Boolean)
@@ -41,7 +45,7 @@ export function buildEventIcs(e: IcsEvent, meetingLink: string | null, labels: I
     ...VTIMEZONE,
     "BEGIN:VEVENT",
     `UID:${e.uid}`,
-    "SEQUENCE:0",
+    `SEQUENCE:${e.sequence ?? 0}`,
     `DTSTAMP:${utcStamp(new Date())}`,
     `DTSTART;TZID=${TZID}:${local(e.date, e.startTime)}`,
     `DTEND;TZID=${TZID}:${local(e.date, e.endTime)}`,

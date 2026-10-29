@@ -100,8 +100,9 @@ function EventCard({ dict, event: e, onFlyer }: { dict: EventsPageDict; event: S
             <span>{fill(dict.time, { time: e.timeLabel })}</span>
           </li>
           <li>
-            <b>{e.online ? dict.online : e.address}</b>
+            <b>{e.online ? dict.online : e.locationTba ? dict.tba : e.address}</b>
             {e.online && <span>{dict.onlineNote}</span>}
+            {e.locationTba && <span>{dict.tbaNote}</span>}
           </li>
           {e.hostName && (
             <li>
@@ -292,13 +293,13 @@ function Done({ dict, event: e, done }: { dict: EventsPageDict; event: ShownEven
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => ref.current?.focus(), []);
   const page = typeof window === "undefined" ? "" : `${window.location.origin}${window.location.pathname}#event-${e.id}`;
-  const msg = !done.emailed ? d.emailFailed : e.online ? d.online : d.inPerson;
+  const msg = !done.emailed ? d.emailFailed : e.online ? d.online : e.locationTba ? d.tba : d.inPerson;
   return (
     <div className="ev-done" ref={ref} tabIndex={-1} role="status">
       <h3>{d.title}</h3>
       <p>{fill(msg, { first: done.first, email: done.email })}</p>
       <div className="ctas">
-        <a className="btn btn-solid" href={googleCalendarUrl(e, dict.online, d.calendarNote, page)} target="_blank" rel="noopener noreferrer">
+        <a className="btn btn-solid" href={googleCalendarUrl(e, e.online ? dict.online : dict.tba, d.calendarNote, page)} target="_blank" rel="noopener noreferrer">
           {d.google}
         </a>
         <a className="btn btn-line" href={`/api/events/${e.id}/ics?locale=${encodeURIComponent(document.documentElement.lang)}`} download>

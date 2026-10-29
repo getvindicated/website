@@ -2508,6 +2508,8 @@
     "time": "{time} giờ Thái Bình Dương",
     "online": "Trực tuyến, qua Zoom",
     "onlineNote": "Link sẽ được gửi qua email khi bạn đăng ký",
+    "tba": "Địa điểm sẽ được thông báo sau",
+    "tbaNote": "Gần ngày diễn ra, chúng tôi sẽ gửi địa điểm qua email",
     "going": "{n} người sẽ tham dự",
     "goingOne": "1 người sẽ tham dự",
     "rsvp": "Đăng ký, miễn phí",
@@ -2541,6 +2543,7 @@
       "title": "Bạn đã đăng ký xong!",
       "online": "Cảm ơn {first}. Chúng tôi đã gửi link Zoom đến {email}.",
       "inPerson": "Cảm ơn {first}. Chúng tôi đã gửi thông tin chi tiết đến {email}.",
+      "tba": "Gần ngày diễn ra, chúng tôi sẽ gửi thêm một email kèm địa điểm.",
       "emailFailed": "Cảm ơn {first}. Bạn đã có tên trong danh sách, nhưng email xác nhận chưa gửi được. Chúng tôi sẽ email đến {email} trước sự kiện.",
       "google": "Thêm vào Google Calendar",
       "ics": "Tải về cho Apple / Outlook",
@@ -2563,18 +2566,20 @@
     "email": {
       "confirmSubject": "Bạn đã đăng ký: {title} · {when}",
       "reminderSubject": "Nhắc nhở: {title} · {when}",
+      "locationSubject": "Địa điểm của {title} · {when}",
       "hi": "Chào {name},",
       "confirmBody": "Cảm ơn bạn đã đăng ký! Bạn đã có chỗ ở {title}. Sự kiện miễn phí, và thông tin cũng có trong file lịch đính kèm email này.",
       "reminderBody": "Nhắc bạn một chút: {title} sẽ diễn ra vào {when}.",
+      "locationBody": "Đây là địa điểm của {title} vào {when}. Lịch của bạn sẽ tự cập nhật.",
       "join": "Vào Zoom: {link}",
       "linkLater": "Chúng tôi sẽ email link Zoom cho bạn trước sự kiện.",
       "inPerson": "Sự kiện diễn ra trực tiếp tại {address}.",
+      "tba": "Gần ngày diễn ra, chúng tôi sẽ gửi thêm một email kèm địa điểm.",
       "when": "Thời gian",
       "where": "Địa điểm",
       "host": "Người dẫn",
       "zoomLink": "Link Zoom",
-      "details": "Chi tiết sự kiện: {link}",
-      "signoff": "VINdicated"
+      "details": "Chi tiết sự kiện: {link}"
     }
   },
   "applyPage": {
