@@ -244,6 +244,70 @@ Team and Learning Resources) and the next-event strip to the home page.
 To **hide it again**, delete `EVENTS_PUBLIC` (or set it to anything but
 `true`) and redeploy. Events and RSVPs stay saved on the hub.
 
+## Car Confidence Survey (/survey)
+
+A five-minute public survey: how confident people feel when a car breaks
+down, when buying a car and when getting a repair, and whether they expect
+to be treated fairly. People see their own scores at the end. Results are
+in the **Survey** tab of every hub (admins only; every chapter sees the
+same org-wide results).
+
+**It's anonymous.** Each response keeps only the day (no time), the
+language, where the person came from (`?src=`, e.g.
+`getvindicated.org/survey?src=instagram`), their 1–5 answers and the
+optional background answers. No name, email, IP address, browser or cookie
+id is stored. The IP address is only used in memory to allow at most 5
+surveys per hour from one connection. Answers sent in under 40 seconds, with
+a 1–5 question missing, or with the hidden spam field filled in are
+refused. A browser that finished remembers it (on that device only) and
+shows the person's scores with a "Take it again" link.
+
+**Questions.** Every question, its id (like `buying_3` or `fair_2b`) and
+version is in `lib/survey/questions.ts`; the translations are under
+`surveyPage.items` in `lib/i18n/dictionaries/*.json`. To change a
+question's wording later, give it a new `version` there (its answers are
+then kept apart from the old wording's) and bump `QUESTIONS_VERSION`. The
+consent text is `surveyPage.intro.consent` in the same files, ready to be
+replaced with IRB-approved wording.
+
+**Before launch, the wording must be approved.** The questions in the code
+are placeholders shaped like the "Vindisurvey Questions" draft. Paste the
+draft's exact wording into `lib/survey/questions.ts` and the dictionaries,
+then set `WORDING_APPROVED = true` there. Until then the survey stays
+admin-only even with `SURVEY_PUBLIC` set.
+
+### Launching the survey
+
+Until launch the survey is private:
+- `/survey` shows the normal "page not found" to the public, and the API
+  refuses answers.
+- An admin signed in to any hub can open it with a "Private preview"
+  banner. Their answers are saved as **test** responses: the Survey tab
+  leaves them out unless "Include test responses" is on, and "Delete test
+  responses" removes them. (An admin's answers are always tests, also
+  after launch.)
+- There's no link in Learning Resources or on the home page, no sitemap
+  entry, and the page tells search engines not to index it.
+
+To **launch**, add the Railway variable `SURVEY_PUBLIC` set to exactly
+`true` and redeploy (same as `EVENTS_PUBLIC` above). This adds "Car
+Confidence Survey" to the Learning Resources menu, a "How confident are you
+with cars?" box to the home page, and the page to the sitemap. Never set
+`SURVEY_ALLOW_DRAFT_WORDING` in Railway: it's only for the test script.
+
+To **hide it again**, delete `SURVEY_PUBLIC` and redeploy. Responses stay
+saved.
+
+### The Survey tab
+
+Total responses, responses per week, counts by source and by school, the
+average and 1–5 breakdown of every question, each "I expect…" question next
+to its "People of my gender/race…" partner, and averages split by gender,
+race, age, school or experience. A group with fewer than 5 responses is
+never shown, so no one can be picked out. Filter by dates and source.
+**Download CSV** gives one row per response with the question ids as
+columns (it follows the filters).
+
 ## One-time setup in Railway
 
 1. **Database.** In the Railway project, add a **Postgres** service. In the

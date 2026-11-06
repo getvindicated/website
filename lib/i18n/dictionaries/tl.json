@@ -17,7 +17,8 @@
     "learningResources": "Mga Matututunan",
     "getInvolved": "Sumali",
     "projects": "Mga Project",
-    "dealerMap": "Mapa ng mga Dealer"
+    "dealerMap": "Mapa ng mga Dealer",
+    "survey": "Survey sa Kumpiyansa sa Sasakyan"
   },
   "ui": {
     "openMenu": "Buksan ang menu",
@@ -126,6 +127,11 @@
         "title": "Mag-apply sa board",
         "description": "Mag-apply para maging bahagi ng board ng isang VINdicated chapter: mamuno sa mga workshop, research at outreach tungkol sa pagbili, pagpapaayos at pagbabayad ng sasakyan.",
         "imageAlt": "VINdicated: Mag-apply sa board"
+      },
+      "survey": {
+        "title": "Gaano Ka Kakumpiyansa sa Sasakyan?",
+        "description": "Sagutan ang libreng 5-minutong Survey sa Kumpiyansa sa Sasakyan ng VINdicated: pagkasira sa daan, pagbili ng kotse at pagpapaayos. Walang pangalan, at makikita mo sa dulo kung nasaan ka.",
+        "imageAlt": "Survey sa Kumpiyansa sa Sasakyan ng VINdicated"
       }
     }
   },
@@ -2675,6 +2681,190 @@
       "resume": "Resume",
       "none": "Wala",
       "signoff": "Ang VINdicated team"
+    }
+  },
+  "surveyPage": {
+    "preview": "Pribadong preview: mga admin lang ang nakakakita ng page na ito.",
+    "previewTest": "Ang mga sagot na ipapadala mo rito ay nase-save bilang test at hindi kasama sa resulta.",
+    "intro": {
+      "kicker": "Survey ng VINdicated",
+      "title": "Gaano ka kakumpiyansa pagdating sa sasakyan?",
+      "lede": "Pagkasira sa daan, pagbili, pagpapaayos. Sabihin mo sa amin kung gaano ka kahanda, at ipapakita namin sa dulo kung nasaan ka.",
+      "tags": [
+        "Mga 5 minuto",
+        "25 mabilis na tanong",
+        "Walang pangalan",
+        "Hindi kailangan ng kotse"
+      ],
+      "consentTitle": "Bago ka magsimula",
+      "consent": "Ang survey na ito ay pinapatakbo ng VINdicated, isang organisasyon ng mga estudyante na nagtatanggol sa mga mamimili, para maintindihan kung gaano kakumpiyansa ang mga tao pagdating sa sasakyan at kung inaasahan nilang patas ang trato sa kanila. Boluntaryo ang pagsali, puwede mong laktawan ang kahit anong tanong tungkol sa sarili mo, at puwede kang tumigil anumang oras. Hindi namin hinihingi ang pangalan o email mo, at ang resulta ay iniuulat lang bilang kabuuan ng grupo. May tanong? Mag-email sa {email}.",
+      "agree": "Ako ay 18 taong gulang pataas at pumapayag akong sumali.",
+      "start": "Simulan ang survey"
+    },
+    "scaleKey": "1 = Lubos na hindi sang-ayon · 5 = Lubos na sang-ayon",
+    "scale": [
+      "Lubos na hindi sang-ayon",
+      "Hindi sang-ayon",
+      "Walang kinikilingan",
+      "Sang-ayon",
+      "Lubos na sang-ayon"
+    ],
+    "progress": "{n} sa {total} ang nasagot",
+    "pageOf": "Pahina {n} sa {total}",
+    "back": "Bumalik",
+    "next": "Susunod",
+    "finish": "Tapusin",
+    "sending": "Ipinapadala…",
+    "required": "Pakisagot ang lahat ng tanong sa pahinang ito. Ang mga kulang ay may markang pula.",
+    "unanswered": "Hindi pa nasasagot",
+    "optional": "Hindi required",
+    "sections": {
+      "breakdown": {
+        "title": "Kung masiraan ang kotse mo",
+        "intro": "Isipin na nasiraan ang kotse mo habang nagmamaneho ka."
+      },
+      "buying": {
+        "title": "Pagbili ng kotse",
+        "intro": "Isipin na namimili ka ng susunod mong kotse."
+      },
+      "repair": {
+        "title": "Pagpapaayos ng kotse",
+        "intro": "Isipin na kailangang ipaayos ang kotse mo."
+      },
+      "fair": {
+        "title": "Patas na pagtrato",
+        "intro": "Tungkol ito sa kung ano ang inaasahan mo, hindi sa kung ano ang dapat mangyari."
+      },
+      "about": {
+        "title": "Kaunti tungkol sa iyo",
+        "intro": "Tinutulungan kami nitong ikumpara ang resulta ng iba't ibang grupo. Hindi required ang lahat ng tanong dito."
+      }
+    },
+    "items": {
+      "breakdown_1": "Alam ko ang unang dapat gawin kung masiraan ang kotse ko habang nagmamaneho.",
+      "breakdown_2": "Masasabi ko kung ligtas bang manatili sa loob o malapit sa kotse ko.",
+      "breakdown_3": "Alam ko kung sino ang tatawagan para humingi ng tulong, gaya ng roadside assistance o tow.",
+      "breakdown_4": "Kaya kong ipaliwanag ang nangyari sa tow driver o mekaniko.",
+      "buying_1": "Alam ko kung paano malalaman ang patas na presyo ng isang kotse.",
+      "buying_2": "Kaya kong suriin ang isang second-hand na kotse kung may problema bago ito bilhin.",
+      "buying_3": "Alam ko kung paano magpa-inspeksyon bago bumili.",
+      "buying_4": "Kaya kong makipagtawaran sa presyo sa isang salesperson.",
+      "buying_5": "Naiintindihan ko ang mga papeles na pipirmahan ko kapag bumibili ng kotse.",
+      "buying_6": "Kaya kong mapansin ang mga add-on o bayarin na hindi ko kailangan.",
+      "buying_7": "Komportable akong umalis sa isang deal.",
+      "repair_1": "Kaya kong makahanap ng talyer na pinagkakatiwalaan ko.",
+      "repair_2": "Kaya kong ilarawan sa mekaniko kung ano ang sira ng kotse ko.",
+      "repair_3": "Alam kong puwede akong humingi ng nakasulat na estimate bago magsimula ang anumang trabaho.",
+      "repair_4": "Masasabi ko kung patas ang presyo ng isang pagpapaayos.",
+      "repair_5": "Komportable akong tumanggi sa mga pagpapaayos na hindi ko hiningi.",
+      "repair_6": "Alam ko ang gagawin kung pumalpak ang isang pagpapaayos.",
+      "fair_1a": "Inaasahan kong iaalok sa akin ang parehong presyo gaya ng sa iba para sa parehong kotse.",
+      "fair_1b": "Ang mga kapareho ko ng kasarian ay inaalukan ng parehong presyo gaya ng sa iba para sa parehong kotse.",
+      "fair_2a": "Inaasahan kong seseryosohin ng salesperson ang mga tanong ko.",
+      "fair_2b": "Sineseryoso ng mga salesperson ang mga tanong ng mga kapareho ko ng lahi.",
+      "fair_3a": "Inaasahan kong magiging tapat sa akin ang mekaniko tungkol sa kailangan ng kotse ko.",
+      "fair_3b": "Tapat na sinasabi ng mga mekaniko sa mga kapareho ko ng kasarian kung ano ang kailangan ng kotse nila.",
+      "fair_4a": "Inaasahan kong patas na presyo ang babayaran ko sa pagpapaayos.",
+      "fair_4b": "Patas na presyo ang binabayaran ng mga kapareho ko ng lahi para sa pagpapaayos."
+    },
+    "demo": {
+      "pickAll": "Piliin lahat ng angkop.",
+      "selfLabel": "Sa sarili mong salita",
+      "experience": {
+        "label": "Karanasan sa sasakyan",
+        "options": {
+          "license": "May driver's license ako",
+          "own": "May sarili o naka-lease akong kotse",
+          "bought": "Nakabili na ako ng kotse nang mag-isa",
+          "dealer": "Nakabili na ako sa dealership",
+          "repair": "Naipaayos ko na ang isang kotse",
+          "breakdown": "Nasiraan na ako ng kotse",
+          "none": "Wala sa mga ito"
+        }
+      },
+      "gender": {
+        "label": "Kasarian",
+        "options": {
+          "woman": "Babae",
+          "man": "Lalaki",
+          "nonbinary": "Hindi binary",
+          "self": "Ilalarawan ko mismo",
+          "no_say": "Ayokong sabihin"
+        }
+      },
+      "race": {
+        "label": "Lahi o etnisidad",
+        "options": {
+          "aian": "Katutubong Amerikano o Katutubo ng Alaska",
+          "asian": "Asyano",
+          "black": "Itim o African American",
+          "hispanic": "Hispanic o Latino/a/x",
+          "mena": "Taga-Gitnang Silangan o Hilagang Africa",
+          "nhpi": "Katutubong Hawaiian o Pacific Islander",
+          "white": "Puti",
+          "self": "Ilalarawan ko mismo",
+          "no_say": "Ayokong sabihin"
+        }
+      },
+      "age": {
+        "label": "Edad",
+        "options": {
+          "18_20": "18–20",
+          "21_24": "21–24",
+          "25_34": "25–34",
+          "35_54": "35–54",
+          "55_plus": "55+",
+          "no_say": "Ayokong sabihin"
+        }
+      },
+      "student": {
+        "label": "Estudyante ka ba?",
+        "options": {
+          "ucb": "UC Berkeley",
+          "ucla": "UCLA",
+          "ucsc": "UC Santa Cruz",
+          "other_school": "Ibang paaralan",
+          "not_student": "Hindi estudyante",
+          "no_say": "Ayokong sabihin"
+        }
+      }
+    },
+    "errors": {
+      "missing": "May mga tanong pang hindi nasasagot. Bumalik at sagutin ang lahat ng tanong na 1–5.",
+      "tooFast": "Napakabilis noon. Maglaan ng sandali para basahin ang bawat tanong, saka pindutin ulit ang Tapusin.",
+      "expired": "Masyado nang matagal na bukas ang page na ito. I-reload ito para magsimula ulit.",
+      "tooMany": "Masyadong maraming survey ang naipadala mula sa koneksyong ito. Subukan ulit pagkalipas ng isang oras.",
+      "failed": "Nagkaproblema, kaya hindi na-save ang mga sagot mo. Pakisubukan ulit."
+    },
+    "results": {
+      "kicker": "Salamat!",
+      "title": "Ito ang kalagayan mo",
+      "body": "Ang score mo ay ang average ng mga sagot mo sa bawat bahagi, sa 5.",
+      "score": "{score} sa 5",
+      "areas": {
+        "breakdown": "Pagkasira sa daan",
+        "buying": "Pagbili ng kotse",
+        "repair": "Pagpapaayos ng kotse"
+      },
+      "tipTitle": "Saan magsisimula",
+      "tips": {
+        "breakdown": "Sa pagkasira sa daan ka pinakahindi handa. Ipinapakita ng aming Gabay sa Pag-inspect ang mga bahagi ng kotse at ang mga babalang dapat bantayan.",
+        "buying": "Sa pagbili ng kotse ka pinakahindi handa. Ipinapaliwanag ng Mga Dokumento, Ipinaliwanag ang mga papeles, bayarin at add-on bago ka pumirma.",
+        "repair": "Sa pagpapaayos ng kotse ka pinakahindi handa. Ipinapakita ng Iwas-Scam ang mga karaniwang daya at ang gagawin kung lamangan ka ng talyer."
+      },
+      "tipLink": "Basahin ang gabay",
+      "guides": "Tingnan ang aming libreng gabay",
+      "workshop": "Pumunta sa isang workshop",
+      "share": "May kakilala ka bang dapat sumagot nito? Ibahagi ang {link}."
+    },
+    "done": {
+      "title": "Nasagutan mo na ang survey. Salamat!",
+      "again": "Sagutan ulit"
+    },
+    "home": {
+      "title": "Gaano ka kakumpiyansa pagdating sa sasakyan?",
+      "body": "Pagkasira sa daan, pagbili, pagpapaayos: alamin kung nasaan ka. Walang pangalan, at hindi kailangan ng kotse.",
+      "cta": "Sagutan ang 5-minutong survey"
     }
   }
 }

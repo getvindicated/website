@@ -17,7 +17,8 @@
     "learningResources": "Learning Resources",
     "getInvolved": "Get Involved",
     "projects": "Projects",
-    "dealerMap": "Dealer Risk Map"
+    "dealerMap": "Dealer Risk Map",
+    "survey": "Car Confidence Survey"
   },
   "ui": {
     "openMenu": "Open menu",
@@ -126,6 +127,11 @@
         "title": "Apply for the Board",
         "description": "Apply to join a VINdicated chapter board: lead workshops, research and outreach on car buying, repairs and financing.",
         "imageAlt": "VINdicated: Apply for the Board"
+      },
+      "survey": {
+        "title": "How Confident Are You with Cars?",
+        "description": "Take VINdicated's free 5-minute Car Confidence Survey: breaking down, buying a car and getting a repair. Anonymous, and you see where you stand at the end.",
+        "imageAlt": "VINdicated Car Confidence Survey"
       }
     }
   },
@@ -2675,6 +2681,190 @@
       "resume": "Resume",
       "none": "None",
       "signoff": "The VINdicated team"
+    }
+  },
+  "surveyPage": {
+    "preview": "Private preview: only admins can see this page.",
+    "previewTest": "Answers you send here are saved as tests and left out of the results.",
+    "intro": {
+      "kicker": "VINdicated survey",
+      "title": "How confident are you with cars?",
+      "lede": "Breaking down, buying, getting a repair. Tell us how ready you feel, and we'll show you where you stand at the end.",
+      "tags": [
+        "About 5 minutes",
+        "25 quick questions",
+        "Anonymous",
+        "No car needed"
+      ],
+      "consentTitle": "Before you start",
+      "consent": "This survey is run by VINdicated, a student-led consumer advocacy organization, to understand how confident people feel about cars and whether they expect to be treated fairly. Taking part is voluntary, you can skip any background question, and you can stop at any time. We don't ask for your name or email, and results are only reported as group totals. Questions? Email {email}.",
+      "agree": "I'm 18 or older and I agree to take part.",
+      "start": "Start the survey"
+    },
+    "scaleKey": "1 = Strongly disagree · 5 = Strongly agree",
+    "scale": [
+      "Strongly disagree",
+      "Disagree",
+      "Neutral",
+      "Agree",
+      "Strongly agree"
+    ],
+    "progress": "{n} of {total} answered",
+    "pageOf": "Page {n} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "sending": "Sending…",
+    "required": "Please answer every question on this page. The ones left are marked in red.",
+    "unanswered": "Not answered yet",
+    "optional": "Optional",
+    "sections": {
+      "breakdown": {
+        "title": "If your car breaks down",
+        "intro": "Picture your car breaking down while you're driving."
+      },
+      "buying": {
+        "title": "Buying a car",
+        "intro": "Picture shopping for your next car."
+      },
+      "repair": {
+        "title": "Getting a repair",
+        "intro": "Picture your car needing a repair."
+      },
+      "fair": {
+        "title": "Being treated fairly",
+        "intro": "These are about what you expect, not what you think should happen."
+      },
+      "about": {
+        "title": "A little about you",
+        "intro": "These help us compare results between groups. Every question here is optional."
+      }
+    },
+    "items": {
+      "breakdown_1": "I would know what to do first if my car broke down while I was driving.",
+      "breakdown_2": "I could tell whether it's safe to stay in or near my car.",
+      "breakdown_3": "I know who to call for help, like roadside assistance or a tow.",
+      "breakdown_4": "I could explain what happened to a tow driver or a mechanic.",
+      "buying_1": "I know how to find out what a fair price for a car is.",
+      "buying_2": "I could check a used car for problems before buying it.",
+      "buying_3": "I know how to get an inspection before I buy.",
+      "buying_4": "I could negotiate the price with a salesperson.",
+      "buying_5": "I understand the paperwork I'd sign when buying a car.",
+      "buying_6": "I could spot add-ons or fees I don't need.",
+      "buying_7": "I would feel comfortable walking away from a deal.",
+      "repair_1": "I could find a repair shop I trust.",
+      "repair_2": "I could describe what's wrong with my car to a mechanic.",
+      "repair_3": "I know I can ask for a written estimate before any work starts.",
+      "repair_4": "I could tell whether a repair quote is fair.",
+      "repair_5": "I would feel comfortable saying no to repairs I didn't ask for.",
+      "repair_6": "I know what to do if a repair goes wrong.",
+      "fair_1a": "I expect to be offered the same price as anyone else for the same car.",
+      "fair_1b": "People of my gender are offered the same price as anyone else for the same car.",
+      "fair_2a": "I expect a salesperson to take my questions seriously.",
+      "fair_2b": "People of my race have their questions taken seriously by salespeople.",
+      "fair_3a": "I expect a mechanic to be honest with me about what my car needs.",
+      "fair_3b": "People of my gender are told honestly by mechanics what their car needs.",
+      "fair_4a": "I expect to pay a fair price for a repair.",
+      "fair_4b": "People of my race pay a fair price for repairs."
+    },
+    "demo": {
+      "pickAll": "Pick all that apply.",
+      "selfLabel": "In your own words",
+      "experience": {
+        "label": "Experience with cars",
+        "options": {
+          "license": "I have a driver's license",
+          "own": "I own or lease a car",
+          "bought": "I've bought a car myself",
+          "dealer": "I've bought from a dealership",
+          "repair": "I've taken a car in for a repair",
+          "breakdown": "I've had a car break down on me",
+          "none": "None of these"
+        }
+      },
+      "gender": {
+        "label": "Gender",
+        "options": {
+          "woman": "Woman",
+          "man": "Man",
+          "nonbinary": "Non-binary",
+          "self": "Prefer to self-describe",
+          "no_say": "Prefer not to say"
+        }
+      },
+      "race": {
+        "label": "Race or ethnicity",
+        "options": {
+          "aian": "American Indian or Alaska Native",
+          "asian": "Asian",
+          "black": "Black or African American",
+          "hispanic": "Hispanic or Latino/a/x",
+          "mena": "Middle Eastern or North African",
+          "nhpi": "Native Hawaiian or Pacific Islander",
+          "white": "White",
+          "self": "Prefer to self-describe",
+          "no_say": "Prefer not to say"
+        }
+      },
+      "age": {
+        "label": "Age",
+        "options": {
+          "18_20": "18–20",
+          "21_24": "21–24",
+          "25_34": "25–34",
+          "35_54": "35–54",
+          "55_plus": "55+",
+          "no_say": "Prefer not to say"
+        }
+      },
+      "student": {
+        "label": "Are you a student?",
+        "options": {
+          "ucb": "UC Berkeley",
+          "ucla": "UCLA",
+          "ucsc": "UC Santa Cruz",
+          "other_school": "Another school",
+          "not_student": "Not a student",
+          "no_say": "Prefer not to say"
+        }
+      }
+    },
+    "errors": {
+      "missing": "Some questions aren't answered yet. Go back and answer every 1–5 question.",
+      "tooFast": "That was very fast. Please take a moment to read each question, then press Finish again.",
+      "expired": "This page has been open too long. Reload it to start again.",
+      "tooMany": "Too many surveys were sent from this connection. Please try again in an hour.",
+      "failed": "Something went wrong, so your answers weren't saved. Please try again."
+    },
+    "results": {
+      "kicker": "Thank you!",
+      "title": "Here's where you stand",
+      "body": "Your scores are the average of your answers in each part, out of 5.",
+      "score": "{score} out of 5",
+      "areas": {
+        "breakdown": "Breaking down",
+        "buying": "Buying a car",
+        "repair": "Getting a repair"
+      },
+      "tipTitle": "Where to start",
+      "tips": {
+        "breakdown": "Breaking down is where you feel least ready. Our Inspection Guide walks through the parts of a car and the warning signs to watch for.",
+        "buying": "Buying a car is where you feel least ready. Documents Decoded explains the paperwork, fees and add-ons before you sign.",
+        "repair": "Getting a repair is where you feel least ready. Fraud Prevention shows the common tricks and what to do if a shop takes advantage of you."
+      },
+      "tipLink": "Read the guide",
+      "guides": "See our free guides",
+      "workshop": "Come to a workshop",
+      "share": "Know someone who should take this? Share {link}."
+    },
+    "done": {
+      "title": "You've already taken the survey. Thanks!",
+      "again": "Take it again"
+    },
+    "home": {
+      "title": "How confident are you with cars?",
+      "body": "Breaking down, buying, getting a repair: see where you stand. Anonymous, and no car needed.",
+      "cta": "Take the 5-minute survey"
     }
   }
 }

@@ -7,6 +7,8 @@ import { FollowLinks } from "@/components/sections/home/FollowLinks";
 import { Pillars } from "@/components/sections/home/Pillars";
 import { FreeResources } from "@/components/sections/home/FreeResources";
 import { WorkshopFeature } from "@/components/sections/home/WorkshopFeature";
+import { SurveyInvite } from "@/components/sections/home/SurveyInvite";
+import { surveyPublic } from "@/lib/survey/flag";
 import { eventsPublic, nextPublicEvent } from "@/lib/events/server";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SHARE_IMAGE } from "@/lib/i18n/metadata";
@@ -86,6 +88,7 @@ export default async function HomePage({
         whereHref={href("/inspection#where")}
         fraudHref={fraud}
       />
+      {surveyPublic() && <SurveyInvite dict={dict.surveyPage.home} href={href("/survey")} />}
       <EqualFooting dict={home.footing} />
       <CampusChapters dict={home.chapters} joinHref={href("/join")} />
       <FollowLinks dict={home.follow} />

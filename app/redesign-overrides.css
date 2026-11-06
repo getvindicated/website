@@ -1328,3 +1328,442 @@
     font-size: 0.88rem;
   }
 }
+
+/* ---------- Car Confidence Survey (/survey) ---------- */
+.rd .sv-section-wrap {
+  padding: 40px 0 88px;
+}
+.rd .sv {
+  max-width: 720px;
+  margin: 0 auto;
+  scroll-margin-top: 100px;
+}
+.rd .sv-title,
+.rd .sv-section {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0 0 14px;
+  scroll-margin-top: 140px;
+}
+.rd .sv-title:focus,
+.rd .sv-section:focus {
+  outline: none;
+}
+.rd .sv-section {
+  font-size: clamp(1.7rem, 4.4vw, 2.3rem);
+  margin-bottom: 8px;
+}
+.rd .sv-kicker,
+.rd .sv-step {
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin: 0 0 10px;
+}
+.rd .sv-lede {
+  font-size: 1.15rem;
+  margin: 0 0 20px;
+}
+.rd .sv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+}
+.rd .sv-tags li {
+  background: var(--tint);
+  color: var(--purple-deep);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+.rd .sv-consent {
+  background: var(--tint);
+  border-radius: 8px;
+  padding: 24px;
+}
+.rd .sv-consent h2 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+}
+.rd .sv-consent p {
+  margin: 0 0 18px;
+  font-size: 0.98rem;
+}
+.rd .sv-consent a,
+.rd .sv-share a {
+  color: var(--purple-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.rd .sv-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.rd .sv-check input {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  accent-color: var(--purple);
+  margin: 0;
+}
+.rd .sv-agree {
+  margin: 0 0 16px;
+}
+.rd .sv .btn {
+  min-height: 52px;
+  border: 0;
+}
+.rd .sv .btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.rd .sv .btn-solid:disabled:hover {
+  background: var(--purple);
+}
+.rd .sv-start {
+  width: 100%;
+}
+.rd .sv-back,
+.rd .sv-soft {
+  background: var(--tint);
+  color: var(--purple-deep);
+}
+.rd .sv-back:hover,
+.rd .sv-soft:hover {
+  background: var(--tint-2);
+}
+
+/* Sticky progress under the site header. */
+.rd .sv-progress {
+  position: sticky;
+  top: 76px;
+  z-index: 30;
+  background: #fff;
+  /* A little wider than the questions, so their outlines don't peek out
+     beside it as they scroll under. */
+  padding: 12px 4px 10px;
+  margin: -12px -4px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.rd .sv-progress-text {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.rd .sv-progress-text span {
+  color: var(--purple-deep);
+  white-space: nowrap;
+}
+.rd .sv-progress-bar {
+  height: 8px;
+  border-radius: 8px;
+  background: var(--tint);
+  overflow: hidden;
+}
+.rd .sv-progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--purple);
+  border-radius: 8px;
+  transition: width 0.2s;
+}
+.rd .sv-intro {
+  font-size: 1.1rem;
+  margin: 0 0 18px;
+}
+.rd .sv-key {
+  background: var(--tint);
+  color: var(--purple-deep);
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 0 0 20px;
+  text-align: center;
+}
+.rd .sv-hp {
+  position: absolute;
+  inset-inline-start: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* One question: the statement, then five big tap targets. */
+.rd .sv-q {
+  border: 0;
+  margin: 0 0 18px;
+  padding: 18px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  min-width: 0;
+  scroll-margin-top: 150px;
+}
+.rd .sv-q legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  font-weight: 700;
+  font-size: 1.08rem;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
+[dir="rtl"] .rd .sv-q legend {
+  float: right;
+}
+.rd .sv-q legend + * {
+  clear: both;
+}
+.rd .sv-paired {
+  margin-inline-start: 28px;
+  background: var(--tint);
+  box-shadow: none;
+}
+.rd .sv-miss {
+  box-shadow: 0 0 0 2px var(--red);
+  background: #fdf1f0;
+}
+.rd .sv-miss-text {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin: 0 0 10px;
+}
+.rd .sv-scale {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.rd .sv-scale label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 72px;
+  padding: 8px 4px;
+  border-radius: 8px;
+  background: var(--tint);
+  color: var(--purple-deep);
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.rd .sv-scale label:hover {
+  background: var(--tint-2);
+}
+.rd .sv-scale input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.rd .sv-scale label:has(input:focus-visible) {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+.rd .sv-scale b {
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+.rd .sv-scale span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.rd .sv-scale label.on {
+  background: var(--purple);
+  color: #fff;
+}
+@media (max-width: 520px) {
+  .rd .sv-q {
+    padding: 14px;
+  }
+  .rd .sv-paired {
+    margin-inline-start: 14px;
+  }
+  .rd .sv-scale {
+    gap: 6px;
+  }
+  .rd .sv-scale label {
+    min-height: 68px;
+    padding: 6px 2px;
+  }
+  .rd .sv-scale span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Background questions */
+.rd .sv-opt {
+  font-weight: 400;
+  color: var(--purple-deep);
+}
+.rd .sv-hint {
+  margin: -6px 0 8px;
+  font-size: 0.92rem;
+  color: var(--purple-deep);
+}
+.rd .sv-choices {
+  display: grid;
+  gap: 6px;
+}
+.rd .sv-choices .sv-check {
+  background: var(--tint);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+.rd .sv-choices .sv-check.on {
+  background: var(--tint-2);
+}
+.rd .sv-self {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+.rd .sv-self input {
+  font: inherit;
+  font-weight: 400;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+}
+
+.rd .sv-error {
+  color: var(--red);
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+.rd .sv-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+.rd .sv-nav .btn {
+  flex: 1;
+  max-width: 240px;
+}
+.rd .sv-nav .btn-solid {
+  margin-inline-start: auto;
+}
+
+/* Results */
+.rd .sv-scores {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 28px;
+  display: grid;
+  gap: 18px;
+}
+.rd .sv-score-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.rd .sv-score-head span {
+  font-weight: 700;
+  color: var(--purple-deep);
+  white-space: nowrap;
+}
+.rd .sv-meter {
+  height: 14px;
+  border-radius: 8px;
+  background: var(--tint);
+  overflow: hidden;
+}
+.rd .sv-meter span {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  background: var(--purple);
+}
+.rd .sv-tip {
+  background: var(--tint);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin: 0 0 24px;
+}
+.rd .sv-tip h2 {
+  font-size: 1.2rem;
+  margin: 0 0 6px;
+}
+.rd .sv-tip p {
+  margin: 0 0 10px;
+}
+.rd .sv-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--purple-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.rd .sv-ctas {
+  margin: 0 0 24px;
+}
+.rd .sv-share {
+  color: var(--purple-deep);
+}
+.rd .sv-again {
+  margin-top: 28px;
+  font-size: 0.95rem;
+}
+@media (max-width: 520px) {
+  .rd .sv-ctas .btn {
+    width: 100%;
+  }
+}
+
+/* Home: the survey invitation. */
+.rd .sv-home {
+  padding: 0 0 72px;
+  background: #fff;
+}
+.rd .sv-home-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  background: var(--tint);
+  border-radius: 8px;
+  padding: 28px 32px;
+}
+.rd .sv-home-card h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 6px;
+}
+.rd .sv-home-card p {
+  margin: 0;
+  max-width: 560px;
+}
+@media (max-width: 640px) {
+  .rd .sv-home-card {
+    padding: 22px 20px;
+  }
+  .rd .sv-home-card .btn {
+    width: 100%;
+  }
+}

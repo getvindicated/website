@@ -129,7 +129,7 @@ export type BoardData = {
   meetings: Meeting[];
 };
 
-export const TABS = ["me", "home", "board", "projects", "assignments", "socials", "meetings", "events", "applications", "changes"] as const;
+export const TABS = ["me", "home", "board", "projects", "assignments", "socials", "meetings", "events", "applications", "survey", "changes"] as const;
 export type Tab = (typeof TABS)[number];
 // Tabs only admins see (and announcements can't link to).
-export const ADMIN_TABS: readonly Tab[] = ["events", "applications", "changes"];
+export const ADMIN_TABS: readonly Tab[] = ["events", "applications", "survey", "changes"];

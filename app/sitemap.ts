@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, localizedPathnames, localizeHref } from "@/lib/i18n/config";
 import { eventsPublic } from "@/lib/events/flag";
+import { surveyPublic } from "@/lib/survey/flag";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://getvindicated.org";
@@ -17,6 +18,7 @@ const routes = [
   { href: "/research", changeFrequency: "monthly", priority: 0.6 },
   { href: "/team", changeFrequency: "monthly", priority: 0.6 },
   { href: "/events", changeFrequency: "weekly", priority: 0.7 },
+  { href: "/survey", changeFrequency: "monthly", priority: 0.6 },
   { href: "/join", changeFrequency: "monthly", priority: 0.6 },
   { href: "/apply", changeFrequency: "weekly", priority: 0.6 },
   { href: "/volunteer", changeFrequency: "monthly", priority: 0.6 },
@@ -37,8 +39,9 @@ function absoluteAlternates(href: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Events is left out until it launches (EVENTS_PUBLIC).
-  const shown = routes.filter((r) => r.href !== "/events" || eventsPublic());
+  // Events and the survey are left out until they launch (EVENTS_PUBLIC,
+  // SURVEY_PUBLIC).
+  const shown = routes.filter((r) => (r.href !== "/events" || eventsPublic()) && (r.href !== "/survey" || surveyPublic()));
   return shown.flatMap((route) =>
     locales.map((locale) => ({
       url: absolute(localizeHref(locale, route.href)),
