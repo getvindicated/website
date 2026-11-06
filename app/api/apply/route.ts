@@ -1,7 +1,6 @@
-import { isChapterId } from "@/lib/board/chapters";
 import { isBot, rateLimiter } from "@/lib/spam-guard";
 import { isValidLocale } from "@/lib/i18n/config";
-import { getConfig, isOpen, saveApplication } from "@/lib/apply/server";
+import { getConfig, isOpen, saveApplication, takesApplications } from "@/lib/apply/server";
 import { ensureSetup } from "@/lib/board/setup";
 import { sendChapterNotice, sendConfirmation } from "@/lib/apply/email";
 import { MAX_RESUME_BYTES, checkApplication, isPdf } from "@/lib/apply/rules";
@@ -36,7 +35,7 @@ export async function POST(request: Request) {
   // Bots fill in the hidden field: report success and save nothing.
   if (isBot(get("company"))) return Response.json({ ok: true, email: get("email").trim() });
   if (await limited("apply")) return fail("tooMany", 429);
-  if (!isChapterId(chapter)) return fail("chapter", 422);
+  if (!takesApplications(chapter)) return fail("chapter", 422);
 
   await ensureSetup();
   const config = await getConfig(chapter);

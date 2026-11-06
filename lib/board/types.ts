@@ -74,6 +74,8 @@ export type Announcement = {
   linkTab: string;
   linkLabel: string;
   audience: Audience;
+  // Who posted it, if known.
+  author: string;
 };
 
 export type Meeting = {

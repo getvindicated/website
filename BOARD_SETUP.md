@@ -1,14 +1,36 @@
 # Setting up the board hubs
 
 Each chapter has its own board hub: UC Berkeley at `/board`, UCLA at
-`/board/ucla`. They run the same code and share one database, where every
-row belongs to a chapter. Neither hub is linked from the site, and both
-tell search engines not to index them. To see anything, people need their
-chapter's password; a Berkeley password never opens UCLA's hub, or the
-reverse.
+`/board/ucla` and UC Santa Cruz at `/board/ucsc`. They run the same code and
+share one database, where every row belongs to a chapter. No hub is linked
+from the site, and they tell search engines not to index them. To see
+anything, people need their chapter's password; one chapter's password never
+opens another chapter's hub.
 
 Per-chapter settings (teams, labels, Projects content, who submissions are
 emailed to) are in `lib/board/chapters.ts` and `lib/board/chapter-server.ts`.
+
+Each chapter also picks a `layout` there. Berkeley and UCLA use the
+**classic** layout (My page, Home, Board, Projects, Assignments, Socials,
+Meetings, and the admin tabs). UCSC uses the **simple** layout, built for
+phones: after signing in, people tap their name once ("Who are you?", kept
+on that device), then use four tabs:
+
+- **Home:** your tasks this week with **Submit** (a link, a note or a
+  file; it emails the chapter and marks the task done) and **Undo**, the
+  newest announcements (admins **Post**, optionally emailing the whole
+  board, and **Remove**), and the next meeting with **Add to calendar**.
+- **Tasks:** this week's tasks by person, with To do, Done or Late (past due
+  and not done). Admins add, edit and delete tasks and **Start a new week**,
+  which moves this week under **Earlier weeks** as it is and starts empty.
+- **Team:** everyone by team with **Email** and **Call**, and **Copy
+  everyone's emails**. Admins edit people and replace the member list.
+- **Calendar:** meetings, events and socials coming up. Admins add one
+  (everyone on the board gets a calendar invite) or cancel one (everyone gets
+  the cancellation).
+
+Another chapter can switch to the simple layout by setting `layout:
+"simple"` (and the `simple` wording) in `chapters.ts`.
 
 ## Passwords
 
@@ -40,6 +62,15 @@ log as "UCLA events editor".
 
 Use passwords that differ from Berkeley's.
 
+### UC Santa Cruz (`/board/ucsc`)
+
+| Railway variable            | Who gets it                  | What it unlocks                     |
+| --------------------------- | ---------------------------- | ----------------------------------- |
+| `BOARD_UCSC_PASSWORD`       | everyone on the UCSC board   | view everything, submit tasks       |
+| `BOARD_UCSC_ADMIN_PASSWORD` | Ashwin, Adhya and Gundeep    | edit everything on the UCSC hub     |
+
+Use passwords that differ from the other chapters'.
+
 Ten wrong tries from the same connection lock a hub's form for 15 minutes.
 
 ## Submissions
@@ -51,6 +82,7 @@ for one).
 - Berkeley: to Rana.
 - UCLA: to Fiona and Will, Cc Rana. Submissions from the App Dev and Data
   teams also go to Rizwaan.
+- UCSC: to Ashwin, Cc Rana.
 
 The recipient lists are in `lib/board/chapter-server.ts`.
 
@@ -61,9 +93,13 @@ chapter's sender, set as `from` in `lib/board/chapter-server.ts`:
 
 - Berkeley: Rana <president@getvindicated.org>
 - UCLA: President Fiona <vindicatedbruins@getvindicated.org>
+- UCSC: VINdicated at UCSC <ucsc@getvindicated.org>
 
 Each must be a verified sender in Brevo. A chapter without one (`from: null`)
-uses `BOARD_INVITE_FROM` instead. Replies still go to the organizer (or, for
+uses `BOARD_INVITE_FROM` instead. UCSC's address isn't verified yet, so until
+Rana verifies `ucsc@getvindicated.org` in Brevo and sets the Railway variable
+`BOARD_UCSC_FROM_VERIFIED=true`, UCSC's emails go out from
+`BOARD_INVITE_FROM`'s address under the name "VINdicated at UCSC". Replies still go to the organizer (or, for
 submissions, to the person who submitted).
 
 ## What admins can edit
@@ -216,6 +252,7 @@ To **hide it again**, delete `EVENTS_PUBLIC` (or set it to anything but
 2. **Passwords and secret.** In the same Variables screen, add:
    - `BOARD_PASSWORD`, `BOARD_SOCIALS_PASSWORD`, `BOARD_ADMIN_PASSWORD`
    - `BOARD_UCLA_PASSWORD`, `BOARD_UCLA_EVENTS_PASSWORD`, `BOARD_UCLA_ADMIN_PASSWORD`
+   - `BOARD_UCSC_PASSWORD`, `BOARD_UCSC_ADMIN_PASSWORD`
    - `BOARD_SESSION_SECRET`: a random string of at least 32 characters.
      `openssl rand -base64 32` makes one.
 3. Redeploy, open `https://www.getvindicated.org/board`, and sign in with
@@ -225,7 +262,11 @@ To **hide it again**, delete `EVENTS_PUBLIC` (or set it to anything but
 4. **Members.** On each hub, sign in with the admin password, open the
    **Board** tab and choose the member file: `board-members.local.json`
    for Berkeley, `board-members-ucla.local.json` for UCLA. They have
-   contact details, so they are never committed.
+   contact details, so they are never committed. UCSC starts with its
+   board's names, roles and teams (no contact details); to add emails and
+   phones, an admin edits people on the **Team** tab or uses **Replace the
+   member list** with `board-members-ucsc.local.json`. Calendar invites and
+   announcement emails only reach people with an email on file.
 
 Until the secret and at least one password are set, the page shows the
 password box and nothing gets through.
@@ -241,9 +282,12 @@ BOARD_SOCIALS_PASSWORD=socials-test
 BOARD_ADMIN_PASSWORD=admin-test
 BOARD_UCLA_PASSWORD=<pick one>
 BOARD_UCLA_ADMIN_PASSWORD=<pick another>
+BOARD_UCSC_PASSWORD=<pick one>
+BOARD_UCSC_ADMIN_PASSWORD=<pick another>
 BOARD_SESSION_SECRET=any-random-string-at-least-32-characters-long
 ```
 
 Then `pnpm dev`, and open
-http://localhost:3000/board or http://localhost:3000/board/ucla. Without `BREVO_API_KEY`, `pnpm dev` prints
+http://localhost:3000/board, http://localhost:3000/board/ucla or
+http://localhost:3000/board/ucsc. Without `BREVO_API_KEY`, `pnpm dev` prints
 submission emails to the terminal instead of sending them.

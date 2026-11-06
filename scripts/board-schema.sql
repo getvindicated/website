@@ -285,3 +285,9 @@ CREATE UNIQUE INDEX IF NOT EXISTS board_application_notify_once ON board_applica
 ALTER TABLE board_events ADD COLUMN IF NOT EXISTS location_tba boolean NOT NULL DEFAULT false;
 ALTER TABLE board_events ADD COLUMN IF NOT EXISTS location_pending boolean NOT NULL DEFAULT false;
 ALTER TABLE board_events ADD COLUMN IF NOT EXISTS ics_sequence integer NOT NULL DEFAULT 0;
+
+-- Who posted an announcement ("Ashwin Vinod · Nov 6" on the simple layout).
+ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS author text NOT NULL DEFAULT '';
+-- What a calendar item is: meeting, event or social (the simple layout's
+-- Calendar shows the type). Classic hubs only make meetings.
+ALTER TABLE board_scheduled ADD COLUMN IF NOT EXISTS kind text NOT NULL DEFAULT 'meeting';

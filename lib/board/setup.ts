@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { db } from "./db";
 import starter from "./starter-data.json";
 import ucla from "./starter-ucla.json";
+import ucsc from "./starter-ucsc.json";
 import { seedSettings } from "./settings-server";
 import { CHAPTER_SERVER } from "./chapter-server";
 import { UCLA_ROW2 } from "./chapters";
@@ -69,6 +70,7 @@ async function setup() {
       ('berkeley', 1, '2026-09-26', false), ('berkeley', 2, ${starter.dueRound2}, true)`;
   }
   await seedUcla(sql, empty);
+  await seedUcsc(sql, empty);
   await seedSettings(sql);
   await markHubAdmins(sql);
   await renameEvanceline(sql);
@@ -375,5 +377,48 @@ async function seedUcla(sql: ReturnType<typeof db>, empty: (table: string, chapt
   }
   if (await empty("board_meetings", "ucla")) {
     for (const m of ucla.meetings) await sql`INSERT INTO board_meetings ${sql({ ...m, chapter: "ucla" })}`;
+  }
+}
+
+// UC Santa Cruz's starting content (lib/board/starter-ucsc.json): the board
+// (names, roles and teams only; emails and phones come from the member file
+// an admin uploads), an empty current week, the week of Oct 15 under
+// Earlier weeks, and Ashwin's welcome post. Each part only fills an empty
+// table, so it never overwrites what admins changed.
+async function seedUcsc(sql: ReturnType<typeof db>, empty: (table: string, chapter?: string) => Promise<boolean>) {
+  const admins = CHAPTER_SERVER.ucsc.hubAdmins;
+  if (await empty("board_members", "ucsc")) {
+    for (const [i, [name, role, team, tier, lead]] of (ucsc.members as [string, string, string, number | null, boolean][]).entries()) {
+      await sql`INSERT INTO board_members ${sql({
+        chapter: "ucsc",
+        name,
+        first_name: name.split(/\s+/)[0],
+        role,
+        team,
+        tier,
+        is_lead: lead,
+        is_hub_admin: admins.includes(name),
+        sort: i,
+      })}`;
+    }
+  }
+  const [{ n }] = await sql`SELECT count(*)::int AS n FROM board_rounds WHERE chapter = 'ucsc'`;
+  if (n === 0) {
+    // This week ends on the coming Sunday, Pacific time.
+    const [{ sunday }] = await sql`SELECT to_char(d + ((7 - extract(isodow FROM d)::int) % 7), 'YYYY-MM-DD') AS sunday
+      FROM (SELECT (now() AT TIME ZONE 'America/Los_Angeles')::date AS d) t`;
+    await sql`INSERT INTO board_rounds (chapter, round, due_date, is_current) VALUES
+      ('ucsc', 1, ${ucsc.earlier.due_date}, false), ('ucsc', 2, ${sunday}, true)`;
+  }
+  if (await empty("board_assignments", "ucsc")) {
+    const roleOf = (first: string) => (ucsc.members as [string, string][]).find(([name]) => name.split(/\s+/)[0] === first)?.[1] ?? "";
+    for (const [i, [person, task]] of (ucsc.earlier.tasks as [string, string][]).entries()) {
+      await sql`INSERT INTO board_assignments (chapter, round, person, person_role, task, due_date, sort)
+        VALUES ('ucsc', 1, ${person}, ${roleOf(person)}, ${task}, ${ucsc.earlier.due_date}, ${i})`;
+    }
+  }
+  if (await empty("board_announcements", "ucsc")) {
+    const [{ today }] = await sql`SELECT to_char((now() AT TIME ZONE 'America/Los_Angeles')::date, 'YYYY-MM-DD') AS today`;
+    await sql`INSERT INTO board_announcements ${sql({ ...ucsc.announcement, posted_on: today, sort: 0, chapter: "ucsc" })}`;
   }
 }

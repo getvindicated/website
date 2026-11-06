@@ -3,8 +3,13 @@
 
 export type Invitee = { name: string; email: string };
 
+export const CALENDAR_KINDS = ["meeting", "event", "social"] as const;
+export type CalendarKind = (typeof CALENDAR_KINDS)[number];
+
 export type ScheduledMeeting = {
   id: number;
+  // Meeting, event or social. Classic hubs only make meetings.
+  kind: CalendarKind;
   uid: string;
   sequence: number;
   title: string;

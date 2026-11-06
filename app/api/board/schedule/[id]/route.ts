@@ -39,6 +39,7 @@ export async function PATCH(request: Request, ctx: Ctx) {
   const cancelled = old.cancelledDates.filter((d) => occurrences({ ...m, cancelledDates: [] }).includes(d));
   await sql`UPDATE board_scheduled SET ${sql({
     sequence: old.sequence + 1,
+    kind: m.kind,
     title: m.title,
     date: m.date,
     start_time: m.startTime,

@@ -38,6 +38,14 @@ export async function sendEmail({
 	// Base64 content; Brevo picks the content type from the name's extension.
 	attachment?: { name: string; content: string }[];
 }) {
+	// Testing: BOARD_INVITE_OUTBOX=<folder> writes the email there as an .eml
+	// file instead of sending it, like board invites (lib/board/invites.ts).
+	const outbox = process.env.BOARD_INVITE_OUTBOX;
+	if (outbox) {
+		await writeOutbox(outbox, { subject, to, cc, htmlContent, textContent, sender, replyTo, attachment });
+		return { messageId: "outbox" };
+	}
+
 	const apiKey = process.env.BREVO_API_KEY?.trim();
 	if (!apiKey) {
 		throw new Error("BREVO_API_KEY is missing");
@@ -76,4 +84,34 @@ export async function sendEmail({
 		throw new Error(`Brevo rejected the email: ${message}`);
 	}
 	return body as { messageId?: string } | null;
+}
+
+async function writeOutbox(
+	folder: string,
+	m: {
+		subject: string;
+		to: Person[];
+		cc?: Person[];
+		htmlContent: string;
+		textContent?: string;
+		sender: { name: string; email: string };
+		replyTo?: Person;
+		attachment?: { name: string; content: string }[];
+	},
+) {
+	const [{ default: nodemailer }, fs, path] = await Promise.all([import("nodemailer"), import("node:fs"), import("node:path")]);
+	const addr = (p: Person) => ({ name: p.name, address: p.email });
+	const info = await nodemailer.createTransport({ streamTransport: true, buffer: true, newline: "windows" }).sendMail({
+		from: addr(m.sender),
+		to: m.to.map(addr),
+		...(m.cc?.length ? { cc: m.cc.map(addr) } : {}),
+		...(m.replyTo ? { replyTo: addr(m.replyTo) } : {}),
+		subject: m.subject,
+		html: m.htmlContent,
+		...(m.textContent ? { text: m.textContent } : {}),
+		attachments: (m.attachment ?? []).map((a) => ({ filename: a.name, content: Buffer.from(a.content, "base64") })),
+	});
+	fs.mkdirSync(folder, { recursive: true });
+	const who = (m.to[0]?.email ?? "nobody").replace(/[^\w.@-]/g, "_");
+	fs.writeFileSync(path.join(folder, `${Date.now()}-${Math.random().toString(36).slice(2, 6)}-api-${who}.eml`), info.message as Buffer);
 }
