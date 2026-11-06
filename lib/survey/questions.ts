@@ -2,19 +2,17 @@
 // version, the sections, the background questions and the scoring. The
 // page, the API and the hub's Survey tab all read from here.
 //
-// WORDING: the "Vindisurvey Questions" draft wasn't available when this was
-// built, so the item text below is a PLACEHOLDER written to the draft's
-// shape (breakdown 1–4, buying 1–7, repair 1–6, fair treatment 1–4 with
-// a/b). Paste the draft's exact wording into `text`, update the matching
-// keys in lib/i18n/dictionaries/*.json (surveyPage.items), then set
-// WORDING_APPROVED to true. Until then the survey stays admin-only even if
-// SURVEY_PUBLIC is "true".
+// WORDING: the item text is exactly the approved "Vindisurvey Questions"
+// draft (questions_version 1). The translations are under
+// surveyPage.items in lib/i18n/dictionaries/*.json; English there must
+// match `text` here. WORDING_APPROVED gates launch: while false, the survey
+// stays admin-only even if SURVEY_PUBLIC is "true".
 //
 // Changing wording later: give the item a new `version`. Its answers are
 // then stored under a new key (see answerKey), so old and new answers never
 // mix. Bump QUESTIONS_VERSION whenever any item changes.
 
-export const WORDING_APPROVED = false;
+export const WORDING_APPROVED = true;
 export const QUESTIONS_VERSION = 1;
 
 export const SECTIONS = ["breakdown", "buying", "repair", "fair", "about"] as const;
@@ -29,40 +27,41 @@ export type Item = {
   version: number;
   section: Exclude<SectionId, "about">;
   text: string;
-  // For "People of my gender/race…" items: the "I expect…" item it follows.
+  // For "People of my gender/race…" items: the "I expect…" item it follows
+  // (shown indented right under it).
   pairOf?: string;
 };
 
 export const ITEMS: Item[] = [
   // If your car breaks down
-  { id: "breakdown_1", version: 1, section: "breakdown", text: "I would know what to do first if my car broke down while I was driving." },
-  { id: "breakdown_2", version: 1, section: "breakdown", text: "I could tell whether it's safe to stay in or near my car." },
-  { id: "breakdown_3", version: 1, section: "breakdown", text: "I know who to call for help, like roadside assistance or a tow." },
-  { id: "breakdown_4", version: 1, section: "breakdown", text: "I could explain what happened to a tow driver or a mechanic." },
+  { id: "breakdown_1", version: 1, section: "breakdown", text: "If my car broke down on the road, I am confident that I could handle the situation." },
+  { id: "breakdown_2", version: 1, section: "breakdown", text: "If my car broke down on the road, I am confident that I could get assistance." },
+  { id: "breakdown_3", version: 1, section: "breakdown", text: "If my car broke down on the road, I am confident that I could diagnose the problem." },
+  { id: "breakdown_4", version: 1, section: "breakdown", text: "If my car broke down on the road at night or in an unfamiliar area, I am confident that I could handle the situation." },
   // Buying a car
-  { id: "buying_1", version: 1, section: "buying", text: "I know how to find out what a fair price for a car is." },
-  { id: "buying_2", version: 1, section: "buying", text: "I could check a used car for problems before buying it." },
-  { id: "buying_3", version: 1, section: "buying", text: "I know how to get an inspection before I buy." },
-  { id: "buying_4", version: 1, section: "buying", text: "I could negotiate the price with a salesperson." },
-  { id: "buying_5", version: 1, section: "buying", text: "I understand the paperwork I'd sign when buying a car." },
-  { id: "buying_6", version: 1, section: "buying", text: "I could spot add-ons or fees I don't need." },
-  { id: "buying_7", version: 1, section: "buying", text: "I would feel comfortable walking away from a deal." },
+  { id: "buying_1", version: 1, section: "buying", text: "I am confident in researching and identifying a car that fits my needs." },
+  { id: "buying_2", version: 1, section: "buying", text: "I am confident in researching and identifying a car that fits my budget." },
+  { id: "buying_3", version: 1, section: "buying", text: "I am confident in navigating potential loans and financing a car." },
+  { id: "buying_4", version: 1, section: "buying", text: "I am confident in finding a dealership that fits my situation (buying a new car, buying a used car, buying a specific model, etc.)." },
+  { id: "buying_5", version: 1, section: "buying", text: "I am confident in negotiating the price of a car at a dealership." },
+  { id: "buying_6", version: 1, section: "buying", text: "I am confident in spotting a fair price for the car I am buying." },
+  { id: "buying_7", version: 1, section: "buying", text: "I am confident in spotting when a salesperson is misleading me." },
   // Getting a repair
-  { id: "repair_1", version: 1, section: "repair", text: "I could find a repair shop I trust." },
-  { id: "repair_2", version: 1, section: "repair", text: "I could describe what's wrong with my car to a mechanic." },
-  { id: "repair_3", version: 1, section: "repair", text: "I know I can ask for a written estimate before any work starts." },
-  { id: "repair_4", version: 1, section: "repair", text: "I could tell whether a repair quote is fair." },
-  { id: "repair_5", version: 1, section: "repair", text: "I would feel comfortable saying no to repairs I didn't ask for." },
-  { id: "repair_6", version: 1, section: "repair", text: "I know what to do if a repair goes wrong." },
+  { id: "repair_1", version: 1, section: "repair", text: "I am confident that I could find a reputable mechanic." },
+  { id: "repair_2", version: 1, section: "repair", text: "I am confident that I could explain a car problem to a mechanic." },
+  { id: "repair_3", version: 1, section: "repair", text: "I am confident that I could tell if the mechanic is giving me a fair quote." },
+  { id: "repair_4", version: 1, section: "repair", text: "I am confident that I could decide whether to get the repair the mechanic recommends." },
+  { id: "repair_5", version: 1, section: "repair", text: "I am confident that I could identify what repairs I actually need." },
+  { id: "repair_6", version: 1, section: "repair", text: "I am confident that I could say no to a mechanic service I don't need." },
   // Being treated fairly: each "I expect…" item, then its partner.
-  { id: "fair_1a", version: 1, section: "fair", text: "I expect to be offered the same price as anyone else for the same car." },
-  { id: "fair_1b", version: 1, section: "fair", pairOf: "fair_1a", text: "People of my gender are offered the same price as anyone else for the same car." },
-  { id: "fair_2a", version: 1, section: "fair", text: "I expect a salesperson to take my questions seriously." },
-  { id: "fair_2b", version: 1, section: "fair", pairOf: "fair_2a", text: "People of my race have their questions taken seriously by salespeople." },
-  { id: "fair_3a", version: 1, section: "fair", text: "I expect a mechanic to be honest with me about what my car needs." },
-  { id: "fair_3b", version: 1, section: "fair", pairOf: "fair_3a", text: "People of my gender are told honestly by mechanics what their car needs." },
-  { id: "fair_4a", version: 1, section: "fair", text: "I expect to pay a fair price for a repair." },
-  { id: "fair_4b", version: 1, section: "fair", pairOf: "fair_4a", text: "People of my race pay a fair price for repairs." },
+  { id: "fair_1a", version: 1, section: "fair", text: "When buying a car, I expect to be treated respectfully by the salesperson." },
+  { id: "fair_1b", version: 1, section: "fair", pairOf: "fair_1a", text: "People of my gender/race are treated respectfully by the salesperson when buying a car." },
+  { id: "fair_2a", version: 1, section: "fair", text: "When buying a car, I expect to be given honest prices." },
+  { id: "fair_2b", version: 1, section: "fair", pairOf: "fair_2a", text: "People of my gender/race are given honest prices when buying a car." },
+  { id: "fair_3a", version: 1, section: "fair", text: "When getting a repair, I expect to be quoted a fair price by the mechanic." },
+  { id: "fair_3b", version: 1, section: "fair", pairOf: "fair_3a", text: "People of my gender/race are quoted a fair price by mechanics when getting a repair." },
+  { id: "fair_4a", version: 1, section: "fair", text: "I expect to be treated respectfully by roadside assistance." },
+  { id: "fair_4b", version: 1, section: "fair", pairOf: "fair_4a", text: "People of my gender/race are treated respectfully by roadside assistance." },
 ];
 
 export const TOTAL_ITEMS = ITEMS.length;

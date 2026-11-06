@@ -270,11 +270,10 @@ then kept apart from the old wording's) and bump `QUESTIONS_VERSION`. The
 consent text is `surveyPage.intro.consent` in the same files, ready to be
 replaced with IRB-approved wording.
 
-**Before launch, the wording must be approved.** The questions in the code
-are placeholders shaped like the "Vindisurvey Questions" draft. Paste the
-draft's exact wording into `lib/survey/questions.ts` and the dictionaries,
-then set `WORDING_APPROVED = true` there. Until then the survey stays
-admin-only even with `SURVEY_PUBLIC` set.
+**Wording.** The questions are the approved "Vindisurvey Questions" draft
+(questions_version 1), word for word. `WORDING_APPROVED` in
+`lib/survey/questions.ts` is `true`; setting it back to `false` keeps the
+survey admin-only even with `SURVEY_PUBLIC` set.
 
 ### Launching the survey
 
