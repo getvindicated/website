@@ -1,7 +1,7 @@
 // Per-chapter settings for the board hub. Berkeley lives at /board, UCLA at
 // /board/ucla and UC Santa Cruz at /board/ucsc; they run the same pages,
 // data and API, which read their differences from here. `layout` picks the
-// look: "classic" (Berkeley, UCLA) or "simple" (UCSC: four tabs, a name
+// look: "classic" (Berkeley, UCLA, UCSC) or "simple" (four tabs, a name
 // picker, built for phones); any chapter can switch. Nothing secret goes in this file: it's shipped to
 // the browser. Passwords and email recipients are in chapter-server.ts.
 
@@ -266,13 +266,13 @@ const UCLA: ChapterConfig = {
   },
 };
 
-// UC Santa Cruz: the simple layout. Teams are Executive (always there) plus
-// the three below. Tasks are set per person each week; "Start a new week"
-// archives them as they are.
+// UC Santa Cruz: the same classic hub as Berkeley, with UCSC's own teams,
+// contact and wording. The `simple` block is kept so the chapter can switch
+// back to layout: "simple" without losing its wording.
 const UCSC: ChapterConfig = {
   id: "ucsc",
   path: "/board/ucsc",
-  layout: "simple",
+  layout: "classic",
   applications: false,
   simple: {
     brand: "UC Santa Cruz board",
@@ -281,7 +281,7 @@ const UCSC: ChapterConfig = {
   },
   title: "VINdicated at UCSC",
   term: "UC Santa Cruz chapter · Board hub, Fall 2026",
-  loginSub: "UC Santa Cruz board",
+  loginSub: "UC Santa Cruz chapter board",
   contact: "Ashwin",
   otherHub: {
     prompt: "Why am I on this chuz school's page?",
@@ -292,42 +292,39 @@ const UCSC: ChapterConfig = {
   },
   roleLabels: { admin: "admin", member: "board member" },
   teams: ["Software & Data", "Research", "Marketing"],
-  rule: null,
-  proofRequired: false,
+  rule: "every task lists the proof it needs. \"I reached out\" is not proof. If any of your deliverables is missing after the deadline, tell Ashwin before the deadline, not after.",
+  proofRequired: true,
   weekly: false,
-  roundLabel: (r, current) => (current ? "This week" : `Week of ${shortDay(addDaysIso(r.dueDate, -6), { month: "short", day: "numeric" })}`),
-  glance: { members: "people on the UCSC board", submissions: "tasks submitted", socials: "things on the calendar" },
+  roundLabel: (r, current) =>
+    current
+      ? `Round ${r.round} · Due ${shortDay(r.dueDate, { weekday: "short", month: "short", day: "numeric" })}, 11:59pm`
+      : `Round ${r.round} archive · due ${shortDay(r.dueDate, { month: "short", day: "numeric" })}`,
+  glance: { members: "members on the UCSC board", submissions: "submissions in this round", socials: "socials on the calendar" },
   quickLinks: [],
   keyDates: [],
   photos: [],
   socials: {
-    heading: "Calendar",
+    heading: "Fall 2026 Socials",
     kinds: [
-      { key: "b", label: "On campus" },
+      { key: "b", label: "Santa Cruz" },
       { key: "o", label: "Online" },
     ],
-    tags: { b: "On campus", o: "Online", org: "Date" },
-    add: "Add to calendar",
-    list: "Coming up",
-    note: "",
-    defaultLead: "",
+    tags: { b: "Santa Cruz", o: "Online", org: "Org date" },
+    add: "Add a social",
+    list: "All socials",
+    note: "Status runs Idea → Planning → Confirmed → Completed.",
+    defaultLead: "TBD",
   },
-  projects: { groups: [], sections: [], timeline: { title: "", tracks: [], weeks: [], graceDays: 0 } },
-  meetings: { heading: "Meetings", note: null, attendance: false },
+  projects: { groups: PROJECTS, sections: [], timeline: { title: "Calendar", tracks: [], weeks: [], graceDays: 2 } },
+  meetings: { heading: "Meeting Summaries & Recordings", note: null, attendance: false },
   submit: {
-    note: "Add a link or a short note so Ashwin can see what you did. A file works too.",
-    placeholder: "",
-    filesLabel: "File (optional). Up to 14 MB.",
-    needProof: "Add a link, a note or a file before submitting.",
+    note: "This form emails your submission and any files to Ashwin. Attach proof or paste a link to it in the notes.",
+    placeholder: "Paste your write-up, notes, links, or anything Ashwin should read.",
+    filesLabel: "Proof (required unless you paste a link above): screenshots, docs, links. Up to 14 MB in total.",
+    needProof: "Add proof: attach a file or paste a link to your post, doc or PR.",
   },
   myPage: { meetingLine: null, teamTrack: {}, teamNote: {} },
 };
-
-// "2026-10-21" minus 6 days, as YYYY-MM-DD.
-function addDaysIso(iso: string, n: number) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
-}
 
 export const CHAPTERS: Record<ChapterId, ChapterConfig> = { berkeley: BERKELEY, ucla: UCLA, ucsc: UCSC };
 export const chapterConfig = (id: ChapterId) => CHAPTERS[id];

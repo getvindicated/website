@@ -8,7 +8,7 @@ import ucla from "./starter-ucla.json";
 import ucsc from "./starter-ucsc.json";
 import { seedSettings } from "./settings-server";
 import { CHAPTER_SERVER } from "./chapter-server";
-import { UCLA_ROW2 } from "./chapters";
+import { UCLA_ROW2, chapterConfig } from "./chapters";
 import { NEGOTIATION_TRANSLATIONS } from "@/lib/events/seed-translations";
 
 // Makes the board database ready on first use, so nobody has to run
@@ -76,6 +76,7 @@ async function setup() {
   await renameEvanceline(sql);
   await adminsOnlyToHubAdmins(sql);
   await uclaPhotoRow2(sql);
+  await ucsclassic(sql);
   await seedFirstEvent(sql);
   await fillNegotiationLink(sql);
   await negotiationFlyer(sql);
@@ -218,6 +219,27 @@ async function uclaPhotoRow2(sql: ReturnType<typeof db>) {
     await tx`UPDATE board_settings SET value = ${tx.json([...photos, ...added] as never)} WHERE chapter = 'ucla' AND key = 'photos'`;
   });
 }
+
+// UCSC moved from the simple layout to the classic hub (Nov 6). Once: give
+// it the classic project list if its saved one is empty, and drop the
+// "pick your name" line from the welcome post, which only fit the simple
+// layout. An admin's later edits are never touched.
+async function ucsclassic(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-11-06-ucsc-classic')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    const [row] = await tx`SELECT value FROM board_settings WHERE chapter = 'ucsc' AND key = 'projects'`;
+    const groups = (row?.value as { groups?: unknown[] } | undefined)?.groups ?? [];
+    if (row && groups.length === 0) {
+      await tx`UPDATE board_settings SET value = ${tx.json(chapterConfig("ucsc").projects as never)} WHERE chapter = 'ucsc' AND key = 'projects'`;
+    }
+    await tx`UPDATE board_announcements SET body = ${UCSC_WELCOME}
+      WHERE chapter = 'ucsc' AND body = 'Pick your name to see your tasks. Questions? Ask Ashwin.'`;
+  });
+}
+
+const UCSC_WELCOME = "Your tasks are on My page and the Assignments tab. Questions? Ask Ashwin.";
 
 // Announcements marked "admins only" before "Send to" existed are for Hub
 // admins. Safe to re-run: a restored old version gets converted too.
