@@ -1,4 +1,6 @@
-// End-to-end checks for the UC Santa Cruz hub (/board/ucsc, the simple
+// End-to-end checks for the simple hub layout. UCSC now uses the classic
+// layout (Nov 6); set its layout back to "simple" in lib/board/chapters.ts
+// to run these. Originally: the UC Santa Cruz hub (/board/ucsc, the simple
 // layout), in a real browser. Run against a local server on an EMPTY test
 // database, in outbox mode, with the same variables as the server:
 //
