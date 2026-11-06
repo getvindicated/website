@@ -3,7 +3,7 @@ import { db } from "./db";
 import { bad, isDate } from "./api";
 import type { ChapterId } from "./chapters";
 import { isEmail } from "./submit-rules";
-import type { Invitee, ScheduledMeeting } from "./schedule";
+import { CALENDAR_KINDS, type CalendarKind, type Invitee, type ScheduledMeeting } from "./schedule";
 
 // Reading and checking scheduled meetings for the schedule API routes.
 
@@ -19,6 +19,7 @@ export function parseMeeting(body: Record<string, unknown>): { error: string } |
   const startTime = str("startTime", 5);
   const endTime = str("endTime", 5);
   const weekly = body.weekly === true;
+  const kind: CalendarKind = (CALENDAR_KINDS as readonly unknown[]).includes(body.kind) ? (body.kind as CalendarKind) : "meeting";
   const until = weekly ? body.until : null;
   if (!title) return { error: "Add a title." };
   if (!isDate(date)) return { error: "Choose a date." };
@@ -35,7 +36,7 @@ export function parseMeeting(body: Record<string, unknown>): { error: string } |
   else return { error: "Choose who to invite." };
 
   return {
-    meeting: { title, date, startTime, endTime, location: str("location", 500), notes: str("notes", 2000), weekly, until: weekly ? (until as string) : null },
+    meeting: { kind, title, date, startTime, endTime, location: str("location", 500), notes: str("notes", 2000), weekly, until: weekly ? (until as string) : null },
     invite,
   };
 }
@@ -54,7 +55,7 @@ export async function resolveInvitees(chapter: ChapterId, invite: InviteSpec) {
   return { invitees, skipped, audience };
 }
 
-const COLUMNS = (sql: ReturnType<typeof db>) => sql`id, uid, sequence, title, to_char(date, 'YYYY-MM-DD') AS date,
+const COLUMNS = (sql: ReturnType<typeof db>) => sql`id, kind, uid, sequence, title, to_char(date, 'YYYY-MM-DD') AS date,
   start_time AS "startTime", end_time AS "endTime", location, notes, weekly, to_char(until, 'YYYY-MM-DD') AS until,
   invitees, audience, ARRAY(SELECT to_char(d, 'YYYY-MM-DD') FROM unnest(cancelled_dates) d) AS "cancelledDates",
   invites_sent AS "invitesSent"`;

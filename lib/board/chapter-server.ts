@@ -14,6 +14,10 @@ export type ChapterServer = {
   // Who the chapter's emails come from (announcements, invites, submissions).
   // Must be a verified sender in Brevo. Null falls back to BOARD_INVITE_FROM.
   from: Sender | null;
+  // A Railway variable that must be "true" before `from` is used, for an
+  // address that isn't verified in Brevo yet. Until then emails go out from
+  // BOARD_INVITE_FROM under the chapter's name.
+  fromVerifiedVar?: string;
   // The name public event emails (RSVP confirmations, reminders, location
   // updates) come from and are signed with. Same address as \`from\`.
   eventsFrom: string;
@@ -37,6 +41,30 @@ export type ChapterServer = {
 };
 
 export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
+  ucsc: {
+    cookie: "board_session_ucsc",
+    from: { name: "VINdicated at UCSC", email: "ucsc@getvindicated.org" },
+    fromVerifiedVar: "BOARD_UCSC_FROM_VERIFIED",
+    eventsFrom: "VINdicated at UCSC",
+    hubAdmins: ["Ashwin Vinod", "Adhya Maddukuri", "Gundeep Sambee"],
+    organizer: { email: "asvinod@ucsc.edu", name: "Ashwin Vinod", short: "Ashwin" },
+    passwords: [
+      ["admin", "BOARD_UCSC_ADMIN_PASSWORD"],
+      ["member", "BOARD_UCSC_PASSWORD"],
+    ],
+    submissions: {
+      subjectPrefix: "[VINdicated UCSC]",
+      to: [{ email: "asvinod@ucsc.edu", name: "Ashwin Vinod", short: "Ashwin" }],
+      cc: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+      techTeams: [],
+      techTo: [],
+    },
+    // UCSC doesn't take public board applications yet (chapters.ts).
+    applications: {
+      to: [{ email: "asvinod@ucsc.edu", name: "Ashwin Vinod", short: "Ashwin" }],
+      cc: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+    },
+  },
   berkeley: {
     cookie: "board_session",
     from: { name: "Rana", email: "president@getvindicated.org" },
@@ -94,12 +122,14 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
 // The chapter's sender, else BOARD_INVITE_FROM ("Name <address>" or a bare
 // address, which gets the chapter's title as its name), else null.
 export function chapterSender(chapter: ChapterId, fallbackName: string): Sender | null {
-  const own = CHAPTER_SERVER[chapter].from;
-  if (own) return own;
+  const { from: own, fromVerifiedVar } = CHAPTER_SERVER[chapter];
+  if (own && (!fromVerifiedVar || process.env[fromVerifiedVar]?.trim() === "true")) return own;
   const env = process.env.BOARD_INVITE_FROM?.trim();
   if (!env) return null;
   const m = env.match(/^\s*"?([^"<]*?)"?\s*<([^>]+)>\s*$/);
-  return m ? { name: m[1].trim() || fallbackName, email: m[2].trim() } : { name: fallbackName, email: env };
+  const fallback = m ? { name: m[1].trim() || fallbackName, email: m[2].trim() } : { name: fallbackName, email: env };
+  // Not verified yet: BOARD_INVITE_FROM's address, under the chapter's name.
+  return own ? { name: own.name, email: fallback.email } : fallback;
 }
 
 // Who public event emails come from: the chapter's sending address under

@@ -35,6 +35,7 @@ export async function POST(request: Request) {
   const [row] = await sql`INSERT INTO board_scheduled ${sql({
     chapter: user.chapter,
     uid,
+    kind: meeting.kind,
     title: meeting.title,
     date: meeting.date,
     start_time: meeting.startTime,

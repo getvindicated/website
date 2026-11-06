@@ -1,5 +1,5 @@
-import { isChapterId } from "@/lib/board/chapters";
 import { readJson } from "@/lib/board/api";
+import { takesApplications } from "@/lib/apply/server";
 import { db } from "@/lib/board/db";
 import { ensureSetup } from "@/lib/board/setup";
 import { isEmail } from "@/lib/board/submit-rules";
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   const chapter = str("chapter", 20);
   const email = str("email", 254).toLowerCase();
   const locale = isValidLocale(str("locale", 10)) ? str("locale", 10) : "en";
-  if (!isChapterId(chapter)) return fail("chapter", 422);
+  if (!takesApplications(chapter)) return fail("chapter", 422);
   if (!isEmail(email)) return fail("email", 422);
   await ensureSetup();
   const sql = db();

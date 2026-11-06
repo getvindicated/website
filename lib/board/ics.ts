@@ -84,7 +84,8 @@ export const utcStamp = (d: Date) => d.toISOString().replace(/[-:]/g, "").replac
 export type Organizer = { name: string; email: string };
 
 type Build = {
-  method: "REQUEST" | "CANCEL";
+  // PUBLISH: a file to add to a calendar ("Add to calendar"), not an invite.
+  method: "REQUEST" | "CANCEL" | "PUBLISH";
   meeting: ScheduledMeeting;
   organizer: Organizer;
   attendees: Invitee[];
@@ -114,7 +115,7 @@ export function buildIcs({ method, meeting: m, organizer, attendees, hubUrl, onl
     ...(m.weekly && m.until && !onlyDate
       ? [
           `RRULE:FREQ=WEEKLY;BYDAY=${weekday};UNTIL=${utcStamp(pacificToUtc(m.until, "23:59:59"))}`,
-          ...(m.cancelledDates.length && method === "REQUEST"
+          ...(m.cancelledDates.length && method !== "CANCEL"
             ? [`EXDATE;TZID=${TZID}:${m.cancelledDates.map((d) => local(d, m.startTime)).join(",")}`]
             : []),
         ]

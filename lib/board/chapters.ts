@@ -1,12 +1,14 @@
-// Per-chapter settings for the board hub. Berkeley lives at /board and UCLA
-// at /board/ucla; both run the same pages and components, which read their
-// differences from here. Nothing secret goes in this file: it's shipped to
+// Per-chapter settings for the board hub. Berkeley lives at /board, UCLA at
+// /board/ucla and UC Santa Cruz at /board/ucsc; they run the same pages,
+// data and API, which read their differences from here. `layout` picks the
+// look: "classic" (Berkeley, UCLA) or "simple" (UCSC: four tabs, a name
+// picker, built for phones); any chapter can switch. Nothing secret goes in this file: it's shipped to
 // the browser. Passwords and email recipients are in chapter-server.ts.
 
 import { KEY_DATES, PIR, PROJECTS, QUICK_LINKS, RULE, TEAM_ORDER, TERM, WEEKS } from "./static";
 import type { Round, Tab } from "./types";
 
-export const CHAPTER_IDS = ["berkeley", "ucla"] as const;
+export const CHAPTER_IDS = ["berkeley", "ucla", "ucsc"] as const;
 export type ChapterId = (typeof CHAPTER_IDS)[number];
 export const isChapterId = (v: unknown): v is ChapterId => typeof v === "string" && (CHAPTER_IDS as readonly string[]).includes(v);
 
@@ -17,13 +19,20 @@ export type TimelineWeek = { n: number; start: string; end: string; label: strin
 export type ChapterConfig = {
   id: ChapterId;
   path: string;
+  layout: "classic" | "simple";
+  // Whether the public /apply page takes board applications for this
+  // chapter (its admins review them on the classic hub's Applications tab).
+  applications: boolean;
+  // The simple layout's wording: "VINdicated / {brand}", the sign-in help,
+  // and the Team page's group order.
+  simple?: { brand: string; loginHelp: string; teamOrder: string[] };
   title: string;
   term: string;
   loginSub: string;
   // Who members are told to ask when something isn't set up.
   contact: string;
   // For people who landed on the wrong hub: shown on sign-in and Home.
-  otherHub: { prompt: string; label: string; path: string };
+  otherHub: { prompt: string; links: { label: string; path: string }[] };
   roleLabels: Record<string, string>;
   teams: readonly string[];
   rule: string | null;
@@ -67,11 +76,19 @@ const shortDay = (iso: string, o: Intl.DateTimeFormatOptions) => {
 const BERKELEY: ChapterConfig = {
   id: "berkeley",
   path: "/board",
+  layout: "classic",
+  applications: true,
   title: "VINdicated at Berkeley",
   term: TERM,
   loginSub: "UC Berkeley chapter board",
   contact: "Rana",
-  otherHub: { prompt: "Why am I on this chuz school's page?", label: "Take me to UCLA's hub", path: "/board/ucla" },
+  otherHub: {
+    prompt: "Why am I on this chuz school's page?",
+    links: [
+      { label: "Take me to UCLA's hub", path: "/board/ucla" },
+      { label: "Take me to UCSC's hub", path: "/board/ucsc" },
+    ],
+  },
   roleLabels: { admin: "admin", socials: "socials editor", member: "board member" },
   teams: TEAM_ORDER,
   rule: RULE,
@@ -141,11 +158,19 @@ const UCLA_WEEKS: TimelineWeek[] = [
 const UCLA: ChapterConfig = {
   id: "ucla",
   path: "/board/ucla",
+  layout: "classic",
+  applications: true,
   title: "VINdicated at UCLA",
   term: "UCLA chapter · Board hub, Fall 2026",
   loginSub: "UCLA chapter board hub",
   contact: "Fiona",
-  otherHub: { prompt: "Why am I on this chuz school's page?", label: "Take me to Berkeley's hub", path: "/board" },
+  otherHub: {
+    prompt: "Why am I on this chuz school's page?",
+    links: [
+      { label: "Take me to Berkeley's hub", path: "/board" },
+      { label: "Take me to UCSC's hub", path: "/board/ucsc" },
+    ],
+  },
   roleLabels: { admin: "admin", socials: "events editor", member: "member" },
   teams: ["Data", "Research", "App Dev", "Design", "Technical Writing", "High School"],
   rule: null,
@@ -241,5 +266,68 @@ const UCLA: ChapterConfig = {
   },
 };
 
-export const CHAPTERS: Record<ChapterId, ChapterConfig> = { berkeley: BERKELEY, ucla: UCLA };
+// UC Santa Cruz: the simple layout. Teams are Executive (always there) plus
+// the three below. Tasks are set per person each week; "Start a new week"
+// archives them as they are.
+const UCSC: ChapterConfig = {
+  id: "ucsc",
+  path: "/board/ucsc",
+  layout: "simple",
+  applications: false,
+  simple: {
+    brand: "UC Santa Cruz board",
+    loginHelp: "Use the board password Ashwin shared with you.",
+    teamOrder: ["Executive", "Software & Data", "Research", "Marketing"],
+  },
+  title: "VINdicated at UCSC",
+  term: "UC Santa Cruz chapter · Board hub, Fall 2026",
+  loginSub: "UC Santa Cruz board",
+  contact: "Ashwin",
+  otherHub: {
+    prompt: "Why am I on this chuz school's page?",
+    links: [
+      { label: "Take me to Berkeley's hub", path: "/board" },
+      { label: "Take me to UCLA's hub", path: "/board/ucla" },
+    ],
+  },
+  roleLabels: { admin: "admin", member: "board member" },
+  teams: ["Software & Data", "Research", "Marketing"],
+  rule: null,
+  proofRequired: false,
+  weekly: false,
+  roundLabel: (r, current) => (current ? "This week" : `Week of ${shortDay(addDaysIso(r.dueDate, -6), { month: "short", day: "numeric" })}`),
+  glance: { members: "people on the UCSC board", submissions: "tasks submitted", socials: "things on the calendar" },
+  quickLinks: [],
+  keyDates: [],
+  photos: [],
+  socials: {
+    heading: "Calendar",
+    kinds: [
+      { key: "b", label: "On campus" },
+      { key: "o", label: "Online" },
+    ],
+    tags: { b: "On campus", o: "Online", org: "Date" },
+    add: "Add to calendar",
+    list: "Coming up",
+    note: "",
+    defaultLead: "",
+  },
+  projects: { groups: [], sections: [], timeline: { title: "", tracks: [], weeks: [], graceDays: 0 } },
+  meetings: { heading: "Meetings", note: null, attendance: false },
+  submit: {
+    note: "Add a link or a short note so Ashwin can see what you did. A file works too.",
+    placeholder: "",
+    filesLabel: "File (optional). Up to 14 MB.",
+    needProof: "Add a link, a note or a file before submitting.",
+  },
+  myPage: { meetingLine: null, teamTrack: {}, teamNote: {} },
+};
+
+// "2026-10-21" minus 6 days, as YYYY-MM-DD.
+function addDaysIso(iso: string, n: number) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
+}
+
+export const CHAPTERS: Record<ChapterId, ChapterConfig> = { berkeley: BERKELEY, ucla: UCLA, ucsc: UCSC };
 export const chapterConfig = (id: ChapterId) => CHAPTERS[id];

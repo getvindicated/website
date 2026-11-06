@@ -41,7 +41,7 @@ export async function loadBoard(user: BoardUser, viewerId: number | null = null)
     sql`SELECT id, date, time, title, location, kind, lead, status, cost, note
         FROM board_socials WHERE chapter = ${c} ORDER BY date, id`,
     sql`SELECT id, title, body, posted_on AS "postedOn", link_tab AS "linkTab", link_label AS "linkLabel",
-          audience, admins_only
+          audience, admins_only, author
         FROM board_announcements WHERE chapter = ${c}
         ORDER BY sort, posted_on DESC, id DESC`,
     sql`SELECT id, date, title, summary, absent, recording_url AS "recordingUrl"

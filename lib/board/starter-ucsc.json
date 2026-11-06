@@ -1,0 +1,32 @@
+{
+  "members": [
+    ["Ashwin Vinod", "President", "Executive", 0, true],
+    ["Gundeep Sambee", "Internal Vice President", "Executive", 1, false],
+    ["Adhya Maddukuri", "External Vice President", "Executive", 1, false],
+    ["Vanessa Phan", "Data Analytics Lead", "Software & Data", null, true],
+    ["William Guo", "Software Engineer", "Software & Data", null, false],
+    ["Aryan Bhatia", "Researcher", "Research", null, false],
+    ["Susritha Yalamati", "Marketing", "Marketing", null, false],
+    ["Saanvi Nadendla", "Marketing", "Marketing", null, false]
+  ],
+  "earlier": {
+    "due_date": "2026-10-21",
+    "tasks": [
+      ["William", "Set up the Discord server"],
+      ["Ashwin", "Get a faculty advisor"],
+      ["Susritha", "Video editing for the reel and the intro post (with Saanvi)"],
+      ["Saanvi", "Intro post (with Susritha)"],
+      ["Vanessa", "Write a doc describing your project / research plan (with Will and Aryan)"],
+      ["William", "Write a doc describing your project / research plan (with Vanessa and Aryan)"],
+      ["Aryan", "Settle a research idea and write it up (with Vanessa and Will)"],
+      ["Adhya", "Plan resources for a tabling event and look into upcoming tabling events"],
+      ["Ashwin", "VINdicated shirts"],
+      ["Gundeep", "Individual reach-outs (with Ashwin)"]
+    ]
+  },
+  "announcement": {
+    "title": "Welcome to the UCSC board hub!",
+    "body": "Pick your name to see your tasks. Questions? Ask Ashwin.",
+    "author": "Ashwin Vinod"
+  }
+}

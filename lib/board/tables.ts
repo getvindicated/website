@@ -83,6 +83,7 @@ export const TABLES = {
       linkTab: { column: "link_tab", check: oneOf(["", ...TABS], "a tab"), onCreate: "" },
       linkLabel: { column: "link_label", check: text(100), onCreate: "" },
       audience: { column: "audience", check: audience, onCreate: JSON.stringify(EVERYONE) },
+      author: { column: "author", check: text(100), onCreate: "" },
     },
   },
   rounds: {

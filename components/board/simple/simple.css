@@ -1,0 +1,519 @@
+/* The board hub's simple layout (chapters.ts layout: "simple"): phones
+   first, white, 8px corners, filled buttons only (purple, or light purple
+   with dark purple text), at least 44px tall. Everything is scoped under
+   .sb so the classic hubs don't change. */
+.board .sb {
+  --sb-purple: #9533a5;
+  --sb-purple-dark: #7a2685;
+  --sb-deep: #5e1a6b;
+  --sb-light: #f4e8f7;
+  --sb-light-2: #ead3ef;
+  --sb-ink: #1d1a1f;
+  --sb-line: #e6e1e8;
+  --sb-green: #1d6b3a;
+  --sb-green-bg: #e3f3e8;
+  --sb-red: #a3231b;
+  --sb-red-bg: #fbe7e5;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--sb-ink);
+  font-size: 17px;
+}
+.board .sb * {
+  border-radius: 0;
+}
+.board .sb .wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 96px;
+}
+.board .sb h1,
+.board .sb h2,
+.board .sb h3 {
+  color: var(--sb-ink);
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0;
+  font-weight: 700;
+  border: 0;
+  padding: 0;
+}
+.board .sb h2 {
+  font-size: 1.35rem;
+  margin: 28px 0 12px;
+}
+.board .sb h2:first-child {
+  margin-top: 8px;
+}
+.board .sb h3 {
+  font-size: 1.05rem;
+}
+.board .sb p {
+  margin: 0 0 10px;
+}
+
+/* Buttons: filled, never outlined. */
+.board .sb .b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--sb-purple);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.board .sb .b:hover {
+  background: var(--sb-purple-dark);
+}
+.board .sb .b.soft {
+  background: var(--sb-light);
+  color: var(--sb-deep);
+}
+.board .sb .b.soft:hover {
+  background: var(--sb-light-2);
+}
+.board .sb .b.danger {
+  background: var(--sb-red-bg);
+  color: var(--sb-red);
+}
+.board .sb .b:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.board .sb .b.full {
+  width: 100%;
+}
+.board .sb .linkish {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--sb-purple);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  min-height: 0;
+}
+.board .sb .row-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Fields */
+.board .sb label.f {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.board .sb label.f span.hint {
+  font-weight: 400;
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+}
+.board .sb input[type="text"],
+.board .sb input[type="url"],
+.board .sb input[type="email"],
+.board .sb input[type="tel"],
+.board .sb input[type="date"],
+.board .sb input[type="time"],
+.board .sb input[type="password"],
+.board .sb select,
+.board .sb textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font: inherit;
+  font-weight: 400;
+  color: var(--sb-ink);
+  background: #fff;
+  border: 1px solid var(--sb-line);
+  border-radius: 8px;
+}
+.board .sb textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+.board .sb input[type="file"] {
+  font: inherit;
+  font-weight: 400;
+}
+.board .sb .check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  min-height: 44px;
+  margin: 0 0 12px;
+}
+.board .sb .check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--sb-purple);
+}
+.board .sb .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 12px;
+}
+@media (max-width: 520px) {
+  .board .sb .pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Panels */
+.board .sb .panel {
+  background: var(--sb-light);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+}
+.board .sb .card {
+  border: 1px solid var(--sb-line);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 0 12px;
+  background: #fff;
+}
+.board .sb .muted {
+  color: var(--sb-deep);
+}
+.board .sb .err {
+  color: var(--sb-red);
+  font-weight: 600;
+}
+.board .sb .empty {
+  border: 0;
+  margin: 0 0 12px;
+  background: var(--sb-light);
+  border-radius: 8px;
+  padding: 16px;
+  font-weight: 600;
+  color: var(--sb-deep);
+}
+
+/* Sign-in and name picker */
+.board .sb .gate {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 16px 64px;
+}
+.board .sb .brand {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--sb-ink);
+}
+.board .sb .brand span {
+  font-weight: 400;
+  color: var(--sb-deep);
+}
+.board .sb .gate h1 {
+  font-size: 1.8rem;
+  margin: 28px 0 6px;
+}
+.board .sb .gate form {
+  margin-top: 18px;
+}
+.board .sb .chuz {
+  margin-top: 36px;
+  border-top: 1px solid var(--sb-line);
+  padding-top: 20px;
+}
+.board .sb .chuz p {
+  font-weight: 600;
+}
+.board .sb .chuz .row-btns {
+  margin-top: 8px;
+}
+.board .sb .people {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.board .sb .people button {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--sb-light);
+  color: var(--sb-ink);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.board .sb .people button:hover {
+  background: var(--sb-light-2);
+}
+.board .sb .people b {
+  font-weight: 700;
+}
+.board .sb .people span {
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+  text-align: end;
+}
+
+/* Header and tabs */
+.board .sb .top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid var(--sb-line);
+}
+.board .sb .top-in {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 16px 0;
+}
+.board .sb .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+}
+.board .sb .hi {
+  text-align: end;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.board .sb .hi .linkish {
+  margin-inline-start: 8px;
+  font-weight: 600;
+}
+.board .sb nav.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 6px 0 0;
+  padding: 0;
+  border: 0;
+}
+.board .sb nav.tabs a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  font-weight: 700;
+  color: var(--sb-ink);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  padding: 0 4px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.board .sb nav.tabs a[aria-current="page"] {
+  color: var(--sb-purple);
+  border-bottom-color: var(--sb-purple);
+}
+
+/* Tasks */
+.board .sb .task {
+  border: 1px solid var(--sb-line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 0 0 10px;
+}
+.board .sb .task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.board .sb .task-text {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.board .sb .due {
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+.board .sb .pill {
+  flex: none;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--sb-light);
+  color: var(--sb-deep);
+}
+.board .sb .pill.done {
+  background: var(--sb-green-bg);
+  color: var(--sb-green);
+}
+.board .sb .pill.late {
+  background: var(--sb-red-bg);
+  color: var(--sb-red);
+}
+.board .sb .person-head {
+  margin: 22px 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.board .sb .person-head span {
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+}
+.board .sb .row-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+@media (max-width: 600px) {
+  .board .sb .task .b.submit {
+    width: 100%;
+  }
+}
+
+/* Announcements */
+.board .sb .post h3 {
+  margin-bottom: 2px;
+}
+.board .sb .post .by {
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.board .sb .post .post-body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Date box and calendar */
+.board .sb .when {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.board .sb .datebox {
+  flex: none;
+  width: 64px;
+  border-radius: 8px;
+  background: var(--sb-purple);
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  line-height: 1.1;
+}
+.board .sb .datebox span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.board .sb .datebox b {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.board .sb .kind {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--sb-purple);
+}
+.board .sb .when-text {
+  min-width: 0;
+  flex: 1;
+}
+.board .sb .when-text h3 {
+  overflow-wrap: anywhere;
+}
+
+/* Team */
+.board .sb .team-head {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sb-deep);
+  margin: 24px 0 8px;
+}
+.board .sb .person-card .role {
+  color: var(--sb-deep);
+}
+
+/* Sheet (Submit) */
+.board .sb dialog.sheet {
+  width: min(560px, 100vw);
+  max-height: 92vh;
+  margin: auto auto 0;
+  padding: 20px 16px 24px;
+  border: 0;
+  border-radius: 8px 8px 0 0;
+  background: #fff;
+  color: var(--sb-ink);
+}
+@media (min-width: 640px) {
+  .board .sb dialog.sheet {
+    margin: auto;
+    border-radius: 8px;
+  }
+}
+.board .sb dialog.sheet::backdrop {
+  background: rgba(29, 26, 31, 0.45);
+}
+.board .sb dialog.sheet h2 {
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+
+/* Toast */
+.board .sb .toast {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  background: var(--sb-ink);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+.board .sb .foot {
+  margin-top: 40px;
+  border-top: 1px solid var(--sb-line);
+  padding-top: 16px;
+  color: var(--sb-deep);
+  font-size: 0.95rem;
+}
+
+/* Shared pieces from the classic hub (member import) inside .sb. */
+.board .sb .btn,
+.board .sb .btn-line {
+  border-radius: 8px;
+  min-height: 44px;
+  border: 0;
+}
+.board .sb .btn-line {
+  background: var(--sb-light);
+  color: var(--sb-deep);
+}

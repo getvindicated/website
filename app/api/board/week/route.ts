@@ -4,12 +4,14 @@ import { db } from "@/lib/board/db";
 import { actorOf, logRows, snapshotWhere } from "@/lib/board/changelog";
 
 // Weekly deliverables (UCLA): admins change the current week's due date,
-// or start a new week.
+// or start a new week. The simple layout (UCSC) can also start a new week:
+// it archives this week's tasks as they are and starts an empty one.
 
-async function weeklyAdmin(request: Request) {
+async function weeklyAdmin(request: Request, simpleToo = false) {
   const user = await guard(request, ["admin"]);
   if (user instanceof Response) return user;
-  if (!chapterConfig(user.chapter).weekly) return bad("This chapter doesn't use weeks.", 404);
+  const config = chapterConfig(user.chapter);
+  if (!config.weekly && !(simpleToo && config.layout === "simple")) return bad("This chapter doesn't use weeks.", 404);
   return user;
 }
 
@@ -37,12 +39,14 @@ export async function PATCH(request: Request) {
 }
 
 // Archives the current week and starts the next one, due a week after the
-// old due date. Tasks of anyone not marked Submitted or Excused carry over.
+// old due date. Weekly chapters (UCLA) carry over the tasks of anyone not
+// marked Submitted or Excused; the simple layout starts the week empty.
 export async function POST(request: Request) {
-  const user = await weeklyAdmin(request);
+  const user = await weeklyAdmin(request, true);
   if (user instanceof Response) return user;
   const sql = db();
   const c = user.chapter;
+  const carry = chapterConfig(c).weekly;
   const next = await sql.begin(async (tx) => {
     const [cur] = await tx`SELECT id, round, due_date FROM board_rounds WHERE chapter = ${c} AND is_current FOR UPDATE`;
     if (!cur) return null;
@@ -53,7 +57,9 @@ export async function POST(request: Request) {
     await tx`UPDATE board_rounds SET is_current = false WHERE chapter = ${c}`;
     const [added] = await tx`INSERT INTO board_rounds (chapter, round, due_date, is_current, note)
       VALUES (${c}, ${round}, ${due}, true, '') RETURNING id`;
-    const carried = await tx`INSERT INTO board_assignments (chapter, round, person, person_role, task, proof_required, due_date, status, sort)
+    const carried = !carry
+      ? []
+      : await tx`INSERT INTO board_assignments (chapter, round, person, person_role, task, proof_required, due_date, status, sort)
       SELECT chapter, ${round}, person, person_role, task, proof_required, ${due}, 'pending', sort
       FROM board_assignments
       WHERE chapter = ${c} AND round = ${cur.round}
@@ -63,7 +69,8 @@ export async function POST(request: Request) {
         )
       ORDER BY sort, id
       RETURNING id`;
-    await logRows(tx, user, actorOf(request), `Started a new week, due ${due}, carrying over ${carried.length} tasks`, [
+    const summary = carry ? `Started a new week, due ${due}, carrying over ${carried.length} tasks` : `Started a new week, due ${due}`;
+    await logRows(tx, user, actorOf(request), summary, [
       { table: "board_rounds", rows: oldRounds, ids: [cur.id, added.id] },
       { table: "board_assignments", rows: new Map(), ids: carried.map((r) => r.id as number) },
     ]);

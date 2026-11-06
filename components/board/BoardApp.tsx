@@ -31,7 +31,7 @@ const LABELS: Record<Tab, string> = {
   changes: "Changes",
 };
 
-type Ctx = {
+export type BoardCtx = {
   chapter: ChapterConfig;
   // The round or week on the Assignments tab now.
   round: Round | null;
@@ -45,7 +45,9 @@ type Ctx = {
   setFocus: (f: { tab: Tab; key: string } | null) => void;
 };
 
-const BoardContext = createContext<Ctx | null>(null);
+// Exported so other layouts (components/board/simple) can provide the same
+// context to shared pieces like ImportMembers.
+export const BoardContext = createContext<BoardCtx | null>(null);
 export const useBoard = () => {
   const c = useContext(BoardContext);
   if (!c) throw new Error("useBoard outside BoardApp");
@@ -63,7 +65,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
   const round = data.rounds.find((r) => r.isCurrent) ?? null;
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("home");
-  const [focus, setFocus] = useState<Ctx["focus"]>(null);
+  const [focus, setFocus] = useState<BoardCtx["focus"]>(null);
   const [editingTerm, setEditingTerm] = useState(false);
   const admin = user.role === "admin";
   // The Events, Applications and Changes tabs are for admins only.
@@ -91,7 +93,7 @@ export function BoardApp({ chapter: id, data, user, today }: { chapter: ChapterI
     go(t);
   };
 
-  const ctx: Ctx = { chapter, round, data, user, today, go, refresh, focus, setFocus };
+  const ctx: BoardCtx = { chapter, round, data, user, today, go, refresh, focus, setFocus };
 
   async function signOut() {
     await fetch(chapterUrl("/api/board/logout"), { method: "POST" });

@@ -2,7 +2,7 @@ import "server-only";
 import type postgres from "postgres";
 import { db } from "@/lib/board/db";
 import { ensureSetup } from "@/lib/board/setup";
-import { CHAPTER_IDS, type ChapterId } from "@/lib/board/chapters";
+import { CHAPTER_IDS, chapterConfig, type ChapterId } from "@/lib/board/chapters";
 import { pacificToUtc } from "@/lib/board/ics";
 import { defaultConfig, type AdminApplication, type ApplicationInput, type ApplyConfig, type NotifySignup, type Status } from "./rules";
 
@@ -52,6 +52,10 @@ export function closedReason(c: ApplyConfig, now = new Date()): "off" | "deadlin
   return null;
 }
 
+// Chapters that take board applications (chapters.ts `applications`).
+export const APPLY_CHAPTERS = CHAPTER_IDS.filter((c) => chapterConfig(c).applications);
+export const takesApplications = (c: unknown): c is ChapterId => (APPLY_CHAPTERS as readonly unknown[]).includes(c);
+
 // What the public page may know about a chapter: whether it's open, until
 // when, and its open positions.
 export type PublicChapter = { id: ChapterId; open: boolean; deadline: string | null; positions: string[] };
@@ -59,7 +63,7 @@ export type PublicChapter = { id: ChapterId; open: boolean; deadline: string | n
 export async function publicChapters(now = new Date()): Promise<PublicChapter[]> {
   await ensureSetup();
   const out: PublicChapter[] = [];
-  for (const id of CHAPTER_IDS) {
+  for (const id of APPLY_CHAPTERS) {
     const c = await getConfig(id);
     const open = isOpen(c, now);
     out.push({ id, open, deadline: open ? c.deadline : null, positions: open ? c.positions : [] });
