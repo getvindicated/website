@@ -291,3 +291,20 @@ ALTER TABLE board_announcements ADD COLUMN IF NOT EXISTS author text NOT NULL DE
 -- What a calendar item is: meeting, event or social (the simple layout's
 -- Calendar shows the type). Classic hubs only make meetings.
 ALTER TABLE board_scheduled ADD COLUMN IF NOT EXISTS kind text NOT NULL DEFAULT 'meeting';
+
+-- The public Car Confidence Survey (/survey). Anonymous: no name, email,
+-- IP address, user agent or cookie id is ever stored. created_at is the
+-- day only (Pacific). answers maps item ids (lib/survey/questions.ts) to
+-- 1–5; demographics holds the optional background answers as option ids.
+-- test is true for answers hub admins sent while previewing.
+CREATE TABLE IF NOT EXISTS survey_responses (
+  id                serial PRIMARY KEY,
+  created_at        date NOT NULL DEFAULT ((now() AT TIME ZONE 'America/Los_Angeles')::date),
+  questions_version integer NOT NULL,
+  locale            text NOT NULL DEFAULT 'en',
+  source            text,
+  answers           jsonb NOT NULL,
+  demographics      jsonb NOT NULL DEFAULT '{}'::jsonb,
+  test              boolean NOT NULL DEFAULT false
+);
+CREATE INDEX IF NOT EXISTS survey_responses_day ON survey_responses (created_at);

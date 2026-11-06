@@ -23,6 +23,7 @@ import { locales, isValidLocale, isRtl, localizeHref, type Locale } from "@/lib/
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { getRootMetadata } from "@/lib/i18n/metadata";
 import { eventsPublic } from "@/lib/events/flag";
+import { surveyPublic } from "@/lib/survey/flag";
 // import { CarCursor } from "@/components/ui/CarCursor";
 
 const lora = Lora({
@@ -150,6 +151,7 @@ export default async function RootLayout({
           locale={locale as Locale}
           dict={{ nav: dict.nav, ui: dict.ui }}
           showEvents={eventsPublic()}
+          showSurvey={surveyPublic()}
         />
         <main>
           <LocaleStrings

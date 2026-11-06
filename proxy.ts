@@ -42,6 +42,8 @@ export function proxy(request: NextRequest) {
   const locale = detectLocale(request);
   const targetPath = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
   const newUrl = new URL(targetPath, request.url);
+  // Keep the query string (e.g. /survey?src=instagram).
+  newUrl.search = request.nextUrl.search;
   return NextResponse.redirect(newUrl);
 }
 

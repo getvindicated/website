@@ -17,7 +17,8 @@
     "learningResources": "Tài liệu học",
     "getInvolved": "Tham gia",
     "projects": "Dự án",
-    "dealerMap": "Bản đồ dealer"
+    "dealerMap": "Bản đồ dealer",
+    "survey": "Khảo sát mức tự tin với xe hơi"
   },
   "ui": {
     "openMenu": "Mở menu",
@@ -126,6 +127,11 @@
         "title": "Ứng tuyển vào ban điều hành",
         "description": "Ứng tuyển vào ban điều hành (board) của một nhóm VINdicated: dẫn dắt các buổi workshop, nghiên cứu và tiếp cận cộng đồng về mua xe, sửa xe và vay tiền mua xe.",
         "imageAlt": "VINdicated: Ứng tuyển vào ban điều hành"
+      },
+      "survey": {
+        "title": "Bạn Tự Tin Đến Đâu Với Xe Hơi?",
+        "description": "Làm miễn phí Khảo sát mức tự tin với xe hơi trong 5 phút của VINdicated: xe hỏng giữa đường, mua xe và sửa xe. Ẩn danh, và cuối bài bạn sẽ thấy mình đang ở mức nào.",
+        "imageAlt": "Khảo sát mức tự tin với xe hơi của VINdicated"
       }
     }
   },
@@ -2675,6 +2681,190 @@
       "resume": "Sơ yếu lý lịch",
       "none": "Không có",
       "signoff": "Đội ngũ VINdicated"
+    }
+  },
+  "surveyPage": {
+    "preview": "Bản xem trước riêng: chỉ quản trị viên mới thấy trang này.",
+    "previewTest": "Câu trả lời bạn gửi ở đây được lưu là bài thử và không tính vào kết quả.",
+    "intro": {
+      "kicker": "Khảo sát của VINdicated",
+      "title": "Bạn tự tin đến đâu với xe hơi?",
+      "lede": "Xe hỏng giữa đường, mua xe, đi sửa xe. Hãy cho chúng tôi biết bạn thấy mình sẵn sàng đến đâu, và cuối bài chúng tôi sẽ cho bạn thấy mình đang ở mức nào.",
+      "tags": [
+        "Khoảng 5 phút",
+        "25 câu hỏi nhanh",
+        "Ẩn danh",
+        "Không cần có xe"
+      ],
+      "consentTitle": "Trước khi bắt đầu",
+      "consent": "Khảo sát này do VINdicated, một tổ chức bảo vệ người tiêu dùng do sinh viên điều hành, thực hiện để hiểu mọi người tự tin đến đâu với xe hơi và họ có mong được đối xử công bằng hay không. Việc tham gia là tự nguyện, bạn có thể bỏ qua bất kỳ câu hỏi nào về bản thân và có thể dừng bất cứ lúc nào. Chúng tôi không hỏi tên hay email của bạn, và kết quả chỉ được báo cáo dưới dạng tổng số theo nhóm. Có câu hỏi? Gửi email đến {email}.",
+      "agree": "Tôi từ 18 tuổi trở lên và đồng ý tham gia.",
+      "start": "Bắt đầu khảo sát"
+    },
+    "scaleKey": "1 = Rất không đồng ý · 5 = Rất đồng ý",
+    "scale": [
+      "Rất không đồng ý",
+      "Không đồng ý",
+      "Trung lập",
+      "Đồng ý",
+      "Rất đồng ý"
+    ],
+    "progress": "Đã trả lời {n}/{total}",
+    "pageOf": "Trang {n}/{total}",
+    "back": "Quay lại",
+    "next": "Tiếp",
+    "finish": "Hoàn tất",
+    "sending": "Đang gửi…",
+    "required": "Vui lòng trả lời mọi câu hỏi trên trang này. Những câu còn thiếu được đánh dấu màu đỏ.",
+    "unanswered": "Chưa trả lời",
+    "optional": "Không bắt buộc",
+    "sections": {
+      "breakdown": {
+        "title": "Nếu xe bạn bị hỏng",
+        "intro": "Hãy hình dung xe bạn bị hỏng khi đang lái."
+      },
+      "buying": {
+        "title": "Mua xe",
+        "intro": "Hãy hình dung bạn đang tìm mua chiếc xe tiếp theo."
+      },
+      "repair": {
+        "title": "Đi sửa xe",
+        "intro": "Hãy hình dung xe bạn cần sửa."
+      },
+      "fair": {
+        "title": "Được đối xử công bằng",
+        "intro": "Các câu này nói về điều bạn mong đợi, không phải điều bạn nghĩ nên xảy ra."
+      },
+      "about": {
+        "title": "Đôi nét về bạn",
+        "intro": "Các câu này giúp chúng tôi so sánh kết quả giữa các nhóm. Mọi câu hỏi ở đây đều không bắt buộc."
+      }
+    },
+    "items": {
+      "breakdown_1": "Tôi sẽ biết việc đầu tiên cần làm nếu xe hỏng khi tôi đang lái.",
+      "breakdown_2": "Tôi có thể biết ở trong hay gần xe có an toàn không.",
+      "breakdown_3": "Tôi biết gọi ai để được giúp, như dịch vụ cứu hộ hay xe kéo.",
+      "breakdown_4": "Tôi có thể giải thích chuyện đã xảy ra cho tài xế xe kéo hoặc thợ máy.",
+      "buying_1": "Tôi biết cách tìm hiểu giá hợp lý của một chiếc xe.",
+      "buying_2": "Tôi có thể kiểm tra xe cũ xem có vấn đề gì trước khi mua.",
+      "buying_3": "Tôi biết cách nhờ kiểm tra xe trước khi mua.",
+      "buying_4": "Tôi có thể trả giá với người bán hàng.",
+      "buying_5": "Tôi hiểu các giấy tờ mình sẽ ký khi mua xe.",
+      "buying_6": "Tôi có thể nhận ra các món bán kèm hoặc phí mà tôi không cần.",
+      "buying_7": "Tôi thấy thoải mái khi bỏ đi không mua nữa.",
+      "repair_1": "Tôi có thể tìm được một tiệm sửa xe đáng tin.",
+      "repair_2": "Tôi có thể mô tả cho thợ máy xe mình bị gì.",
+      "repair_3": "Tôi biết mình có thể xin bảng báo giá bằng văn bản trước khi bắt đầu sửa.",
+      "repair_4": "Tôi có thể biết một báo giá sửa xe có hợp lý không.",
+      "repair_5": "Tôi thấy thoải mái khi từ chối những sửa chữa mình không yêu cầu.",
+      "repair_6": "Tôi biết phải làm gì nếu sửa xe có trục trặc.",
+      "fair_1a": "Tôi mong được chào cùng một giá như bất kỳ ai khác cho cùng một chiếc xe.",
+      "fair_1b": "Người cùng giới tính với tôi được chào cùng một giá như bất kỳ ai khác cho cùng một chiếc xe.",
+      "fair_2a": "Tôi mong người bán hàng xem trọng câu hỏi của tôi.",
+      "fair_2b": "Người bán hàng xem trọng câu hỏi của những người cùng chủng tộc với tôi.",
+      "fair_3a": "Tôi mong thợ máy thành thật với tôi về những gì xe cần.",
+      "fair_3b": "Thợ máy nói thật với những người cùng giới tính với tôi về những gì xe của họ cần.",
+      "fair_4a": "Tôi mong trả một giá hợp lý khi sửa xe.",
+      "fair_4b": "Những người cùng chủng tộc với tôi trả giá hợp lý khi sửa xe."
+    },
+    "demo": {
+      "pickAll": "Chọn tất cả những gì phù hợp.",
+      "selfLabel": "Bằng lời của bạn",
+      "experience": {
+        "label": "Kinh nghiệm với xe",
+        "options": {
+          "license": "Tôi có bằng lái",
+          "own": "Tôi có xe riêng hoặc thuê dài hạn",
+          "bought": "Tôi đã tự mua xe",
+          "dealer": "Tôi đã mua xe ở đại lý",
+          "repair": "Tôi đã mang xe đi sửa",
+          "breakdown": "Tôi đã từng bị hỏng xe",
+          "none": "Không có điều nào"
+        }
+      },
+      "gender": {
+        "label": "Giới tính",
+        "options": {
+          "woman": "Nữ",
+          "man": "Nam",
+          "nonbinary": "Phi nhị nguyên",
+          "self": "Tôi muốn tự mô tả",
+          "no_say": "Không muốn trả lời"
+        }
+      },
+      "race": {
+        "label": "Chủng tộc hoặc sắc tộc",
+        "options": {
+          "aian": "Thổ dân Mỹ hoặc thổ dân Alaska",
+          "asian": "Người châu Á",
+          "black": "Người da đen hoặc người Mỹ gốc Phi",
+          "hispanic": "Người gốc Tây Ban Nha hoặc La-tinh",
+          "mena": "Người Trung Đông hoặc Bắc Phi",
+          "nhpi": "Thổ dân Hawaii hoặc người các đảo Thái Bình Dương",
+          "white": "Người da trắng",
+          "self": "Tôi muốn tự mô tả",
+          "no_say": "Không muốn trả lời"
+        }
+      },
+      "age": {
+        "label": "Tuổi",
+        "options": {
+          "18_20": "18–20",
+          "21_24": "21–24",
+          "25_34": "25–34",
+          "35_54": "35–54",
+          "55_plus": "55+",
+          "no_say": "Không muốn trả lời"
+        }
+      },
+      "student": {
+        "label": "Bạn có phải là sinh viên?",
+        "options": {
+          "ucb": "UC Berkeley",
+          "ucla": "UCLA",
+          "ucsc": "UC Santa Cruz",
+          "other_school": "Trường khác",
+          "not_student": "Không phải sinh viên",
+          "no_say": "Không muốn trả lời"
+        }
+      }
+    },
+    "errors": {
+      "missing": "Còn câu hỏi chưa trả lời. Hãy quay lại và trả lời mọi câu hỏi từ 1 đến 5.",
+      "tooFast": "Bạn làm quá nhanh. Hãy dành chút thời gian đọc từng câu hỏi, rồi bấm Hoàn tất lần nữa.",
+      "expired": "Trang này đã mở quá lâu. Hãy tải lại để bắt đầu lại.",
+      "tooMany": "Có quá nhiều khảo sát được gửi từ kết nối này. Vui lòng thử lại sau một giờ.",
+      "failed": "Đã có lỗi nên câu trả lời của bạn chưa được lưu. Vui lòng thử lại."
+    },
+    "results": {
+      "kicker": "Cảm ơn bạn!",
+      "title": "Đây là mức của bạn",
+      "body": "Điểm của bạn là trung bình các câu trả lời trong từng phần, trên thang 5.",
+      "score": "{score} trên 5",
+      "areas": {
+        "breakdown": "Xe hỏng giữa đường",
+        "buying": "Mua xe",
+        "repair": "Đi sửa xe"
+      },
+      "tipTitle": "Bắt đầu từ đâu",
+      "tips": {
+        "breakdown": "Xe hỏng giữa đường là phần bạn thấy mình chưa sẵn sàng nhất. Hướng dẫn kiểm tra xe của chúng tôi giới thiệu các bộ phận của xe và những dấu hiệu cảnh báo cần để ý.",
+        "buying": "Mua xe là phần bạn thấy mình chưa sẵn sàng nhất. Giải thích giấy tờ giải thích giấy tờ, các khoản phí và món bán kèm trước khi bạn ký.",
+        "repair": "Đi sửa xe là phần bạn thấy mình chưa sẵn sàng nhất. Phòng tránh lừa đảo chỉ ra các chiêu thường gặp và việc cần làm nếu tiệm sửa xe lợi dụng bạn."
+      },
+      "tipLink": "Đọc hướng dẫn",
+      "guides": "Xem các hướng dẫn miễn phí",
+      "workshop": "Đến một buổi hội thảo",
+      "share": "Bạn biết ai nên làm khảo sát này? Hãy chia sẻ {link}."
+    },
+    "done": {
+      "title": "Bạn đã làm khảo sát rồi. Cảm ơn bạn!",
+      "again": "Làm lại"
+    },
+    "home": {
+      "title": "Bạn tự tin đến đâu với xe hơi?",
+      "body": "Xe hỏng, mua xe, sửa xe: xem bạn đang ở mức nào. Ẩn danh, không cần có xe.",
+      "cta": "Làm khảo sát 5 phút"
     }
   }
 }

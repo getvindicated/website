@@ -17,7 +17,8 @@
     "learningResources": "Aprende aquí",
     "getInvolved": "Únete",
     "projects": "Proyectos",
-    "dealerMap": "Mapa de dealers"
+    "dealerMap": "Mapa de dealers",
+    "survey": "Encuesta de confianza con los autos"
   },
   "ui": {
     "openMenu": "Abrir menú",
@@ -126,6 +127,11 @@
         "title": "Aplica a la mesa directiva",
         "description": "Aplica para entrar a la mesa directiva de un grupo de VINdicated: dirige talleres, investigación y alcance sobre cómo comprar, arreglar y pagar un carro.",
         "imageAlt": "VINdicated: Aplica a la mesa directiva"
+      },
+      "survey": {
+        "title": "¿Qué tan seguro te sientes con los autos?",
+        "description": "Haz gratis la Encuesta de confianza con los autos de VINdicated, de 5 minutos: quedarte varado, comprar un auto y repararlo. Es anónima y al final ves dónde estás.",
+        "imageAlt": "Encuesta de confianza con los autos de VINdicated"
       }
     }
   },
@@ -2675,6 +2681,190 @@
       "resume": "Currículum",
       "none": "Nada",
       "signoff": "El equipo de VINdicated"
+    }
+  },
+  "surveyPage": {
+    "preview": "Vista previa privada: solo los administradores pueden ver esta página.",
+    "previewTest": "Las respuestas que envíes aquí se guardan como pruebas y no cuentan en los resultados.",
+    "intro": {
+      "kicker": "Encuesta de VINdicated",
+      "title": "¿Qué tan seguro te sientes con los autos?",
+      "lede": "Quedarte varado, comprar un auto, llevarlo a reparar. Cuéntanos qué tan preparado te sientes y al final te mostraremos dónde estás.",
+      "tags": [
+        "Unos 5 minutos",
+        "25 preguntas rápidas",
+        "Anónima",
+        "No necesitas auto"
+      ],
+      "consentTitle": "Antes de empezar",
+      "consent": "Esta encuesta la realiza VINdicated, una organización estudiantil de defensa del consumidor, para entender qué tan seguras se sienten las personas con los autos y si esperan recibir un trato justo. Participar es voluntario, puedes saltarte cualquier pregunta personal y puedes dejarla en cualquier momento. No pedimos tu nombre ni tu correo, y los resultados solo se presentan como totales de grupo. ¿Preguntas? Escribe a {email}.",
+      "agree": "Tengo 18 años o más y acepto participar.",
+      "start": "Empezar la encuesta"
+    },
+    "scaleKey": "1 = Muy en desacuerdo · 5 = Muy de acuerdo",
+    "scale": [
+      "Muy en desacuerdo",
+      "En desacuerdo",
+      "Neutral",
+      "De acuerdo",
+      "Muy de acuerdo"
+    ],
+    "progress": "{n} de {total} respondidas",
+    "pageOf": "Página {n} de {total}",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "finish": "Terminar",
+    "sending": "Enviando…",
+    "required": "Responde todas las preguntas de esta página. Las que faltan están marcadas en rojo.",
+    "unanswered": "Sin responder",
+    "optional": "Opcional",
+    "sections": {
+      "breakdown": {
+        "title": "Si tu auto se descompone",
+        "intro": "Imagina que tu auto se descompone mientras manejas."
+      },
+      "buying": {
+        "title": "Comprar un auto",
+        "intro": "Imagina que estás buscando tu próximo auto."
+      },
+      "repair": {
+        "title": "Llevar el auto a reparar",
+        "intro": "Imagina que tu auto necesita una reparación."
+      },
+      "fair": {
+        "title": "Recibir un trato justo",
+        "intro": "Estas preguntas son sobre lo que esperas, no sobre lo que crees que debería pasar."
+      },
+      "about": {
+        "title": "Un poco sobre ti",
+        "intro": "Nos ayudan a comparar resultados entre grupos. Todas las preguntas aquí son opcionales."
+      }
+    },
+    "items": {
+      "breakdown_1": "Sabría qué hacer primero si mi auto se descompusiera mientras manejo.",
+      "breakdown_2": "Podría saber si es seguro quedarme dentro o cerca de mi auto.",
+      "breakdown_3": "Sé a quién llamar para pedir ayuda, como asistencia en carretera o una grúa.",
+      "breakdown_4": "Podría explicarle lo que pasó a un conductor de grúa o a un mecánico.",
+      "buying_1": "Sé cómo averiguar cuál es un precio justo para un auto.",
+      "buying_2": "Podría revisar un auto usado para ver si tiene problemas antes de comprarlo.",
+      "buying_3": "Sé cómo conseguir una inspección antes de comprar.",
+      "buying_4": "Podría negociar el precio con un vendedor.",
+      "buying_5": "Entiendo los papeles que firmaría al comprar un auto.",
+      "buying_6": "Podría detectar extras o cargos que no necesito.",
+      "buying_7": "Me sentiría cómodo retirándome de un trato.",
+      "repair_1": "Podría encontrar un taller de confianza.",
+      "repair_2": "Podría describirle a un mecánico qué le pasa a mi auto.",
+      "repair_3": "Sé que puedo pedir un presupuesto por escrito antes de que empiece cualquier trabajo.",
+      "repair_4": "Podría saber si un presupuesto de reparación es justo.",
+      "repair_5": "Me sentiría cómodo diciendo que no a reparaciones que no pedí.",
+      "repair_6": "Sé qué hacer si una reparación sale mal.",
+      "fair_1a": "Espero que me ofrezcan el mismo precio que a cualquier otra persona por el mismo auto.",
+      "fair_1b": "A las personas de mi género se les ofrece el mismo precio que a cualquier otra persona por el mismo auto.",
+      "fair_2a": "Espero que un vendedor tome en serio mis preguntas.",
+      "fair_2b": "Los vendedores toman en serio las preguntas de las personas de mi raza.",
+      "fair_3a": "Espero que un mecánico sea honesto conmigo sobre lo que necesita mi auto.",
+      "fair_3b": "Los mecánicos les dicen con honestidad a las personas de mi género lo que necesita su auto.",
+      "fair_4a": "Espero pagar un precio justo por una reparación.",
+      "fair_4b": "Las personas de mi raza pagan un precio justo por las reparaciones."
+    },
+    "demo": {
+      "pickAll": "Marca todas las que correspondan.",
+      "selfLabel": "En tus propias palabras",
+      "experience": {
+        "label": "Experiencia con autos",
+        "options": {
+          "license": "Tengo licencia de manejar",
+          "own": "Tengo un auto propio o arrendado",
+          "bought": "He comprado un auto yo mismo",
+          "dealer": "He comprado en un concesionario",
+          "repair": "He llevado un auto a reparar",
+          "breakdown": "Se me ha descompuesto un auto",
+          "none": "Ninguna de estas"
+        }
+      },
+      "gender": {
+        "label": "Género",
+        "options": {
+          "woman": "Mujer",
+          "man": "Hombre",
+          "nonbinary": "No binario",
+          "self": "Prefiero describirlo yo",
+          "no_say": "Prefiero no decirlo"
+        }
+      },
+      "race": {
+        "label": "Raza u origen étnico",
+        "options": {
+          "aian": "Indígena americano o nativo de Alaska",
+          "asian": "Asiático",
+          "black": "Negro o afroamericano",
+          "hispanic": "Hispano o latino/a/x",
+          "mena": "De Medio Oriente o del norte de África",
+          "nhpi": "Nativo de Hawái o de las islas del Pacífico",
+          "white": "Blanco",
+          "self": "Prefiero describirlo yo",
+          "no_say": "Prefiero no decirlo"
+        }
+      },
+      "age": {
+        "label": "Edad",
+        "options": {
+          "18_20": "18–20",
+          "21_24": "21–24",
+          "25_34": "25–34",
+          "35_54": "35–54",
+          "55_plus": "55+",
+          "no_say": "Prefiero no decirlo"
+        }
+      },
+      "student": {
+        "label": "¿Eres estudiante?",
+        "options": {
+          "ucb": "UC Berkeley",
+          "ucla": "UCLA",
+          "ucsc": "UC Santa Cruz",
+          "other_school": "Otra escuela",
+          "not_student": "No soy estudiante",
+          "no_say": "Prefiero no decirlo"
+        }
+      }
+    },
+    "errors": {
+      "missing": "Faltan preguntas por responder. Regresa y responde todas las preguntas del 1 al 5.",
+      "tooFast": "Fue muy rápido. Tómate un momento para leer cada pregunta y luego presiona Terminar otra vez.",
+      "expired": "Esta página lleva demasiado tiempo abierta. Vuelve a cargarla para empezar de nuevo.",
+      "tooMany": "Se enviaron demasiadas encuestas desde esta conexión. Inténtalo de nuevo en una hora.",
+      "failed": "Algo salió mal y tus respuestas no se guardaron. Inténtalo de nuevo."
+    },
+    "results": {
+      "kicker": "¡Gracias!",
+      "title": "Así estás",
+      "body": "Tus puntajes son el promedio de tus respuestas en cada parte, sobre 5.",
+      "score": "{score} de 5",
+      "areas": {
+        "breakdown": "Quedarte varado",
+        "buying": "Comprar un auto",
+        "repair": "Llevar el auto a reparar"
+      },
+      "tipTitle": "Por dónde empezar",
+      "tips": {
+        "breakdown": "Quedarte varado es donde te sientes menos preparado. Nuestra guía Guía de inspección explica las partes de un auto y las señales de alerta a las que hay que prestar atención.",
+        "buying": "Comprar un auto es donde te sientes menos preparado. Tus documentos, explicados explica los papeles, los cargos y los extras antes de que firmes.",
+        "repair": "Llevar el auto a reparar es donde te sientes menos preparado. Cómo evitar fraudes muestra los trucos más comunes y qué hacer si un taller se aprovecha de ti."
+      },
+      "tipLink": "Leer la guía",
+      "guides": "Ver nuestras guías gratuitas",
+      "workshop": "Ven a un taller",
+      "share": "¿Conoces a alguien que debería hacerla? Comparte {link}."
+    },
+    "done": {
+      "title": "Ya hiciste la encuesta. ¡Gracias!",
+      "again": "Hacerla otra vez"
+    },
+    "home": {
+      "title": "¿Qué tan seguro te sientes con los autos?",
+      "body": "Quedarte varado, comprar, reparar: descubre dónde estás. Es anónima y no necesitas auto.",
+      "cta": "Haz la encuesta de 5 minutos"
     }
   }
 }

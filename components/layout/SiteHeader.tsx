@@ -42,12 +42,14 @@ const NAV: NavItem[] = [
   {
     key: "learningResources",
     href: "/inspection",
-    match: ["/inspection", "/fraud", "/documents", "/map"],
+    match: ["/inspection", "/fraud", "/documents", "/map", "/survey"],
     children: [
       { key: "inspection", href: "/inspection" },
       { key: "fraud", href: "/fraud" },
       { key: "documents", href: "/documents" },
       { key: "dealerMap", href: "/map" },
+      // Shown only once the survey is public (SURVEY_PUBLIC).
+      { key: "survey", href: "/survey" },
     ],
   },
 ];
@@ -56,10 +58,12 @@ export function SiteHeader({
   locale,
   dict,
   showEvents = false,
+  showSurvey = false,
 }: {
   locale: Locale;
   dict: HeaderDict;
   showEvents?: boolean;
+  showSurvey?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -89,7 +93,9 @@ export function SiteHeader({
     };
   }, [langOpen]);
 
-  const nav = showEvents ? NAV : NAV.filter((item) => item.key !== "events");
+  const nav = NAV.filter((item) => showEvents || item.key !== "events").map((item) =>
+    item.children && !showSurvey ? { ...item, children: item.children.filter((c) => c.key !== "survey") } : item,
+  );
   const path = pathname.replace(`/${locale}`, "") || "/";
   const isActive = (item: NavItem) =>
     item.match.some((m) =>

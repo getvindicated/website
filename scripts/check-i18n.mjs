@@ -61,7 +61,7 @@ const ALLOWED = [
 
 // One-word strings that are spelled the same as English in a language.
 const SAME_WORDS = {
-  es: ["Dealer", "Total", "No"],
+  es: ["Dealer", "Total", "No", "Neutral"],
   vi: ["Dealer", "Email"],
   // Taglish: everyday and car words Filipino Americans say in English.
   tl: [
