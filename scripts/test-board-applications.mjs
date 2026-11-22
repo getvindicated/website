@@ -71,8 +71,17 @@ const admin = hub(await login("berkeley", env("BOARD_ADMIN_PASSWORD")), "berkele
 const member = hub(await login("berkeley", env("BOARD_PASSWORD")), "berkeley");
 const uclaAdmin = hub(await login("ucla", env("BOARD_UCLA_ADMIN_PASSWORD")), "ucla");
 
-console.log("Closed chapter");
+console.log("UC Davis starts open");
+// The first page load sets up the database, which opens UC Davis once with
+// starter positions. Close it again so every chapter is closed below.
 let html = await page("/en/apply");
+const [davis] = await sql`SELECT value FROM board_settings WHERE chapter = 'ucdavis' AND key = 'applications'`;
+ok(davis?.value.open === true && davis.value.positions.join(",") === "Software & Data,Research,Outreach", "UC Davis applications start open with the starter positions");
+ok(/UC Davis/.test(html) && html.includes("ba-why"), "/apply offers UC Davis");
+await sql`UPDATE board_settings SET value = jsonb_set(value, '{open}', 'false') WHERE chapter = 'ucdavis' AND key = 'applications'`;
+
+console.log("Closed chapter");
+html = await page("/en/apply");
 ok(html.includes("Board applications are closed right now."), "closed message shows when every chapter is closed");
 ok(/href="\/en\/join#apply"/.test(html), "button to the volunteer form");
 ok(!html.includes('name="why"') && !html.includes("ba-why"), "no application form while closed");

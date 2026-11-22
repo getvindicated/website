@@ -2596,7 +2596,8 @@
     "chapters": {
       "berkeley": "UC Berkeley",
       "ucla": "UCLA",
-      "ucsc": "UC Santa Cruz"
+      "ucsc": "UC Santa Cruz",
+      "ucdavis": "UC Davis"
     },
     "status": {
       "open": "باز",

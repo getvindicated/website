@@ -65,6 +65,30 @@ export const CHAPTER_SERVER: Record<ChapterId, ChapterServer> = {
       cc: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
     },
   },
+  // UC Davis is new: Rana runs it, and gets its applications, until a Davis
+  // lead is set. Emails go from BOARD_INVITE_FROM's address.
+  ucdavis: {
+    cookie: "board_session_ucdavis",
+    from: null,
+    eventsFrom: "VINdicated at UC Davis",
+    hubAdmins: [],
+    organizer: { email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" },
+    passwords: [
+      ["admin", "BOARD_UCDAVIS_ADMIN_PASSWORD"],
+      ["member", "BOARD_UCDAVIS_PASSWORD"],
+    ],
+    submissions: {
+      subjectPrefix: "[VINdicated UC Davis]",
+      to: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+      cc: [],
+      techTeams: [],
+      techTo: [],
+    },
+    applications: {
+      to: [{ email: "ranadarwich05@gmail.com", name: "Rana Darwich", short: "Rana" }],
+      cc: [],
+    },
+  },
   berkeley: {
     cookie: "board_session",
     from: { name: "Rana", email: "president@getvindicated.org" },
