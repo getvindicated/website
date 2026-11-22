@@ -1,5 +1,6 @@
 // Per-chapter settings for the board hub. Berkeley lives at /board, UCLA at
-// /board/ucla and UC Santa Cruz at /board/ucsc; they run the same pages,
+// /board/ucla, UC Santa Cruz at /board/ucsc and UC Davis at /board/ucdavis;
+// they run the same pages,
 // data and API, which read their differences from here. `layout` picks the
 // look: "classic" (Berkeley, UCLA, UCSC) or "simple" (four tabs, a name
 // picker, built for phones); any chapter can switch. Nothing secret goes in this file: it's shipped to
@@ -8,7 +9,7 @@
 import { KEY_DATES, PIR, PROJECTS, QUICK_LINKS, RULE, TEAM_ORDER, TERM, WEEKS } from "./static";
 import type { Round, Tab } from "./types";
 
-export const CHAPTER_IDS = ["berkeley", "ucla", "ucsc"] as const;
+export const CHAPTER_IDS = ["berkeley", "ucla", "ucsc", "ucdavis"] as const;
 export type ChapterId = (typeof CHAPTER_IDS)[number];
 export const isChapterId = (v: unknown): v is ChapterId => typeof v === "string" && (CHAPTER_IDS as readonly string[]).includes(v);
 
@@ -87,6 +88,7 @@ const BERKELEY: ChapterConfig = {
     links: [
       { label: "Take me to UCLA's hub", path: "/board/ucla" },
       { label: "Take me to UCSC's hub", path: "/board/ucsc" },
+      { label: "Take me to UC Davis's hub", path: "/board/ucdavis" },
     ],
   },
   roleLabels: { admin: "admin", socials: "socials editor", member: "board member" },
@@ -169,6 +171,7 @@ const UCLA: ChapterConfig = {
     links: [
       { label: "Take me to Berkeley's hub", path: "/board" },
       { label: "Take me to UCSC's hub", path: "/board/ucsc" },
+      { label: "Take me to UC Davis's hub", path: "/board/ucdavis" },
     ],
   },
   roleLabels: { admin: "admin", socials: "events editor", member: "member" },
@@ -288,6 +291,7 @@ const UCSC: ChapterConfig = {
     links: [
       { label: "Take me to Berkeley's hub", path: "/board" },
       { label: "Take me to UCLA's hub", path: "/board/ucla" },
+      { label: "Take me to UC Davis's hub", path: "/board/ucdavis" },
     ],
   },
   roleLabels: { admin: "admin", member: "board member" },
@@ -326,5 +330,60 @@ const UCSC: ChapterConfig = {
   myPage: { meetingLine: null, teamTrack: {}, teamNote: {} },
 };
 
-export const CHAPTERS: Record<ChapterId, ChapterConfig> = { berkeley: BERKELEY, ucla: UCLA, ucsc: UCSC };
+// UC Davis: a new chapter. Its hub starts empty; the first job is the
+// board applications on the public /apply page (Applications tab).
+const UCDAVIS: ChapterConfig = {
+  id: "ucdavis",
+  path: "/board/ucdavis",
+  layout: "classic",
+  applications: true,
+  title: "VINdicated at UC Davis",
+  term: "UC Davis chapter · Board hub, 2026–27",
+  loginSub: "UC Davis chapter board",
+  contact: "Rana",
+  otherHub: {
+    prompt: "Why am I on this chuz school's page?",
+    links: [
+      { label: "Take me to Berkeley's hub", path: "/board" },
+      { label: "Take me to UCLA's hub", path: "/board/ucla" },
+      { label: "Take me to UCSC's hub", path: "/board/ucsc" },
+    ],
+  },
+  roleLabels: { admin: "admin", member: "board member" },
+  teams: ["Software & Data", "Research", "Outreach"],
+  rule: "every task lists the proof it needs. \"I reached out\" is not proof. If any of your deliverables is missing after the deadline, tell Rana before the deadline, not after.",
+  proofRequired: true,
+  weekly: false,
+  roundLabel: (r, current) =>
+    current
+      ? `Round ${r.round} · Due ${shortDay(r.dueDate, { weekday: "short", month: "short", day: "numeric" })}, 11:59pm`
+      : `Round ${r.round} archive · due ${shortDay(r.dueDate, { month: "short", day: "numeric" })}`,
+  glance: { members: "members on the UC Davis board", submissions: "submissions in this round", socials: "socials on the calendar" },
+  quickLinks: [],
+  keyDates: [],
+  photos: [],
+  socials: {
+    heading: "Socials",
+    kinds: [
+      { key: "b", label: "Davis" },
+      { key: "o", label: "Online" },
+    ],
+    tags: { b: "Davis", o: "Online", org: "Org date" },
+    add: "Add a social",
+    list: "All socials",
+    note: "Status runs Idea → Planning → Confirmed → Completed.",
+    defaultLead: "TBD",
+  },
+  projects: { groups: PROJECTS, sections: [], timeline: { title: "Calendar", tracks: [], weeks: [], graceDays: 2 } },
+  meetings: { heading: "Meeting Summaries & Recordings", note: null, attendance: false },
+  submit: {
+    note: "This form emails your submission and any files to Rana. Attach proof or paste a link to it in the notes.",
+    placeholder: "Paste your write-up, notes, links, or anything Rana should read.",
+    filesLabel: "Proof (required unless you paste a link above): screenshots, docs, links. Up to 14 MB in total.",
+    needProof: "Add proof: attach a file or paste a link to your post, doc or PR.",
+  },
+  myPage: { meetingLine: null, teamTrack: {}, teamNote: {} },
+};
+
+export const CHAPTERS: Record<ChapterId, ChapterConfig> = { berkeley: BERKELEY, ucla: UCLA, ucsc: UCSC, ucdavis: UCDAVIS };
 export const chapterConfig = (id: ChapterId) => CHAPTERS[id];

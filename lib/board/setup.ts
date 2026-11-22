@@ -10,6 +10,7 @@ import { seedSettings } from "./settings-server";
 import { CHAPTER_SERVER } from "./chapter-server";
 import { UCLA_ROW2, chapterConfig } from "./chapters";
 import { NEGOTIATION_TRANSLATIONS } from "@/lib/events/seed-translations";
+import { defaultConfig } from "@/lib/apply/rules";
 
 // Makes the board database ready on first use, so nobody has to run
 // commands: creates the tables (scripts/board-schema.sql, safe to re-run)
@@ -81,6 +82,23 @@ async function setup() {
   await fillNegotiationLink(sql);
   await negotiationFlyer(sql);
   await negotiationTranslations(sql);
+  await openUcDavisApplications(sql);
+}
+
+// UC Davis is a new chapter: open its board applications once, with
+// starter positions, so it shows on /apply right away. Admins change the
+// positions, deadline or open switch on the Davis hub's Applications tab;
+// this never runs again, and never over settings already saved.
+export const UCDAVIS_POSITIONS = ["President", "Vice President", "Software & Data", "Research", "Outreach"];
+async function openUcDavisApplications(sql: ReturnType<typeof db>) {
+  await sql.begin(async (tx) => {
+    const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-11-22-ucdavis-applications')
+      ON CONFLICT DO NOTHING RETURNING name`;
+    if (!first) return;
+    const value = { ...defaultConfig(), open: true, positions: UCDAVIS_POSITIONS };
+    await tx`INSERT INTO board_settings (chapter, key, value) VALUES ('ucdavis', 'applications', ${tx.json(value as never)})
+      ON CONFLICT (chapter, key) DO NOTHING`;
+  });
 }
 
 // Adds the Negotiation Workshop's wording in other languages

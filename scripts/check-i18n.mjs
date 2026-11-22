@@ -45,7 +45,7 @@ const SAME_OK = [
 // English words and names that can appear in any language.
 const ALLOWED = [
   "VINdicated", "VINDICATED", "Carfax", "AutoCheck", "CARS Act", "CARS", "Act", "FTC", "DMV", "CFPB", "VIN", "APR", "PPI",
-  "UC Berkeley", "Berkeley", "UCLA", "UC Santa Cruz", "Santa Cruz", "UCSC", "UC", "LA", "Westside",
+  "UC Berkeley", "Berkeley", "UCLA", "UC Santa Cruz", "Santa Cruz", "UCSC", "UC Davis", "Davis", "UC", "LA", "Westside",
   "Zoom", "Google", "Google Maps", "Facebook", "Facebook Marketplace", "Marketplace", "Instagram", "LinkedIn", "GitHub", "TikTok",
   "Kelley Blue Book", "KBB", "Edmunds", "NADA", "AAA", "Lemon Squad", "CARCHEX", "Mitsubishi", "Toyota", "Honda", "Ford", "Nissan",
   "Chevrolet", "Hyundai", "Mazda", "Volkswagen", "SB", "AB", "TILA", "ECOA", "FCRA", "DTPA", "CLRA", "Rosenthal", "Unruh",

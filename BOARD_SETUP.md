@@ -1,7 +1,8 @@
 # Setting up the board hubs
 
 Each chapter has its own board hub: UC Berkeley at `/board`, UCLA at
-`/board/ucla` and UC Santa Cruz at `/board/ucsc`. They run the same code and
+`/board/ucla`, UC Santa Cruz at `/board/ucsc` and UC Davis at
+`/board/ucdavis`. They run the same code and
 share one database, where every row belongs to a chapter. No hub is linked
 from the site, and they tell search engines not to index them. To see
 anything, people need their chapter's password; one chapter's password never
@@ -10,11 +11,11 @@ opens another chapter's hub.
 Per-chapter settings (teams, labels, Projects content, who submissions are
 emailed to) are in `lib/board/chapters.ts` and `lib/board/chapter-server.ts`.
 
-Each chapter also picks a `layout` there. Berkeley and UCLA use the
+Each chapter also picks a `layout` there. Every chapter uses the
 **classic** layout (My page, Home, Board, Projects, Assignments, Socials,
-Meetings, and the admin tabs). UCSC uses the **simple** layout, built for
-phones: after signing in, people tap their name once ("Who are you?", kept
-on that device), then use four tabs:
+Meetings, and the admin tabs). The **simple** layout, built for phones, is
+also available: after signing in, people tap their name once ("Who are
+you?", kept on that device), then use four tabs:
 
 - **Home:** your tasks this week with **Submit** (a link, a note or a
   file; it emails the chapter and marks the task done) and **Undo**, the
@@ -68,6 +69,24 @@ Use passwords that differ from Berkeley's.
 | --------------------------- | ---------------------------- | ----------------------------------- |
 | `BOARD_UCSC_PASSWORD`       | everyone on the UCSC board   | view everything, submit tasks       |
 | `BOARD_UCSC_ADMIN_PASSWORD` | Ashwin, Adhya and Gundeep    | edit everything on the UCSC hub     |
+
+Use passwords that differ from the other chapters'.
+
+### UC Davis (`/board/ucdavis`)
+
+| Railway variable               | Who gets it                   | What it unlocks                     |
+| ------------------------------ | ----------------------------- | ----------------------------------- |
+| `BOARD_UCDAVIS_PASSWORD`       | everyone on the UC Davis board | view everything, submit tasks      |
+| `BOARD_UCDAVIS_ADMIN_PASSWORD` | Rana (until a Davis lead is set) | edit everything on the UC Davis hub |
+
+UC Davis is a new chapter, so its hub starts with no members. It takes
+board applications on `/apply` from the start: the first time the site
+runs with this change, Davis applications open with the positions President,
+Vice President, Software & Data, Research and Outreach, and no deadline.
+Change them (or close applications) on the Davis hub's **Applications**
+tab. New Davis applications are emailed to Rana; change that in
+`lib/board/chapter-server.ts` once Davis has a lead. Davis emails come from
+`BOARD_INVITE_FROM` under the name "VINdicated at UC Davis".
 
 Use passwords that differ from the other chapters'.
 
