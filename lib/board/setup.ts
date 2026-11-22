@@ -89,7 +89,7 @@ async function setup() {
 // starter positions, so it shows on /apply right away. Admins change the
 // positions, deadline or open switch on the Davis hub's Applications tab;
 // this never runs again, and never over settings already saved.
-export const UCDAVIS_POSITIONS = ["President", "Vice President", "Software & Data", "Research", "Outreach"];
+export const UCDAVIS_POSITIONS = ["Software & Data", "Research", "Outreach"];
 async function openUcDavisApplications(sql: ReturnType<typeof db>) {
   await sql.begin(async (tx) => {
     const [first] = await tx`INSERT INTO board_changes (name) VALUES ('2026-11-22-ucdavis-applications')

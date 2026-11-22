@@ -76,7 +76,7 @@ console.log("UC Davis starts open");
 // starter positions. Close it again so every chapter is closed below.
 let html = await page("/en/apply");
 const [davis] = await sql`SELECT value FROM board_settings WHERE chapter = 'ucdavis' AND key = 'applications'`;
-ok(davis?.value.open === true && davis.value.positions.join(",") === "President,Vice President,Software & Data,Research,Outreach", "UC Davis applications start open with the starter positions");
+ok(davis?.value.open === true && davis.value.positions.join(",") === "Software & Data,Research,Outreach", "UC Davis applications start open with the starter positions");
 ok(/UC Davis/.test(html) && html.includes("ba-why"), "/apply offers UC Davis");
 await sql`UPDATE board_settings SET value = jsonb_set(value, '{open}', 'false') WHERE chapter = 'ucdavis' AND key = 'applications'`;
 

@@ -81,8 +81,8 @@ Use passwords that differ from the other chapters'.
 
 UC Davis is a new chapter, so its hub starts with no members. It takes
 board applications on `/apply` from the start: the first time the site
-runs with this change, Davis applications open with the positions President,
-Vice President, Software & Data, Research and Outreach, and no deadline.
+runs with this change, Davis applications open with the positions Software &
+Data, Research and Outreach, and no deadline.
 Change them (or close applications) on the Davis hub's **Applications**
 tab. New Davis applications are emailed to Rana; change that in
 `lib/board/chapter-server.ts` once Davis has a lead. Davis emails come from
